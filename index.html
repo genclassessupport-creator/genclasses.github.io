@@ -81,6 +81,7 @@ html[data-theme="light"] footer{background:rgba(246,241,228,.7)}
 html[data-theme="light"] .b-ncert{background:rgba(109,79,194,.12);color:#5B3FB0}
 html[data-theme="light"] .b-upsssc{background:rgba(166,91,20,.12);color:#96520F}
 html[data-theme="light"] .b-upspecial{background:rgba(18,115,184,.12);color:#0F6AA8}
+html[data-theme="light"] .b-uppcs2026{background:rgba(196,70,30,.12);color:#B8451A}
 .theme-btn{
   background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);
   width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;
@@ -294,6 +295,7 @@ section{position:relative;z-index:3;padding:104px 26px}
 .b-ncert{background:rgba(179,153,255,.14);color:#c3b0ff}
 .b-upsssc{background:rgba(240,150,90,.15);color:#e8944e}
 .b-upspecial{background:rgba(90,180,240,.15);color:#5ab4f0}
+.b-uppcs2026{background:rgba(255,120,80,.18);color:#ff9a6b;border:1px solid rgba(255,120,80,.35)}
 .tcard h3{font-family:'Mukta',sans-serif;font-weight:700;font-size:18.5px;color:var(--cream);line-height:1.5}
 .tgo{margin-top:auto;padding-top:13px;border-top:1px dashed var(--line);color:var(--gold);font-weight:700;font-size:14.5px;transition:color .25s,letter-spacing .25s}
 .tcard:hover .tgo{color:var(--gold-hi);letter-spacing:.4px}
@@ -580,11 +582,12 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
     <div class="sec-head rv">
       <span class="eyebrow">टेस्ट सीरीज़</span>
       <h2>अभ्यास, परीक्षा की <em>कसौटी</em> पर</h2>
-      <p>करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
+      <p>UP PCS Prelims 2026 सहित करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
     </div>
 
     <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="टेस्ट के खण्ड">
       <button class="ttab active" data-filter="all">सभी <span class="cnt" data-cnt="all"></span></button>
+      <button class="ttab" data-filter="uppcs2026">UP PCS Prelims 2026 <span class="cnt" data-cnt="uppcs2026"></span></button>
       <button class="ttab" data-filter="ca">करेंट अफेयर्स <span class="cnt" data-cnt="ca"></span></button>
       <button class="ttab" data-filter="gs">सामान्य अध्ययन <span class="cnt" data-cnt="gs"></span></button>
       <button class="ttab" data-filter="csat">CSAT <span class="cnt" data-cnt="csat"></span></button>
@@ -770,11 +773,11 @@ var FINE = window.matchMedia("(pointer: fine)").matches;
    repo सही पहचाना जाता है; खाली रहने पर सिर्फ़ *.github.io पर पहचान होती थी। */
 var CONFIG = { user: "genclassessupport-creator", repo: "genclasses.github.io" };
 
-var SEC_NAME = { ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_HEAD = { ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_UNIT = { ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
+var SEC_NAME = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_HEAD = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_UNIT = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
 var OPEN_SEC = null;
-var DATA = { ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
+var DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
 /* अध्याय (टेस्ट नहीं) — इनके कार्ड पर "अध्याय खोलें" दिखेगा; बाक़ी पर "टेस्ट प्रारंभ करें"। */
 var CHAPTERS = {};
 var FILTER = "all";
@@ -886,7 +889,8 @@ function buildData(tree){
     else { if (it && it.type && it.type !== "blob") return; p = it && it.path; }  // GitHub tree ऑब्जेक्ट
     if (!p) return;
     var low = p.toLowerCase();
-    if (low.indexOf("tests/ca/") === 0 && /\.html?$/.test(low)) DATA.ca.push(p);
+    if (low.indexOf("tests/uppcs2026/") === 0 && /\.html?$/.test(low)) DATA.uppcs2026.push(p);
+    else if (low.indexOf("tests/ca/") === 0 && /\.html?$/.test(low)) DATA.ca.push(p);
     else if (low.indexOf("tests/gs/") === 0 && /\.html?$/.test(low)) DATA.gs.push(p);
     else if (low.indexOf("tests/csat/") === 0 && /\.html?$/.test(low)) DATA.csat.push(p);
     else if (low.indexOf("tests/ncert/") === 0 && /\.html?$/.test(low)) DATA.ncert.push(p);
@@ -894,7 +898,7 @@ function buildData(tree){
     else if (low.indexOf("tests/upspecial/") === 0 && /\.html?$/.test(low)) DATA.upspecial.push(p);
     else if (low.indexOf("notes/") === 0 && /\.(html?|pdf)$/.test(low)) DATA.notes.push(p);
   });
-  DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
+  DATA.uppcs2026.sort(nsort).reverse(); DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
 }
 
 function stateEl(msg){
@@ -1010,7 +1014,7 @@ function renderTests(){
   if (STATE === "loading") { grid.appendChild(stateEl("टेस्ट-सूची तैयार हो रही है…")); return; }
   if (STATE === "offline") { grid.appendChild(stateEl("टेस्ट-सूची साइट के GitHub Pages पर प्रकाशित होते ही यहाँ स्वतः दिखाई देगी।")); return; }
   if (STATE === "error")   { grid.appendChild(stateEl("सूची इस समय लोड नहीं हो सकी — कृपया पृष्ठ पुनः खोलें।")); return; }
-  var secs = (FILTER === "all") ? ["ca", "gs", "csat", "ncert", "upsssc", "upspecial"] : [FILTER];
+  var secs = (FILTER === "all") ? ["uppcs2026", "ca", "gs", "csat", "ncert", "upsssc", "upspecial"] : [FILTER];
   var any = false;
   secs.forEach(function(s){
     var count = DATA[s] ? DATA[s].length : 0;
@@ -1027,14 +1031,14 @@ function renderTests(){
 }
 
 function renderCounts(){
-  var total = DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.upsssc.length + DATA.upspecial.length;
+  var total = DATA.uppcs2026.length + DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.upsssc.length + DATA.upspecial.length;
   var set = function(k, n){
     var el = document.querySelector('[data-cnt="' + k + '"]');
     if (!el) return;
     if (STATE === "ready" && n > 0) { el.textContent = n; el.style.display = "inline-flex"; }
     else { el.style.display = "none"; }
   };
-  set("all", total); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
+  set("all", total); set("uppcs2026", DATA.uppcs2026.length); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
 }
 
 function renderNotes(){
@@ -1074,7 +1078,7 @@ tabs.forEach(function(tab){
 function renderAll(){ renderTests(); renderCounts(); renderNotes(); }
 
 function rebuild(paths){
-  DATA = { ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
+  DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
   var seen = {}, uniq = [];
   paths.forEach(function(it){
     var key = (typeof it === "string") ? it : (it && it.path);

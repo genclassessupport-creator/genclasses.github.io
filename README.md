@@ -5,12 +5,13 @@
 ## फ़ोल्डर
 
 1. index.html: मुखपृष्ठ। टेस्ट-सूची और अध्ययन-सामग्री यहीं से बनती है।
-2. tests/ca, tests/gs, tests/csat, tests/ncert, tests/upsssc, tests/upspecial: टेस्ट की HTML फ़ाइलें।
+2. tests/uppcs2026, tests/ca, tests/gs, tests/csat, tests/ncert, tests/upsssc, tests/upspecial: टेस्ट की HTML फ़ाइलें।
 3. notes/: अध्ययन-सामग्री (HTML या PDF)।
 4. assets/test-template.html: नया टेस्ट बनाने का मूल ढाँचा।
-5. assets/gen-watermark.js: साझा वॉटरमार्क।
-6. assets/gen-logo.png: लोगो (192 × 192)।
-7. files.json: टेस्ट-सूची। GitHub Action इसे हर push पर अपने-आप बनाता है।
+5. assets/generator.html: MD से GenClasses टेस्ट बनाने का जनरेटर।
+6. assets/gen-watermark.js: साझा वॉटरमार्क।
+7. assets/gen-logo.png: लोगो (192 × 192)।
+8. files.json: टेस्ट-सूची। GitHub Action इसे हर push पर अपने-आप बनाता है।
 
 ## नया टेस्ट जोड़ना
 
@@ -31,3 +32,7 @@
 1. GitHub पर नया repo बनाएँ (जैसे genclasses.github.io) और इस फ़ोल्डर की सभी फ़ाइलें main branch पर push करें।
 2. Settings खोलें, फिर Pages में Source को Deploy from a branch रखें, branch main और folder / (root) चुनें।
 3. CNAME फ़ाइल में genclasses.com लिखा है। Cloudflare पर इस domain का DNS GitHub Pages के निर्देशानुसार सेट करें।
+
+## UP PCS Prelims 2026
+
+`tools/md_to_genclasses.py` से markdown MCQ को `tests/uppcs2026/` में GenClasses टेस्ट में बदला जा सकता है। ब्राउज़र में `assets/generator.html` भी वही काम करता है।
