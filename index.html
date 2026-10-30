@@ -1,0 +1,1257 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenClasses — UPSC / UPPCS</title>
+<meta name="description" content="GenClasses — UPSC एवं UPPCS की व्यवस्थित तैयारी। विषयवार टेस्ट सीरीज़ (करेंट अफेयर्स, सामान्य अध्ययन, CSAT) एवं प्रामाणिक अध्ययन-सामग्री।">
+<meta name="theme-color" content="#F6F1E4">
+<meta property="og:title" content="GenClasses — UPSC / UPPCS">
+<meta property="og:description" content="अवधारणा की स्पष्टता, अभ्यास की निरंतरता — विषयवार टेस्ट सीरीज़ एवं अध्ययन-सामग्री।">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" id="favLink" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+/* ═══════════ मूल टोकन ═══════════ */
+:root{
+  --ink0:#060B16;
+  --ink1:#0A1426;
+  --ink2:#0E1B33;
+  --glass:rgba(255,255,255,.035);
+  --line:rgba(217,174,95,.16);
+  --line-2:rgba(217,174,95,.34);
+  --gold:#D9AE5F;
+  --gold-hi:#F2CD88;
+  --gold-deep:#8F6B26;
+  --cream:#F2EBDA;
+  --mist:#98A6BE;
+  --blue:#7FB4FF;
+  --green:#7FD6A4;
+  --maxw:1180px;
+}
+/* ═══════════ Light theme (टॉगल से) ═══════════ */
+html[data-theme="light"]{
+  --ink0:#F6F1E4;
+  --ink1:#FFFCF3;
+  --ink2:#FFF7E8;
+  --glass:rgba(111,78,20,.05);
+  --line:rgba(143,107,38,.28);
+  --line-2:rgba(143,107,38,.5);
+  --gold:#9A7223;
+  --gold-hi:#7A5A18;
+  --gold-deep:#B08A3E;
+  --cream:#20180A;
+  --mist:#5A5343;
+  --blue:#1D4ED8;
+  --green:#187A50;
+}
+html[data-theme="light"] ::selection{background:rgba(154,114,35,.3);color:#20180A}
+html[data-theme="light"] .aurora{opacity:.55}
+html[data-theme="light"] .aur-1{background:radial-gradient(circle,#C9DBF4 0%,transparent 62%)}
+html[data-theme="light"] .aur-2{background:radial-gradient(circle,#EBD8A9 0%,transparent 65%)}
+html[data-theme="light"] #embers{opacity:.65;filter:brightness(.45) saturate(1.6)}
+html[data-theme="light"] .grain{opacity:.035}
+html[data-theme="light"] .wm{-webkit-text-stroke:1.3px rgba(143,107,38,.17)}
+html[data-theme="light"] .ring{stroke:rgba(122,90,24,.62)}
+html[data-theme="light"] .ring-b{stroke:rgba(122,90,24,.4)}
+html[data-theme="light"] .emblem::before{background:radial-gradient(circle,rgba(176,138,62,.24) 0%,transparent 62%)}
+html[data-theme="light"] .leaf{filter:drop-shadow(0 0 7px rgba(154,114,35,.45))}
+html[data-theme="light"] .vein{stroke:rgba(122,90,24,.62)}
+html[data-theme="light"] .flame{filter:drop-shadow(0 0 12px rgba(176,138,62,.85))}
+html[data-theme="light"] .avatar-ring::before{border-color:rgba(122,90,24,.55)}
+html[data-theme="light"] .btn-gold{color:#FFFDF5;box-shadow:0 12px 34px rgba(154,114,35,.32)}
+html[data-theme="light"] .ttab.active{color:#FFFDF5}
+html[data-theme="light"] .marq{background:rgba(154,114,35,.05)}
+html[data-theme="light"] .scroll-cue{opacity:.9}
+html[data-theme="light"] nav.scrolled{background:rgba(246,241,228,.85)}
+html[data-theme="light"] h1.hero-title{text-shadow:none}
+html[data-theme="light"] .emblem-cap{background:rgba(255,252,243,.9);box-shadow:0 10px 30px rgba(120,90,30,.18)}
+html[data-theme="light"] .flame-core{fill:#FFE9B8}
+html[data-theme="light"] .ttab.active{color:#FFFDF5;box-shadow:0 8px 26px rgba(154,114,35,.35)}
+html[data-theme="light"] .ttab.active .cnt{background:rgba(255,253,245,.35);color:#3A2C0E}
+html[data-theme="light"] .tcard:hover{background:rgba(143,107,38,.06);box-shadow:0 24px 54px rgba(120,90,30,.2),0 0 34px rgba(154,114,35,.1)}
+html[data-theme="light"] .subj:hover{box-shadow:0 22px 48px rgba(120,90,30,.18),0 0 30px rgba(154,114,35,.09)}
+html[data-theme="light"] .step:hover{box-shadow:0 20px 44px rgba(120,90,30,.18)}
+html[data-theme="light"] .ncard:hover{box-shadow:0 12px 32px rgba(120,90,30,.16),0 0 24px rgba(154,114,35,.09)}
+html[data-theme="light"] .plat:hover{box-shadow:0 16px 40px rgba(120,90,30,.2),0 0 30px rgba(154,114,35,.14)}
+html[data-theme="light"] footer{background:rgba(246,241,228,.7)}
+html[data-theme="light"] .b-ncert{background:rgba(109,79,194,.12);color:#5B3FB0}
+html[data-theme="light"] .b-upsssc{background:rgba(166,91,20,.12);color:#96520F}
+html[data-theme="light"] .b-upspecial{background:rgba(18,115,184,.12);color:#0F6AA8}
+.theme-btn{
+  background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);
+  width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:transform .25s,border-color .25s;flex:0 0 auto;
+}
+.theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+*{margin:0;padding:0;box-sizing:border-box}
+#subjects,#method,#notes,#about,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{
+  background:var(--ink0);color:var(--mist);
+  font-family:'Mukta',sans-serif;font-size:17px;line-height:1.85;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+h1,h2,h3{font-family:'Rozha One',serif;font-weight:400;color:var(--cream);line-height:1.3;letter-spacing:.2px}
+a{color:inherit;text-decoration:none}
+::selection{background:rgba(217,174,95,.35);color:#fff}
+:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px;border-radius:4px}
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--ink0)}
+::-webkit-scrollbar-thumb{background:var(--gold-deep);border-radius:8px;border:2.5px solid var(--ink0)}
+::-webkit-scrollbar-thumb:hover{background:var(--gold)}
+
+/* ═══════════ वातावरण : आकाश, जुगनू, कण ═══════════ */
+#embers{position:fixed;inset:0;z-index:0;pointer-events:none}
+.aurora{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0;opacity:.5}
+.aur-1{width:56vw;height:56vw;top:-22vw;right:-16vw;background:radial-gradient(circle,#233C6B 0%,transparent 62%);animation:drift 26s ease-in-out infinite alternate}
+.aur-2{width:44vw;height:44vw;bottom:-14vw;left:-14vw;background:radial-gradient(circle,#3A2A10 0%,transparent 65%);animation:drift 32s ease-in-out infinite alternate-reverse}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(4vw,3vw) scale(1.12)}}
+.grain{
+  position:fixed;inset:0;z-index:2;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.6'/%3E%3C/svg%3E");
+}
+.spot{
+  position:fixed;width:560px;height:560px;z-index:1;pointer-events:none;
+  background:radial-gradient(circle,rgba(217,174,95,.075) 0%,transparent 62%);
+  transform:translate(-50%,-50%);left:50%;top:38%;
+}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:120;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi));
+  box-shadow:0 0 12px rgba(217,174,95,.7)}
+
+/* ═══════════ शीर्ष पट्टी ═══════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,border-color .35s,backdrop-filter .35s;border-bottom:1px solid transparent}
+nav.scrolled{background:rgba(6,11,22,.78);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 26px}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-mark{
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;overflow:hidden;
+  background:linear-gradient(150deg,var(--ink2),var(--ink1));
+  border:1px solid var(--line-2);box-shadow:0 0 22px rgba(217,174,95,.28),inset 0 0 14px rgba(217,174,95,.10);
+}
+.brand-mark img{width:100%;height:100%;object-fit:cover;display:none}
+.bm-fallback{display:grid;width:100%;height:100%;place-items:center;font-family:'Rozha One',serif;font-size:20px;color:var(--gold-hi)}
+.foot-logo{display:none;width:78px;height:78px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2);box-shadow:0 0 30px rgba(217,174,95,.32);margin-bottom:14px}
+.brand-name{font-family:'Rozha One',serif;font-size:21px;color:var(--cream)}
+.brand-name small{display:block;font-family:'Mukta',sans-serif;font-size:10px;letter-spacing:4px;color:var(--gold);font-weight:600}
+.nav-links{display:flex;gap:28px;font-size:15px;font-weight:500}
+.nav-links a{color:var(--mist);position:relative;transition:color .22s}
+.nav-links a:hover{color:var(--gold-hi)}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent);transition:width .28s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  font-weight:700;font-size:14px;color:var(--ink0);
+  background:linear-gradient(135deg,var(--gold-hi),var(--gold));
+  padding:10px 24px;border-radius:9px;
+  box-shadow:0 6px 22px rgba(217,174,95,.35);
+  transition:transform .22s,box-shadow .22s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(217,174,95,.5)}
+.menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--gold-hi);font-size:19px;padding:5px 13px;border-radius:9px;cursor:pointer}
+
+/* ═══════════ मुखपृष्ठ ═══════════ */
+header{position:relative;z-index:3;min-height:100vh;display:flex;align-items:center;padding:150px 26px 90px}
+.wm{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);
+  font-family:'Rozha One',serif;font-size:min(34vw,470px);line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(217,174,95,.07);
+  z-index:-1;user-select:none;pointer-events:none;white-space:nowrap;
+}
+.hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;width:100%}
+.hr-el{opacity:0;transform:translateY(34px);animation:rise 1s cubic-bezier(.2,.75,.25,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:12.5px;letter-spacing:4.5px;color:var(--gold);font-weight:700;margin-bottom:24px;
+}
+.eyebrow::before{content:"";width:38px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent)}
+h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0,.55)}
+.shimmer{
+  background:linear-gradient(100deg,var(--gold-deep) 0%,var(--gold-hi) 42%,#FFF3D6 50%,var(--gold-hi) 58%,var(--gold-deep) 100%);
+  background-size:230% 100%;
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:sheen 5.5s ease-in-out infinite;
+}
+@keyframes sheen{0%,100%{background-position:88% 0}50%{background-position:12% 0}}
+.hero-sub{margin-top:24px;font-size:18.5px;color:var(--mist);max-width:540px;font-weight:300}
+.hero-actions{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15.5px;transition:transform .25s,box-shadow .25s,background .25s;position:relative;overflow:hidden}
+.btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--ink0);box-shadow:0 12px 34px rgba(217,174,95,.32)}
+.btn-gold::after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-22deg);transition:left .55s}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(217,174,95,.5)}
+.btn-gold:hover::after{left:130%}
+.btn-ghost{border:1.5px solid var(--line-2);color:var(--cream);background:rgba(217,174,95,.05)}
+.btn-ghost:hover{transform:translateY(-3px);background:rgba(217,174,95,.13);border-color:var(--gold)}
+.hero-line{margin-top:44px;font-size:14px;color:var(--mist);letter-spacing:.4px}
+.hero-line b{color:var(--gold-hi);font-weight:600}
+.hero-line .dot{color:var(--gold);margin:0 9px}
+
+/* दीप-पत्र चिह्न */
+.hero-art{display:grid;place-items:center}
+.emblem{width:min(390px,88%);aspect-ratio:1;position:relative;display:grid;place-items:center}
+.emblem::before{
+  content:"";position:absolute;inset:9%;border-radius:50%;
+  background:radial-gradient(circle,rgba(217,174,95,.15) 0%,transparent 62%);
+  animation:breathe 5s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.09);opacity:1}}
+.emblem svg{width:100%;position:relative;overflow:visible}
+.ring{fill:none;stroke:rgba(217,174,95,.4);stroke-width:1;transform-box:fill-box;transform-origin:center}
+.ring-a{stroke-dasharray:3 9;animation:spin 46s linear infinite}
+.ring-b{stroke-dasharray:1 14;stroke:rgba(217,174,95,.26);animation:spin 70s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.leaf{fill:none;stroke:var(--gold-hi);stroke-width:2.1;stroke-linejoin:round;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.1s cubic-bezier(.4,0,.2,1) .45s forwards;
+  filter:drop-shadow(0 0 7px rgba(242,205,136,.45))}
+.vein{fill:none;stroke:rgba(217,174,95,.55);stroke-width:1.15;stroke-linecap:round;
+  stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s ease 1.4s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.flame{fill:var(--gold-hi);transform-box:fill-box;transform-origin:50% 100%;
+  animation:flick 2.3s ease-in-out infinite;filter:drop-shadow(0 0 12px rgba(242,205,136,.9))}
+.flame-core{fill:#FFF6DF;transform-box:fill-box;transform-origin:50% 100%;animation:flick 2.3s ease-in-out .12s infinite}
+@keyframes flick{0%,100%{transform:scaleY(1) scaleX(1) rotate(0deg)}30%{transform:scaleY(1.14) scaleX(.93) rotate(-2.5deg)}60%{transform:scaleY(.92) scaleX(1.06) rotate(2deg)}80%{transform:scaleY(1.07) scaleX(.96) rotate(-1deg)}}
+.emblem-cap{
+  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
+  background:rgba(10,20,38,.85);border:1px solid var(--line-2);border-radius:30px;
+  padding:9px 26px;white-space:nowrap;backdrop-filter:blur(8px);
+  font-family:'Tiro Devanagari Hindi',serif;font-style:italic;font-size:15px;color:var(--gold-hi);
+  box-shadow:0 10px 30px rgba(0,0,0,.5);
+}
+.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:3px;opacity:.8}
+.scroll-cue span{display:block;width:1.5px;height:44px;background:linear-gradient(180deg,var(--gold),transparent);animation:cue 1.8s ease-in-out infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ═══════════ विषय-पंक्ति (marquee) ═══════════ */
+.marq{position:relative;z-index:3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(217,174,95,.03);overflow:hidden;padding:15px 0}
+.marq .track{display:flex;width:max-content;animation:marq 30s linear infinite}
+.marq:hover .track{animation-play-state:paused}
+.marq .grp{display:flex;align-items:center;white-space:nowrap;font-family:'Tiro Devanagari Hindi',serif;font-size:16.5px;color:var(--gold);letter-spacing:1px}
+.marq .grp i{font-style:normal;margin:0 26px;color:var(--gold-deep);font-size:12px}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* ═══════════ खण्ड साँचा ═══════════ */
+section{position:relative;z-index:3;padding:104px 26px}
+.section-in{max-width:var(--maxw);margin:0 auto}
+.sec-head{max-width:720px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(30px,4vw,46px);margin-top:10px}
+.sec-head h2 em{font-style:normal;color:var(--gold-hi)}
+.sec-head p{margin-top:16px;color:var(--mist);font-weight:300}
+.hairline{height:1px;background:linear-gradient(90deg,transparent,var(--line-2),transparent);max-width:var(--maxw);margin:0 auto}
+
+/* ═══════════ टेस्ट सीरीज़ ═══════════ */
+.ttabs{display:flex;gap:11px;flex-wrap:wrap;margin-bottom:34px}
+.ttab{
+  background:var(--glass);border:1px solid var(--line);color:var(--mist);
+  padding:10px 22px;border-radius:30px;font-family:'Mukta',sans-serif;
+  font-size:14.5px;font-weight:600;cursor:pointer;transition:all .25s;
+  display:inline-flex;align-items:center;gap:9px;backdrop-filter:blur(6px);
+}
+.ttab:hover{border-color:var(--gold);color:var(--gold-hi)}
+.ttab.active{
+  background:linear-gradient(135deg,var(--gold-hi),var(--gold));
+  border-color:transparent;color:var(--ink0);font-weight:700;
+  box-shadow:0 8px 26px rgba(217,174,95,.4);
+}
+.ttab .cnt{
+  min-width:22px;height:22px;padding:0 6px;border-radius:20px;
+  background:rgba(217,174,95,.16);color:var(--gold-hi);
+  font-size:12.5px;font-weight:700;display:none;align-items:center;justify-content:center;
+}
+.ttab.active .cnt{background:rgba(6,11,22,.28);color:var(--ink0)}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px}
+.tcard{
+  display:flex;flex-direction:column;gap:13px;
+  background:var(--glass);border:1px solid var(--line);border-radius:16px;
+  padding:26px 25px 21px;position:relative;overflow:hidden;
+  backdrop-filter:blur(8px);
+  transition:transform .28s,box-shadow .28s,border-color .28s,background .28s;
+  opacity:0;animation:cardIn .7s cubic-bezier(.2,.75,.25,1) forwards;
+}
+@keyframes cardIn{from{opacity:0;transform:translateY(26px) scale(.97)}to{opacity:1;transform:none}}
+.tcard::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:2.5px;
+  background:linear-gradient(90deg,var(--gold-deep),var(--gold-hi),var(--gold-deep));
+  background-size:220% 100%;transform:scaleX(0);transform-origin:left;
+  transition:transform .35s;animation:sheen 4s linear infinite;
+}
+.tcard::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(217,174,95,.09),transparent 45%);
+  opacity:0;transition:opacity .3s;
+}
+.tcard:hover{transform:translateY(-7px);border-color:var(--line-2);background:rgba(255,255,255,.05);box-shadow:0 24px 54px rgba(0,0,0,.5),0 0 34px rgba(217,174,95,.12)}
+.tcard:hover::before{transform:scaleX(1)}
+.tcard:hover::after{opacity:1}
+.tbadge{align-self:flex-start;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:4px 14px;border-radius:20px}
+.b-ca{background:rgba(217,174,95,.14);color:var(--gold-hi)}
+.b-gs{background:rgba(127,180,255,.13);color:var(--blue)}
+.b-csat{background:rgba(127,214,164,.13);color:var(--green)}
+.b-ncert{background:rgba(179,153,255,.14);color:#c3b0ff}
+.b-upsssc{background:rgba(240,150,90,.15);color:#e8944e}
+.b-upspecial{background:rgba(90,180,240,.15);color:#5ab4f0}
+.tcard h3{font-family:'Mukta',sans-serif;font-weight:700;font-size:18.5px;color:var(--cream);line-height:1.5}
+.tgo{margin-top:auto;padding-top:13px;border-top:1px dashed var(--line);color:var(--gold);font-weight:700;font-size:14.5px;transition:color .25s,letter-spacing .25s}
+.tcard:hover .tgo{color:var(--gold-hi);letter-spacing:.4px}
+.tstate{
+  grid-column:1/-1;text-align:center;color:var(--mist);
+  background:var(--glass);border:1px dashed var(--line-2);border-radius:16px;
+  padding:52px 28px;font-family:'Tiro Devanagari Hindi',serif;font-size:18px;line-height:2;
+}
+.tstate::before{content:"🪔";display:block;font-size:30px;margin-bottom:10px;animation:breathe 3s ease-in-out infinite}
+
+.tgroup{
+  grid-column:1/-1;
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  margin:6px 0 0;padding:13px 18px;border-radius:14px;
+  background:linear-gradient(90deg,rgba(217,174,95,.14),rgba(217,174,95,.035));
+  border:1px solid var(--line);color:var(--gold-hi);
+  font-family:'Mukta',sans-serif;font-weight:800;letter-spacing:.2px;
+}
+.tgroup span{font-size:16px;color:var(--gold-hi)}
+.tgroup small{font-size:12.5px;color:var(--mist);font-weight:600}
+.tacc-head{grid-column:1/-1;width:100%;cursor:pointer;text-align:left;display:flex;align-items:center;justify-content:space-between;gap:14px;margin:8px 0 2px;padding:17px 22px;border-radius:15px;background:linear-gradient(90deg,rgba(217,174,95,.12),rgba(217,174,95,.03));border:1px solid var(--line);font-family:'Mukta',sans-serif;color:var(--gold-hi);transition:border-color .25s,background .25s}
+.tacc-head:hover{border-color:var(--gold);background:linear-gradient(90deg,rgba(217,174,95,.18),rgba(217,174,95,.05))}
+.tacc-head.open{border-color:var(--gold);background:linear-gradient(90deg,rgba(217,174,95,.22),rgba(217,174,95,.06))}
+.tacc-name{font-size:18px;font-weight:800;letter-spacing:.2px;color:var(--gold-hi)}
+.tacc-meta{display:inline-flex;align-items:center;gap:12px}
+.tacc-unit{font-size:12.5px;color:var(--mist);font-weight:600}
+.tacc-cnt{min-width:26px;height:24px;padding:0 11px;border-radius:20px;background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--ink0);font-size:13px;font-weight:800;display:inline-flex;align-items:center;justify-content:center}
+.tacc-arw{font-size:13px;color:var(--gold);transition:transform .3s;display:inline-block}
+.tacc-head.open .tacc-arw{transform:rotate(180deg)}
+.tacc-item{opacity:1!important;animation:none!important}
+.tfoot{margin-top:30px;text-align:center;font-size:14.5px;color:var(--mist)}
+.tfoot a{color:var(--gold-hi);font-weight:700;border-bottom:1px solid var(--gold-deep);transition:border-color .2s}
+.tfoot a:hover{border-color:var(--gold-hi)}
+
+/* ═══════════ विषय ═══════════ */
+.subjects{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+.subj{
+  background:var(--glass);border:1px solid var(--line);border-radius:16px;
+  padding:28px 27px;display:flex;gap:19px;align-items:flex-start;backdrop-filter:blur(8px);
+  transition:transform .28s,box-shadow .28s,border-color .28s;position:relative;overflow:hidden;
+}
+.subj::after{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(217,174,95,.08),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
+.subj:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 22px 48px rgba(0,0,0,.45),0 0 30px rgba(217,174,95,.10)}
+.subj:hover::after{opacity:1}
+.subj .mark{
+  flex:0 0 50px;width:50px;height:50px;border-radius:13px;
+  display:grid;place-items:center;color:var(--gold-hi);
+  font-family:'Rozha One',serif;font-size:21px;
+  background:linear-gradient(150deg,var(--ink2),var(--ink1));
+  border:1px solid var(--line-2);box-shadow:inset 0 0 16px rgba(217,174,95,.12);
+  transition:transform .3s;
+}
+.subj:hover .mark{transform:rotate(-7deg) scale(1.07)}
+.subj h3{font-size:21px;margin-bottom:6px}
+.subj p{font-size:14.5px;color:var(--mist);line-height:1.75;font-weight:300}
+
+/* ═══════════ अध्ययन-विधि ═══════════ */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;counter-reset:step;position:relative}
+.method::before{content:"";position:absolute;top:52px;left:4%;right:4%;height:1px;background:linear-gradient(90deg,transparent,var(--line-2) 18%,var(--line-2) 82%,transparent)}
+.step{
+  background:var(--glass);border:1px solid var(--line);border-radius:16px;
+  padding:30px 26px;position:relative;backdrop-filter:blur(8px);
+  transition:transform .28s,border-color .28s,box-shadow .28s;
+}
+.step:hover{transform:translateY(-6px);border-color:var(--line-2);box-shadow:0 20px 44px rgba(0,0,0,.45)}
+.step::before{
+  counter-increment:step;content:counter(step);
+  font-family:'Rozha One',serif;font-size:52px;line-height:1;
+  color:transparent;-webkit-text-stroke:1.4px var(--gold);
+  display:block;margin-bottom:14px;text-shadow:0 0 24px rgba(217,174,95,.25);
+}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{font-size:14.5px;color:var(--mist);line-height:1.75;font-weight:300}
+
+/* ═══════════ अध्ययन-सामग्री ═══════════ */
+.nlist{display:grid;gap:13px}
+.ncard{
+  display:flex;align-items:center;gap:17px;
+  background:var(--glass);border:1px solid var(--line);border-radius:13px;
+  padding:17px 22px;backdrop-filter:blur(8px);
+  transition:transform .24s,border-color .24s,box-shadow .24s;
+  opacity:0;animation:cardIn .7s cubic-bezier(.2,.75,.25,1) forwards;
+}
+.ncard:hover{transform:translateX(7px);border-color:var(--line-2);box-shadow:0 12px 32px rgba(0,0,0,.4),0 0 24px rgba(217,174,95,.10)}
+.ntype{flex:0 0 auto;font-size:11px;font-weight:800;letter-spacing:1.2px;background:rgba(217,174,95,.14);color:var(--gold-hi);padding:5px 12px;border-radius:8px}
+.ntitle{font-weight:600;color:var(--cream);font-size:16.5px}
+.ngo{margin-left:auto;color:var(--gold);font-weight:700;font-size:14px;white-space:nowrap}
+.npanel{
+  background:var(--glass);border:1px solid var(--line);border-left:3.5px solid var(--gold);
+  border-radius:16px;padding:38px 36px;backdrop-filter:blur(8px);position:relative;overflow:hidden;
+}
+.npanel::after{content:"";position:absolute;top:-60px;right:-60px;width:220px;height:220px;background:radial-gradient(circle,rgba(217,174,95,.14),transparent 65%);pointer-events:none}
+.npanel h3{font-size:25px;line-height:1.55;margin-bottom:12px}
+.npanel p{color:var(--mist);font-size:15.5px;font-weight:300}
+.npanel .hl{color:var(--gold-hi);font-weight:600}
+.npanel a{display:inline-block;margin-top:18px;color:var(--gold-hi);font-weight:700;border-bottom:1.5px solid var(--gold-deep);transition:border-color .2s,letter-spacing .2s}
+.npanel a:hover{border-color:var(--gold-hi);letter-spacing:.3px}
+
+/* ═══════════ परिचय ═══════════ */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
+.about-card{
+  background:var(--glass);border:1px solid var(--line);border-radius:20px;
+  padding:46px 36px;text-align:center;position:relative;backdrop-filter:blur(8px);
+  box-shadow:0 26px 60px rgba(0,0,0,.45);
+}
+.about-card::before{
+  content:"॥ जेन ॥";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
+  background:var(--ink1);padding:3px 20px;border:1px solid var(--line-2);border-radius:20px;
+  color:var(--gold-hi);font-family:'Tiro Devanagari Hindi',serif;font-size:14px;
+}
+.avatar-ring{width:126px;height:126px;margin:0 auto 20px;border-radius:50%;position:relative;display:grid;place-items:center}
+.avatar-ring::before{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(217,174,95,.5);animation:spin 26s linear infinite}
+.avatar{
+  width:106px;height:106px;border-radius:50%;
+  background:linear-gradient(150deg,var(--ink2),var(--ink1));
+  display:grid;place-items:center;
+  font-family:'Rozha One',serif;font-size:44px;color:var(--gold-hi);
+  border:1px solid var(--line-2);box-shadow:inset 0 0 26px rgba(217,174,95,.14),0 0 30px rgba(217,174,95,.16);
+}
+.about-card h3{font-size:27px}
+.about-card .role{color:var(--gold);font-size:14px;margin-top:5px;letter-spacing:1.4px;font-weight:600}
+.creds{margin-top:22px;list-style:none}
+.creds li{
+  padding:12px 0;border-bottom:1px dashed var(--line);
+  font-size:15px;color:var(--mist);text-align:left;
+  display:flex;gap:12px;align-items:flex-start;
+}
+.creds li:last-child{border-bottom:none}
+.creds li::before{content:"❖";color:var(--gold);font-size:12px;margin-top:5px}
+.about-text h2{font-size:clamp(28px,3.6vw,40px)}
+.about-text p{margin-top:20px;color:var(--mist);font-weight:300}
+.about-text .hl{color:var(--gold-hi);font-weight:500}
+
+/* ═══════════ सूक्ति ═══════════ */
+.quote{max-width:840px;margin:0 auto;text-align:center;position:relative}
+.quote .qm{font-family:'Rozha One',serif;font-size:96px;color:var(--gold);line-height:.35;text-shadow:0 0 34px rgba(217,174,95,.4)}
+.quote blockquote{
+  font-family:'Tiro Devanagari Hindi',serif;font-style:italic;
+  font-size:clamp(21px,2.8vw,29px);color:var(--cream);margin-top:26px;line-height:1.75;
+}
+.quote cite{display:block;margin-top:24px;font-style:normal;color:var(--gold);font-size:13px;letter-spacing:3.5px;font-weight:600}
+
+/* ═══════════ जुड़ें ═══════════ */
+.join{text-align:center;position:relative;overflow:hidden}
+.join::before{content:"";position:absolute;top:-30%;left:50%;transform:translateX(-50%);width:900px;height:620px;background:radial-gradient(ellipse,rgba(217,174,95,.13),transparent 62%);pointer-events:none}
+.join .eyebrow{justify-content:center}
+.join .eyebrow::before{display:none}
+.join h2{font-size:clamp(30px,4.4vw,50px)}
+.join p{margin:16px auto 0;color:var(--mist);max-width:560px;font-weight:300}
+.plats{margin-top:40px;display:flex;gap:18px;justify-content:center;flex-wrap:wrap;position:relative}
+.plat{
+  display:flex;align-items:center;gap:15px;text-align:left;
+  background:var(--glass);border:1px solid var(--line-2);
+  padding:17px 30px;border-radius:14px;font-weight:600;color:var(--cream);backdrop-filter:blur(8px);
+  transition:transform .26s,box-shadow .26s,border-color .26s;
+}
+.plat:hover{transform:translateY(-4px);border-color:var(--gold);box-shadow:0 16px 40px rgba(0,0,0,.5),0 0 30px rgba(217,174,95,.16)}
+.plat .pic{
+  width:46px;height:46px;border-radius:12px;display:grid;place-items:center;font-size:19px;
+  background:linear-gradient(150deg,var(--ink2),var(--ink1));border:1px solid var(--line-2);color:var(--gold-hi);
+}
+.plat small{display:block;font-weight:300;font-size:12.5px;color:var(--mist)}
+
+/* ═══════════ पाद ═══════════ */
+footer{position:relative;z-index:3;border-top:1px solid var(--line);padding:46px 26px;text-align:center;color:var(--mist);font-size:14px;background:rgba(6,11,22,.6)}
+footer .fb{font-family:'Rozha One',serif;font-size:23px;color:var(--cream)}
+footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var(--gold-hi);margin:9px 0 15px}
+
+/* ═══════════ प्रकट-प्रभाव ═══════════ */
+.rv{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.75,.25,1),transform .8s cubic-bezier(.2,.75,.25,1);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s !important;animation-iteration-count:1 !important;transition-duration:.001s !important}
+  .rv{opacity:1;transform:none}
+  .leaf,.vein{stroke-dashoffset:0}
+  .tcard,.ncard{opacity:1}
+  html{scroll-behavior:auto}
+}
+
+/* ═══════════ अनुकूलन ═══════════ */
+@media(max-width:960px){
+  header{padding-top:130px;min-height:auto}
+  .hero-in{grid-template-columns:1fr;text-align:center;gap:62px}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-actions{justify-content:center}
+  .eyebrow{justify-content:center}
+  .eyebrow::before{display:none}
+  .wm{font-size:64vw}
+  .scroll-cue{display:none}
+  .about{grid-template-columns:1fr;gap:48px}
+  .method::before{display:none}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:rgba(6,11,22,.97);backdrop-filter:blur(14px);padding:22px 26px;gap:18px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  html[data-theme="light"] .nav-links{background:rgba(246,241,228,.97)}
+  .menu-btn{display:block}
+  .nav-cta{display:none}
+}
+</style>
+</head>
+<body>
+
+<canvas id="embers" aria-hidden="true"></canvas>
+<div class="aurora aur-1" aria-hidden="true"></div>
+<div class="aurora aur-2" aria-hidden="true"></div>
+<div class="spot" id="spot" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ================= शीर्ष पट्टी ================= -->
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#top" class="brand">
+      <span class="brand-mark">
+        <img class="js-logo" alt="जेन क्लासेस">
+        <span class="bm-fallback">बो</span>
+      </span>
+      <span class="brand-name">GenClasses<small>UPSC · UPPCS</small></span>
+    </a>
+    <div class="nav-links" id="navLinks">
+      <a href="#tests">टेस्ट सीरीज़</a>
+      <a href="#subjects">विषय</a>
+      <a href="#method">अध्ययन-विधि</a>
+      <a href="#notes">अध्ययन-सामग्री</a>
+      <a href="#about">परिचय</a>
+    </div>
+    <a href="#tests" class="nav-cta">टेस्ट सीरीज़</a>
+    <button class="theme-btn" id="themeBtn" aria-label="थीम बदलें" title="थीम बदलें">☀️</button>
+    <button class="menu-btn" id="menuBtn" aria-label="मेन्यू खोलें">☰</button>
+  </div>
+</nav>
+
+<!-- ================= मुखपृष्ठ ================= -->
+<header id="top">
+  <div class="wm" id="wm">जेन</div>
+  <div class="hero-in">
+    <div>
+      <span class="eyebrow hr-el" style="animation-delay:.15s">UPSC · UPPCS की तैयारी</span>
+      <h1 class="hero-title">
+        <span class="hr-el" style="animation-delay:.3s;display:block">अवधारणा की स्पष्टता,</span>
+        <span class="hr-el" style="animation-delay:.5s;display:block"><span class="shimmer">अभ्यास</span> की निरंतरता</span>
+      </h1>
+      <p class="hero-sub hr-el" style="animation-delay:.7s">प्रामाणिक अध्ययन-सामग्री और परीक्षा-स्तरीय टेस्ट के साथ व्यवस्थित तैयारी — प्रारंभिक परीक्षा से मुख्य परीक्षा तक।</p>
+      <div class="hero-actions hr-el" style="animation-delay:.88s">
+        <a href="#tests" class="btn btn-gold">टेस्ट सीरीज़ देखें</a>
+        <a href="#" rel="noopener" class="btn btn-ghost">Telegram से जुड़ें</a>
+      </div>
+      <p class="hero-line hr-el" style="animation-delay:1.05s"><b>PYQ-आधारित दृष्टिकोण</b><span class="dot">✦</span>विषयवार अभ्यास<span class="dot">✦</span>निःशुल्क उपलब्ध</p>
+    </div>
+    <div class="hero-art hr-el" style="animation-delay:.55s">
+      <div class="emblem">
+        <svg viewBox="0 0 200 224" role="img" aria-label="ज्ञान की लौ">
+          <circle class="ring ring-a" cx="100" cy="112" r="96"/>
+          <circle class="ring ring-b" cx="100" cy="112" r="84"/>
+          <path class="leaf" pathLength="1" d="M100 46 C 62 66, 42 104, 56 142 C 69 174, 90 185, 100 189 C 110 185, 131 174, 144 142 C 158 104, 138 66, 100 46 Z"/>
+          <path class="vein" pathLength="1" d="M100 58 L100 181"/>
+          <path class="vein" pathLength="1" d="M100 86 C 86 94, 75 106, 67 122"/>
+          <path class="vein" pathLength="1" d="M100 86 C 114 94, 125 106, 133 122"/>
+          <path class="vein" pathLength="1" d="M100 116 C 89 124, 79 136, 74 150"/>
+          <path class="vein" pathLength="1" d="M100 116 C 111 124, 121 136, 126 150"/>
+          <path class="leaf" pathLength="1" d="M100 189 C 100 201, 96 209, 89 217"/>
+          <path class="flame" d="M100 8 C 91 19, 86 28, 91 37 C 95 43, 105 43, 109 37 C 114 28, 109 19, 100 8 Z"/>
+          <path class="flame-core" d="M100 22 C 96 27, 95 31, 97 35 C 99 38, 101 38, 103 35 C 105 31, 104 27, 100 22 Z"/>
+        </svg>
+        <div class="emblem-cap">"जेन — जहाँ ज्ञान, विवेक बन जाए"</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">नीचे<span></span></div>
+</header>
+
+<!-- ================= विषय-पंक्ति ================= -->
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
+    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
+  </div>
+</div>
+
+<!-- ================= टेस्ट सीरीज़ ================= -->
+<section id="tests">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">टेस्ट सीरीज़</span>
+      <h2>अभ्यास, परीक्षा की <em>कसौटी</em> पर</h2>
+      <p>करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
+    </div>
+
+    <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="टेस्ट के खण्ड">
+      <button class="ttab active" data-filter="all">सभी <span class="cnt" data-cnt="all"></span></button>
+      <button class="ttab" data-filter="ca">करेंट अफेयर्स <span class="cnt" data-cnt="ca"></span></button>
+      <button class="ttab" data-filter="gs">सामान्य अध्ययन <span class="cnt" data-cnt="gs"></span></button>
+      <button class="ttab" data-filter="csat">CSAT <span class="cnt" data-cnt="csat"></span></button>
+      <button class="ttab" data-filter="ncert">NCERT <span class="cnt" data-cnt="ncert"></span></button>
+      <button class="ttab" data-filter="upsssc">UPSSSC <span class="cnt" data-cnt="upsssc"></span></button>
+      <button class="ttab" data-filter="upspecial">UP SPECIAL <span class="cnt" data-cnt="upspecial"></span></button>
+    </div>
+
+    <div class="tgrid" id="testGrid">
+      <div class="tstate" id="testState">टेस्ट-सूची तैयार हो रही है…</div>
+    </div>
+
+    <p class="tfoot rv">प्रत्येक नए टेस्ट की सूचना सबसे पहले — <a href="#" rel="noopener">Telegram पर जुड़ें →</a></p>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= विषय ================= -->
+<section id="subjects">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">पाठ्यक्रम</span>
+      <h2>मुख्य विषय — <em>नींव से धार तक</em></h2>
+      <p>प्रत्येक विषय की तैयारी NCERT की नींव से प्रारंभ होकर मानक स्रोतों तक — विगत वर्षों के प्रश्नों की प्रवृत्ति के अनुरूप।</p>
+    </div>
+    <div class="subjects">
+      <div class="subj rv"><span class="mark">रा</span><div><h3>राजव्यवस्था</h3><p>संविधान, संस्थाएँ, न्यायपालिका एवं समसामयिक संवैधानिक विकास — अवधारणात्मक स्पष्टता के साथ।</p></div></div>
+      <div class="subj rv" style="--d:.08s"><span class="mark">इ</span><div><h3>इतिहास</h3><p>प्राचीन से आधुनिक भारत तक — घटनाओं का क्रम, कारण और परिणाम; तथ्यों का बोझ नहीं।</p></div></div>
+      <div class="subj rv" style="--d:.16s"><span class="mark">प</span><div><h3>पर्यावरण</h3><p>पारिस्थितिकी, जैव-विविधता, जलवायु परिवर्तन एवं प्रमुख अंतरराष्ट्रीय समझौते।</p></div></div>
+      <div class="subj rv" style="--d:.24s"><span class="mark">क</span><div><h3>कला एवं संस्कृति</h3><p>स्थापत्य, चित्रकला, नृत्य एवं संगीत — परीक्षा की दृष्टि से व्यवस्थित अध्ययन।</p></div></div>
+      <div class="subj rv" style="--d:.32s"><span class="mark">नी</span><div><h3>नीतिशास्त्र</h3><p>सिद्धांत, विचारक एवं केस स्टडीज़ — मुख्य परीक्षा (GS-4) की दृष्टि से।</p></div></div>
+      <div class="subj rv" style="--d:.4s"><span class="mark">अ</span><div><h3>अर्थव्यवस्था</h3><p>बजट, बैंकिंग एवं योजनाएँ — कठिन अवधारणाएँ सरल व्याख्या के साथ।</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= अध्ययन-विधि ================= -->
+<section id="method">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">अध्ययन-विधि</span>
+      <h2>चार चरणों में <em>व्यवस्थित</em> तैयारी</h2>
+    </div>
+    <div class="method">
+      <div class="step rv"><h3>अवधारणा की समझ</h3><p>प्रत्येक विषय की नींव — NCERT से मानक स्रोतों तक क्रमबद्ध एवं गहन समझ।</p></div>
+      <div class="step rv" style="--d:.1s"><h3>स्मरण-सूत्र</h3><p>शब्दों के मूल अर्थ से जुड़े स्मरण-सूत्र — कृत्रिम शॉर्टकट नहीं, टिकाऊ समझ।</p></div>
+      <div class="step rv" style="--d:.2s"><h3>भ्रम-बिंदुओं का विभेद</h3><p>जिन बिंदुओं पर परीक्षा प्रायः उलझाती है, उनका स्पष्ट विभेद पहले ही।</p></div>
+      <div class="step rv" style="--d:.3s"><h3>PYQ से सत्यापन</h3><p>प्रत्येक विषय विगत वर्षों के प्रश्नों की कसौटी पर — ताकि तैयारी परीक्षा-सिद्ध बने।</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= अध्ययन-सामग्री ================= -->
+<section id="notes">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">अध्ययन-सामग्री</span>
+      <h2>नोट्स — इसी स्थान पर, <em>क्रमशः</em></h2>
+    </div>
+
+    <div class="nlist" id="notesList" hidden></div>
+
+    <div class="npanel rv" id="notesPanel">
+      <h3>अध्ययन-सामग्री तैयारी के क्रम में है।</h3>
+      <p>प्रत्येक पृष्ठ परीक्षा की कसौटी पर परखकर ही यहाँ रखा जाएगा — जल्दबाज़ी में नहीं, सही समय पर। यह मंच जितना <span class="hl">साझा</span> होगा, सामग्री उतनी ही शीघ्र यहाँ उपलब्ध होती जाएगी।</p>
+      <a href="#" rel="noopener">तब तक Telegram पर साथ बना रहे →</a>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= परिचय ================= -->
+<section id="about">
+  <div class="section-in about">
+    <div class="about-card rv">
+      <div class="avatar-ring"><div class="avatar">अ</div></div>
+      <h3>आदित्य चौहान</h3>
+      <div class="role">संस्थापक — जेन क्लासेस</div>
+      <ul class="creds">
+        <li>स्वयं इसी परीक्षा-पथ का अभ्यर्थी</li>
+        <li>वर्तमान में निरंतर परीक्षाओं में सम्मिलित</li>
+        <li>जो सीखा, वही साझा करने का संकल्प</li>
+      </ul>
+    </div>
+    <div class="about-text rv" style="--d:.12s">
+      <span class="eyebrow">परिचय</span>
+      <h2>जो मार्ग स्वयं चल रहा है,<br>वही साथ चलने का आमंत्रण है</h2>
+      <p>जेन क्लासेस किसी सिद्ध व्यक्ति की घोषणा नहीं — <span class="hl">एक निरंतर संघर्षरत अभ्यर्थी का एक और प्रयास</span> है। जो स्वयं इसी परीक्षा के मैदान में बार-बार उतरता है, और उसी अनुभव की प्रत्येक सीख यहाँ साझा करता चलता है।</p>
+      <p>यहाँ दावा अनुभव के अंकों का नहीं, <span class="hl">वर्तमान में निरंतर परीक्षा देते रहने की समझ</span> का है — कि आज इस परीक्षा में क्या आवश्यक है और क्या छोड़ देना विवेक। और एक आग्रह — सामग्री की गुणवत्ता में कोई समझौता नहीं।</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= सूक्ति ================= -->
+<section>
+  <div class="section-in quote rv">
+    <div class="qm">"</div>
+    <blockquote>तैयारी वही सार्थक है, जो परीक्षा की भाषा समझती है।</blockquote>
+    <cite>GenClasses</cite>
+  </div>
+</section>
+
+<!-- ================= जुड़ें ================= -->
+<section id="join" class="join">
+  <div class="section-in rv">
+    <span class="eyebrow">निःशुल्क जुड़ें</span>
+    <h2>तैयारी का अगला अध्याय, यहीं से</h2>
+    <p>YouTube पर व्याख्यान एवं Telegram पर नए टेस्ट व सामग्री की सूचना।</p>
+    <div class="plats">
+      <a class="plat" href="#" rel="noopener" aria-label="YouTube चैनल खोलें">
+        <span class="pic">▶</span>
+        <span>YouTube चैनल<small>विषयवार व्याख्यान</small></span>
+      </a>
+      <a class="plat" href="#" rel="noopener" aria-label="Telegram समूह खोलें">
+        <span class="pic">✈</span>
+        <span>Telegram समूह<small>नए टेस्ट · सामग्री · सूचनाएँ</small></span>
+      </a>
+      <a class="plat" href="mailto:genclassessupport@gmail.com" aria-label="Gmail से संपर्क करें">
+        <span class="pic">✉</span>
+        <span>Gmail<small>संपर्क / सहयोग</small></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= पाद ================= -->
+<footer>
+  <img class="foot-logo js-logo" alt="" loading="lazy">
+  <div class="fb">GenClasses</div>
+  <div class="sh">"तमसो मा ज्योतिर्गमय"</div>
+  <div>UPSC · UPPCS · एक निरंतर चलता प्रयास</div>
+  <div style="margin-top:9px;font-size:13px;opacity:.75">© <span id="yr">2026</span> GenClasses</div>
+</footer>
+
+<script>
+/* =====================================================================
+   आदित्य जी के लिए — टेस्ट व नोट्स की स्वचालित सूची
+   ---------------------------------------------------------------------
+   कुछ भी code बदलने की आवश्यकता नहीं। बस GitHub पर फ़ाइल अपलोड करें:
+
+     tests/ca/eye-drishti-current-affairs-2026/  →  Eye दृष्टि Current Affairs 2026
+     tests/ca/ghatnasar/                          →  घटनासार
+     tests/ca/anya/                               →  अन्य
+     tests/ca/                                    →  करेंट अफेयर्स खण्ड में दिखेगी
+     tests/gs/                                    →  सामान्य अध्ययन खण्ड में दिखेगी
+     tests/csat/                                  →  CSAT खण्ड में दिखेगी
+     notes/                                      →  अध्ययन-सामग्री खण्ड में दिखेगी (HTML या PDF)
+
+   फ़ाइल का नाम ही टेस्ट/नोट्स का शीर्षक बन जाता है —
+   जैसे  राजव्यवस्था-टेस्ट-1.html  →  "राजव्यवस्था टेस्ट 1"
+   (नाम में जगह की बजाय - लगाएँ; .html अपने-आप हट जाएगा)
+
+   ध्यान दें: यह सूची GitHub से आती है, इसलिए साइट के GitHub Pages पर
+   प्रकाशित (online) होने पर ही दिखती है — laptop पर फ़ाइल सीधे खोलने पर नहीं।
+   ===================================================================== */
+(function(){
+"use strict";
+
+/* ---------- ब्रांड logo (एक ही प्रति, चारों स्थानों पर JS से) ---------- */
+var GEN_LOGO_URI = "/assets/gen-logo.png";
+(function(){
+  var fav = document.getElementById("favLink");
+  if (fav) fav.href = GEN_LOGO_URI;
+  var imgs = document.querySelectorAll(".js-logo");
+  for (var i = 0; i < imgs.length; i++){
+    imgs[i].src = GEN_LOGO_URI;
+    imgs[i].style.display = "block";
+  }
+  var fb = document.querySelector(".bm-fallback");
+  if (fb) fb.style.display = "none";
+})();
+
+var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var FINE = window.matchMedia("(pointer: fine)").matches;
+
+/* GitHub खाता व repo — यहाँ भरा होने से कस्टम डोमेन पर भी
+   repo सही पहचाना जाता है; खाली रहने पर सिर्फ़ *.github.io पर पहचान होती थी। */
+var CONFIG = { user: "genclassessupport-creator", repo: "genclasses.github.io" };
+
+var SEC_NAME = { ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_HEAD = { ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_UNIT = { ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
+var OPEN_SEC = null;
+var DATA = { ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
+/* अध्याय (टेस्ट नहीं) — इनके कार्ड पर "अध्याय खोलें" दिखेगा; बाक़ी पर "टेस्ट प्रारंभ करें"। */
+var CHAPTERS = {};
+var FILTER = "all";
+var STATE = "loading";   /* loading | ready | offline | error */
+
+var grid  = document.getElementById("testGrid");
+var tabs  = document.querySelectorAll(".ttab");
+var nlist = document.getElementById("notesList");
+var npanel= document.getElementById("notesPanel");
+
+function detectRepo(){
+  if (CONFIG.user && CONFIG.repo) return CONFIG;
+  var h = location.hostname;
+  if (!/\.github\.io$/.test(h)) return null;
+  var user = h.split(".")[0];
+  var seg = location.pathname.split("/").filter(Boolean);
+  var repo = (seg.length && seg[0].indexOf(".") === -1) ? seg[0] : h;
+  return { user: user, repo: repo };
+}
+
+function titleOf(path){
+  var n = path.split("/").pop();
+  return n.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").trim();
+}
+function extOf(path){
+  var m = path.toLowerCase().match(/\.([a-z0-9]+)$/);
+  return m ? m[1].toUpperCase() : "";
+}
+function nsort(a, b){
+  return a.localeCompare(b, "hi", { numeric: true, sensitivity: "base" });
+}
+
+
+var CA_GROUPS = [
+  { key: "eye-drishti", label: "Eye दृष्टि Current Affairs 2026" },
+  { key: "ghatnasar", label: "घटनासार" },
+  { key: "anya", label: "अन्य" }
+];
+
+var CSAT_GROUPS = [
+  { key: "content", label: "सामग्री", unit: "अध्याय" },
+  { key: "test",    label: "टेस्ट",   unit: "टेस्ट" }
+];
+function csatGroupOf(path){
+  return path.toLowerCase().indexOf("tests/csat/test/") === 0 ? "test" : "content";
+}
+
+function caGroupOf(path){
+  var low = path.toLowerCase();
+  if (low.indexOf("tests/ca/eye-drishti-current-affairs-2026/") === 0 ||
+      low.indexOf("/eye-drishti") !== -1 ||
+      low.indexOf("eye") !== -1 ||
+      low.indexOf("drishti") !== -1 ||
+      path.indexOf("दृष्टि") !== -1) return "eye-drishti";
+  if (low.indexOf("tests/ca/ghatnasar/") === 0 ||
+      low.indexOf("ghatnasar") !== -1 ||
+      path.indexOf("घटनासार") !== -1) return "ghatnasar";
+  return "anya";
+}
+var MONTH_MAP={"जनवरी":1,"फरवरी":2,"मार्च":3,"अप्रैल":4,"अप्रेल":4,"april":4,"मई":5,"जून":6,"जुलाई":7,"अगस्त":8,"सितंबर":9,"सितम्बर":9,"अक्टूबर":10,"अक्तूबर":10,"नवंबर":11,"नवम्बर":11,"दिसंबर":12,"दिसम्बर":12,"january":1,"february":2,"march":3,"may":5,"june":6,"july":7,"august":8,"september":9,"october":10,"november":11,"december":12};
+function monthNum(path){
+  var t=titleOf(path).toLowerCase();
+  var keys=Object.keys(MONTH_MAP);
+  for(var i=0;i<keys.length;i++){if(t.indexOf(keys[i])!==-1)return MONTH_MAP[keys[i]];}
+  return 99;
+}
+
+function groupTitle(label, count, unit){
+  var d = document.createElement("div");
+  d.className = "tgroup";
+  var s = document.createElement("span");
+  s.textContent = label;
+  var c = document.createElement("small");
+  c.textContent = count > 0 ? (count + " " + (unit || "टेस्ट")) : "शीघ्र उपलब्ध";
+  d.appendChild(s); d.appendChild(c);
+  return d;
+}
+
+function fetchTree(rc){
+  var key = "gen_tree_" + rc.user + "_" + rc.repo;
+  try {
+    var c = sessionStorage.getItem(key);
+    if (c) {
+      var o = JSON.parse(c);
+      if (Date.now() - o.t < 10 * 60 * 1000) return Promise.resolve(o.tree);
+    }
+  } catch(e){}
+  var refs = ["HEAD", "main", "master"];
+  var tryRef = function(i){
+    if (i >= refs.length) return Promise.reject(new Error("no-ref"));
+    var url = "https://api.github.com/repos/" + rc.user + "/" + rc.repo +
+              "/git/trees/" + refs[i] + "?recursive=1";
+    return fetch(url).then(function(r){
+      if (!r.ok) throw new Error("http " + r.status);
+      return r.json();
+    }).then(function(j){
+      if (!j || !j.tree) throw new Error("no-tree");
+      try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), tree: j.tree })); } catch(e){}
+      return j.tree;
+    }).catch(function(){ return tryRef(i + 1); });
+  };
+  return tryRef(0);
+}
+
+function buildData(tree){
+  tree.forEach(function(it){
+    var p;
+    if (typeof it === "string") { p = it; }               // files.json से सीधा path
+    else { if (it && it.type && it.type !== "blob") return; p = it && it.path; }  // GitHub tree ऑब्जेक्ट
+    if (!p) return;
+    var low = p.toLowerCase();
+    if (low.indexOf("tests/ca/") === 0 && /\.html?$/.test(low)) DATA.ca.push(p);
+    else if (low.indexOf("tests/gs/") === 0 && /\.html?$/.test(low)) DATA.gs.push(p);
+    else if (low.indexOf("tests/csat/") === 0 && /\.html?$/.test(low)) DATA.csat.push(p);
+    else if (low.indexOf("tests/ncert/") === 0 && /\.html?$/.test(low)) DATA.ncert.push(p);
+    else if (low.indexOf("tests/upsssc/") === 0 && /\.html?$/.test(low)) DATA.upsssc.push(p);
+    else if (low.indexOf("tests/upspecial/") === 0 && /\.html?$/.test(low)) DATA.upspecial.push(p);
+    else if (low.indexOf("notes/") === 0 && /\.(html?|pdf)$/.test(low)) DATA.notes.push(p);
+  });
+  DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
+}
+
+function stateEl(msg){
+  var d = document.createElement("div");
+  d.className = "tstate";
+  d.textContent = msg;
+  return d;
+}
+
+function glowTrack(el){
+  if (!FINE) return;
+  el.addEventListener("mousemove", function(e){
+    var r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", (e.clientX - r.left) + "px");
+    el.style.setProperty("--my", (e.clientY - r.top) + "px");
+  });
+}
+
+function testCard(sec, path, idx){
+  var a = document.createElement("a");
+  a.className = "tcard";
+  a.href = encodeURI(path);
+  a.style.animationDelay = Math.min(idx * 70, 560) + "ms";
+  var b = document.createElement("span");
+  b.className = "tbadge b-" + sec;
+  b.textContent = SEC_NAME[sec];
+  var h = document.createElement("h3");
+  h.textContent = titleOf(path);
+  var g = document.createElement("span");
+  g.className = "tgo";
+  g.textContent = CHAPTERS[path] ? "अध्याय खोलें →" : "टेस्ट प्रारंभ करें →";
+  a.appendChild(b); a.appendChild(h); a.appendChild(g);
+  glowTrack(a);
+  return a;
+}
+
+function secHead(sec, count){
+  var b = document.createElement("button");
+  b.type = "button";
+  b.className = "tacc-head";
+  b.setAttribute("data-sec", sec);
+  b.setAttribute("aria-expanded", "false");
+  var nm = document.createElement("span");
+  nm.className = "tacc-name";
+  nm.textContent = SEC_HEAD[sec] || SEC_NAME[sec] || sec;
+  var meta = document.createElement("span");
+  meta.className = "tacc-meta";
+  var unit = SEC_UNIT.hasOwnProperty(sec) ? SEC_UNIT[sec] : "टेस्ट";
+  meta.innerHTML = (unit ? '<span class="tacc-unit">' + unit + '</span>' : '') +
+                   '<span class="tacc-cnt">' + count + '</span>' +
+                   '<span class="tacc-arw" aria-hidden="true">▾</span>';
+  b.appendChild(nm); b.appendChild(meta);
+  b.addEventListener("click", function(){
+    OPEN_SEC = (OPEN_SEC === sec) ? null : sec;
+    applyOpen();
+  });
+  return b;
+}
+
+function applyOpen(){
+  [].forEach.call(grid.querySelectorAll(".tacc-head"), function(h){
+    var on = h.getAttribute("data-sec") === OPEN_SEC;
+    h.classList.toggle("open", on);
+    h.setAttribute("aria-expanded", on ? "true" : "false");
+  });
+  [].forEach.call(grid.querySelectorAll("[data-secitem]"), function(el){
+    el.style.display = (el.getAttribute("data-secitem") === OPEN_SEC) ? "" : "none";
+  });
+}
+
+function addCaItems(){
+  var shown = 0;
+  CA_GROUPS.forEach(function(g){
+    var arr = DATA.ca.filter(function(p){ return caGroupOf(p) === g.key; });
+    if(g.key==="anya") arr.sort(function(a,b){return monthNum(a)-monthNum(b);});
+    if (!arr.length) return;
+    var gt = groupTitle(g.label, arr.length);
+    gt.classList.add("tacc-item"); gt.setAttribute("data-secitem", "ca");
+    grid.appendChild(gt);
+    arr.forEach(function(p){
+      var c = testCard("ca", p, shown);
+      c.classList.add("tacc-item"); c.setAttribute("data-secitem", "ca");
+      grid.appendChild(c); shown++;
+    });
+  });
+}
+
+function addCsatItems(){
+  var shown = 0;
+  CSAT_GROUPS.forEach(function(g){
+    var arr = DATA.csat.filter(function(p){ return csatGroupOf(p) === g.key; });
+    var gt = groupTitle(g.label, arr.length, g.unit);
+    gt.classList.add("tacc-item"); gt.setAttribute("data-secitem", "csat");
+    grid.appendChild(gt);
+    arr.forEach(function(p){
+      var c = testCard("csat", p, shown);
+      c.classList.add("tacc-item"); c.setAttribute("data-secitem", "csat");
+      grid.appendChild(c); shown++;
+    });
+  });
+}
+
+function addSecItems(s){
+  DATA[s].forEach(function(p, i){
+    var c = testCard(s, p, i);
+    c.classList.add("tacc-item"); c.setAttribute("data-secitem", s);
+    grid.appendChild(c);
+  });
+}
+
+function renderTests(){
+  grid.innerHTML = "";
+  if (STATE === "loading") { grid.appendChild(stateEl("टेस्ट-सूची तैयार हो रही है…")); return; }
+  if (STATE === "offline") { grid.appendChild(stateEl("टेस्ट-सूची साइट के GitHub Pages पर प्रकाशित होते ही यहाँ स्वतः दिखाई देगी।")); return; }
+  if (STATE === "error")   { grid.appendChild(stateEl("सूची इस समय लोड नहीं हो सकी — कृपया पृष्ठ पुनः खोलें।")); return; }
+  var secs = (FILTER === "all") ? ["ca", "gs", "csat", "ncert", "upsssc", "upspecial"] : [FILTER];
+  var any = false;
+  secs.forEach(function(s){
+    var count = DATA[s] ? DATA[s].length : 0;
+    if (!count) return;
+    any = true;
+    grid.appendChild(secHead(s, count));
+    if (s === "ca") addCaItems();
+    else if (s === "csat") addCsatItems();
+    else addSecItems(s);
+  });
+  if (!any) { grid.appendChild(stateEl("इस खण्ड में टेस्ट शीघ्र उपलब्ध होंगे।")); return; }
+  OPEN_SEC = (FILTER === "all") ? null : FILTER;
+  applyOpen();
+}
+
+function renderCounts(){
+  var total = DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.upsssc.length + DATA.upspecial.length;
+  var set = function(k, n){
+    var el = document.querySelector('[data-cnt="' + k + '"]');
+    if (!el) return;
+    if (STATE === "ready" && n > 0) { el.textContent = n; el.style.display = "inline-flex"; }
+    else { el.style.display = "none"; }
+  };
+  set("all", total); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
+}
+
+function renderNotes(){
+  if (STATE !== "ready" || DATA.notes.length === 0) return;
+  nlist.innerHTML = "";
+  DATA.notes.forEach(function(p, i){
+    var a = document.createElement("a");
+    a.className = "ncard";
+    a.href = encodeURI(p);
+    a.style.animationDelay = Math.min(i * 70, 560) + "ms";
+    if (/\.pdf$/i.test(p)) a.target = "_blank";
+    var t = document.createElement("span");
+    t.className = "ntype"; t.textContent = extOf(p);
+    var n = document.createElement("span");
+    n.className = "ntitle"; n.textContent = titleOf(p);
+    var g = document.createElement("span");
+    g.className = "ngo"; g.textContent = "खोलें →";
+    a.appendChild(t); a.appendChild(n); a.appendChild(g);
+    nlist.appendChild(a);
+  });
+  nlist.hidden = false;
+  npanel.hidden = true;
+}
+
+tabs.forEach(function(tab){
+  tab.addEventListener("click", function(){
+    tabs.forEach(function(x){ x.classList.remove("active"); });
+    tab.classList.add("active");
+    FILTER = tab.getAttribute("data-filter");
+    renderTests();
+  });
+});
+
+/* सूची का स्रोत: पहले files.json (स्थैतिक फ़ाइल — बिना rate-limit, हर डोमेन पर
+   तुरंत)। GitHub API अब सिर्फ़ पीछे से ताज़ा करने या files.json न मिलने पर
+   फ़ॉलबैक के लिए। इससे भीड़/साझा-IP में भी सूची कभी गायब नहीं होती। */
+function renderAll(){ renderTests(); renderCounts(); renderNotes(); }
+
+function rebuild(paths){
+  DATA = { ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
+  var seen = {}, uniq = [];
+  paths.forEach(function(it){
+    var key = (typeof it === "string") ? it : (it && it.path);
+    if (!key || seen[key]) return;
+    seen[key] = 1; uniq.push(it);
+  });
+  buildData(uniq);
+}
+
+function loadManifest(){
+  return fetch("files.json", { cache: "no-cache" }).then(function(r){
+    if (!r.ok) throw new Error("http " + r.status);
+    return r.json();
+  }).then(function(j){
+    var list = Array.isArray(j) ? j : (j && j.files) || [];
+    if (!list.length) throw new Error("empty-manifest");
+    return list;
+  });
+}
+
+var rc = detectRepo();
+
+loadManifest().then(function(list){
+  rebuild(list);
+  STATE = "ready";
+  renderAll();
+  /* पीछे से: कोई बिल्कुल नई फ़ाइल जो files.json में अभी न आई हो, उसे भी जोड़ लो।
+     rate-limit से यह विफल हो तो कुछ नहीं बिगड़ता — सूची तो पहले ही दिख चुकी है। */
+  if (rc) {
+    fetchTree(rc).then(function(tree){
+      var merged = list.slice();
+      tree.forEach(function(it){ if (it && it.type === "blob" && it.path) merged.push(it.path); });
+      rebuild(merged);
+      STATE = "ready";
+      renderAll();
+    }).catch(function(){});
+  }
+}).catch(function(){
+  /* files.json न मिले तो पुरानी विधि — सीधे GitHub API से। */
+  if (!rc) { STATE = "offline"; renderTests(); renderCounts(); return; }
+  fetchTree(rc).then(function(tree){
+    rebuild(tree);
+    STATE = "ready";
+    renderAll();
+  }).catch(function(){
+    STATE = "error"; renderTests(); renderCounts();
+  });
+});
+
+/* ---------- ज्ञान के जुगनू (canvas) ---------- */
+(function(){
+  if (REDUCED) return;
+  var cv = document.getElementById("embers");
+  var ctx = cv.getContext("2d");
+  var W, H, P = [], running = true;
+  function size(){
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = cv.width = Math.floor(innerWidth * dpr);
+    H = cv.height = Math.floor(innerHeight * dpr);
+    cv.style.width = innerWidth + "px";
+    cv.style.height = innerHeight + "px";
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function make(){
+    var n = Math.min(85, Math.floor(innerWidth * innerHeight / 16000));
+    P = [];
+    for (var i = 0; i < n; i++){
+      P.push({
+        x: Math.random() * innerWidth,
+        y: Math.random() * innerHeight,
+        r: .6 + Math.random() * 1.8,
+        vy: .12 + Math.random() * .4,
+        ph: Math.random() * Math.PI * 2,
+        sp: .003 + Math.random() * .006,
+        sw: .2 + Math.random() * .5,
+        a: .25 + Math.random() * .55
+      });
+    }
+  }
+  function tick(){
+    if (!running) return;
+    ctx.clearRect(0, 0, innerWidth, innerHeight);
+    for (var i = 0; i < P.length; i++){
+      var p = P[i];
+      p.ph += p.sp * 16;
+      p.y -= p.vy;
+      p.x += Math.sin(p.ph) * p.sw * .3;
+      if (p.y < -8){ p.y = innerHeight + 8; p.x = Math.random() * innerWidth; }
+      var tw = .55 + .45 * Math.sin(p.ph * 1.6);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, 6.2832);
+      ctx.fillStyle = "rgba(242,205,136," + (p.a * tw).toFixed(3) + ")";
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  size(); make(); tick();
+  addEventListener("resize", function(){ size(); make(); });
+  document.addEventListener("visibilitychange", function(){
+    running = !document.hidden;
+    if (running) tick();
+  });
+})();
+
+/* ---------- सुनहरा प्रकाश-वृत्त (cursor spotlight) ---------- */
+(function(){
+  if (REDUCED || !FINE) return;
+  var s = document.getElementById("spot");
+  var tx = innerWidth / 2, ty = innerHeight * .38, x = tx, y = ty;
+  addEventListener("mousemove", function(e){ tx = e.clientX; ty = e.clientY; });
+  (function loop(){
+    x += (tx - x) * .08; y += (ty - y) * .08;
+    s.style.left = x + "px"; s.style.top = y + "px";
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* ---------- शीर्ष पट्टी, प्रगति, watermark ---------- */
+var nav = document.getElementById("nav");
+var prog = document.getElementById("progress");
+var wm = document.getElementById("wm");
+function onScroll(){
+  var y = scrollY;
+  if (y > 30) nav.classList.add("scrolled"); else nav.classList.remove("scrolled");
+  var h = document.documentElement.scrollHeight - innerHeight;
+  prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+  if (wm && !REDUCED) wm.style.transform = "translate(-50%, calc(-52% + " + y * .16 + "px))";
+}
+addEventListener("scroll", onScroll, { passive: true });
+onScroll();
+
+/* ---------- विषय-कार्ड पर प्रकाश ---------- */
+document.querySelectorAll(".subj").forEach(glowTrack);
+
+/* ---------- मोबाइल मेन्यू ---------- */
+var menuBtn = document.getElementById("menuBtn");
+var navLinks = document.getElementById("navLinks");
+menuBtn.addEventListener("click", function(){ navLinks.classList.toggle("open"); });
+navLinks.querySelectorAll("a").forEach(function(a){
+  a.addEventListener("click", function(){ navLinks.classList.remove("open"); });
+});
+
+/* ---------- Dark / Light थीम टॉगल ---------- */
+(function(){
+  var btn = document.getElementById("themeBtn");
+  if (!btn) return;
+  function applyTheme(t){
+    if (t === "light") document.documentElement.setAttribute("data-theme", "light");
+    else document.documentElement.removeAttribute("data-theme");
+    btn.textContent = (t === "light") ? "🌙" : "☀️";
+    btn.setAttribute("aria-label", (t === "light") ? "डार्क थीम पर जाएँ" : "लाइट थीम पर जाएँ");
+    var m = document.querySelector('meta[name="theme-color"]');
+    if (m) m.setAttribute("content", (t === "light") ? "#F6F1E4" : "#060B16");
+    try { localStorage.setItem("gen_theme", t); } catch(e){}
+  }
+  var cur = "light";
+  try { cur = (localStorage.getItem("gen_theme") === "dark") ? "dark" : "light"; } catch(e){}
+  applyTheme(cur);
+  btn.addEventListener("click", function(){
+    cur = (cur === "light") ? "dark" : "light";
+    applyTheme(cur);
+  });
+})();
+
+/* ---------- प्रकट-प्रभाव ---------- */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+  });
+}, { threshold: .14 });
+document.querySelectorAll(".rv").forEach(function(el){ io.observe(el); });
+
+/* ---------- वर्ष ---------- */
+var yr = document.getElementById("yr");
+if (yr) yr.textContent = new Date().getFullYear();
+
+})();
+</script>
+</body>
+</html>

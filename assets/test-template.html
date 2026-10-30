@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+    background:linear-gradient(160deg,var(--gold-hi),var(--gold-deep));color:#10192b;
+    font-family:'Rozha One',serif;font-size:28px;line-height:1;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">बो</div>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Designed by Aditya Chauhan</div>
+  </div>
+<script>
+const TEST = __TEST_JSON__;
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"hi"; }catch(e){ return "hi"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Designed by Aditya Chauhan";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ attempted++; if(answers[i]===q.answer) correct++; else wrong++; } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const status = user===null ? "skip" : (user===q.answer ? "ok" : "bad");
+  const statusText = user===null ? "अनुत्तरित" : (user===q.answer ? "सही" : "गलत");
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Designed by Aditya Chauhan"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

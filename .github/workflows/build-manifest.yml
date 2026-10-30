@@ -1,0 +1,46 @@
+name: Update files.json
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tests/**'
+      - 'notes/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-files-json
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: build files.json
+        run: |
+          cat > /tmp/gen.js <<'EOF'
+          const fs=require("fs"),path=require("path");
+          function walk(d,a){if(!fs.existsSync(d))return a;for(const n of fs.readdirSync(d)){const f=path.join(d,n);if(fs.statSync(f).isDirectory())walk(f,a);else a.push(f.split(path.sep).join("/"));}return a;}
+          let files=[];walk("tests",files);walk("notes",files);
+          files=files.filter(p=>{const l=p.toLowerCase();return /^tests\/.+\.html?$/.test(l)||/^notes\/.+\.(html?|pdf)$/.test(l);});
+          files.sort();
+          fs.writeFileSync("files.json",JSON.stringify(files)+"\n");
+          console.log("files.json entries:",files.length);
+          EOF
+          node /tmp/gen.js
+
+      - name: commit if changed
+        run: |
+          if ! git diff --quiet -- files.json; then
+            git config user.name "genclasses-bot"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git add files.json
+            git commit -m "auto: update files.json"
+            git push
+          else
+            echo "no change"
+          fi
