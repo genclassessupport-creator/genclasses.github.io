@@ -1,0 +1,268 @@
+[
+  {
+    "title": "Current events",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "Current events",
+    "keywords": "current affairs national international"
+  },
+  {
+    "title": "History of India",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "History of India",
+    "keywords": "history national movement"
+  },
+  {
+    "title": "Geography",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "Geography",
+    "keywords": "geography india world"
+  },
+  {
+    "title": "Polity",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "Polity",
+    "keywords": "polity constitution panchayati raj"
+  },
+  {
+    "title": "Economy Development",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "Economy Development",
+    "keywords": "economy poverty demographics"
+  },
+  {
+    "title": "Environment",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "Environment",
+    "keywords": "environment biodiversity climate"
+  },
+  {
+    "title": "General Science",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "General Science",
+    "keywords": "science"
+  },
+  {
+    "title": "CSAT Comprehension",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "CSAT Comprehension",
+    "keywords": "csat comprehension english hindi"
+  },
+  {
+    "title": "CSAT Reasoning",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "CSAT Reasoning",
+    "keywords": "csat reasoning decision making"
+  },
+  {
+    "title": "CSAT Maths",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "CSAT Maths",
+    "keywords": "csat maths numeracy data interpretation"
+  },
+  {
+    "title": "General Hindi",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "General Hindi",
+    "keywords": "hindi qualifying mains"
+  },
+  {
+    "title": "Essay",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "Essay",
+    "keywords": "essay mains"
+  },
+  {
+    "title": "GS I History Geography",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "GS I History Geography",
+    "keywords": "gs1 history culture geography"
+  },
+  {
+    "title": "GS II Polity Governance",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "GS II Polity Governance",
+    "keywords": "gs2 polity constitution"
+  },
+  {
+    "title": "GS III Economy Environment",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "GS III Economy Environment",
+    "keywords": "gs3 economy agriculture environment"
+  },
+  {
+    "title": "GS IV Ethics",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "GS IV Ethics",
+    "keywords": "gs4 ethics integrity"
+  },
+  {
+    "title": "GS V Uttar Pradesh",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "GS V Uttar Pradesh",
+    "keywords": "gs5 up history culture governance"
+  },
+  {
+    "title": "GS VI Uttar Pradesh Economy",
+    "url": "/syllabus/uppcs-mains.html",
+    "exam": "UPPCS Mains",
+    "section": "GS VI Uttar Pradesh Economy",
+    "keywords": "gs6 up economy geography"
+  },
+  {
+    "title": "UPSC GS1 Current",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC GS1 Current",
+    "keywords": "current"
+  },
+  {
+    "title": "UPSC History",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC History",
+    "keywords": "history"
+  },
+  {
+    "title": "UPSC Geography",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC Geography",
+    "keywords": "geography"
+  },
+  {
+    "title": "UPSC Polity",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC Polity",
+    "keywords": "polity"
+  },
+  {
+    "title": "UPSC Economy",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC Economy",
+    "keywords": "economy"
+  },
+  {
+    "title": "UPSC Environment",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC Environment",
+    "keywords": "environment"
+  },
+  {
+    "title": "UPSC Science",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC Science",
+    "keywords": "science"
+  },
+  {
+    "title": "UPSC CSAT",
+    "url": "/syllabus/upsc-prelims.html",
+    "exam": "UPSC Prelims",
+    "section": "UPSC CSAT",
+    "keywords": "csat comprehension reasoning numeracy"
+  },
+  {
+    "title": "UPSC Essay",
+    "url": "/syllabus/upsc-mains.html",
+    "exam": "UPSC Mains",
+    "section": "UPSC Essay",
+    "keywords": "essay"
+  },
+  {
+    "title": "UPSC GS1",
+    "url": "/syllabus/upsc-mains.html",
+    "exam": "UPSC Mains",
+    "section": "UPSC GS1",
+    "keywords": "gs1 culture history"
+  },
+  {
+    "title": "UPSC GS2",
+    "url": "/syllabus/upsc-mains.html",
+    "exam": "UPSC Mains",
+    "section": "UPSC GS2",
+    "keywords": "gs2 polity ir"
+  },
+  {
+    "title": "UPSC GS3",
+    "url": "/syllabus/upsc-mains.html",
+    "exam": "UPSC Mains",
+    "section": "UPSC GS3",
+    "keywords": "gs3 economy security"
+  },
+  {
+    "title": "UPSC GS4 Ethics",
+    "url": "/syllabus/upsc-mains.html",
+    "exam": "UPSC Mains",
+    "section": "UPSC GS4 Ethics",
+    "keywords": "ethics"
+  },
+  {
+    "title": "UPSC Optional",
+    "url": "/syllabus/upsc-mains.html",
+    "exam": "UPSC Mains",
+    "section": "UPSC Optional",
+    "keywords": "optional anthropology public administration"
+  },
+  {
+    "title": "RO ARO Prelims GS",
+    "url": "/syllabus/ro-aro.html",
+    "exam": "UPPSC RO/ARO 2026",
+    "section": "RO ARO Prelims GS",
+    "keywords": "ro aro general studies up"
+  },
+  {
+    "title": "RO ARO Hindi Prelims",
+    "url": "/syllabus/ro-aro.html",
+    "exam": "UPPSC RO/ARO 2026",
+    "section": "RO ARO Hindi Prelims",
+    "keywords": "ro aro hindi vilom paryay"
+  },
+  {
+    "title": "RO ARO Mains GS I",
+    "url": "/syllabus/ro-aro.html",
+    "exam": "UPPSC RO/ARO 2026",
+    "section": "RO ARO Mains GS I",
+    "keywords": "ro aro mains history geography"
+  },
+  {
+    "title": "RO ARO Mains GS II",
+    "url": "/syllabus/ro-aro.html",
+    "exam": "UPPSC RO/ARO 2026",
+    "section": "RO ARO Mains GS II",
+    "keywords": "ro aro polity ethics"
+  },
+  {
+    "title": "RO ARO Drafting",
+    "url": "/syllabus/ro-aro.html",
+    "exam": "UPPSC RO/ARO 2026",
+    "section": "RO ARO Drafting",
+    "keywords": "hindi drafting correspondence"
+  },
+  {
+    "title": "RO ARO Essay",
+    "url": "/syllabus/ro-aro.html",
+    "exam": "UPPSC RO/ARO 2026",
+    "section": "RO ARO Essay",
+    "keywords": "hindi essay"
+  }
+]
