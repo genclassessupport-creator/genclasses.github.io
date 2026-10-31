@@ -100,7 +100,7 @@ html[data-theme="light"] .b-uppcs2026{background:rgba(196,70,30,.12);color:#B845
 }
 .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
 *{margin:0;padding:0;box-sizing:border-box}
-#subjects,#method,#notes,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
+#subjects{content-visibility:auto;contain-intrinsic-size:auto 320px}#method,#notes,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{
   background:var(--ink0);color:var(--mist);
@@ -406,17 +406,25 @@ section{position:relative;z-index:3;padding:104px 26px}
 
 
 
-/* ═══════════ विशेष नोट्स (high contrast both themes) ═══════════ */
+/* ═══════════ विशेष नोट्स — warm cream/gold palette ═══════════ */
 #special-notes .rv{opacity:1;transform:none}
 #special-notes{
   position:relative;
   padding:36px 22px 34px;
   background:
-    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(217,174,95,.18), transparent 55%),
-    radial-gradient(ellipse 70% 50% at 90% 100%, rgba(10,85,163,.22), transparent 50%),
-    linear-gradient(165deg, #071428 0%, #0c2a52 48%, #0a1f3d 100%);
-  border-top:none;
-  border-bottom:none;
+    radial-gradient(ellipse 70% 50% at 12% 0%, rgba(217,174,95,.14), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 88% 100%, rgba(196,122,24,.10), transparent 50%),
+    linear-gradient(180deg, rgba(18,24,38,.55), rgba(12,16,28,.35));
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+html[data-theme="light"] #special-notes{
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 0%, rgba(232,162,58,.16), transparent 55%),
+    radial-gradient(ellipse 55% 40% at 90% 100%, rgba(196,122,24,.10), transparent 50%),
+    linear-gradient(180deg, #F6F1E4 0%, #F0E6D2 55%, #EDE4D0 100%);
+  border-top:1px solid rgba(196,122,24,.18);
+  border-bottom:1px solid rgba(196,122,24,.18);
 }
 .sn-banner{
   display:flex;align-items:flex-start;gap:12px;
@@ -424,7 +432,7 @@ section{position:relative;z-index:3;padding:104px 26px}
   border-radius:12px;
   background:linear-gradient(105deg,#e8a23a 0%,#c45a18 55%,#9a3f0f 100%);
   color:#fff;
-  box-shadow:0 10px 26px rgba(196,90,24,.4);
+  box-shadow:0 10px 26px rgba(196,90,24,.28);
   border:1px solid rgba(255,255,255,.22);
 }
 .sn-banner-ico{flex:0 0 auto;font-size:16px;line-height:1.4;margin-top:1px}
@@ -437,88 +445,80 @@ html[data-theme="light"] .sn-banner{
 html[data-theme="light"] .sn-banner p,
 html[data-theme="light"] .sn-banner strong{color:#1a0f05}
 #special-notes .sec-head{margin-bottom:18px}
-#special-notes .sec-head h2{font-size:clamp(22px,3.4vw,34px);margin-top:6px}
-#special-notes .sec-head p{margin-top:8px}
-html[data-theme="light"] #special-notes{
-  background:
-    radial-gradient(ellipse 80% 55% at 10% 0%, rgba(232,162,58,.22), transparent 55%),
-    linear-gradient(165deg, #0a274d 0%, #0d3a72 48%, #0a2a52 100%);
-  border-top:none;
-  border-bottom:none;
-}
-#special-notes .section-in{position:relative;z-index:1}
-#special-notes .sec-head h2{color:#F2EBDA}
-#special-notes .eyebrow{color:#F2CD88}
-html[data-theme="light"] #special-notes .sec-head h2{color:#FFF8E8}
-html[data-theme="light"] #special-notes .eyebrow{color:#F2CD88}
+#special-notes .sec-head h2{font-size:clamp(22px,3.4vw,34px);margin-top:6px;color:var(--cream)}
+#special-notes .sec-head p{margin-top:8px;color:var(--mist)}
+#special-notes .eyebrow{color:var(--gold-hi)}
+html[data-theme="light"] #special-notes .sec-head h2{color:#3d2a12}
+html[data-theme="light"] #special-notes .sec-head p{color:#5c4a32}
+html[data-theme="light"] #special-notes .eyebrow{color:#8a5a12}
 .sn-wrap{position:relative}
-.sn-lead{max-width:720px;margin:8px 0 0;color:#c5d0e0;font-weight:400;line-height:1.7;font-size:15.5px}
-.sn-lead strong{color:#F2CD88;font-weight:700}
-html[data-theme="light"] .sn-lead{color:#d5deec}
-html[data-theme="light"] .sn-lead strong{color:#F2CD88}
+.sn-lead{max-width:720px;margin:8px 0 0;color:var(--mist);font-weight:400;line-height:1.7;font-size:15.5px}
+.sn-lead strong{color:var(--gold-hi);font-weight:700}
+html[data-theme="light"] .sn-lead{color:#5c4a32}
+html[data-theme="light"] .sn-lead strong{color:#8a5a12}
 .sn-grid{
   margin-top:22px;display:grid;
   grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;
 }
 .sn-card{
-  background:linear-gradient(160deg,#12305a,#0a1e3a);
-  border:1.5px solid rgba(217,174,95,.45);
+  background:var(--glass);
+  border:1.5px solid var(--line-2);
   border-radius:14px;
   padding:14px 10px 13px;text-align:center;
-  box-shadow:0 10px 26px rgba(0,0,0,.35);
+  box-shadow:0 8px 20px rgba(0,0,0,.18);
   transition:transform .22s,border-color .22s,box-shadow .22s;
 }
 html[data-theme="light"] .sn-card{
-  background:linear-gradient(160deg,#12305a,#0a1e3a);
-  border:1.5px solid rgba(232,162,58,.55);
-  box-shadow:0 8px 20px rgba(0,0,0,.25);
+  background:rgba(255,252,245,.92);
+  border:1.5px solid rgba(196,122,24,.28);
+  box-shadow:0 6px 16px rgba(120,80,20,.08);
 }
-.sn-card:hover{transform:translateY(-4px);border-color:#D9AE5F;box-shadow:0 14px 32px rgba(0,0,0,.45),0 0 20px rgba(217,174,95,.18)}
-html[data-theme="light"] .sn-card:hover{box-shadow:0 12px 28px rgba(10,42,90,.16)}
+.sn-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 12px 28px rgba(0,0,0,.28),0 0 16px rgba(217,174,95,.14)}
+html[data-theme="light"] .sn-card:hover{box-shadow:0 10px 22px rgba(120,80,20,.14)}
 .sn-ico{
   width:40px;height:40px;margin:0 auto 8px;border-radius:11px;
   display:grid;place-items:center;
   background:linear-gradient(135deg,#e8a23a,#c45a18);
   border:1px solid rgba(255,255,255,.25);
   color:#fff;
-  box-shadow:0 6px 14px rgba(196,90,24,.35);
+  box-shadow:0 6px 14px rgba(196,90,24,.28);
 }
 .sn-ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
-.sn-card h3{font-size:13.5px;font-weight:800;line-height:1.3;color:#F2EBDA;margin:0}
-html[data-theme="light"] .sn-card h3{color:#FFF8E8}
+.sn-card h3{font-size:13.5px;font-weight:800;line-height:1.3;color:var(--cream);margin:0}
+html[data-theme="light"] .sn-card h3{color:#3d2a12}
 .sn-exams{margin-top:20px}
-.sn-exams h3{font-size:16px;margin-bottom:10px;color:#F2CD88;font-weight:800}
-html[data-theme="light"] .sn-exams h3{color:#F2CD88}
+.sn-exams h3{font-size:16px;margin-bottom:10px;color:var(--gold-hi);font-weight:800}
+html[data-theme="light"] .sn-exams h3{color:#8a5a12}
 .sn-chips{display:flex;flex-wrap:wrap;gap:8px}
 .sn-chip{
   display:inline-flex;align-items:center;
   padding:6px 11px;border-radius:999px;font-size:12px;font-weight:800;
-  background:rgba(217,174,95,.16);border:1px solid rgba(217,174,95,.5);color:#F2EBDA;
+  background:rgba(217,174,95,.14);border:1px solid var(--line-2);color:var(--cream);
 }
 html[data-theme="light"] .sn-chip{
-  background:rgba(255,248,232,.12);border-color:rgba(242,205,136,.55);color:#FFF8E8;
+  background:rgba(232,162,58,.12);border-color:rgba(196,122,24,.35);color:#5c3a10;
 }
 .sn-points{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .sn-point{
   display:flex;gap:12px;align-items:flex-start;
-  background:rgba(255,255,255,.06);border:1px solid rgba(217,174,95,.35);
+  background:var(--glass);border:1px solid var(--line);
   border-radius:12px;padding:14px 14px;
 }
 html[data-theme="light"] .sn-point{
-  background:rgba(255,255,255,.07);border:1.5px solid rgba(242,205,136,.4);
+  background:rgba(255,252,245,.85);border:1.5px solid rgba(196,122,24,.22);
 }
 .sn-point .num{
   flex:0 0 30px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
   font-weight:900;font-size:14px;color:#0A1426;background:linear-gradient(135deg,#F2CD88,#D9AE5F);
-  box-shadow:0 6px 14px rgba(217,174,95,.35);
+  box-shadow:0 6px 14px rgba(217,174,95,.28);
 }
-.sn-point p{margin:0;color:#d5deec;font-size:13.5px;line-height:1.55;font-weight:500}
-html[data-theme="light"] .sn-point p{color:#d5deec}
+.sn-point p{margin:0;color:var(--mist);font-size:13.5px;line-height:1.55;font-weight:500}
+html[data-theme="light"] .sn-point p{color:#5c4a32}
 .sn-cta{margin-top:22px;text-align:center}
-.sn-cta h3{font-size:clamp(20px,3vw,26px);margin-bottom:6px;color:#F2EBDA;font-weight:900}
-html[data-theme="light"] .sn-cta h3{color:#FFF8E8}
-.sn-cta .hint{color:#aebaca;font-weight:400;margin-bottom:14px;font-size:14px}
-html[data-theme="light"] .sn-cta .hint{color:#aebaca}
+.sn-cta h3{font-size:clamp(20px,3vw,26px);margin-bottom:6px;color:var(--cream);font-weight:900}
+html[data-theme="light"] .sn-cta h3{color:#3d2a12}
+.sn-cta .hint{color:var(--mist);font-weight:400;margin-bottom:14px;font-size:14px}
+html[data-theme="light"] .sn-cta .hint{color:#5c4a32}
 .sn-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
 .sn-btns a{
   text-decoration:none;display:inline-flex;align-items:center;justify-content:center;
@@ -528,18 +528,18 @@ html[data-theme="light"] .sn-cta .hint{color:#aebaca}
 .sn-btns a:hover{transform:translateY(-2px);filter:brightness(1.06)}
 .sn-btns .btn-gold{
   background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;
-  border:0;box-shadow:0 10px 22px rgba(196,90,24,.35);
+  border:0;box-shadow:0 10px 22px rgba(196,90,24,.3);
 }
 .sn-btns .btn-ghost{
-  border:1.5px solid rgba(217,174,95,.55);color:#F2EBDA;background:rgba(255,255,255,.06);
+  border:1.5px solid var(--line-2);color:var(--cream);background:var(--glass);
 }
 html[data-theme="light"] .sn-btns .btn-ghost{
-  border:1.5px solid rgba(242,205,136,.6);color:#FFF8E8;background:rgba(255,255,255,.08);
+  border:1.5px solid rgba(196,122,24,.4);color:#5c3a10;background:rgba(255,252,245,.9);
 }
-.sn-meta{margin-top:12px;font-size:12.5px;color:#aebaca;font-weight:600}
-.sn-meta a{color:#F2CD88;font-weight:800}
-html[data-theme="light"] .sn-meta{color:#aebaca}
-html[data-theme="light"] .sn-meta a{color:#F2CD88}
+.sn-meta{margin-top:12px;font-size:12.5px;color:var(--mist);font-weight:600}
+.sn-meta a{color:var(--gold-hi);font-weight:800}
+html[data-theme="light"] .sn-meta{color:#6b5638}
+html[data-theme="light"] .sn-meta a{color:#8a5a12}
 @media (max-width:560px){
   #special-notes{padding:28px 16px 26px}
   .sn-banner{padding:10px 12px;gap:10px}
@@ -553,10 +553,50 @@ html[data-theme="light"] .sn-meta a{color:#F2CD88}
   .sn-cta{margin-top:16px}
 }
 
+/* compact subjects */
+.subjects{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;
+}
+@media (max-width:560px){.subjects{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}}
+.subj{
+  background:var(--glass);border:1px solid var(--line);border-radius:14px;
+  padding:14px 12px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;
+  backdrop-filter:blur(8px);transition:transform .22s,border-color .22s,box-shadow .22s;
+  position:relative;overflow:hidden;min-height:96px;
+}
+.subj::after{display:none}
+.subj:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 12px 28px rgba(0,0,0,.28),0 0 16px rgba(217,174,95,.12)}
+html[data-theme="light"] .subj:hover{box-shadow:0 10px 22px rgba(120,80,20,.12)}
+.subj .mark{
+  flex:0 0 40px;width:40px;height:40px;border-radius:12px;
+  display:grid;place-items:center;color:var(--gold-hi);
+  font-family:'Rozha One',serif;font-size:16px;
+  background:linear-gradient(150deg, rgba(217,174,95,.18), rgba(217,174,95,.06));
+  border:1px solid var(--line-2);
+  transition:transform .25s;
+}
+.subj:hover .mark{transform:scale(1.06)}
+.subj h3{font-size:13.5px;margin:0;font-weight:800;line-height:1.25;color:var(--cream)}
+html[data-theme="light"] .subj h3{color:#3d2a12}
+.subj p{display:none}
+.subj-more{display:none}
+.subjects.is-open .subj-more{display:flex}
+.subj-toggle-wrap{margin-top:14px;text-align:center}
+.subj-toggle{
+  display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--glass);color:var(--gold-hi);
+  font-weight:800;font-size:13px;cursor:pointer;font-family:inherit;
+}
+.subj-toggle:hover{filter:brightness(1.06)}
+
+
 
 #join.join{
   padding:48px 0 44px;
-  background:linear-gradient(180deg, rgba(7,20,40,.0), rgba(10,42,82,.55));
+  background:linear-gradient(180deg, transparent, rgba(217,174,95,.06));
+}
+html[data-theme="light"] #join.join{
+  background:linear-gradient(180deg, transparent, rgba(196,122,24,.06));
 }
 html[data-theme="light"] #join.join{
   background:linear-gradient(180deg, rgba(255,248,232,0), rgba(10,85,163,.08));
@@ -1014,17 +1054,30 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <section id="subjects">
   <div class="section-in">
     <div class="sec-head rv">
-      <span class="eyebrow">पाठ्यक्रम</span>
-      <h2>मुख्य विषय — <em>नींव से धार तक</em></h2>
-      <p>प्रत्येक विषय की तैयारी NCERT की नींव से प्रारंभ होकर मानक स्रोतों तक — विगत वर्षों के प्रश्नों की प्रवृत्ति के अनुरूप।</p>
+      <span class="eyebrow"><span data-hi>पाठ्यक्रम</span><span data-en>Syllabus focus</span></span>
+      <h2 data-hi>मुख्य विषय</h2>
+      <h2 data-en>Core subjects</h2>
+      <p data-hi>संक्षिप्त विषय कार्ड — नींव से परीक्षा तक।</p>
+      <p data-en>Compact subject cards — foundation to exam.</p>
     </div>
-    <div class="subjects">
-      <div class="subj rv"><span class="mark">रा</span><div><h3>राजव्यवस्था</h3><p>संविधान, संस्थाएँ, न्यायपालिका एवं समसामयिक संवैधानिक विकास — अवधारणात्मक स्पष्टता के साथ।</p></div></div>
-      <div class="subj rv" style="--d:.08s"><span class="mark">इ</span><div><h3>इतिहास</h3><p>प्राचीन से आधुनिक भारत तक — घटनाओं का क्रम, कारण और परिणाम; तथ्यों का बोझ नहीं।</p></div></div>
-      <div class="subj rv" style="--d:.16s"><span class="mark">प</span><div><h3>पर्यावरण</h3><p>पारिस्थितिकी, जैव-विविधता, जलवायु परिवर्तन एवं प्रमुख अंतरराष्ट्रीय समझौते।</p></div></div>
-      <div class="subj rv" style="--d:.24s"><span class="mark">क</span><div><h3>कला एवं संस्कृति</h3><p>स्थापत्य, चित्रकला, नृत्य एवं संगीत — परीक्षा की दृष्टि से व्यवस्थित अध्ययन।</p></div></div>
-      <div class="subj rv" style="--d:.32s"><span class="mark">नी</span><div><h3>नीतिशास्त्र</h3><p>सिद्धांत, विचारक एवं केस स्टडीज़ — मुख्य परीक्षा (GS-4) की दृष्टि से।</p></div></div>
-      <div class="subj rv" style="--d:.4s"><span class="mark">अ</span><div><h3>अर्थव्यवस्था</h3><p>बजट, बैंकिंग एवं योजनाएँ — कठिन अवधारणाएँ सरल व्याख्या के साथ।</p></div></div>
+    <div class="subjects" id="subjectsGrid">
+      <div class="subj rv"><span class="mark">रा</span><h3><span data-hi>राजव्यवस्था</span><span data-en>Polity</span></h3></div>
+      <div class="subj rv"><span class="mark">इ</span><h3><span data-hi>इतिहास</span><span data-en>History</span></h3></div>
+      <div class="subj rv"><span class="mark">प</span><h3><span data-hi>पर्यावरण</span><span data-en>Environment</span></h3></div>
+      <div class="subj rv"><span class="mark">क</span><h3><span data-hi>कला एवं संस्कृति</span><span data-en>Art & Culture</span></h3></div>
+      <div class="subj rv"><span class="mark">नी</span><h3><span data-hi>नीतिशास्त्र</span><span data-en>Ethics</span></h3></div>
+      <div class="subj rv"><span class="mark">अ</span><h3><span data-hi>अर्थव्यवस्था</span><span data-en>Economy</span></h3></div>
+      <div class="subj rv subj-more"><span class="mark">भू</span><h3><span data-hi>भूगोल</span><span data-en>Geography</span></h3></div>
+      <div class="subj rv subj-more"><span class="mark">वि</span><h3><span data-hi>विज्ञान</span><span data-en>Science</span></h3></div>
+      <div class="subj rv subj-more"><span class="mark">C</span><h3>CSAT</h3></div>
+      <div class="subj rv subj-more"><span class="mark">UP</span><h3><span data-hi>UP विशेष</span><span data-en>UP Special</span></h3></div>
+      <div class="subj rv subj-more"><span class="mark">CA</span><h3><span data-hi>करंट अफेयर्स</span><span data-en>Current Affairs</span></h3></div>
+      <div class="subj rv subj-more"><span class="mark">अं</span><h3><span data-hi>अंतरराष्ट्रीय</span><span data-en>IR</span></h3></div>
+    </div>
+    <div class="subj-toggle-wrap">
+      <button type="button" class="subj-toggle" id="subjToggle" aria-expanded="false">
+        <span data-hi>सभी देखें</span><span data-en>View all</span> <span class="subj-arw">↓</span>
+      </button>
     </div>
   </div>
 </section>
@@ -1633,6 +1686,24 @@ if (yr) yr.textContent = new Date().getFullYear();
     }
     tick(); setInterval(tick,30000);
   }
+})();
+</script>
+
+
+<script>
+(function(){
+  var g=document.getElementById('subjectsGrid');
+  var b=document.getElementById('subjToggle');
+  if(!g||!b) return;
+  var moreHi='सभी देखें', moreEn='View all', lessHi='कम दिखाएँ', lessEn='Show less';
+  b.addEventListener('click',function(){
+    var open=g.classList.toggle('is-open');
+    b.setAttribute('aria-expanded', open?'true':'false');
+    var hi=b.querySelector('[data-hi]'), en=b.querySelector('[data-en]'), arrow=b.querySelector('.subj-arw');
+    if(hi) hi.textContent=open?lessHi:moreHi;
+    if(en) en.textContent=open?lessEn:moreEn;
+    if(arrow) arrow.textContent=open?'↑':'↓';
+  });
 })();
 </script>
 
