@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards — GenClasses</title>
+<meta name="description" content="Swipeable flashcards for UPPCS/UPSC prep">
+<meta name="theme-color" content="#F6F1E4">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/hub.css">
+<script src="/assets/hub.js"></script>
+
+</head>
+<body>
+<nav class="hub-nav"><div class="hub-nav-in wrap">
+  <a class="brand" href="/"><img src="/assets/gen-logo-96.webp" width="42" height="42" alt="GenClasses"><span><b>GenClasses</b><small>Your goal our support</small></span></a>
+  <div class="hub-links">
+    <a href="/syllabus/"><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
+    <a href="/csat/">CSAT</a>
+    <a href="/daily/"><span data-hi>डेली क्विज़</span><span data-en>Daily Quiz</span></a>
+    <a href="/flashcards/"><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
+    <a href="/up-ca/"><span data-hi>UP करंट</span><span data-en>UP CA</span></a>
+    <a href="/#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+    <a href="/"><span data-hi>होम</span><span data-en>Home</span></a>
+</div>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
+  <button class="theme-btn" id="themeBtn" aria-label="Theme">🌙</button>
+</div></nav>
+<main class="wrap">
+
+<div class="breadcrumb"><a href="/">होम</a> · <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></div>
+<section class="hero-mini">
+  <span class="eyebrow">FLASHCARDS</span>
+  <h1 data-hi>स्वाइप करके याद करें</h1>
+  <h1 data-en>Swipe to remember</h1>
+  <p data-hi>पर्याय/विलोम · मुहावरे · नीतिशास्त्र विचारक · संविधान अनुच्छेद। स्पर्श स्वाइप या बटन — ज्ञात/अज्ञात localStorage में।</p>
+  <p data-en>Synonyms/antonyms · idioms · ethics thinkers · Constitution articles. Touch swipe or buttons — known/unknown in localStorage.</p>
+</section>
+<label style="font-size:13px;font-weight:700;color:var(--mist)"><span data-hi>डेक चुनें</span><span data-en>Choose deck</span>
+<select id="flashDeck" style="margin-left:8px;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--glass);color:var(--cream);font-family:inherit">
+  <option value="all">All</option>
+  <option value="paryay-vilom">पर्याय / विलोम</option>
+  <option value="muhavare">मुहावरे</option>
+  <option value="ethics">Ethics thinkers</option>
+  <option value="polity">Polity articles</option>
+</select></label>
+<div class="flash-stats" id="flashStats"></div>
+<div class="flash-stage" id="flashStage"><div class="flash-card" id="flashCard"><div class="front">…</div></div></div>
+<div class="flash-ctrl">
+  <button type="button" class="btn btn-ghost" id="flashPrev">←</button>
+  <button type="button" class="btn btn-ghost" id="flashUnknown"><span data-hi>अज्ञात</span><span data-en>Unknown</span></button>
+  <button type="button" class="btn btn-gold" id="flashKnown"><span data-hi>ज्ञात</span><span data-en>Known</span></button>
+  <button type="button" class="btn btn-ghost" id="flashNext">→</button>
+  <button type="button" class="btn btn-ghost" id="flashReset"><span data-hi>रीसेट</span><span data-en>Reset</span></button>
+</div>
+<p class="note"><span data-hi>कार्ड टैप = पलटें। बाएँ स्वाइप = अज्ञात, दाएँ = ज्ञात।</span><span data-en>Tap card to flip. Swipe left = unknown, right = known.</span></p>
+
+</main>
+<footer class="hub-foot">
+  <p><a href="/">GenClasses</a> · <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:genclassessupport@gmail.com">Email</a></p>
+  <p style="margin-top:8px;font-size:12px"><span data-hi>आधिकारिक अधिसूचना अवश्य देखें। सामग्री परीक्षा तैयारी हेतु।</span><span data-en>Always verify the latest official notification. Content for exam prep.</span></p>
+</footer>
+</body></html>

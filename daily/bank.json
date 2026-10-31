@@ -1,0 +1,1247 @@
+[
+  {
+    "id": "q001",
+    "tag": "Reasoning",
+    "q": "Series: 2, 6, 12, 20, 30, ?",
+    "q_en": "Series: 2, 6, 12, 20, 30, ?",
+    "opts": [
+      "36",
+      "42",
+      "40",
+      "44"
+    ],
+    "ans": "42",
+    "why": "+4,+6,+8,+10,+12 → 30+12=42।",
+    "why_en": "Differences +4,+6,+8,+10,+12 → 30+12=42.",
+    "whyWrong": [
+      "36: +6 ही जोड़ने पर; पैटर्न बढ़ता अंतर है।",
+      "40: 30+10; अगला अंतर +12 है।",
+      "44: 30+14; श्रृंखला +2 से बढ़ते अंतर की है।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q002",
+    "tag": "Reasoning",
+    "q": "Odd one out: 3, 5, 7, 9, 11",
+    "q_en": "Odd one out: 3, 5, 7, 9, 11",
+    "opts": [
+      "3",
+      "9",
+      "7",
+      "11"
+    ],
+    "ans": "9",
+    "why": "9 सम/संयुक्त; शेष अभाज्य।",
+    "why_en": "9 सम/संयुक्त; शेष अभाज्य।",
+    "whyWrong": [
+      "3,7,11 अभाज्य हैं।",
+      "9 = 3×3, अभाज्य नहीं।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q003",
+    "tag": "Reasoning",
+    "q": "South मुख से 5 km, बाएँ मुड़कर 5 km — अब दिशा?",
+    "q_en": "South मुख से 5 km, बाएँ मुड़कर 5 km — अब दिशा?",
+    "opts": [
+      "North",
+      "East",
+      "West",
+      "South"
+    ],
+    "ans": "East",
+    "why": "South facing पर बायाँ = East।",
+    "why_en": "South facing पर बायाँ = East।",
+    "whyWrong": [
+      "North: दो बार बाएँ या पीछे मुड़ने पर।",
+      "West: दाएँ मुड़ने पर।",
+      "South: बिना मुड़े।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q004",
+    "tag": "Reasoning",
+    "q": "All pens are books. Some books are tables. कौन-सा निश्चित?",
+    "q_en": "All pens are books. Some books are tables. कौन-सा निश्चित?",
+    "opts": [
+      "All tables are pens",
+      "Some pens are tables",
+      "Some books are pens",
+      "None"
+    ],
+    "ans": "Some books are pens",
+    "why": "All pens are books ⇒ Some books are pens (pens अरिक्त)।",
+    "why_en": "All pens are books ⇒ Some books are pens (pens अरिक्त)।",
+    "whyWrong": [
+      "All tables are pens — गलत विस्तार।",
+      "Some pens are tables — आवश्यक नहीं।",
+      "None — गलत क्योंकि तीसरा निश्चित है।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q005",
+    "tag": "Reasoning",
+    "q": "A is taller than B but shorter than C. D is shorter than B. सबसे लंबा?",
+    "q_en": "A is taller than B but shorter than C. D is shorter than B. सबसे लंबा?",
+    "opts": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "ans": "C",
+    "why": "C > A > B > D।",
+    "why_en": "C > A > B > D।",
+    "whyWrong": [
+      "A बीच में।",
+      "B, D छोटे।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q006",
+    "tag": "Reasoning",
+    "q": "Clock: 3:00 पर घंटे-मिनट की सुई का कोण?",
+    "q_en": "Clock: 3:00 पर घंटे-मिनट की सुई का कोण?",
+    "opts": [
+      "60°",
+      "90°",
+      "180°",
+      "75°"
+    ],
+    "ans": "90°",
+    "why": "3 बजे सुइयाँ लंबवत = 90°।",
+    "why_en": "3 बजे सुइयाँ लंबवत = 90°।",
+    "whyWrong": [
+      "60°: 2 बजे के करीब।",
+      "180°: 6 बजे।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q007",
+    "tag": "Reasoning",
+    "q": "If PAPER = 50 (P=16… A=1 sum): PEN = ?",
+    "q_en": "If PAPER = 50 (P=16… A=1 sum): PEN = ?",
+    "opts": [
+      "35",
+      "45",
+      "36",
+      "40"
+    ],
+    "ans": "35",
+    "why": "P16+E5+N14=35 (A=1…Z=26)।",
+    "why_en": "P16+E5+N14=35 (A=1…Z=26)।",
+    "whyWrong": [
+      "45/36/40 गलत योग।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q008",
+    "tag": "Reasoning",
+    "q": "Statement: Only graduates may apply. निष्कर्ष?",
+    "q_en": "Statement: Only graduates may apply. निष्कर्ष?",
+    "opts": [
+      "सभी आवेदक graduate हैं",
+      "कोई graduate apply नहीं कर सकता",
+      "Non-graduate भी apply कर सकते हैं",
+      "निश्चित नहीं"
+    ],
+    "ans": "सभी आवेदक graduate हैं",
+    "why": "Only graduates ⇒ आवेदक graduate ही होंगे।",
+    "why_en": "Only graduates ⇒ आवेदक graduate ही होंगे।",
+    "whyWrong": [
+      "दूसरा/तीसरा कथन का उल्टा।",
+      "‘निश्चित नहीं’ गलत।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q009",
+    "tag": "Reasoning",
+    "q": "5 दिन पहले शुक्रवार था तो आज से 3 दिन बाद?",
+    "q_en": "5 दिन पहले शुक्रवार था तो आज से 3 दिन बाद?",
+    "opts": [
+      "शनिवार",
+      "रविवार",
+      "सोमवार",
+      "मंगलवार"
+    ],
+    "ans": "शनिवार",
+    "why": "5 दिन पहले शुक्र ⇒ आज बुध; +3 = शनि।",
+    "why_en": "5 दिन पहले शुक्र ⇒ आज बुध; +3 = शनि।",
+    "whyWrong": [
+      "रवि/सोम/मंगल गलत गिनती।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q010",
+    "tag": "Reasoning",
+    "q": "Mirror: ‘bdf’ का प्रतिबिंब (सामान्य ऊर्ध्व दर्पण)?",
+    "q_en": "Mirror: ‘bdf’ का प्रतिबिंब (सामान्य ऊर्ध्व दर्पण)?",
+    "opts": [
+      "bdf",
+      "fdb",
+      "bfd",
+      "dfb"
+    ],
+    "ans": "fdb",
+    "why": "क्रम उल्टा: fdb।",
+    "why_en": "क्रम उल्टा: fdb।",
+    "whyWrong": [
+      "अन्य क्रम गलत reverse हैं।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q011",
+    "tag": "Reasoning",
+    "q": "Blood: A is brother of B. B is sister of C. C is father of D. A का D से?",
+    "q_en": "Blood: A is brother of B. B is sister of C. C is father of D. A का D से?",
+    "opts": [
+      "Uncle",
+      "Father",
+      "Brother",
+      "Cousin"
+    ],
+    "ans": "Uncle",
+    "why": "A, C का भाई ⇒ D का चाचा।",
+    "why_en": "A, C का भाई ⇒ D का चाचा।",
+    "whyWrong": [
+      "Father = C।",
+      "Brother/Cousin गलत पीढ़ी।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q012",
+    "tag": "Reasoning",
+    "q": "Complete: 8:27 :: 64:?",
+    "q_en": "Complete: 8:27 :: 64:?",
+    "opts": [
+      "125",
+      "216",
+      "343",
+      "512"
+    ],
+    "ans": "125",
+    "why": "2³:3³ :: 4³:5³ = 64:125।",
+    "why_en": "2³:3³ :: 4³:5³ = 64:125।",
+    "whyWrong": [
+      "216=6³, 343=7³, 512=8³ — गलत जोड़ी।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q013",
+    "tag": "Maths",
+    "q": "25% of 480 = ?",
+    "q_en": "25% of 480 = ?",
+    "opts": [
+      "100",
+      "120",
+      "140",
+      "160"
+    ],
+    "ans": "120",
+    "why": "0.25×480=120।",
+    "why_en": "0.25×480=120।",
+    "whyWrong": [
+      "100=≈21%, 140/160 गलत।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q014",
+    "tag": "Maths",
+    "q": "Simple Interest: P=2000, R=5%, T=3yr",
+    "q_en": "Simple Interest: P=2000, R=5%, T=3yr",
+    "opts": [
+      "₹200",
+      "₹300",
+      "₹250",
+      "₹350"
+    ],
+    "ans": "₹300",
+    "why": "SI=PRT/100=2000×5×3/100=300।",
+    "why_en": "SI=PRT/100=2000×5×3/100=300।",
+    "whyWrong": [
+      "200: T=2 माना।",
+      "250/350 गलत सूत्र।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q015",
+    "tag": "Maths",
+    "q": "LCM of 12 and 18?",
+    "q_en": "LCM of 12 and 18?",
+    "opts": [
+      "36",
+      "72",
+      "54",
+      "24"
+    ],
+    "ans": "36",
+    "why": "12=2²·3, 18=2·3² → LCM=2²·3²=36।",
+    "why_en": "12=2²·3, 18=2·3² → LCM=2²·3²=36।",
+    "whyWrong": [
+      "72 बड़ा गुणज।",
+      "54=3×18 पर 12 का नहीं।",
+      "24 LCM नहीं।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q016",
+    "tag": "Maths",
+    "q": "Average of 10,20,30,40?",
+    "q_en": "Average of 10,20,30,40?",
+    "opts": [
+      "20",
+      "25",
+      "30",
+      "35"
+    ],
+    "ans": "25",
+    "why": "(10+20+30+40)/4=25।",
+    "why_en": "(10+20+30+40)/4=25।",
+    "whyWrong": [
+      "20/30/35 गलत भाग।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q017",
+    "tag": "Maths",
+    "q": "A:B = 2:3, B:C = 4:5. A:C = ?",
+    "q_en": "A:B = 2:3, B:C = 4:5. A:C = ?",
+    "opts": [
+      "8:15",
+      "2:5",
+      "8:9",
+      "4:5"
+    ],
+    "ans": "8:15",
+    "why": "A:B=2:3=8:12; B:C=4:5=12:15 ⇒ A:C=8:15।",
+    "why_en": "A:B=2:3=8:12; B:C=4:5=12:15 ⇒ A:C=8:15।",
+    "whyWrong": [
+      "अन्य अनुपात गलत समीकरण।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q018",
+    "tag": "Maths",
+    "q": "√144 + √81 = ?",
+    "q_en": "√144 + √81 = ?",
+    "opts": [
+      "21",
+      "25",
+      "15",
+      "17"
+    ],
+    "ans": "21",
+    "why": "12+9=21।",
+    "why_en": "12+9=21।",
+    "whyWrong": [
+      "25=16+9 गलत।",
+      "15/17 गलत मूल।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q019",
+    "tag": "Maths",
+    "q": "Train 120 m, 36 km/h, pole पार करने का समय?",
+    "q_en": "Train 120 m, 36 km/h, pole पार करने का समय?",
+    "opts": [
+      "10 s",
+      "12 s",
+      "15 s",
+      "8 s"
+    ],
+    "ans": "12 s",
+    "why": "36 km/h=10 m/s; t=120/10=12 s।",
+    "why_en": "36 km/h=10 m/s; t=120/10=12 s।",
+    "whyWrong": [
+      "10s: 12 m/s माना।",
+      "15/8 गलत गति रूपांतरण।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q020",
+    "tag": "Maths",
+    "q": "(15% of 200) − (10% of 150) = ?",
+    "q_en": "(15% of 200) − (10% of 150) = ?",
+    "opts": [
+      "15",
+      "20",
+      "25",
+      "30"
+    ],
+    "ans": "15",
+    "why": "30−15=15।",
+    "why_en": "30−15=15।",
+    "whyWrong": [
+      "20/25/30 गलत घटाना।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q021",
+    "tag": "Maths",
+    "q": "Pipe fills in 6 h, empties in 8 h. दोनों साथ — भरने का समय?",
+    "q_en": "Pipe fills in 6 h, empties in 8 h. दोनों साथ — भरने का समय?",
+    "opts": [
+      "24 h",
+      "48 h",
+      "14 h",
+      "12 h"
+    ],
+    "ans": "24 h",
+    "why": "1/6−1/8=1/24 ⇒ 24 h।",
+    "why_en": "1/6−1/8=1/24 ⇒ 24 h।",
+    "whyWrong": [
+      "48: गुणा गलत।",
+      "14: जोड़।",
+      "12: केवल भरना।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q022",
+    "tag": "Maths",
+    "q": "CP=₹800, profit 25%. SP=?",
+    "q_en": "CP=₹800, profit 25%. SP=?",
+    "opts": [
+      "₹900",
+      "₹1000",
+      "₹950",
+      "₹1050"
+    ],
+    "ans": "₹1000",
+    "why": "SP=800×1.25=1000।",
+    "why_en": "SP=800×1.25=1000।",
+    "whyWrong": [
+      "900=12.5%।",
+      "950/1050 गलत।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q023",
+    "tag": "Maths",
+    "q": "Area of circle r=7 (π=22/7)?",
+    "q_en": "Area of circle r=7 (π=22/7)?",
+    "opts": [
+      "154",
+      "144",
+      "164",
+      "148"
+    ],
+    "ans": "154",
+    "why": "πr²=22/7×49=154।",
+    "why_en": "πr²=22/7×49=154।",
+    "whyWrong": [
+      "अन्य πr² गलत।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q024",
+    "tag": "Maths",
+    "q": "2x+5=17 ⇒ x=?",
+    "q_en": "2x+5=17 ⇒ x=?",
+    "opts": [
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "ans": "6",
+    "why": "2x=12 ⇒ x=6।",
+    "why_en": "2x=12 ⇒ x=6।",
+    "whyWrong": [
+      "5: 2x=10।",
+      "7/8 गलत।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q025",
+    "tag": "DI",
+    "q": "तालिका: A=40,B=60,C=100। B का % of total?",
+    "q_en": "तालिका: A=40,B=60,C=100। B का % of total?",
+    "opts": [
+      "20%",
+      "30%",
+      "40%",
+      "25%"
+    ],
+    "ans": "30%",
+    "why": "60/200×100=30%।",
+    "why_en": "60/200×100=30%।",
+    "whyWrong": [
+      "20%=40/200।",
+      "40%=80।",
+      "25%=50।"
+    ],
+    "topicUrl": "/csat/data-interpretation.html"
+  },
+  {
+    "id": "q026",
+    "tag": "DI",
+    "q": "Pie: एक खंड 90° — कुल का अंश?",
+    "q_en": "Pie: एक खंड 90° — कुल का अंश?",
+    "opts": [
+      "1/2",
+      "1/3",
+      "1/4",
+      "1/5"
+    ],
+    "ans": "1/4",
+    "why": "90/360=1/4।",
+    "why_en": "90/360=1/4।",
+    "whyWrong": [
+      "1/2=180°, 1/3=120°, 1/5=72°।"
+    ],
+    "topicUrl": "/csat/data-interpretation.html"
+  },
+  {
+    "id": "q027",
+    "tag": "Decision",
+    "q": "कार्यालय में आग लगी — प्रथम कदम?",
+    "q_en": "कार्यालय में आग लगी — प्रथम कदम?",
+    "opts": [
+      "तुरंत भागें बिना सूचित",
+      "अलार्म/सुरक्षा को सूचित, सुरक्षित निकास",
+      "दस्तावेज़ खोजें",
+      "सोशल मीडिया पोस्ट"
+    ],
+    "ans": "अलार्म/सुरक्षा को सूचित, सुरक्षित निकास",
+    "why": "सुरक्षा व प्रोटोकॉल पहले।",
+    "why_en": "सुरक्षा व प्रोटोकॉल पहले।",
+    "whyWrong": [
+      "भागना बिना सूचित जोखिम।",
+      "दस्तावेज़/पोस्ट प्राथमिक नहीं।"
+    ],
+    "topicUrl": "/csat/decision-making.html"
+  },
+  {
+    "id": "q028",
+    "tag": "Decision",
+    "q": "सहकर्मी गलती छुपा रहा — नैतिक विकल्प?",
+    "q_en": "सहकर्मी गलती छुपा रहा — नैतिक विकल्प?",
+    "opts": [
+      "साथ छुपाएँ",
+      "उचित चैनल से रिपोर्ट/सलाह",
+      "सार्वजनिक शर्म",
+      "नज़रअंदाज़ हमेशा"
+    ],
+    "ans": "उचित चैनल से रिपोर्ट/सलाह",
+    "why": "ईमानदारी + प्रक्रिया।",
+    "why_en": "ईमानदारी + प्रक्रिया।",
+    "whyWrong": [
+      "छुपाना/शर्म/अनदेखी गलत।"
+    ],
+    "topicUrl": "/csat/decision-making.html"
+  },
+  {
+    "id": "q029",
+    "tag": "English",
+    "q": "Choose synonym of ‘Rapid’",
+    "q_en": "Choose synonym of ‘Rapid’",
+    "opts": [
+      "Slow",
+      "Quick",
+      "Lazy",
+      "Dull"
+    ],
+    "ans": "Quick",
+    "why": "Rapid = Quick।",
+    "why_en": "Rapid = Quick।",
+    "whyWrong": [
+      "Slow/Lazy/Dull antonyms या unrelated।"
+    ],
+    "topicUrl": "/csat/english-vocabulary.html"
+  },
+  {
+    "id": "q030",
+    "tag": "English",
+    "q": "Antonym of ‘Scarce’",
+    "q_en": "Antonym of ‘Scarce’",
+    "opts": [
+      "Rare",
+      "Abundant",
+      "Little",
+      "Few"
+    ],
+    "ans": "Abundant",
+    "why": "Scarce ↔ Abundant।",
+    "why_en": "Scarce ↔ Abundant।",
+    "whyWrong": [
+      "Rare/Little/Few समानार्थक।"
+    ],
+    "topicUrl": "/csat/english-vocabulary.html"
+  },
+  {
+    "id": "q031",
+    "tag": "English",
+    "q": "Fill: She ____ to school daily.",
+    "q_en": "Fill: She ____ to school daily.",
+    "opts": [
+      "go",
+      "goes",
+      "going",
+      "gone"
+    ],
+    "ans": "goes",
+    "why": "Third person singular → goes।",
+    "why_en": "Third person singular → goes।",
+    "whyWrong": [
+      "go: I/you/we।",
+      "going/gone tense गलत।"
+    ],
+    "topicUrl": "/csat/english-grammar.html"
+  },
+  {
+    "id": "q032",
+    "tag": "English",
+    "q": "Error: He don't like tea.",
+    "q_en": "Error: He don't like tea.",
+    "opts": [
+      "He",
+      "don't",
+      "like",
+      "tea"
+    ],
+    "ans": "don't",
+    "why": "He doesn't।",
+    "why_en": "He doesn't।",
+    "whyWrong": [
+      "अन्य शब्द सही।"
+    ],
+    "topicUrl": "/csat/english-grammar.html"
+  },
+  {
+    "id": "q033",
+    "tag": "English",
+    "q": "‘Break the ice’ means?",
+    "q_en": "‘Break the ice’ means?",
+    "opts": [
+      "ठंड बढ़ाना",
+      "बातचीत शुरू करना",
+      "बर्फ तोड़ना शाब्दिक",
+      "झगड़ा"
+    ],
+    "ans": "बातचीत शुरू करना",
+    "why": "Idiom: initiate conversation।",
+    "why_en": "Idiom: initiate conversation।",
+    "whyWrong": [
+      "शाब्दिक/झगड़ा गलत।"
+    ],
+    "topicUrl": "/csat/english-vocabulary.html"
+  },
+  {
+    "id": "q034",
+    "tag": "Hindi",
+    "q": "‘अमृत’ का पर्याय?",
+    "q_en": "‘अमृत’ का पर्याय?",
+    "opts": [
+      "विष",
+      "पीयूष",
+      "जलज",
+      "अग्नि"
+    ],
+    "ans": "पीयूष",
+    "why": "अमृत = पीयूष।",
+    "why_en": "अमृत = पीयूष।",
+    "whyWrong": [
+      "विष विपरीत।",
+      "जलज=कमल।",
+      "अग्नि unrelated।"
+    ],
+    "topicUrl": "/csat/hindi-paryay-vilom.html"
+  },
+  {
+    "id": "q035",
+    "tag": "Hindi",
+    "q": "‘आशा’ का विलोम?",
+    "q_en": "‘आशा’ का विलोम?",
+    "opts": [
+      "निराशा",
+      "प्रत्याशा",
+      "इच्छा",
+      "कामना"
+    ],
+    "ans": "निराशा",
+    "why": "आशा ↔ निराशा।",
+    "why_en": "आशा ↔ निराशा।",
+    "whyWrong": [
+      "प्रत्याशा/इच्छा/कामना निकटार्थ।"
+    ],
+    "topicUrl": "/csat/hindi-paryay-vilom.html"
+  },
+  {
+    "id": "q036",
+    "tag": "Hindi",
+    "q": "मुहावरा: ‘नाक में दम करना’",
+    "q_en": "मुहावरा: ‘नाक में दम करना’",
+    "opts": [
+      "सहायता",
+      "बहुत परेशान करना",
+      "इज्जत देना",
+      "भागना"
+    ],
+    "ans": "बहुत परेशान करना",
+    "why": "अत्यधिक कष्ट/परेशानी देना।",
+    "why_en": "अत्यधिक कष्ट/परेशानी देना।",
+    "whyWrong": [
+      "अन्य अर्थ गलत।"
+    ],
+    "topicUrl": "/csat/hindi-muhavare.html"
+  },
+  {
+    "id": "q037",
+    "tag": "Hindi",
+    "q": "संधि: ‘सूर्य + उदय’",
+    "q_en": "संधि: ‘सूर्य + उदय’",
+    "opts": [
+      "सूर्योदय",
+      "सूरयउदय",
+      "सूर्यउदय",
+      "सूर्योदय्य"
+    ],
+    "ans": "सूर्योदय",
+    "why": "यण/गुण: सूर्योदय।",
+    "why_en": "यण/गुण: सूर्योदय।",
+    "whyWrong": [
+      "अन्य वर्तनी अशुद्ध।"
+    ],
+    "topicUrl": "/csat/hindi-sandhi-samas.html"
+  },
+  {
+    "id": "q038",
+    "tag": "Hindi",
+    "q": "वाक्य शुद्ध: ‘वह घर गया है’ — अशुद्धि?",
+    "q_en": "वाक्य शुद्ध: ‘वह घर गया है’ — अशुद्धि?",
+    "opts": [
+      "कोई नहीं (सामान्यतः शुद्ध)",
+      "‘है’ हटाएँ अनिवार्य",
+      "‘गया’→‘जाया’",
+      "‘वह’→‘वे’ अनिवार्य"
+    ],
+    "ans": "कोई नहीं (सामान्यतः शुद्ध)",
+    "why": "लिंग/वचन अनुरूप शुद्ध।",
+    "why_en": "लिंग/वचन अनुरूप शुद्ध।",
+    "whyWrong": [
+      "अन्य ‘सुधार’ गलत।"
+    ],
+    "topicUrl": "/csat/hindi-vakya-shuddhi.html"
+  },
+  {
+    "id": "q039",
+    "tag": "Polity",
+    "q": "भारत का संवैधानिक प्रमुख?",
+    "q_en": "भारत का संवैधानिक प्रमुख?",
+    "opts": [
+      "प्रधानमंत्री",
+      "राष्ट्रपति",
+      "मुख्य न्यायाधीश",
+      "लोकसभा अध्यक्ष"
+    ],
+    "ans": "राष्ट्रपति",
+    "why": "Article 52/53 — President is Head of State।",
+    "why_en": "Article 52/53 — President is Head of State।",
+    "whyWrong": [
+      "PM कार्यपालिका प्रमुख (de facto)।",
+      "CJI/Speaker अन्य भूमिका।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q040",
+    "tag": "Polity",
+    "q": "मौलिक अधिकार किस भाग में?",
+    "q_en": "मौलिक अधिकार किस भाग में?",
+    "opts": [
+      "Part III",
+      "Part IV",
+      "Part IX",
+      "Part XII"
+    ],
+    "ans": "Part III",
+    "why": "Part III — Fundamental Rights।",
+    "why_en": "Part III — Fundamental Rights।",
+    "whyWrong": [
+      "Part IV DPSP।",
+      "IX Panchayats।",
+      "XII Finance।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q041",
+    "tag": "Polity",
+    "q": "Article 21 संबंधित?",
+    "q_en": "Article 21 संबंधित?",
+    "opts": [
+      "धर्म",
+      "जीवन व दैहिक स्वतंत्रता",
+      "शिक्षा केवल",
+      "सम्पत्ति"
+    ],
+    "ans": "जीवन व दैहिक स्वतंत्रता",
+    "why": "Right to life and personal liberty।",
+    "why_en": "Right to life and personal liberty।",
+    "whyWrong": [
+      "धर्म 25।",
+      "शिक्षा 21A।",
+      "सम्पत्ति अब कानूनी।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q042",
+    "tag": "Polity",
+    "q": "राज्यसभा में मनोनीत सदस्य संख्या (अधिकतम)?",
+    "q_en": "राज्यसभा में मनोनीत सदस्य संख्या (अधिकतम)?",
+    "opts": [
+      "10",
+      "12",
+      "14",
+      "8"
+    ],
+    "ans": "12",
+    "why": "Article 80 — 12 nominated।",
+    "why_en": "Article 80 — 12 nominated।",
+    "whyWrong": [
+      "10/14/8 गलत संख्या।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q043",
+    "tag": "Polity",
+    "q": "UP का उच्च न्यायालय?",
+    "q_en": "UP का उच्च न्यायालय?",
+    "opts": [
+      "इलाहाबाद",
+      "लखनऊ",
+      "कानपुर",
+      "मेरठ"
+    ],
+    "ans": "इलाहाबाद",
+    "why": "Allahabad High Court; Lucknow bench।",
+    "why_en": "Allahabad High Court; Lucknow bench।",
+    "whyWrong": [
+      "लखनऊ खंडपीठ।",
+      "अन्य नहीं।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q044",
+    "tag": "Polity",
+    "q": "Panchayati Raj संवैधानिक स्थिति — संशोधन?",
+    "q_en": "Panchayati Raj संवैधानिक स्थिति — संशोधन?",
+    "opts": [
+      "42nd",
+      "73rd",
+      "74th",
+      "44th"
+    ],
+    "ans": "73rd",
+    "why": "73rd Amendment — Part IX।",
+    "why_en": "73rd Amendment — Part IX।",
+    "whyWrong": [
+      "74th नगरपालिका।",
+      "42/44 अन्य।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q045",
+    "tag": "Economy",
+    "q": "Repo rate तय करता है?",
+    "q_en": "Repo rate तय करता है?",
+    "opts": [
+      "वित्त मंत्रालय",
+      "RBI",
+      "SEBI",
+      "NITI Aayog"
+    ],
+    "ans": "RBI",
+    "why": "Monetary policy — RBI।",
+    "why_en": "Monetary policy — RBI।",
+    "whyWrong": [
+      "अन्य संस्थाएँ अलग जनादेश।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q046",
+    "tag": "Economy",
+    "q": "GDP में ‘G’?",
+    "q_en": "GDP में ‘G’?",
+    "opts": [
+      "Gross",
+      "General",
+      "Global",
+      "Government"
+    ],
+    "ans": "Gross",
+    "why": "Gross Domestic Product।",
+    "why_en": "Gross Domestic Product।",
+    "whyWrong": [
+      "अन्य शब्द गलत विस्तार।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q047",
+    "tag": "Environment",
+    "q": "Kyoto Protocol संबंधित?",
+    "q_en": "Kyoto Protocol संबंधित?",
+    "opts": [
+      "ओजोन",
+      "जलवायु परिवर्तन / GHG",
+      "वन्यजीव केवल",
+      "समुद्री सीमा"
+    ],
+    "ans": "जलवायु परिवर्तन / GHG",
+    "why": "GHG emission commitments।",
+    "why_en": "GHG emission commitments।",
+    "whyWrong": [
+      "ओजोन Montreal।",
+      "अन्य unrelated।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q048",
+    "tag": "Environment",
+    "q": "केन्द्रीय प्रदूषण नियंत्रण बोर्ड?",
+    "q_en": "केन्द्रीय प्रदूषण नियंत्रण बोर्ड?",
+    "opts": [
+      "CPCB",
+      "NGT",
+      "FSSAI",
+      "BIS"
+    ],
+    "ans": "CPCB",
+    "why": "Central Pollution Control Board।",
+    "why_en": "Central Pollution Control Board।",
+    "whyWrong": [
+      "NGT न्यायाधिकरण।",
+      "FSSAI खाद्य।",
+      "BIS मानक।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q049",
+    "tag": "History",
+    "q": "1857 विद्रोह की शुरुआत?",
+    "q_en": "1857 विद्रोह की शुरुआत?",
+    "opts": [
+      "मेरठ",
+      "दिल्ली",
+      "कानपुर",
+      "लखनऊ"
+    ],
+    "ans": "मेरठ",
+    "why": "10 May 1857 Meerut।",
+    "why_en": "10 May 1857 Meerut।",
+    "whyWrong": [
+      "दिल्ली बाद केंद्र।",
+      "अन्य केंद्र।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q050",
+    "tag": "History",
+    "q": "भारतीय राष्ट्रीय कांग्रेस स्थापना वर्ष?",
+    "q_en": "भारतीय राष्ट्रीय कांग्रेस स्थापना वर्ष?",
+    "opts": [
+      "1885",
+      "1905",
+      "1919",
+      "1942"
+    ],
+    "ans": "1885",
+    "why": "1885 Bombay — A.O. Hume।",
+    "why_en": "1885 Bombay — A.O. Hume।",
+    "whyWrong": [
+      "1905 विभाजन।",
+      "1919 Rowlatt।",
+      "1942 Quit India।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q051",
+    "tag": "Geography",
+    "q": "UP की राजधानी?",
+    "q_en": "UP की राजधानी?",
+    "opts": [
+      "कानपुर",
+      "लखनऊ",
+      "वाराणसी",
+      "आगरा"
+    ],
+    "ans": "लखनऊ",
+    "why": "Lucknow — capital of Uttar Pradesh।",
+    "why_en": "Lucknow — capital of Uttar Pradesh।",
+    "whyWrong": [
+      "अन्य प्रमुख नगर।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q052",
+    "tag": "Geography",
+    "q": "गंगा–यमुना दोआब किस राज्य में प्रमुख?",
+    "q_en": "गंगा–यमुना दोआब किस राज्य में प्रमुख?",
+    "opts": [
+      "बिहार",
+      "उत्तर प्रदेश",
+      "पंजाब",
+      "राजस्थान"
+    ],
+    "ans": "उत्तर प्रदेश",
+    "why": "Ganga-Yamuna doab — western/central UP।",
+    "why_en": "Ganga-Yamuna doab — western/central UP।",
+    "whyWrong": [
+      "अन्य राज्यों में मुख्य दोआब नहीं।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q053",
+    "tag": "Science",
+    "q": " प्रकाश संश्लेषण का मुख्य वर्णक?",
+    "q_en": " प्रकाश संश्लेषण का मुख्य वर्णक?",
+    "opts": [
+      "हीमोग्लोबिन",
+      "क्लोरोफिल",
+      "कैरोटीन केवल",
+      "मेलेनिन"
+    ],
+    "ans": "क्लोरोफिल",
+    "why": "Chlorophyll — photosynthesis।",
+    "why_en": "Chlorophyll — photosynthesis।",
+    "whyWrong": [
+      "हीमोग्लोबिन रक्त।",
+      "मेलेनिन त्वचा।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q054",
+    "tag": "Maths",
+    "q": "HCF of 36 and 60?",
+    "q_en": "HCF of 36 and 60?",
+    "opts": [
+      "6",
+      "12",
+      "18",
+      "24"
+    ],
+    "ans": "12",
+    "why": "36=2²·3², 60=2²·3·5 → HCF=2²·3=12।",
+    "why_en": "36=2²·3², 60=2²·3·5 → HCF=2²·3=12।",
+    "whyWrong": [
+      "6 छोटा।",
+      "18/24 LCM/गलत।"
+    ],
+    "topicUrl": "/csat/maths-numeracy.html"
+  },
+  {
+    "id": "q055",
+    "tag": "Reasoning",
+    "q": "Opposite of North-East?",
+    "q_en": "Opposite of North-East?",
+    "opts": [
+      "South-West",
+      "South-East",
+      "North-West",
+      "East"
+    ],
+    "ans": "South-West",
+    "why": "NE का विपरीत SW।",
+    "why_en": "NE का विपरीत SW।",
+    "whyWrong": [
+      "अन्य दिशाएँ गलत।"
+    ],
+    "topicUrl": "/csat/reasoning.html"
+  },
+  {
+    "id": "q056",
+    "tag": "English",
+    "q": "Plural of ‘Crisis’?",
+    "q_en": "Plural of ‘Crisis’?",
+    "opts": [
+      "Crisises",
+      "Crises",
+      "Crisis",
+      "Crisii"
+    ],
+    "ans": "Crises",
+    "why": "Greek plural crises।",
+    "why_en": "Greek plural crises।",
+    "whyWrong": [
+      "अन्य अशुद्ध।"
+    ],
+    "topicUrl": "/csat/english-grammar.html"
+  },
+  {
+    "id": "q057",
+    "tag": "Hindi",
+    "q": "समास: ‘राजपुत्र’",
+    "q_en": "समास: ‘राजपुत्र’",
+    "opts": [
+      "तत्पुरुष",
+      "द्वंद्व",
+      "कर्मधारय",
+      "अव्ययीभाव"
+    ],
+    "ans": "तत्पुरुष",
+    "why": "राजा का पुत्र — तत्पुरुष।",
+    "why_en": "राजा का पुत्र — तत्पुरुष।",
+    "whyWrong": [
+      "द्वंद्व दोनों प्रधान।",
+      "कर्मधारय विशेषण-विशेष्य एक रूप।"
+    ],
+    "topicUrl": "/csat/hindi-sandhi-samas.html"
+  },
+  {
+    "id": "q058",
+    "tag": "Polity",
+    "q": "भारत में आपातकाल अनुच्छेद?",
+    "q_en": "भारत में आपातकाल अनुच्छेद?",
+    "opts": [
+      "352",
+      "356 केवल",
+      "360 केवल",
+      "370"
+    ],
+    "ans": "352",
+    "why": "Art 352 National Emergency (also 356, 360 types)।",
+    "why_en": "Art 352 National Emergency (also 356, 360 types)।",
+    "whyWrong": [
+      "356 राज्य।",
+      "360 वित्तीय।",
+      "370 जम्मू-कश्मीर (निरस्त)। प्रश्न सामान्यतः 352।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q059",
+    "tag": "DI",
+    "q": "Bar: 2019=50, 2020=75। वृद्धि %?",
+    "q_en": "Bar: 2019=50, 2020=75। वृद्धि %?",
+    "opts": [
+      "25%",
+      "40%",
+      "50%",
+      "60%"
+    ],
+    "ans": "50%",
+    "why": "(75−50)/50×100=50%।",
+    "why_en": "(75−50)/50×100=50%।",
+    "whyWrong": [
+      "25 बिंदु।",
+      "40/60 गलत।"
+    ],
+    "topicUrl": "/csat/data-interpretation.html"
+  },
+  {
+    "id": "q060",
+    "tag": "Decision",
+    "q": "सार्वजनिक शिकायत पर अधिकारी को चाहिए?",
+    "q_en": "सार्वजनिक शिकायत पर अधिकारी को चाहिए?",
+    "opts": [
+      "नज़रअंदाज़",
+      "नियमानुसार जाँच व जवाब",
+      "धमकाना",
+      "फाइल गुम"
+    ],
+    "ans": "नियमानुसार जाँच व जवाब",
+    "why": "सुशासन व जवाबदेही।",
+    "why_en": "सुशासन व जवाबदेही।",
+    "whyWrong": [
+      "अन्य अनैतिक/अवैध।"
+    ],
+    "topicUrl": "/csat/decision-making.html"
+  },
+  {
+    "id": "q061",
+    "tag": "Science",
+    "q": "मानव शरीर में सबसे बड़ी ग्रंथि?",
+    "q_en": "मानव शरीर में सबसे बड़ी ग्रंथि?",
+    "opts": [
+      "थायरॉइड",
+      "यकृत",
+      "अग्न्याशय",
+      "पिट्यूटरी"
+    ],
+    "ans": "यकृत",
+    "why": "Liver — largest gland।",
+    "why_en": "Liver — largest gland।",
+    "whyWrong": [
+      "अन्य छोटी/अलग कार्य।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q062",
+    "tag": "History",
+    "q": "Quit India Movement वर्ष?",
+    "q_en": "Quit India Movement वर्ष?",
+    "opts": [
+      "1942",
+      "1930",
+      "1919",
+      "1947"
+    ],
+    "ans": "1942",
+    "why": "August 1942 — Quit India।",
+    "why_en": "August 1942 — Quit India।",
+    "whyWrong": [
+      "1930 Dandi।",
+      "1919 Jallianwala।",
+      "1947 Independence।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  },
+  {
+    "id": "q063",
+    "tag": "Geography",
+    "q": "ट्रोपिक ऑफ कैंसर भारत में किससे गुजरता है?",
+    "q_en": "ट्रोपिक ऑफ कैंसर भारत में किससे गुजरता है?",
+    "opts": [
+      "केरल",
+      "मध्य प्रदेश सहित कई राज्य",
+      "केवल राजस्थान",
+      "केवल असम"
+    ],
+    "ans": "मध्य प्रदेश सहित कई राज्य",
+    "why": "Tropic of Cancer crosses Rajasthan, MP, Chhattisgarh, Jharkhand, WB, Tripura, Mizoram etc.",
+    "why_en": "Tropic of Cancer crosses Rajasthan, MP, Chhattisgarh, Jharkhand, WB, Tripura, Mizoram etc.",
+    "whyWrong": [
+      "केरल दक्षिण।",
+      "केवल एक राज्य गलत।"
+    ],
+    "topicUrl": "/syllabus/uppcs-prelims.html"
+  }
+]

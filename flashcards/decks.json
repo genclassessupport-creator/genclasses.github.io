@@ -1,0 +1,354 @@
+[
+  {
+    "id": "c001",
+    "deck": "paryay-vilom",
+    "front": "अमृत",
+    "back": "पीयूष / सुधा",
+    "front_en": "Amrit",
+    "back_en": "Nectar (Piyush)"
+  },
+  {
+    "id": "c002",
+    "deck": "paryay-vilom",
+    "front": "अग्नि",
+    "back": "पावक / हुताशन",
+    "front_en": "Agni",
+    "back_en": "Fire (Pavak)"
+  },
+  {
+    "id": "c003",
+    "deck": "paryay-vilom",
+    "front": "जल",
+    "back": "नीर / वारि",
+    "front_en": "Jal",
+    "back_en": "Water (Neer)"
+  },
+  {
+    "id": "c004",
+    "deck": "paryay-vilom",
+    "front": "सूर्य",
+    "back": "आदित्य / भास्कर",
+    "front_en": "Surya",
+    "back_en": "Sun"
+  },
+  {
+    "id": "c005",
+    "deck": "paryay-vilom",
+    "front": "चंद्र",
+    "back": "शशि / इंदु",
+    "front_en": "Chandra",
+    "back_en": "Moon"
+  },
+  {
+    "id": "c006",
+    "deck": "paryay-vilom",
+    "front": "आशा",
+    "back": "निराशा (विलोम)",
+    "front_en": "Asha",
+    "back_en": "Nirasha (antonym)"
+  },
+  {
+    "id": "c007",
+    "deck": "paryay-vilom",
+    "front": "उष्ण",
+    "back": "शीत (विलोम)",
+    "front_en": "Ushna",
+    "back_en": "Sheet (antonym)"
+  },
+  {
+    "id": "c008",
+    "deck": "paryay-vilom",
+    "front": "आगम",
+    "back": "निर्गम (विलोम)",
+    "front_en": "Aagam",
+    "back_en": "Nirgam (antonym)"
+  },
+  {
+    "id": "c009",
+    "deck": "paryay-vilom",
+    "front": "आदि",
+    "back": "अंत (विलोम)",
+    "front_en": "Aadi",
+    "back_en": "Ant (antonym)"
+  },
+  {
+    "id": "c010",
+    "deck": "paryay-vilom",
+    "front": "कृपण",
+    "back": "दरिद्रता? → उदार (विलोम)",
+    "front_en": "Kripan",
+    "back_en": "Udaar (antonym: generous)"
+  },
+  {
+    "id": "c011",
+    "deck": "paryay-vilom",
+    "front": "सफल",
+    "back": "विफल (विलोम)",
+    "front_en": "Safal",
+    "back_en": "Viphal (antonym)"
+  },
+  {
+    "id": "c012",
+    "deck": "paryay-vilom",
+    "front": "ज्ञान",
+    "back": "अज्ञान (विलोम)",
+    "front_en": "Gyan",
+    "back_en": "Agyan (antonym)"
+  },
+  {
+    "id": "c013",
+    "deck": "muhavare",
+    "front": "नाक में दम करना",
+    "back": "बहुत परेशान करना",
+    "front_en": "नाक में दम करना",
+    "back_en": "To harass greatly"
+  },
+  {
+    "id": "c014",
+    "deck": "muhavare",
+    "front": "नाक रगड़ना",
+    "back": "बहुत विनती करना",
+    "front_en": "नाक रगड़ना",
+    "back_en": "To plead humbly"
+  },
+  {
+    "id": "c015",
+    "deck": "muhavare",
+    "front": "आँख की किरकिरी",
+    "back": "बहुत खटकने वाला",
+    "front_en": "आँख की किरकिरी",
+    "back_en": "A constant irritation"
+  },
+  {
+    "id": "c016",
+    "deck": "muhavare",
+    "front": "हाथ मलना",
+    "back": "पछताना",
+    "front_en": "हाथ मलना",
+    "back_en": "To repent"
+  },
+  {
+    "id": "c017",
+    "deck": "muhavare",
+    "front": "होश उड़ जाना",
+    "back": "बहुत घबरा जाना",
+    "front_en": "होश उड़ जाना",
+    "back_en": "To be stunned"
+  },
+  {
+    "id": "c018",
+    "deck": "muhavare",
+    "front": "कान भरना",
+    "back": "चुगली करना",
+    "front_en": "कान भरना",
+    "back_en": "To poison ears"
+  },
+  {
+    "id": "c019",
+    "deck": "muhavare",
+    "front": "दिल बाग-बाग होना",
+    "back": "बहुत प्रसन्न होना",
+    "front_en": "दिल बाग-बाग होना",
+    "back_en": "To be overjoyed"
+  },
+  {
+    "id": "c020",
+    "deck": "muhavare",
+    "front": "पेट में चूहे दौड़ना",
+    "back": "बहुत भूख लगना",
+    "front_en": "पेट में चूहे दौड़ना",
+    "back_en": "To be very hungry"
+  },
+  {
+    "id": "c021",
+    "deck": "muhavare",
+    "front": "सिर पर चढ़ाना",
+    "back": "अत्यधिक महत्व देना",
+    "front_en": "सिर पर चढ़ाना",
+    "back_en": "To pamper excessively"
+  },
+  {
+    "id": "c022",
+    "deck": "muhavare",
+    "front": "बात का बतंगड़",
+    "back": "छोटी बात को बड़ा बनाना",
+    "front_en": "बात का बतंगड़",
+    "back_en": "To make a mountain of a molehill"
+  },
+  {
+    "id": "c023",
+    "deck": "ethics",
+    "front": "गांधी",
+    "back": "सत्य, अहिंसा, सत्याग्रह, ट्रस्टीशिप",
+    "front_en": "Gandhi",
+    "back_en": "Truth, non-violence, satyagraha, trusteeship"
+  },
+  {
+    "id": "c024",
+    "deck": "ethics",
+    "front": "अम्बेडकर",
+    "back": "सामाजिक न्याय, संविधान, समता",
+    "front_en": "Ambedkar",
+    "back_en": "Social justice, Constitution, equality"
+  },
+  {
+    "id": "c025",
+    "deck": "ethics",
+    "front": "कौटिल्य",
+    "back": "अर्थशास्त्र, राज्यधर्म, मंडल सिद्धांत",
+    "front_en": "Kautilya",
+    "back_en": "Arthashastra, rajadharma, mandala"
+  },
+  {
+    "id": "c026",
+    "deck": "ethics",
+    "front": "प्लेटो",
+    "back": "न्याय का आदर्श राज्य, दार्शनिक राजा",
+    "front_en": "Plato",
+    "back_en": "Ideal state, philosopher king"
+  },
+  {
+    "id": "c027",
+    "deck": "ethics",
+    "front": "अरस्तू",
+    "back": "मध्य मार्ग, सद्गुण नैतिकता",
+    "front_en": "Aristotle",
+    "back_en": "Golden mean, virtue ethics"
+  },
+  {
+    "id": "c028",
+    "deck": "ethics",
+    "front": "कांट",
+    "back": "कर्तव्य आधारित नैतिकता, कैटेगोरिकल इंपेरेटिव",
+    "front_en": "Kant",
+    "back_en": "Duty ethics, categorical imperative"
+  },
+  {
+    "id": "c029",
+    "deck": "ethics",
+    "front": "मिल",
+    "back": "उपयोगितावाद — अधिकतम सुख",
+    "front_en": "J.S. Mill",
+    "back_en": "Utilitarianism — greatest happiness"
+  },
+  {
+    "id": "c030",
+    "deck": "ethics",
+    "front": "राधाकृष्णन",
+    "back": "पूर्वी-पश्चिमी दर्शन समन्वय",
+    "front_en": "Radhakrishnan",
+    "back_en": "East–West philosophical synthesis"
+  },
+  {
+    "id": "c031",
+    "deck": "ethics",
+    "front": "विवेकानंद",
+    "back": "कर्मयोग, आत्मविश्वास, सेवा",
+    "front_en": "Vivekananda",
+    "back_en": "Karma yoga, self-confidence, service"
+  },
+  {
+    "id": "c032",
+    "deck": "ethics",
+    "front": "चाणक्य नीति",
+    "back": "व्यवहारिक राज्यनीति व नीति-सूत्र",
+    "front_en": "Chanakya Niti",
+    "back_en": "Practical statecraft maxims"
+  },
+  {
+    "id": "c033",
+    "deck": "polity",
+    "front": "Article 14",
+    "back": "विधि के समक्ष समता / Equal protection",
+    "front_en": "Article 14",
+    "back_en": "Equality before law"
+  },
+  {
+    "id": "c034",
+    "deck": "polity",
+    "front": "Article 19",
+    "back": "वाक्-स्वातंत्र्य आदि छह स्वतंत्रताएँ",
+    "front_en": "Article 19",
+    "back_en": "Six freedoms incl. speech"
+  },
+  {
+    "id": "c035",
+    "deck": "polity",
+    "front": "Article 21",
+    "back": "जीवन व दैहिक स्वतंत्रता",
+    "front_en": "Article 21",
+    "back_en": "Life and personal liberty"
+  },
+  {
+    "id": "c036",
+    "deck": "polity",
+    "front": "Article 21A",
+    "back": "6–14 वर्ष निःशुल्क अनिवार्य शिक्षा",
+    "front_en": "Article 21A",
+    "back_en": "Free & compulsory education 6–14"
+  },
+  {
+    "id": "c037",
+    "deck": "polity",
+    "front": "Article 32",
+    "back": "संवैधानिक उपचारों का अधिकार",
+    "front_en": "Article 32",
+    "back_en": "Right to constitutional remedies"
+  },
+  {
+    "id": "c038",
+    "deck": "polity",
+    "front": "Article 40",
+    "back": "ग्राम पंचायतों का संगठन (DPSP)",
+    "front_en": "Article 40",
+    "back_en": "Organisation of village panchayats"
+  },
+  {
+    "id": "c039",
+    "deck": "polity",
+    "front": "Article 51A",
+    "back": "मूल कर्तव्य",
+    "front_en": "Article 51A",
+    "back_en": "Fundamental duties"
+  },
+  {
+    "id": "c040",
+    "deck": "polity",
+    "front": "Article 72",
+    "back": "राष्ट्रपति की क्षमा शक्ति",
+    "front_en": "Article 72",
+    "back_en": "President’s pardoning power"
+  },
+  {
+    "id": "c041",
+    "deck": "polity",
+    "front": "Article 110",
+    "back": "धन विधेयक",
+    "front_en": "Article 110",
+    "back_en": "Money Bill"
+  },
+  {
+    "id": "c042",
+    "deck": "polity",
+    "front": "Article 280",
+    "back": "वित्त आयोग",
+    "front_en": "Article 280",
+    "back_en": "Finance Commission"
+  },
+  {
+    "id": "c043",
+    "deck": "polity",
+    "front": "Article 320",
+    "back": "लोक सेवा आयोग के कार्य",
+    "front_en": "Article 320",
+    "back_en": "UPSC/SPSC functions"
+  },
+  {
+    "id": "c044",
+    "deck": "polity",
+    "front": "Article 356",
+    "back": "राज्य में संवैधानिक तंत्र विफलता",
+    "front_en": "Article 356",
+    "back_en": "President’s Rule"
+  }
+]
