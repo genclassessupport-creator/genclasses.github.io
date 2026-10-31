@@ -166,22 +166,22 @@ nav.scrolled{background:rgba(6,11,22,.78);backdrop-filter:blur(14px);border-bott
 .menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--gold-hi);font-size:19px;padding:5px 13px;border-radius:9px;cursor:pointer}
 
 /* ═══════════ मुखपृष्ठ ═══════════ */
-header{position:relative;z-index:3;min-height:100vh;display:flex;align-items:center;padding:150px 26px 90px}
+header{position:relative;z-index:3;min-height:0;display:flex;align-items:center;padding:100px 26px 32px}
 .wm{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);
-  font-family:'Rozha One',serif;font-size:min(34vw,470px);line-height:1;
-  color:transparent;-webkit-text-stroke:1px rgba(217,174,95,.07);
+  font-family:'Rozha One',serif;font-size:min(22vw,280px);line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(217,174,95,.055);
   z-index:-1;user-select:none;pointer-events:none;white-space:nowrap;
 }
-.hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;width:100%}
+.hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center;width:100%}
 .hr-el{opacity:0;transform:translateY(34px);animation:rise 1s cubic-bezier(.2,.75,.25,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .eyebrow{
   display:inline-flex;align-items:center;gap:12px;
-  font-size:12.5px;letter-spacing:4.5px;color:var(--gold);font-weight:700;margin-bottom:24px;
+  font-size:11.5px;letter-spacing:3.2px;color:var(--gold);font-weight:700;margin-bottom:12px;
 }
 .eyebrow::before{content:"";width:38px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent)}
-h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0,.55)}
+h1.hero-title{font-size:clamp(28px,4vw,46px);text-shadow:0 4px 28px rgba(0,0,0,.45)}
 .shimmer{
   background:linear-gradient(100deg,var(--gold-deep) 0%,var(--gold-hi) 42%,#FFF3D6 50%,var(--gold-hi) 58%,var(--gold-deep) 100%);
   background-size:230% 100%;
@@ -189,22 +189,22 @@ h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0
   animation:sheen 5.5s ease-in-out infinite;
 }
 @keyframes sheen{0%,100%{background-position:88% 0}50%{background-position:12% 0}}
-.hero-sub{margin-top:24px;font-size:18.5px;color:var(--mist);max-width:540px;font-weight:300}
-.hero-actions{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 32px;border-radius:10px;font-weight:700;font-size:15.5px;transition:transform .25s,box-shadow .25s,background .25s;position:relative;overflow:hidden}
+.hero-sub{margin-top:12px;font-size:15.5px;color:var(--mist);max-width:500px;font-weight:300;line-height:1.65}
+.hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border-radius:10px;font-weight:700;font-size:14px;transition:transform .25s,box-shadow .25s,background .25s;position:relative;overflow:hidden}
 .btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--ink0);box-shadow:0 12px 34px rgba(217,174,95,.32)}
 .btn-gold::after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-22deg);transition:left .55s}
 .btn-gold:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(217,174,95,.5)}
 .btn-gold:hover::after{left:130%}
 .btn-ghost{border:1.5px solid var(--line-2);color:var(--cream);background:rgba(217,174,95,.05)}
 .btn-ghost:hover{transform:translateY(-3px);background:rgba(217,174,95,.13);border-color:var(--gold)}
-.hero-line{margin-top:44px;font-size:14px;color:var(--mist);letter-spacing:.4px}
+.hero-line{margin-top:16px;font-size:13px;color:var(--mist);letter-spacing:.3px}
 .hero-line b{color:var(--gold-hi);font-weight:600}
 .hero-line .dot{color:var(--gold);margin:0 9px}
 
 /* दीप-पत्र चिह्न */
 .hero-art{display:grid;place-items:center}
-.emblem{width:min(390px,88%);aspect-ratio:1;position:relative;display:grid;place-items:center}
+.emblem{width:min(220px,52%);aspect-ratio:1;position:relative;display:grid;place-items:center}
 .emblem::before{
   content:"";position:absolute;inset:9%;border-radius:50%;
   background:radial-gradient(circle,rgba(217,174,95,.15) 0%,transparent 62%);
@@ -227,18 +227,18 @@ h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0
 .flame-core{fill:#FFF6DF;transform-box:fill-box;transform-origin:50% 100%;animation:flick 2.3s ease-in-out .12s infinite}
 @keyframes flick{0%,100%{transform:scaleY(1) scaleX(1) rotate(0deg)}30%{transform:scaleY(1.14) scaleX(.93) rotate(-2.5deg)}60%{transform:scaleY(.92) scaleX(1.06) rotate(2deg)}80%{transform:scaleY(1.07) scaleX(.96) rotate(-1deg)}}
 .emblem-cap{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  background:rgba(10,20,38,.85);border:1px solid var(--line-2);border-radius:30px;
-  padding:9px 26px;white-space:nowrap;backdrop-filter:blur(8px);
-  font-family:'Tiro Devanagari Hindi',serif;font-style:italic;font-size:15px;color:var(--gold-hi);
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);
+  background:rgba(10,20,38,.88);border:1px solid var(--line-2);border-radius:30px;
+  padding:6px 16px;white-space:nowrap;backdrop-filter:blur(8px);
+  font-family:'Tiro Devanagari Hindi',serif;font-style:italic;font-size:12.5px;color:var(--gold-hi);
+  box-shadow:0 8px 22px rgba(0,0,0,.4);
 }
-.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:3px;opacity:.8}
+.scroll-cue{display:none;position:absolute;bottom:14px;left:50%;transform:translateX(-50%);flex-direction:column;align-items:center;gap:6px;color:var(--gold);font-size:10px;letter-spacing:2px;opacity:.65}
 .scroll-cue span{display:block;width:1.5px;height:44px;background:linear-gradient(180deg,var(--gold),transparent);animation:cue 1.8s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
 /* ═══════════ विषय-पंक्ति (marquee) ═══════════ */
-.marq{position:relative;z-index:3;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(217,174,95,.03);overflow:hidden;padding:15px 0}
+.marq{position:relative;z-index:3;border-top:none;border-bottom:1px solid var(--line);background:rgba(217,174,95,.03);overflow:hidden;padding:12px 0}
 .marq .track{display:flex;width:max-content;animation:marq 30s linear infinite}
 .marq:hover .track{animation-play-state:paused}
 .marq .grp{display:flex;align-items:center;white-space:nowrap;font-family:'Tiro Devanagari Hindi',serif;font-size:16.5px;color:var(--gold);letter-spacing:1px}
@@ -410,20 +410,41 @@ section{position:relative;z-index:3;padding:104px 26px}
 #special-notes .rv{opacity:1;transform:none}
 #special-notes{
   position:relative;
-  padding:56px 0 52px;
+  padding:36px 22px 34px;
   background:
     radial-gradient(ellipse 80% 60% at 10% 0%, rgba(217,174,95,.18), transparent 55%),
     radial-gradient(ellipse 70% 50% at 90% 100%, rgba(10,85,163,.22), transparent 50%),
     linear-gradient(165deg, #071428 0%, #0c2a52 48%, #0a1f3d 100%);
-  border-top:1px solid rgba(217,174,95,.35);
-  border-bottom:1px solid rgba(217,174,95,.28);
+  border-top:none;
+  border-bottom:none;
 }
+.sn-banner{
+  display:flex;align-items:flex-start;gap:12px;
+  margin:0 0 18px;padding:12px 14px;
+  border-radius:12px;
+  background:linear-gradient(105deg,#e8a23a 0%,#c45a18 55%,#9a3f0f 100%);
+  color:#fff;
+  box-shadow:0 10px 26px rgba(196,90,24,.4);
+  border:1px solid rgba(255,255,255,.22);
+}
+.sn-banner-ico{flex:0 0 auto;font-size:16px;line-height:1.4;margin-top:1px}
+.sn-banner p{margin:0;font-size:14px;font-weight:600;line-height:1.45;color:#fff}
+.sn-banner strong{font-weight:900;letter-spacing:.2px}
+html[data-theme="light"] .sn-banner{
+  background:linear-gradient(105deg,#f0b24a 0%,#d97706 55%,#b45309 100%);
+  color:#1a0f05;
+}
+html[data-theme="light"] .sn-banner p,
+html[data-theme="light"] .sn-banner strong{color:#1a0f05}
+#special-notes .sec-head{margin-bottom:18px}
+#special-notes .sec-head h2{font-size:clamp(22px,3.4vw,34px);margin-top:6px}
+#special-notes .sec-head p{margin-top:8px}
 html[data-theme="light"] #special-notes{
   background:
     radial-gradient(ellipse 80% 55% at 10% 0%, rgba(232,162,58,.22), transparent 55%),
     linear-gradient(165deg, #0a274d 0%, #0d3a72 48%, #0a2a52 100%);
-  border-top:3px solid #e8a23a;
-  border-bottom:3px solid #e8a23a;
+  border-top:none;
+  border-bottom:none;
 }
 #special-notes .section-in{position:relative;z-index:1}
 #special-notes .sec-head h2{color:#F2EBDA}
@@ -520,12 +541,16 @@ html[data-theme="light"] .sn-btns .btn-ghost{
 html[data-theme="light"] .sn-meta{color:#aebaca}
 html[data-theme="light"] .sn-meta a{color:#F2CD88}
 @media (max-width:560px){
-  #special-notes{padding:40px 0 36px}
+  #special-notes{padding:28px 16px 26px}
+  .sn-banner{padding:10px 12px;gap:10px}
+  .sn-banner p{font-size:12.5px}
   .sn-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
   .sn-card{padding:11px 6px 10px}
   .sn-card h3{font-size:11.5px}
   .sn-ico{width:34px;height:34px}
   .sn-ico svg{width:16px;height:16px}
+  .sn-points{grid-template-columns:1fr}
+  .sn-cta{margin-top:16px}
 }
 
 
@@ -585,13 +610,18 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 
 /* ═══════════ अनुकूलन ═══════════ */
 @media(max-width:960px){
-  header{padding-top:130px;min-height:auto}
-  .hero-in{grid-template-columns:1fr;text-align:center;gap:62px}
-  .hero-sub{margin-left:auto;margin-right:auto}
-  .hero-actions{justify-content:center}
-  .eyebrow{justify-content:center}
+  header{padding:78px 16px 18px;min-height:0}
+  .hero-in{grid-template-columns:1fr;text-align:center;gap:10px}
+  .hero-art{order:-1}
+  .hero-sub{margin-left:auto;margin-right:auto;font-size:13.5px;margin-top:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .hero-actions{justify-content:center;margin-top:10px}
+  .hero-line{margin-top:8px;font-size:11.5px}
+  h1.hero-title{font-size:clamp(22px,5.8vw,30px)}
+  .emblem{width:min(112px,34%)}
+  .emblem-cap{display:none}
+  .eyebrow{justify-content:center;margin-bottom:6px;font-size:10.5px;letter-spacing:2.5px}
   .eyebrow::before{display:none}
-  .wm{font-size:64vw}
+  .wm{font-size:36vw}
   .scroll-cue{display:none}
   .method::before{display:none}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
@@ -625,8 +655,8 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
       <span class="brand-name">GenClasses<small>Your goal our support</small></span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#tests">टेस्ट सीरीज़</a>
       <a href="#special-notes">विशेष नोट्स</a>
+      <a href="#tests">टेस्ट सीरीज़</a>
       <a href="#join">जुड़ें</a>
       <a href="#subjects">विषय</a>
       <a href="#method">अध्ययन-विधि</a>
@@ -677,48 +707,13 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   <div class="scroll-cue" aria-hidden="true">नीचे<span></span></div>
 </header>
 
-<!-- ================= विषय-पंक्ति ================= -->
-<div class="marq" aria-hidden="true">
-  <div class="track">
-    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
-    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
-  </div>
-</div>
-
-<!-- ================= टेस्ट सीरीज़ ================= -->
-<section id="tests">
-  <div class="section-in">
-    <div class="sec-head rv">
-      <span class="eyebrow">टेस्ट सीरीज़</span>
-      <h2>अभ्यास, परीक्षा की <em>कसौटी</em> पर</h2>
-      <p>UP PCS Prelims 2026 सहित करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
-    </div>
-
-    <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="टेस्ट के खण्ड">
-      <button class="ttab active" data-filter="all">सभी <span class="cnt" data-cnt="all"></span></button>
-      <button class="ttab" data-filter="uppcs2026">UP PCS Prelims 2026 <span class="cnt" data-cnt="uppcs2026"></span></button>
-      <button class="ttab" data-filter="ca">करेंट अफेयर्स <span class="cnt" data-cnt="ca"></span></button>
-      <button class="ttab" data-filter="gs">सामान्य अध्ययन <span class="cnt" data-cnt="gs"></span></button>
-      <button class="ttab" data-filter="csat">CSAT <span class="cnt" data-cnt="csat"></span></button>
-      <button class="ttab" data-filter="ncert">NCERT <span class="cnt" data-cnt="ncert"></span></button>
-      <button class="ttab" data-filter="upsssc">UPSSSC <span class="cnt" data-cnt="upsssc"></span></button>
-      <button class="ttab" data-filter="upspecial">UP SPECIAL <span class="cnt" data-cnt="upspecial"></span></button>
-    </div>
-
-    <div class="tgrid" id="testGrid">
-      <div class="tstate" id="testState">टेस्ट-सूची तैयार हो रही है…</div>
-    </div>
-
-    <p class="tfoot rv">प्रत्येक नए टेस्ट की सूचना सबसे पहले — <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram पर जुड़ें →</a></p>
-  </div>
-</section>
-
-
-<div class="hairline"></div>
-
 <!-- ================= विशेष नोट्स ================= -->
 <section id="special-notes">
   <div class="section-in sn-wrap">
+    <div class="sn-banner rv" role="status">
+      <span class="sn-banner-ico" aria-hidden="true">✦</span>
+      <p><strong>Custom Demand पर नोट्स उपलब्ध</strong> — आपकी ज़रूरत के अनुसार नोट्स तैयार किए जाते हैं</p>
+    </div>
     <div class="sec-head rv">
       <span class="eyebrow">विशेष नोट्स</span>
       <h2>UPPSC प्रारंभिक परीक्षा 2026 — <em>सभी विषयों</em> के विशेष नोट्स</h2>
@@ -806,6 +801,43 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
         · <a href="mailto:genclassessupport@gmail.com">genclassessupport@gmail.com</a>
       </p>
     </div>
+  </div>
+</section>
+
+
+<!-- ================= विषय-पंक्ति ================= -->
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
+    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
+  </div>
+</div>
+
+<!-- ================= टेस्ट सीरीज़ ================= -->
+<section id="tests">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">टेस्ट सीरीज़</span>
+      <h2>अभ्यास, परीक्षा की <em>कसौटी</em> पर</h2>
+      <p>UP PCS Prelims 2026 सहित करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
+    </div>
+
+    <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="टेस्ट के खण्ड">
+      <button class="ttab active" data-filter="all">सभी <span class="cnt" data-cnt="all"></span></button>
+      <button class="ttab" data-filter="uppcs2026">UP PCS Prelims 2026 <span class="cnt" data-cnt="uppcs2026"></span></button>
+      <button class="ttab" data-filter="ca">करेंट अफेयर्स <span class="cnt" data-cnt="ca"></span></button>
+      <button class="ttab" data-filter="gs">सामान्य अध्ययन <span class="cnt" data-cnt="gs"></span></button>
+      <button class="ttab" data-filter="csat">CSAT <span class="cnt" data-cnt="csat"></span></button>
+      <button class="ttab" data-filter="ncert">NCERT <span class="cnt" data-cnt="ncert"></span></button>
+      <button class="ttab" data-filter="upsssc">UPSSSC <span class="cnt" data-cnt="upsssc"></span></button>
+      <button class="ttab" data-filter="upspecial">UP SPECIAL <span class="cnt" data-cnt="upspecial"></span></button>
+    </div>
+
+    <div class="tgrid" id="testGrid">
+      <div class="tstate" id="testState">टेस्ट-सूची तैयार हो रही है…</div>
+    </div>
+
+    <p class="tfoot rv">प्रत्येक नए टेस्ट की सूचना सबसे पहले — <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram पर जुड़ें →</a></p>
   </div>
 </section>
 
