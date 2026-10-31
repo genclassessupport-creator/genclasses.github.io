@@ -633,7 +633,7 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 }
 
 /* ticker + features + i18n (homepage) */
-.ticker-wrap{position:relative;z-index:95;margin-top:72px;overflow:hidden;border-bottom:1px solid var(--line);background:rgba(18,48,90,.55);position:relative;z-index:90}
+.ticker-wrap.ticker-fixed-bar,.ticker-wrap{position:relative;z-index:95;margin-top:72px;overflow:hidden;min-height:40px;border-bottom:1px solid var(--line);background:rgba(18,48,90,.55);position:relative;z-index:90}
 html[data-theme="light"] .ticker-wrap{background:rgba(246,241,228,.97)}
 .ticker-track{display:flex;width:max-content;animation:ticker-scroll 42s linear infinite}
 .ticker-wrap:hover .ticker-track{animation-play-state:paused}
@@ -709,17 +709,17 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
   <div class="wm" id="wm">जेन</div>
   <div class="hero-in">
     <div>
-      <span class="eyebrow hr-el" style="animation-delay:.15s">UPSC · UPPCS की तैयारी</span>
+      <span class="eyebrow hr-el" style="animation-delay:.15s"><span data-hi>UPSC · UPPCS की तैयारी</span><span data-en>UPSC · UPPCS preparation</span></span>
       <h1 class="hero-title">
-        <span class="hr-el" style="animation-delay:.3s;display:block">अवधारणा की स्पष्टता,</span>
-        <span class="hr-el" style="animation-delay:.5s;display:block"><span class="shimmer">अभ्यास</span> की निरंतरता</span>
+        <span class="hr-el" style="animation-delay:.3s;display:block"><span data-hi>अवधारणा की स्पष्टता,</span><span data-en>Clarity of concepts,</span></span>
+        <span class="hr-el" style="animation-delay:.5s;display:block"><span data-hi><span class="shimmer">अभ्यास</span> की निरंतरता</span><span data-en>consistency of <span class="shimmer">practice</span></span></span>
       </h1>
-      <p class="hero-sub hr-el" style="animation-delay:.7s">प्रामाणिक अध्ययन-सामग्री और परीक्षा-स्तरीय टेस्ट के साथ व्यवस्थित तैयारी — प्रारंभिक परीक्षा से मुख्य परीक्षा तक।</p>
+      <p class="hero-sub hr-el" style="animation-delay:.7s"><span data-hi>प्रामाणिक अध्ययन-सामग्री और परीक्षा-स्तरीय टेस्ट के साथ व्यवस्थित तैयारी — प्रारंभिक परीक्षा से मुख्य परीक्षा तक।</span><span data-en>Structured prep with authentic notes and exam-level tests — from Prelims to Mains.</span></p>
       <div class="hero-actions hr-el" style="animation-delay:.88s">
-        <a href="#tests" class="btn btn-gold">टेस्ट सीरीज़ देखें</a>
-        <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener" class="btn btn-ghost">Telegram से जुड़ें</a>
+        <a href="#tests" class="btn btn-gold"><span data-hi>टेस्ट सीरीज़ देखें</span><span data-en>View test series</span></a>
+        <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener" class="btn btn-ghost"><span data-hi>Telegram से जुड़ें</span><span data-en>Join Telegram</span></a>
       </div>
-      <p class="hero-line hr-el" style="animation-delay:1.05s"><b>PYQ-आधारित दृष्टिकोण</b><span class="dot">✦</span>विषयवार अभ्यास<span class="dot">✦</span>निःशुल्क उपलब्ध</p>
+      <p class="hero-line hr-el" style="animation-delay:1.05s"><span data-hi><b>PYQ-आधारित दृष्टिकोण</b><span class="dot">✦</span>विषयवार अभ्यास<span class="dot">✦</span>निःशुल्क उपलब्ध</span><span data-en><b>PYQ-based approach</b><span class="dot">✦</span>Topic-wise practice<span class="dot">✦</span>Free to use</span></p>
     </div>
     <div class="hero-art hr-el" style="animation-delay:.55s">
       <div class="emblem">
@@ -740,7 +740,7 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
       </div>
     </div>
   </div>
-  <div class="scroll-cue" aria-hidden="true">नीचे<span></span></div>
+  <div class="scroll-cue" aria-hidden="true"><span data-hi>नीचे</span><span data-en>Down</span><span></span></div>
 </header>
 
 
