@@ -10,7 +10,7 @@
 4. assets/test-template.html: नया टेस्ट बनाने का मूल ढाँचा।
 5. assets/generator.html: MD से GenClasses टेस्ट बनाने का जनरेटर।
 6. assets/gen-watermark.js: साझा वॉटरमार्क।
-7. assets/gen-logo.png: लोगो (192 × 192)।
+7. assets/gen-logo.png / .webp: लोगो (192×192). हेडर के लिए gen-logo-96.webp (~3KB). favicon.ico, apple-touch-icon.png, gen-logo-og.jpg भी।
 8. files.json: टेस्ट-सूची। GitHub Action इसे हर push पर अपने-आप बनाता है।
 
 ## नया टेस्ट जोड़ना
@@ -25,7 +25,7 @@
 1. index.html में Telegram और YouTube के लिंक href="#" पर हैं। अपने चैनलों के लिंक डालें।
 2. index.html में CONFIG अभी genclassessupport-creator और genclasses.github.io पर सेट है। अगर repo का नाम अलग रखें तो CONFIG में भी वही नाम लिखें।
 3. संपर्क का ईमेल genclassessupport@gmail.com है (दूसरा genclassesinfo@gmail.com भी बना है)। संस्थापक का परिचय पुरानी वेबसाइट से लिया गया है; उसे अपने अनुसार बदलें।
-4. लोगो बदलना हो तो assets/gen-logo.png को उसी नाम और आकार की नई फ़ाइल से बदलें।
+4. लोगो बदलना हो तो assets/gen-logo.png (192×192) व gen-logo-96.webp/png, favicon*, apple-touch-icon, gen-logo-og.jpg, gen-logo-wm.webp भी अपडेट करें।
 
 ## GitHub Pages पर चढ़ाना
 

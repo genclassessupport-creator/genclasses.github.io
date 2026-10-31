@@ -9,7 +9,18 @@
 <meta property="og:title" content="GenClasses — UPSC / UPPCS">
 <meta property="og:description" content="अवधारणा की स्पष्टता, अभ्यास की निरंतरता — विषयवार टेस्ट सीरीज़ एवं अध्ययन-सामग्री।">
 <meta property="og:type" content="website">
-<link rel="icon" type="image/png" id="favLink" href="data:,">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:image:alt" content="GenClasses">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Tiro+Devanagari+Hindi:ital@0;1&family=Mukta:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -131,13 +142,13 @@ nav.scrolled{background:rgba(6,11,22,.78);backdrop-filter:blur(14px);border-bott
 .nav-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 26px}
 .brand{display:flex;align-items:center;gap:13px}
 .brand-mark{
-  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;overflow:hidden;
-  background:linear-gradient(150deg,var(--ink2),var(--ink1));
-  border:1px solid var(--line-2);box-shadow:0 0 22px rgba(217,174,95,.28),inset 0 0 14px rgba(217,174,95,.10);
+  width:56px;height:56px;border-radius:50%;display:grid;place-items:center;overflow:hidden;flex:0 0 auto;
+  background:#fff;
+  border:1px solid var(--line-2);box-shadow:0 0 22px rgba(217,174,95,.28);
 }
-.brand-mark img{width:100%;height:100%;object-fit:cover;display:none}
-.bm-fallback{display:grid;width:100%;height:100%;place-items:center;font-family:'Rozha One',serif;font-size:20px;color:var(--gold-hi)}
-.foot-logo{display:none;width:78px;height:78px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2);box-shadow:0 0 30px rgba(217,174,95,.32);margin-bottom:14px}
+.brand-mark picture,.brand-mark img{width:100%;height:100%;display:block;object-fit:cover}
+.foot-logo-wrap{display:block;margin:0 auto 14px;width:78px;height:78px}
+.foot-logo{display:block;width:78px;height:78px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2);box-shadow:0 0 30px rgba(217,174,95,.32);background:#fff}
 .brand-name{font-family:'Rozha One',serif;font-size:21px;color:var(--cream)}
 .brand-name small{display:block;font-family:'Mukta',sans-serif;font-size:10px;letter-spacing:4px;color:var(--gold);font-weight:600}
 .nav-links{display:flex;gap:28px;font-size:15px;font-weight:500}
@@ -509,10 +520,12 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 <!-- ================= शीर्ष पट्टी ================= -->
 <nav id="nav">
   <div class="nav-in">
-    <a href="#top" class="brand">
+<a href="#top" class="brand">
       <span class="brand-mark">
-        <img class="js-logo" alt="जेन क्लासेस">
-        <span class="bm-fallback">बो</span>
+        <picture>
+          <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+          <img src="/assets/gen-logo-96.png" width="56" height="56" alt="GenClasses" decoding="async" fetchpriority="high">
+        </picture>
       </span>
       <span class="brand-name">GenClasses<small>UPSC · UPPCS</small></span>
     </a>
@@ -721,7 +734,10 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 
 <!-- ================= पाद ================= -->
 <footer>
-  <img class="foot-logo js-logo" alt="" loading="lazy">
+  <picture class="foot-logo-wrap">
+    <source srcset="/assets/gen-logo.webp" type="image/webp">
+    <img class="foot-logo" src="/assets/gen-logo.png" width="78" height="78" alt="GenClasses" loading="lazy" decoding="async">
+  </picture>
   <div class="fb">GenClasses</div>
   <div class="sh">"तमसो मा ज्योतिर्गमय"</div>
   <div>UPSC · UPPCS · एक निरंतर चलता प्रयास</div>
@@ -752,19 +768,8 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 (function(){
 "use strict";
 
-/* ---------- ब्रांड logo (एक ही प्रति, चारों स्थानों पर JS से) ---------- */
+/* ---------- ब्रांड logo: static <picture> in markup; favicons in <head> ---------- */
 var GEN_LOGO_URI = "/assets/gen-logo.png";
-(function(){
-  var fav = document.getElementById("favLink");
-  if (fav) fav.href = GEN_LOGO_URI;
-  var imgs = document.querySelectorAll(".js-logo");
-  for (var i = 0; i < imgs.length; i++){
-    imgs[i].src = GEN_LOGO_URI;
-    imgs[i].style.display = "block";
-  }
-  var fb = document.querySelector(".bm-fallback");
-  if (fb) fb.style.display = "none";
-})();
 
 var REDUCED = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 var FINE = window.matchMedia("(pointer: fine)").matches;

@@ -4,6 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
 <style>
@@ -62,10 +68,11 @@
   /* ---------- टॉपबार ---------- */
   .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
   .brand{display:flex;align-items:center;gap:13px}
-  .logo{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
-    background:linear-gradient(160deg,var(--gold-hi),var(--gold-deep));color:#10192b;
-    font-family:'Rozha One',serif;font-size:28px;line-height:1;border:1px solid var(--line-2);
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
     box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
   .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
     font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
   .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
@@ -262,7 +269,12 @@
   <div class="wrap">
     <header class="topbar">
       <div class="brand">
-        <div class="logo">बो</div>
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
         <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
       </div>
       <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
