@@ -100,7 +100,7 @@ html[data-theme="light"] .b-uppcs2026{background:rgba(196,70,30,.12);color:#B845
 }
 .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
 *{margin:0;padding:0;box-sizing:border-box}
-#subjects,#method,#notes,#special-notes,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
+#subjects,#method,#notes,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{
   background:var(--ink0);color:var(--mist);
@@ -405,62 +405,137 @@ section{position:relative;z-index:3;padding:104px 26px}
 .npanel a:hover{border-color:var(--gold-hi);letter-spacing:.3px}
 
 
-/* ═══════════ विशेष नोट्स ═══════════ */
+
+/* ═══════════ विशेष नोट्स (high contrast both themes) ═══════════ */
+#special-notes .rv{opacity:1;transform:none}
+#special-notes{
+  position:relative;
+  padding:56px 0 52px;
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 0%, rgba(217,174,95,.18), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 90% 100%, rgba(10,85,163,.22), transparent 50%),
+    linear-gradient(165deg, #071428 0%, #0c2a52 48%, #0a1f3d 100%);
+  border-top:1px solid rgba(217,174,95,.35);
+  border-bottom:1px solid rgba(217,174,95,.28);
+}
+html[data-theme="light"] #special-notes{
+  background:
+    radial-gradient(ellipse 80% 55% at 10% 0%, rgba(232,162,58,.22), transparent 55%),
+    linear-gradient(165deg, #0a274d 0%, #0d3a72 48%, #0a2a52 100%);
+  border-top:3px solid #e8a23a;
+  border-bottom:3px solid #e8a23a;
+}
+#special-notes .section-in{position:relative;z-index:1}
+#special-notes .sec-head h2{color:#F2EBDA}
+#special-notes .eyebrow{color:#F2CD88}
+html[data-theme="light"] #special-notes .sec-head h2{color:#FFF8E8}
+html[data-theme="light"] #special-notes .eyebrow{color:#F2CD88}
 .sn-wrap{position:relative}
-.sn-lead{max-width:720px;margin:8px 0 0;color:var(--mist);font-weight:300;line-height:1.75;font-size:16.5px}
-.sn-lead strong{color:var(--gold-hi);font-weight:600}
+.sn-lead{max-width:720px;margin:8px 0 0;color:#c5d0e0;font-weight:400;line-height:1.7;font-size:15.5px}
+.sn-lead strong{color:#F2CD88;font-weight:700}
+html[data-theme="light"] .sn-lead{color:#d5deec}
+html[data-theme="light"] .sn-lead strong{color:#F2CD88}
 .sn-grid{
-  margin-top:34px;display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;
+  margin-top:22px;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;
 }
 .sn-card{
-  background:var(--glass);border:1px solid var(--line);border-radius:16px;
-  padding:20px 16px 18px;text-align:center;backdrop-filter:blur(8px);
-  transition:transform .25s,border-color .25s,box-shadow .25s;
+  background:linear-gradient(160deg,#12305a,#0a1e3a);
+  border:1.5px solid rgba(217,174,95,.45);
+  border-radius:14px;
+  padding:14px 10px 13px;text-align:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.35);
+  transition:transform .22s,border-color .22s,box-shadow .22s;
 }
-.sn-card:hover{transform:translateY(-5px);border-color:var(--line-2);box-shadow:0 18px 40px rgba(0,0,0,.4),0 0 24px rgba(217,174,95,.12)}
+html[data-theme="light"] .sn-card{
+  background:linear-gradient(160deg,#12305a,#0a1e3a);
+  border:1.5px solid rgba(232,162,58,.55);
+  box-shadow:0 8px 20px rgba(0,0,0,.25);
+}
+.sn-card:hover{transform:translateY(-4px);border-color:#D9AE5F;box-shadow:0 14px 32px rgba(0,0,0,.45),0 0 20px rgba(217,174,95,.18)}
+html[data-theme="light"] .sn-card:hover{box-shadow:0 12px 28px rgba(10,42,90,.16)}
 .sn-ico{
-  width:46px;height:46px;margin:0 auto 12px;border-radius:12px;
+  width:40px;height:40px;margin:0 auto 8px;border-radius:11px;
   display:grid;place-items:center;
-  background:linear-gradient(150deg,var(--ink2),var(--ink1));
-  border:1px solid var(--line-2);color:var(--gold-hi);
-  box-shadow:inset 0 0 14px rgba(217,174,95,.12);
+  background:linear-gradient(135deg,#e8a23a,#c45a18);
+  border:1px solid rgba(255,255,255,.25);
+  color:#fff;
+  box-shadow:0 6px 14px rgba(196,90,24,.35);
 }
-.sn-ico svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.sn-card h3{font-size:15.5px;font-weight:700;line-height:1.35;color:var(--cream)}
-html[data-theme="light"] .sn-card h3{color:var(--ink0)}
-.sn-exams{margin-top:28px}
-.sn-exams h3{font-size:18px;margin-bottom:14px;color:var(--gold-hi)}
-.sn-chips{display:flex;flex-wrap:wrap;gap:10px}
+.sn-ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.85;stroke-linecap:round;stroke-linejoin:round}
+.sn-card h3{font-size:13.5px;font-weight:800;line-height:1.3;color:#F2EBDA;margin:0}
+html[data-theme="light"] .sn-card h3{color:#FFF8E8}
+.sn-exams{margin-top:20px}
+.sn-exams h3{font-size:16px;margin-bottom:10px;color:#F2CD88;font-weight:800}
+html[data-theme="light"] .sn-exams h3{color:#F2CD88}
+.sn-chips{display:flex;flex-wrap:wrap;gap:8px}
 .sn-chip{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:8px 13px;border-radius:999px;font-size:13px;font-weight:700;
-  background:rgba(217,174,95,.08);border:1px solid var(--line-2);color:var(--cream);
+  display:inline-flex;align-items:center;
+  padding:6px 11px;border-radius:999px;font-size:12px;font-weight:800;
+  background:rgba(217,174,95,.16);border:1px solid rgba(217,174,95,.5);color:#F2EBDA;
 }
-html[data-theme="light"] .sn-chip{color:var(--ink0);background:rgba(154,114,35,.08)}
-.sn-points{margin-top:30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+html[data-theme="light"] .sn-chip{
+  background:rgba(255,248,232,.12);border-color:rgba(242,205,136,.55);color:#FFF8E8;
+}
+.sn-points{margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
 .sn-point{
-  display:flex;gap:14px;align-items:flex-start;
-  background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:18px 18px;
+  display:flex;gap:12px;align-items:flex-start;
+  background:rgba(255,255,255,.06);border:1px solid rgba(217,174,95,.35);
+  border-radius:12px;padding:14px 14px;
+}
+html[data-theme="light"] .sn-point{
+  background:rgba(255,255,255,.07);border:1.5px solid rgba(242,205,136,.4);
 }
 .sn-point .num{
-  flex:0 0 34px;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;
-  font-weight:900;color:var(--ink0);background:linear-gradient(135deg,var(--gold),#c9a24a);
-  box-shadow:0 8px 18px rgba(217,174,95,.28);
+  flex:0 0 30px;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;
+  font-weight:900;font-size:14px;color:#0A1426;background:linear-gradient(135deg,#F2CD88,#D9AE5F);
+  box-shadow:0 6px 14px rgba(217,174,95,.35);
 }
-.sn-point p{margin:0;color:var(--mist);font-size:14.5px;line-height:1.65;font-weight:400}
-.sn-cta{margin-top:34px;text-align:center}
-.sn-cta h3{font-size:clamp(22px,3.2vw,30px);margin-bottom:8px}
-.sn-cta .hint{color:var(--mist);font-weight:300;margin-bottom:20px}
-.sn-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
-.sn-btns .btn{text-decoration:none}
-.sn-btns .btn-ghost{border:1px solid var(--line-2);color:var(--cream);background:transparent;padding:12px 18px;border-radius:12px;font-weight:800}
-html[data-theme="light"] .sn-btns .btn-ghost{color:var(--ink0)}
-.sn-btns .btn-gold{background:linear-gradient(135deg,var(--gold),#e8c56a);color:var(--ink0);padding:12px 18px;border-radius:12px;font-weight:900;border:0;box-shadow:0 10px 22px rgba(217,174,95,.28)}
-.sn-btns .btn:hover{transform:translateY(-2px);filter:brightness(1.04)}
-.sn-meta{margin-top:16px;font-size:13px;color:var(--mist);font-weight:500}
-.sn-meta a{color:var(--gold-hi);font-weight:700}
+.sn-point p{margin:0;color:#d5deec;font-size:13.5px;line-height:1.55;font-weight:500}
+html[data-theme="light"] .sn-point p{color:#d5deec}
+.sn-cta{margin-top:22px;text-align:center}
+.sn-cta h3{font-size:clamp(20px,3vw,26px);margin-bottom:6px;color:#F2EBDA;font-weight:900}
+html[data-theme="light"] .sn-cta h3{color:#FFF8E8}
+.sn-cta .hint{color:#aebaca;font-weight:400;margin-bottom:14px;font-size:14px}
+html[data-theme="light"] .sn-cta .hint{color:#aebaca}
+.sn-btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.sn-btns a{
+  text-decoration:none;display:inline-flex;align-items:center;justify-content:center;
+  padding:11px 16px;border-radius:12px;font-weight:900;font-size:14px;
+  transition:transform .2s,filter .2s;
+}
+.sn-btns a:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.sn-btns .btn-gold{
+  background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;
+  border:0;box-shadow:0 10px 22px rgba(196,90,24,.35);
+}
+.sn-btns .btn-ghost{
+  border:1.5px solid rgba(217,174,95,.55);color:#F2EBDA;background:rgba(255,255,255,.06);
+}
+html[data-theme="light"] .sn-btns .btn-ghost{
+  border:1.5px solid rgba(242,205,136,.6);color:#FFF8E8;background:rgba(255,255,255,.08);
+}
+.sn-meta{margin-top:12px;font-size:12.5px;color:#aebaca;font-weight:600}
+.sn-meta a{color:#F2CD88;font-weight:800}
+html[data-theme="light"] .sn-meta{color:#aebaca}
+html[data-theme="light"] .sn-meta a{color:#F2CD88}
+@media (max-width:560px){
+  #special-notes{padding:40px 0 36px}
+  .sn-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .sn-card{padding:11px 6px 10px}
+  .sn-card h3{font-size:11.5px}
+  .sn-ico{width:34px;height:34px}
+  .sn-ico svg{width:16px;height:16px}
+}
 
+
+#join.join{
+  padding:48px 0 44px;
+  background:linear-gradient(180deg, rgba(7,20,40,.0), rgba(10,42,82,.55));
+}
+html[data-theme="light"] #join.join{
+  background:linear-gradient(180deg, rgba(255,248,232,0), rgba(10,85,163,.08));
+}
 /* ═══════════ सूक्ति ═══════════ */
 .quote{max-width:840px;margin:0 auto;text-align:center;position:relative}
 .quote .qm{font-family:'Rozha One',serif;font-size:96px;color:var(--gold);line-height:.35;text-shadow:0 0 34px rgba(217,174,95,.4)}
@@ -551,11 +626,11 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#tests">टेस्ट सीरीज़</a>
+      <a href="#special-notes">विशेष नोट्स</a>
+      <a href="#join">जुड़ें</a>
       <a href="#subjects">विषय</a>
       <a href="#method">अध्ययन-विधि</a>
       <a href="#notes">अध्ययन-सामग्री</a>
-      <a href="#special-notes">विशेष नोट्स</a>
-      <a href="#join">जुड़ें</a>
     </div>
     <a href="#tests" class="nav-cta">टेस्ट सीरीज़</a>
     <button class="theme-btn" id="themeBtn" aria-label="थीम बदलें" title="थीम बदलें">☀️</button>
@@ -638,64 +713,6 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   </div>
 </section>
 
-<div class="hairline"></div>
-
-<!-- ================= विषय ================= -->
-<section id="subjects">
-  <div class="section-in">
-    <div class="sec-head rv">
-      <span class="eyebrow">पाठ्यक्रम</span>
-      <h2>मुख्य विषय — <em>नींव से धार तक</em></h2>
-      <p>प्रत्येक विषय की तैयारी NCERT की नींव से प्रारंभ होकर मानक स्रोतों तक — विगत वर्षों के प्रश्नों की प्रवृत्ति के अनुरूप।</p>
-    </div>
-    <div class="subjects">
-      <div class="subj rv"><span class="mark">रा</span><div><h3>राजव्यवस्था</h3><p>संविधान, संस्थाएँ, न्यायपालिका एवं समसामयिक संवैधानिक विकास — अवधारणात्मक स्पष्टता के साथ।</p></div></div>
-      <div class="subj rv" style="--d:.08s"><span class="mark">इ</span><div><h3>इतिहास</h3><p>प्राचीन से आधुनिक भारत तक — घटनाओं का क्रम, कारण और परिणाम; तथ्यों का बोझ नहीं।</p></div></div>
-      <div class="subj rv" style="--d:.16s"><span class="mark">प</span><div><h3>पर्यावरण</h3><p>पारिस्थितिकी, जैव-विविधता, जलवायु परिवर्तन एवं प्रमुख अंतरराष्ट्रीय समझौते।</p></div></div>
-      <div class="subj rv" style="--d:.24s"><span class="mark">क</span><div><h3>कला एवं संस्कृति</h3><p>स्थापत्य, चित्रकला, नृत्य एवं संगीत — परीक्षा की दृष्टि से व्यवस्थित अध्ययन।</p></div></div>
-      <div class="subj rv" style="--d:.32s"><span class="mark">नी</span><div><h3>नीतिशास्त्र</h3><p>सिद्धांत, विचारक एवं केस स्टडीज़ — मुख्य परीक्षा (GS-4) की दृष्टि से।</p></div></div>
-      <div class="subj rv" style="--d:.4s"><span class="mark">अ</span><div><h3>अर्थव्यवस्था</h3><p>बजट, बैंकिंग एवं योजनाएँ — कठिन अवधारणाएँ सरल व्याख्या के साथ।</p></div></div>
-    </div>
-  </div>
-</section>
-
-<div class="hairline"></div>
-
-<!-- ================= अध्ययन-विधि ================= -->
-<section id="method">
-  <div class="section-in">
-    <div class="sec-head rv">
-      <span class="eyebrow">अध्ययन-विधि</span>
-      <h2>चार चरणों में <em>व्यवस्थित</em> तैयारी</h2>
-    </div>
-    <div class="method">
-      <div class="step rv"><h3>अवधारणा की समझ</h3><p>प्रत्येक विषय की नींव — NCERT से मानक स्रोतों तक क्रमबद्ध एवं गहन समझ।</p></div>
-      <div class="step rv" style="--d:.1s"><h3>स्मरण-सूत्र</h3><p>शब्दों के मूल अर्थ से जुड़े स्मरण-सूत्र — कृत्रिम शॉर्टकट नहीं, टिकाऊ समझ।</p></div>
-      <div class="step rv" style="--d:.2s"><h3>भ्रम-बिंदुओं का विभेद</h3><p>जिन बिंदुओं पर परीक्षा प्रायः उलझाती है, उनका स्पष्ट विभेद पहले ही।</p></div>
-      <div class="step rv" style="--d:.3s"><h3>PYQ से सत्यापन</h3><p>प्रत्येक विषय विगत वर्षों के प्रश्नों की कसौटी पर — ताकि तैयारी परीक्षा-सिद्ध बने।</p></div>
-    </div>
-  </div>
-</section>
-
-<div class="hairline"></div>
-
-<!-- ================= अध्ययन-सामग्री ================= -->
-<section id="notes">
-  <div class="section-in">
-    <div class="sec-head rv">
-      <span class="eyebrow">अध्ययन-सामग्री</span>
-      <h2>नोट्स — इसी स्थान पर, <em>क्रमशः</em></h2>
-    </div>
-
-    <div class="nlist" id="notesList" hidden></div>
-
-    <div class="npanel rv" id="notesPanel">
-      <h3>अध्ययन-सामग्री तैयारी के क्रम में है।</h3>
-      <p>प्रत्येक पृष्ठ परीक्षा की कसौटी पर परखकर ही यहाँ रखा जाएगा — जल्दबाज़ी में नहीं, सही समय पर। यह मंच जितना <span class="hl">साझा</span> होगा, सामग्री उतनी ही शीघ्र यहाँ उपलब्ध होती जाएगी।</p>
-      <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">तब तक Telegram पर साथ बना रहे →</a>
-    </div>
-  </div>
-</section>
 
 <div class="hairline"></div>
 
@@ -794,15 +811,6 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 
 <div class="hairline"></div>
 
-<!-- ================= सूक्ति ================= -->
-<section>
-  <div class="section-in quote rv">
-    <div class="qm">"</div>
-    <blockquote>तैयारी वही सार्थक है, जो परीक्षा की भाषा समझती है।</blockquote>
-    <cite>GenClasses</cite>
-  </div>
-</section>
-
 <!-- ================= जुड़ें ================= -->
 <section id="join" class="join">
   <div class="section-in rv">
@@ -829,6 +837,94 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
     </div>
   </div>
 </section>
+
+<div class="hairline"></div>
+
+<!-- ================= विषय ================= -->
+<section id="subjects">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">पाठ्यक्रम</span>
+      <h2>मुख्य विषय — <em>नींव से धार तक</em></h2>
+      <p>प्रत्येक विषय की तैयारी NCERT की नींव से प्रारंभ होकर मानक स्रोतों तक — विगत वर्षों के प्रश्नों की प्रवृत्ति के अनुरूप।</p>
+    </div>
+    <div class="subjects">
+      <div class="subj rv"><span class="mark">रा</span><div><h3>राजव्यवस्था</h3><p>संविधान, संस्थाएँ, न्यायपालिका एवं समसामयिक संवैधानिक विकास — अवधारणात्मक स्पष्टता के साथ।</p></div></div>
+      <div class="subj rv" style="--d:.08s"><span class="mark">इ</span><div><h3>इतिहास</h3><p>प्राचीन से आधुनिक भारत तक — घटनाओं का क्रम, कारण और परिणाम; तथ्यों का बोझ नहीं।</p></div></div>
+      <div class="subj rv" style="--d:.16s"><span class="mark">प</span><div><h3>पर्यावरण</h3><p>पारिस्थितिकी, जैव-विविधता, जलवायु परिवर्तन एवं प्रमुख अंतरराष्ट्रीय समझौते।</p></div></div>
+      <div class="subj rv" style="--d:.24s"><span class="mark">क</span><div><h3>कला एवं संस्कृति</h3><p>स्थापत्य, चित्रकला, नृत्य एवं संगीत — परीक्षा की दृष्टि से व्यवस्थित अध्ययन।</p></div></div>
+      <div class="subj rv" style="--d:.32s"><span class="mark">नी</span><div><h3>नीतिशास्त्र</h3><p>सिद्धांत, विचारक एवं केस स्टडीज़ — मुख्य परीक्षा (GS-4) की दृष्टि से।</p></div></div>
+      <div class="subj rv" style="--d:.4s"><span class="mark">अ</span><div><h3>अर्थव्यवस्था</h3><p>बजट, बैंकिंग एवं योजनाएँ — कठिन अवधारणाएँ सरल व्याख्या के साथ।</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= अध्ययन-विधि ================= -->
+<section id="method">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">अध्ययन-विधि</span>
+      <h2>चार चरणों में <em>व्यवस्थित</em> तैयारी</h2>
+    </div>
+    <div class="method">
+      <div class="step rv"><h3>अवधारणा की समझ</h3><p>प्रत्येक विषय की नींव — NCERT से मानक स्रोतों तक क्रमबद्ध एवं गहन समझ।</p></div>
+      <div class="step rv" style="--d:.1s"><h3>स्मरण-सूत्र</h3><p>शब्दों के मूल अर्थ से जुड़े स्मरण-सूत्र — कृत्रिम शॉर्टकट नहीं, टिकाऊ समझ।</p></div>
+      <div class="step rv" style="--d:.2s"><h3>भ्रम-बिंदुओं का विभेद</h3><p>जिन बिंदुओं पर परीक्षा प्रायः उलझाती है, उनका स्पष्ट विभेद पहले ही।</p></div>
+      <div class="step rv" style="--d:.3s"><h3>PYQ से सत्यापन</h3><p>प्रत्येक विषय विगत वर्षों के प्रश्नों की कसौटी पर — ताकि तैयारी परीक्षा-सिद्ध बने।</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= अध्ययन-सामग्री ================= -->
+<section id="notes">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">अध्ययन-सामग्री</span>
+      <h2>नोट्स — इसी स्थान पर, <em>क्रमशः</em></h2>
+    </div>
+
+    <div class="nlist" id="notesList" hidden></div>
+
+    <div class="npanel rv" id="notesPanel">
+      <h3>अध्ययन-सामग्री तैयारी के क्रम में है।</h3>
+      <p>प्रत्येक पृष्ठ परीक्षा की कसौटी पर परखकर ही यहाँ रखा जाएगा — जल्दबाज़ी में नहीं, सही समय पर। यह मंच जितना <span class="hl">साझा</span> होगा, सामग्री उतनी ही शीघ्र यहाँ उपलब्ध होती जाएगी।</p>
+      <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">तब तक Telegram पर साथ बना रहे →</a>
+    </div>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= सूक्ति ================= -->
+<section>
+  <div class="section-in quote rv">
+    <div class="qm">"</div>
+    <blockquote>तैयारी वही सार्थक है, जो परीक्षा की भाषा समझती है।</blockquote>
+    <cite>GenClasses</cite>
+  </div>
+</section>
+
+
+
+__METHOD_PLACEHOLDER__
+
+<div class="hairline"></div>
+
+__NOTES_PLACEHOLDER__
+
+<div class="hairline"></div>
+
+__SPECIAL_PLACEHOLDER__
+
+<div class="hairline"></div>
+
+__QUOTE_PLACEHOLDER__
+
+__JOIN_PLACEHOLDER__
 
 <!-- ================= पाद ================= -->
 <footer>
