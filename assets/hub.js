@@ -103,31 +103,35 @@
     if(!root) return;
     var dateLab=document.getElementById('dailyDate');
     var now=new Date();
-    // Asia/Calcutta approx: use local (box is IST)
     var label=now.toLocaleDateString('hi-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
     if(dateLab) dateLab.textContent=label;
-    fetch('/daily/bank.json').then(function(r){return r.json();}).then(function(bank){
-      var qs=pickDaily(bank,5,daySeed(now));
+    function paint(qs){
       root.innerHTML=qs.map(function(q,i){
         var opts=q.opts.map(function(o,j){
           return '<label><input type="radio" name="dq'+i+'"> '+o+'</label>';
         }).join('');
         var wrongs=(q.whyWrong||[]).map(function(w){return '<li>'+w+'</li>';}).join('');
-        var topic=q.topicUrl?('<p style="margin-top:8px"><a class="btn btn-ghost" href="'+q.topicUrl+'">संबंधित विषय →</a></p>'):'';
-        var qtext=(document.documentElement.getAttribute('lang')==='en'&&q.q_en)?q.q_en:q.q; var why=(document.documentElement.getAttribute('lang')==='en'&&q.why_en)?q.why_en:(q.why||''); return '<div class="daily-q mcq"><div class="meta">'+(q.tag||'CSAT/GS')+' · Q'+(i+1)+'</div><div class="q">'+qtext+'</div>'+opts+
-          '<button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें</button>'+
+        var topic=q.topicUrl?('<p style="margin-top:8px"><a class="btn btn-ghost" href="'+q.topicUrl+'">संबंधित विषय / Related →</a></p>'):'';
+        var qtext=(document.documentElement.getAttribute('lang')==='en'&&q.q_en)?q.q_en:q.q;
+        var why=(document.documentElement.getAttribute('lang')==='en'&&q.why_en)?q.why_en:(q.why||'');
+        return '<div class="daily-q mcq"><div class="meta">'+(q.tag||'CSAT/GS')+' · Q'+(i+1)+'</div><div class="q">'+qtext+'</div>'+opts+
+          '<button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें / Answer</button>'+
           '<div class="reveal"><strong>उत्तर / Answer: '+q.ans+'</strong><br>'+why+
           (wrongs?'<ul class="wrong-why">'+wrongs+'</ul>':'')+topic+'</div></div>';
       }).join('');
       $all('.mcq [data-reveal]',root).forEach(function(btn){
         btn.addEventListener('click',function(){btn.closest('.mcq').classList.toggle('open');});
       });
+    }
+    fetch('/daily/bank.json').then(function(r){return r.json();}).then(function(bank){
+      var qs=pickDaily(bank,5,daySeed(now));
+      paint(qs);
+      document.addEventListener('gen-lang',function(){paint(qs);});
       var share=document.getElementById('tgShare');
       if(share){
-        var text='GenClasses Daily 5 — '+label+'\\nhttps://genclasses.com/daily/';
         share.href='https://t.me/share/url?url='+encodeURIComponent('https://genclasses.com/daily/')+'&text='+encodeURIComponent('GenClasses Daily 5 — '+label);
       }
-    }).catch(function(){root.innerHTML='<p>प्रश्न बैंक लोड नहीं हो सका। बाद में प्रयास करें।</p>';});
+    }).catch(function(){root.innerHTML='<p>प्रश्न बैंक लोड नहीं हो सका। / Could not load question bank.</p>';});
   }
 
   /* —— flashcards —— */

@@ -633,12 +633,13 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 }
 
 /* ticker + features + i18n (homepage) */
-.ticker-wrap{overflow:hidden;border-bottom:1px solid var(--line);background:rgba(18,48,90,.55);position:relative;z-index:90}
+.ticker-wrap{position:relative;z-index:95;margin-top:72px;overflow:hidden;border-bottom:1px solid var(--line);background:rgba(18,48,90,.55);position:relative;z-index:90}
 html[data-theme="light"] .ticker-wrap{background:rgba(246,241,228,.97)}
 .ticker-track{display:flex;width:max-content;animation:ticker-scroll 42s linear infinite}
 .ticker-wrap:hover .ticker-track{animation-play-state:paused}
 @keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+@media (max-width:820px){.ticker-wrap{margin-top:64px}}
 .ticker-track a{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;white-space:nowrap;font-size:13px;font-weight:700;color:var(--cream);text-decoration:none;border-right:1px solid var(--line)}
 .ticker-track a:hover{color:var(--gold-hi)}
 .ticker-track .pill-new{font-size:10px;font-weight:800;letter-spacing:.6px;padding:2px 7px;border-radius:999px;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff}
