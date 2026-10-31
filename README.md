@@ -25,7 +25,7 @@
 1. index.html में Telegram और YouTube के लिंक href="#" पर हैं। अपने चैनलों के लिंक डालें।
 2. index.html में CONFIG अभी genclassessupport-creator और genclasses.github.io पर सेट है। अगर repo का नाम अलग रखें तो CONFIG में भी वही नाम लिखें।
 3. संपर्क का ईमेल genclassessupport@gmail.com है (दूसरा genclassesinfo@gmail.com भी बना है)। संस्थापक का परिचय पुरानी वेबसाइट से लिया गया है; उसे अपने अनुसार बदलें।
-4. लोगो बदलना हो तो assets/gen-logo.png (192×192) व gen-logo-96.webp/png, favicon*, apple-touch-icon, gen-logo-og.jpg, gen-logo-wm.webp भी अपडेट करें।
+4. लोगो बदलना हो तो assets/gen-logo.png (192×192) व gen-logo-96.webp/png, favicon*, apple-touch-icon, gen-logo-og.jpg भी अपडेट करें।
 
 ## GitHub Pages पर चढ़ाना
 
