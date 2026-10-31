@@ -444,6 +444,31 @@ html[data-theme="light"] .sn-banner{
 }
 html[data-theme="light"] .sn-banner p,
 html[data-theme="light"] .sn-banner strong{color:#1a0f05}
+.sn-banner{flex-wrap:wrap}
+.sn-banner-body{flex:1 1 200px;min-width:0}
+.sn-banner-contacts{display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex:0 0 auto;margin-left:auto}
+.cd-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:999px;
+  font-size:12.5px;font-weight:800;letter-spacing:.2px;
+  text-decoration:none;white-space:nowrap;
+  border:1.5px solid rgba(255,255,255,.55);
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+  transition:transform .15s,box-shadow .15s,filter .15s;
+}
+.cd-pill:hover{transform:translateY(-1px);filter:brightness(1.06);box-shadow:0 6px 18px rgba(0,0,0,.22)}
+.cd-pill.cd-mail{background:#fff;color:#b45309}
+.cd-pill.cd-tg{background:#229ED9;color:#fff;border-color:rgba(255,255,255,.35)}
+html[data-theme="light"] .cd-pill.cd-mail{background:#fff8ef;color:#9a3412;border-color:rgba(154,52,18,.35)}
+html[data-theme="light"] .cd-pill.cd-tg{background:#0ea5e9;color:#fff}
+.ticker-cd{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:8px 18px;white-space:nowrap;font-size:13px;font-weight:700;
+  color:var(--cream);border-right:1px solid var(--line);
+}
+.ticker-cd .cd-pill{padding:4px 11px;font-size:11px;box-shadow:none}
+html[data-theme="light"] .ticker-cd{color:#3d2a12}
+
 #special-notes .sec-head{margin-bottom:18px}
 #special-notes .sec-head h2{font-size:clamp(22px,3.4vw,34px);margin-top:6px;color:var(--cream)}
 #special-notes .sec-head p{margin-top:8px;color:var(--mist)}
@@ -749,6 +774,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
 
 <div class="ticker-wrap ticker-fixed-bar" role="navigation" aria-label="Site highlights">
   <div class="ticker-track">
+    <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
     <a href="/flashcards/"><span class="pill-new">NEW</span> <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
     <a href="/ro-aro/drafting/"><span class="pill-new">NEW</span> <span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></a>
@@ -756,6 +782,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
     <a href="/syllabus/"><span data-hi>सिलेबस हब</span><span data-en>Syllabus Hub</span></a>
     <a href="/csat/">CSAT Hub</a>
     <a href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
+    <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
     <a href="/flashcards/"><span class="pill-new">NEW</span> <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
     <a href="/ro-aro/drafting/"><span class="pill-new">NEW</span> <span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></a>
@@ -831,6 +858,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
       <a href="/up-ca/"><span class="ic">📰</span><strong data-hi>UP करंट</strong><strong data-en>UP CA</strong><span data-hi>GS V/VI डाइजेस्ट</span><span data-en>GS V/VI digest</span></a>
       <a href="#tests"><span class="ic">◎</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span data-hi>परीक्षा-स्तरीय</span><span data-en>Exam-level</span></a>
       <a href="#special-notes"><span class="ic">★</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span data-hi>कस्टम डिमांड</span><span data-en>Custom demand</span></a>
+      <a href="/ncert/"><span class="ic">📗</span><strong>NCERT</strong><span data-hi>पाठ्यपुस्तक · अभ्यास</span><span data-en>Textbooks · practice</span></a>
     </div>
   </div>
 </section>
@@ -840,8 +868,14 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
   <div class="section-in sn-wrap">
     <div class="sn-banner rv" role="status">
       <span class="sn-banner-ico" aria-hidden="true">✦</span>
-      <p data-hi><strong>Custom Demand पर नोट्स उपलब्ध</strong> — आपकी ज़रूरत के अनुसार नोट्स तैयार किए जाते हैं</p>
-      <p data-en><strong>Custom-demand notes available</strong> — notes prepared to your need</p>
+      <div class="sn-banner-body">
+        <p data-hi><strong>Custom Demand पर नोट्स उपलब्ध</strong> — आपकी ज़रूरत के अनुसार नोट्स तैयार किए जाते हैं</p>
+        <p data-en><strong>Custom-demand notes available</strong> — notes prepared to your need</p>
+      </div>
+      <div class="sn-banner-contacts" aria-label="Contact for custom notes">
+        <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes"><span aria-hidden="true">✉</span> <span data-hi>Gmail</span><span data-en>Gmail</span></a>
+        <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span aria-hidden="true">✈</span> <span data-hi>Telegram</span><span data-en>Telegram</span></a>
+      </div>
     </div>
     <div class="sec-head rv">
       <span class="eyebrow"><span data-hi>विशेष नोट्स</span><span data-en>Special Notes</span></span>
