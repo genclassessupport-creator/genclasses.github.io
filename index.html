@@ -72,7 +72,6 @@ html[data-theme="light"] .emblem::before{background:radial-gradient(circle,rgba(
 html[data-theme="light"] .leaf{filter:drop-shadow(0 0 7px rgba(154,114,35,.45))}
 html[data-theme="light"] .vein{stroke:rgba(122,90,24,.62)}
 html[data-theme="light"] .flame{filter:drop-shadow(0 0 12px rgba(176,138,62,.85))}
-html[data-theme="light"] .avatar-ring::before{border-color:rgba(122,90,24,.55)}
 html[data-theme="light"] .btn-gold{color:#FFFDF5;box-shadow:0 12px 34px rgba(154,114,35,.32)}
 html[data-theme="light"] .ttab.active{color:#FFFDF5}
 html[data-theme="light"] .marq{background:rgba(154,114,35,.05)}
@@ -101,7 +100,7 @@ html[data-theme="light"] .b-uppcs2026{background:rgba(196,70,30,.12);color:#B845
 }
 .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
 *{margin:0;padding:0;box-sizing:border-box}
-#subjects,#method,#notes,#about,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
+#subjects,#method,#notes,#join{content-visibility:auto;contain-intrinsic-size:auto 760px}
 html{scroll-behavior:smooth;scroll-padding-top:96px}
 body{
   background:var(--ink0);color:var(--mist);
@@ -150,7 +149,7 @@ nav.scrolled{background:rgba(6,11,22,.78);backdrop-filter:blur(14px);border-bott
 .foot-logo-wrap{display:block;margin:0 auto 14px;width:78px;height:78px}
 .foot-logo{display:block;width:78px;height:78px;border-radius:50%;object-fit:cover;border:1px solid var(--line-2);box-shadow:0 0 30px rgba(217,174,95,.32);background:#fff}
 .brand-name{font-family:'Rozha One',serif;font-size:21px;color:var(--cream)}
-.brand-name small{display:block;font-family:'Mukta',sans-serif;font-size:10px;letter-spacing:4px;color:var(--gold);font-weight:600}
+.brand-name small{display:block;font-family:'Mukta',sans-serif;font-size:10px;letter-spacing:1.2px;color:var(--gold);font-weight:600;text-transform:none}
 .nav-links{display:flex;gap:28px;font-size:15px;font-weight:500}
 .nav-links a{color:var(--mist);position:relative;transition:color .22s}
 .nav-links a:hover{color:var(--gold-hi)}
@@ -405,41 +404,6 @@ section{position:relative;z-index:3;padding:104px 26px}
 .npanel a{display:inline-block;margin-top:18px;color:var(--gold-hi);font-weight:700;border-bottom:1.5px solid var(--gold-deep);transition:border-color .2s,letter-spacing .2s}
 .npanel a:hover{border-color:var(--gold-hi);letter-spacing:.3px}
 
-/* ═══════════ परिचय ═══════════ */
-.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:center}
-.about-card{
-  background:var(--glass);border:1px solid var(--line);border-radius:20px;
-  padding:46px 36px;text-align:center;position:relative;backdrop-filter:blur(8px);
-  box-shadow:0 26px 60px rgba(0,0,0,.45);
-}
-.about-card::before{
-  content:"॥ जेन ॥";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
-  background:var(--ink1);padding:3px 20px;border:1px solid var(--line-2);border-radius:20px;
-  color:var(--gold-hi);font-family:'Tiro Devanagari Hindi',serif;font-size:14px;
-}
-.avatar-ring{width:126px;height:126px;margin:0 auto 20px;border-radius:50%;position:relative;display:grid;place-items:center}
-.avatar-ring::before{content:"";position:absolute;inset:0;border-radius:50%;border:1.5px dashed rgba(217,174,95,.5);animation:spin 26s linear infinite}
-.avatar{
-  width:106px;height:106px;border-radius:50%;
-  background:linear-gradient(150deg,var(--ink2),var(--ink1));
-  display:grid;place-items:center;
-  font-family:'Rozha One',serif;font-size:44px;color:var(--gold-hi);
-  border:1px solid var(--line-2);box-shadow:inset 0 0 26px rgba(217,174,95,.14),0 0 30px rgba(217,174,95,.16);
-}
-.about-card h3{font-size:27px}
-.about-card .role{color:var(--gold);font-size:14px;margin-top:5px;letter-spacing:1.4px;font-weight:600}
-.creds{margin-top:22px;list-style:none}
-.creds li{
-  padding:12px 0;border-bottom:1px dashed var(--line);
-  font-size:15px;color:var(--mist);text-align:left;
-  display:flex;gap:12px;align-items:flex-start;
-}
-.creds li:last-child{border-bottom:none}
-.creds li::before{content:"❖";color:var(--gold);font-size:12px;margin-top:5px}
-.about-text h2{font-size:clamp(28px,3.6vw,40px)}
-.about-text p{margin-top:20px;color:var(--mist);font-weight:300}
-.about-text .hl{color:var(--gold-hi);font-weight:500}
-
 /* ═══════════ सूक्ति ═══════════ */
 .quote{max-width:840px;margin:0 auto;text-align:center;position:relative}
 .quote .qm{font-family:'Rozha One',serif;font-size:96px;color:var(--gold);line-height:.35;text-shadow:0 0 34px rgba(217,174,95,.4)}
@@ -497,7 +461,6 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   .eyebrow::before{display:none}
   .wm{font-size:64vw}
   .scroll-cue{display:none}
-  .about{grid-template-columns:1fr;gap:48px}
   .method::before{display:none}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
     background:rgba(6,11,22,.97);backdrop-filter:blur(14px);padding:22px 26px;gap:18px;border-bottom:1px solid var(--line)}
@@ -527,14 +490,14 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
           <img src="/assets/gen-logo-96.png" width="56" height="56" alt="GenClasses" decoding="async" fetchpriority="high">
         </picture>
       </span>
-      <span class="brand-name">GenClasses<small>UPSC · UPPCS</small></span>
+      <span class="brand-name">GenClasses<small>Your goal our support</small></span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#tests">टेस्ट सीरीज़</a>
       <a href="#subjects">विषय</a>
       <a href="#method">अध्ययन-विधि</a>
       <a href="#notes">अध्ययन-सामग्री</a>
-      <a href="#about">परिचय</a>
+      <a href="#join">जुड़ें</a>
     </div>
     <a href="#tests" class="nav-cta">टेस्ट सीरीज़</a>
     <button class="theme-btn" id="themeBtn" aria-label="थीम बदलें" title="थीम बदलें">☀️</button>
@@ -555,7 +518,7 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
       <p class="hero-sub hr-el" style="animation-delay:.7s">प्रामाणिक अध्ययन-सामग्री और परीक्षा-स्तरीय टेस्ट के साथ व्यवस्थित तैयारी — प्रारंभिक परीक्षा से मुख्य परीक्षा तक।</p>
       <div class="hero-actions hr-el" style="animation-delay:.88s">
         <a href="#tests" class="btn btn-gold">टेस्ट सीरीज़ देखें</a>
-        <a href="#" rel="noopener" class="btn btn-ghost">Telegram से जुड़ें</a>
+        <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener" class="btn btn-ghost">Telegram से जुड़ें</a>
       </div>
       <p class="hero-line hr-el" style="animation-delay:1.05s"><b>PYQ-आधारित दृष्टिकोण</b><span class="dot">✦</span>विषयवार अभ्यास<span class="dot">✦</span>निःशुल्क उपलब्ध</p>
     </div>
@@ -613,7 +576,7 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
       <div class="tstate" id="testState">टेस्ट-सूची तैयार हो रही है…</div>
     </div>
 
-    <p class="tfoot rv">प्रत्येक नए टेस्ट की सूचना सबसे पहले — <a href="#" rel="noopener">Telegram पर जुड़ें →</a></p>
+    <p class="tfoot rv">प्रत्येक नए टेस्ट की सूचना सबसे पहले — <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram पर जुड़ें →</a></p>
   </div>
 </section>
 
@@ -671,34 +634,12 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
     <div class="npanel rv" id="notesPanel">
       <h3>अध्ययन-सामग्री तैयारी के क्रम में है।</h3>
       <p>प्रत्येक पृष्ठ परीक्षा की कसौटी पर परखकर ही यहाँ रखा जाएगा — जल्दबाज़ी में नहीं, सही समय पर। यह मंच जितना <span class="hl">साझा</span> होगा, सामग्री उतनी ही शीघ्र यहाँ उपलब्ध होती जाएगी।</p>
-      <a href="#" rel="noopener">तब तक Telegram पर साथ बना रहे →</a>
+      <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">तब तक Telegram पर साथ बना रहे →</a>
     </div>
   </div>
 </section>
 
 <div class="hairline"></div>
-
-<!-- ================= परिचय ================= -->
-<section id="about">
-  <div class="section-in about">
-    <div class="about-card rv">
-      <div class="avatar-ring"><div class="avatar">अ</div></div>
-      <h3>आदित्य चौहान</h3>
-      <div class="role">संस्थापक — जेन क्लासेस</div>
-      <ul class="creds">
-        <li>स्वयं इसी परीक्षा-पथ का अभ्यर्थी</li>
-        <li>वर्तमान में निरंतर परीक्षाओं में सम्मिलित</li>
-        <li>जो सीखा, वही साझा करने का संकल्प</li>
-      </ul>
-    </div>
-    <div class="about-text rv" style="--d:.12s">
-      <span class="eyebrow">परिचय</span>
-      <h2>जो मार्ग स्वयं चल रहा है,<br>वही साथ चलने का आमंत्रण है</h2>
-      <p>जेन क्लासेस किसी सिद्ध व्यक्ति की घोषणा नहीं — <span class="hl">एक निरंतर संघर्षरत अभ्यर्थी का एक और प्रयास</span> है। जो स्वयं इसी परीक्षा के मैदान में बार-बार उतरता है, और उसी अनुभव की प्रत्येक सीख यहाँ साझा करता चलता है।</p>
-      <p>यहाँ दावा अनुभव के अंकों का नहीं, <span class="hl">वर्तमान में निरंतर परीक्षा देते रहने की समझ</span> का है — कि आज इस परीक्षा में क्या आवश्यक है और क्या छोड़ देना विवेक। और एक आग्रह — सामग्री की गुणवत्ता में कोई समझौता नहीं।</p>
-    </div>
-  </div>
-</section>
 
 <!-- ================= सूक्ति ================= -->
 <section>
@@ -714,19 +655,23 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   <div class="section-in rv">
     <span class="eyebrow">निःशुल्क जुड़ें</span>
     <h2>तैयारी का अगला अध्याय, यहीं से</h2>
-    <p>YouTube पर व्याख्यान एवं Telegram पर नए टेस्ट व सामग्री की सूचना।</p>
+    <p>Telegram पर नए टेस्ट व सामग्री की सूचना — और ईमेल पर संपर्क।</p>
     <div class="plats">
-      <a class="plat" href="#" rel="noopener" aria-label="YouTube चैनल खोलें">
-        <span class="pic">▶</span>
-        <span>YouTube चैनल<small>विषयवार व्याख्यान</small></span>
-      </a>
-      <a class="plat" href="#" rel="noopener" aria-label="Telegram समूह खोलें">
+      <a class="plat" href="https://t.me/genclassesofficial" target="_blank" rel="noopener" aria-label="Telegram official">
         <span class="pic">✈</span>
-        <span>Telegram समूह<small>नए टेस्ट · सामग्री · सूचनाएँ</small></span>
+        <span>Telegram Official<small>t.me/genclassesofficial</small></span>
       </a>
-      <a class="plat" href="mailto:genclassessupport@gmail.com" aria-label="Gmail से संपर्क करें">
+      <a class="plat" href="https://t.me/genclasses" target="_blank" rel="noopener" aria-label="Telegram channel">
+        <span class="pic">✈</span>
+        <span>Telegram Channel<small>t.me/genclasses</small></span>
+      </a>
+      <a class="plat" href="mailto:genclassessupport@gmail.com" aria-label="Support email">
         <span class="pic">✉</span>
-        <span>Gmail<small>संपर्क / सहयोग</small></span>
+        <span>Support<small>genclassessupport@gmail.com</small></span>
+      </a>
+      <a class="plat" href="mailto:genclassesinfo@gmail.com" aria-label="Info email">
+        <span class="pic">✉</span>
+        <span>Info<small>genclassesinfo@gmail.com</small></span>
       </a>
     </div>
   </div>
@@ -739,14 +684,14 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
     <img class="foot-logo" src="/assets/gen-logo.png" width="78" height="78" alt="GenClasses" loading="lazy" decoding="async">
   </picture>
   <div class="fb">GenClasses</div>
-  <div class="sh">"तमसो मा ज्योतिर्गमय"</div>
+  <div class="sh">Your goal our support</div>
   <div>UPSC · UPPCS · एक निरंतर चलता प्रयास</div>
   <div style="margin-top:9px;font-size:13px;opacity:.75">© <span id="yr">2026</span> GenClasses</div>
 </footer>
 
 <script>
 /* =====================================================================
-   आदित्य जी के लिए — टेस्ट व नोट्स की स्वचालित सूची
+   टेस्ट व नोट्स की स्वचालित सूची
    ---------------------------------------------------------------------
    कुछ भी code बदलने की आवश्यकता नहीं। बस GitHub पर फ़ाइल अपलोड करें:
 
