@@ -693,8 +693,10 @@ html[data-theme="light"] .ticker-wrap{background:rgba(246,241,228,.97)}
 html[data-theme="light"] .lang-btn{background:#fff;color:#8a5a12;border-color:rgba(196,122,24,.35)}
 html[lang="en"] [data-hi],html:not([lang="en"]) [data-en]{display:none!important}
 html[lang="en"] [data-en],html:not([lang="en"]) [data-hi]{display:inline}
-html[lang="en"] p[data-en],html[lang="en"] h1[data-en],html[lang="en"] h2[data-en],html[lang="en"] h3[data-en],html[lang="en"] div[data-en],html[lang="en"] span[data-en].block{display:block}
-html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lang="en"]) h2[data-hi],html:not([lang="en"]) h3[data-hi],html:not([lang="en"]) div[data-hi],html:not([lang="en"]) span[data-hi].block{display:block}
+html[lang="en"] p[data-en],html[lang="en"] h1[data-en],html[lang="en"] h2[data-en],html[lang="en"] h3[data-en],html[lang="en"] div[data-en],html[lang="en"] blockquote[data-en],html[lang="en"] span[data-en].block{display:block}
+html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lang="en"]) h2[data-hi],html:not([lang="en"]) h3[data-hi],html:not([lang="en"]) div[data-hi],html:not([lang="en"]) blockquote[data-hi],html:not([lang="en"]) span[data-hi].block{display:block}
+html[lang="en"] em[data-en],html:not([lang="en"]) em[data-hi]{display:inline}
+html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!important}
 .countdown{margin:14px 0;padding:14px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(232,162,58,.18),rgba(18,48,90,.35));border:1px solid var(--line-2);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
 .countdown .cd-nums{display:flex;gap:8px;flex-wrap:wrap}
 .countdown .cd-box{min-width:56px;text-align:center;padding:8px 10px;border-radius:10px;background:#12305a;color:#F2EBDA;border:1px solid rgba(217,174,95,.4)}
@@ -737,10 +739,10 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
       <a href="/up-ca/">UP CA</a>
       <a href="#join"><span data-hi>जुड़ें</span><span data-en>Join</span></a>
     </div>
-    <a href="#tests" class="nav-cta">टेस्ट सीरीज़</a>
+    <a href="#tests" class="nav-cta"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
     <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
-    <button class="theme-btn" id="themeBtn" aria-label="थीम बदलें" title="थीम बदलें">☀️</button>
-    <button class="menu-btn" id="menuBtn" aria-label="मेन्यू खोलें">☰</button>
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="Theme"><span data-hi aria-hidden="true"></span>☀️</button>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
   </div>
 </nav>
 
@@ -838,88 +840,96 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
   <div class="section-in sn-wrap">
     <div class="sn-banner rv" role="status">
       <span class="sn-banner-ico" aria-hidden="true">✦</span>
-      <p><strong>Custom Demand पर नोट्स उपलब्ध</strong> — आपकी ज़रूरत के अनुसार नोट्स तैयार किए जाते हैं</p>
+      <p data-hi><strong>Custom Demand पर नोट्स उपलब्ध</strong> — आपकी ज़रूरत के अनुसार नोट्स तैयार किए जाते हैं</p>
+      <p data-en><strong>Custom-demand notes available</strong> — notes prepared to your need</p>
     </div>
     <div class="sec-head rv">
-      <span class="eyebrow">विशेष नोट्स</span>
-      <h2>UPPSC प्रारंभिक परीक्षा 2026 — <em>सभी विषयों</em> के विशेष नोट्स</h2>
-      <p class="sn-lead">हमारी <strong>वेबसाइट</strong> एवं <strong>टेलीग्राम चैनल</strong> पर उपलब्ध कराए जाते हैं — संक्षिप्त, परीक्षा-उन्मुख और निरंतर अपडेट।</p>
+      <span class="eyebrow"><span data-hi>विशेष नोट्स</span><span data-en>Special Notes</span></span>
+      <h2 data-hi>UPPSC प्रारंभिक परीक्षा 2026 — <em>सभी विषयों</em> के विशेष नोट्स</h2>
+      <h2 data-en>UPPSC Prelims 2026 — special notes for <em>all subjects</em></h2>
+      <p class="sn-lead" data-hi>हमारी <strong>वेबसाइट</strong> एवं <strong>टेलीग्राम चैनल</strong> पर उपलब्ध कराए जाते हैं — संक्षिप्त, परीक्षा-उन्मुख और निरंतर अपडेट।</p>
+      <p class="sn-lead" data-en>Published on our <strong>website</strong> and <strong>Telegram channel</strong> — concise, exam-focused, and kept up to date.</p>
     </div>
 
     <div class="sn-grid">
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9"/><polyline points="3 4 3 12 11 12"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3>इतिहास</h3>
+        <h3><span data-hi>इतिहास</span><span data-en>History</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></div>
-        <h3>कला एवं संस्कृति</h3>
+        <h3><span data-hi>कला एवं संस्कृति</span><span data-en>Art & Culture</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/></svg></div>
-        <h3>भारतीय राजव्यवस्था</h3>
+        <h3><span data-hi>भारतीय राजव्यवस्था</span><span data-en>Indian Polity</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
-        <h3>भूगोल</h3>
+        <h3><span data-hi>भूगोल</span><span data-en>Geography</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v18"/><path d="M8 7h6a3 3 0 0 1 0 6H8"/><path d="M8 13h7a3 3 0 0 1 0 6H8"/></svg></div>
-        <h3>भारतीय अर्थव्यवस्था</h3>
+        <h3><span data-hi>भारतीय अर्थव्यवस्था</span><span data-en>Indian Economy</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 22c4-4 7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 3 8 7 12z"/><circle cx="12" cy="10" r="2.2"/></svg></div>
-        <h3>पर्यावरण एवं पारिस्थितिकी</h3>
+        <h3><span data-hi>पर्यावरण एवं पारिस्थितिकी</span><span data-en>Environment & Ecology</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 3h6"/><path d="M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M8.5 14h7"/></svg></div>
-        <h3>विज्ञान एवं प्रौद्योगिकी</h3>
+        <h3><span data-hi>विज्ञान एवं प्रौद्योगिकी</span><span data-en>Science & Technology</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="15" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div>
-        <h3>करंट अफेयर्स</h3>
+        <h3><span data-hi>करंट अफेयर्स</span><span data-en>Current Affairs</span></h3>
       </article>
       <article class="sn-card rv">
         <div class="sn-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l1.9-7.8L2 9h7z"/></svg></div>
-        <h3>उत्तर प्रदेश विशेष</h3>
+        <h3><span data-hi>उत्तर प्रदेश विशेष</span><span data-en>Uttar Pradesh Special</span></h3>
       </article>
     </div>
 
     <div class="sn-exams rv">
-      <h3>अन्य सभी परीक्षाओं के नोट्स भी</h3>
+      <h3 data-hi>अन्य सभी परीक्षाओं के नोट्स भी</h3>
+      <h3 data-en>Notes for other exams too</h3>
       <div class="sn-chips">
-        <span class="sn-chip">UPSC (सिविल सेवा)</span>
+        <span class="sn-chip"><span data-hi>UPSC (सिविल सेवा)</span><span data-en>UPSC (Civil Services)</span></span>
         <span class="sn-chip">UPPCS</span>
         <span class="sn-chip">RO/ARO</span>
-        <span class="sn-chip">UPSSSC (PET, VDO, लेखपाल)</span>
+        <span class="sn-chip"><span data-hi>UPSSSC (PET, VDO, लेखपाल)</span><span data-en>UPSSSC (PET, VDO, Lekhpal)</span></span>
         <span class="sn-chip">BPSC</span>
         <span class="sn-chip">MPPSC</span>
         <span class="sn-chip">RPSC/RAS</span>
         <span class="sn-chip">SSC</span>
-        <span class="sn-chip">शिक्षक भर्ती (TET, TGT, PGT)</span>
-        <span class="sn-chip">पुलिस भर्ती</span>
-        <span class="sn-chip">एवं अन्य</span>
+        <span class="sn-chip"><span data-hi>शिक्षक भर्ती (TET, TGT, PGT)</span><span data-en>Teacher recruitment (TET, TGT, PGT)</span></span>
+        <span class="sn-chip"><span data-hi>पुलिस भर्ती</span><span data-en>Police recruitment</span></span>
+        <span class="sn-chip"><span data-hi>एवं अन्य</span><span data-en>&amp; more</span></span>
       </div>
     </div>
 
     <div class="sn-points">
       <div class="sn-point rv">
         <div class="num">1</div>
-        <p>आपकी विशेष मांग (कस्टम डिमांड) के अनुसार भी नोट्स उपलब्ध कराए जाते हैं।</p>
+        <p data-hi>आपकी विशेष मांग (कस्टम डिमांड) के अनुसार भी नोट्स उपलब्ध कराए जाते हैं।</p>
+        <p data-en>Notes are also prepared for your custom demand.</p>
       </div>
       <div class="sn-point rv" style="--d:.08s">
         <div class="num">2</div>
-        <p>प्रारंभिक परीक्षा में सफलता के लिए संपूर्ण और सटीक अध्ययन सामग्री।</p>
+        <p data-hi>प्रारंभिक परीक्षा में सफलता के लिए संपूर्ण और सटीक अध्ययन सामग्री।</p>
+        <p data-en>Complete, precise study material aimed at Prelims success.</p>
       </div>
     </div>
 
     <div class="sn-cta rv">
-      <h3>नोट्स के लिए आज ही हमसे संपर्क करें!</h3>
-      <p class="hint">Website · Telegram · Email — एक क्लिक में</p>
+      <h3 data-hi>नोट्स के लिए आज ही हमसे संपर्क करें!</h3>
+      <h3 data-en>Contact us today for notes!</h3>
+      <p class="hint" data-hi>Website · Telegram · Email — एक क्लिक में</p>
+      <p class="hint" data-en>Website · Telegram · Email — one click away</p>
       <div class="sn-btns">
-        <a class="btn btn-gold" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram पर माँगें</a>
-        <a class="btn btn-ghost" href="mailto:genclassessupport@gmail.com?subject=%E0%A4%A8%E0%A5%8B%E0%A4%9F%E0%A5%8D%E0%A4%B8%20%E0%A4%95%E0%A5%80%20%E0%A4%AE%E0%A4%BE%E0%A4%82%E0%A4%97">ईमेल भेजें</a>
-        <a class="btn btn-ghost" href="#notes">अध्ययन-सामग्री देखें</a>
+        <a class="btn btn-gold" href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span data-hi>Telegram पर माँगें</span><span data-en>Request on Telegram</span></a>
+        <a class="btn btn-ghost" href="mailto:genclassessupport@gmail.com?subject=Notes%20request"><span data-hi>ईमेल भेजें</span><span data-en>Send email</span></a>
+        <a class="btn btn-ghost" href="#notes"><span data-hi>अध्ययन-सामग्री देखें</span><span data-en>View study material</span></a>
       </div>
       <p class="sn-meta">
         <a href="https://genclasses.com">genclasses.com</a>
@@ -934,8 +944,8 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <!-- ================= विषय-पंक्ति ================= -->
 <div class="marq" aria-hidden="true">
   <div class="track">
-    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
-    <div class="grp"><em>राजव्यवस्था</em><i>✦</i><em>इतिहास</em><i>✦</i><em>पर्यावरण</em><i>✦</i><em>कला एवं संस्कृति</em><i>✦</i><em>नीतिशास्त्र</em><i>✦</i><em>अर्थव्यवस्था</em><i>✦</i><em>करेंट अफेयर्स</em><i>✦</i><em>CSAT</em><i>✦</i></div>
+    <div class="grp"><em data-hi>राजव्यवस्था</em><em data-en>Polity</em><i>✦</i><em data-hi>इतिहास</em><em data-en>History</em><i>✦</i><em data-hi>पर्यावरण</em><em data-en>Environment</em><i>✦</i><em data-hi>कला एवं संस्कृति</em><em data-en>Art &amp; Culture</em><i>✦</i><em data-hi>नीतिशास्त्र</em><em data-en>Ethics</em><i>✦</i><em data-hi>अर्थव्यवस्था</em><em data-en>Economy</em><i>✦</i><em data-hi>करेंट अफेयर्स</em><em data-en>Current Affairs</em><i>✦</i><em>CSAT</em><i>✦</i></div>
+    <div class="grp"><em data-hi>राजव्यवस्था</em><em data-en>Polity</em><i>✦</i><em data-hi>इतिहास</em><em data-en>History</em><i>✦</i><em data-hi>पर्यावरण</em><em data-en>Environment</em><i>✦</i><em data-hi>कला एवं संस्कृति</em><em data-en>Art &amp; Culture</em><i>✦</i><em data-hi>नीतिशास्त्र</em><em data-en>Ethics</em><i>✦</i><em data-hi>अर्थव्यवस्था</em><em data-en>Economy</em><i>✦</i><em data-hi>करेंट अफेयर्स</em><em data-en>Current Affairs</em><i>✦</i><em>CSAT</em><i>✦</i></div>
   </div>
 </div>
 
@@ -943,16 +953,18 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <section id="tests">
   <div class="section-in">
     <div class="sec-head rv">
-      <span class="eyebrow">टेस्ट सीरीज़</span>
-      <h2>अभ्यास, परीक्षा की <em>कसौटी</em> पर</h2>
-      <p>UP PCS Prelims 2026 सहित करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
+      <span class="eyebrow"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></span>
+      <h2 data-hi>अभ्यास, परीक्षा की <em>कसौटी</em> पर</h2>
+      <h2 data-en>Practice, on the <em>exam yardstick</em></h2>
+      <p data-hi>UP PCS Prelims 2026 सहित करेंट अफेयर्स, सामान्य अध्ययन, CSAT और NCERT — प्रत्येक टेस्ट परीक्षा के वास्तविक स्तर एवं प्रवृत्ति को ध्यान में रखकर तैयार किया गया है।</p>
+      <p data-en>Including UP PCS Prelims 2026, Current Affairs, General Studies, CSAT and NCERT — each test is set to real exam level and pattern.</p>
     </div>
 
-    <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="टेस्ट के खण्ड">
-      <button class="ttab active" data-filter="all">सभी <span class="cnt" data-cnt="all"></span></button>
+    <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="Test sections">
+      <button class="ttab active" data-filter="all"><span data-hi>सभी</span><span data-en>All</span> <span class="cnt" data-cnt="all"></span></button>
       <button class="ttab" data-filter="uppcs2026">UP PCS Prelims 2026 <span class="cnt" data-cnt="uppcs2026"></span></button>
-      <button class="ttab" data-filter="ca">करेंट अफेयर्स <span class="cnt" data-cnt="ca"></span></button>
-      <button class="ttab" data-filter="gs">सामान्य अध्ययन <span class="cnt" data-cnt="gs"></span></button>
+      <button class="ttab" data-filter="ca"><span data-hi>करेंट अफेयर्स</span><span data-en>Current Affairs</span> <span class="cnt" data-cnt="ca"></span></button>
+      <button class="ttab" data-filter="gs"><span data-hi>सामान्य अध्ययन</span><span data-en>General Studies</span> <span class="cnt" data-cnt="gs"></span></button>
       <button class="ttab" data-filter="csat">CSAT <span class="cnt" data-cnt="csat"></span></button>
       <button class="ttab" data-filter="ncert">NCERT <span class="cnt" data-cnt="ncert"></span></button>
       <button class="ttab" data-filter="upsssc">UPSSSC <span class="cnt" data-cnt="upsssc"></span></button>
@@ -960,10 +972,10 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
     </div>
 
     <div class="tgrid" id="testGrid">
-      <div class="tstate" id="testState">टेस्ट-सूची तैयार हो रही है…</div>
+      <div class="tstate" id="testState"><span data-hi>टेस्ट-सूची तैयार हो रही है…</span><span data-en>Preparing the test list…</span></div>
     </div>
 
-    <p class="tfoot rv">प्रत्येक नए टेस्ट की सूचना सबसे पहले — <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram पर जुड़ें →</a></p>
+    <p class="tfoot rv"><span data-hi>प्रत्येक नए टेस्ट की सूचना सबसे पहले — </span><span data-en>Hear about every new test first — </span><a href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span data-hi>Telegram पर जुड़ें →</span><span data-en>Join on Telegram →</span></a></p>
   </div>
 </section>
 
@@ -1024,9 +1036,11 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <!-- ================= जुड़ें ================= -->
 <section id="join" class="join">
   <div class="section-in rv">
-    <span class="eyebrow">निःशुल्क जुड़ें</span>
-    <h2>तैयारी का अगला अध्याय, यहीं से</h2>
-    <p>Telegram पर नए टेस्ट व सामग्री की सूचना — और ईमेल पर संपर्क।</p>
+    <span class="eyebrow"><span data-hi>निःशुल्क जुड़ें</span><span data-en>Join free</span></span>
+    <h2 data-hi>तैयारी का अगला अध्याय, यहीं से</h2>
+    <h2 data-en>The next chapter of prep starts here</h2>
+    <p data-hi>Telegram पर नए टेस्ट व सामग्री की सूचना — और ईमेल पर संपर्क।</p>
+    <p data-en>New tests and material alerts on Telegram — and reach us by email.</p>
     <div class="plats">
       <a class="plat" href="https://t.me/genclassesofficial" target="_blank" rel="noopener" aria-label="Telegram official">
         <span class="pic">✈</span>
@@ -1088,14 +1102,15 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <section id="method">
   <div class="section-in">
     <div class="sec-head rv">
-      <span class="eyebrow">अध्ययन-विधि</span>
-      <h2>चार चरणों में <em>व्यवस्थित</em> तैयारी</h2>
+      <span class="eyebrow"><span data-hi>अध्ययन-विधि</span><span data-en>Study method</span></span>
+      <h2 data-hi>चार चरणों में <em>व्यवस्थित</em> तैयारी</h2>
+      <h2 data-en><em>Structured</em> prep in four steps</h2>
     </div>
     <div class="method">
-      <div class="step rv"><h3>अवधारणा की समझ</h3><p>प्रत्येक विषय की नींव — NCERT से मानक स्रोतों तक क्रमबद्ध एवं गहन समझ।</p></div>
-      <div class="step rv" style="--d:.1s"><h3>स्मरण-सूत्र</h3><p>शब्दों के मूल अर्थ से जुड़े स्मरण-सूत्र — कृत्रिम शॉर्टकट नहीं, टिकाऊ समझ।</p></div>
-      <div class="step rv" style="--d:.2s"><h3>भ्रम-बिंदुओं का विभेद</h3><p>जिन बिंदुओं पर परीक्षा प्रायः उलझाती है, उनका स्पष्ट विभेद पहले ही।</p></div>
-      <div class="step rv" style="--d:.3s"><h3>PYQ से सत्यापन</h3><p>प्रत्येक विषय विगत वर्षों के प्रश्नों की कसौटी पर — ताकि तैयारी परीक्षा-सिद्ध बने।</p></div>
+      <div class="step rv"><h3 data-hi>अवधारणा की समझ</h3><h3 data-en>Concept clarity</h3><p data-hi>प्रत्येक विषय की नींव — NCERT से मानक स्रोतों तक क्रमबद्ध एवं गहन समझ।</p><p data-en>Foundation for every subject — ordered depth from NCERT to standard sources.</p></div>
+      <div class="step rv" style="--d:.1s"><h3 data-hi>स्मरण-सूत्र</h3><h3 data-en>Memory hooks</h3><p data-hi>शब्दों के मूल अर्थ से जुड़े स्मरण-सूत्र — कृत्रिम शॉर्टकट नहीं, टिकाऊ समझ।</p><p data-en>Hooks tied to root meaning — lasting understanding, not artificial shortcuts.</p></div>
+      <div class="step rv" style="--d:.2s"><h3 data-hi>भ्रम-बिंदुओं का विभेद</h3><h3 data-en>Clear the traps</h3><p data-hi>जिन बिंदुओं पर परीक्षा प्रायः उलझाती है, उनका स्पष्ट विभेद पहले ही।</p><p data-en>Clarify the points where exams usually confuse you — before you sit the paper.</p></div>
+      <div class="step rv" style="--d:.3s"><h3 data-hi>PYQ से सत्यापन</h3><h3 data-en>Verify with PYQs</h3><p data-hi>प्रत्येक विषय विगत वर्षों के प्रश्नों की कसौटी पर — ताकि तैयारी परीक्षा-सिद्ध बने।</p><p data-en>Every subject measured against previous years’ questions — so prep is exam-proven.</p></div>
     </div>
   </div>
 </section>
@@ -1106,16 +1121,19 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <section id="notes">
   <div class="section-in">
     <div class="sec-head rv">
-      <span class="eyebrow">अध्ययन-सामग्री</span>
-      <h2>नोट्स — इसी स्थान पर, <em>क्रमशः</em></h2>
+      <span class="eyebrow"><span data-hi>अध्ययन-सामग्री</span><span data-en>Study material</span></span>
+      <h2 data-hi>नोट्स — इसी स्थान पर, <em>क्रमशः</em></h2>
+      <h2 data-en>Notes — here, <em>in due course</em></h2>
     </div>
 
     <div class="nlist" id="notesList" hidden></div>
 
     <div class="npanel rv" id="notesPanel">
-      <h3>अध्ययन-सामग्री तैयारी के क्रम में है।</h3>
-      <p>प्रत्येक पृष्ठ परीक्षा की कसौटी पर परखकर ही यहाँ रखा जाएगा — जल्दबाज़ी में नहीं, सही समय पर। यह मंच जितना <span class="hl">साझा</span> होगा, सामग्री उतनी ही शीघ्र यहाँ उपलब्ध होती जाएगी।</p>
-      <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">तब तक Telegram पर साथ बना रहे →</a>
+      <h3 data-hi>अध्ययन-सामग्री तैयारी के क्रम में है।</h3>
+      <h3 data-en>Study material is being prepared in order.</h3>
+      <p data-hi>प्रत्येक पृष्ठ परीक्षा की कसौटी पर परखकर ही यहाँ रखा जाएगा — जल्दबाज़ी में नहीं, सही समय पर। यह मंच जितना <span class="hl">साझा</span> होगा, सामग्री उतनी ही शीघ्र यहाँ उपलब्ध होती जाएगी।</p>
+      <p data-en>Each page will go live only after it meets the exam yardstick — not in a rush, but at the right time. The more this platform is <span class="hl">shared</span>, the sooner material appears here.</p>
+      <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span data-hi>तब तक Telegram पर साथ बना रहे →</span><span data-en>Stay with us on Telegram till then →</span></a>
     </div>
   </div>
 </section>
@@ -1126,7 +1144,8 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
 <section>
   <div class="section-in quote rv">
     <div class="qm">"</div>
-    <blockquote>तैयारी वही सार्थक है, जो परीक्षा की भाषा समझती है।</blockquote>
+    <blockquote data-hi>तैयारी वही सार्थक है, जो परीक्षा की भाषा समझती है।</blockquote>
+    <blockquote data-en>Prep that counts is prep that speaks the language of the exam.</blockquote>
     <cite>GenClasses</cite>
   </div>
 </section>
@@ -1139,7 +1158,8 @@ html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lan
   </picture>
   <div class="fb">GenClasses</div>
   <div class="sh">Your goal our support</div>
-  <div>UPSC · UPPCS · एक निरंतर चलता प्रयास</div>
+  <div data-hi>UPSC · UPPCS · एक निरंतर चलता प्रयास</div>
+  <div data-en>UPSC · UPPCS · an ongoing effort</div>
   <div style="margin-top:9px;font-size:13px;opacity:.75">© <span id="yr">2026</span> GenClasses</div>
 </footer>
 
@@ -1177,9 +1197,17 @@ var FINE = window.matchMedia("(pointer: fine)").matches;
    repo सही पहचाना जाता है; खाली रहने पर सिर्फ़ *.github.io पर पहचान होती थी। */
 var CONFIG = { user: "genclassessupport-creator", repo: "genclasses.github.io" };
 
-var SEC_NAME = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_HEAD = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_UNIT = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
+function isEn(){ return (document.documentElement.getAttribute("lang") || "hi") === "en"; }
+function L(hi, en){ return isEn() ? en : hi; }
+var SEC_NAME_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_NAME_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_HEAD_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_HEAD_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_UNIT_HI = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
+var SEC_UNIT_EN = { uppcs2026: "Tests", ca: "Tests", gs: "Tests", csat: "", ncert: "Tests", upsssc: "Chapters", upspecial: "Tests" };
+function SEC_NAME(sec){ return (isEn()?SEC_NAME_EN:SEC_NAME_HI)[sec] || sec; }
+function SEC_HEAD(sec){ return (isEn()?SEC_HEAD_EN:SEC_HEAD_HI)[sec] || SEC_NAME(sec); }
+function SEC_UNIT(sec){ var m=isEn()?SEC_UNIT_EN:SEC_UNIT_HI; return m.hasOwnProperty(sec)?m[sec]:L("टेस्ट","Tests"); }
 var OPEN_SEC = null;
 var DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
 /* अध्याय (टेस्ट नहीं) — इनके कार्ड पर "अध्याय खोलें" दिखेगा; बाक़ी पर "टेस्ट प्रारंभ करें"। */
@@ -1216,14 +1244,14 @@ function nsort(a, b){
 
 
 var CA_GROUPS = [
-  { key: "eye-drishti", label: "Eye दृष्टि Current Affairs 2026" },
-  { key: "ghatnasar", label: "घटनासार" },
-  { key: "anya", label: "अन्य" }
+  { key: "eye-drishti", hi: "Eye दृष्टि Current Affairs 2026", en: "Eye Drishti Current Affairs 2026" },
+  { key: "ghatnasar", hi: "घटनासार", en: "Ghatnasar" },
+  { key: "anya", hi: "अन्य", en: "Other" }
 ];
 
 var CSAT_GROUPS = [
-  { key: "content", label: "सामग्री", unit: "अध्याय" },
-  { key: "test",    label: "टेस्ट",   unit: "टेस्ट" }
+  { key: "content", hi: "सामग्री", en: "Material", unitHi: "अध्याय", unitEn: "Chapters" },
+  { key: "test",    hi: "टेस्ट", en: "Tests", unitHi: "टेस्ट", unitEn: "Tests" }
 ];
 function csatGroupOf(path){
   return path.toLowerCase().indexOf("tests/csat/test/") === 0 ? "test" : "content";
@@ -1255,7 +1283,7 @@ function groupTitle(label, count, unit){
   var s = document.createElement("span");
   s.textContent = label;
   var c = document.createElement("small");
-  c.textContent = count > 0 ? (count + " " + (unit || "टेस्ट")) : "शीघ्र उपलब्ध";
+  c.textContent = count > 0 ? (count + " " + (unit || L("टेस्ट","Tests"))) : L("शीघ्र उपलब्ध","Coming soon");
   d.appendChild(s); d.appendChild(c);
   return d;
 }
@@ -1328,12 +1356,12 @@ function testCard(sec, path, idx){
   a.style.animationDelay = Math.min(idx * 70, 560) + "ms";
   var b = document.createElement("span");
   b.className = "tbadge b-" + sec;
-  b.textContent = SEC_NAME[sec];
+  b.textContent = SEC_NAME(sec);
   var h = document.createElement("h3");
   h.textContent = titleOf(path);
   var g = document.createElement("span");
   g.className = "tgo";
-  g.textContent = CHAPTERS[path] ? "अध्याय खोलें →" : "टेस्ट प्रारंभ करें →";
+  g.textContent = CHAPTERS[path] ? L("अध्याय खोलें →","Open chapter →") : L("टेस्ट प्रारंभ करें →","Start test →");
   a.appendChild(b); a.appendChild(h); a.appendChild(g);
   glowTrack(a);
   return a;
@@ -1347,10 +1375,10 @@ function secHead(sec, count){
   b.setAttribute("aria-expanded", "false");
   var nm = document.createElement("span");
   nm.className = "tacc-name";
-  nm.textContent = SEC_HEAD[sec] || SEC_NAME[sec] || sec;
+  nm.textContent = SEC_HEAD(sec);
   var meta = document.createElement("span");
   meta.className = "tacc-meta";
-  var unit = SEC_UNIT.hasOwnProperty(sec) ? SEC_UNIT[sec] : "टेस्ट";
+  var unit = SEC_UNIT(sec);
   meta.innerHTML = (unit ? '<span class="tacc-unit">' + unit + '</span>' : '') +
                    '<span class="tacc-cnt">' + count + '</span>' +
                    '<span class="tacc-arw" aria-hidden="true">▾</span>';
@@ -1379,7 +1407,7 @@ function addCaItems(){
     var arr = DATA.ca.filter(function(p){ return caGroupOf(p) === g.key; });
     if(g.key==="anya") arr.sort(function(a,b){return monthNum(a)-monthNum(b);});
     if (!arr.length) return;
-    var gt = groupTitle(g.label, arr.length);
+    var gt = groupTitle(L(g.hi, g.en), arr.length);
     gt.classList.add("tacc-item"); gt.setAttribute("data-secitem", "ca");
     grid.appendChild(gt);
     arr.forEach(function(p){
@@ -1394,7 +1422,7 @@ function addCsatItems(){
   var shown = 0;
   CSAT_GROUPS.forEach(function(g){
     var arr = DATA.csat.filter(function(p){ return csatGroupOf(p) === g.key; });
-    var gt = groupTitle(g.label, arr.length, g.unit);
+    var gt = groupTitle(L(g.hi, g.en), arr.length, L(g.unitHi, g.unitEn));
     gt.classList.add("tacc-item"); gt.setAttribute("data-secitem", "csat");
     grid.appendChild(gt);
     arr.forEach(function(p){
@@ -1415,9 +1443,9 @@ function addSecItems(s){
 
 function renderTests(){
   grid.innerHTML = "";
-  if (STATE === "loading") { grid.appendChild(stateEl("टेस्ट-सूची तैयार हो रही है…")); return; }
-  if (STATE === "offline") { grid.appendChild(stateEl("टेस्ट-सूची साइट के GitHub Pages पर प्रकाशित होते ही यहाँ स्वतः दिखाई देगी।")); return; }
-  if (STATE === "error")   { grid.appendChild(stateEl("सूची इस समय लोड नहीं हो सकी — कृपया पृष्ठ पुनः खोलें।")); return; }
+  if (STATE === "loading") { grid.appendChild(stateEl(L("टेस्ट-सूची तैयार हो रही है…","Preparing the test list…"))); return; }
+  if (STATE === "offline") { grid.appendChild(stateEl(L("टेस्ट-सूची साइट के GitHub Pages पर प्रकाशित होते ही यहाँ स्वतः दिखाई देगी।","The test list will appear here automatically once published on GitHub Pages."))); return; }
+  if (STATE === "error")   { grid.appendChild(stateEl(L("सूची इस समय लोड नहीं हो सकी — कृपया पृष्ठ पुनः खोलें।","Could not load the list right now — please reload the page."))); return; }
   var secs = (FILTER === "all") ? ["uppcs2026", "ca", "gs", "csat", "ncert", "upsssc", "upspecial"] : [FILTER];
   var any = false;
   secs.forEach(function(s){
@@ -1429,7 +1457,7 @@ function renderTests(){
     else if (s === "csat") addCsatItems();
     else addSecItems(s);
   });
-  if (!any) { grid.appendChild(stateEl("इस खण्ड में टेस्ट शीघ्र उपलब्ध होंगे।")); return; }
+  if (!any) { grid.appendChild(stateEl(L("इस खण्ड में टेस्ट शीघ्र उपलब्ध होंगे।","Tests in this section will be available soon."))); return; }
   OPEN_SEC = (FILTER === "all") ? null : FILTER;
   applyOpen();
 }
@@ -1459,7 +1487,7 @@ function renderNotes(){
     var n = document.createElement("span");
     n.className = "ntitle"; n.textContent = titleOf(p);
     var g = document.createElement("span");
-    g.className = "ngo"; g.textContent = "खोलें →";
+    g.className = "ngo"; g.textContent = L("खोलें →","Open →");
     a.appendChild(t); a.appendChild(n); a.appendChild(g);
     nlist.appendChild(a);
   });
@@ -1480,6 +1508,7 @@ tabs.forEach(function(tab){
    तुरंत)। GitHub API अब सिर्फ़ पीछे से ताज़ा करने या files.json न मिलने पर
    फ़ॉलबैक के लिए। इससे भीड़/साझा-IP में भी सूची कभी गायब नहीं होती। */
 function renderAll(){ renderTests(); renderCounts(); renderNotes(); }
+document.addEventListener("gen-lang", function(){ renderAll(); });
 
 function rebuild(paths){
   DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
@@ -1682,9 +1711,11 @@ if (yr) yr.textContent = new Date().getFullYear();
       var d=Math.max(0,target-Date.now());
       var days=Math.floor(d/86400000), hrs=Math.floor((d%86400000)/3600000), mins=Math.floor((d%3600000)/60000);
       var box=el.querySelector('.cd-nums');
-      if(box) box.innerHTML='<div class="cd-box"><b>'+days+'</b><small>दिन</small></div><div class="cd-box"><b>'+hrs+'</b><small>घंटे</small></div><div class="cd-box"><b>'+mins+'</b><small>मिनट</small></div>';
+      var en=(document.documentElement.getAttribute('lang')||'hi')==='en';
+      if(box) box.innerHTML='<div class="cd-box"><b>'+days+'</b><small>'+(en?'days':'दिन')+'</small></div><div class="cd-box"><b>'+hrs+'</b><small>'+(en?'hrs':'घंटे')+'</small></div><div class="cd-box"><b>'+mins+'</b><small>'+(en?'min':'मिनट')+'</small></div>';
     }
     tick(); setInterval(tick,30000);
+    document.addEventListener('gen-lang', tick);
   }
 })();
 </script>
