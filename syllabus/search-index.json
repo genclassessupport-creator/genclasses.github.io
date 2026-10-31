@@ -264,5 +264,40 @@
     "exam": "UPPSC RO/ARO 2026",
     "section": "RO ARO Essay",
     "keywords": "hindi essay"
+  },
+  {
+    "title": "Daily 5 Quiz",
+    "url": "/daily/",
+    "exam": "Practice",
+    "section": "Daily",
+    "keywords": "daily quiz csat gs telegram genclasses डेली"
+  },
+  {
+    "title": "Flashcards",
+    "url": "/flashcards/",
+    "exam": "Practice",
+    "section": "Flashcards",
+    "keywords": "flashcards पर्याय विलोम मुहावरे ethics polity articles"
+  },
+  {
+    "title": "RO/ARO आलेखन Drafting",
+    "url": "/ro-aro/drafting/",
+    "exam": "RO/ARO 2026",
+    "section": "Drafting",
+    "keywords": "आलेखन पत्र ज्ञापन अधिसूचना परिपत्र drafting letter memo circular notification"
+  },
+  {
+    "title": "UP Current Affairs Weekly",
+    "url": "/up-ca/",
+    "exam": "UPPCS",
+    "section": "GS V/VI",
+    "keywords": "UP current affairs साप्ताहिक GS5 GS6 PIB DIPR"
+  },
+  {
+    "title": "UPPCS Prelims countdown",
+    "url": "/syllabus/uppcs-prelims.html",
+    "exam": "UPPCS Prelims 2026",
+    "section": "Countdown",
+    "keywords": "prelims 6 December 2026 cut-off countdown"
   }
 ]

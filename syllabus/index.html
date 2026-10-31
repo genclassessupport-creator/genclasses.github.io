@@ -19,12 +19,15 @@
 <nav class="hub-nav"><div class="hub-nav-in wrap">
   <a class="brand" href="/"><img src="/assets/gen-logo-96.webp" width="42" height="42" alt="GenClasses"><span><b>GenClasses</b><small>Your goal our support</small></span></a>
   <div class="hub-links">
-    <a href="/syllabus/" style="color:var(--gold-hi)">Syllabus</a>
-    <a href="/csat/" >CSAT</a>
-    <a href="/#tests">टेस्ट</a>
-    <a href="/#special-notes">नोट्स</a>
-    <a href="/">होम</a>
+    <a href="/syllabus/"><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
+    <a href="/csat/">CSAT</a>
+    <a href="/daily/"><span data-hi>डेली क्विज़</span><span data-en>Daily Quiz</span></a>
+    <a href="/flashcards/"><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
+    <a href="/up-ca/"><span data-hi>UP करंट</span><span data-en>UP CA</span></a>
+    <a href="/#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+    <a href="/"><span data-hi>होम</span><span data-en>Home</span></a>
   </div>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
   <button class="theme-btn" id="themeBtn" aria-label="Theme">🌙</button>
 </div></nav>
 <main class="wrap">
@@ -35,6 +38,17 @@
   <h1>पाठ्यक्रम केंद्र — पढ़ें, खोजें, समझें</h1>
   <p>UPPCS, UPSC CSE और UPPSC RO/ARO के Prelims–Mains सिलेबस — आधिकारिक अधिसूचना के आधार पर, visuals व tables के साथ। PDF नहीं — यहीं पढ़ें।</p>
 </section>
+
+<div class="prog-wrap" id="syllabusProgress" data-key="syllabus-hub">
+  <div class="prog-head">
+    <strong><span data-hi>पाठ्यक्रम प्रगति</span><span data-en>Syllabus progress</span> · <span data-pct>0%</span></strong>
+    <button type="button" class="btn btn-ghost" data-reset style="padding:6px 12px;font-size:12px"><span data-hi>रीसेट</span><span data-en>Reset</span></button>
+  </div>
+  <div class="prog-bar"><i></i></div>
+  <div class="prog-list"><label><input type="checkbox" data-id="0"><span data-hi>UPPCS Prelims पढ़ा</span><span data-en>Read UPPCS Prelims</span></label><label><input type="checkbox" data-id="1"><span data-hi>UPPCS Mains पढ़ा</span><span data-en>Read UPPCS Mains</span></label><label><input type="checkbox" data-id="2"><span data-hi>UPSC Prelims</span><span data-en>UPSC Prelims</span></label><label><input type="checkbox" data-id="3"><span data-hi>UPSC Mains</span><span data-en>UPSC Mains</span></label><label><input type="checkbox" data-id="4"><span data-hi>RO/ARO</span><span data-en>RO/ARO</span></label></div>
+</div>
+<button type="button" class="btn btn-ghost print-btn" onclick="window.print()"><span data-hi>🖨 प्रिंट चीट-शीट</span><span data-en>🖨 Print cheat-sheet</span></button>
+
 <div class="search-box">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
   <input id="syllabusSearch" type="search" placeholder="विषय खोजें — जैसे CSAT, Ethics, UP Geography, Essay…" autocomplete="off" aria-label="Search syllabus">

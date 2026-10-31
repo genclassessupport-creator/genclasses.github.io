@@ -19,28 +19,62 @@
 <nav class="hub-nav"><div class="hub-nav-in wrap">
   <a class="brand" href="/"><img src="/assets/gen-logo-96.webp" width="42" height="42" alt="GenClasses"><span><b>GenClasses</b><small>Your goal our support</small></span></a>
   <div class="hub-links">
-    <a href="/syllabus/" style="color:var(--gold-hi)">Syllabus</a>
-    <a href="/csat/" >CSAT</a>
-    <a href="/#tests">टेस्ट</a>
-    <a href="/#special-notes">नोट्स</a>
-    <a href="/">होम</a>
+    <a href="/syllabus/"><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
+    <a href="/csat/">CSAT</a>
+    <a href="/daily/"><span data-hi>डेली क्विज़</span><span data-en>Daily Quiz</span></a>
+    <a href="/flashcards/"><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
+    <a href="/up-ca/"><span data-hi>UP करंट</span><span data-en>UP CA</span></a>
+    <a href="/#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+    <a href="/"><span data-hi>होम</span><span data-en>Home</span></a>
   </div>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
   <button class="theme-btn" id="themeBtn" aria-label="Theme">🌙</button>
 </div></nav>
 <main class="wrap">
 
 
 <div class="breadcrumb"><a href="/">होम</a> · <a href="/syllabus/">Syllabus</a> · UPPCS Prelims</div>
+
+<div class="countdown" id="prelimsCountdown" role="timer" aria-label="UPPCS Prelims countdown">
+  <div>
+    <strong style="color:var(--gold-hi)"><span data-hi>UPPCS Prelims 2026</span><span data-en>UPPCS Prelims 2026</span></strong>
+    <div style="font-size:13px;color:var(--mist);margin-top:4px"><span data-hi>6 दिसंबर 2026 · आधिकारिक परीक्षा कैलेंडर (EC) के अनुसार</span><span data-en>6 Dec 2026 · per official exam calendar (EC)</span></div>
+  </div>
+  <div class="cd-nums"></div>
+</div>
 <section class="hero-mini">
   <span class="eyebrow">UPPCS 2026 · PRELIMS</span>
   <h1>प्रारंभिक परीक्षा — GS I + CSAT</h1>
   <p>Combined State / Upper Subordinate Services (PCS) Examination 2026। Prelims: 6 दिसंबर 2026 (अधिसूचना के अनुसार)।</p>
   <div class="note"><strong>स्रोत / Source:</strong> UPPSC अधिसूचना — Combined State/Upper Subordinate Services Examination 2026 (प्रकाशित ~25 जून 2026)। आधिकारिक साइट: uppsc.up.nic.in। विषय-सूची अधिसूचना के Appendix / syllabus खंड पर आधारित।</div><div class="source-chip"><a href="https://uppsc.up.nic.in/" target="_blank" rel="noopener">uppsc.up.nic.in</a><a href="https://uppsc.up.nic.in/CandidatePages/Notifications.aspx/UPPSC" target="_blank" rel="noopener">Notifications</a></div>
 </section>
+
+<div class="prog-wrap" id="syllabusProgress" data-key="uppcs-prelims">
+  <div class="prog-head">
+    <strong><span data-hi>पाठ्यक्रम प्रगति</span><span data-en>Syllabus progress</span> · <span data-pct>0%</span></strong>
+    <button type="button" class="btn btn-ghost" data-reset style="padding:6px 12px;font-size:12px"><span data-hi>रीसेट</span><span data-en>Reset</span></button>
+  </div>
+  <div class="prog-bar"><i></i></div>
+  <div class="prog-list"><label><input type="checkbox" data-id="0"><span data-hi>Current events</span><span data-en>Current events</span></label><label><input type="checkbox" data-id="1"><span data-hi>History & National Movement</span><span data-en>History & National Movement</span></label><label><input type="checkbox" data-id="2"><span data-hi>Geography</span><span data-en>Geography</span></label><label><input type="checkbox" data-id="3"><span data-hi>Polity & Governance</span><span data-en>Polity & Governance</span></label><label><input type="checkbox" data-id="4"><span data-hi>Economy & Social Development</span><span data-en>Economy & Social Development</span></label><label><input type="checkbox" data-id="5"><span data-hi>Environment & Ecology</span><span data-en>Environment & Ecology</span></label><label><input type="checkbox" data-id="6"><span data-hi>General Science</span><span data-en>General Science</span></label><label><input type="checkbox" data-id="7"><span data-hi>CSAT: Comprehension</span><span data-en>CSAT: Comprehension</span></label><label><input type="checkbox" data-id="8"><span data-hi>CSAT: Reasoning & Decision</span><span data-en>CSAT: Reasoning & Decision</span></label><label><input type="checkbox" data-id="9"><span data-hi>CSAT: Maths & DI</span><span data-en>CSAT: Maths & DI</span></label></div>
+</div>
+<button type="button" class="btn btn-ghost print-btn" onclick="window.print()"><span data-hi>🖨 प्रिंट चीट-शीट</span><span data-en>🖨 Print cheat-sheet</span></button>
 <div class="flow" role="img" aria-label="Exam flow"><div class="node"><b>Prelims</b><small>GS I + CSAT</small></div><span class="arr" aria-hidden="true">→</span><div class="node"><b>Mains</b><small>8 papers</small></div><span class="arr" aria-hidden="true">→</span><div class="node"><b>Interview</b><small>Personality</small></div><span class="arr" aria-hidden="true">→</span><div class="node"><b>Merit</b><small>Final</small></div></div>
 <h2 style="font-size:22px;margin:8px 0">Exam Pattern</h2>
 <div class="table-wrap"><table class="pat"><thead><tr><th>Paper</th><th>Subject</th><th>Questions</th><th>Marks</th><th>Duration</th><th>Nature</th></tr></thead><tbody><tr><td>Paper I</td><td>General Studies I</td><td>150</td><td>200</td><td>2 hours</td><td>Merit (cut-off)</td></tr><tr><td>Paper II</td><td>CSAT / GS II</td><td>100</td><td>200</td><td>2 hours</td><td>Qualifying · 33%</td></tr></tbody></table></div>
 <div class="note"><strong>नोट:</strong> Paper II (CSAT) में न्यूनतम ~33% अंक अनिवार्य; merit मुख्यतः Paper I पर। गलत उत्तर पर ⅓ नकारात्मक अंकन (अधिसूचना के अनुसार)।</div>
+
+<h2 style="font-size:20px;margin:18px 0 8px"><span data-hi>पिछले वर्षों के कट-ऑफ (Executive · GS-I / 200)</span><span data-en>Past cut-offs (Executive · GS-I / 200)</span></h2>
+<div class="table-wrap"><table class="pat"><thead><tr><th>Year</th><th>UR</th><th>OBC</th><th>EWS</th><th>SC</th><th>ST</th></tr></thead>
+<tbody>
+<tr><td>2024</td><td>101</td><td>102</td><td>100</td><td>85</td><td>70</td></tr>
+<tr><td>2023</td><td>125</td><td>128</td><td>129</td><td>112</td><td>109</td></tr>
+<tr><td>2022</td><td>111</td><td>114</td><td>114</td><td>99</td><td>91</td></tr>
+<tr><td>2021</td><td>115</td><td>113</td><td>117</td><td>96</td><td>82</td></tr>
+<tr><td>2020</td><td>110</td><td>110</td><td>112</td><td>95</td><td>77</td></tr>
+<tr><td>2019</td><td>117</td><td>116</td><td>117</td><td>99</td><td>77</td></tr>
+<tr><td>2018</td><td>126</td><td>126</td><td>—</td><td>112</td><td>90</td></tr>
+</tbody></table></div>
+<p class="note"><span data-hi><strong>स्रोत:</strong> UPPSC Combined State/Upper Subordinate Services (Prelim) की Executive-group कट-ऑफ नोटिसों से GS-I/200 अंक (आयोग की नोटिसों का ट्रांसक्रिप्शन; द्वितीयक संकलन से क्रॉस-चेक)। CSAT अलग qualifying। 2025 कट-ऑफ इस लेखन तक जारी नहीं। मूल PDF/नोटिस: <a href="https://uppsc.up.nic.in/" target="_blank" rel="noopener">uppsc.up.nic.in</a>।</span><span data-en><strong>Source:</strong> GS-I/200 marks from UPPSC Combined State/Upper Subordinate Services (Prelim) Executive-group cut-off notices (transcription of commission notices; cross-checked against secondary compilations). CSAT is separately qualifying. 2025 cut-off not released at writing. Original notices: <a href="https://uppsc.up.nic.in/" target="_blank" rel="noopener">uppsc.up.nic.in</a>.</span></p>
 <h2 style="font-size:22px;margin:18px 0 8px">Paper I — General Studies</h2>
 <div class="topics">
 <details class="acc"><summary>1. Current events (राष्ट्रीय व अंतर्राष्ट्रीय)</summary><div class="body"><ul><li>National & international current affairs</li><li>Government schemes, reports, summits (as asked in paper)</li></ul></div></details>
@@ -60,6 +94,12 @@
 <p style="margin:16px 0"><a class="btn btn-gold" href="/csat/">UPPCS CSAT Hub खोलें →</a>
 <a class="btn btn-ghost" href="/syllabus/uppcs-mains.html" style="margin-left:8px">Mains Syllabus →</a></p>
 
+
+<section class="cheat-sheet" aria-hidden="true">
+  <h1>UPPCS Prelims 2026 / UPPCS Prelims 2026</h1>
+  <p>GenClasses · Exam pattern one-pager · Verify official notification</p>
+  <table class="pat"><tr><th>Paper</th><th>Q</th><th>Marks</th><th>Time</th><th>Nature</th></tr><tr><td>GS I</td><td>150</td><td>200</td><td>2h</td><td>Merit</td></tr><tr><td>CSAT</td><td>100</td><td>200</td><td>2h</td><td>Qualifying 33%</td></tr></table><p>Prelims: 6 Dec 2026 (official calendar). Negative marking ⅓ as per notification.</p>
+</section>
 </main>
 <footer class="hub-foot">
   <p><a href="/">GenClasses</a> · <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a> · <a href="mailto:genclassessupport@gmail.com">Email</a></p>
