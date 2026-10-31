@@ -18,11 +18,15 @@
 <nav class="hub-nav"><div class="hub-nav-in wrap">
   <a class="brand" href="/"><img src="/assets/gen-logo-96.webp" width="42" height="42" alt="GenClasses"><span><b>GenClasses</b><small>Your goal our support</small></span></a>
   <div class="hub-links">
-    <a href="/syllabus/">Syllabus</a>
-    <a href="/csat/" style="color:var(--gold-hi)">CSAT</a>
-    <a href="/#tests">टेस्ट</a>
-    <a href="/">होम</a>
+    <a href="/syllabus/"><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
+    <a href="/csat/">CSAT</a>
+    <a href="/daily/"><span data-hi>डेली क्विज़</span><span data-en>Daily Quiz</span></a>
+    <a href="/flashcards/"><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
+    <a href="/up-ca/"><span data-hi>UP करंट</span><span data-en>UP CA</span></a>
+    <a href="/#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+    <a href="/"><span data-hi>होम</span><span data-en>Home</span></a>
   </div>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
   <button class="theme-btn" id="themeBtn" aria-label="Theme">🌙</button>
 </div></nav>
 <main class="wrap">
@@ -37,19 +41,19 @@
 <p>All A are B → A वृत्त B के अंदर। Some overlap = आंशिक संगम।</p></div>
 <div class="mcq"><div class="q">Q1. Series: 2, 6, 12, 20, 30, ?</div><label><input type="radio" name="m1"> 36</label><label><input type="radio" name="m1"> 42</label><label><input type="radio" name="m1"> 40</label><label><input type="radio" name="m1"> 44</label>
 <button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें</button>
-<div class="reveal"><strong>उत्तर: 42</strong><br>+4,+6,+8,+10,+12 → 30+12=42।</div></div>
+<div class="reveal"><strong>उत्तर: 42</strong><br>+4,+6,+8,+10,+12 → 30+12=42।<ul class="wrong-why"><li><strong>गलत विकल्प क्यों / Why wrong:</strong></li><li>36: अंतर +6 मानने पर; वास्तव में अंतर +2 से बढ़ते हैं।</li><li>40: +10; अगला अंतर +12 है।</li><li>44: +14 — श्रृंखला से मेल नहीं।</li></ul></div></div>
 <div class="mcq"><div class="q">Q2. If CAT=3120 (C=3… pattern example): सबसे सुरक्षित तरीका?</div><label><input type="radio" name="m2"> अनुमान</label><label><input type="radio" name="m2"> दिए गए कोड नियम से अक्षर-मान जोड़ें</label><label><input type="radio" name="m2"> अनदेखा</label><label><input type="radio" name="m2"> केवल स्वर</label>
 <button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें</button>
-<div class="reveal"><strong>उत्तर: दिए गए कोड नियम से</strong><br>Coding प्रश्न में नियम passage/options से निकालें।</div></div>
+<div class="reveal"><strong>उत्तर: दिए गए कोड नियम से</strong><br>Coding प्रश्न में नियम passage/options से निकालें।<ul class="wrong-why"><li><strong>गलत विकल्प क्यों / Why wrong:</strong></li><li>अनुमान: कोडिंग में अनुमान से बचें।</li><li>अनदेखा: प्रश्न हल करना आवश्यक।</li><li>केवल स्वर: नियम पूर्ण वर्णों पर हो सकता है।</li></ul></div></div>
 <div class="mcq"><div class="q">Q3. All pens are books. Some books are tables. निष्कर्ष?</div><label><input type="radio" name="m3"> All tables are pens</label><label><input type="radio" name="m3"> Some pens are tables (जरूरी नहीं)</label><label><input type="radio" name="m3"> Some books are pens</label><label><input type="radio" name="m3"> None possible always</label>
 <button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें</button>
-<div class="reveal"><strong>उत्तर: Some books are pens</strong><br>‘All pens are books’ ⇒ some books are pens (यदि pens अरिक्त)।</div></div>
+<div class="reveal"><strong>उत्तर: Some books are pens</strong><br>‘All pens are books’ ⇒ some books are pens (यदि pens अरिक्त)।<ul class="wrong-why"><li><strong>गलत विकल्प क्यों / Why wrong:</strong></li><li>All tables are pens — अवैध विस्तार।</li><li>Some pens are tables — आवश्यक निष्कर्ष नहीं।</li><li>None — गलत; some books are pens निश्चित।</li></ul></div></div>
 <div class="mcq"><div class="q">Q4. South से 5 km, बाएँ मुड़कर 5 km — दिशा?</div><label><input type="radio" name="m4"> North</label><label><input type="radio" name="m4"> East</label><label><input type="radio" name="m4"> West</label><label><input type="radio" name="m4"> South</label>
 <button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें</button>
-<div class="reveal"><strong>उत्तर: East</strong><br>South facing left → East।</div></div>
+<div class="reveal"><strong>उत्तर: East</strong><br>South facing left → East।<ul class="wrong-why"><li><strong>गलत विकल्प क्यों / Why wrong:</strong></li><li>North: उल्टी दिशा।</li><li>West: दाएँ मुड़ने पर।</li><li>South: बिना मुड़े।</li></ul></div></div>
 <div class="mcq"><div class="q">Q5. Odd one: 3, 5, 7, 9, 11</div><label><input type="radio" name="m5"> 3</label><label><input type="radio" name="m5"> 9</label><label><input type="radio" name="m5"> 7</label><label><input type="radio" name="m5"> 11</label>
 <button type="button" class="btn btn-ghost" data-reveal style="margin-top:8px">उत्तर देखें</button>
-<div class="reveal"><strong>उत्तर: 9</strong><br>9 सम/विषम अभाज्य नहीं; शेष अभाज्य।</div></div><div class="pager"><a class="btn btn-ghost" href="/csat/maths-numeracy.html">← Maths</a><a class="btn btn-gold" href="/csat/decision-making.html">Decision Making →</a></div></main>
+<div class="reveal"><strong>उत्तर: 9</strong><br>9 सम/विषम अभाज्य नहीं; शेष अभाज्य।<ul class="wrong-why"><li><strong>गलत विकल्प क्यों / Why wrong:</strong></li><li>3,7,11 अभाज्य हैं।</li><li>9 = 3×3 संयुक्त संख्या।</li></ul></div></div><div class="pager"><a class="btn btn-ghost" href="/csat/maths-numeracy.html">← Maths</a><a class="btn btn-gold" href="/csat/decision-making.html">Decision Making →</a></div></main>
 <footer class="hub-foot">
   <p><a href="/csat/">CSAT Hub</a> · <a href="/syllabus/uppcs-prelims.html">UPPCS Prelims Syllabus</a> · <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></p>
   <p style="margin-top:8px;font-size:12px">CSAT UPPCS Prelims GS Paper II पर आधारित अभ्यास सामग्री — परीक्षा में आधिकारिक निर्देश मानें।</p>
