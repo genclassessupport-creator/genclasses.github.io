@@ -631,7 +631,39 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   .menu-btn{display:block}
   .nav-cta{display:none}
 }
+
+/* ticker + features + i18n (homepage) */
+.ticker-wrap{overflow:hidden;border-bottom:1px solid var(--line);background:rgba(18,48,90,.55);position:relative;z-index:90}
+html[data-theme="light"] .ticker-wrap{background:rgba(246,241,228,.97)}
+.ticker-track{display:flex;width:max-content;animation:ticker-scroll 42s linear infinite}
+.ticker-wrap:hover .ticker-track{animation-play-state:paused}
+@keyframes ticker-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+.ticker-track a{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;white-space:nowrap;font-size:13px;font-weight:700;color:var(--cream);text-decoration:none;border-right:1px solid var(--line)}
+.ticker-track a:hover{color:var(--gold-hi)}
+.ticker-track .pill-new{font-size:10px;font-weight:800;letter-spacing:.6px;padding:2px 7px;border-radius:999px;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:8px 0 0}
+.feat-grid a{display:flex;flex-direction:column;gap:4px;padding:14px 12px;border-radius:14px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .18s,border-color .18s;min-height:84px}
+.feat-grid a:hover{transform:translateY(-2px);border-color:var(--line-2)}
+.feat-grid a .ic{font-size:18px;color:var(--gold-hi);font-weight:800}
+.feat-grid a strong{font-size:13.5px;color:var(--cream);font-weight:800}
+.feat-grid a span{font-size:11.5px;color:var(--mist);font-weight:500;line-height:1.35}
+.lang-btn{border:1px solid var(--line-2);background:rgba(18,48,90,.85);color:#F2CD88;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit;margin-right:8px}
+html[data-theme="light"] .lang-btn{background:#fff;color:#8a5a12;border-color:rgba(196,122,24,.35)}
+html[lang="en"] [data-hi],html:not([lang="en"]) [data-en]{display:none!important}
+html[lang="en"] [data-en],html:not([lang="en"]) [data-hi]{display:inline}
+html[lang="en"] p[data-en],html[lang="en"] h1[data-en],html[lang="en"] h2[data-en],html[lang="en"] h3[data-en],html[lang="en"] div[data-en],html[lang="en"] span[data-en].block{display:block}
+html:not([lang="en"]) p[data-hi],html:not([lang="en"]) h1[data-hi],html:not([lang="en"]) h2[data-hi],html:not([lang="en"]) h3[data-hi],html:not([lang="en"]) div[data-hi],html:not([lang="en"]) span[data-hi].block{display:block}
+.countdown{margin:14px 0;padding:14px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(232,162,58,.18),rgba(18,48,90,.35));border:1px solid var(--line-2);display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.countdown .cd-nums{display:flex;gap:8px;flex-wrap:wrap}
+.countdown .cd-box{min-width:56px;text-align:center;padding:8px 10px;border-radius:10px;background:#12305a;color:#F2EBDA;border:1px solid rgba(217,174,95,.4)}
+.countdown .cd-box b{display:block;font-size:20px;font-weight:800;color:#F2CD88}
+.countdown .cd-box small{font-size:10px;opacity:.85}
+
 </style>
+<script>
+(function(){try{var L=localStorage.getItem('gen_lang');if(L==='en'||L==='hi')document.documentElement.setAttribute('lang',L);}catch(e){}})();
+</script>
 </head>
 <body>
 
@@ -655,16 +687,17 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
       <span class="brand-name">GenClasses<small>Your goal our support</small></span>
     </a>
     <div class="nav-links" id="navLinks">
-      <a href="#special-notes">विशेष नोट्स</a>
-      <a href="#tests">टेस्ट सीरीज़</a>
-      <a href="/syllabus/">Syllabus</a>
+      <a href="#special-notes"><span data-hi>विशेष नोट्स</span><span data-en>Special Notes</span></a>
+      <a href="#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+      <a href="/syllabus/"><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
       <a href="/csat/">CSAT</a>
-      <a href="#join">जुड़ें</a>
-      <a href="#subjects">विषय</a>
-      <a href="#method">अध्ययन-विधि</a>
-      <a href="#notes">अध्ययन-सामग्री</a>
+      <a href="/daily/"><span data-hi>डेली</span><span data-en>Daily</span></a>
+      <a href="/flashcards/"><span data-hi>फ्लैश</span><span data-en>Flash</span></a>
+      <a href="/up-ca/">UP CA</a>
+      <a href="#join"><span data-hi>जुड़ें</span><span data-en>Join</span></a>
     </div>
     <a href="#tests" class="nav-cta">टेस्ट सीरीज़</a>
+    <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
     <button class="theme-btn" id="themeBtn" aria-label="थीम बदलें" title="थीम बदलें">☀️</button>
     <button class="menu-btn" id="menuBtn" aria-label="मेन्यू खोलें">☰</button>
   </div>
@@ -708,6 +741,36 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   </div>
   <div class="scroll-cue" aria-hidden="true">नीचे<span></span></div>
 </header>
+
+
+<section id="whats-on" style="padding:28px 0 8px">
+  <div class="section-in">
+    <div class="sec-head rv">
+      <span class="eyebrow">WHAT'S ON</span>
+      <h2 data-hi>GenClasses पर क्या है</h2>
+      <h2 data-en>What's on GenClasses</h2>
+      <p data-hi>सिलेबस से डेली क्विज़ तक — एक जगह, हल्का और तेज़।</p>
+      <p data-en>From syllabus to daily quiz — one place, light and fast.</p>
+    </div>
+    <div class="countdown" id="prelimsCountdown" role="timer">
+      <div>
+        <strong style="color:var(--gold-hi)">UPPCS Prelims 2026</strong>
+        <div style="font-size:13px;color:var(--mist);margin-top:4px"><span data-hi>6 दिसंबर 2026 · आधिकारिक परीक्षा कैलेंडर</span><span data-en>6 Dec 2026 · official exam calendar</span></div>
+      </div>
+      <div class="cd-nums"></div>
+    </div>
+    <div class="feat-grid rv">
+      <a href="/syllabus/"><span class="ic">§</span><strong data-hi>सिलेबस</strong><strong data-en>Syllabus</strong><span data-hi>UPPCS · UPSC · RO/ARO</span><span data-en>UPPCS · UPSC · RO/ARO</span></a>
+      <a href="/csat/"><span class="ic">✦</span><strong>CSAT</strong><span data-hi>12 टॉपिक अभ्यास</span><span data-en>12 topic drills</span></a>
+      <a href="/daily/"><span class="ic">5</span><strong data-hi>डेली क्विज़</strong><strong data-en>Daily Quiz</strong><span data-hi>हर दिन 5 प्रश्न</span><span data-en>5 questions a day</span></a>
+      <a href="/flashcards/"><span class="ic">▦</span><strong data-hi>फ्लैशकार्ड</strong><strong data-en>Flashcards</strong><span data-hi>स्वाइप से याद</span><span data-en>Swipe to revise</span></a>
+      <a href="/ro-aro/drafting/"><span class="ic">✍</span><strong data-hi>आलेखन</strong><strong data-en>Drafting</strong><span data-hi>पत्र · ज्ञापन · परिपत्र</span><span data-en>Letter · Memo · Circular</span></a>
+      <a href="/up-ca/"><span class="ic">📰</span><strong data-hi>UP करंट</strong><strong data-en>UP CA</strong><span data-hi>GS V/VI डाइजेस्ट</span><span data-en>GS V/VI digest</span></a>
+      <a href="#tests"><span class="ic">◎</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span data-hi>परीक्षा-स्तरीय</span><span data-en>Exam-level</span></a>
+      <a href="#special-notes"><span class="ic">★</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span data-hi>कस्टम डिमांड</span><span data-en>Custom demand</span></a>
+    </div>
+  </div>
+</section>
 
 <!-- ================= विशेष नोट्स ================= -->
 <section id="special-notes">
@@ -848,22 +911,48 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
 <section id="hubs" style="padding:36px 0 28px">
   <div class="section-in">
     <div class="sec-head rv">
-      <span class="eyebrow">SYLLABUS · CSAT</span>
-      <h2>पाठ्यक्रम व CSAT — <em>यहीं पढ़ें</em></h2>
-      <p>UPPCS, UPSC और RO/ARO का आधिकारिक सिलेबस visuals के साथ; UPPCS CSAT topic-wise अभ्यास — PDF का बोझ नहीं।</p>
+      <span class="eyebrow">HUBS · TOOLS</span>
+      <h2 data-hi>पाठ्यक्रम से अभ्यास तक — <em>यहीं</em></h2>
+      <h2 data-en>From syllabus to practice — <em>here</em></h2>
+      <p data-hi>सिलेबस, CSAT, डेली क्विज़, फ्लैशकार्ड, आलेखन व UP करंट — बिना भारी PDF के।</p>
+      <p data-en>Syllabus, CSAT, daily quiz, flashcards, drafting & UP CA — without heavy PDFs.</p>
     </div>
-    <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:8px">
+    <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px">
       <a href="/syllabus/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
         <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;font-weight:800;margin-bottom:10px">§</div>
-        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px">Syllabus Hub</h3>
-        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400">UPPCS Pre/Mains · UPSC CSE · UPPSC RO/ARO 2026 (नया) — खोज सहित</p>
-        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px">खोलें →</span>
+        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>सिलेबस हब</span><span data-en>Syllabus Hub</span></h3>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>UPPCS · UPSC · RO/ARO — खोज व प्रगति</span><span data-en>UPPCS · UPSC · RO/ARO — search & progress</span></p>
+        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
       </a>
       <a href="/csat/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
         <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;font-weight:800;margin-bottom:10px">✦</div>
-        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px">CSAT Hub</h3>
-        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400">English · हिंदी · Maths · Reasoning · Decision · DI — visuals + MCQ</p>
-        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px">खोलें →</span>
+        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>CSAT हब</span><span data-en>CSAT Hub</span></h3>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>12 टॉपिक · गलत विकल्प की व्याख्या</span><span data-en>12 topics · why wrong options fail</span></p>
+        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
+      </a>
+      <a href="/daily/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
+        <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;font-weight:800;margin-bottom:10px">5</div>
+        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>डेली क्विज़</span><span data-en>Daily Quiz</span></h3>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>तिथि-सीडेड 5 प्रश्न · Telegram शेयर</span><span data-en>Date-seeded 5 Qs · Telegram share</span></p>
+        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
+      </a>
+      <a href="/flashcards/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
+        <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;font-weight:800;margin-bottom:10px">▦</div>
+        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></h3>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>पर्याय · मुहावरे · अनुच्छेद · नीति</span><span data-en>Synonyms · idioms · articles · ethics</span></p>
+        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
+      </a>
+      <a href="/ro-aro/drafting/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
+        <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;font-weight:800;margin-bottom:10px">✍</div>
+        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></h3>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>पत्र · ज्ञापन · अधिसूचना · परिपत्र</span><span data-en>Letter · memo · notification · circular</span></p>
+        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
+      </a>
+      <a href="/up-ca/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
+        <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#e8a23a,#c45a18);color:#fff;font-weight:800;margin-bottom:10px">📰</div>
+        <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>UP करंट अफेयर्स</span><span data-en>UP Current Affairs</span></h3>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>साप्ताहिक डाइजेस्ट · GS V/VI · स्रोत सहित</span><span data-en>Weekly digest · GS V/VI · cited</span></p>
+        <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
       </a>
     </div>
   </div>
@@ -1498,5 +1587,33 @@ if (yr) yr.textContent = new Date().getFullYear();
 
 })();
 </script>
+
+<script>
+(function(){
+  var lb=document.getElementById('langBtn');
+  function syncLangBtn(){if(lb) lb.textContent=(document.documentElement.getAttribute('lang')==='en')?'हिं':'EN';}
+  syncLangBtn();
+  if(lb) lb.addEventListener('click',function(){
+    var cur=document.documentElement.getAttribute('lang')||'hi';
+    var next=cur==='en'?'hi':'en';
+    document.documentElement.setAttribute('lang',next);
+    try{localStorage.setItem('gen_lang',next);}catch(e){}
+    syncLangBtn();
+    document.dispatchEvent(new CustomEvent('gen-lang',{detail:next}));
+  });
+  var el=document.getElementById('prelimsCountdown');
+  if(el){
+    var target=new Date('2026-12-06T09:30:00+05:30').getTime();
+    function tick(){
+      var d=Math.max(0,target-Date.now());
+      var days=Math.floor(d/86400000), hrs=Math.floor((d%86400000)/3600000), mins=Math.floor((d%3600000)/60000);
+      var box=el.querySelector('.cd-nums');
+      if(box) box.innerHTML='<div class="cd-box"><b>'+days+'</b><small>दिन</small></div><div class="cd-box"><b>'+hrs+'</b><small>घंटे</small></div><div class="cd-box"><b>'+mins+'</b><small>मिनट</small></div>';
+    }
+    tick(); setInterval(tick,30000);
+  }
+})();
+</script>
+
 </body>
 </html>
