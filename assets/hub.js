@@ -7,8 +7,8 @@
   try{
     var L=localStorage.getItem('gen_lang');
     if(L==='en'||L==='hi'){document.documentElement.setAttribute('lang',L);}
-    else{document.documentElement.setAttribute('lang','hi');}
-  }catch(e){document.documentElement.setAttribute('lang','hi');}
+    else{document.documentElement.setAttribute('lang','en');}
+  }catch(e){document.documentElement.setAttribute('lang','en');}
   window.genToggleTheme=function(){
     var dark=!document.documentElement.getAttribute('data-theme');
     if(dark){document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('gen_theme','dark');}catch(e){}}
@@ -16,7 +16,7 @@
     var b=document.getElementById('themeBtn'); if(b) b.textContent=dark?'☀️':'🌙';
   };
   window.genToggleLang=function(){
-    var cur=document.documentElement.getAttribute('lang')||'hi';
+    var cur=document.documentElement.getAttribute('lang')||'en';
     var next=cur==='en'?'hi':'en';
     document.documentElement.setAttribute('lang',next);
     try{localStorage.setItem('gen_lang',next);}catch(e){}

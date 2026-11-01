@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1734,7 +1734,7 @@ if (yr) yr.textContent = new Date().getFullYear();
   function syncLangBtn(){if(lb) lb.textContent=(document.documentElement.getAttribute('lang')==='en')?'हिं':'EN';}
   syncLangBtn();
   if(lb) lb.addEventListener('click',function(){
-    var cur=document.documentElement.getAttribute('lang')||'hi';
+    var cur=document.documentElement.getAttribute('lang')||'en';
     var next=cur==='en'?'hi':'en';
     document.documentElement.setAttribute('lang',next);
     try{localStorage.setItem('gen_lang',next);}catch(e){}
@@ -1748,7 +1748,7 @@ if (yr) yr.textContent = new Date().getFullYear();
       var d=Math.max(0,target-Date.now());
       var days=Math.floor(d/86400000), hrs=Math.floor((d%86400000)/3600000), mins=Math.floor((d%3600000)/60000);
       var box=el.querySelector('.cd-nums');
-      var en=(document.documentElement.getAttribute('lang')||'hi')==='en';
+      var en=(document.documentElement.getAttribute('lang')||'en')==='en';
       if(box) box.innerHTML='<div class="cd-box"><b>'+days+'</b><small>'+(en?'days':'दिन')+'</small></div><div class="cd-box"><b>'+hrs+'</b><small>'+(en?'hrs':'घंटे')+'</small></div><div class="cd-box"><b>'+mins+'</b><small>'+(en?'min':'मिनट')+'</small></div>';
     }
     tick(); setInterval(tick,30000);

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -340,7 +340,7 @@
 <script>
 const TEST = __TEST_JSON__;
 /* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
-var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"hi"; }catch(e){ return "hi"; } })();
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
 function langSegHTML(){
   var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
   return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
