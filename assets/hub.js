@@ -253,6 +253,13 @@
       inp.addEventListener('input',function(){render(inp.value);});
     }
     initWaFab();
+    if(!document.querySelector('script[data-gc-visit-counter]')){
+      var s=document.createElement('script');
+      s.src='/assets/visit-counter.js';
+      s.defer=true;
+      s.setAttribute('data-gc-visit-counter','1');
+      document.head.appendChild(s);
+    }
     initCountdown();
     initProgress();
     initDaily();
