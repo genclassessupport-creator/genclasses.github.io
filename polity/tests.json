@@ -1,0 +1,292 @@
+{
+  "total": 960,
+  "tests": [
+    {
+      "path": "tests/polity/Polity-PYQ-01-constitutional-development.html",
+      "title_en": "Constitutional Development",
+      "title_hi": "संवैधानिक विकास",
+      "count": 15,
+      "missing_answers": 0,
+      "missing_sources": 15,
+      "exam_counts": {
+        "unknown": 15
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-02-constituent-assembly.html",
+      "title_en": "Constituent Assembly",
+      "title_hi": "संविधान सभा",
+      "count": 29,
+      "missing_answers": 1,
+      "missing_sources": 22,
+      "exam_counts": {
+        "unknown": 22,
+        "uppcs-mains": 5,
+        "uppcs-pre": 2
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-03-sources-parts-articles.html",
+      "title_en": "Sources, Parts & Articles",
+      "title_hi": "स्रोत, भाग एवं अनुच्छेद",
+      "count": 46,
+      "missing_answers": 3,
+      "missing_sources": 44,
+      "exam_counts": {
+        "unknown": 44,
+        "uppcs-mains": 1,
+        "uppcs-pre": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-04-schedules-preamble.html",
+      "title_en": "Schedules & Preamble",
+      "title_hi": "अनुसूचियाँ एवं प्रस्तावना",
+      "count": 43,
+      "missing_answers": 1,
+      "missing_sources": 38,
+      "exam_counts": {
+        "lower": 2,
+        "unknown": 38,
+        "uppcs-pre": 1,
+        "uppcs-mains": 1,
+        "ro-aro": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-05-governance-symbols-states.html",
+      "title_en": "Governance, Symbols & States",
+      "title_hi": "शासन, प्रतीक एवं राज्य",
+      "count": 62,
+      "missing_answers": 4,
+      "missing_sources": 58,
+      "exam_counts": {
+        "unknown": 58,
+        "uppcs-mains": 3,
+        "uppcs-pre": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-06-citizenship.html",
+      "title_en": "Citizenship",
+      "title_hi": "नागरिकता",
+      "count": 6,
+      "missing_answers": 0,
+      "missing_sources": 5,
+      "exam_counts": {
+        "uppcs-pre": 1,
+        "unknown": 5
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-07-fundamental-rights.html",
+      "title_en": "Fundamental Rights",
+      "title_hi": "मौलिक अधिकार",
+      "count": 64,
+      "missing_answers": 1,
+      "missing_sources": 56,
+      "exam_counts": {
+        "unknown": 56,
+        "uppcs-pre": 2,
+        "uppcs-mains": 3,
+        "uda-lda": 1,
+        "other": 1,
+        "lower": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-08-dpsp-duties.html",
+      "title_en": "DPSP & Fundamental Duties",
+      "title_hi": "नीति निदेशक तत्व एवं मौलिक कर्तव्य",
+      "count": 44,
+      "missing_answers": 0,
+      "missing_sources": 40,
+      "exam_counts": {
+        "unknown": 40,
+        "uppcs-pre": 2,
+        "lower": 1,
+        "uppcs-mains": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-09-president-vp.html",
+      "title_en": "President & Vice-President",
+      "title_hi": "राष्ट्रपति एवं उपराष्ट्रपति",
+      "count": 58,
+      "missing_answers": 1,
+      "missing_sources": 54,
+      "exam_counts": {
+        "unknown": 54,
+        "ro-aro": 1,
+        "uppcs-mains": 2,
+        "other": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-10-council-ministers-ag-cag.html",
+      "title_en": "Council of Ministers, AG & CAG",
+      "title_hi": "मंत्रिपरिषद, महान्यायवादी एवं CAG",
+      "count": 47,
+      "missing_answers": 2,
+      "missing_sources": 41,
+      "exam_counts": {
+        "unknown": 41,
+        "other": 1,
+        "uppcs-pre": 3,
+        "uppcs-mains": 2
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-11-lok-sabha-rajya-sabha.html",
+      "title_en": "Lok Sabha & Rajya Sabha",
+      "title_hi": "लोकसभा एवं राज्यसभा",
+      "count": 51,
+      "missing_answers": 8,
+      "missing_sources": 47,
+      "exam_counts": {
+        "unknown": 47,
+        "uppcs-pre": 1,
+        "uppcs-mains": 3
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-12-parliament-process-committees.html",
+      "title_en": "Parliament Process & Committees",
+      "title_hi": "संसदीय प्रक्रिया एवं समितियाँ",
+      "count": 76,
+      "missing_answers": 3,
+      "missing_sources": 69,
+      "exam_counts": {
+        "unknown": 69,
+        "uppcs-mains": 5,
+        "lower": 1,
+        "ro-aro": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-13-supreme-court.html",
+      "title_en": "Supreme Court",
+      "title_hi": "उच्चतम न्यायालय",
+      "count": 51,
+      "missing_answers": 3,
+      "missing_sources": 48,
+      "exam_counts": {
+        "unknown": 48,
+        "uppcs-pre": 1,
+        "uppcs-mains": 2
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-14-governor-state-legislature.html",
+      "title_en": "Governor & State Legislature",
+      "title_hi": "राज्यपाल एवं राज्य विधानमंडल",
+      "count": 51,
+      "missing_answers": 2,
+      "missing_sources": 48,
+      "exam_counts": {
+        "unknown": 48,
+        "uppcs-pre": 1,
+        "lower": 1,
+        "uppcs-mains": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-15-high-court-centre-state.html",
+      "title_en": "High Court & Centre–State",
+      "title_hi": "उच्च न्यायालय एवं केन्द्र–राज्य",
+      "count": 41,
+      "missing_answers": 3,
+      "missing_sources": 39,
+      "exam_counts": {
+        "unknown": 39,
+        "uppcs-pre": 2
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-16-emergency-finance-niti.html",
+      "title_en": "Emergency, Finance & NITI",
+      "title_hi": "आपातकाल, वित्त आयोग एवं नीति आयोग",
+      "count": 35,
+      "missing_answers": 2,
+      "missing_sources": 33,
+      "exam_counts": {
+        "unknown": 33,
+        "uppcs-mains": 1,
+        "uppcs-pre": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-17-lokpal-commissions-special.html",
+      "title_en": "Lokpal, Commissions & Special Provisions",
+      "title_hi": "लोकपाल, आयोग एवं विशेष उपबंध",
+      "count": 42,
+      "missing_answers": 3,
+      "missing_sources": 41,
+      "exam_counts": {
+        "unknown": 41,
+        "uppcs-mains": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-18-election-parties.html",
+      "title_en": "Election Commission & Parties",
+      "title_hi": "निर्वाचन आयोग एवं राजनीतिक दल",
+      "count": 40,
+      "missing_answers": 2,
+      "missing_sources": 39,
+      "exam_counts": {
+        "unknown": 39,
+        "uppcs-pre": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-19-amendment-language.html",
+      "title_en": "Amendment & Official Language",
+      "title_hi": "संविधान संशोधन एवं राजभाषा",
+      "count": 37,
+      "missing_answers": 2,
+      "missing_sources": 34,
+      "exam_counts": {
+        "unknown": 34,
+        "uda-lda": 1,
+        "uppcs-pre": 2
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-20-panchayati-raj.html",
+      "title_en": "Panchayati Raj",
+      "title_hi": "पंचायती राज",
+      "count": 68,
+      "missing_answers": 2,
+      "missing_sources": 65,
+      "exam_counts": {
+        "unknown": 65,
+        "uppcs-mains": 2,
+        "uppcs-pre": 1
+      }
+    },
+    {
+      "path": "tests/polity/Polity-PYQ-21-special-misc.html",
+      "title_en": "Special Provisions & Misc",
+      "title_hi": "विशेष उपबंध एवं विविध",
+      "count": 54,
+      "missing_answers": 7,
+      "missing_sources": 54,
+      "exam_counts": {
+        "unknown": 54
+      }
+    }
+  ],
+  "exam_counts_all": {
+    "unknown": 890,
+    "uppcs-mains": 33,
+    "uppcs-pre": 23,
+    "lower": 6,
+    "ro-aro": 3,
+    "uda-lda": 2,
+    "other": 3
+  },
+  "missing_answers": 50,
+  "missing_sources": 890,
+  "with_source": 70
+}

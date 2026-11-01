@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-02-constituent-assembly","title":"Polity PYQ — Constituent Assembly","shortTitle":"Constituent Assembly","subtitle":"Purvavlokan GS · Indian Polity · संविधान सभा","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Constituent Assembly. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":35,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"स्वतंत्रता से पहले के दिनों में भारतीय संविधान सभा का विचार किसने प्रस्तुत किया था?","question_en":"Who presented the idea of the Indian Constituent Assembly in pre independence days?","options":[{"hi":"एम.एन. रॉय","en":"M.N. Roy"},{"hi":"बी.आर. अंबेडकर","en":"B.R. Ambedkar"},{"hi":"एनी बेसेंट","en":"Annie Besant"},{"hi":"जवाहरलाल नेहरू","en":"Jawaharlal Nehru"}],"answer":0,"answer_note":"","explanation_hi":"1922 में महात्मा गांधी ने एक वक्तव्य में ऐसी शासन-व्यवस्था (स्वराज) का उल्लेख किया, जो स्वतंत्रता से चुने गए प्रतिनिधियों के माध्यम से व्यक्त भारतीय जनता की इच्छाओं पर आधारित हो, यद्यपि इसमें \"संविधान सभा\" का कोई प्रत्यक्ष और स्पष्ट उल्लेख नहीं था। भारतीयों की ओर से संविधान सभा की पहली योजना और प्रस्ताव मई 1934 में राँची में स्वराज पार्टी द्वारा प्रस्तुत किया गया। दिए गए विकल्पों में से भारत के लिए संविधान सभा का विचार 1934 में एम.एन. रॉय ने आगे रखा था।","explanation_en":"In 1922, Mahatma Gandhi referred, in a statement, to a system of governance (Swaraj) based on the wishes of the people of India as expressed through freely elected representatives, though there was no direct and explicit mention of a “Constituent Assembly.” The first plan and proposal for a Constituent Assembly on behalf of Indians was presented by the Swaraj Party at Ranchi in May 1934. Among the given options, the idea of a Constituent Assembly for India was put forward by M.N. Roy in 1934.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"निर्वाचित संविधान सभा द्वारा भारत के संविधान के निर्माण का प्रस्ताव किसने दिया था?","question_en":"The proposal for framing of the Constitution of India by an elected Constituent Assembly was made by","options":[{"hi":"साइमन आयोग","en":"Simon Commission"},{"hi":"भारत सरकार अधिनियम, 1935","en":"Government of India Act, 1935"},{"hi":"क्रिप्स मिशन","en":"Cripps Mission"},{"hi":"ब्रिटिश कैबिनेट मिशन","en":"British Cabinet Delegation"}],"answer":2,"answer_note":"","explanation_hi":"पहली बार ब्रिटिश सरकार ने 1940 के 'अगस्त प्रस्ताव' के अंतर्गत भारतीयों के अपना संविधान बनाने के अधिकार को स्वीकार किया। इसके बाद, (द्वितीय विश्वयुद्ध की समाप्ति के बाद) निर्वाचित संविधान सभा द्वारा भारत का संविधान बनाए जाने का प्रस्ताव सबसे पहले 1942 में क्रिप्स मिशन ने रखा।","explanation_en":"For the first time, the British Government accepted the right of Indians to frame their own Constitution under the “August Offer” of 1940. Thereafter, the proposal that the Constitution of India should be framed by an elected Constituent Assembly, (after the end of the Second World War), was first made by the Cripps Mission in 1942.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"निम्नलिखित में से कौन कैबिनेट मिशन का सदस्य नहीं था?","question_en":"Who among the following persons was not a member of the Cabinet Mission?","options":[{"hi":"विलियम वुड","en":"William Wood"},{"hi":"पेथिक-लॉरेंस","en":"Pethick-Lawrence"},{"hi":"स्टैफर्ड क्रिप्स","en":"Stafford Cripps"},{"hi":"ए.बी. अलेक्ज़ेंडर","en":"A.B. Alexander"}],"answer":0,"answer_note":"","explanation_hi":"कैबिनेट मिशन मार्च 1946 में भारत आया था। इसके सदस्य स्टैफर्ड क्रिप्स (बोर्ड ऑफ ट्रेड के अध्यक्ष), पेथिक-लॉरेंस (भारत के राज्य सचिव) और ए.वी. अलेक्ज़ेंडर (एडमिरल्टी के प्रथम लॉर्ड) थे।","explanation_en":"The Cabinet Mission arrived in India in March 1946. Its members were Stafford Cripps (President of the Board of Trade), Pethick-Lawrence (Secretary of State for India), and A.V. Alexander (First Lord of the Admiralty).","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"कैबिनेट मिशन योजना के अनुसार, संविधान सभा में प्रत्येक प्रांत को आवंटित सदस्य-स्थानों का निर्धारण करने के लिए, एक प्रतिनिधि किस जनसंख्या के अनुपात में रखा गया था?","question_en":"As per Cabinet Mission plan, in the Constituent Assembly to decide allotted members seat in each province, one representative was in ratio to which population?","options":[{"hi":"8 लाख","en":"8 Lakh"},{"hi":"10 लाख","en":"10 Lakh"},{"hi":"12 लाख","en":"12 Lakh"},{"hi":"15 लाख","en":"15 Lakh"}],"answer":1,"answer_note":"","explanation_hi":"कैबिनेट मिशन 1946 में भारत आया था। अपनी रिपोर्ट में मिशन ने संविधान सभा के गठन के लिए एक सूत्र प्रस्तावित किया, जिसके आधार पर सभा का चुनाव होना था और प्रांतीय प्रतिनिधित्व जनसंख्या पर आधारित होना था। इसके अंतर्गत मोटे तौर पर प्रत्येक दस लाख व्यक्तियों पर एक प्रतिनिधि चुना जाना था।","explanation_en":"The Cabinet Mission came to India in 1946. In its report, the Mission proposed a formula for the formation of the Constituent Assembly, on the basis of which the Assembly was to be elected and provincial representation was to be based on population. Under this, broadly, one representative was to be elected for every ten lakh persons.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारतीय संविधान सभा की स्थापना किसके अंतर्गत हुई?","question_en":"Indian Constituent Assembly was established under –","options":[{"hi":"भारत सरकार अधिनियम, 1935","en":"Government of India Act, 1935"},{"hi":"क्रिप्स मिशन, 1942","en":"Cripps Mission, 1942"},{"hi":"कैबिनेट मिशन, 1946","en":"Cabinet Mission, 1946"},{"hi":"भारतीय स्वतंत्रता अधिनियम, 1947","en":"Indian Independence Act, 1947"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान सभा का गठन कैबिनेट मिशन योजना, 1946 के आधार पर प्रतिनिधि निर्वाचन द्वारा किया गया था।","explanation_en":"The Constituent Assembly of India was constituted on the basis of representative election under the Cabinet Mission Plan, 1946.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"पहली अंतरिम राष्ट्रीय सरकार की घोषणा किस तिथि को की गई?","question_en":"The first Interim National Government was announced on","options":[{"hi":"24 अगस्त, 1946","en":"24 August 1946"},{"hi":"22 अगस्त, 1946","en":"22 August 1946"},{"hi":"25 अगस्त, 1946","en":"25 August 1946"},{"hi":"23 अगस्त, 1946","en":"23 August 1946"}],"answer":0,"answer_note":"","explanation_hi":"कैबिनेट मिशन योजना के अंतर्गत पहली अंतरिम राष्ट्रीय सरकार की घोषणा 24 अगस्त, 1946 को की गई, जिसकी व्यवस्था थी कि अंतरिम सरकार 2 सितंबर, 1946 को पदभार ग्रहण करेगी।","explanation_en":"Under the Cabinet Mission Plan, the first Interim National Government was announced on 24 August, 1946, with the arrangement that the Interim Government would assume office on 2 September, 1946.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"अगस्त 1946 ई. में गठित अंतरिम राष्ट्रीय सरकार के सदस्य निम्नलिखित में से कौन नहीं थे?","question_en":"Who of the following was not the member of the Interim National Government formed in August 1946 A.D.?","options":[{"hi":"सी. राजगोपालाचारी","en":"C. Rajagopalachari"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"डॉ. एस. राधाकृष्णन","en":"Dr. S. Radhakrishnan"},{"hi":"जगजीवन राम","en":"Jagjiwan Ram"}],"answer":2,"answer_note":"","explanation_hi":"कैबिनेट मिशन योजना के आधार पर, 24 अगस्त, 1946 की घोषणा के अनुसार, नवनिर्वाचित संविधान सभा से भारत की अंतरिम सरकार 2 सितंबर, 1946 को गठित हुई। इसमें सी. राजगोपालाचारी शिक्षा मंत्री, डॉ. राजेंद्र प्रसाद खाद्य एवं कृषि मंत्री, और जगजीवन राम श्रम मंत्री थे, जबकि डॉ. एस. राधाकृष्णन इस पहली अंतरिम राष्ट्रीय सरकार के सदस्य नहीं थे।","explanation_en":"On the basis of the Cabinet Mission Plan, under the announcement of 24 August, 1946, India’s Interim Government was formed on 2 September, 1946, from the newly elected Constituent Assembly. In it, C. Rajagopalachari was the Education Minister, Dr. Rajendra Prasad was the Minister of Food and Agriculture, and Jagjivan Ram was the Labour Minister, whereas Dr. S. Radhakrishnan was not a member of this first Interim National Government.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"संविधान सभा के सदस्य किस प्रकार निर्वाचित हुए थे?","question_en":"How were the members of Constituent Assembly elected?","options":[{"hi":"जनता द्वारा प्रत्यक्ष रूप से","en":"Directly by public"},{"hi":"कांग्रेस द्वारा मनोनीत","en":"Nominated by Congress"},{"hi":"भारतीय शासक द्वारा मनोनीत","en":"Nominated by Indian ruler"},{"hi":"प्रांतीय विधान सभाओं द्वारा","en":"By Provincial Assemblies"}],"answer":3,"answer_note":"","explanation_hi":"संविधान सभा में प्रांतीय सीटों के लिए सदस्यों का चुनाव प्रांतीय विधानमंडलों के सदस्यों द्वारा अप्रत्यक्ष रूप से हुआ था, न कि सार्वभौमिक वयस्क मताधिकार के आधार पर प्रत्यक्ष चुनाव द्वारा। मताधिकार कर, संपत्ति और शैक्षिक योग्यता के आधार पर दिया गया था। हर व्यक्ति को मतदान का अधिकार नहीं था।","explanation_en":"For the provincial seats in the Constituent Assembly, the members were elected indirectly by the members of the Provincial Legislative Assemblies, and not by direct election on the basis of universal adult franchise. Franchise was granted on the basis of tax, property, and educational qualifications. Not everyone had the right to vote.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"संविधान सभा की पहली बैठक की अध्यक्षता किसने की थी?","question_en":"Who chaired the first meeting of Constituent Assembly?","options":[{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"डॉ. भीमराव अंबेडकर","en":"Dr. Bhimrao Ambedkar"},{"hi":"डॉ. सच्चिदानंद सिन्हा","en":"Dr. Sachchidanand Sinha"},{"hi":"मौलाना अबुल कलाम आज़ाद","en":"Maulana Abul Kalam Azad"}],"answer":2,"answer_note":"","explanation_hi":"9 दिसंबर, 1946 को संविधान सभा की पहली बैठक की अध्यक्षता अस्थायी अध्यक्ष डॉ. सच्चिदानंद सिन्हा ने की। 11 दिसंबर, 1946 को संविधान सभा ने सर्वसम्मति से डॉ. राजेंद्र प्रसाद को संविधान सभा का स्थायी अध्यक्ष चुना।","explanation_en":"On 9 December, 1946, the first meeting of the Constituent Assembly was presided over by the temporary President, Dr. Sachchidanand Sinha. On 11 December, 1946, the Constituent Assembly unanimously elected Dr. Rajendra Prasad as the permanent President of the Constituent Assembly.","source":"UPPCS (Mains) 2013","source_missing":false,"exam":"uppcs-mains"},{"id":10,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारतीय संविधान सभा की स्थापना किस तिथि को हुई?","question_en":"Constituent Assembly of India was established on:","options":[{"hi":"10 जून, 1946","en":"10 June, 1946"},{"hi":"9 दिसंबर, 1946","en":"09 December, 1946"},{"hi":"26 नवंबर, 1949","en":"26 November, 1949"},{"hi":"26 दिसंबर, 1949","en":"26 December, 1949"}],"answer":1,"answer_note":"","explanation_hi":"कैबिनेट मिशन योजना, 1946 के आधार पर गठित भारतीय संविधान सभा, 9 दिसंबर, 1946 को अपनी पहली बैठक के आरंभ के साथ अस्तित्व में आई।","explanation_en":"The Indian Constituent Assembly, constituted on the basis of the Cabinet Mission Plan, 1946, came into existence on 9 December, 1946, with the commencement of its first meeting.","source":"UPPCS (Pre) 1990","source_missing":false,"exam":"uppcs-pre"},{"id":11,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारत को संविधान देने वाला प्रस्ताव संविधान सभा द्वारा किस तिथि को पारित किया गया?","question_en":"The resolution for giving a Constitution to India was adopted by the Constituent Assembly on:","options":[{"hi":"22 जनवरी, 1946","en":"22 January, 1946"},{"hi":"22 जनवरी, 1947","en":"22 January, 1947"},{"hi":"20 फरवरी, 1947","en":"20 February, 1947"},{"hi":"26 जुलाई, 1946","en":"26 July, 1946"}],"answer":1,"answer_note":"","explanation_hi":"22 जनवरी, 1947 को भारत को संविधान देने के लिए 'उद्देश्य संकल्प' (Objective Resolution) संविधान सभा द्वारा पारित किया गया। उद्देश्य संकल्प जवाहरलाल नेहरू ने 13 दिसंबर, 1946 को संविधान सभा में प्रस्तुत किया था। बाद में यही उद्देश्य संकल्प संविधान की प्रस्तावना का आधार बना।","explanation_en":"On 22 January, 1947, the ‘Objective Resolution’ to give India a Constitution was passed by the Constituent Assembly. The Objective Resolution had been introduced in the Constituent Assembly by Jawaharlal Nehru on 13 December, 1946. Later, this very Objective Resolution became the basis of the Preamble to the Constitution.","source":"UPPCS (Mains) 2007","source_missing":false,"exam":"uppcs-mains"},{"id":12,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारतीय संविधान के निर्माण के संदर्भ में निम्नलिखित में से कौन-सा/से वाक्य सही है/हैं? 1. नेहरू द्वारा प्रस्तुत उद्देश्य संकल्प, जिसे संविधान सभा ने स्वीकार किया, संविधान के निर्माण को प्रभावित करता है। 2. प्रस्तावना अनेक महत्त्वपूर्ण उद्देश्यों को पूरा करती है। 3. भारत की जनता ने संविधान का आदेश/निर्देश दिया। 4. राज्य का प्रमुख जनता द्वारा प्रत्यक्ष रूप से निर्वाचित होता है। कूट:","question_en":"In relation to formation of the Constitution of India which of the following sentences is/are correct-1. Resolution of objectives by Nehru, which was accepted by the constituent Assembly, affected the making of the Constitution. / 2. Preamble fulfils various important objectives. / 3. Peoples of India ordered/directed the Constitution / 4. Head of the state is elected by the people directly.\nCode:","options":[{"hi":"1, 2 और 3","en":"1,2 and 3"},{"hi":"1, 3 और 4","en":"1, 3 and 4"},{"hi":"2, 3 और 4","en":"2,3 and 4"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":0,"answer_note":"","explanation_hi":"भारत में राष्ट्रपति, जो राज्य का प्रमुख है, प्रत्यक्ष रूप से जनता द्वारा नहीं, बल्कि अप्रत्यक्ष रूप से निर्वाचित प्रतिनिधियों (यानी संसद के निर्वाचित सदस्यों और राज्य विधानसभाओं के निर्वाचित सदस्यों) द्वारा चुना जाता है। अन्य तीनों कथन सही हैं।","explanation_en":"Under the Indian Constitution, the head of the state, i.e., the President, is elected not directly by the people, but indirectly through elected representatives, (namely, the elected members of Parliament and the State Legislative Assemblies). The other three statements are correct.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारतीय संविधान के निर्माण के लिए भारतीय संविधान सभा के कितने सत्र आयोजित किए गए?","question_en":"How many sessions of the Indian Constituent Assembly were conducted for the formulation of Indian Constitution?","options":[{"hi":"7","en":"7"},{"hi":"9","en":"9"},{"hi":"12","en":"12"},{"hi":"15","en":"15"}],"answer":2,"answer_note":"","explanation_hi":"संविधान सभा ने भारतीय संविधान बनाने में 2 वर्ष, 11 माह और 18 दिन लिए (ध्यान रहे कि लोकसभा और राज्यसभा की वेबसाइटों पर यह अवधि 2 वर्ष, 11 माह और 17 दिन बताई गई है), और इस अवधि के दौरान संविधान सभा के कुल 11 सत्र (165 दिनों में) आयोजित हुए। 11वें सत्र के अंतिम दिन, अर्थात 26 नवंबर, 1949 को संविधान अपनाया गया। इन 11 सत्रों के अतिरिक्त, संविधान सभा 24 जनवरी, 1950 को पुनः मिली, जब सदस्यों ने भारत के संविधान पर हस्ताक्षर किए। इस प्रकार, वास्तव में संविधान सभा ने केवल 11 सत्र आयोजित किए, और केवल तभी विकल्प (c) सही उत्तर होगा जब 24 जनवरी, 1950 को एक अलग सत्र माना जाए।","explanation_en":"The Constituent Assembly took 2 years, 11 months and 18 days to frame the Indian Constitution (It may be noted that the websites of the Lok Sabha and the Rajya Sabha mention this period as 2 years, 11 months and 17 days). and during this period, the Constituent Assembly held a total of 11 sessions (covering 165 days). On the last day of the 11th session, i.e., 26 November 1949, the Constitution was adopted. In addition to these 11 sessions, the Constituent Assembly met again on 24 January 1950, when the members signed the Constitution of India. Thus, in fact, the Constituent Assembly held only 11 sessions, and only if 24 January 1950 is treated as a separate session would option / (c) be the correct answer.","source":"UPPCS (Mains) 2007","source_missing":false,"exam":"uppcs-mains"},{"id":14,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"संविधान के निर्माण के समय संवैधानिक सलाहकार कौन थे?","question_en":"Who was the Constitutional Advisor at the time of the formation of the Constitution?","options":[{"hi":"डॉ. बी.आर. अंबेडकर","en":"Dr. B.R. Ambedkar"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"बी.एन. राव","en":"B.N. Rau"},{"hi":"के.एम. मुंशी","en":"K.M. Munshi"}],"answer":2,"answer_note":"","explanation_hi":"बेनेगल नरसिंग राव (बी.एन. राव) को भारतीय संविधान के निर्माण के दौरान संवैधानिक सलाहकार नियुक्त किया गया था।","explanation_en":"Benegal Narsing Rau (B.N. Rau) was appointed as the Constitutional Advisor during the framing of the Indian Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"संविधान का पहला प्रारूप किसके द्वारा तैयार किया गया था?","question_en":"The first draft of the Constitution was prepared by-","options":[{"hi":"बी.आर. अंबेडकर","en":"B.R. Ambedkar"},{"hi":"बी.एन. राव","en":"B.N. Rau"},{"hi":"के. संथानम","en":"K. Santhanam"},{"hi":"के.एम. मुंशी","en":"K.M. Munshi"}],"answer":1,"answer_note":"","explanation_hi":"संविधान का पहला प्रारूप बी.एन. राव ने तैयार किया था, जो संविधान सभा के संवैधानिक सलाहकार थे। उचित विचार और परिवर्तनों के बाद, प्रारूप समिति ने प्रारूप संविधान संविधान सभा के समक्ष प्रस्तुत किया। बी.एन. राव के मूल प्रारूप में 243 अनुच्छेद और 13 अनुसूचियाँ थीं।","explanation_en":"The first draft of the Constitution was prepared by B.N. Rau, the Constitutional Advisor to the Constituent Assembly. After due consideration and changes, the Drafting Committee presented the draft Constitution to the Constituent Assembly. B.N. Rau’s original draft contained 243 Articles and 13 Schedules.","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"संविधान सभा में भारतीय संविधान का तीसरा वाचन कब आरंभ हुआ?","question_en":"When did the third reading of the Indian Constitution start in the Constituent Assembly?","options":[{"hi":"14 नवंबर, 1949","en":"14th November, 1949"},{"hi":"14 नवंबर, 1948","en":"14th November, 1948"},{"hi":"25 नवंबर, 1948","en":"25th November, 1948"},{"hi":"25 नवंबर, 1949","en":"25th November, 1949"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"संविधान सभा में भारतीय संविधान का तीसरा वाचन 17 नवंबर, 1949 को आरंभ हुआ और 26 नवंबर, 1949 तक चला। इसलिए प्रश्न के दिए गए विकल्पों में से कोई भी सही नहीं है।","explanation_en":"The third reading of the Indian Constitution in the Constituent Assembly began on 17 November 1949 and continued until 26 November 1949. Therefore, none of the options given in the question is correct.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारत का संविधान किस तिथि को पूर्ण हुआ?","question_en":"The Constitution of India was completed on:","options":[{"hi":"26 जनवरी, 1950","en":"January 26, 1950"},{"hi":"26 नवंबर, 1949","en":"November 26, 1949"},{"hi":"11 फरवरी, 1948","en":"February 11, 1948"},{"hi":"इनमें से कोई सही नहीं है","en":"None of the above is correct"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान की प्रस्तावना में उल्लेख है कि 26 नवंबर, 1949 को भारत के लोगों ने इस संविधान को अपनाया, अधिनियमित किया और स्वयं को अर्पित किया। इसी तिथि को संविधान को अपनाने, पूर्ण करने, पारित करने और अंतिम रूप देने की तिथि भी माना जाता है। इसी दिन नागरिकता, अस्थायी संसद, तथा अस्थायी और संक्रमणकालीन उपबंधों से संबंधित प्रावधान लागू हुए। किंतु संविधान के शेष प्रावधान 26 जनवरी, 1950 से प्रभावी हुए। इसलिए 26 जनवरी, 1950 को वह तिथि माना जाता है जब संविधान पूरी तरह लागू और क्रियाशील हुआ।","explanation_en":"It is mentioned in the Preamble to the Indian Constitution that on 26 November 1949, the people of India adopted, enacted and gave to themselves the Constitution. This date is also regarded as the date on which the Constitution was adopted, completed, passed and finalized. On the same day, the provisions relating to citizenship, the Provisional Parliament, and temporary and transitional provisions came into force. However, the remaining provisions of the Constitution came into effect on 26 January 1950. Therefore, 26 January 1950 is taken as the date on which the Constitution came fully into force and became fully operative.","source":"UPPCS (Pre) 1990","source_missing":false,"exam":"uppcs-pre"},{"id":18,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारत का संविधान 26 नवंबर, 1949 को किसके द्वारा अधिनियमित किया गया?","question_en":"The Constitution of India was enacted on 26 November, 1949 by the –","options":[{"hi":"संविधान सभा","en":"Constituent Assembly"},{"hi":"भारत के गवर्नर-जनरल","en":"Governor General of India"},{"hi":"भारत की संसद","en":"Parliament of India"},{"hi":"ब्रिटिश संसद","en":"British Parliament"}],"answer":0,"answer_note":"","explanation_hi":"संविधान सभा के ग्यारहवें सत्र में 26 नवंबर, 1949 को भारत का संविधान संविधान सभा द्वारा अपनाया और अधिनियमित किया गया।","explanation_en":"In the eleventh session of the Constituent Assembly, on 26 November 1949, the Constitution of India was adopted and enacted by the Constituent Assembly.","source":"UPPCS (Mains) 2013","source_missing":false,"exam":"uppcs-mains"},{"id":19,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए और इन्हें सबसे पहले से लेकर अंतिम गतिविधि तक सही कालक्रम में व्यवस्थित कीजिए: (I) प्रारूप समिति की नियुक्ति (II) भारतीय संविधान को अपनाया और अधिनियमित किया गया (III) भारतीय संविधान के लागू होने की तिथि (IV) संविधान सभा की पहली बैठक हुई। नीचे दिए गए कूट से सही उत्तर चुनिए: कूट:","question_en":"Consider the following events and arrange these in correct chronological order starting from the earliest to the last activity : / (I) Appointment of the Drafting Committee (II) Indian Constitution was adopted and enacted (III) Date of commencement of Indian Constitution (IV) Constituent Assembly first met / Select the correct answer from the code given below :\nCode :","options":[{"hi":"IV, I, II, III","en":"IV, I, II, III"},{"hi":"I, II, IV, III","en":"I, II, IV, III"},{"hi":"IV, I, III, II","en":"IV, I, III, II"},{"hi":"III, II, I, IV","en":"III, II, I, IV"}],"answer":0,"answer_note":"","explanation_hi":"घटनाओं का सही कालक्रम इस प्रकार है - 1. संविधान सभा की पहली बैठक - 9 दिसंबर, 1946 2. प्रारूप समिति की नियुक्ति - 29 अगस्त, 1947 3. भारत का संविधान अपनाया और अधिनियमित किया गया - 26 नवंबर, 1949 4. भारतीय संविधान के लागू होने की तिथि - 26 जनवरी, 1950","explanation_en":"The correct chronological order of the above events is as follows – l First meeting of the Constituent Assembly – 9 December, 1946. l Appointment of the Drafting Committee – 29 August, 1947 l The Constitution of India was adopted and enacted – 26 November, 1949 l Date on which the Constitution of India came into force – 26 January, 1950","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"दो कथन दिए गए हैं: कथन (A): भारतीय संविधान में देश की सभी आवश्यकताओं का प्रावधान है। कारण (R): इसे 'अपनाया गया' संविधान कहा या जाना जाता है। उपर्युक्त के संदर्भ में कौन-सा सही है?","question_en":"Here are two statements: Statement(A) : The Constitution of India provides for all necessities of the country. Reason (R) : It is known or called as ‘Adopted’ Constitution. In relation to aforesaid which one is true ?","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है।","en":"(A) and (R) both are true and (R )is correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, किंतु (R), (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both are true but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is true but (R) is wrong."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is wrong but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान को देश की आवश्यकताओं को पूरा करने में पूर्णतः सक्षम माना जाता है, और इसमें भविष्य की आवश्यकताओं को देखते हुए संशोधन के प्रावधान भी हैं। दूसरी ओर, विभिन्न देशों के संविधानों की विशेषताएँ और विचार इसमें समाहित किए गए हैं, इसलिए इसे 'उधार का संविधान' भी कहा जाता है। फिर भी, प्रतिष्ठित विद्वान इसे भारतीय परिस्थितियों के अनुकूल ढला हुआ एक मौलिक और विशिष्ट संविधान मानते हैं। इस प्रकार, कथन और कारण दोनों सही हैं, किंतु कारण कथन की सही व्याख्या नहीं है।","explanation_en":"The Constitution of India is considered fully capable of fulfilling the needs of the country, and it also contains provisions for amendment in view of future requirements. On the other hand, features and ideas from the Constitutions of various countries have been incorporated into it; therefore, it is also called a borrowed Constitution. However, eminent scholars regard it as an original and distinctive Constitution adapted to Indian conditions. Thus, both the statement and the reason are correct, but the reason is not the correct explanation of the statement.","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"निम्नलिखित में से किसने सलाह दी थी कि भारत की स्वतंत्रता के बाद भारतीय राष्ट्रीय कांग्रेस को एक राजनीतिक दल के रूप में भंग कर दिया जाना चाहिए?","question_en":"Who amongst the following advised that the Indian National Congress should be disbanded as a political party after the independence of India?","options":[{"hi":"सी. राजगोपालाचारी","en":"C. Rajagopalachari"},{"hi":"जयप्रकाश नारायण","en":"Jai Prakash Narayan"},{"hi":"आचार्य कृपलानी","en":"Acharya Kripalani"},{"hi":"महात्मा गांधी","en":"Mahatma Gandhi"}],"answer":3,"answer_note":"","explanation_hi":"भारत की स्वतंत्रता के बाद महात्मा गांधी ने सुझाव दिया था कि भारतीय राष्ट्रीय कांग्रेस को एक राजनीतिक दल के रूप में भंग कर दिया जाना चाहिए।","explanation_en":"After India’s independence, Mahatma Gandhi suggested that the Indian National Congress should be dissolved as a political party.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"\"अपनी राष्ट्रवादी प्रतिक्रिया में भारतीय संविधान के संस्थापक पिताओं ने अल्पसंख्यक हितों और भावनाओं के महत्त्व को कम करने की प्रवृत्ति दिखाई।\" यह मत किसे श्रेय दिया जाता है?","question_en":"“In their nationalist reaction, the Founding Fathers of Indian Constitution tended to minimize the importance of minority interests and emotions.” This view is credited to:","options":[{"hi":"मॉरिस जोन्स","en":"Morris Jones"},{"hi":"हार्डग्रेव जूनियर","en":"Hardgrave Junior"},{"hi":"एलेक्ज़ेंड्रोविट्ज़","en":"Alexandrovitz"},{"hi":"आइवर जेनिंग्स","en":"Ivor Jennings"}],"answer":3,"answer_note":"","explanation_hi":"उपर्युक्त कथन आइवर जेनिंग्स ने दिया था। उनका मानना था कि भारतीय संविधान के निर्माताओं ने अल्पसंख्यक हितों और भावनाओं के महत्त्व को कम आँका।","explanation_en":"The above statement was made by Ivor Jennings. He believed that the makers of the Indian Constitution underestimated the importance of minority interests and sentiments.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"\"संविधान सभा ही कांग्रेस थी और कांग्रेस ही भारत थी\" यह किसने कहा?","question_en":"“Constituent Assembly was Congress and Congress was India” who said this?","options":[{"hi":"ऑस्टिन","en":"Austin"},{"hi":"सी.आर. एटली","en":"C.R. Attlee"},{"hi":"विंस्टन चर्चिल","en":"Winston Churchill"},{"hi":"लॉर्ड माउंटबेटन","en":"Lord Mountbatten"}],"answer":0,"answer_note":"","explanation_hi":"\"संविधान सभा कांग्रेस थी और कांग्रेस भारत थी\" यह कथन इतिहासकार ग्रैनविल ऑस्टिन का है। यह कथन उनकी पुस्तक 'भारतीय संविधान: एक राष्ट्र की आधारशिला' में मिलता है।","explanation_en":"“The Constituent Assembly was Congress and Congress was India” was a statement made by historian Granville Austin. This statement is found in his book 'The Indian Constitution: Cornerstone of a Nation'.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"संविधान सभा और संविधान निर्माण","topic_en":"Constituent Assembly and making of the Constitution","question_hi":"भारतीय संविधान सभा में कितनी महिला सदस्य थीं?","question_en":"How many women members were there in the Indian Constituent Assembly?","options":[{"hi":"15","en":"15"},{"hi":"13","en":"13"},{"hi":"12","en":"12"},{"hi":"10","en":"10"}],"answer":0,"answer_note":"","explanation_hi":"भारतीय संविधान सभा में महिला सदस्यों की कुल संख्या 15 थी।","explanation_en":"The total number of women members in the Constituent Assembly of India was 15.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"संविधान सभा की प्रमुख समितियाँ","topic_en":"Important Committees of the Constituent Assembly","question_hi":"संविधान सभा की प्रांतीय संविधान समिति के अध्यक्ष कौन थे?","question_en":"Who was the Chairman of the Provincial Constitution Committee of the Constituent Assembly?","options":[{"hi":"डॉ. बी.आर. अंबेडकर","en":"Dr. B.R. Ambedkar"},{"hi":"पं. जवाहरलाल नेहरू","en":"Pt. Jawahar Lal Nehru"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"सरदार पटेल","en":"Sardar Patel"}],"answer":3,"answer_note":"","explanation_hi":"संविधान सभा की प्रमुख समितियाँ और उनके अध्यक्ष इस प्रकार थे - संघ संविधान समिति - पं. जवाहरलाल नेहरू; नियम समिति - डॉ. राजेंद्र प्रसाद; कार्य-संचालन समिति (स्टीयरिंग कमेटी) - डॉ. राजेंद्र प्रसाद; प्रारूप समिति - डॉ. बी.आर. अंबेडकर; मूल अधिकार, अल्पसंख्यक, जनजातीय और बहिष्कृत क्षेत्रों संबंधी सलाहकार समिति - सरदार वल्लभभाई पटेल; (i) मूल अधिकार उप-समिति - जे.बी. कृपलानी; (ii) अल्पसंख्यक उप-समिति - एच.सी. मुखर्जी; संघ शक्ति समिति - पं. जवाहरलाल नेहरू; प्रांतीय संविधान समिति - सरदार वल्लभभाई पटेल; कार्य-सूची समिति - के.एम. मुंशी।","explanation_en":"The major committees of the Constituent Assembly and their Chairmen were as follows – Committee Chairman Union Constitution Committee – Pt. Jawaharlal Nehru Rules of Procedure Committee – Dr. Rajendra Prasad Steering Committee – Dr. Rajendra Prasad Drafting Committee – Dr. B. R. Ambedkar Advisory Committee on – Sardar Vallabhbhai Patel Fundamental Rights, Minorities, Tribal and Excluded Areas / (i) Fundamental Rights – J.B. Kripalani Sub-Committee (ii) Minorities Sub-Committee – H.C. Mukherjee Union Powers Committee – Pt. Jawaharlal Nehru Provincial Constitution – Sardar Vallabhbhai Patel Committee Order of Business Committee – K.M. Munshi","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"संविधान सभा की प्रमुख समितियाँ","topic_en":"Important Committees of the Constituent Assembly","question_hi":"सूची-I (संविधान सभा की समितियाँ) को सूची-II (अध्यक्ष) से सुमेलित कीजिए और नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए।\nसूची-I: A. संघ संविधान समिति; B. प्रक्रिया नियम समिति; C. प्रारूप समिति; D. मौलिक अधिकार समिति।\nसूची-II: 1. डॉ. राजेंद्र प्रसाद समिति; 2. जे. बी. कृपलानी समिति; 3. डॉ. बी. आर. अंबेडकर; 4. जवाहरलाल नेहरू उप-समिति। कूट: A B C D","question_en":"Match List - I with List - II and choose the correct answer using the code given below the lists.)\nList - I List - II (Committees of (Chairman of Constituent Assembly) Committees) / A. Union Constitution 1. Dr. Rajendra Prasad Committee / B. Rules of Procedure 2. J. B. Kripalani Committee / C. Drafting Committee 3. Dr. B. R. Ambedkar / D. Fundamental Rights 4. Jawaharlal Nehru Sub-committee\nCode : / A B C D","options":[{"hi":"2 1 3 4","en":"2 1 3 4"},{"hi":"1 4 3 2","en":"1 4 3 2"},{"hi":"4 1 3 2","en":"4 1 3 2"},{"hi":"1 2 3 4","en":"1 2 3 4"}],"answer":2,"answer_note":"","explanation_hi":"संविधान सभा की समितियों में पंडित जवाहरलाल नेहरू संघ संविधान समिति के अध्यक्ष थे। डॉ. राजेंद्र प्रसाद प्रक्रिया नियम समिति के अध्यक्ष थे। डॉ. बी. आर. अंबेडकर प्रारूप समिति के अध्यक्ष थे। जे. बी. कृपलानी मौलिक अधिकार उप-समिति के अध्यक्ष थे। अतः सही संयोजन विकल्प (C) है।","explanation_en":"Among the committees of the Constituent Assembly, Pandit Jawaharlal Nehru was the Chairman of the Union Constitution Committee. Dr. Rajendra Prasad was the Chairman of the Committee on the Rules of Procedure. Dr. B. R. Ambedkar was the Chairman of the Drafting Committee. J. B. Kripalani was the Chairman of the Fundamental Rights Sub-Committee. Thus, the correct combination is option (c).","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"संविधान सभा की प्रमुख समितियाँ","topic_en":"Important Committees of the Constituent Assembly","question_hi":"संविधान सभा की प्रारूप समिति में, जिसके अध्यक्ष डॉ. बी. आर. अंबेडकर थे, उनके अतिरिक्त कितने अन्य सदस्य थे?","question_en":"The Drafting Committee of the Constituent Assembly under Dr. B. R. Ambedkar had how many other members?","options":[{"hi":"7","en":"7"},{"hi":"6","en":"6"},{"hi":"5","en":"5"},{"hi":"4","en":"4"}],"answer":1,"answer_note":"","explanation_hi":"संविधान सभा की प्रारूप समिति, जिसका गठन डॉ. बी. आर. अंबेडकर की अध्यक्षता में हुआ था, में उनके अतिरिक्त छह अन्य सदस्य थे। वे थे एन. गोपालस्वामी अयंगर, अल्लादी कृष्णस्वामी अय्यर, के. एम. मुंशी, मोहम्मद सादुल्ला, बी. एल. मित्तर और डी. पी. खेतान। बाद में एन. माधव राव ने बी. एल. मित्तर का स्थान लिया, और 1948 में डी. पी. खेतान की मृत्यु के बाद टी. टी. कृष्णमाचारी को समिति में सम्मिलित किया गया।","explanation_en":"The Drafting Committee of the Constituent Assembly, constituted under the chairmanship of Dr. B. R. Ambedkar, had six other members. They were N. Gopalaswami Ayyangar, Alladi Krishnaswami Ayyar, K. M. Munshi, Mohammad Saadulla, B. L. Mitter, and D. P. Khaitan. Later, N. Madhava Rao replaced B. L. Mitter, and after the death of D. P. Khaitan in 1948, T. T. Krishnamachari was inducted into the Committee.","source":"UPPCS (Mains) 2012","source_missing":false,"exam":"uppcs-mains"},{"id":28,"topic_hi":"संविधान सभा की प्रमुख समितियाँ","topic_en":"Important Committees of the Constituent Assembly","question_hi":"संविधान सभा ने डॉ. बी. आर. अंबेडकर की अध्यक्षता में प्रारूप समिति का गठन किस तिथि को किया?","question_en":"The Constituent Assembly set up a Drafting Committee under the Chairmanship of Dr. B.R. Ambedkar on","options":[{"hi":"13 दिसंबर, 1946","en":"13th December, 1946"},{"hi":"22 जनवरी, 1947","en":"22nd January, 1947"},{"hi":"3 जून 1947","en":"3rd June 1947"},{"hi":"29 अगस्त, 1947","en":"29th August, 1947"}],"answer":3,"answer_note":"","explanation_hi":"29 अगस्त, 1947 को संविधान सभा ने एक प्रस्ताव पारित करके डॉ. बी. आर. अंबेडकर की अध्यक्षता में प्रारूप समिति का गठन किया, ताकि संविधान का प्रारूप तैयार किया जा सके।","explanation_en":"On 29 August, 1947, the Constituent Assembly passed a resolution and constituted the Drafting Committee under the chairmanship of Dr. B. R. Ambedkar to prepare the Draft Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"संविधान सभा की प्रमुख समितियाँ","topic_en":"Important Committees of the Constituent Assembly","question_hi":"राष्ट्रीय ध्वज समिति के अध्यक्ष कौन थे?","question_en":"Who was the chairman of the National Flag Committee?","options":[{"hi":"सी. राजगोपालाचारी","en":"C. Rajagopalachari"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"जे. बी. कृपलानी","en":"J.B. Kripalani"},{"hi":"डॉ. बी. आर. अंबेडकर","en":"Dr. B.R. Ambedkar"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय इतिहास में दो ध्वज समितियों का विशेष उल्लेख मिलता है: (1) 2 अप्रैल, 1931 को कांग्रेस के कराची अधिवेशन में गठित ध्वज समिति, जिसके अध्यक्ष सरदार वल्लभभाई पटेल थे और अन्य छह सदस्य थे मौलाना अबुल कलाम आज़ाद, तारा सिंह, जवाहरलाल नेहरू, डी. बी. कालेलकर, एन. एस. हार्दिकर और पट्टाभि सीतारमैया; (2) संविधान सभा द्वारा 23 जून, 1947 को गठित एक तदर्थ ध्वज समिति, जिसके अध्यक्ष डॉ. राजेंद्र प्रसाद थे और अन्य सदस्य थे मौलाना अबुल कलाम आज़ाद, सरोजिनी नायडू, सी. राजगोपालाचारी, के. एम. मुंशी, डॉ. बी. आर. अंबेडकर, के. एम. पणिक्कर, सरदार उज्जल सिंह, फ्रैंक एंथनी और एस. एन. गुप्ता। यहाँ प्रश्न संविधान सभा द्वारा गठित ध्वज समिति के अध्यक्ष के बारे में पूछा गया है। इसलिए सही उत्तर विकल्प (B) है। आचार्य जे. बी. कृपलानी न तो किसी ध्वज समिति के अध्यक्ष थे और न ही सदस्य, जैसा कि कुछ अपर्याप्त स्रोतों वाली पुस्तकों में बताया गया है।","explanation_en":"In Indian history, two Flag Committees are especially mentioned: (1) the Flag Committee constituted on 2 April, 1931, in the Karachi Session of the Congress, whose Chairman was Sardar Vallabhbhai Patel, and the other six members were Maulana Abul Kalam Azad, Tara Singh, Jawaharlal Nehru, D. B. Kalelkar, N. S. Hardikar, and Pattabhi Sitaramayya; (2) an Ad hoc Flag Committee was constituted by the Constituent Assembly on 23 June, 1947, whose Chairman was Dr. Rajendra Prasad, and the other members were Maulana Abul Kalam Azad, Sarojini Naidu, / C. Rajagopalachari, K. M. Munshi, Dr. B. R. Ambedkar, K. M. Panikkar, Sardar Ujjal Singh, Frank Anthony, and S. N. Gupta. Here, the question asks about the Chairman of the Flag Committee constituted by the Constituent Assembly. Therefore, the correct answer is option (b). Acharya J. B. Kripalani was neither the Chairman nor a member of any Flag Committee, as stated in some inadequately sourced books.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

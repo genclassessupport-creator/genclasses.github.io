@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-08-dpsp-duties","title":"Polity PYQ — DPSP & Fundamental Duties","shortTitle":"DPSP & Fundamental Duties","subtitle":"Purvavlokan GS · Indian Polity · नीति निदेशक तत्व एवं मौलिक कर्तव्य","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — DPSP & Fundamental Duties. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":55,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) और दूसरे को कारण (R) के रूप में चिह्नित किया गया है। अभिकथन (A): आधुनिक लोकतांत्रिक राज्य में आर्थिक, सामाजिक और राजनीतिक कार्यों के लिए नीति निदेशक तत्व महत्वपूर्ण हैं। कारण (R): नीति निदेशक तत्वों का मूल उद्देश्य आर्थिक और सामाजिक लोकतंत्र की स्थापना करना है। नीचे दिए गए कूट से सही उत्तर चुनिए: कूट:","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A) Directive Principles are important for economic, social and political functions in a Modern Democratic State. Reason (R): The core objectives of Directive Principles is to establish economic and social democracy. / Select the correct answer from the code given below :\nCode :","options":[{"hi":"(A) और (R) दोनों सही हैं, लेकिन (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) गलत है, लेकिन (R) सही है।","en":"(A) is false, but (R) is true."},{"hi":"(A) सही है, लेकिन (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) और (R) दोनों सही हैं और (R), (A) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान के नीति निदेशक तत्वों के अंतर्गत अनुच्छेद 38(1) कहता है कि राज्य ऐसी सामाजिक व्यवस्था को प्रभावी रूप से सुरक्षित और स्थापित करके लोगों के कल्याण को बढ़ावा देने का प्रयास करेगा, जिसमें राष्ट्रीय जीवन की सभी संस्थाओं को सामाजिक, आर्थिक और राजनीतिक न्याय से अनुप्राणित किया जाए। अनुच्छेद 37 के अनुसार, यद्यपि नीति निदेशक तत्व किसी न्यायालय द्वारा प्रवर्तनीय नहीं हैं, फिर भी इनमें निहित सिद्धांत देश के शासन में मूलभूत हैं, और विधि बनाते समय इन सिद्धांतों को लागू करना राज्य का कर्तव्य होगा। इसके अतिरिक्त, इनमें कुछ स्पष्ट राजनीतिक-संस्थागत उद्देश्य भी सम्मिलित हैं, जैसे पंचायती राज, समान नागरिक संहिता, न्यायपालिका को कार्यपालिका से पृथक करना, और अंतरराष्ट्रीय शांति। अतः अभिकथन (A) सही है। नीति निदेशक तत्वों को भारतीय संविधान में सम्मिलित करने का मूल उद्देश्य सामाजिक और आर्थिक लोकतंत्र की स्थापना करना है। अतः कारण (R) भी सही है। इसलिए (A) और (R) दोनों सही हैं, और (R), (A) का सही स्पष्टीकरण है।","explanation_en":"Under the Directive Principles of State Policy in the Indian Constitution, Article 38(1) states that the State shall strive to promote the welfare of the people by securing and protecting as effectively as it may a social order in which social, economic and political justice shall inform all the institutions of national life. According to Article 37, although the Directive Principles of State Policy are not enforceable by any court, nevertheless, the principles laid down therein are fundamental in the governance of the country, and it shall be the duty of the State to apply these principles in making laws. Further, some clear political-institutional objectives are also included in them, such as Panchayati Raj, Uniform Civil Code, separation of the judiciary from the executive, and international peace. Therefore, on this basis, Assertion (A) is correct. The basic objective of including the Directive Principles of State Policy in the Indian Constitution is to establish social and economic democracy. Thus, Reason (R) is also correct. Therefore, both (A) and (R) are correct, and (R) is the correct explanation of (A).","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा राज्य के नीति निदेशक तत्वों का उद्देश्य नहीं है?","question_en":"Which one of the following is not the objective of the Directive Principles of State Policy?","options":[{"hi":"कल्याणकारी राज्य की स्थापना करना।","en":"To establish a welfare State."},{"hi":"सामाजिक-आर्थिक न्याय सुनिश्चित करना","en":"To ensure socio-economic Justice"},{"hi":"धार्मिक राज्य की स्थापना करना।","en":"To establish a Religious State"},{"hi":"धर्मनिरपेक्ष राज्य की स्थापना करना।","en":"To establish a Secular State"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान का भाग IV, अनुच्छेद 36 से 51 तक, नीति निदेशक तत्वों से संबंधित है। इन तत्वों के माध्यम से संविधान निर्माताओं का लक्ष्य आर्थिक और सामाजिक लोकतंत्र तथा कल्याणकारी राज्य की स्थापना करना था। इन तत्वों का उद्देश्य धार्मिक राज्य की स्थापना करना नहीं है।","explanation_en":"Part IV of the Indian Constitution, Articles 36 to 51, deals with the Directive Principles of State Policy. Through these principles, the makers of the Constitution aimed to establish economic and social democracy and a welfare state. The objective of these principles is not to establish a religious state.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"कल्याणकारी राज्य की अवधारणा भारत के संविधान में किसमें सम्मिलित है?","question_en":"The concept of welfare state is included in the Constitution of India in the:","options":[{"hi":"राज्य के नीति निदेशक तत्व","en":"Directive Principles of State Policy"},{"hi":"संविधान की चौथी अनुसूची","en":"Fourth Schedule of the Constitution"},{"hi":"मौलिक अधिकार","en":"Fundamental Rights"},{"hi":"संविधान की प्रस्तावना","en":"Preamble of the Constitution"}],"answer":0,"answer_note":"","explanation_hi":"कल्याणकारी राज्य की अवधारणा भारतीय संविधान में नीति निदेशक तत्वों के अंतर्गत सम्मिलित की गई है। ये संविधान के भाग IV में अनुच्छेद 36 से 51 के अंतर्गत रखे गए हैं। संविधान की प्रस्तावना में राज्य के उद्देश्यों का उल्लेख है, अर्थात यह अपने सभी नागरिकों के लिए सामाजिक, आर्थिक और राजनीतिक न्याय, विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना की स्वतंत्रता, तथा प्रतिष्ठा और अवसर की समता सुनिश्चित करेगा, जो सामूहिक रूप से कल्याणकारी राज्य के आदर्श का प्रतीक हैं। इसके अतिरिक्त, नीति निदेशक तत्व राज्य को कल्याणकारी राज्य की स्थापना का निर्देश देते हैं। अतः कल्याणकारी राज्य की अवधारणा प्रस्तावना और नीति निदेशक तत्वों, दोनों में पाई जाती है। परंतु यदि दोनों को चुनने का विकल्प न हो, तो सही उत्तर नीति निदेशक तत्व होगा। यह उल्लेखनीय है कि संघ लोक सेवा आयोग ने अपनी उत्तर कुंजी में भी इस प्रश्न का उत्तर नीति निदेशक तत्व ही दिया था।","explanation_en":"The concept of a welfare state has been included in the Indian Constitution under the Directive Principles of State Policy. These have been included in Part IV of the Constitution under Articles 36 to 51. The Preamble to the Indian Constitution mentions the objectives of the State, namely that it shall secure to all its citizens social, economic and political justice, liberty of thought, expression, belief, faith and worship, and equality of status and opportunity, which together symbolize the ideal of a welfare state. In addition, the Directive Principles direct the State to establish a welfare state. Thus, the idea of a welfare state is found both in the Preamble and in the Directive Principles of State Policy. However, if there is no option to choose both, then the correct answer will be the Directive Principles of State Policy. It is noteworthy that the Union Public Service Commission, in its answer key, also gave the answer to this question as the Directive Principles of State Policy.","source":"UPPCS (Pre) 1997","source_missing":false,"exam":"uppcs-pre"},{"id":4,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"सुविधाजनक अध्ययन के लिए राज्य के नीति निदेशक तत्वों को निम्नलिखित में से किन भागों में वर्गीकृत किया जा सकता है?","question_en":"The Directive Principles of State Policy may be classified in to which of the following parts for the sake of convenient study?","options":[{"hi":"समाजवादी","en":"Socialist"},{"hi":"उदारवादी-बुद्धिवादी","en":"Liberal intellectualistic"},{"hi":"गांधीवादी","en":"Gandhian"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान के नीति निदेशक तत्व आयरलैंड के संविधान से लिए गए हैं। संवैधानिक विशेषज्ञों द्वारा स्वीकृत मानक वर्गीकरण के अनुसार, सुविधाजनक अध्ययन के लिए नीति निदेशक तत्वों को तीन वैचारिक श्रेणियों में बाँटा जा सकता है – समाजवादी, उदार-बौद्धिक और गांधीवादी।","explanation_en":"The Directive Principles of State Policy in the Indian Constitution have been borrowed from the Constitution of Ireland. According to the standard classification accepted among constitutional experts, for convenient study, the Directive Principles of State Policy may be divided into three ideological categories – Socialistic, Liberal-Intellectual and Gandhian.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"भारत के संविधान के राज्य के नीति निदेशक तत्व किस देश के संविधान से लिए गए हैं?","question_en":"The Directive Principles of State Policy of the Constitution of India is taken from the Constitution of which country?","options":[{"hi":"ऑस्ट्रेलिया","en":"Australia"},{"hi":"अमेरिका","en":"America"},{"hi":"फ़्रांस","en":"France"},{"hi":"आयरलैंड","en":"Ireland"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान में सम्मिलित नीति निदेशक तत्व मुख्य रूप से आयरलैंड के संविधान, 1937 से प्रेरित हैं। संविधान का यह भाग, जो आयरिश मॉडल का अनुसरण करता है, फेबियनवाद, समाजवाद, उदार लोकतांत्रिक विचारधाराओं, गांधीवाद और सार्वभौमिक मानवाधिकार घोषणा से भी व्यापक रूप से प्रभावित है।","explanation_en":"The Directive Principles of State Policy included in the Indian Constitution were inspired mainly by the Constitution of Ireland, 1937. This part of the Constitution, which follows the Irish model, was also broadly influenced by Fabianism, Socialism, liberal democratic ideologies, Gandhism, and the Universal Declaration of Human Rights.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"नीति निदेशक तत्वों के संबंध में निम्नलिखित कथनों पर विचार कीजिए: 1. ये न्यायालयों द्वारा प्रवर्तनीय नहीं हैं। 2. विधि बनाते समय इन तत्वों को लागू करना राज्य का कर्तव्य होगा। नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए: कूट-","question_en":"Consider the following statements with respect to Directive Principles of State Policy : / 1. They are not enforceable by the Courts. / 2. It shall be the duty of the State to apply these Principles in making laws. / Select the correct answer using the code given below :\nCode-","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"न 1 और न 2","en":"Neither 1 nor 2"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान का भाग IV (अनुच्छेद 36 से 51) नीति निदेशक तत्वों से संबंधित है। अनुच्छेद 37 के अनुसार, इस भाग में समाविष्ट उपबंध किसी न्यायालय द्वारा प्रवर्तनीय नहीं होंगे, किंतु इनमें निहित सिद्धांत फिर भी देश के शासन में मूलभूत हैं, और विधि बनाते समय इन सिद्धांतों को लागू करना राज्य का कर्तव्य होगा। यद्यपि ये सिद्धांत न्यायालयों द्वारा प्रवर्तनीय नहीं हैं, फिर भी ये राष्ट्र के शासन के लिए मूलभूत हैं और राज्य द्वारा विधि-निर्माण को प्रभावित करते हैं। समय-समय पर सरकारों ने नीति निदेशक तत्वों को लागू करने का प्रयास किया है, जैसे ज़मींदारी उन्मूलन कानून, बैंक राष्ट्रीयकरण, कारखाना अधिनियम, न्यूनतम मज़दूरी कानून, कुटीर और लघु उद्योगों को बढ़ावा, मनरेगा, तथा 6 से 14 वर्ष की आयु के बच्चों के लिए निःशुल्क शिक्षा।","explanation_en":"Part IV (Articles 36 to 51) of the Indian Constitution deals with the Directive Principles of State Policy. Article 37 provides that the provisions contained in this Part shall not be enforceable by any court, but the principles laid down in it are nevertheless fundamental in the governance of the country, and it shall be the duty of the State to apply these principles in making laws. Although these principles are not enforceable by courts, they are fundamental to the governance of the nation and influence the making of laws by the State. From time to time, governments have tried to implement the Directive Principles through measures such as zamindari abolition laws, bank nationalization, the Factories Act, minimum wage laws, promotion of cottage and small-scale industries, MGNREGA, and free education for children between 6 and 14 years of age.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"नीति निदेशक तत्व हैं–","question_en":"Directive Principles of State Policy are-","options":[{"hi":"न्याय योग्य","en":"Justiciable"},{"hi":"गैर-न्याय योग्य","en":"Non-Justiciable"},{"hi":"मौलिक अधिकार","en":"Fundamental Rights"},{"hi":"इनमें से कोई नहीं","en":"None of these"}],"answer":1,"answer_note":"","explanation_hi":"नीति निदेशक तत्व गैर-न्याय योग्य हैं। संविधान के अनुच्छेद 37 के अनुसार, इस भाग (भाग IV) में समाविष्ट उपबंध किसी न्यायालय द्वारा प्रवर्तनीय नहीं होंगे, किंतु इनमें निहित सिद्धांत फिर भी देश के शासन में मूलभूत हैं, और विधि बनाते समय इन सिद्धांतों को लागू करना राज्य का कर्तव्य होगा।","explanation_en":"The Directive Principles are non-justiciable. According to Article 37 of the Constitution, the provisions contained in this Part (Part IV) shall not be enforceable by any court, but the principles laid down in it are nevertheless fundamental in the governance of the country, and it shall be the duty of the State to apply these principles in making laws.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"'समान कार्य के लिए समान वेतन' भारतीय संविधान में किनमें से एक के रूप में सुनिश्चित किया गया है?","question_en":"‘Equal Pay for Equal Work’ has been ensured in the Indian Constitution as one of the:","options":[{"hi":"मौलिक अधिकार","en":"Fundamental Rights"},{"hi":"नीति निदेशक तत्व","en":"Directive Principles of State Policy"},{"hi":"मौलिक कर्तव्य","en":"Fundamental Duties"},{"hi":"आर्थिक अधिकार","en":"Economic Rights"}],"answer":1,"answer_note":"","explanation_hi":"“समान कार्य के लिए समान वेतन” भारतीय संविधान में नीति निदेशक तत्वों के भाग के रूप में सम्मिलित है। अनुच्छेद 39(d) पुरुषों और महिलाओं, दोनों के लिए समान कार्य हेतु समान वेतन का उपबंध करता है। यह उल्लेखनीय है कि अनुच्छेद 39(d) के अनुसरण में संसद ने 1976 में समान पारिश्रमिक अधिनियम पारित किया [जिसे अब मज़दूरी संहिता, 2019 में समाविष्ट कर दिया गया है]। यह भी उल्लेखनीय है कि रणधीर सिंह बनाम भारत संघ (1982) में उच्चतम न्यायालय ने कहा कि “समान कार्य के लिए समान वेतन” का सिद्धांत अनुच्छेद 14 और 16 से, प्रस्तावना और अनुच्छेद 39(d) के प्रकाश में पढ़े जाने पर, उत्पन्न होता है।","explanation_en":"“Equal pay for equal work” is included in the Constitution of India as a part of the Directive Principles of State Policy. Article 39(d) provides for equal pay for equal work for both men and women. It is noteworthy that, in pursuance of Article 39(d), Parliament enacted the Equal Remuneration Act in 1976 [which has now been subsumed into the Code on Wages, 2019]. It is also noteworthy that in Randhir Singh v. Union of India (1982), the Supreme Court held that the principle of “equal pay for equal work” flows from Articles 14 and 16, read in the light of the Preamble and Article 39(d) of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा मौलिक अधिकार नहीं है?","question_en":"Which of the following is not a Fundamental Right?","options":[{"hi":"शोषण के विरुद्ध अधिकार","en":"Right Against Exploitation"},{"hi":"समान कार्य के लिए समान वेतन","en":"Equal Pay for Equal Work"},{"hi":"विधि के समक्ष समानता","en":"Equality Before Law"},{"hi":"धर्म की स्वतंत्रता का अधिकार","en":"Right to Freedom of Religion"}],"answer":1,"answer_note":"","explanation_hi":"“समान कार्य के लिए समान वेतन” संविधान में मौलिक अधिकारों के अंतर्गत नहीं, बल्कि अनुच्छेद 39(d) के अंतर्गत नीति निदेशक तत्व के रूप में उल्लिखित है, जबकि प्रश्न में दिए गए शेष विकल्प संविधान में मौलिक अधिकारों के रूप में सम्मिलित हैं।","explanation_en":"“Equal pay for equal work” is mentioned in the Constitution not under Fundamental Rights, but under Article 39(d) as a Directive Principle of State Policy, whereas the remaining options mentioned in the question are included in the Constitution as Fundamental Rights.","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा अनुच्छेद राज्य सरकार को ग्राम पंचायतों के गठन का निर्देश देता है?","question_en":"Which one of the following Articles directs State Government to organize Village Panchayats?","options":[{"hi":"अनुच्छेद 32","en":"Article 32"},{"hi":"अनुच्छेद 40","en":"Article 40"},{"hi":"अनुच्छेद 48","en":"Article 48"},{"hi":"अनुच्छेद 51","en":"Article 51"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के भाग IV के अंतर्गत नीति निदेशक तत्वों में सम्मिलित अनुच्छेद 40 राज्य को ग्राम पंचायतों के गठन का निर्देश देता है। इसके अनुसार, राज्य ग्राम पंचायतों के गठन के लिए कदम उठाएगा और उन्हें ऐसी शक्तियाँ तथा प्राधिकार प्रदान करेगा जो उन्हें स्वशासन की इकाइयों के रूप में कार्य करने में सक्षम बनाने के लिए आवश्यक हों।","explanation_en":"Under Part IV of the Indian Constitution, Article 40, included in the Directive Principles of State Policy, directs the State to organize village panchayats. According to it, the State shall take steps to organize village panchayats and endow them with such powers and authority as may be necessary to enable them to function as units of self-government.","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"सूची- I का सूची -II से मिलान करके नीचे दिए गए कूट का प्रयोग करते हुए सही उत्तर चुनिए। सूची- I (संविधान के अनुच्छेद): A. अनुच्छेद 40 B. अनुच्छेद 41 C. अनुच्छेद 44 D. अनुच्छेद 48। सूची -II (विषय-वस्तु): 1. ग्राम पंचायतों का गठन 2. काम का अधिकार 3. समान नागरिक संहिता 4. कृषि और पशुपालन का संगठन। कूट: A B C D","question_en":"Match List- I with List- II and select the correct answer using the code given below:\nList- I List -II (Articles of the (Subject matter) Constitution) / A. Art. 40 1. Organization of Village Panchayat / B. Art. 41 2. Right to Work / C. Art. 44 3. Uniform Civil Code / D. Art. 48 4. Organisation of Agriculture and Animal Husbandry\nCode: / A B C D","options":[{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"1 3 4 2","en":"1 3 4 2"},{"hi":"3 2 4 1","en":"3 2 4 1"}],"answer":0,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है – अनुच्छेद 40 : ग्राम पंचायतों का गठन; अनुच्छेद 41 : कुछ मामलों में काम, शिक्षा और लोक सहायता का अधिकार; अनुच्छेद 44 : नागरिकों के लिए समान नागरिक संहिता; अनुच्छेद 48 : कृषि और पशुपालन का संगठन।","explanation_en":"The correct matching is as follows– Article 40 : Organization of Village Panchayats Article 41 : Right to work, education and public assistance in certain cases Article 44 : Uniform Civil Code for citizens Article 48 : Organization of agriculture and animal husbandry","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा सही सुमेलित नहीं है?","question_en":"Which one of the following is NOT correctly matched?","options":[{"hi":"अनुच्छेद 39A – समान न्याय और निःशुल्क विधिक सहायता","en":"Article 39A - Equal Justice and free legal aid"},{"hi":"अनुच्छेद 40 – ग्राम पंचायतों का गठन","en":"Article 40 - Organisation of Village Panchayats"},{"hi":"अनुच्छेद 44 – समान नागरिक संहिता","en":"Article 44 - Uniform Civil Code"},{"hi":"अनुच्छेद 48 – न्यायपालिका का कार्यपालिका से पृथक्करण","en":"Article 48 - Separation of Judiciary from Executive"}],"answer":3,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है – अनुच्छेद 39A – समान न्याय और निःशुल्क विधिक सहायता; अनुच्छेद 40 – ग्राम पंचायतों का गठन; अनुच्छेद 44 – समान नागरिक संहिता; अनुच्छेद 48 – कृषि और पशुपालन का संगठन। नोट: न्यायपालिका का कार्यपालिका से पृथक्करण अनुच्छेद 50 में उपबंधित है।","explanation_en":"The correct matching is as follows– Article 39A – Equal justice and free legal aid Article 40 – Organization of Village Panchayats Article 44 – Uniform Civil Code Article 48 – Organization of agriculture and animal husbandry Note: Separation of the judiciary from the executive is provided under Article 50.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा सही सुमेलित नहीं है? (विषय) (संबंधित अनुच्छेद)","question_en":"Which one of the following is NOT correctly matched? (Subject) (Related Articles)","options":[{"hi":"न्यायपालिका का कार्यपालिका से पृथक्करण – अनुच्छेद 50","en":"The separation of judiciary -Article 50 from executive"},{"hi":"अनुसूचित जातियों और अनुसूचित जनजातियों के शैक्षिक और आर्थिक हितों का संवर्धन – अनुच्छेद 46","en":"The promotion of educational -Article 46 and economic interests of Scheduled Castes and Scheduled Tribes"},{"hi":"सहकारी समितियों का संवर्धन – अनुच्छेद 43A","en":"The promotion of Co-operative -Article 43A Societies"},{"hi":"ग्राम पंचायतों का संगठन और उन्हें स्वशासन की इकाइयों के रूप में कार्य करने योग्य बनाना – अनुच्छेद 40","en":"The organisation of Village -Article 40 Panchayats and enable them to function as the units of self government"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 43A में राज्य द्वारा उद्योगों के प्रबंधन में कामगारों की भागीदारी सुनिश्चित करने के लिए कदम उठाने का उपबंध है। सहकारी समितियों के संवर्धन का उल्लेख संविधान के अनुच्छेद 43B में है। प्रश्न में दिए गए अन्य विषय और उनके संबंधित अनुच्छेद सही सुमेलित हैं।","explanation_en":"Article 43A contains provisions for the State to take steps to secure the participation of workers in the management of industries. The promotion of co-operative societies is mentioned in Article 43B of the Constitution. The other subjects given in the question and their related Articles are correctly matched.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) और दूसरे को कारण (R) के रूप में चिह्नित किया गया है। अभिकथन (A): मनरेगा पात्र परिवार के कम से कम एक सदस्य को वर्ष में न्यूनतम 100 दिनों का रोज़गार प्रदान कर रहा है। कारण (R): रोज़गार का अधिकार संविधान के भाग III में उल्लिखित है। नीचे दिए गए कूट से सही उत्तर चुनिए: कूट:","question_en":"Given below are two statements, one labelled as Assertion (A) and the other as Reason (R) : Assertion (A) : MGNREGA is providing employment to at least one member of the eligible household for a minimum period of 100 days in a year. Reason (R) : Right to employment is enumerated in Part III of the Constitution. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"(A) और (R) दोनों सही हैं, और (R), (A) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, लेकिन (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सही है, लेकिन (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, लेकिन (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"महात्मा गांधी राष्ट्रीय ग्रामीण रोज़गार गारंटी अधिनियम (मनरेगा) भारत में लागू एक रोज़गार गारंटी योजना है, जिसे संसद ने 2005 में अधिनियमित किया। यह योजना ग्रामीण परिवार के उन वयस्क सदस्यों को, जो सार्वजनिक कार्यों से संबंधित अकुशल शारीरिक श्रम करने के लिए इच्छुक हैं, वैधानिक न्यूनतम मज़दूरी पर प्रत्येक वित्तीय वर्ष में न्यूनतम 100 दिनों के मज़दूरी रोज़गार की विधिक गारंटी देती है। यह संविधान के भाग IV के अनुच्छेद 41 (जो कुछ मामलों में काम, शिक्षा और लोक सहायता के अधिकार से संबंधित है) और अनुच्छेद 43 (जो कामगारों के लिए जीवन-निर्वाह मज़दूरी आदि से संबंधित है) के उपबंधों के अनुसरण में लागू की गई। रोज़गार का अधिकार संविधान के भाग III (मौलिक अधिकार) में सम्मिलित नहीं है। अतः अभिकथन (A) सही है, लेकिन कारण (R) गलत है।","explanation_en":"The Mahatma Gandhi National Rural Employment Guarantee Act (MGNREGA) is an employment guarantee scheme implemented in India, which was enacted by Parliament in 2005. This scheme gives a legal guarantee of a minimum of 100 days of wage employment in every financial year to any rural household whose adult members are willing to do unskilled manual work related to public works at the statutory minimum wage. It was introduced in pursuance of the provisions of Article 41 of Part IV of the Constitution, (which deals with the right to work, education and public assistance in certain cases), and Article 43, (which relates to a living wage, etc. for workers). The right to employment is not included in Part III (Fundamental Rights) of the Constitution. Therefore, Assertion (A) is correct, but Reason (R) is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"मनरेगा योजना भारतीय संविधान के निम्नलिखित में से किस अनुच्छेद के क्रियान्वयन के भाग के रूप में प्रारंभ की गई है?","question_en":"MANREGA scheme has been launched as a part of implementing which one of the following Articles of the Indian Constitution?","options":[{"hi":"अनुच्छेद 43","en":"Article 43"},{"hi":"अनुच्छेद 45","en":"Article 45"},{"hi":"अनुच्छेद 47","en":"Article 47"},{"hi":"अनुच्छेद 50","en":"Article 50"}],"answer":0,"answer_note":"","explanation_hi":"भारतीय संविधान के भाग IV के अंतर्गत अनुच्छेद 41 यह उपबंध करता है कि राज्य अपनी आर्थिक क्षमता और विकास की सीमाओं के भीतर काम के अधिकार को प्रभावी उपबंध द्वारा सुनिश्चित करेगा। इसके अतिरिक्त, अनुच्छेद 43 कहता है कि राज्य उपयुक्त विधान, आर्थिक संगठन या किसी अन्य माध्यम से प्रयास करेगा कि कृषि, उद्योग या अन्य किसी क्षेत्र में कार्यरत सभी कामगारों को काम, जीवन-निर्वाह मज़दूरी, शिष्ट जीवन स्तर, अवकाश तथा सामाजिक और सांस्कृतिक अवसर सुनिश्चित हों। मनरेगा इन संवैधानिक लक्ष्यों की पूर्ति की दिशा में एक महत्वपूर्ण कार्यक्रम है।","explanation_en":"Under Part IV of the Indian Constitution, Article 41 provides that the State shall, within the limits of its economic capacity and development, make effective provision for securing the right to work. Further, Article 43 states that the State shall endeavor, by suitable legislation, economic organization, or in any other way, to secure to all workers, whether in agriculture, industry, or otherwise, work, a living wage, a decent standard of life, leisure, and social and cultural opportunities. MGNREGA is an important programme in the direction of fulfilling these constitutional goals.","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा अनुच्छेद 42वें संविधान संशोधन द्वारा कर्मकारों की प्रबंधन में भागीदारी के उपबंध हेतु जोड़ा गया था?","question_en":"Which of the following Article was inserted by the 42nd Constitution Amendment to provide for participation of workers in management?","options":[{"hi":"अनुच्छेद 38","en":"Article 38"},{"hi":"अनुच्छेद 39A","en":"Article 39A"},{"hi":"अनुच्छेद 45","en":"Article 45"},{"hi":"अनुच्छेद 43A","en":"Article 43A"}],"answer":3,"answer_note":"","explanation_hi":"42वें संविधान संशोधन, 1976 द्वारा संविधान के भाग IV में राज्य के नीति निदेशक तत्वों के अंतर्गत अनुच्छेद 43A जोड़ा गया। इसके अनुसार राज्य, उपयुक्त विधान द्वारा या किसी अन्य प्रकार से, किसी उद्योग में लगे उपक्रमों, प्रतिष्ठानों या अन्य संगठनों के प्रबंधन में कर्मकारों की भागीदारी सुनिश्चित करने के लिए कदम उठाएगा।","explanation_en":"By the 42nd Constitutional Amendment, 1976, Article 43A was inserted in Part IV of the Constitution under the Directive Principles of State Policy. It provides that the State shall take steps, by suitable legislation or in any other way, to secure the participation of workers in the management of undertakings, establishments or other organizations engaged in any industry.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"भारतीय संविधान का कौन-सा भाग अंतरराष्ट्रीय शांति और सुरक्षा के प्रति राज्य की जिम्मेदारी का उल्लेख करता है?","question_en":"Which part of the Indian Constitution refers to the responsibility of the state towards International Peace and Security?","options":[{"hi":"मौलिक अधिकार","en":"Fundamental Rights"},{"hi":"मौलिक कर्तव्य","en":"Fundamental Duties"},{"hi":"राज्य के नीति निदेशक तत्व","en":"Directive Principles of State Policy"},{"hi":"संविधान की प्रस्तावना","en":"Preamble of the Constitution"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 51 में, जो राज्य के नीति निदेशक तत्वों में शामिल है, अंतरराष्ट्रीय शांति और सुरक्षा को बढ़ावा देने का उल्लेख है। इसके अनुसार राज्य प्रयास करेगा – (a) अंतरराष्ट्रीय शांति और सुरक्षा को बढ़ावा देना; (b) राष्ट्रों के बीच न्यायपूर्ण और सम्मानजनक संबंध बनाए रखना; (c) संगठित लोगों के आपसी व्यवहार में अंतरराष्ट्रीय विधि और संधि-दायित्वों के प्रति सम्मान को बढ़ावा देना; और (d) अंतरराष्ट्रीय विवादों को मध्यस्थता द्वारा निपटाने को प्रोत्साहित करना।","explanation_en":"Under Article 51 of the Indian Constitution, included in the Directive Principles of State Policy, the promotion of international peace and security is mentioned. According to this, the State shall endeavour – / (a) to promote international peace and security, / (b) to maintain just and honourable relations between nations, / (c) to foster respect for international law and treaty obligations in the dealings of organized peoples with one another, and / (d) to encourage settlement of international disputes by arbitration.","source":"UPPCS (Pre) 2016","source_missing":false,"exam":"uppcs-pre"},{"id":18,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से किसे 42वें संविधान संशोधन द्वारा संविधान के नीति निदेशक तत्वों में नहीं जोड़ा गया था?","question_en":"Which of the following was not added to the Directive Principles by the 42nd Amendment of the Constitution?","options":[{"hi":"बच्चों और युवाओं का शोषण से संरक्षण","en":"Protection of Children and youth from exploitation"},{"hi":"समान न्याय और निःशुल्क विधिक सहायता","en":"Equal justice and free legal aid"},{"hi":"समान नागरिक संहिता","en":"Uniform civil code"},{"hi":"उद्योगों के प्रबंधन में कर्मकारों की भागीदारी","en":"Participation of workers in the management of industries"}],"answer":2,"answer_note":"","explanation_hi":"समान नागरिक संहिता को 42वें संविधान संशोधन अधिनियम द्वारा नहीं जोड़ा गया था। समान नागरिक संहिता का उल्लेख मूल संविधान में अनुच्छेद 44 के अंतर्गत है। 42वें संविधान संशोधन अधिनियम द्वारा निम्नलिखित उपबंध नीति निदेशक तत्वों में जोड़े गए – बच्चों के स्वस्थ विकास के लिए अवसर और सुविधाएँ तथा बच्चों और युवाओं का शोषण से संरक्षण – अनुच्छेद 39(f); समान न्याय और निःशुल्क विधिक सहायता – अनुच्छेद 39A; उद्योगों के प्रबंधन में कर्मकारों की भागीदारी – अनुच्छेद 43A; और पर्यावरण का संरक्षण तथा सुधार एवं वनों व वन्यजीवों की रक्षा – अनुच्छेद 48A।","explanation_en":"The Uniform Civil Code was not added by the 42nd Constitutional Amendment Act. The Uniform Civil Code is mentioned in the original Constitution under Article / 44. The following provisions were added to the Directive Principles by the 42nd Constitutional Amendment Act – opportunities and facilities for the healthy development of children and protection of children and young persons against exploitation – Article 39(f); equal justice and free legal aid – Article 39A; participation of workers in the management of industries – Article 43A; and protection and improvement of the environment and safeguarding of forests and wildlife – Article 48A.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"संविधान निम्नलिखित में से किन्हें शोषण के विरुद्ध अधिकार प्रदान करता है – 1. बच्चे 2. महिलाएँ 3. जनजातियाँ 4. दलित। दिए गए कूट की सहायता से सही उत्तर चुनिए। कूट :","question_en":"The Constitution grants right against exploitation to – / 1. Children 2. Women / 3. Tribals 4. Dalits / Choose your correct answer with the help of given code:\nCode :","options":[{"hi":"1 और 2 केवल","en":"1 and 2 only"},{"hi":"1 और 3 केवल","en":"1 and 3 only"},{"hi":"1, 2 और 3 केवल","en":"1, 2 and 3 only"},{"hi":"2, 3 और 4 केवल","en":"2, 3 and 4 only"}],"answer":2,"answer_note":"","explanation_hi":"संविधान बच्चों, महिलाओं, अनुसूचित जातियों और अनुसूचित जनजातियों के शोषण के विरुद्ध अधिकार को मान्यता देता है, जबकि “दलित” शब्द का उल्लेख संविधान में नहीं है।","explanation_en":"The Constitution recognizes the right against exploitation of children, women, Scheduled Castes and Scheduled Tribes, whereas the term “Dalit” is not mentioned in the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा राज्य के नीति निदेशक तत्व नहीं है?","question_en":"Which one of the following is not a Directive Principle of State Policy ?","options":[{"hi":"मादक पेयों के सेवन का निषेध","en":"Prohibition of the consumption of Intoxicating Drinks"},{"hi":"गोरक्षा","en":"Cow-Protection"},{"hi":"पर्यावरण-संरक्षण","en":"Environment-Protection"},{"hi":"चौदह (14) वर्ष की आयु तक के बच्चों को निःशुल्क शिक्षा","en":"Free Education to children up to the age of fourteen (14)"}],"answer":3,"answer_note":"","explanation_hi":"संविधान में हानिकारक मादक पेयों और नशीली वस्तुओं के निषेध का उपबंध अनुच्छेद 47 के अंतर्गत नीति निदेशक तत्व है, गोरक्षा अनुच्छेद 48 के अंतर्गत है, और पर्यावरण-संरक्षण अनुच्छेद 48A के अंतर्गत है। पहले 14 वर्ष की आयु तक के बच्चों के लिए निःशुल्क और अनिवार्य शिक्षा का उपबंध अनुच्छेद 45 के अंतर्गत नीति निदेशक तत्व था, किंतु 86वें संविधान संशोधन (2002) के बाद यह 6 से 14 वर्ष की आयु के बच्चों के लिए अनुच्छेद 21A के अंतर्गत मौलिक अधिकार बन गया है। अब अनुच्छेद 45 में “6 वर्ष से कम आयु के बच्चों के लिए प्रारंभिक बाल्यावस्था देखभाल और शिक्षा” का उपबंध शामिल है।","explanation_en":"In the Constitution, prohibition of harmful intoxicating drinks and drugs is a Directive Principle under Article 47, cow protection under Article 48, and environmental protection under Article 48A. Earlier, the provision for free and compulsory education for children up to 14 years of age was a Directive Principle under Article 45, but after the 86th Constitutional Amendment (2002), it has now become a Fundamental Right under Article 21A for children between 6 and 14 years of age. Now, Article 45 includes “provision for early childhood care and education for children below the age of 6 years.”","source":"UP Lower (Pre) 2013","source_missing":false,"exam":"lower"},{"id":21,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"भारत के संविधान में “पर्यावरण के संरक्षण और सुधार तथा वनों और वन्यजीवों की सुरक्षा” से संबंधित उपबंध निम्नलिखित में से किसमें पाए जाते हैं?","question_en":"In which of the following 'the provisions for the protection and improvement of environment and safeguarding of forests and wildlife' are found in the Constitution of India?","options":[{"hi":"केवल राज्य के नीति निदेशक तत्वों में","en":"Only in the Directive Principles of State Policy"},{"hi":"केवल मौलिक कर्तव्यों में","en":"Only in the Fundamental Duties"},{"hi":"(a) और (b) दोनों","en":"Both (a) and (b)"},{"hi":"उपरोक्त में से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"42वें संविधान संशोधन अधिनियम, 1976 द्वारा संविधान में राज्य के नीति निदेशक तत्वों के अंतर्गत अनुच्छेद 48A जोड़ा गया, जिसके अनुसार राज्य देश के पर्यावरण के संरक्षण और सुधार तथा वनों और वन्यजीवों की सुरक्षा का प्रयास करेगा। मौलिक कर्तव्यों के अंतर्गत अनुच्छेद 51A(g) के अनुसार भारत के प्रत्येक नागरिक का यह कर्तव्य है कि वह वनों, झीलों, नदियों और वन्यजीवों सहित प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करे तथा प्राणिमात्र के प्रति दया भाव रखे।","explanation_en":"By the 42nd Constitutional Amendment Act, 1976, Article 48A was added under the Directive Principles of State Policy in the Constitution, according to which the State shall endeavour to protect and improve the environment and to safeguard the forests and wildlife of the country. Under the Fundamental Duties, Article 51A(g) provides that it shall be the duty of every citizen of India to protect and improve the natural environment, including forests, lakes, rivers and wildlife, and to have compassion for living creatures.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा प्रावधान राज्य के नीति निदेशक तत्वों और मूल कर्तव्यों, दोनों का भाग है?","question_en":"Which of the following Provision is a part of both Directive Principles of State Policy and Fundamental Duties?","options":[{"hi":"उद्योगों के प्रबंधन में कर्मकारों की भागीदारी","en":"Participation of workers in management of industries"},{"hi":"पर्यावरण का संरक्षण","en":"Protection of environment"},{"hi":"बच्चों को शिक्षा के अवसर प्रदान करने का अभिभावकों का दायित्व","en":"Guardians to provide opportunity for education to children"},{"hi":"समान नागरिक संहिता","en":"Uniform Civil Code"}],"answer":1,"answer_note":"","explanation_hi":"दिए गए विकल्पों में से “पर्यावरण का संरक्षण” से संबंधित उपबंध राज्य के नीति निदेशक तत्वों में अनुच्छेद 48A के अंतर्गत और मूल कर्तव्यों में अनुच्छेद 51A(g) के अंतर्गत शामिल है। अन्य विकल्प – उद्योगों के प्रबंधन में कर्मकारों की भागीदारी और समान नागरिक संहिता – क्रमशः अनुच्छेद 43A और 44 के अंतर्गत केवल राज्य के नीति निदेशक तत्वों में शामिल हैं, जबकि बच्चों को शिक्षा के अवसर देने का माता-पिता का कर्तव्य केवल मूल कर्तव्यों में अनुच्छेद 51A(k) के अंतर्गत शामिल है।","explanation_en":"Among the given options, the provision relating to “protection of the environment” is included under the Directive Principles of State Policy in Article 48A and under the Fundamental Duties in Article 51A(g). The other options, namely participation of workers in the management of industries and Uniform Civil Code, are included only under the Directive Principles of State Policy in Articles 43A and 44 respectively, whereas the duty of parents to provide opportunities for education to their children is included only under the Fundamental Duties in Article 51A(k).","source":"UPPCS (Mains) 2009","source_missing":false,"exam":"uppcs-mains"},{"id":23,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"संविधान राज्य के नीति निदेशक तत्वों में निम्नलिखित में से किसके बारे में मौन है –","question_en":"The Constitution is silent in the Directive Principles of State Policy about –","options":[{"hi":"प्रौढ़ शिक्षा","en":"Adult education"},{"hi":"श्रमिकों के लिए जीवन-निर्वाह मजदूरी","en":"Living wages for workers"},{"hi":"निर्धनों को निःशुल्क विधिक सहायता","en":"Free legal aid to the poor"},{"hi":"6 वर्ष की आयु पूरी करने तक बच्चों को प्राथमिक शिक्षा","en":"Primary education to children till they complete the age of 6 years"}],"answer":0,"answer_note":"","explanation_hi":"राज्य के नीति निदेशक तत्व संविधान के भाग IV में अनुच्छेद 36 से 51 तक वर्णित हैं। इनमें से श्रमिकों के लिए जीवन-निर्वाह मजदूरी का उपबंध अनुच्छेद 43 में, निर्धनों को निःशुल्क विधिक सहायता अनुच्छेद 39A में, और 6 वर्ष से कम आयु के बच्चों की प्रारंभिक बाल्यावस्था देखभाल तथा शिक्षा (86वें संशोधन के बाद) अनुच्छेद 45 में है। नीति निदेशक तत्वों में प्रौढ़ शिक्षा से संबंधित कोई उपबंध नहीं है।","explanation_en":"The Directive Principles of State Policy are described in Part IV of the Indian Constitution under Articles 36 to 51. Among these, the provision regarding a living wage for workers is contained in Article 43, free legal aid to the poor in Article 39A, and early childhood care and education for children below 6 years of age (after the 86th Amendment) in Article 45. There is no provision relating to adult education in the Directive Principles.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा राज्य का नीति निदेशक तत्व बाद की तिथि में संविधान में जोड़ा गया था?","question_en":"Which of the following Directive Principles of State Policy was added to the Constitution at a later date?","options":[{"hi":"ग्राम पंचायतों का संगठन","en":"Organization of Village Panchayats"},{"hi":"गोवध का निषेध","en":"Prohibition of Cow Slaughter"},{"hi":"निःशुल्क विधिक सहायता","en":"Free Legal Aid"},{"hi":"समान नागरिक संहिता","en":"Uniform Civil Code"}],"answer":2,"answer_note":"","explanation_hi":"निःशुल्क विधिक सहायता बाद में राज्य के नीति निदेशक तत्व के रूप में जोड़ी गई। 42वें संविधान संशोधन अधिनियम, 1976 द्वारा भाग IV में अनुच्छेद 39A जोड़ा गया, ताकि आर्थिक या अन्य असमर्थताओं के कारण न्याय से वंचित रहने वाले नागरिकों के लिए समान न्याय और निःशुल्क विधिक सहायता का उपबंध हो सके।","explanation_en":"Free legal aid was added later as a Directive Principle of State Policy. By the 42nd Constitutional Amendment Act, 1976, Article 39A was inserted in Part IV of the Indian Constitution to provide for equal justice and free legal aid for citizens who may be denied justice due to economic or other disabilities.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा राज्य के नीति निदेशक तत्वों में शामिल नहीं है?","question_en":"Which of the following is not included in the Directive Principles of State Policy?","options":[{"hi":"शराब पर निषेध","en":"Prohibition of Liquor"},{"hi":"काम का अधिकार","en":"Right to Work"},{"hi":"समान कार्य के लिए समान वेतन","en":"Equal Wage for Equal Work"},{"hi":"सूचना का अधिकार","en":"Right to Information"}],"answer":3,"answer_note":"","explanation_hi":"राज्य के नीति निदेशक तत्वों के अंतर्गत अनुच्छेद 39(a) में कहा गया है कि सभी नागरिकों, पुरुषों और महिलाओं को समान रूप से, जीविका के पर्याप्त साधन का अधिकार है, और अनुच्छेद 41 में कुछ मामलों में काम, शिक्षा और लोक सहायता का अधिकार है। अनुच्छेद 39(d) समान कार्य के लिए पुरुषों और महिलाओं दोनों को समान वेतन का उपबंध करता है, जबकि अनुच्छेद 47 में राज्य अपने लोगों के पोषण स्तर और जीवन स्तर के उत्थान तथा लोक स्वास्थ्य के सुधार को अपने प्राथमिक कर्तव्यों में मानेगा और चिकित्सा प्रयोजनों को छोड़कर स्वास्थ्य के लिए हानिकारक मादक पेयों और नशीली वस्तुओं के सेवन पर निषेध लाने का प्रयास करेगा। सूचना का अधिकार नीति निदेशक तत्वों में शामिल नहीं है। सूचना का अधिकार अधिनियम, 2005 के अंतर्गत यह एक विधिक अधिकार है, और उच्चतम न्यायालय ने कई निर्णयों में इसे संविधान के अनुच्छेद 19(1)(a) के अंतर्गत वाक् और अभिव्यक्ति की स्वतंत्रता के मौलिक अधिकार में निहित माना है।","explanation_en":"Under the Directive Principles of State Policy, Article 39(a) mentions that all citizens, men and women equally, have the right to an adequate means of livelihood, and Article 41 mentions the right to work, education, and public assistance in certain cases. Article 39(d) provides for equal pay for equal work for both men and women, while Article 47 states that the State shall regard the raising of the level of nutrition and the standard of living of its people and the improvement of public health as among its primary duties, and shall endeavour to bring about prohibition of the consumption, except for medicinal purposes, of intoxicating drinks and drugs injurious to health. The Right to Information is not included in the Directive Principles of State Policy. Under the Right to Information Act, 2005, it is a legal right, and the Supreme Court in several decisions has held it to be implicit in the Fundamental Right to freedom of speech and expression under Article 19(1)(a) of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा एक राज्य के नीति निदेशक तत्व है?","question_en":"Which one of the following is a Directive Principle of the State Policy?","options":[{"hi":"समान नागरिक संहिता","en":"Uniform Civil Code"},{"hi":"प्रेस की स्वतंत्रता","en":"Freedom of the Press"},{"hi":"धर्म की स्वतंत्रता","en":"Freedom of the Religion"},{"hi":"विधि के समक्ष समानता","en":"Equality Before Law"}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 44 के अनुसार राज्य भारत के सम्पूर्ण राज्यक्षेत्र में नागरिकों के लिए समान नागरिक संहिता सुनिश्चित करने का प्रयास करेगा, और इसे राज्य के नीति निदेशक तत्वों में शामिल किया गया है।","explanation_en":"Under Article 44 of the Constitution, the State shall endeavour to secure a Uniform Civil Code for citizens throughout the territory of India, and this has been included among the Directive Principles of State Policy.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"राज्य के नीति निदेशक तत्वों में शामिल मदों की पहचान कीजिए – 1. मादक पेयों के उपभोग का निषेध 2. कारखानों या खानों में बच्चों के नियोजन का निषेध 3. भिक्षावृत्ति या बलात् श्रम का निषेध 4. अस्पृश्यता का निषेध। नीचे दिए गए कूट की सहायता से सही उत्तर चुनिए। कूट :","question_en":"Identify the items included in the Directive Principles of State Policy. / 1. Prohibition of Consumption of Liquor / 2. Prohibition of employment of children in factories or mines / 3. Prohibition of beggar or forced labour / 4. Prohibition of untouchability / Select the correct answer with the help of the code given below:\nCode :","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"केवल 1","en":"Only 1"},{"hi":"2, 3 और 4","en":"2, 3 and 4"}],"answer":2,"answer_note":"","explanation_hi":"मादक पेयों के निषेध का विषय अनुच्छेद 47 के अंतर्गत राज्य के नीति निदेशक तत्वों में है, जबकि कारखानों और खानों में बच्चों के नियोजन का निषेध (अनुच्छेद 24), बेगार या बलात् श्रम का निषेध (अनुच्छेद 23) और अस्पृश्यता का निषेध (अनुच्छेद 17) संविधान में मौलिक अधिकारों के भाग हैं।","explanation_en":"Prohibition of intoxicating drinks is a subject under the Directive Principles of State Policy as mentioned in Article 47, whereas prohibition of child labour in factories and mines (Article 24), prohibition of begar or forced labour (Article 23), and prohibition of untouchability (Article 17) are parts of the Fundamental Rights provided in the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"निम्नलिखित में से कौन-सा एक राज्य के नीति निदेशक तत्व नहीं है?","question_en":"Which one of the following is not a Directive Principle of State Policy?","options":[{"hi":"पुरुषों और महिलाओं के लिए समान कार्य हेतु समान वेतन","en":"Equal pay for equal work for men and women"},{"hi":"जीविका के पर्याप्त साधनों का समान अधिकार","en":"Equal right to an adequate means of livelihood"},{"hi":"अस्पृश्यता का उन्मूलन","en":"Abolition of Untouchability"},{"hi":"कार्य की न्यायपूर्ण और मानवोचित परिस्थितियाँ","en":"Just and humane conditions of work"}],"answer":2,"answer_note":"","explanation_hi":"अस्पृश्यता का उन्मूलन मौलिक अधिकारों के अंतर्गत अनुच्छेद 17 में उल्लिखित है। अन्य तीनों विकल्प – पुरुषों और महिलाओं के लिए समान कार्य हेतु समान वेतन अनुच्छेद 39(d) के अंतर्गत, जीविका के पर्याप्त साधनों का समान अधिकार अनुच्छेद 39(a) के अंतर्गत, और कार्य की न्यायपूर्ण तथा मानवोचित परिस्थितियाँ अनुच्छेद 42 के अंतर्गत – राज्य के नीति निदेशक तत्वों में शामिल हैं।","explanation_en":"Under the Fundamental Rights, Article 17 mentions the abolition of untouchability. The other three options – equal pay for equal work for men and women under Article 39(d), equal right to adequate means of livelihood under Article 39(a), and just and humane conditions of work under Article 42 – are included under the Directive Principles of State Policy.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"राज्य के नीति निदेशक तत्व","topic_en":"Directive Principles of State Policy","question_hi":"“राज्य के नीति निदेशक तत्व एक ऐसा चेक है जिसका भुगतान बैंक की सुविधा पर होता है” – यह किसने कहा था?","question_en":"“The Directive Principles of State Policy is a cheque which is paid on Bank’s Convenience,\" Who said it?","options":[{"hi":"बी.आर. अंबेडकर","en":"B.R. Ambedkar"},{"hi":"के.एम. मुंशी","en":"K.M. Munshi"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"के.टी. शाह","en":"K.T. Shah"}],"answer":3,"answer_note":"","explanation_hi":"के.टी. शाह ने संविधान सभा की बहसों के दौरान कहा था कि “राज्य के नीति निदेशक तत्व उस बैंक चेक के समान हैं जो बैंक के सक्षम होने पर, केवल तब देय होता है जब बैंक के संसाधन इसकी अनुमति दें।”","explanation_en":"K.T. Shah said during the debates in the Constituent Assembly that “the Directive Principles of State Policy are like a cheque on a bank payable when able, only if the resources of the bank permit.”","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"भारतीय संविधान में मौलिक कर्तव्यों से संबंधित उपबंध किसकी सिफारिश पर जोड़े गए थे?","question_en":"The provisions relating to Fundamental Duties in the Constitution of India were added on the recommendation of:","options":[{"hi":"बलवंत राय मेहता समिति","en":"Balwant Rai Mehta Committee"},{"hi":"अय्यंगार समिति","en":"Iyengar Committee"},{"hi":"स्वर्ण सिंह समिति","en":"Swaran Singh Committee"},{"hi":"ठक्कर आयोग","en":"Thakkar Commission"}],"answer":2,"answer_note":"","explanation_hi":"मौलिक कर्तव्यों का उल्लेख संविधान के भाग IV-A में अनुच्छेद 51A के अंतर्गत है। इन्हें 42वें संविधान संशोधन अधिनियम, 1976 द्वारा स्वर्ण सिंह समिति की सिफारिश पर संविधान में जोड़ा गया।","explanation_en":"Fundamental Duties are laid down in Article 51A under Part IV-A of the Indian Constitution. They were added to the Constitution by the 42nd Constitutional Amendment Act, 1976, on the recommendation of the Swaran Singh Committee.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"42वें संविधान संशोधन अधिनियम द्वारा मौलिक कर्तव्यों से संबंधित उपबंध भारतीय संविधान के किन अनुच्छेदों के अंतर्गत किए गए हैं?","question_en":"Under which Articles of Indian Constitution, provision for Fundamental Duties has been made by the 42nd Constitutional Amendment Act?","options":[{"hi":"अनुच्छेद 50","en":"Article 50"},{"hi":"अनुच्छेद 51A","en":"Article 51A"},{"hi":"अनुच्छेद 52","en":"Article 52"},{"hi":"अनुच्छेद 53","en":"Article 53"}],"answer":1,"answer_note":"","explanation_hi":"42वें संविधान संशोधन अधिनियम, 1976 द्वारा, जो 3 जनवरी 1977 से प्रभावी हुआ, भारतीय संविधान के भाग IV-A में अनुच्छेद 51A जोड़ा गया, जिसमें भारतीय नागरिकों के लिए 10 मौलिक कर्तव्य निर्धारित किए गए। 86वें संविधान संशोधन अधिनियम, 2002 द्वारा 6 से 14 वर्ष की आयु के बच्चों की शिक्षा से संबंधित एक और मौलिक कर्तव्य जोड़ा गया, जिससे कुल संख्या 11 हो गई।","explanation_en":"By the 42nd Constitutional Amendment Act, 1976, effective from 3 January 1977, Article 51A was inserted in Part IV-A of the Indian Constitution, laying down 10 Fundamental Duties for Indian citizens. By the 86th Constitutional Amendment Act, 2002, one more Fundamental Duty relating to the education of children between 6 and 14 years of age was added, raising the total number to 11.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"मौलिक कर्तव्यों के संबंध में निम्नलिखित में से कौन-सा कथन सत्य नहीं है?","question_en":"Which of the following statements regarding Fundamental Duties is not true:","options":[{"hi":"इन्हें परमादेश (Mandamus) द्वारा लागू कराया जा सकता है","en":"They can be enforced by Mandamus"},{"hi":"इन्हें केवल संवैधानिक तरीकों से ही बढ़ावा दिया जा सकता है","en":"They can be promoted only by constitutional methods"},{"hi":"इनका उपयोग अस्पष्ट कानूनों की व्याख्या के लिए किया जा सकता है","en":"They can be used for interpreting ambiguous statutes"},{"hi":"किसी विशेष कर्तव्य का पालन संवैधानिक विधि के क्षेत्र में आता है, जिसका निर्णय न्यायालय को करना होता है","en":"The performance of any particular duty comes within the sphere of constitutional law which court has to decide"}],"answer":0,"answer_note":"","explanation_hi":"मौलिक कर्तव्यों को परमादेश द्वारा लागू नहीं किया जा सकता। परमादेश अनुच्छेद 32 के अंतर्गत उच्चतम न्यायालय द्वारा उन मामलों में जारी किया जाने वाला रिट है जहाँ मौलिक अधिकारों का उल्लंघन होता है, जबकि उच्च न्यायालय अनुच्छेद 226 के अंतर्गत केवल मौलिक अधिकारों के प्रवर्तन के लिए ही नहीं, बल्कि किसी अन्य प्रयोजन के लिए भी इसे जारी कर सकते हैं। मौलिक कर्तव्य नागरिकों पर नैतिक दायित्व डालते हैं, इन्हें रिटों के माध्यम से सीधे लागू नहीं किया जा सकता। अन्य तीनों कथन सही हैं।","explanation_en":"Fundamental Duties cannot be enforced by mandamus. Mandamus is a writ issued by the Supreme Court under Article 32 in cases involving the violation of Fundamental Rights, while the High Courts may issue it under Article 226 not only for the enforcement of Fundamental Rights but also for any other purpose. Fundamental Duties impose a moral obligation on citizens. They are not directly enforceable through writs. The other three statements are correct.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"भारतीय संविधान के अंतर्गत निम्नलिखित में से कौन-सा मौलिक कर्तव्य नहीं है?","question_en":"Under the Constitution of India which of the following is not Fundamental Duty?","options":[{"hi":"आम चुनाव में मतदान करना","en":"To vote in General Election"},{"hi":"वैज्ञानिक दृष्टिकोण का विकास करना","en":"To develop the scientific temper"},{"hi":"सार्वजनिक संपत्ति की सुरक्षा करना","en":"To safeguard public property"},{"hi":"संविधान का पालन करना और उसके आदर्शों का सम्मान करना","en":"To abide by the Constitution and respect its ideas"}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 51A के अनुसार भारत के प्रत्येक नागरिक का यह कर्तव्य है कि वह – 1. संविधान का पालन करे और उसके आदर्शों व संस्थाओं, राष्ट्रध्वज और राष्ट्रगान का सम्मान करे; 2. स्वतंत्रता के लिए हमारे राष्ट्रीय संघर्ष को प्रेरित करने वाले उच्च आदर्शों को संजोए और उनका पालन करे; 3. भारत की संप्रभुता, एकता और अखंडता की रक्षा और उसे अक्षुण्ण रखे; 4. आह्वान किए जाने पर देश की रक्षा करे और राष्ट्र सेवा करे; 5. भारत के सभी लोगों में समरसता और समान भाईचारे की भावना को बढ़ावा दे, जो धर्म, भाषा, क्षेत्र या वर्ग पर आधारित सभी भेदभावों से परे हो, और स्त्रियों की गरिमा के विरुद्ध प्रथाओं का त्याग करे; 6. हमारी मिश्रित संस्कृति की समृद्ध विरासत का मूल्य समझे और उसका संरक्षण करे; 7. वनों, झीलों, नदियों और वन्यजीवों सहित प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करे तथा प्राणिमात्र के प्रति दया भाव रखे; 8. वैज्ञानिक दृष्टिकोण, मानववाद और जाँच तथा सुधार की भावना का विकास करे; 9. सार्वजनिक संपत्ति की सुरक्षा करे और हिंसा से दूर रहे; 10. व्यक्तिगत और सामूहिक गतिविधि के सभी क्षेत्रों में उत्कृष्टता की दिशा में निरंतर प्रयास करे, ताकि राष्ट्र प्रयास और उपलब्धि के उच्चतर स्तरों की ओर निरंतर बढ़ता रहे; 11. यदि वह माता-पिता या अभिभावक है, तो अपने बच्चे या संरक्षित को 6 से 14 वर्ष की आयु के बीच शिक्षा के अवसर प्रदान करे (यह कर्तव्य 86वें संविधान संशोधन अधिनियम, 2002 द्वारा जोड़ा गया)। अतः स्पष्ट है कि आम चुनावों में मतदान करना मौलिक कर्तव्य नहीं है।","explanation_en":"According to Article 51A of the Constitution, it shall be the duty of every citizen of India to – / 1. Abide by the Constitution and respect its ideals and institutions, the National Flag and the National Anthem; / 2. cherish and follow the noble ideals which inspired our national struggle for freedom; / 3. uphold and protect the sovereignty, unity and integrity of India; / 4. defend the country and render national service when called upon to do so; / 5. promote harmony and the spirit of common brotherhood among all the people of India, transcending all differences based on religion, language, region or section, and renounce practices derogatory to the dignity of women; / 6. value and preserve the rich heritage of our composite culture; / 7. protect and improve the natural environment including forests, lakes, rivers and wildlife, and have compassion for living creatures; / 8. develop scientific temper, humanism and the spirit of inquiry and reform; / 9. safeguard public property and abjure violence; / 10. strive towards excellence in all spheres of individual and collective activity, so that the nation constantly rises to higher levels of endeavour and achievement; / 11. if he is a parent or guardian, provide opportunities for education to his child or ward, as the case may be, between the ages of six and fourteen years (this duty was added by the 86th Constitutional Amendment Act, 2002). Thus, it is clear from the above provisions that voting in general elections is not a Fundamental Duty.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"नागरिकों के मौलिक कर्तव्यों में निम्नलिखित में से कौन-सा शामिल नहीं है?","question_en":"Which of the following is not included in the fundamental duties of citizen?","options":[{"hi":"प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करना","en":"To protect and improve the natural environment"},{"hi":"स्वतंत्रता के लिए हमारे राष्ट्रीय संघर्ष को प्रेरित करने वाले उच्च आदर्शों को संजोना और उनका पालन करना","en":"To cherish and follow the noble ideals which inspired our national struggle for freedom"},{"hi":"अस्पृश्यता के उन्मूलन की दिशा में प्रयास करना","en":"To strive towards abolition of untouchability"},{"hi":"वैज्ञानिक दृष्टिकोण, मानववाद और जाँच तथा सुधार की भावना का विकास करना","en":"To develop scientific temper, humanism and the spirit of enquiry and reform."}],"answer":2,"answer_note":"","explanation_hi":"मौलिक कर्तव्यों का उल्लेख भाग IV-A में अनुच्छेद 51A के अंतर्गत है। “अस्पृश्यता के उन्मूलन की दिशा में प्रयास करना” इनमें शामिल नहीं है। अस्पृश्यता का उन्मूलन अनुच्छेद 17 के अंतर्गत मौलिक अधिकार है। अन्य तीनों विकल्पों में दिए गए कथन मौलिक कर्तव्यों में शामिल हैं।","explanation_en":"Fundamental Duties are included under Article 51A in Part IV-A of the Indian Constitution. “To make efforts towards abolishing untouchability” is not included among them. Under Article 17, the abolition of untouchability is a Fundamental Right. The statements given in the other three options are included in the Fundamental Duties.","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"निम्नलिखित में से कौन-सा एक मौलिक कर्तव्य नहीं है?","question_en":"Which of the following is not a fundamental duty?","options":[{"hi":"प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करना","en":"To protect and improve the natural environment"},{"hi":"राष्ट्रगान का सम्मान करना","en":"To respect the National Anthem"},{"hi":"राष्ट्रीय महत्व के स्मारकों और स्थानों की रक्षा करना","en":"To protect monuments and places of national importance"},{"hi":"सार्वजनिक संपत्ति की सुरक्षा करना","en":"To safeguard public property"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 51A के अंतर्गत प्राकृतिक पर्यावरण की रक्षा खंड (g) में, राष्ट्रगान का सम्मान खंड (a) में और सार्वजनिक संपत्ति की सुरक्षा खंड (i) में मौलिक कर्तव्यों के रूप में शामिल हैं। “राष्ट्रीय महत्व के स्मारकों और स्थानों की रक्षा करना” मौलिक कर्तव्यों में शामिल नहीं है; इसके बजाय यह अनुच्छेद 49 के अंतर्गत राज्य के नीति निदेशक तत्वों में शामिल है।","explanation_en":"Under Article 51A of the Indian Constitution, protecting the natural environment is included in clause (g), respect for the National Anthem in clause (a), and safeguarding public property in clause (i) as Fundamental Duties. “To protect monuments and places of national importance” is not included among the Fundamental Duties; rather, it is included in the Directive Principles of State Policy under Article 49.","source":"","source_missing":true,"exam":"unknown"},{"id":36,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"भारतीय संविधान के अंतर्गत निम्नलिखित में से कौन-सा मौलिक कर्तव्यों का भाग नहीं है?","question_en":"Which one of the following is not a part of Fundamental Duties under Indian Constitution?","options":[{"hi":"देश की रक्षा करना और राष्ट्र सेवा करना।","en":"To defend the country and render national service."},{"hi":"हमारी मिश्रित संस्कृति की समृद्ध विरासत को महत्व देना और उसका संरक्षण करना।","en":"To value and preserve the rich heritage of our composite culture."},{"hi":"ग्राम पंचायतों के संगठन में सहायता करना।","en":"To help in organizing Village Panchayats."},{"hi":"सार्वजनिक संपत्ति की सुरक्षा करना और हिंसा से दूर रहना।","en":"To safeguard public property and to abjure violence."}],"answer":2,"answer_note":"","explanation_hi":"ग्राम पंचायतों के गठन में सहायता करना भारतीय संविधान के अंतर्गत मौलिक कर्तव्य नहीं है। संविधान के राज्य के नीति निदेशक तत्वों के अनुच्छेद 40 के अंतर्गत राज्य ग्राम पंचायतों के संगठन के लिए कदम उठाएगा। दूसरी ओर, देश की रक्षा और राष्ट्र सेवा करना अनुच्छेद 51A(d) में, मिश्रित संस्कृति की समृद्ध विरासत का मूल्य समझना और उसका संरक्षण करना अनुच्छेद 51A(f) में, तथा सार्वजनिक संपत्ति की सुरक्षा करना और हिंसा से दूर रहना अनुच्छेद 51A(i) में मौलिक कर्तव्यों के रूप में शामिल हैं।","explanation_en":"Assisting in the formation of village panchayats is not a Fundamental Duty under the Indian Constitution. Under Article 40 of the Directive Principles of State Policy, the State shall take steps to organize village panchayats. On the other hand, defending the country and rendering national service is included under Article 51A(d), valuing and preserving the rich heritage of our composite culture under Article 51A(f), and safeguarding public property and abjuring violence under Article 51A(i) as Fundamental Duties.","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"निम्नलिखित में से किसकी रक्षा भारतीय नागरिक का मौलिक कर्तव्य है?","question_en":"Protection of which one of the following is a Fundamental Duty of an Indian citizen?","options":[{"hi":"ग्राम पंचायत","en":"Village Panchayat"},{"hi":"राष्ट्रध्वज","en":"National Flag"},{"hi":"अनुसूचित जातियाँ और अनुसूचित जनजातियाँ","en":"Scheduled Castes/Scheduled Tribes"},{"hi":"वन्यजीव","en":"Wildlife"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 51A(g) के अंतर्गत वन्यजीवों की रक्षा मौलिक कर्तव्यों में शामिल है। यह उल्लेखनीय है कि उसमें राष्ट्रध्वज का भी उल्लेख है, किंतु संविधान उसके प्रति सम्मान प्रदर्शित करने की बात करता है, उसकी रक्षा की नहीं। ग्राम पंचायत और अनुसूचित जातियाँ तथा अनुसूचित जनजातियाँ मौलिक कर्तव्यों में उल्लिखित नहीं हैं।","explanation_en":"Under Article 51A(g) of the Constitution, the protection of wildlife is included among the Fundamental Duties. It is noteworthy that the National Flag is also mentioned therein, but the Constitution speaks of showing respect to it, not of protecting it. Gram Panchayat and Scheduled Castes/ Scheduled Tribes are not mentioned in the Fundamental Duties.","source":"","source_missing":true,"exam":"unknown"},{"id":38,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"“भारत के प्रत्येक नागरिक का यह कर्तव्य होगा कि वह प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करे”? उपर्युक्त कथन भारतीय संविधान के निम्नलिखित में से किस अनुच्छेद को संदर्भित करता है?","question_en":"“It shall be the duty of every citizen of India to protect and improve the natural environment”?. The above statement refers to which of the following Articles of the Constitution of India?","options":[{"hi":"अनुच्छेद 21","en":"Article 21"},{"hi":"अनुच्छेद 48-A","en":"Article 48-A"},{"hi":"अनुच्छेद 51-A","en":"Article 51-A"},{"hi":"अनुच्छेद 56","en":"Article 56"}],"answer":2,"answer_note":"","explanation_hi":"“भारत के प्रत्येक नागरिक का यह कर्तव्य होगा कि वह प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करे” को संविधान में मौलिक कर्तव्यों में शामिल किया गया है और यह अनुच्छेद 51A(g) में उल्लिखित है। यह उल्लेखनीय है कि राज्य के नीति निदेशक तत्वों के अंतर्गत अनुच्छेद 48A उपबंध करता है कि राज्य देश के पर्यावरण के संरक्षण और सुधार तथा वनों और वन्यजीवों की सुरक्षा का प्रयास करेगा।","explanation_en":"“It shall be the duty of every citizen of India to protect and improve the natural environment” has been included among the Fundamental Duties in the Constitution and is mentioned under Article 51A(g). It is noteworthy that under the Directive Principles of State Policy, Article 48A provides that the State shall endeavour to protect and improve the environment and to safeguard the forests and wildlife of the country.","source":"","source_missing":true,"exam":"unknown"},{"id":39,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"निम्नलिखित में से कौन-सा कथन गलत है?","question_en":"Which one of the following is incorrect?","options":[{"hi":"मौलिक कर्तव्य मौलिक अधिकारों का भाग हैं।","en":"Fundamental Duties are the part of the Fundamental Rights."},{"hi":"मौलिक कर्तव्य मौलिक अधिकारों का भाग नहीं हैं।","en":"Fundamental Duties are not a part of Fundamental Rights."},{"hi":"मौलिक कर्तव्य भारतीय संविधान के भाग-IV A में उल्लिखित हैं।","en":"Fundamental Duties are enumerated in Part-IV A of the Indian Constitution."},{"hi":"अनुच्छेद 51A भारत के प्रत्येक नागरिक के कर्तव्यों की व्याख्या करता है।","en":"Article 51A explains the duties of every citizen of India."}],"answer":0,"answer_note":"","explanation_hi":"42वें संविधान संशोधन अधिनियम, 1976 द्वारा संविधान में नया भाग IV-A (अनुच्छेद 51A) मौलिक कर्तव्यों को सम्मिलित करने के लिए जोड़ा गया। ये मौलिक अधिकारों (भाग III; अनुच्छेद 12 से 35) का भाग नहीं हैं।","explanation_en":"By the 42nd Constitutional Amendment Act, 1976, a new Part IV-A (Article 51A) was added to the Indian Constitution to incorporate the Fundamental Duties. These are not a part of the Fundamental Rights (Part III; Articles 12 to 35).","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"निम्नलिखित में से कौन-सा एक मौलिक कर्तव्य नहीं है?","question_en":"Which one of the following is not a Fundamental Duty?","options":[{"hi":"राष्ट्रगान का सम्मान करना","en":"To respect the National Anthem"},{"hi":"सार्वजनिक संपत्ति की सुरक्षा करना","en":"To safeguard public property"},{"hi":"सार्वजनिक महत्व के स्मारकों और स्थानों की रक्षा करना","en":"To protect monuments and places of public importance"},{"hi":"प्राकृतिक पर्यावरण की रक्षा और उसका संवर्धन करना","en":"to protect and improve the natural environment"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 51A के अंतर्गत राष्ट्रीय महत्व के स्मारकों और स्थानों की रक्षा मौलिक कर्तव्यों में शामिल नहीं है, जबकि अन्य तीनों विकल्प मौलिक कर्तव्यों के भाग हैं। स्मारकों, स्थानों और वस्तुओं की रक्षा, जो राष्ट्रीय महत्व की हों, अनुच्छेद 49 के अंतर्गत राज्य के नीति निदेशक तत्व के रूप में शामिल है।","explanation_en":"Protecting places and monuments of national importance is not included among the Fundamental Duties under Article 51A of the Constitution, whereas the other three options are part of the Fundamental Duties. The protection of monuments, places and objects of national importance is included under Article 49 as a Directive Principle of State Policy.","source":"","source_missing":true,"exam":"unknown"},{"id":41,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"भारतीय संविधान के भाग IV A (मौलिक कर्तव्य) में निम्नलिखित में से कौन-सा उल्लिखित नहीं है?","question_en":"Which one of the following is NOT mentioned in part IV A (Fundamental Duties) of the Indian Constitution?","options":[{"hi":"राष्ट्रध्वज का सम्मान करना।","en":"To respect the National Flag."},{"hi":"भारत के सभी लोगों के बीच भाईचारे की भावना को बढ़ावा देना।","en":"To promote spirit of brotherhood amongst all people of India."},{"hi":"अपने माता-पिता और शिक्षकों का सम्मान करना","en":"To respect our parents and teachers"},{"hi":"हमारी मिश्रित संस्कृति की समृद्ध विरासत का संरक्षण करना।","en":"To preserve the rich heritage of our composite culture."}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के भाग IV-A में 11 मौलिक कर्तव्य उल्लिखित हैं। इनमें माता-पिता और शिक्षकों के सम्मान का उल्लेख नहीं है।","explanation_en":"Part IV-A of the Indian Constitution mentions 11 Fundamental Duties. It does not mention respecting one’s parents and teachers.","source":"","source_missing":true,"exam":"unknown"},{"id":42,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"निम्नलिखित में से कौन-सा एक सही सुमेलित नहीं है? संविधान के भाग — विषय","question_en":"Which one of the following is not correctly matched? Parts of the Subject Constitution","options":[{"hi":"भाग II - नागरिकता","en":"Part II - Citizenship"},{"hi":"भाग III - मौलिक अधिकार","en":"Part III - Fundamental Rights"},{"hi":"भाग IV - राज्य के नीति निदेशक तत्व","en":"Part IV - Directive Principles of State Policy"},{"hi":"भाग V - मौलिक कर्तव्य","en":"Part V - Fundamental Duties"}],"answer":3,"answer_note":"","explanation_hi":"42वें संविधान संशोधन द्वारा मौलिक कर्तव्यों को समाहित करने के लिए भाग IV के बाद संविधान में नया भाग IV-A जोड़ा गया। प्रश्न में दिए गए अन्य युग्म सही सुमेलित हैं।","explanation_en":"By the 42nd Constitutional Amendment, a new Part IV-A was inserted after Part IV in the Constitution to include the Fundamental Duties of citizens. The other pairs given in the question are correctly matched.","source":"","source_missing":true,"exam":"unknown"},{"id":43,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"भारतीय संविधान में कितने मौलिक कर्तव्य हैं?","question_en":"How many Fundamental Duties are there in the Indian Constitution?","options":[{"hi":"नौ","en":"Nine"},{"hi":"ग्यारह","en":"Eleven"},{"hi":"बारह","en":"Twelve"},{"hi":"बीस","en":"Twenty"}],"answer":1,"answer_note":"","explanation_hi":"स्वर्ण सिंह समिति की सिफारिश पर मौलिक कर्तव्य 42वें संविधान संशोधन अधिनियम, 1976 द्वारा भाग IV-A में अनुच्छेद 51A के अंतर्गत संविधान में जोड़े गए। मूल रूप से इनकी संख्या 10 थी। 86वें संविधान संशोधन अधिनियम, 2002 द्वारा 6 से 14 वर्ष की आयु के बच्चों को शिक्षा के अवसर देना माता-पिता या अभिभावक का कर्तव्य बनाया गया। इस प्रकार वर्तमान में मौलिक कर्तव्यों की संख्या 11 है।","explanation_en":"On the recommendation of the Swaran Singh Committee, Fundamental Duties were added to the Constitution by the 42nd Constitutional Amendment Act, 1976 under Part IV-A, Article 51A. Originally, their total number was 10. By the 86th Constitutional Amendment Act, 2002, it was made the duty of every parent/guardian to provide opportunities for education to children between 6 and 14 years of age. Thus, at present, the number of Fundamental Duties is 11.","source":"","source_missing":true,"exam":"unknown"},{"id":44,"topic_hi":"मौलिक कर्तव्य","topic_en":"Fundamental Duties","question_hi":"सूची-I का सूची-II से मिलान कीजिए और सूचियों के नीचे दिए गए कूटों से सही उत्तर चुनिए। सूची-I (विषय): A. अंतरराष्ट्रीय विधि के प्रति सम्मान को बढ़ावा देना; B. प्राणिमात्र के प्रति दया भाव रखना; C. जाँच और सुधार की भावना विकसित करना; D. राज्य की लोक सेवाओं में न्यायपालिका को कार्यपालिका से पृथक करना। सूची-II (भारतीय संविधान के संबंधित अनुच्छेद): 1. अनुच्छेद 51A(h); 2. अनुच्छेद 51(c); 3. अनुच्छेद 50; 4. अनुच्छेद 51A(g)। कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer from the codes given below the lists :\nList-I List-II (Subjects) (Related Articles of Indian Constitution) / A. To foster respect 1. Article 51-A (h) for international law / B. To have compassion 2. Article 51 (c) for living creatures / C. To develop spirit of 3. Article 50 inquiry and reform / D. To separate judiciary 4. Article 51A (g) from the executive in Public Service of the State Codes : / A B C D","options":[{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"2 4 1 3","en":"2 4 1 3"},{"hi":"4 3 2 1","en":"4 3 2 1"},{"hi":"3 1 4 2","en":"3 1 4 2"}],"answer":1,"answer_note":"","explanation_hi":"सही मिलान इस प्रकार है – अंतरराष्ट्रीय विधि के प्रति सम्मान को बढ़ावा देना: अनुच्छेद 51(c); प्राणिमात्र के प्रति दया भाव रखना: अनुच्छेद 51A(g); जाँच और सुधार की भावना विकसित करना: अनुच्छेद 51A(h); लोक सेवाओं में न्यायपालिका को कार्यपालिका से पृथक करना: अनुच्छेद 50।","explanation_en":"The correct matching is as follows : Subject Related Article of the Indian Constitution To foster respect for international law – Article 51(c) To have compassion for living creatures – Article 51A(g) To develop the spirit of inquiry and – Article 51A(h) reform To separate the judiciary from the – Article 50 executive in the public services of the State","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

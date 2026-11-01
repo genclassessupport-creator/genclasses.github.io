@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-09-president-vp","title":"Polity PYQ — President & Vice-President","shortTitle":"President & Vice-President","subtitle":"Purvavlokan GS · Indian Polity · राष्ट्रपति एवं उपराष्ट्रपति","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — President & Vice-President. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":70,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारतीय गणराज्य का प्रमुख निम्नलिखित में से कौन है?","question_en":"Who amongst the following is the head of Indian Republic?","options":[{"hi":"भारत का राष्ट्रपति","en":"President of India"},{"hi":"भारत का प्रधानमंत्री","en":"Prime Minister of India"},{"hi":"मंत्रिमंडल","en":"Cabinet"},{"hi":"मंत्रिपरिषद के साथ राजनीतिक प्रमुख","en":"Political head along with the Council of Ministers"}],"answer":0,"answer_note":"","explanation_hi":"भारत एक गणराज्य है। इसका अर्थ है कि राज्य का प्रमुख निर्वाचित होता है, वंशानुगत नहीं। अतः भारतीय गणराज्य का प्रमुख, अर्थात राज्य का प्रमुख, राष्ट्रपति है, जो अप्रत्यक्ष निर्वाचन पद्धति द्वारा चुना जाता है।","explanation_en":"India is a republic. This means that the Head of State is elected and not hereditary. Therefore, the head of the Indian Republic, or the Head of State, is the President, who is elected through an indirect system of election.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित कथनों पर विचार कीजिए – अभिकथन (A): भारत का राष्ट्रपति ब्रिटिश सम्राट से भिन्न है। कारण (R): भारतीय राष्ट्रपति का पद अमेरिका के समान है। कूट :","question_en":"Consider the following statements-Assertion (A) : President of India is different from the British King. Reason (R) : Office of Indian President is similar to that of America.\nCode :","options":[{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सत्य हैं, किंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true but (R) is not the correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true but (R) is false."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"भारत का राष्ट्रपति निर्वाचित होता है, जबकि ब्रिटिश सम्राट वंशानुगत होता है; इसलिए दोनों भिन्न हैं। भारत का राष्ट्रपति केवल नाममात्र का प्रमुख है, जबकि अमेरिका का राष्ट्रपति वास्तविक कार्यपालिका प्रमुख है; इसलिए ये दोनों भी भिन्न हैं। अतः (A) सही है, जबकि (R) गलत है।","explanation_en":"The President of India is elected, whereas the British monarch is hereditary; therefore, the two are different. The President of India is only a nominal head, whereas the President of the United States is the real executive head; therefore, these two are also different. Hence, (A) is correct, while (R) is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"दिए गए दो कथनों पर विचार कीजिए: अभिकथन (A): संघ की कार्यपालिका का प्रमुख भारत का राष्ट्रपति होता है। कारण (R): राष्ट्रपति की शक्तियों पर कोई सीमा नहीं है। उपर्युक्त के संदर्भ में निम्नलिखित में से कौन-सा सही है?","question_en":"Given below are two statements: Assertion (A) : The Union Executive is headed by the President of India. Reason (R) : There is no limitation on the power of the President. In the context of the above which of the following is correct?","options":[{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सत्य हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true, but (R) is false."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 53 के अंतर्गत संघ की कार्यपालिका शक्ति राष्ट्रपति में निहित है। अतः कथन (A) सही है कि भारत का राष्ट्रपति संघ की कार्यपालिका का प्रमुख है। अनुच्छेद 74(1) के अंतर्गत राष्ट्रपति अपने कार्यों का निष्पादन मंत्रिपरिषद की सहायता और सलाह से करता है। अतः कारण (R) गलत है, क्योंकि राष्ट्रपति की शक्तियाँ संवैधानिक सीमाओं के अधीन हैं।","explanation_en":"Under Article 53 of the Constitution, the executive power of the Union is vested in the President. Therefore, Statement (A) is correct that the President of India is the head of the Union executive. Under Article 74(1), the President exercises his functions on the aid and advice of the Council of Ministers. Thus, Reason (R) is incorrect, because the powers of the President are subject to constitutional limitations.","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"संविधान का निम्नलिखित में से कौन-सा अनुच्छेद संघ की कार्यपालिका शक्ति राष्ट्रपति में निहित करता है?","question_en":"Which one of the following Articles of the Constitution vests the executive power of the Union in the President?","options":[{"hi":"अनुच्छेद 51","en":"Article 51"},{"hi":"अनुच्छेद 52","en":"Article 52"},{"hi":"अनुच्छेद 53","en":"Article 53"},{"hi":"अनुच्छेद 54","en":"Article 54"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 53(1) के अनुसार संघ की कार्यपालिका शक्ति राष्ट्रपति में निहित होगी और वह उसका प्रयोग संविधान के अनुसार स्वयं या अपने अधीनस्थ अधिकारियों के माध्यम से करेगा। अतः राष्ट्रपति भारतीय संघ का कार्यपालिका प्रमुख है।","explanation_en":"According to Article 53(1), the executive power of the Union shall be vested in the President and shall be exercised by him either directly or through officers subordinate to him in accordance with the Constitution. Thus, the President is the executive head of the Indian Union.","source":"RO/ARO (Mains) 2021","source_missing":false,"exam":"ro-aro"},{"id":5,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"दिए गए दो कथनों में से एक को अभिकथन (A) और दूसरे को कारण (R) के रूप में चिह्नित किया गया है। अभिकथन (A): संविधान संघ की कार्यपालिका शक्ति भारत के राष्ट्रपति में निहित करता है। कारण (R): भारत का राष्ट्रपति राज्य का संवैधानिक प्रमुख है। नीचे दिए गए कूट का प्रयोग करते हुए सही उत्तर चुनिए। कूट :","question_en":"Given below are two statements, in which one is labelled as Assertion (A) and the other as Reason (R) . Assertion (A) : The Constitution vests the Executive Power of the Union in the President of India. Reason (R) : The President of India is the constitutional Head of the State. / Select the correct answer using the code given below:\nCode :","options":[{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true, but (R) is false."},{"hi":"(A) और (R) दोनों सत्य हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not correct explanation of (A)."},{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is correct explanation of (A)."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 53 के अंतर्गत संघ की कार्यपालिका शक्ति राष्ट्रपति में निहित है। अतः अभिकथन (A) सत्य है। भारत का राष्ट्रपति संवैधानिक प्रमुख है। भारतीय संविधान के अनुच्छेद 74(1) के अंतर्गत राष्ट्रपति अपने कार्यों का निष्पादन मंत्रिपरिषद की सहायता और सलाह से करता है। अतः (A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या है।","explanation_en":"Under Article 53 of the Indian Constitution, the executive power of the Union is vested in the President. Therefore, Assertion (A) is true. The President of India is the constitutional head. Under Article 74(1) of the Indian Constitution, the President exercises his functions on the aid and advice of the Council of Ministers. Thus, both (A) and (R) are true, and (R) is the correct explanation of (A).","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"दिए गए दो कथनों पर विचार कीजिए: अभिकथन (A): संघ की कार्यपालिका शक्ति भारत के राष्ट्रपति में निहित है। कारण (R): कार्यपालिका शक्ति सरकार के कार्य-संचालन से संबंधित है। इस संदर्भ में निम्नलिखित में से कौन-सा एक सही है? कूट :","question_en":"Given below are two statements: Assertion (A) : The executive power of the Union is vested in the President of India. Reason (R) : The executive power is concerned with carrying on the business of the Government. In the context of the above, which one of the following is correct?\nCode :","options":[{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, and (R) is not the correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true, but (R) is false."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"प्रश्न में दिए गए अभिकथन और कारण दोनों सत्य हैं, परंतु कारण अभिकथन की सही व्याख्या नहीं करता; अतः सही उत्तर विकल्प (b) है।","explanation_en":"Both the assertion and the reason given in the question are true, but the reason does not correctly explain the statement; therefore, the correct answer is option (b).","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"दिए गए दो कथनों पर विचार कीजिए: अभिकथन (A): रक्षा बलों की सर्वोच्च कमान राष्ट्रपति में निहित है। कारण (R): राष्ट्रपति की सेनापति के रूप में शक्तियाँ विधायी नियंत्रण से स्वतंत्र हैं। उपर्युक्त के संदर्भ में नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए। कूट :","question_en":"Given below are two statements: Assertion (A) : The Supreme Command of the Defence Forces is vested in the President. Reason (R) : The President’s powers as Commander-in-Chief are independent of Legislative Control. In the context of the above, select the correct answer using the code given below:\nCode :","options":[{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सत्य हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true, but (R) is false."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 53(2) के अंतर्गत संघ के रक्षा बलों की सर्वोच्च कमान राष्ट्रपति में निहित है, किंतु उसके प्रयोग का विनियमन विधि द्वारा किया जाएगा। अतः सर्वोच्च सेनापति के रूप में राष्ट्रपति की शक्तियाँ विधायी नियंत्रण के अधीन हैं। इसलिए कथन (A) सही है, किंतु कारण (R) गलत है; अतः सही उत्तर विकल्प (c) है।","explanation_en":"Under Article 53(2) of the Constitution, the supreme command of the defence forces of the Union is vested in the President, but its exercise is to be regulated by law. Therefore, in the capacity of Supreme Commander, the powers of the President are subject to legislative control. Thus, Statement (A) is correct, but Reason (R) is wrong; hence, the correct answer is option (c).","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"“वह राष्ट्र का प्रतिनिधित्व करता है, परंतु राष्ट्र का नेतृत्व नहीं करता” – यह उक्ति निम्नलिखित में से किस पर लागू होती है?","question_en":"“He represents the nation but does not lead the nation” – this dictum applies to whom of the following?","options":[{"hi":"लोक सभा अध्यक्ष","en":"Speaker of the Lok Sabha"},{"hi":"राष्ट्रपति","en":"President"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"भारत के मुख्य न्यायाधीश","en":"Chief Justice of India"}],"answer":1,"answer_note":"","explanation_hi":"यद्यपि संघ की संपूर्ण कार्यपालिका शक्ति भारत के राष्ट्रपति में निहित है, फिर भी वह केवल राज्य का औपचारिक प्रमुख है, जबकि सरकार का वास्तविक प्रशासन प्रधानमंत्री के नेतृत्व वाली मंत्रिपरिषद द्वारा चलाया जाता है, जो सामूहिक रूप से लोक सभा के प्रति उत्तरदायी होती है। अतः दिया गया कथन राष्ट्रपति पर लागू होता है।","explanation_en":"Although the entire executive power of the Union is vested in the President of India, he is only the formal head of the State, while the actual administration of the government is carried on by the Council of Ministers headed by the Prime Minister, which is collectively responsible to the Lok Sabha. Thus, the given statement applies to the President.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"अभिकथन (A): भारत का राष्ट्रपति अप्रत्यक्ष निर्वाचन द्वारा चुना जाता है। कारण (R): निर्वाचक मंडल का प्रावधान है, जिसमें संसद के दोनों सदनों के निर्वाचित सदस्य और राज्यों की विधान सभाओं के निर्वाचित सदस्य सम्मिलित होते हैं। उपर्युक्त कथनों के संदर्भ में सही उत्तर चुनिए।","question_en":"Assertion (A) : The President of India is elected by indirect election. Reason (R) : There is a provision of Electoral College consisting of the elected members of both Houses of Parliament and elected members of the Legislative Assemblies of the States. In the context of above statements select the correct answer.","options":[{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true, but (R) is false."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."},{"hi":"(A) और (R) दोनों व्यक्तिगत रूप से सत्य हैं और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are individually true and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों व्यक्तिगत रूप से सत्य हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are individually true, but (R) is not the correct explanation of (A)."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 55(3) के अनुसार राष्ट्रपति का निर्वाचन आनुपातिक प्रतिनिधित्व पद्धति के अनुसार एकल संक्रमणीय मत द्वारा होता है, और ऐसे निर्वाचन में मतदान गुप्त मतपत्र द्वारा होता है। अनुच्छेद 54 के अनुसार राष्ट्रपति के निर्वाचन के लिए निर्वाचक मंडल में संसद के दोनों सदनों के निर्वाचित सदस्य, राज्यों की विधान सभाओं के निर्वाचित सदस्य, तथा दिल्ली और पुडुचेरी की विधान सभाओं के निर्वाचित सदस्य सम्मिलित होते हैं, जिन्हें 70वें संविधान संशोधन अधिनियम, 1992 द्वारा (1-6-1995 से प्रभावी) जोड़ा गया। अतः जनता राष्ट्रपति के निर्वाचन में प्रत्यक्ष रूप से भाग नहीं लेती, इसलिए राष्ट्रपति का निर्वाचन अप्रत्यक्ष निर्वाचन है। नोट: जम्मू और कश्मीर संघ राज्यक्षेत्र की विधान सभा के निर्वाचित सदस्य राष्ट्रपति के निर्वाचन हेतु निर्वाचक मंडल में सम्मिलित नहीं हैं।","explanation_en":"Under Article 55(3) of the Constitution, the President of India is elected in accordance with the system of proportional representation by means of the single transferable vote, and the voting in such election is by secret ballot. According to Article 54, the electoral college for the election of the President consists of the elected members of both Houses of Parliament, the elected members of the Legislative Assemblies of the States, and also the elected members of the Legislative Assemblies of Delhi and Puducherry, which were included by the (70th Constitutional Amendment Act, 1992, with effect from 1-6-1995). Thus, the people do not participate directly in the election of the President. Therefore, the election of the President is an indirect election. Note: The elected members of the Legislative Assembly of the Union Territory of Jammu and Kashmir are not included in the electoral college for the election of the President.","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"राष्ट्रपति निर्वाचन के संबंध में निम्नलिखित में से कौन-सा सही नहीं है?","question_en":"Which one of the following is not correct regarding Presidential election?","options":[{"hi":"उत्तराधिकारी का निर्वाचन वर्तमान राष्ट्रपति का कार्यकाल समाप्त होने से पहले संपन्न होना आवश्यक है।","en":"Election of the successor must be held before the expiry of the term of the incumbent President"},{"hi":"राष्ट्रपति अपने पद ग्रहण करने की तिथि से पाँच वर्ष की अवधि के लिए पद धारण करेगा।","en":"The President shall hold office for a term of five years from the date on which he enters upon his office."},{"hi":"अपने कार्यकाल की समाप्ति पर वह तब तक पद धारण करता रहता है जब तक उसका उत्तराधिकारी पद ग्रहण न कर ले।","en":"On the expiration of his term, he continues to hold office until his successor enters upon his office."},{"hi":"निर्वाचक मंडल अपूर्ण होने के आधार पर राष्ट्रपति के निर्वाचन को स्थगित किया जा सकता है।","en":"President’s election may be postponed on the ground that the electoral college is incomplete."}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 62(1) के अनुसार राष्ट्रपति के कार्यकाल की समाप्ति से उत्पन्न रिक्ति को भरने हेतु निर्वाचन, कार्यकाल समाप्त होने से पहले पूरा हो जाना चाहिए। अनुच्छेद 56 के अंतर्गत राष्ट्रपति अपने पद ग्रहण की तिथि से पाँच वर्ष की अवधि के लिए पद धारण करता है, और कार्यकाल समाप्त होने के बाद भी तब तक पद पर बना रहता है जब तक उसका उत्तराधिकारी पद ग्रहण न कर ले। निर्वाचक मंडल के अपूर्ण होने, अर्थात किसी विधान सभा के विघटन के कारण, के आधार पर राष्ट्रपति के निर्वाचन को स्थगित नहीं किया जा सकता। निर्वाचक मंडल अपूर्ण होने के आधार पर राष्ट्रपति के निर्वाचन को चुनौती भी नहीं दी जा सकती। राष्ट्रपति के निर्वाचन से संबंधित एक मामले (AIR 1974 SC 1682) में उच्चतम न्यायालय ने निर्णय दिया कि किसी राज्य विधान सभा के विघटन के कारण निर्वाचक सूची अपूर्ण होने के आधार पर राष्ट्रपति पद के निर्वाचन को न तो स्थगित किया जा सकता है और न ही अवैध घोषित किया जा सकता है। अतः विकल्प (d) का कथन सही नहीं है।","explanation_en":"According to Article 62(1) of the Constitution, an election to fill a vacancy caused by the expiration of the President’s term shall be completed before the expiration of the term. Under Article 56, the President holds office for a term of five years from the date on which he enters upon his office, and even after the expiry of his term, he continues to hold office until his successor enters upon the office. The election of the President cannot be postponed merely on the ground that the electoral college is incomplete, that is, because a Legislative Assembly has been dissolved. The election of the President cannot be challenged on the ground that the electoral college is incomplete. In the case relating to the election of the President (AIR 1974 SC 1682), the Supreme Court held that the election to the office of the President can neither be postponed nor declared invalid on the ground that the electoral roll was incomplete due to the dissolution of a State Legislative Assembly. Therefore, the statement in option (d) is not correct.","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"राष्ट्रपति पद के उम्मीदवार का प्रस्तावक बनने के लिए निर्वाचकों की न्यूनतम संख्या है -","question_en":"Minimum number of electors needed to be proposer of the presidential candidate is -","options":[{"hi":"दस निर्वाचक","en":"Ten electors"},{"hi":"बीस निर्वाचक","en":"Twenty electors"},{"hi":"पाँच निर्वाचक","en":"Five electors"},{"hi":"पंद्रह निर्वाचक","en":"Fifteen electors"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"राष्ट्रपति और उपराष्ट्रपति निर्वाचन अधिनियम, 1952 (1997 में संशोधित) के अंतर्गत भारत के राष्ट्रपति पद के उम्मीदवार के प्रस्तावक के रूप में कम से कम 50 निर्वाचक, अर्थात निर्वाचित सांसद और विधायक होने चाहिए, और नामांकन का अनुमोदन भी कम से कम 50 निर्वाचकों, अर्थात निर्वाचित सांसदों और विधायकों द्वारा होना चाहिए। 1997 से पहले प्रस्तावकों और अनुमोदकों की संख्या 10 थी।","explanation_en":"Under the Presidential and Vice-Presidential Elections Act, 1952, (as amended in 1997), a candidate for the office of the President of India must have at least 50 electors, that is, elected MPs and MLAs, as proposers, and the nomination must also be seconded by at least 50 electors, that is, elected MPs and MLAs. Before 1997, the number of proposers and seconders was 10.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति के संबंध में निम्नलिखित कथनों पर विचार कीजिए: (1) वह जन्म से भारत का नागरिक होना चाहिए (2) उसकी आयु 35 वर्ष पूरी होनी चाहिए (3) वह संसद के सदस्य के रूप में निर्वाचन के लिए अर्हित होना चाहिए। इनमें से कौन-सा कथन सही है या कौन-से कथन सही हैं?","question_en":"Consider the following statements about the President of India-(1) He should be citizen of India by birth / (2) He should have completed the age of 35 years / (3) He should be qualified for election as a member of Parliament Which of these statement is/are correct –","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2","en":"1 and 2"},{"hi":"1 और 3","en":"1 and 3"}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 58(1) के अनुसार राष्ट्रपति पद पर निर्वाचित होने के लिए व्यक्ति को निम्नलिखित अर्हताएँ पूरी करनी होंगी: (1) वह भारत का नागरिक होना चाहिए, (2) उसकी आयु 35 वर्ष पूरी होनी चाहिए, (3) वह लोकसभा के सदस्य के रूप में निर्वाचन के लिए अर्हित होना चाहिए। अतः स्पष्ट है कि राष्ट्रपति पद के लिए भारत का नागरिक होना आवश्यक है, न कि जन्म से भारत का नागरिक होना। इसी प्रकार, उसे संसद (राज्यसभा और लोकसभा) के सदस्य के रूप में निर्वाचन की सामान्य अर्हता रखने की आवश्यकता नहीं है; बल्कि उसे विशेष रूप से लोकसभा के सदस्य के रूप में निर्वाचन के लिए अर्हित होना चाहिए।","explanation_en":"According to Article 58(1), to be elected to the office of President, a person must fulfil the following qualifications – / (1) He must be a citizen of India, / (2) He must have completed the age of 35 years, / (3) He must be qualified for election as a member of the Lok Sabha. Thus, it is clear that for the office of President, it is necessary to be a citizen of India, and not a citizen of India by birth. Similarly, he need not possess the qualification for election as a member of Parliament (Rajya Sabha and Loksabha) in general; rather, he must specifically be qualified for election as a member of the Lok Sabha (House of People).","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से कौन-सी राष्ट्रपति की उम्मीदवारी के लिए अनिवार्य अर्हता नहीं है?","question_en":"Which of the following is not an essential qualification for the candidature of President?","options":[{"hi":"35 वर्ष पूरे होना","en":"Completion of 35 years"},{"hi":"शिक्षित होना","en":"Educated"},{"hi":"लोकसभा के सदस्य के रूप में निर्वाचन के लिए अर्हित होना","en":"Qualified for election as a member of the House of People"},{"hi":"भारत का नागरिक होना","en":"Citizen of India"}],"answer":1,"answer_note":"","explanation_hi":"संविधान का अनुच्छेद 58(1) राष्ट्रपति पद पर निर्वाचन की अर्हताएँ निर्धारित करता है, जिसके अनुसार शिक्षित होना कोई निर्धारित अर्हता नहीं है। नोट: राष्ट्रपति पद पर निर्वाचन की अर्हताओं में लोकसभा के सदस्य के रूप में निर्वाचन की अर्हता शामिल है।","explanation_en":"Article 58(1) of the Constitution lays down the qualifications for being elected President, according to which being educated is not a prescribed qualification. Note: Among the qualifications for being elected President, the qualification for being elected a member of the Lok Sabha is included.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"संसद का सदस्य या राज्य विधानमंडल का सदस्य राष्ट्रपति के रूप में निर्वाचित हो सकता है, परंतु","question_en":"A Member of Parliament or a State Legislature can be elected as President but","options":[{"hi":"वह चुनाव लड़ने से पहले अपनी सीट से त्यागपत्र देना होगा","en":"He will have to resign from his seat before contesting the election"},{"hi":"निर्वाचित होने के 6 महीने के भीतर उसे अपनी सीट छोड़नी होगी","en":"He will have to relinquish his seat within 6 months of his election"},{"hi":"निर्वाचित होते ही उसे अपनी सीट छोड़नी होगी","en":"He will have to relinquish his seat as soon as he is elected"},{"hi":"संसद सदस्य चुनाव लड़ सकता है, परंतु विधायक नहीं।","en":"An MP can contest but an MLA can not."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 59(1) के अनुसार, यदि संसद के किसी सदन या किसी राज्य के विधानमंडल के सदन का कोई सदस्य राष्ट्रपति के रूप में निर्वाचित होता है, तो यह समझा जाएगा कि जिस दिन वह राष्ट्रपति पद ग्रहण करता है, उस दिन से उसने उस सदन में अपना स्थान रिक्त कर दिया है। अतः संवैधानिक दृष्टि से देखें तो दिए गए विकल्पों में से कोई भी पूर्णतः सही नहीं है; फिर भी, दिए गए विकल्पों में से विकल्प (c) सबसे निकट है।","explanation_en":"According to Article 59(1) of the Constitution, if a member of either House of Parliament or of either House of the Legislature of any State is elected as a President, it shall be deemed that he has vacated his seat in that House from the date on which he enters upon his office as President. Thus, constitutionally speaking, none of the given options is fully correct; however, among the given options, option (c) is the nearest.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति को महाभियोग की प्रक्रिया द्वारा पद से हटाने की प्रक्रिया निम्नलिखित में से किस एक अनुच्छेद में निर्धारित की गई है?","question_en":"Under which one of the following Articles, the procedure for removal of the President of India through the process of impeachment has been laid down?","options":[{"hi":"अनुच्छेद-53","en":"Article-53"},{"hi":"अनुच्छेद-61","en":"Article-61"},{"hi":"अनुच्छेद-74","en":"Article-74"},{"hi":"अनुच्छेद-13","en":"Article-13"}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 56(1)(b) के अनुसार, राष्ट्रपति को संविधान के उल्लंघन के आधार पर अनुच्छेद 61 में दी गई प्रक्रिया के अनुसार महाभियोग द्वारा पद से हटाया जा सकता है।","explanation_en":"According to Article 56(1)(b), the President may be removed from office for violation of the Constitution by impeachment in the manner provided in Article 61.","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति के महाभियोग का प्रस्ताव आरंभ करने का अधिकार निम्नलिखित में से किसके पास है?","question_en":"Which one of the following has the power to initiate the Motion of Impeachment of the President of India?","options":[{"hi":"संसद के दोनों सदन","en":"Both the Houses of the Parliament"},{"hi":"लोकसभा","en":"Lok Sabha"},{"hi":"राज्यसभा","en":"Rajya Sabha"},{"hi":"लोकसभा अध्यक्ष","en":"Speaker of the Lok Sabha"}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रपति के महाभियोग की प्रक्रिया अनुच्छेद 61 में वर्णित है। अनुच्छेद 61(1) के अनुसार राष्ट्रपति पर आरोप संसद के किसी भी सदन द्वारा लगाया जा सकता है, और अनुच्छेद 61(3) के अनुसार दूसरा सदन उस आरोप की जाँच करेगा या उसकी जाँच करवाएगा। ऐसी जाँच के दौरान राष्ट्रपति को स्वयं उपस्थित होने और उसका प्रतिनिधित्व करवाने का अधिकार होगा।","explanation_en":"The procedure for impeachment of the President is described in Article 61. According to Article 61(1), the charge against the President may be brought by either House of Parliament, and under Article 61(3), the other House shall investigate, or cause the charge to be investigated. During such investigation, The President shall have the right to appear in person and to be represented at such investigation.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति के महाभियोग के लिए कम से कम कितने दिनों की पूर्व सूचना आवश्यक है?","question_en":"At least how many days of prior notice is required for the impeachment of the President of India?","options":[{"hi":"7 दिन","en":"7 days"},{"hi":"14 दिन","en":"14 days"},{"hi":"21 दिन","en":"21 days"},{"hi":"30 दिन","en":"30 days"}],"answer":1,"answer_note":"","explanation_hi":"भारत के राष्ट्रपति के विरुद्ध संविधान के उल्लंघन के आधार पर महाभियोग तब आरंभ किया जा सकता है जब संसद का कोई सदन ऐसा आरोप लगाए। संविधान के अनुच्छेद 61(2) के अनुसार ऐसा आरोप तब तक नहीं लगाया जाएगा जब तक उस आरोप का प्रस्ताव रखने वाला संकल्प कम से कम 14 दिन की लिखित सूचना के बाद प्रस्तुत न किया गया हो। इस 14 दिन की पूर्व सूचना पर सदन की कुल सदस्य संख्या के कम से कम एक-चौथाई सदस्यों के हस्ताक्षर भी होने चाहिए, और संकल्प सदन की कुल सदस्य संख्या के कम से कम दो-तिहाई बहुमत से पारित होना चाहिए।","explanation_en":"Impeachment against the President of India may be initiated on the ground of violation of the Constitution when either House of Parliament prefers such a charge. According to Article 61(2) of the Constitution, no such charge shall be preferred unless the proposal for such charge is contained in a resolution moved after at least 14 days’ written notice of the intention to move such resolution. This 14-day prior notice must also be signed by at least one-fourth of the total membership of the House, and the resolution must be passed by a majority of not less than two-thirds of the total members of that House.","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"राष्ट्रपति के रिक्त पद को किस अवधि के भीतर भरा जाना चाहिए?","question_en":"The vacant post of the President is to be filled within –","options":[{"hi":"90 दिन","en":"90 days"},{"hi":"छह महीने","en":"Six months"},{"hi":"नौ महीने","en":"Nine months"},{"hi":"एक वर्ष","en":"One year"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 62(1) के अनुसार, राष्ट्रपति का कार्यकाल समाप्त होने से उत्पन्न रिक्ति को भरने के लिए निर्वाचन कार्यकाल समाप्त होने से पहले ही पूरा हो जाना चाहिए। अनुच्छेद 62(2) के अनुसार, यदि रिक्ति राष्ट्रपति की मृत्यु, त्यागपत्र, पद से हटाए जाने या अन्य किसी कारण से उत्पन्न होती है, तो उस रिक्ति को भरने के लिए निर्वाचन रिक्ति उत्पन्न होने के बाद यथाशीघ्र कराया जाएगा और हर स्थिति में रिक्ति उत्पन्न होने की तारीख से छह महीने की समाप्ति से पहले कराया जाएगा।","explanation_en":"According to Article 62(1) of the Constitution, an election to fill a vacancy caused by the expiration of the President’s term shall be completed before the expiration of the term itself. According to Article 62(2), if the vacancy occurs due to the death, resignation, removal, or otherwise of the President, the election to fill the vacancy shall be held as soon as possible after the occurrence of the vacancy and, in every case, before the expiry of six months from the date on which the vacancy occurs.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"यदि भारत के राष्ट्रपति का पद रिक्त हो जाए और उपराष्ट्रपति भी न हो, तो निम्नलिखित में से कौन कार्यवाहक राष्ट्रपति होगा?","question_en":"In case the post of President of India falls vacant, and there is no Vice-President also, who among the following would be the acting President?","options":[{"hi":"राज्यसभा के उपसभापति","en":"Vice-Chairman of Rajya Sabha"},{"hi":"भारत के महान्यायवादी","en":"Attorney-General of India"},{"hi":"लोकसभा अध्यक्ष","en":"Lok Sabha Speaker"},{"hi":"भारत के मुख्य न्यायाधीश","en":"Chief Justice of the Supreme Court"}],"answer":3,"answer_note":"","explanation_hi":"यदि राष्ट्रपति का पद मृत्यु, त्यागपत्र, पद से हटाए जाने या अन्य किसी कारण से रिक्त हो जाता है, तो अनुच्छेद 65 के अंतर्गत उपराष्ट्रपति उस पद के कार्यों का निर्वहन करता है। यदि किसी कारण से उपराष्ट्रपति भी उपलब्ध न हो, तो राष्ट्रपति (कार्यों का निर्वहन) अधिनियम, 1969 के अंतर्गत भारत के मुख्य न्यायाधीश, या उनकी अनुपस्थिति में उच्चतम न्यायालय का वरिष्ठतम उपलब्ध न्यायाधीश, राष्ट्रपति के कार्यों का निर्वहन करता है।","explanation_en":"If the office of the President falls vacant due to death, resignation, removal, or otherwise, the Vice-President shall discharge the functions of the office (under Article 65). If, for any reason, the Vice-President is also not available, then the Chief Justice of India, or in his absence, the senior-most available Judge of the Supreme Court, shall discharge the functions of the President under the President (Discharge of Functions) Act, 1969.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"अनुच्छेद 108 के अंतर्गत लोकसभा और राज्यसभा की संयुक्त बैठक किसके द्वारा बुलाई जाती है?","question_en":"The Joint sitting of Lok Sabha and Rajya Sabha under Article 108 is summoned by –","options":[{"hi":"राज्यसभा के सभापति","en":"Chairman of Rajya Sabha"},{"hi":"लोकसभा अध्यक्ष","en":"Speaker of Lok Sabha"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"राष्ट्रपति","en":"President"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 108 के अनुसार, किसी विधेयक पर दोनों सदनों के बीच गतिरोध होने की स्थिति में, राष्ट्रपति द्वारा लोकसभा और राज्यसभा की संयुक्त बैठक बुलाई जा सकती है। अनुच्छेद 118(4) के अनुसार, दोनों सदनों की संयुक्त बैठक की अध्यक्षता लोकसभा अध्यक्ष करता है।","explanation_en":"Under Article 108 of the Constitution, in case of a deadlock between the two Houses on a Bill, a joint sitting of the Lok Sabha and the Rajya Sabha may be summoned by the President. Under Article 118(4), the joint sitting of both Houses is presided over by the Speaker of the Lok Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति के संबंध में निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which one of the following statements about the President of India is not correct?","options":[{"hi":"वह संसद का एक घटक भाग है।","en":"He is a constituent part of Parliament."},{"hi":"वह दोनों सदनों की चर्चाओं में भाग लेता है।","en":"He participates in the discussions in the both Houses."},{"hi":"वह प्रतिवर्ष दोनों सदनों की संयुक्त बैठक को संबोधित करता है।","en":"He addresses the joint meeting of both the Houses every year."},{"hi":"वह कुछ परिस्थितियों में अध्यादेश जारी कर सकता है।","en":"He can promulgate ordinances in certain situations."}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 79 के अनुसार, भारत का राष्ट्रपति संसद का एक घटक भाग है। अनुच्छेद 87(1) के अनुसार, वह लोकसभा के प्रत्येक आम निर्वाचन के बाद पहले सत्र के आरंभ में और प्रत्येक वर्ष के पहले सत्र के आरंभ में दोनों सदनों की संयुक्त बैठक को संबोधित करता है। अनुच्छेद 123 के अनुसार, जब संसद के दोनों सदन सत्र में न हों, तब वह कुछ परिस्थितियों में अध्यादेश जारी कर सकता है। साथ ही, अनुच्छेद 59(1) के अनुसार, राष्ट्रपति किसी भी सदन का सदस्य नहीं है; इसलिए वह किसी भी सदन की चर्चाओं में भाग नहीं लेता।","explanation_en":"Under Article 79 of the Constitution, the President of India is a constituent part of Parliament. Under Article 87(1), he addresses the joint sitting of both Houses at the commencement of the first session after each general election to the Lok Sabha and at the commencement of the first session of each year. Under Article 123, when both Houses of Parliament are not in session, he may promulgate an Ordinance under certain circumstances. Also, according to Article 59(1), the President is not a member of either House; therefore, he does not take part in the discussions of either House.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"दो कथन दिए गए हैं: अभिकथन (A): राष्ट्रपति संसद का भाग है। कारण (R): संसद के दोनों सदनों द्वारा पारित विधेयक राष्ट्रपति की सहमति के बिना कानून नहीं बन सकता। उपर्युक्त के संदर्भ में निम्नलिखित में से कौन-सा सही है?","question_en":"Given below are two statements: Assertion (A) : The President is the part of the Parliament Reason (R) : A Bill passed by the two Houses of Parliament cannot become law without the assent of the President In the context of the above, which one of the following is correct?","options":[{"hi":"(A) और (R) दोनों सही हैं, और (R), (A) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, लेकिन (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, लेकिन (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, लेकिन (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 79 के अनुसार, भारत की संसद में राष्ट्रपति और दो सदन, यानी राज्यसभा और लोकसभा, सम्मिलित हैं। आगे, अनुच्छेद 111 के अनुसार, संसद के दोनों सदनों द्वारा पारित विधेयक राष्ट्रपति की सहमति प्राप्त होने के बाद ही कानून बनता है। अतः कथन और कारण दोनों सही हैं, और कारण, कथन (A) का सही स्पष्टीकरण है।","explanation_en":"According to Article 79 of the Constitution, the Parliament of India consists of the President and the two Houses, namely the Rajya Sabha and the Lok Sabha. Further, under Article 111, a Bill passed by both Houses of Parliament becomes law only after receiving the President’s assent. Thus, both the statement and the reason are correct, and the reason is the correct explanation of (A).","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के संविधान के किस अनुच्छेद के अंतर्गत राष्ट्रपति को संसद के दोनों सदनों द्वारा पारित किसी भी विधेयक पर अपनी सहमति रोकने की शक्ति प्राप्त है?","question_en":"Under which Article of the Indian Constitution, does the President of India enjoy the power to withhold his assent to any Bill passed by both the Houses of the Parliament?","options":[{"hi":"अनुच्छेद 63","en":"Article 63"},{"hi":"अनुच्छेद 108","en":"Article 108"},{"hi":"अनुच्छेद 109","en":"Article 109"},{"hi":"अनुच्छेद 111","en":"Article 111"}],"answer":3,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 111 के अनुसार, राष्ट्रपति संसद के दोनों सदनों द्वारा पारित विधेयक पर अपनी सहमति दे सकता है, अपनी सहमति रोक सकता है, या धन विधेयक के अतिरिक्त किसी अन्य विधेयक को पुनर्विचार के लिए सदनों को लौटा सकता है।","explanation_en":"Under Article 111 of the Indian Constitution, the President may either give assent to a Bill passed by both Houses of Parliament or withhold his assent, or may return the Bill, other than a Money Bill, to the Houses for reconsideration.","source":"UPPCS (Mains) 2011","source_missing":false,"exam":"uppcs-mains"},{"id":24,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"वर्ष 2002 में जब केंद्रीय मंत्रिमंडल ने निर्वाचन सुधारों से संबंधित अध्यादेश को बिना किसी परिवर्तन के राष्ट्रपति के पास वापस भेजा, तब राष्ट्रपति ने उस पर अपनी सहमति किस अनुच्छेद के अंतर्गत दी?","question_en":"Under which Article of the Indian Constitution did the President give his assent to the Ordinance on electoral reforms when it was sent back to him by the Union Cabinet without making any changes (in the year 2002)?","options":[{"hi":"अनुच्छेद 121","en":"Article 121"},{"hi":"अनुच्छेद 142","en":"Article 142"},{"hi":"अनुच्छेद 123","en":"Article 123"},{"hi":"अनुच्छेद 124","en":"Article 124"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 123 राष्ट्रपति की अध्यादेश जारी करने की शक्ति से संबंधित है। अतः सही उत्तर विकल्प (c) है।","explanation_en":"Article 123 deals with the President’s power to promulgate ordinances. Therefore, option (c) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के संविधान के निम्नलिखित में से किस अनुच्छेद के अंतर्गत राष्ट्रपति को अध्यादेश जारी करने का अधिकार दिया गया है?","question_en":"Under which of the following Articles of the Constitution, the President of India has been empowered to promulgate an ordinance?","options":[{"hi":"अनुच्छेद-360","en":"Article-360"},{"hi":"अनुच्छेद-123","en":"Article-123"},{"hi":"अनुच्छेद-200","en":"Article-200"},{"hi":"अनुच्छेद-356","en":"Article-356"}],"answer":1,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 123 के अंतर्गत राष्ट्रपति को विशेष संवैधानिक परिस्थितियों में अध्यादेश जारी करने की शक्ति प्राप्त है। अध्यादेश तब जारी किया जा सकता है जब संसद के दोनों सदन, या उनमें से कोई एक सदन, सत्र में न हो। इसका वही बल होता है जो संसद द्वारा बनाए गए कानून का होता है। राष्ट्रपति किसी भी समय अध्यादेश वापस ले सकता है।","explanation_en":"Under Article 123 of the Indian Constitution, the President of India has the power to promulgate ordinances under special constitutional circumstances. An ordinance may be promulgated when both Houses of Parliament, or either House, is not in session. It has the same force as a law enacted by Parliament. The President may withdraw an ordinance at any time.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से किसकी या किनकी नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है? 1. वित्त आयोग के अध्यक्ष 2. योजना आयोग के उपाध्यक्ष 3. केंद्र शासित प्रदेशों के मुख्यमंत्री। नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए:","question_en":"Which among the following is/are appointed by the President of India? / 1. Chairman of the Finance Commission / 2. Vice-Chairman of the Planning Commission / 3. Chief Ministers of the Union Territories / Select the correct answer by using the following code:","options":[{"hi":"1 सही है","en":"1 is correct"},{"hi":"1 और 2 सही हैं","en":"1 and 2 are correct"},{"hi":"1 और 3 सही हैं","en":"1 and 3 are correct"},{"hi":"2 और 3 सही हैं","en":"2 and 3 are correct"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 280(1) के अनुसार वित्त आयोग के अध्यक्ष की नियुक्ति राष्ट्रपति द्वारा की जाती है। अनुच्छेद 239AA(5) और संघ राज्यक्षेत्र सरकार अधिनियम, 1963 के अंतर्गत, विधानमंडल वाले केंद्र शासित प्रदेश (अर्थात दिल्ली और पुडुचेरी) के मुख्यमंत्री की नियुक्ति राष्ट्रपति द्वारा की जाती है, और अन्य मंत्रियों की नियुक्ति मुख्यमंत्री की सलाह पर राष्ट्रपति द्वारा की जाती है। मंत्री राष्ट्रपति के प्रसादपर्यंत पद पर बने रहते हैं। हालाँकि, जम्मू-कश्मीर पुनर्गठन अधिनियम, 2019 के अनुसार, जम्मू-कश्मीर केंद्र शासित प्रदेश के मुख्यमंत्री की नियुक्ति उपराज्यपाल द्वारा की जाती है। योजना आयोग के उपाध्यक्ष, और बाद में उसके स्थान पर गठित नीति आयोग के उपाध्यक्ष, की नियुक्ति प्रधानमंत्री द्वारा की जाती थी और अब भी की जाती है।","explanation_en":"According to Article 280(1), the Chairman of the Finance Commission is appointed by the President. Under Article 239AA(5) and the Government of Union Territories Act, 1963, the Chief Minister of a Union Territory having a legislature (namely Delhi and Puducherry) is appointed by the President, and the other ministers are appointed by the President on the advice of the Chief Minister. The ministers hold office during the pleasure of the President. However, according to the Jammu and Kashmir Reorganisation Act, 2019, the Chief Minister of the Union Territory of Jammu and Kashmir is appointed by the Lieutenant Governor. The Vice-Chairman of the Planning Commission, and later of the NITI Aayog constituted in its place, was/is appointed by the Prime Minister.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से किसकी नियुक्ति राष्ट्रपति द्वारा की जाती है?","question_en":"Who among the following is appointed by the President:","options":[{"hi":"भारत के महान्यायवादी","en":"Attorney General of India"},{"hi":"नियंत्रक-महालेखापरीक्षक","en":"Comptroller and Auditor General"},{"hi":"राज्य के राज्यपाल","en":"Governor of State"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 76 के अंतर्गत राष्ट्रपति भारत के महान्यायवादी की नियुक्ति करता है; अनुच्छेद 148 के अंतर्गत नियंत्रक-महालेखापरीक्षक की; और अनुच्छेद 155 के अंतर्गत राज्यों के राज्यपालों की।","explanation_en":"Under Article 76, the President appoints the Attorney General of India; under Article 148, the Comptroller and Auditor General of India; and under Article 155, the Governors of the States.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से किसकी नियुक्ति भारत के राष्ट्रपति द्वारा नहीं की जाती है?","question_en":"Which one of the following is not appointed by the President of India:","options":[{"hi":"उपराष्ट्रपति","en":"Vice- President"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"राज्यपाल","en":"Governor"},{"hi":"मुख्य निर्वाचन आयुक्त","en":"Chief Election Commissioner"}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रपति उपराष्ट्रपति की नियुक्ति नहीं करता। अनुच्छेद 66 के अंतर्गत उपराष्ट्रपति का निर्वाचन उस निर्वाचक मंडल के सदस्यों द्वारा किया जाता है जिसमें संसद के दोनों सदनों के सदस्य शामिल होते हैं।","explanation_en":"The President does not appoint the Vice-President. Under Article 66, the Vice-President is elected by the members of an electoral college consisting of the members of both Houses of Parliament.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"संविधान असाधारण परिस्थितियों में राज्यपालों के कर्तव्यों के निर्वहन की व्यवस्था करने के लिए राष्ट्रपति को किस अनुच्छेद के अंतर्गत अधिकृत करता है?","question_en":"The Constitution authorizes the President to make provisions for discharge of duties of Governors in extraordinary circumstances under","options":[{"hi":"अनुच्छेद 160","en":"Article 160"},{"hi":"अनुच्छेद 162","en":"Article 162"},{"hi":"अनुच्छेद 165","en":"Article 165"},{"hi":"अनुच्छेद 310","en":"Article 310"}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 160 के अंतर्गत राष्ट्रपति किसी आकस्मिक या असाधारण परिस्थिति में राज्यपाल के कार्यों के निर्वहन के लिए व्यवस्था कर सकता है।","explanation_en":"Under Article 160, the President may make provisions for the discharge of the functions of the Governor in any contingency or extraordinary circumstance.","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारतीय संविधान का कौन-सा अनुच्छेद राष्ट्रपति को उच्चतम न्यायालय से परामर्श लेने की शक्ति देता है?","question_en":"Which Article of the Indian Constitution empowers the President to consult the Supreme Court?","options":[{"hi":"अनुच्छेद 129","en":"Article 129"},{"hi":"अनुच्छेद 132","en":"Article 132"},{"hi":"अनुच्छेद 143","en":"Article 143"},{"hi":"अनुच्छेद 32","en":"Article 32"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान का अनुच्छेद 143 राष्ट्रपति को सार्वजनिक महत्व के किसी विधि या तथ्य के प्रश्न पर उच्चतम न्यायालय की राय लेने का अधिकार देता है।","explanation_en":"Article 143 of the Indian Constitution empowers the President to seek the opinion of the Supreme Court on a question of law or fact of public importance.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति की शक्तियों के संबंध में निम्नलिखित में से कौन-सा कथन गलत है?","question_en":"Which of the following is incorrect about the powers of the President of India?","options":[{"hi":"राष्ट्रपति को उच्चतम न्यायालय की सलाह माननी चाहिए","en":"The President should accept the advice of Supreme Court"},{"hi":"आपातकालीन शक्तियाँ","en":"Emergency powers"},{"hi":"राज्यों में राष्ट्रपति शासन को बढ़ाने की शक्ति","en":"Power of extension of President’s Rule in States"},{"hi":"राष्ट्रपति उच्चतम न्यायालय की सलाह को स्वीकार या अस्वीकार कर सकता है","en":"President can accept or reject the advice of the Supreme Court"}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 143 के अंतर्गत राष्ट्रपति को किसी भी विषय पर उच्चतम न्यायालय की राय लेने की शक्ति प्राप्त है, परंतु उस राय को स्वीकार करने की कोई बाध्यता नहीं है। अतः विकल्प (a) सही नहीं है।","explanation_en":"Under Article 143, the President has the power to seek the opinion of the Supreme Court on any matter, but there is no obligation to accept that opinion. Therefore, option (a) is not correct.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"राष्ट्रपति की क्षमादान आदि प्रदान करने की शक्ति किस प्रकार की शक्ति है?","question_en":"Power of the President to grant pardons etc. is a :-","options":[{"hi":"विधायी शक्ति","en":"Legislative Power"},{"hi":"न्यायिक शक्ति","en":"Judicial Power"},{"hi":"कार्यपालिका शक्ति","en":"Executive Power"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 72 के अंतर्गत राष्ट्रपति को क्षमादान आदि देने की शक्ति प्राप्त है, और कुछ मामलों में दंड को निलंबित, परिहार या लघुकरण करने की शक्ति भी प्राप्त है। यद्यपि इस शक्ति को सामान्यतः राष्ट्रपति की न्यायिक शक्तियों और कार्यों के अंतर्गत वर्गीकृत किया गया है, वास्तव में न्यायिक प्रकृति की होने के बावजूद यह कार्यपालिका शक्ति है, क्योंकि यह कार्यपालिका द्वारा दी जाने वाली क्षमा (executive clemency) का एक रूप है, जो न्यायिक शक्ति से भिन्न है। उच्चतम न्यायालय ने 'Maru Ram v. Union of India' में स्पष्ट रूप से कहा कि अनुच्छेद 72 के अंतर्गत राष्ट्रपति की शक्ति कार्यपालिका शक्ति है।","explanation_en":"Under Article 72, the President has the power to grant pardon, etc., and in certain cases the power to suspend, remit, or commute sentences. Although this power has generally been classified under the President’s judicial powers and functions, in reality, despite being judicial in nature, it is an executive power because it is a form of executive clemency, distinct from judicial power. The Supreme Court in 'Maru Ram v. Union of India' clearly stated that the power of the President under Article 72 is an executive power.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति को निम्नलिखित में से किस प्रकार के अधिकार प्राप्त हैं? 1. वास्तविक और लोकप्रिय 2. नामधारी (औपचारिक) और de jure 3. राजनीतिक और नाममात्र 4. संवैधानिक और नाममात्र। नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Which of the following types of authority are attributed to the President of the India? / 1. Real and Popular / 2. Titular (formal) and De jure / 3. Political and Nominal / 4. Constitutional and Nominal / Select the correct answer from the code given below:","options":[{"hi":"1 और 3","en":"1 and 3"},{"hi":"2 और 3","en":"2 and 3"},{"hi":"1 और 4","en":"1 and 4"},{"hi":"2 और 4","en":"2 and 4"}],"answer":3,"answer_note":"","explanation_hi":"भारत के राष्ट्रपति को संविधान के अंतर्गत प्राप्त अधिकार औपचारिक और वैधानिक, तथा संवैधानिक और नाममात्र के हैं।","explanation_en":"The authority enjoyed by the President of India under the Constitution is formal and legal, as well as constitutional and nominal.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से कौन-सा भारत के राष्ट्रपति का संवैधानिक विशेषाधिकार नहीं है?","question_en":"Which one of the following is not Constitutional Prerogative of the President of India?","options":[{"hi":"साधारण विधेयक को पुनर्विचार के लिए लौटाना","en":"Returning an ordinary Bill for reconsideration"},{"hi":"वित्तीय विधेयक को पुनर्विचार के लिए लौटाना","en":"Returning a financial bill for reconsideration"},{"hi":"लोकसभा का विघटन करना","en":"Dissolving the Lok Sabha"},{"hi":"प्रधानमंत्री की नियुक्ति करना","en":"Appointing the Prime Minister"}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 111 के अंतर्गत राष्ट्रपति धन विधेयक को साधारण विधेयक की भाँति पुनर्विचार के लिए नहीं लौटा सकता। अन्य तीनों विकल्प राष्ट्रपति की संवैधानिक शक्तियाँ हैं। वास्तव में, अनुच्छेद 117 के प्रावधानों के अंतर्गत ऐसे विधेयक केवल लोकसभा में और वह भी राष्ट्रपति की अनुशंसा पर ही प्रस्तुत किए जा सकते हैं।","explanation_en":"Under Article 111, the President cannot return a Money Bill for reconsideration in the same manner as an ordinary bill. The other three options are constitutional powers of the President. In fact, under the provisions of Article 117, such bills can be introduced only in the Lok Sabha and that too on the recommendation of the President.","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"किस व्यक्ति के पास किसी भौगोलिक क्षेत्र को ‘अनुसूचित क्षेत्र’ घोषित करने की संवैधानिक शक्ति है?","question_en":"Who has the Constitutional Power to declare a geographical area as a ‘’Scheduled Area’’?","options":[{"hi":"राज्यपाल","en":"Governor"},{"hi":"मुख्यमंत्री","en":"Chief Minister"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"राष्ट्रपति","en":"President"}],"answer":3,"answer_note":"","explanation_hi":"संविधान की पाँचवीं अनुसूची के पैराग्राफ 6 के अंतर्गत ‘अनुसूचित क्षेत्रों’ से संबंधित मुख्य प्रावधान इस प्रकार हैं– (1) राष्ट्रपति आदेश द्वारा किसी भी भौगोलिक क्षेत्र को अनुसूचित क्षेत्र घोषित कर सकता है। (2) राष्ट्रपति किसी भी समय आदेश द्वारा यह घोषित कर सकता है कि किसी अनुसूचित क्षेत्र का पूरा या कोई निर्दिष्ट भाग अनुसूचित क्षेत्र नहीं रहेगा। (3) संबंधित राज्य के राज्यपाल से परामर्श के बाद, राष्ट्रपति आदेश द्वारा उस राज्य में किसी अनुसूचित क्षेत्र का क्षेत्रफल बढ़ा सकता है। (4) राष्ट्रपति आदेश द्वारा किसी अनुसूचित क्षेत्र की सीमाएँ केवल सीमा-सुधार के माध्यम से ही बदल सकता है।","explanation_en":"The main provisions relating to “Scheduled Areas” under Paragraph 6 of the Fifth Schedule of the Constitution are as follows– / (1) The President may, by order, declare any geographical area to be a Scheduled Area. / (2) The President may, at any time, by order, declare that the whole or any specified part of a Scheduled Area shall cease to be a Scheduled Area. / (3) After consultation with the Governor of the State, the President may, by order, increase the area of any Scheduled Area in that State. / (4) The President may, by order, alter the boundaries of any Scheduled Area only by way of rectification of boundaries.","source":"","source_missing":true,"exam":"unknown"},{"id":36,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के राष्ट्रपति पद पर आरंभ से लेकर अब तक आसीन रहे व्यक्तियों का सही क्रम कौन-सा है?","question_en":"Which one of the following is the correct sequence of persons who occupied the office of the President of India right from beginning?","options":[{"hi":"सी. राजगोपालाचारी, राजेंद्र प्रसाद, ज़ाकिर हुसैन, वी.वी. गिरि।","en":"C. Rajagopalachari, Rajendra Prasad, Zakir Hussain, V.V. Giri."},{"hi":"राजेंद्र प्रसाद, एस. राधाकृष्णन, वी.वी. गिरि, ज़ाकिर हुसैन","en":"Rajendra Prasad, S. Radhakrishnan, V.V. Giri, Zakir Hussain."},{"hi":"सी. राजगोपालाचारी, राजेंद्र प्रसाद, एस. राधाकृष्णन, फखरुद्दीन अली अहमद","en":"C. Rajagopalachari, Rajendra Prasad, S. Radhakrishnan, Fakhruddin Ali Ahmad."},{"hi":"राजेंद्र प्रसाद, एस. राधाकृष्णन, ज़ाकिर हुसैन, वी.वी. गिरि","en":"Rajendra Prasad, S. Radhakrishnan, Zakir Hussain, V.V. Giri UPPCS (Pre) 2009"}],"answer":3,"answer_note":"","explanation_hi":"राजेंद्र प्रसाद भारत के पहले राष्ट्रपति थे (1950 से 1962), एस. राधाकृष्णन दूसरे (1962 से 1967), ज़ाकिर हुसैन तीसरे (1967 से 1969), और वी.वी. गिरि चौथे (1969 से 1974) राष्ट्रपति थे। सी. राजगोपालाचारी कभी भारत के राष्ट्रपति नहीं बने; वे स्वतंत्र भारत के अंतिम और एकमात्र भारतीय गवर्नर-जनरल थे।","explanation_en":"Rajendra Prasad was the first President of India (1950 to 1962), S. Radhakrishnan the second (1962 to 1967), Zakir Husain the third (1967 to 1969), and V.V. Giri the fourth (1969 to 1974). C. Rajagopalachari never became the President of India; he was the last and only Indian Governor-General of independent India.","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के चौथे राष्ट्रपति थे:","question_en":"The fourth President of India was:","options":[{"hi":"श्री वी.वी. गिरि","en":"Sri V.V. Giri"},{"hi":"डॉ. एस. राधाकृष्णन","en":"Dr. S. Radhakrishnan"},{"hi":"डॉ. ज़ाकिर हुसैन","en":"Dr. Zakir Hussain"},{"hi":"डॉ. फखरुद्दीन अली अहमद","en":"Dr. Fakhruddin Ali Ahmad"}],"answer":0,"answer_note":"","explanation_hi":"क्रम की दृष्टि से श्री वी.वी. गिरि भारत के चौथे राष्ट्रपति थे; परंतु कार्यकाल की दृष्टि से उनका स्थान डॉ. राजेंद्र प्रसाद, डॉ. एस. राधाकृष्णन और डॉ. ज़ाकिर हुसैन के बाद छठा है।","explanation_en":"In terms of the sequence of persons, Shri V.V. Giri was the fourth President of India; however, in terms of tenure, his position comes sixth after Dr. Rajendra Prasad, Dr. S. Radhakrishnan, and Dr. Zakir Husain.","source":"","source_missing":true,"exam":"unknown"},{"id":38,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से किसे भारत का राष्ट्रपति सर्वसम्मति से निर्वाचित किया गया था?","question_en":"Who of the following was elected President of India unanimously?","options":[{"hi":"एस. राधाकृष्णन","en":"S. Radhakrishnan"},{"hi":"वी. वी. गिरि","en":"V. V. Giri"},{"hi":"एन. संजीव रेड्डी","en":"N. Sanjiva Reddy"},{"hi":"ज्ञानी जैल सिंह","en":"Gyani Zail Singh"}],"answer":2,"answer_note":"","explanation_hi":"एन. संजीव रेड्डी ही एकमात्र ऐसे व्यक्ति हैं जो राष्ट्रपति पद पर निर्विरोध निर्वाचित हुए थे। उनका कार्यकाल 1977 से 1982 तक था।","explanation_en":"N. Sanjiva Reddy is the only person to have been elected unopposed as the President of India. His term of office was from 1977 to 1982.","source":"UPPCS (Mains) 2004","source_missing":false,"exam":"uppcs-mains"},{"id":39,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए। सूची-I (राष्ट्रपति): A. फखरुद्दीन अली अहमद, B. एन. संजीव रेड्डी, C. डॉ. ज़ाकिर हुसैन, D. वी.वी. गिरि। सूची-II (कार्यकाल): 1. 1969-1974, 2. 1974-1977, 3. 1977-1982, 4. 1967-1969। कूट: A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the list:\nList-I List-II (President) (Term) / A. Fakhruddhin 1. 1969-1974 Ali Ahmed / B. N. Sanjiva Reddy 2. 1974-1977 / C. Dr. Zakir Hussain 3. 1977-1982 / D. V.V. Giri 4. 1967-1969\nCode : / A B C D","options":[{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":2,"answer_note":"","explanation_hi":"सुमेल इस प्रकार है– राष्ट्रपति (कार्यकाल): फखरुद्दीन अली अहमद – 1974–1977; एन. संजीव रेड्डी – 1977–1982; डॉ. ज़ाकिर हुसैन – 1967–1969; वी.वी. गिरि – 1969–1974।","explanation_en":"The matching of List-I with List-II is as follows– President Term Fakhruddin Ali Ahmed – 1974–1977 N. Sanjiva Reddy – 1977–1982 Dr. Zakir Husain – 1967–1969 V.V. Giri – 1969–1974","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"भारत के निम्नलिखित राष्ट्रपतियों के कार्यकालों पर विचार कीजिए और उन्हें सबसे पहले से सबसे बाद के कालक्रम में सही क्रम में व्यवस्थित कीजिए: 1. नीलम संजीव रेड्डी 2. के. आर. नारायणन 2. ए. पी. जे. अब्दुल कलाम 4. आर. वेंकटरमन। नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Consider the tenures of the following Presidents of India and arrange them in the correct chronological order from earliest to latest: / 1. Neelam Sanjiva Reddy 2. K. R. Narayanan / 2. A. P. J. Abdul Kalam 4. R. Venkataraman / Select the correct answer from the code given below:\nCode:","options":[{"hi":"1, 4, 2, 3","en":"1, 4, 2, 3"},{"hi":"4, 1, 3, 2","en":"4, 1, 3, 2"},{"hi":"4, 1, 2, 3","en":"4, 1, 2, 3"},{"hi":"1, 4, 3, 2","en":"1, 4, 3, 2"}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रपतियों के कार्यकाल इस प्रकार हैं– नीलम संजीव रेड्डी: 25 जुलाई, 1977 से 25 जुलाई, 1982। आर. वेंकटरमन: 25 जुलाई, 1987 से 25 जुलाई, 1992। के. आर. नारायणन: 25 जुलाई, 1997 से 25 जुलाई, 2002। ए. पी. जे. अब्दुल कलाम: 25 जुलाई, 2002 से 25 जुलाई, 2007। अतः सही कालक्रम 1, 4, 2, 3 है, जो विकल्प (a) में दिया गया है।","explanation_en":"The tenures of the Presidents mentioned in the question are as follows – Neelam Sanjiva Reddy: 25 July, 1977 to 25 July, 1982. R. Venkataraman: 25 July, 1987 to 25 July, 1992. K. R. Narayanan: 25 July, 1997 to 25 July, 2002. / A. P. J. Abdul Kalam: 25 July, 2002 to 25 July, 2007. Therefore, the correct chronological order is 1, 4, 2, 3, which is given in option (a).","source":"","source_missing":true,"exam":"unknown"},{"id":41,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से कौन राष्ट्रपति बनने से पहले उपराष्ट्रपति के पद पर नहीं रहा था?","question_en":"Who of the following before becoming the President of India did not hold the office of Vice-President?","options":[{"hi":"डॉ. एस. राधाकृष्णन","en":"Dr. S. Radhakrishnan"},{"hi":"डॉ. ज़ाकिर हुसैन","en":"Dr. Zakir Hussain"},{"hi":"नीलम संजीव रेड्डी","en":"Neelam Sanjiva Reddy"},{"hi":"आर. वेंकटरमन","en":"R. Venkatraman"}],"answer":2,"answer_note":"","explanation_hi":"दिए गए विकल्पों में से नीलम संजीव रेड्डी ही एकमात्र ऐसे राष्ट्रपति थे जो राष्ट्रपति बनने से पहले उपराष्ट्रपति के पद पर नहीं रहे थे।","explanation_en":"Among the given options, Neelam Sanjiva Reddy was the only President who had not held the office of Vice-President before becoming President.","source":"","source_missing":true,"exam":"unknown"},{"id":42,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से कौन-सा भारतीय राष्ट्रपति लोकसभा अध्यक्ष के रूप में भी कार्य कर चुका था?","question_en":"Which of the following Indian President also served as Speaker of Lok Sabha?","options":[{"hi":"फखरुद्दीन अली अहमद","en":"Fakhruddin Ali Ahmad"},{"hi":"डॉ. शंकर दयाल शर्मा","en":"Dr. Shankar Dayal Sharma"},{"hi":"डॉ. ज़ाकिर हुसैन","en":"Dr. Zakir Hussain"},{"hi":"नीलम संजीव रेड्डी","en":"Neelam Sanjiva Reddy"}],"answer":3,"answer_note":"","explanation_hi":"दिए गए भारतीय राष्ट्रपतियों में से नीलम संजीव रेड्डी दो अलग-अलग कार्यकालों (17.03.1967 से 19.07.1969 और 26.03.1977 से 13.07.1977) में लोकसभा अध्यक्ष रहे थे। वे 1977 से 1982 तक भारत के राष्ट्रपति रहे।","explanation_en":"Among the given Indian Presidents, Neelam Sanjiva Reddy served as Speaker of the Lok Sabha during two separate tenures (17.03.1967 to 19.07.1969 and 26.03.1977 to 13.07.1977). He served as the President of India from 1977 to 1982.","source":"","source_missing":true,"exam":"unknown"},{"id":43,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित भारतीय राष्ट्रपतियों में से किसे \"दार्शनिक राजा\" या \"दार्शनिक शासक\" के रूप में जाना जाता है?","question_en":"Among the following Presidents of India, who is known as the Philosopher King or the Philosopher Ruler?","options":[{"hi":"डॉ. राधाकृष्णन","en":"Dr. Radhakrishnan"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"डॉ. ज़ाकिर हुसैन","en":"Dr. Zakir Hussain"},{"hi":"डॉ. अब्दुल कलाम","en":"Dr. Abdul Kalam"}],"answer":0,"answer_note":"","explanation_hi":"डॉ. सर्वपल्ली राधाकृष्णन, भारत के दूसरे राष्ट्रपति (13 मई, 1962 से 13 मई, 1967), ‘दार्शनिक-राजा’ (Philosopher-King) के रूप में जाने जाते हैं। वे एक प्रख्यात दार्शनिक और शिक्षाविद थे।","explanation_en":"Dr. Sarvepalli Radhakrishnan, the second President of India (13 May, 1962 to 13 May, 1967), is known as the ‘Philosopher-King’. He was a renowned philosopher and educationist.","source":"","source_missing":true,"exam":"unknown"},{"id":44,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से किस भारतीय राष्ट्रपति का श्रमिक संघ आंदोलन से संबंध था?","question_en":"Who among the following Presidents of India was associated with Trade Union Movement?","options":[{"hi":"वी. वी. गिरि","en":"V. V. Giri"},{"hi":"एन. संजीव रेड्डी","en":"N. Sanjiva Reddy"},{"hi":"के. आर. नारायणन","en":"K.R. Narayanan"},{"hi":"ज़ाकिर हुसैन","en":"Zakir Hussain"}],"answer":0,"answer_note":"","explanation_hi":"भारत के चौथे राष्ट्रपति वी. वी. गिरि (1969–1974) का संबंध श्रमिक संघ आंदोलन से था। वे अखिल भारतीय श्रमिक संघ कांग्रेस (All India Trade Union Congress) के अध्यक्ष भी दो बार रहे।","explanation_en":"V. V. Giri, the fourth President of India (1969–1974), was associated with the trade union movement. He also served twice as the President of the All India Trade Union Congress.","source":"","source_missing":true,"exam":"unknown"},{"id":45,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से कौन-से मुख्य न्यायाधीश भारत के राष्ट्रपति के रूप में भी कार्यरत रहे थे?","question_en":"Who among the following Chief Justices of India also acted as the President of India?","options":[{"hi":"न्यायमूर्ति एम. सी. महाजन","en":"Justice M. C. Mahajan"},{"hi":"न्यायमूर्ति एम. हिदायतुल्ला","en":"Justice M. Hidayatullah"},{"hi":"न्यायमूर्ति पी. एन. भगवती","en":"Justice P.N. Bhagwati"},{"hi":"न्यायमूर्ति बी. के. मुखर्जी","en":"Justice B.K. Mukherjee"}],"answer":1,"answer_note":"","explanation_hi":"तत्कालीन मुख्य न्यायाधीश न्यायमूर्ति एम. हिदायतुल्ला ने 20 जुलाई, 1969 से 24 अगस्त, 1969 तक कार्यवाहक राष्ट्रपति के रूप में कार्य किया था।","explanation_en":"The then Chief Justice of India, Justice M. Hidayatullah, served as Acting President from 20 July, 1969 to 24 August, 1969.","source":"","source_missing":true,"exam":"unknown"},{"id":46,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"श्रीमती प्रतिभा पाटिल भारतीय गणराज्य की राष्ट्रपति के रूप में कौन-सी क्रम संख्या वाली हैं?","question_en":"What is the sequence number of Ms. Pratibha Patil as the President of the Republic of India?","options":[{"hi":"10वीं","en":"10th"},{"hi":"11वीं","en":"11th"},{"hi":"12वीं","en":"12 t h"},{"hi":"13वीं","en":"13th"}],"answer":2,"answer_note":"","explanation_hi":"13वें राष्ट्रपति निर्वाचन की प्रक्रिया 19 जुलाई, 2007 को पूरी हुई। 25 जुलाई, 2007 को श्रीमती प्रतिभा देवीसिंह पाटिल ने व्यक्तियों की दृष्टि से भारत की 12वीं राष्ट्रपति के रूप में शपथ ली; परंतु राष्ट्रपति पद के कार्यकाल की दृष्टि से वे 14वीं थीं। वे भारत की पहली महिला राष्ट्रपति थीं। जुलाई 2022 में हुए 16वें राष्ट्रपति निर्वाचन में विजय प्राप्त करने के बाद द्रौपदी मुर्मू व्यक्तियों की दृष्टि से भारत की 15वीं राष्ट्रपति बनीं, जबकि राष्ट्रपति पद के कार्यकाल की दृष्टि से वे 17वीं हैं।","explanation_en":"The 13th presidential election was completed on 19 July, 2007. On 25 July, 2007, Shrimati Pratibha Devisingh Patil took oath as the 12th President of India in terms of individual persons; however, in terms of presidential tenure, she was 14th. She was the first woman President of India. After winning the 16th presidential election held in July 2022, Droupadi Murmu became the 15th President of India in terms of individual persons, while in terms of presidential tenure, she is 17th.","source":"","source_missing":true,"exam":"unknown"},{"id":47,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"निम्नलिखित में से किस भारतीय राष्ट्रपति ने बिहार के राज्यपाल का पद संभाला था?","question_en":"Which one of the following President of India has been the Governor of Bihar?","options":[{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr. Rajendra Prasad"},{"hi":"डॉ. एस. डी. शर्मा","en":"Dr. S.D. Sharma"},{"hi":"डॉ. ज़ाकिर हुसैन","en":"Dr. Zakir Hussain"},{"hi":"वी. वी. गिरि","en":"V.V. Giri"}],"answer":2,"answer_note":"","explanation_hi":"डॉ. ज़ाकिर हुसैन बिहार के राज्यपाल 6 जुलाई, 1957 से 11 मई, 1962 तक रहे, भारत के उपराष्ट्रपति 13 मई, 1962 से 12 मई, 1967 तक रहे, और भारत के राष्ट्रपति 13 मई, 1967 से 3 मई, 1969 तक रहे, जब उनकी मृत्यु हो गई।","explanation_en":"Dr. Zakir Husain served as the Governor of Bihar from 6 July, 1957 to 11 May, 1962, as Vice-President of India from 13 May, 1962 to 12 May, 1967, and as President of India from 13 May, 1967 to 3 May, 1969, when he died.","source":"","source_missing":true,"exam":"unknown"},{"id":48,"topic_hi":"राष्ट्रपति","topic_en":"The President","question_hi":"राष्ट्रपति भवन का डिज़ाइन किसके द्वारा तैयार किया गया था?","question_en":"Rashtrapati Bhavan was designed by:","options":[{"hi":"एडवर्ड स्टोन","en":"Edward Stone"},{"hi":"ली कॉर्बूज़ियर","en":"Le Corbusier"},{"hi":"एडविन लुटियन्स","en":"Edwin Lutyens"},{"hi":"तरुण दत्त","en":"Tarun Dutt"}],"answer":2,"answer_note":"","explanation_hi":"राष्ट्रपति भवन का डिज़ाइन ब्रिटिश वास्तुकार एडविन लुटियन्स ने तैयार किया था। यह भवन भारत के राष्ट्रपति का आधिकारिक निवास है। इसके निर्माण के बाद इसे ‘वायसराय हाउस’ के नाम से जाना जाता था। 15 अगस्त 1947 को इसका नाम बदलकर ‘गवर्नमेंट हाउस’ कर दिया गया। 21 जून 1948 को सी. राजगोपालाचारी इस ‘गवर्नमेंट हाउस’ में निवास करने वाले पहले भारतीय बने। राष्ट्रपति डॉ. राजेंद्र प्रसाद के समय से इसे राष्ट्रपति भवन कहा जाने लगा।","explanation_en":"Rashtrapati Bhavan was designed by the British architect Edwin Lutyens. This building is the official residence of the President of India. After its construction, it was known as the ‘Viceroy’s House’. On 15 August 1947, its name was changed to ‘Government House’. On 21 June 1948, / C. Rajagopalachari became the first Indian to reside in this ‘Government House’. From the time of President Dr. Rajendra Prasad, it began to be known as Rashtrapati Bhavan.","source":"","source_missing":true,"exam":"unknown"},{"id":49,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"भारत के उपराष्ट्रपति का निर्वाचन निम्नलिखित में से किस निर्वाचक मंडल के सदस्यों द्वारा किया जाता है?","question_en":"The Vice-President of India is elected by the members of an electoral college comprising –","options":[{"hi":"केवल दोनों सदनों के निर्वाचित सदस्य।","en":"Only elected members of both the Houses of Parliament."},{"hi":"संसद के दोनों सदनों के सभी सदस्य।","en":"All the members of both the Houses of Parliament."},{"hi":"केवल राज्यसभा और राज्य विधानसभाओं के निर्वाचित सदस्य।","en":"Only elected members of Rajya Sabha and State Assemblies."},{"hi":"केवल राज्य विधानसभाओं के निर्वाचित सदस्य।","en":"Only elected members of State Assemblies."}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 66(1) के अनुसार, उपराष्ट्रपति का निर्वाचन आनुपातिक प्रतिनिधित्व की प्रणाली के अनुसार एकल संक्रमणीय मत द्वारा उस निर्वाचक मंडल के सदस्यों द्वारा किया जाता है, जिसमें संसद के दोनों सदनों के सभी सदस्य शामिल होते हैं, चाहे वे निर्वाचित हों या मनोनीत।","explanation_en":"Under Article 66(1) of the Constitution, the Vice-President is elected, in accordance with the system of proportional representation by means of the single transferable vote, by the members of an electoral college consisting of all the members of both Houses of Parliament, whether elected or nominated.","source":"","source_missing":true,"exam":"unknown"},{"id":50,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"निम्नलिखित कथनों पर विचार कीजिए। इनमें से कौन-सा कथन सही है या कौन-से कथन सही हैं? 1. राष्ट्रपति के निर्वाचन की तरह, उपराष्ट्रपति का निर्वाचन भी अप्रत्यक्ष है। 2. राज्य विधानमंडलों के सदस्य दोनों के निर्वाचन में महत्वपूर्ण भूमिका निभाते हैं। नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Consider the following statements. Which of these statements is/are correct? / 1. Like the election of the President, the election of Vice-President is indirect. / 2. The Member of the State Legislatures play an important role in the election of the both. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"केवल 1","en":"1 only"},{"hi":"केवल 2","en":"2 only"},{"hi":"1 और 2 दोनों","en":"1 and 2 both"},{"hi":"न तो 1, न ही 2","en":"Neither 1 nor 2"}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रपति की तरह उपराष्ट्रपति का निर्वाचन भी अप्रत्यक्ष होता है। निर्वाचन में मतदाता सीधे भाग नहीं लेते। राष्ट्रपति के निर्वाचन में लोकसभा, राज्यसभा, राज्य विधानसभाओं और दिल्ली तथा पुडुचेरी की विधानसभाओं के निर्वाचित सदस्य भाग लेते हैं, जबकि उपराष्ट्रपति के निर्वाचन में लोकसभा और राज्यसभा के निर्वाचित और मनोनीत, दोनों प्रकार के सदस्य भाग लेते हैं, और राज्य विधानसभाओं के सदस्य इसमें भाग नहीं लेते। राष्ट्रपति और उपराष्ट्रपति, दोनों का निर्वाचन आनुपातिक प्रतिनिधित्व की एकल संक्रमणीय मत प्रणाली के अनुसार होता है, और ऐसे निर्वाचनों में मतदान गुप्त मतपत्र द्वारा होता है। अतः कथन 1 सही है, जबकि कथन 2 गलत है।","explanation_en":"Like the President, the election of the Vice-President is also indirect. The electorate does not directly participate in these elections. In the election of the President, the elected members of the Lok Sabha, the Rajya Sabha, the State Legislative Assemblies, and the Legislative Assemblies of Delhi and Puducherry participate, whereas in the election of the Vice-President, both elected and nominated members of the Lok Sabha and the Rajya Sabha participate, and members of the State Legislative Assemblies do not take part in it. Both the President and the Vice-President are elected in accordance with the system of proportional representation by means of the single transferable vote, and voting in such elections is by secret ballot. Thus, statement 1 is correct, whereas statement 2 is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":51,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"दो कथन दिए गए हैं, अभिकथन (A) और कारण (R)। अभिकथन (A): उपराष्ट्रपति के निर्वाचन के लिए पात्र होने हेतु व्यक्ति को उच्च सदन के सदस्य के रूप में निर्वाचन के लिए अर्हित होना चाहिए। कारण (R): उपराष्ट्रपति राज्यसभा का सभापति होता है। उपर्युक्त कथनों के संदर्भ में निम्नलिखित में से कौन-सा सही है?","question_en":"Given below are two statements, Assertion (A) and Reason (R). Assertion (A): In order to be eligible for election as Vice-President, a person must be qualified for election as a member of the Upper House. Reason (R) : Vice-President is chairperson of Rajya Sabha. Which of the following is correct in regard to the above statements.","options":[{"hi":"(A) और (R) दोनों सही हैं, और (R), (A) का स्वीकार्य स्पष्टीकरण है।","en":"Both (A) and (R) are true, and (R) is an acceptable explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) का स्वीकार्य स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, but (R) is not an acceptable explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":0,"answer_note":"","explanation_hi":"कारण से अभिकथन की पुष्टि होती है, क्योंकि अनुच्छेद 66(3)(c) के अनुसार उपराष्ट्रपति बनने के लिए व्यक्ति में राज्यसभा के सदस्य के रूप में निर्वाचन की अर्हता होनी चाहिए, जबकि अनुच्छेद 89(1) और 64 के अनुसार उपराष्ट्रपति राज्यसभा का पदेन सभापति होता है।","explanation_en":"The assertion is confirmed by the reason, because according to Article 66(3)(c), to become the Vice-President, a person must possess the qualifications for being elected as a member of the Rajya Sabha, while according to Articles 89(1) and 64, the Vice-President is the ex-officio Chairman of the Rajya Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":52,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"भारत के उपराष्ट्रपति के संबंध में निम्नलिखित में से कौन-से कथन सही नहीं हैं? 1. उपराष्ट्रपति बनने के लिए व्यक्ति को लोक सभा के सदस्य के रूप में निर्वाचित होने की अर्हता रखनी होगी। 2. राज्य विधानमंडल का कोई सदस्य इस पद के लिए प्रत्याशी हो सकता है। 3. उपराष्ट्रपति के पद का कार्यकाल राष्ट्रपति के कार्यकाल के समान होता है। 4. उसे औपचारिक महाभियोग के माध्यम से हटाया जा सकता है। नीचे दिए गए कूट का प्रयोग करते हुए सही उत्तर चुनिए।","question_en":"Which of the following statements about the Vice-President of India are not correct? / 1. In order to be the Vice-President, a person must be qualified for election as a member of the House of the People. / 2. A member of the State Legislature can be a candidate for this office. / 3. The term of the Office of the Vice-President is the same as that of the President. / 4. He can be removed through a formal impeachment. / Select the correct answer using the code given below:","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"2 और 3","en":"2 and 3"},{"hi":"1 और 4","en":"1 and 4"},{"hi":"3 और 4","en":"3 and 4"}],"answer":2,"answer_note":"","explanation_hi":"उपराष्ट्रपति बनने के लिए यह आवश्यक है कि व्यक्ति राज्यसभा के सदस्य के रूप में निर्वाचित होने की अर्हता रखता हो; इसलिए कथन 1 गलत है। उपराष्ट्रपति को राज्यसभा के उस समय के सभी सदस्यों के बहुमत से पारित और लोक सभा द्वारा सहमत संकल्प द्वारा हटाया जा सकता है; इसलिए कथन 4 गलत है, क्योंकि औपचारिक महाभियोग के लिए विशेष बहुमत की आवश्यकता होती है। कथन 2 और 3 सही हैं; अतः सही उत्तर विकल्प (c) है।","explanation_en":"To become the Vice-President, it is necessary that a person possesses the qualifications for being elected as a member of the Rajya Sabha; therefore, statement 1 is incorrect. The Vice-President may be removed by a resolution passed by a majority of all the then members of the Rajya Sabha and agreed to by the Lok Sabha; therefore, statement 4 is incorrect, because a formal impeachment requires a special majority. Statements 2 and 3 are true; hence, the correct answer is option (c).","source":"","source_missing":true,"exam":"unknown"},{"id":53,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"'भारत के उपराष्ट्रपति' के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. उपराष्ट्रपति राज्यसभा का पदेन सभापति होता है। 2. उपराष्ट्रपति राज्यसभा का सदस्य होता है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"With reference to ‘Vice-President of India’, which of the following statements is/are correct? / 1. The Vice-President is the ex-officio Chairman of the Rajya Sabha. / 2. Vice-President is a member of the Rajya Sabha. / Select the correct answer from the code given below :\nCode :","options":[{"hi":"दोनों 1 और 2","en":"Both 1 and 2"},{"hi":"न तो 1 और न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 2","en":"Only 2"},{"hi":"केवल 1","en":"Only l"}],"answer":3,"answer_note":"","explanation_hi":"कथन 1 सही है। संविधान के अनुच्छेद 64 और 89(1) के अनुसार, भारत का उपराष्ट्रपति राज्यसभा का पदेन सभापति होता है। कथन 2 गलत है। उपराष्ट्रपति संसद के किसी भी सदन का सदस्य नहीं होता। यदि संसद का कोई सदस्य उपराष्ट्रपति निर्वाचित होता है, तो उसकी उस सदन की सदस्यता उस तारीख से रिक्त हो जाती है, जिस दिन वह अपने पद का कार्यभार ग्रहण करता है।","explanation_en":"Statement 1 is correct. According to Articles 64 and 89(1) of the Constitution of India, the Vice-President of India is the ex officio Chairman of the Rajya Sabha. Statement 2 is incorrect. The Vice-President is not a member of either House of Parliament. Even if a Member of Parliament is elected as Vice-President, his membership of that House stands vacated from the date on which he enters upon his office.","source":"","source_missing":true,"exam":"unknown"},{"id":54,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"भारत का उपराष्ट्रपति : 1. भारत का दूसरा सबसे बड़ा पदाधिकारी होता है। 2. उसके पद से कोई औपचारिक कार्य संलग्न नहीं होता। 3. राष्ट्रपति की अनुपस्थिति में उसके कार्यों का निर्वहन करता है। 4. राष्ट्रपति के त्यागपत्र देने, पद से हटाए जाने या मृत्यु की स्थिति में राष्ट्रपति के रूप में कार्य करता है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"The Vice-President of India : / 1. Is the second highest dignitary of India. / 2. Has no formal function attached to his office / 3. Discharges the functions of the President during his absence. / 4. Acts as the President if the President resigns, or is removed or dies. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"1, 2 और 3","en":"1,2 and 3"},{"hi":"1, 3 और 4","en":"1,3 and 4"},{"hi":"सभी चारों","en":"All the four"}],"answer":3,"answer_note":"","explanation_hi":"भारत का उपराष्ट्रपति राष्ट्रपति के बाद भारत का दूसरा सर्वोच्च पदाधिकारी होता है। वह राज्यसभा का पदेन सभापति होता है, परंतु उपराष्ट्रपति के रूप में उसका उस पद से जुड़ा कोई विशेष औपचारिक कर्तव्य नहीं होता। राष्ट्रपति के त्यागपत्र, पद से हटाए जाने या मृत्यु की स्थिति में वह राष्ट्रपति के रूप में कार्य करता है, और राष्ट्रपति की अनुपस्थिति में भी उनके कार्यों का निर्वहन करता है। अतः सही उत्तर विकल्प (d) है।","explanation_en":"The Vice-President of India is the second-highest dignitary in India after the President. He is the ex officio Chairman of the Rajya Sabha, but as Vice-President he has no formal duty specifically attached to that office. He acts as President in the event of the resignation, removal from office, or death of the President, and also discharges the functions of the President during his absence. Therefore, the correct answer is option (d).","source":"","source_missing":true,"exam":"unknown"},{"id":55,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"उपराष्ट्रपति को उसके पद से किसके संकल्प द्वारा हटाया जा सकता है?","question_en":"The Vice-President may be removed from his office by a resolution of –","options":[{"hi":"राज्य परिषद (राज्यसभा)","en":"Council of States"},{"hi":"लोक सभा","en":"Lok Sabha"},{"hi":"मंत्रिमंडल","en":"Cabinet"},{"hi":"मंत्रिपरिषद","en":"Council of Ministers"}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 67(ख) के अनुसार, उपराष्ट्रपति को राज्य परिषद, अर्थात राज्यसभा के उस संकल्प द्वारा पद से हटाया जा सकता है, जो राज्यसभा के उस समय के सभी सदस्यों के बहुमत से पारित हो और लोक सभा द्वारा सहमत हो। परंतु इस खंड के प्रयोजन से ऐसा कोई संकल्प तब तक प्रस्तुत नहीं किया जाएगा, जब तक उसे संकल्प प्रस्तुत करने के आशय की कम से कम 14 दिन पूर्व सूचना उसे न दी गई हो।","explanation_en":"According to Article 67(b) of the Constitution, the Vice-President may be removed from office by a resolution of the Council of States, that is, the Rajya Sabha, passed by a majority of all the then members of the Rajya Sabha and agreed to by the Lok Sabha. However, for the purposes of this clause, no such resolution shall be moved unless at least 14 days’ prior notice of the intention to move the resolution has been given to him.","source":"यू.पी.पी.सी.एस. (मुख्य) 2003, 2004","source_missing":false,"exam":"other"},{"id":56,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"भारत के उपराष्ट्रपति के चुनाव के संदर्भ में, जिसे भारत के उच्चतम न्यायालय ने शून्य घोषित कर दिया है, निम्नलिखित में से कौन-सा कथन सही है या कौन-से कथन सही हैं? (1) ऐसी घोषणा से पूर्व उपराष्ट्रपति के रूप में उसके द्वारा किए गए कार्य वैध माने जाते हैं। (2) ऐसी घोषणा के दिन उपराष्ट्रपति के रूप में उसके द्वारा किए गए कार्य वैध नहीं माने जाते। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"With reference of the election of the Vice-President of India, which is declared void by the Supreme Court of India, which of the following statement/s is/are correct? / (1) The acts done by him as Vice President before such declaration are considered valid. / (2) The acts done by him as Vice-President on the day of such declaration are not considered valid. / Select the correct answer from the code given below :\nCode :","options":[{"hi":"दोनों (1) और (2)","en":"Both (1) and (2)"},{"hi":"केवल (1); (d) न (1) और न (2)","en":"Only (1) / (d) Neither (1) nor (2)"},{"hi":"केवल (2)","en":"Only (2)"},{"hi":"—","en":"—"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 71 के खंड (2) के अनुसार, यदि उच्चतम न्यायालय द्वारा राष्ट्रपति या उपराष्ट्रपति का निर्वाचन शून्य घोषित कर दिया जाता है, तो उस व्यक्ति द्वारा अपने पद की शक्तियों और कर्तव्यों के प्रयोग में, उच्चतम न्यायालय के निर्णय की तिथि को या उससे पहले किए गए कार्य केवल उस घोषणा के आधार पर अवैध नहीं ठहराए जाएंगे। इस प्रकार कथन 1 सही है, जबकि कथन 2 गलत है।","explanation_en":"According to clause (2) of Article 71 of the Constitution, if the election of a person as President or Vice-President is declared void by the Supreme Court, the acts done by him in the exercise of the powers and duties of his office on or before the date of the decision of the Supreme Court shall not be invalid merely because of that declaration. Thus, Statement 1 is correct, while Statement 2 is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":57,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"निम्नलिखित में से किसकी अध्यक्षता वह व्यक्ति करता है जो उसका सदस्य नहीं है?","question_en":"Which one of the following is presided over by one who is not its member?","options":[{"hi":"लोक सभा","en":"Lok Sabha"},{"hi":"विधान सभा","en":"Vidhan Sabha"},{"hi":"राज्यसभा","en":"Rajya Sabha"},{"hi":"मंत्रिपरिषद","en":"Council of Ministers"}],"answer":2,"answer_note":"","explanation_hi":"राज्यसभा की अध्यक्षता उपराष्ट्रपति करता है, परंतु वह राज्यसभा का सदस्य नहीं होता।","explanation_en":"The Rajya Sabha is presided over by the Vice-President, but he is not a member of the Rajya Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":58,"topic_hi":"उपराष्ट्रपति","topic_en":"The Vice-President","question_hi":"निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which one of the following statements is not correct?","options":[{"hi":"संविधान संशोधन विधेयक को दोनों सदनों द्वारा अलग-अलग विशेष बहुमत से पारित किया जाना आवश्यक है।","en":"The Constitutional Amendment Bill has to be passed by both Houses of Parliament separately with special majority."},{"hi":"उच्चतम न्यायालय में संवैधानिक मामलों की सुनवाई न्यूनतम पाँच न्यायाधीशों द्वारा की जाती है।","en":"Constitutional cases in Supreme Court is heard by minimum five Judges."},{"hi":"प्रेस की स्वतंत्रता, वाक् और अभिव्यक्ति की स्वतंत्रता नामक मौलिक अधिकार में सम्मिलित है।","en":"Freedom of Press is included in the fundamental right-Freedom of Speech and expression."},{"hi":"जाकिर हुसैन भारत के प्रथम उपराष्ट्रपति थे।","en":"Zakir Hussain was the first Vice-President of India."}],"answer":3,"answer_note":"","explanation_hi":"कथन (d) सही नहीं है, क्योंकि भारत के प्रथम उपराष्ट्रपति डॉ. जाकिर हुसैन नहीं, बल्कि डॉ. एस. राधाकृष्णन थे, जो 1952 से 1962 तक इस पद पर रहे। डॉ. जाकिर हुसैन उपराष्ट्रपति पद पर आसीन होने वाले दूसरे व्यक्ति थे, और वे 13 मई 1962 से 12 मई 1967 तक इस पद पर रहे। अन्य तीनों कथन सही हैं।","explanation_en":"Statement (d) is not correct, because the first Vice-President of India was not Dr. Zakir Husain but Dr. S. Radhakrishnan, who held this office from 1952 to 1962. Dr. Zakir Husain was the second person to hold the office of Vice-President of India, and he served in this office from 13 May 1962 to 12 May 1967. The other three statements are correct.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

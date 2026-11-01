@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-11-lok-sabha-rajya-sabha","title":"Polity PYQ — Lok Sabha & Rajya Sabha","shortTitle":"Lok Sabha & Rajya Sabha","subtitle":"Purvavlokan GS · Indian Polity · लोकसभा एवं राज्यसभा","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Lok Sabha & Rajya Sabha. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":60,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा के चुनावों के संबंध में निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which one of the following is not correct with regard to the elections to the Lok Sabha?","options":[{"hi":"चुनाव वयस्क मताधिकार के आधार पर होते हैं।","en":"The elections are on the basis of adult suffrage."},{"hi":"निर्वाचन आयोग को चुनाव संचालित करने होते हैं।","en":"The Election Commission is required to conduct the elections."},{"hi":"निर्वाचक नामावलियाँ भारत के राष्ट्रपति के निर्देशन और नियंत्रण में तैयार की जाती हैं।","en":"The electoral rolls are prepared under the direction and control of the President of India."},{"hi":"निर्वाचन आयोग के अनुरोध पर राष्ट्रपति को निर्वाचन आयोग को उतने कर्मचारी उपलब्ध कराने होते हैं जितने उसके कार्यों के निर्वहन के लिए आवश्यक हों।","en":"On the request of the Election Commission, the President is required to make available to the Election Commission such staff as may be necessary for the discharge of its functions."}],"answer":2,"answer_note":"","explanation_hi":"भारत में संसद और प्रत्येक राज्य के विधानमंडल के सभी चुनावों के लिए, तथा राष्ट्रपति और उपराष्ट्रपति के पदों के लिए, निर्वाचक नामावलियों की तैयारी निर्वाचन आयोग के निर्देशन और नियंत्रण में की जाती है [अनुच्छेद 324(1)]। प्रश्न में दिए गए अन्य कथन सही हैं।","explanation_en":"In India, the preparation of electoral rolls for all elections to Parliament and to the Legislature of every State, as well as for the offices of the President and Vice-President, is carried out under the direction and control of the Election Commission [Article 324(1)]. The other statements given in the question are correct.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"वर्तमान में लोकसभा में प्रत्येक राज्य की सीटों का आवंटन किस जनगणना के आधार पर किया जाता है?","question_en":"Presently the number of seats of each state in Lok Sabha is allotted on the basis of-","options":[{"hi":"वर्ष 1951 की जनगणना","en":"Census of 1951"},{"hi":"वर्ष 1961 की जनगणना","en":"Census of 1961"},{"hi":"वर्ष 1971 की जनगणना","en":"Census of 1971"},{"hi":"वर्ष 1981 की जनगणना","en":"Census of 1981"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 81 और 82 के अनुसार लोकसभा में राज्यों के बीच सीटों का आवंटन 1971 की जनगणना पर आधारित है। पहले यह व्यवस्था 2000 के बाद होने वाली पहली जनगणना के संबंधित आँकड़े प्रकाशित होने तक जारी रहनी थी, परंतु 84वें संवैधानिक संशोधन अधिनियम, 2001 द्वारा यह प्रावधान किया गया कि 2026 के बाद होने वाली पहली जनगणना के संबंधित आँकड़े प्रकाशित होने तक कोई पुनर्समायोजन नहीं किया जाएगा।","explanation_en":"According to Articles 81 and 82 of the Constitution, the allocation of Lok Sabha seats among the States is based on the 1971 Census. Earlier, this arrangement was to continue until the publication of the relevant figures of the first Census held after the year 2000, but by the 84th Constitutional Amendment Act, 2001, it was provided that no revision would be made until the publication of the relevant figures of the first Census conducted after 2026.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा की सदस्य संख्या 525 से बढ़ाकर 545 किस संशोधन द्वारा की गई?","question_en":"The strength of the Lok Sabha was increased from 525 to 545 through which Amendment?","options":[{"hi":"31वाँ","en":"31st"},{"hi":"35वाँ","en":"35th"},{"hi":"42वाँ","en":"42nd"},{"hi":"45वाँ","en":"45th"}],"answer":0,"answer_note":"","explanation_hi":"31वें संवैधानिक संशोधन अधिनियम, 1973 द्वारा लोकसभा में राज्यों के प्रतिनिधियों की अधिकतम संख्या 500 से बढ़ाकर 525 की गई, और संघ राज्य क्षेत्रों के सदस्यों की अधिकतम संख्या 25 से घटाकर 20 की गई [अनुच्छेद 81(1) में संशोधन करके]। इस प्रकार लोकसभा में निर्वाचित सदस्यों की अधिकतम कुल संख्या 545 हो गई। ध्यान देने योग्य है कि वर्तमान में लोकसभा की निर्वाचित सदस्य संख्या अधिकतम 550 हो सकती है, जिसमें राज्यों से अधिकतम 530 और संघ राज्य क्षेत्रों से अधिकतम 20 सदस्य निर्वाचित हो सकते हैं (गोवा, दमन और दीव पुनर्गठन अधिनियम, 1987 के अंतर्गत)। 104वें संवैधानिक संशोधन अधिनियम, 2019 द्वारा लोकसभा में दो आंग्ल-भारतीय सदस्यों के मनोनयन का प्रावधान आगे नहीं बढ़ाया गया और इस प्रकार वह प्रभावहीन हो गया। वर्तमान में 543 लोकसभा निर्वाचन क्षेत्रों में से 524 राज्यों में हैं, जबकि शेष 19 निर्वाचन क्षेत्र संघ राज्य क्षेत्रों में हैं (दिल्ली–7, अंडमान और निकोबार द्वीप समूह–1, दादरा और नगर हवेली तथा दमन और दीव–2, लक्षद्वीप–1, पुदुचेरी–1, चंडीगढ़–1, जम्मू और कश्मीर–5, लद्दाख–1)।","explanation_en":"By the 31st Constitutional Amendment Act, 1973, the maximum number of representatives of the States in the Lok Sabha was increased from 500 to 525, and the maximum number of members from the Union Territories was reduced from 25 to 20 [by amending Article 81(1)]. Thus, the maximum total number of elected members in the Lok Sabha became 545. It should be noted that at present the maximum elected strength of the Lok Sabha can be 550, of which not more than 530 members may be elected from the States and not more than 20 members from the Union Territories (under the Goa, Daman and Diu Reorganisation Act, 1987). By the 104th Constitutional Amendment Act, 2019, the provision for the nomination of two Anglo-Indian members to the Lok Sabha was not extended further and thus became ineffective. At present, out of 543 Lok Sabha constituencies, 524 constituencies are in the States, while the remaining 19 constituencies are in the Union Territories (Delhi–7, Andaman and Nicobar Islands–1, Dadra and Nagar Haveli and Daman and Diu–2, Lakshadweep–1, Puducherry–1, Chandigarh–1, Jammu and Kashmir–5, Ladakh–1).","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"सामान्य निर्वाचन 2009 में 543 लोकसभा निर्वाचन क्षेत्रों के लिए चुनाव हुआ। इनमें से कितने लोकसभा निर्वाचन क्षेत्र राज्यों में हैं?","question_en":"In the General Elections 2009, election for 543 Lok Sabha Constituencies was held. Out of these, how many Lok Sabha constituencies are from the States?","options":[{"hi":"525","en":"525"},{"hi":"528","en":"528"},{"hi":"530","en":"530"},{"hi":"532","en":"532"}],"answer":2,"answer_note":"","explanation_hi":"2009 के सामान्य निर्वाचन में कुल 543 लोकसभा निर्वाचन क्षेत्रों में से 530 राज्यों में और 13 संघ राज्य क्षेत्रों में थे। जम्मू और कश्मीर राज्य के दो संघ राज्य क्षेत्रों में पुनर्गठन के बाद वर्तमान में 524 निर्वाचन क्षेत्र राज्यों में और 19 संघ राज्य क्षेत्रों में हैं।","explanation_en":"Out of the total 543 Lok Sabha constituencies in the 2009 general election, 530 were from the States and 13 were from the Union Territories. After the reorganisation of the State of Jammu and Kashmir into two Union Territories, at present 524 constituencies are in the States and 19 are in the Union Territories.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा में संघ राज्य क्षेत्रों के लिए कितनी सीटें आरक्षित हैं?","question_en":"How many seats are reserved for UTs in Lok Sabha?","options":[{"hi":"20","en":"20"},{"hi":"25","en":"25"},{"hi":"30","en":"30"},{"hi":"कोई आरक्षित सीट नहीं है","en":"There is no reserved seats"}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 81 (31वें संवैधानिक संशोधन अधिनियम, 1973 और गोवा, दमन और दीव पुनर्गठन अधिनियम, 1987 द्वारा संशोधित) के अनुसार राज्यों के निर्वाचन क्षेत्रों से अधिकतम 530 और संघ राज्य क्षेत्रों से अधिकतम 20 सदस्य लोकसभा के लिए निर्वाचित किए जा सकते हैं। वर्तमान में संघ राज्य क्षेत्रों के लिए लोकसभा की निश्चित सीटों की संख्या 19 है (दिल्ली–7, अंडमान और निकोबार द्वीप समूह–1, चंडीगढ़–1, दादरा और नगर हवेली तथा दमन और दीव–2, लक्षद्वीप–1, पुदुचेरी–1, जम्मू और कश्मीर–5 और लद्दाख–1), जबकि राज्यसभा में यह निश्चित संख्या 8 है (दिल्ली–3, पुदुचेरी–1 और जम्मू और कश्मीर–4)।","explanation_en":"According to Article 81 of the Constitution (as amended by the 31st Constitutional Amendment Act, 1973 and the Goa, Daman and Diu Reorganisation Act, 1987), a maximum of 530 members may be elected to the Lok Sabha from the constituencies of the States and a maximum of 20 members from the Union Territories. At present, the fixed number of Lok Sabha seats for the Union Territories is 19 (Delhi–7, Andaman and Nicobar Islands–1, Chandigarh–1, Dadra and Nagar Haveli and Daman and Diu–2, Lakshadweep–1, Puducherry–1, Jammu and Kashmir–5 and Ladakh–1), while in the Rajya Sabha this fixed number is 8 (Delhi–3, Puducherry–1 and Jammu and Kashmir–4).","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा में अनुसूचित जनजातियों के लिए सीटों का आरक्षण निम्नलिखित में से किन राज्यों में विद्यमान नहीं है?","question_en":"Reservation of seats for Scheduled Tribes in the Lok Sabha does not exist in the states of:","options":[{"hi":"केरल और तमिलनाडु","en":"Kerala and Tamil Nadu"},{"hi":"कर्नाटक और केरल","en":"Karnataka and Kerala"},{"hi":"तमिलनाडु और कर्नाटक","en":"Tamil Nadu and Karnataka"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्न में उल्लिखित अवधि के दौरान अरुणाचल प्रदेश, बिहार, गोवा, हरियाणा, हिमाचल प्रदेश, जम्मू और कश्मीर, कर्नाटक, केरल, मेघालय, नागालैंड, पंजाब, सिक्किम, तमिलनाडु, उत्तराखंड और उत्तर प्रदेश, तथा दादरा और नगर हवेली और लक्षद्वीप को छोड़कर सभी केंद्र शासित प्रदेशों में लोकसभा में अनुसूचित जनजातियों के लिए कोई सीट आरक्षित नहीं थी। 2008 के परिसीमन के बाद कर्नाटक और मेघालय में अनुसूचित जनजातियों के लिए 2-2 सीटें आरक्षित की गईं, जबकि उपर्युक्त अन्य राज्यों/केंद्र शासित प्रदेशों में पूर्व स्थिति बनी रही। अतः वर्तमान में विकल्प (a) सही उत्तर है। वर्तमान में अनुसूचित जातियों के लिए अरुणाचल प्रदेश, गोवा, मणिपुर, मेघालय, मिजोरम, नागालैंड, सिक्किम और त्रिपुरा में तथा दिल्ली को छोड़कर (जम्मू और कश्मीर तथा लद्दाख सहित) सभी केंद्र शासित प्रदेशों में लोकसभा में कोई सीट आरक्षित नहीं है।","explanation_en":"During the period referred to in the question, no seats were reserved for Scheduled Tribes in the Lok Sabha in the following States/Union Territories – Arunachal Pradesh, Bihar, Goa, Haryana, Himachal Pradesh, Jammu and Kashmir, Karnataka, Kerala, Meghalaya, Nagaland, Punjab, Sikkim, Tamil Nadu, Uttarakhand and Uttar Pradesh, and in all Union Territories except Dadra and Nagar Haveli and Lakshadweep. After the 2008 delimitation, seats were reserved for Scheduled Tribes in Karnataka and Meghalaya (2 seats each), while the earlier position continues in the remaining above-mentioned States/Union Territories. Thus, at present option (a) is the correct answer. At present, for Scheduled Castes, no seats are reserved in the Lok Sabha in the States of Arunachal Pradesh, Goa, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim and Tripura, and in all Union Territories except Delhi (including Jammu and Kashmir and Ladakh).","source":"UPPCS (Pre) 2000","source_missing":false,"exam":"uppcs-pre"},{"id":7,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"यदि किसी राज्य को लोकसभा में 42 सीटें आवंटित हैं, तो उस राज्य में अनुसूचित जातियों के लिए आरक्षित सीटों की संख्या होगी:","question_en":"If the number of seats allocated to a state in the Lok Sabha is 42, then the number of seats reserved for the Scheduled Castes in that state will be:","options":[{"hi":"21","en":"21"},{"hi":"14","en":"14"},{"hi":"7","en":"7"},{"hi":"6","en":"6"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"अनुच्छेद 330(2) के अनुसार किसी राज्य (या संघ राज्य क्षेत्र) में अनुसूचित जातियों या अनुसूचित जनजातियों के लिए आरक्षित सीटों की संख्या, लोकसभा में उस राज्य (या संघ राज्य क्षेत्र) को आवंटित कुल सीटों के उसी अनुपात में होगी, जिस अनुपात में उस राज्य (या संघ राज्य क्षेत्र) की अनुसूचित जातियों या अनुसूचित जनजातियों की जनसंख्या, या उस भाग की जनसंख्या जिसके लिए सीटें आरक्षित हैं, उस राज्य (या संघ राज्य क्षेत्र) की कुल जनसंख्या से होता है। उदाहरण के लिए, 1996 में पश्चिम बंगाल और तत्कालीन आंध्र प्रदेश, दोनों की लोकसभा में 42-42 सीटें थीं, जिनमें से क्रमशः 8 और 6 सीटें अनुसूचित जातियों के लिए आरक्षित थीं। 2008 के परिसीमन के बाद इन दोनों राज्यों में अनुसूचित जातियों के लिए आरक्षित सीटें क्रमशः 10 और 7 हो गईं। वर्तमान में तेलंगाना के गठन के बाद आंध्र प्रदेश और तेलंगाना में अनुसूचित जातियों के लिए आरक्षित सीटें क्रमशः 4 और 3 हैं। तदनुसार पश्चिम बंगाल अब एकमात्र ऐसा राज्य है जिसकी लोकसभा में 42 सीटें हैं, जहाँ अनुसूचित जातियों के लिए 10 और अनुसूचित जनजातियों के लिए 2 सीटें आरक्षित हैं।","explanation_en":"Under Article 330(2), the number of seats reserved for the Scheduled Castes or the Scheduled Tribes in any State (or Union Territory) shall bear, as nearly as may be, the same proportion to the total number of seats allotted to that State (or Union Territory) in the Lok Sabha as the population of the Scheduled Castes in that State (or Union Territory), or of the Scheduled Tribes in that State (or Union Territory), or in that part of the State (or Union Territory) for which seats are so reserved, bears to the total population of that State or Union Territory. For example, in 1996, both West Bengal and the then Andhra Pradesh had 42 Lok Sabha seats, of which 8 and 6 seats respectively were reserved for the Scheduled Castes. After the delimitation of 2008, the number of seats reserved for the Scheduled Castes in these two States became 10 and 7 respectively. At present, after the formation of Telangana, the number of seats reserved for the Scheduled Castes in Andhra Pradesh and Telangana is 4 and 3 respectively. Accordingly, West Bengal is now the only State having 42 Lok Sabha seats, where 10 seats are reserved for the Scheduled Castes and 2 seats for the Scheduled Tribes.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा में अनुसूचित जनजातियों के लिए आरक्षित सीटों की सबसे अधिक संख्या निम्नलिखित में से किस राज्य में है?","question_en":"Which one of the following States has the highest number of reserve seats for the Scheduled Tribes in the Lok Sabha?","options":[{"hi":"बिहार","en":"Bihar"},{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"मध्य प्रदेश","en":"Madhya Pradesh"},{"hi":"गुजरात","en":"Gujarat"}],"answer":2,"answer_note":"","explanation_hi":"2008 के परिसीमन के बाद लोकसभा में अनुसूचित जनजातियों के लिए आरक्षित सीटों की सबसे अधिक संख्या, अर्थात 6, मध्य प्रदेश में है। उत्तर प्रदेश और बिहार में ऐसी सीटों की संख्या शून्य है, जबकि गुजरात में 4 ऐसी सीटें हैं।","explanation_en":"After the delimitation of 2008, Madhya Pradesh has the highest number of seats reserved for the Scheduled Tribes in the Lok Sabha, namely 6. In Uttar Pradesh and Bihar, the number of such seats is zero, whereas Gujarat has 4 such seats.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"यदि राष्ट्रपति की राय हो कि आंग्ल-भारतीय समुदाय का लोक सभा (House of the People) में पर्याप्त प्रतिनिधित्व नहीं है, तो वह इस समुदाय के कितने सदस्यों को मनोनीत कर सकता है?","question_en":"How many members may be nominated by the President from Anglo-Indian Community, if he is of the opinion that the community is not adequately represented in the House of the People?","options":[{"hi":"3","en":"3"},{"hi":"5","en":"5"},{"hi":"1","en":"1"},{"hi":"2","en":"2"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"अनुच्छेद 331 के अनुसार, यदि राष्ट्रपति की राय में लोकसभा में आंग्ल-भारतीय समुदाय का पर्याप्त प्रतिनिधित्व नहीं है, तो वह इस समुदाय के अधिकतम 2 सदस्यों को मनोनीत कर सकता था। यह प्रावधान मूल संविधान के अनुच्छेद 334 के साथ पढ़े जाने पर प्रारंभ में केवल 10 वर्षों के लिए था, परंतु संवैधानिक संशोधनों द्वारा समय-समय पर इसे आगे बढ़ाया जाता रहा। 95वें संवैधानिक संशोधन अधिनियम, 2009 द्वारा यह अवधि संविधान प्रारंभ होने से 70 वर्ष निश्चित की गई। परंतु 104वें संवैधानिक संशोधन अधिनियम, 2019 द्वारा, अनुच्छेद 334 में संशोधन करके लोकसभा और राज्य विधानसभाओं में अनुसूचित जातियों और अनुसूचित जनजातियों के आरक्षण की अवधि 70 वर्ष से बढ़ाकर 80 वर्ष की गई, जबकि आंग्ल-भारतीय सदस्यों के मनोनयन संबंधी प्रावधान को 70 वर्ष से आगे नहीं बढ़ाया गया और इस प्रकार वह लगभग निष्प्रभावी हो गया।","explanation_en":"According to Article 331, if in the opinion of the President the Anglo-Indian community was not adequately represented in the Lok Sabha, he could nominate not more than 2 members of this community. This provision, under the original Constitution read with Article 334, was initially meant only for a period of 10 years, but it continued to be extended from time to time through Constitutional Amendments. By the 95th Constitutional Amendment Act, 2009, this period was fixed at 70 years from the commencement of the Constitution. However, by the 104th Constitutional Amendment Act, 2019, while the period of reservation for the Scheduled Castes and the Scheduled Tribes in the Lok Sabha and the State Legislative Assemblies was increased from 70 years to 80 years by amending Article 334, the provision relating to the nomination of Anglo-Indian members was not extended beyond 70 years and was thus rendered virtually ineffective.","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोक सभा (House of the People) की बैठक का समापन किसके द्वारा किया जा सकता है:","question_en":"The sitting of House of the People may the terminated by:","options":[{"hi":"स्थगन (Adjournment)","en":"Adjournment"},{"hi":"सत्रावसान (Prorogation)","en":"Prorogation"},{"hi":"विघटन (Dissolution)","en":"Dissolution"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":3,"answer_note":"","explanation_hi":"लोकसभा की बैठक का समापन स्थगन, सत्रावसान और विघटन द्वारा किया जा सकता है। स्थगन लोकसभा अध्यक्ष द्वारा किया जाता है, जबकि सत्रावसान [अनुच्छेद 85(2)(a)] और विघटन [अनुच्छेद 85(2)(b)] राष्ट्रपति द्वारा किए जाते हैं।","explanation_en":"A sitting of the Lok Sabha may be ended by adjournment, prorogation, and dissolution. Adjournment is done by the Speaker of the Lok Sabha, while prorogation [85(2)(a)] and [85(2)(b)] dissolution are done by the President.","source":"UPPCS (Mains) 2015","source_missing":false,"exam":"uppcs-mains"},{"id":11,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा की बैठक के गठन हेतु कोरम (गणपूर्ति) क्या है?","question_en":"What is the quorum to constitute a meeting of Lok Sabha?","options":[{"hi":"सदन के कुल सदस्यों का एक-छठा भाग।","en":"One sixth of the total members of the House."},{"hi":"सदन के कुल सदस्यों का एक-दसवाँ भाग।","en":"One tenth of the total members of the House."},{"hi":"सदन के कुल सदस्यों का एक-चौथाई भाग","en":"One fourth of the total members of the House"},{"hi":"सदन के कुल सदस्यों का एक-तिहाई भाग।","en":"One third of the total members of the House."}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 100(3) के अनुसार लोकसभा या राज्यसभा का कोरम सदन की कुल सदस्य संख्या का एक-दसवाँ भाग है। नियमों के अनुसार मुख्य विपक्षी दल की मान्यता के लिए भी यही संख्या आवश्यक है।","explanation_en":"According to Article 100(3), the quorum of the Lok Sabha or the Rajya Sabha is one-tenth of the total membership of the House. As per rules, the same number is also necessary for the recognition of the main opposition party.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"भारत में किस राज्य का लोकसभा और राज्यसभा दोनों में सबसे अधिक प्रतिनिधित्व है?","question_en":"In India which State has the largest representation in Lok Sabha and Rajya Sabha?","options":[{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"मध्य प्रदेश","en":"Madhya Pradesh"},{"hi":"महाराष्ट्र","en":"Maharashtra"},{"hi":"आंध्र प्रदेश","en":"Andhra Pradesh"}],"answer":0,"answer_note":"","explanation_hi":"उत्तर प्रदेश लोकसभा में 80 और राज्यसभा में 31 प्रतिनिधि भेजता है, जो सर्वाधिक हैं।","explanation_en":"Uttar Pradesh sends the highest number of representatives to the Lok Sabha and the Rajya Sabha, namely 80 and 31 respectively.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"उत्तर प्रदेश के बाद लोकसभा में सबसे अधिक सीटें किसे आवंटित की गई हैं?","question_en":"After Uttar Pradesh, the highest number of Lok Sabha seats have been allotted to –","options":[{"hi":"आंध्र प्रदेश","en":"Andhra Pradesh"},{"hi":"बिहार","en":"Bihar"},{"hi":"महाराष्ट्र","en":"Maharashtra"},{"hi":"पश्चिम बंगाल","en":"West Bengal"}],"answer":2,"answer_note":"","explanation_hi":"वर्तमान में लोकसभा में सबसे अधिक सीटों वाले शीर्ष तीन राज्य इस प्रकार हैं: प्रथम स्थान – उत्तर प्रदेश – 80 सीटें; द्वितीय स्थान – महाराष्ट्र – 48 सीटें; तृतीय स्थान – पश्चिम बंगाल – 42 सीटें।","explanation_en":"At present, the top three States having the highest number of seats in the Lok Sabha are as follows: First place – Uttar Pradesh – 80 seats Second place – Maharashtra – 48 seats Third place – West Bengal – 42 seats","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोक सभा (House of the People) में बिहार को आवंटित सीटें निम्नलिखित में से किन राज्यों को आवंटित सीटों के योग के बराबर हैं?","question_en":"Seats allocated to Bihar in the House of People is the total of seats allocated to:","options":[{"hi":"असम और मध्य प्रदेश","en":"Assam and Madhya Pradesh"},{"hi":"असम और तमिलनाडु","en":"Assam and Tamil Nadu"},{"hi":"कर्नाटक और राजस्थान","en":"Karnataka and Rajasthan"},{"hi":"पंजाब और पश्चिम बंगाल","en":"Punjab and West Bengal"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"वर्ष 2000 में बिहार के विभाजन से पहले उसकी लोकसभा में 54 सीटें थीं। झारखंड (14 सीटें) के गठन के बाद बिहार के पास केवल 40 सीटें रह गईं। इसी प्रकार मध्य प्रदेश की 40 सीटें छत्तीसगढ़ (11 सीटें) के गठन के बाद घटकर 29 रह गईं। चूँकि प्रश्न विभाजन से पहले की अवधि से संबंधित है, इसलिए बिहार को आवंटित लोकसभा सीटें (54) असम (14 सीटें) और मध्य प्रदेश (40 सीटें) की लोकसभा सीटों के योग के बराबर थीं। परंतु वर्तमान में बिहार की लोकसभा में कुल 40 सीटें हैं, जो निम्नलिखित राज्यों को आवंटित सीटों के योग के बराबर हैं–","explanation_en":"Before the bifurcation of Bihar in the year 2000, it had 54 Lok Sabha seats. After the creation of Jharkhand (14 seats), only 40 seats remained with Bihar. Similarly, Madhya Pradesh had 40 seats, which came down to 29 after the creation of Chhattisgarh (11 seats). Since the question relates to the period before bifurcation, the number of Lok Sabha seats allotted to Bihar (54 seats) was equal to the sum of the Lok Sabha seats of Assam (14 seats) and Madhya Pradesh (40 seats). However, at present, Bihar has a total of 40 seats in the Lok Sabha, which is equal to the combined seats allotted to the following states– / 1. Gujarat (26) + Assam (14) = 40 / 2. Gujarat (26) + Jharkhand (14) = 40 / 3. Madhya Pradesh (29) + Chhattisgarh (11) = 40 / 4. Tamil Nadu (39) + Sikkim (1) = 40 / 5. Tamil Nadu (39) + Mizoram (1) = 40 / 6. Tamil Nadu (39) + Nagaland (1) = 40 Bihar’s Lok Sabha seats are also equal to half of Uttar Pradesh’s total seats (80), i.e., 40.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"निम्नलिखित में से किस राज्य-युग्म की लोकसभा में समान सीटें हैं?","question_en":"Which one of the following pair of States has equal seats in Lok Sabha?","options":[{"hi":"पंजाब और असम","en":"Punjab and Assam"},{"hi":"गुजरात और राजस्थान","en":"Gujarat and Rajasthan"},{"hi":"मध्य प्रदेश और तमिलनाडु","en":"Madhya Pradesh and Tamil Nadu"},{"hi":"आंध्र प्रदेश और पश्चिम बंगाल","en":"Andhra Pradesh and West Bengal"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"दिए गए विकल्पों में से– राज्य: लोकसभा सीटें; पंजाब – 13; असम – 14; गुजरात – 26; राजस्थान – 25; मध्य प्रदेश – 29; तमिलनाडु – 39; आंध्र प्रदेश – 25; पश्चिम बंगाल – 42; छत्तीसगढ़ – 11; महाराष्ट्र – 48। अविभाजित आंध्र प्रदेश की लोकसभा में 42 सीटें थीं। आंध्र प्रदेश के विभाजन के बाद अब उसके पास केवल 25 सीटें हैं। शेष 17 सीटें तेलंगाना को आवंटित की गईं। वर्तमान में राजस्थान और आंध्र प्रदेश (दोनों 25), असम और झारखंड (दोनों 14), अरुणाचल प्रदेश, गोवा, मणिपुर, मेघालय और त्रिपुरा (सभी 2-2) तथा मिजोरम, नागालैंड और सिक्किम (सभी 1-1) ऐसे राज्य-समूह हैं जिनकी लोकसभा में समान संख्या में सीटें हैं।","explanation_en":"From the given options– State Seats in the Lok Sabha Punjab – 13 Assam – 14 Gujarat – 26 Rajasthan – 25 Madhya Pradesh – 29 Tamil Nadu – 39 Andhra Pradesh – 25 West Bengal – 42 Chhattisgarh – 11 Maharashtra – 48 Undivided Andhra Pradesh had 42 Lok Sabha seats. After the bifurcation of Andhra Pradesh, it now has only 25 Lok Sabha seats. The remaining 17 seats were allotted to Telangana. At present, Rajasthan and Andhra Pradesh (both 25), Assam and Jharkhand (both 14), Arunachal Pradesh, Goa, Manipur, Meghalaya and Tripura (all 2 each), and Mizoram, Nagaland and Sikkim (all 1 each) are such groups of states that have an equal number of Lok Sabha seats.","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"निम्नलिखित में से कौन-सा युग्म सही सुमेलित नहीं है: (राज्य) (लोकसभा में सीटें)","question_en":"Which one of the following pairs is not correctly matched: (States) (Seats in Lok Sabha)","options":[{"hi":"आंध्र प्रदेश - 42","en":"Andhra Pradesh - 42"},{"hi":"असम - 13","en":"Assam - 13"},{"hi":"पंजाब - 13","en":"Punjab - 13"},{"hi":"पश्चिम बंगाल - 42","en":"West Bengal - 42"}],"answer":0,"answer_note":"","explanation_hi":"ऊपर के प्रश्न की व्याख्या देखें।","explanation_en":"See the explanation to the above question.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"निम्नलिखित में से किस राज्य से लोकसभा के दो सदस्य निर्वाचित होते हैं?","question_en":"From which of the following States two members of the Lok Sabha are elected?","options":[{"hi":"त्रिपुरा","en":"Tripura"},{"hi":"मिजोरम","en":"Mizoram"},{"hi":"नागालैंड","en":"Nagaland"},{"hi":"सिक्किम","en":"Sikkim"}],"answer":0,"answer_note":"","explanation_hi":"वर्तमान में चंडीगढ़, सिक्किम, मिजोरम, नागालैंड, लद्दाख और पुदुचेरी में लोकसभा की केवल एक-एक सीट है। त्रिपुरा, गोवा, मेघालय, मणिपुर, दादरा और नगर हवेली तथा दमन और दीव, और अरुणाचल प्रदेश में लोकसभा की 2-2 सीटें हैं। उल्लेखनीय है कि दादरा और नगर हवेली तथा दमन और दीव संघ राज्य क्षेत्रों को मिला दिया गया है।","explanation_en":"At present, Chandigarh, Sikkim, Mizoram, Nagaland, Ladakh and Puducherry have only one Lok Sabha seat each. Tripura, Goa, Meghalaya, Manipur, Dadra and Nagar Haveli and Daman and Diu, and Arunachal Pradesh have 2 Lok Sabha seats each. It is noteworthy that the Union Territories of Dadra and Nagar Haveli and Daman and Diu have been merged.","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"परिसीमन के बाद उत्तर प्रदेश में मतदाताओं की संख्या की दृष्टि से सबसे बड़ा लोकसभा निर्वाचन क्षेत्र कौन-सा है –","question_en":"After delimitation the largest Lok Sabha Constituency in terms of number of voters in U.P. is –","options":[{"hi":"अमेठी","en":"Amethi"},{"hi":"उन्नाव","en":"Unnao"},{"hi":"लखनऊ","en":"Lucknow"},{"hi":"बागपत","en":"Baghpat"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"वर्ष 2008 में लागू परिसीमन के बाद, 2024 के लोकसभा चुनावों के आँकड़ों के अनुसार, वर्तमान में मतदाताओं की संख्या की दृष्टि से उत्तर प्रदेश का सबसे बड़ा लोकसभा संसदीय निर्वाचन क्षेत्र गाज़ियाबाद है।","explanation_en":"After the delimitation implemented in 2008, at present, according to the data of the 2024 Lok Sabha elections, Ghaziabad is the largest Lok Sabha parliamentary constituency in Uttar Pradesh in terms of the number of electors.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा अध्यक्ष अपना त्यागपत्र किसे संबोधित करता है?","question_en":"The Speaker of the Lok Sabha addresses his letter of resignation to the –","options":[{"hi":"भारत के प्रधानमंत्री","en":"Prime Minister of India"},{"hi":"भारत के राष्ट्रपति","en":"President of India"},{"hi":"लोकसभा के उपाध्यक्ष","en":"Deputy Speaker of Lok Sabha"},{"hi":"भारत के उपराष्ट्रपति","en":"Vice President of India"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 94(b) के अनुसार लोकसभा अध्यक्ष हस्ताक्षरित पत्र द्वारा, जो लोकसभा के उपाध्यक्ष को संबोधित हो, अपने पद से त्यागपत्र दे सकता है।","explanation_en":"According to Article 94(b) of the Constitution, the Speaker of the Lok Sabha may resign from office by a signed letter addressed to the Deputy Speaker.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा अध्यक्ष को उसके कार्यकाल की समाप्ति से पहले पद से किस प्रकार हटाया जा सकता है?","question_en":"The Speaker of Lok Sabha can be removed from his office before the expiry of his term","options":[{"hi":"प्रधानमंत्री की सिफारिश पर राष्ट्रपति द्वारा","en":"By the President on the recommendation of the Prime Minister"},{"hi":"यदि लोकसभा इस आशय का संकल्प पारित करे","en":"If the Lok Sabha passes a resolution to this effect"},{"hi":"यदि लोकसभा और प्रधानमंत्री ऐसा निर्णय करें","en":"If the Lok Sabha and the Prime Minister so decide"},{"hi":"यदि संसद के दोनों सदन इस आशय का संकल्प पारित करें","en":"If both the Houses of Parliament pass a resolution to this effect"}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 94(c) के अनुसार लोकसभा अध्यक्ष को लोकसभा के उस समय के सभी सदस्यों के बहुमत से पारित संकल्प द्वारा पद से हटाया जा सकता है, परंतु ऐसा संकल्प तब तक प्रस्तावित नहीं किया जा सकता जब तक कम से कम 14 दिन की पूर्व लिखित सूचना न दी गई हो।","explanation_en":"According to Article 94(c), the Speaker of the Lok Sabha may be removed from office by a resolution passed by a majority of all the then members of the Lok Sabha, but no such resolution can be moved unless at least 14 days’ prior written notice has been given.","source":"UPPCS (Mains) 2008","source_missing":false,"exam":"uppcs-mains"},{"id":21,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"प्रोटेम स्पीकर (अस्थायी अध्यक्ष) का कार्य क्या है?","question_en":"The function of the protem Speaker is to","options":[{"hi":"अध्यक्ष की अनुपस्थिति में सदन की कार्यवाही संचालित करना।","en":"Conduct the proceedings of the House in the absence of the Speaker."},{"hi":"सदस्यों को शपथ दिलाना।","en":"Administer oath to members."},{"hi":"जब अध्यक्ष के चुने जाने की संभावना न हो, तब अध्यक्ष के रूप में कार्य करना।","en":"Officiate as a Speaker when the Speaker is unlikely to be elected."},{"hi":"केवल यह जाँचना कि सदस्यों के निर्वाचन प्रमाण-पत्र ठीक हैं या नहीं।","en":"Only check if the election certificates of the members are in order."}],"answer":1,"answer_note":"","explanation_hi":"नई निर्वाचित सभा में लोकसभा अध्यक्ष के चुनाव से पहले सामान्यतः सदन के वरिष्ठतम सदस्यों में से किसी एक को राष्ट्रपति द्वारा प्रोटेम स्पीकर नियुक्त किया जाता है, जो नव-निर्वाचित सदस्यों को शपथ दिलाता है।","explanation_en":"In a newly elected House, before the election of the Speaker of the Lok Sabha, generally one of the senior-most members of the House is appointed by the President as the Pro-tem Speaker, who administers the oath to the newly elected members.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा अध्यक्ष अपने निर्णायक मत (casting vote) का प्रयोग केवल किस स्थिति में करता है –","question_en":"The Speaker of the Lok Sabha makes use of his casting vote only –","options":[{"hi":"वर्तमान सरकार को बचाने के लिए","en":"To save the existing Government"},{"hi":"संविधान संशोधन की स्थिति में","en":"In case of Constitutional Amendment"},{"hi":"आपातकाल की स्थिति में","en":"In case of emergency"},{"hi":"मतों के बराबर बँटने पर टाई की स्थिति में","en":"In case of a tie when votes are equally divided"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 100(1) के अनुसार लोकसभा अध्यक्ष अपने ‘निर्णायक मत’ का प्रयोग तभी करता है जब किसी विषय पर मतदान में सत्तारूढ़ दल और विपक्ष के मत बराबर हों और इस प्रकार टाई हो जाए। परंतु अनुच्छेद 96(2) के अंतर्गत, उसे हटाने के संकल्प पर वह पहली बार मत देने का अधिकारी है, किंतु मतों की समानता की स्थिति में उसे निर्णायक मत देने का अधिकार नहीं है।","explanation_en":"Under Article 100(1), the Speaker of the Lok Sabha exercises his ‘casting vote’ only when, in voting on any matter, the votes of the ruling party and the opposition are equal, resulting in a tie. However, under Article 96(2), on a resolution for his removal from office, he is entitled to vote in the first instance, but is not entitled to vote in the case of equality of votes.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"भारत की लोकसभा के प्रथम अध्यक्ष कौन थे?","question_en":"Who was the first Speaker of the Lok Sabha of India?","options":[{"hi":"श्री गणेश वासुदेव मावलंकर","en":"Shri Ganesh Vasudev Mavlankar"},{"hi":"रवि राय","en":"Ravi Rai"},{"hi":"मीरा कुमार","en":"Meera Kumar"},{"hi":"बलराम जाखड़","en":"Balram Jakhar"}],"answer":0,"answer_note":"","explanation_hi":"प्रथम लोकसभा के गठन के बाद उसकी पहली बैठक 13 मई 1952 को हुई। 15 मई 1952 को गणेश वासुदेव मावलंकर लोकसभा के प्रथम अध्यक्ष बने और 27 फरवरी 1956 को अपनी मृत्यु तक इस पद पर रहे। प्रथम लोकसभा के शेष कार्यकाल के लिए तत्कालीन उपाध्यक्ष एम. अनंतशयनम अयंगार 8 मार्च 1956 को लोकसभा अध्यक्ष बने।","explanation_en":"After the formation of the first Lok Sabha, its first meeting was held on 13 May 1952. On 15 May 1952, Ganesh Vasudev Mavalankar became the first Speaker of the Lok Sabha and held this office until his death on 27 February 1956. For the remaining term of the first Lok Sabha, the then Deputy Speaker, M. Ananthasayanam Ayyangar, became the Speaker of the Lok Sabha on 8 March 1956.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा में जिस पहले अध्यक्ष के विरुद्ध अविश्वास प्रस्ताव लाया गया, वह था –","question_en":"The first Speaker against whom a Motion of No-confidence was moved in the Lok Sabha was –","options":[{"hi":"बी.आर. जाखड़","en":"B.R. Jakhad"},{"hi":"जी.वी. मावलंकर","en":"G.V. Mavalankar"},{"hi":"हुकुम सिंह","en":"Hukum Singh"},{"hi":"के.एस. हेगड़े","en":"K.S. Hegde"}],"answer":1,"answer_note":"","explanation_hi":"दिसंबर 1954 में पहली बार लोकसभा के प्रथम अध्यक्ष गणेश वासुदेव मावलंकर को पद से हटाने का प्रस्ताव लाया गया। यह प्रस्ताव 18 दिसंबर 1954 को लोकसभा द्वारा अस्वीकृत कर दिया गया।","explanation_en":"In December 1954, for the first time, a motion was brought to remove Ganesh Vasudev Mavalankar, the first Speaker of the Lok Sabha, from office. This motion was rejected by the Lok Sabha on 18 December 1954.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा की प्रथम महिला अध्यक्ष कौन हैं?","question_en":"The first female Speaker of Lok Sabha is","options":[{"hi":"विजयलक्ष्मी पंडित","en":"Vijay Laxmi Pandit"},{"hi":"सुचेता कृपलानी","en":"Sucheta Kripalani"},{"hi":"तारकेश्वरी सिन्हा","en":"Tarkeshwari Sinha"},{"hi":"मीरा कुमार","en":"Meira Kumar"}],"answer":3,"answer_note":"","explanation_hi":"15वीं लोकसभा की अध्यक्ष मीरा कुमार लोकसभा की प्रथम महिला अध्यक्ष थीं। वे जून 2009 में इस पद पर निर्वाचित हुईं। 18वीं लोकसभा के वर्तमान अध्यक्ष ओम बिरला हैं, जो 17वीं लोकसभा में भी इस पद पर रहे थे।","explanation_en":"Meira Kumar, the Speaker of the 15th Lok Sabha, was the first woman Speaker of the Lok Sabha. She was elected to this post in June 2009. The current Speaker of the 18th Lok Sabha is Om Birla, who also held this office in the 17th Lok Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"निम्नलिखित में से कौन लोकसभा का प्रथम जनजातीय अध्यक्ष था?","question_en":"Who among the following was the first Tribal Speaker of Lok Sabha?","options":[{"hi":"जी.वी. मावलंकर","en":"G.V. Mavalankar"},{"hi":"जी.एम.सी. जोशी","en":"G..M.C. Joshi"},{"hi":"मनोहर जोशी","en":"Manohar Joshi"},{"hi":"पी.ए. संगमा","en":"P.A. Sangma"}],"answer":3,"answer_note":"","explanation_hi":"पी.ए. संगमा 1995 में प्रथम जनजातीय केंद्रीय मंत्री बने। 1996 में वे लोकसभा के प्रथम जनजातीय अध्यक्ष बने।","explanation_en":"P. A. Sangma became the first tribal Union Minister in 1995. In 1996, he became the first tribal Speaker of the Lok Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"यदि उपाध्यक्ष लोकसभा की अध्यक्षता कर रहा हो, तो उसे एक अधिकार प्राप्त होता है, अर्थात वह –","question_en":"If the Deputy Speaker is presiding over the Lok Sabha, he has one right, namely, that he may –","options":[{"hi":"लोकसभा की कार्यवाही में भाग ले सकता है","en":"take part in the deliberations of the Lok Sabha"},{"hi":"सदन के समक्ष किसी भी प्रस्ताव पर सदन के सदस्य के रूप में मत दे सकता है","en":"v ote as a member of the House on any motion before it"},{"hi":"मतों की समानता की स्थिति में मत दे सकता है","en":"vote in the event of equality of votes"},{"hi":"अध्यक्ष की अनुपस्थिति में संसद की संयुक्त बैठक की अध्यक्षता करने का अधिकार नहीं रखता","en":"not have the right to preside over the joint sitting of Parliament in the absence of the Speaker"}],"answer":2,"answer_note":"","explanation_hi":"जब लोकसभा अध्यक्ष का पद रिक्त हो, या अध्यक्ष सदन की किसी बैठक में अनुपस्थित हो, तब उपाध्यक्ष अध्यक्ष के रूप में कार्य करता है। संसद के दोनों सदनों की संयुक्त बैठक में अध्यक्ष की अनुपस्थिति में उपाध्यक्ष अध्यक्षता करता है। अध्यक्ष की तरह, जब उपाध्यक्ष अध्यक्षता कर रहा हो, तब वह सामान्यतः मतदान नहीं कर सकता; वह केवल मतों की समानता की स्थिति में ही मतदान कर सकता है। इसके अलावा, अध्यक्ष के रूप में कार्य करते समय वह लोकसभा की कार्यवाही में भाग नहीं ले सकता। जब अध्यक्ष अध्यक्षता कर रहा हो, तब उपाध्यक्ष सदन के किसी अन्य सदस्य की तरह होता है। ऐसी स्थिति में उसे बोलने, कार्यवाही में भाग लेने और किसी भी प्रश्न पर मतदान करने का अधिकार होता है। ध्यान देने योग्य है कि 17वीं लोकसभा (2019–2024) में उपाध्यक्ष का पद रिक्त रहा, और वर्तमान 18वीं लोकसभा में भी जनवरी 2026 तक उपाध्यक्ष का पद रिक्त रहा था।","explanation_en":"When the office of the Speaker of the Lok Sabha is vacant, or when the Speaker is absent from a sitting of the House, the Deputy Speaker acts as the Speaker. In the joint sitting of both Houses of Parliament, in the absence of the Speaker, the Deputy Speaker presides. Like the Speaker, when the Deputy Speaker is presiding, he cannot vote in the first instance; he can vote only in the case of equality of votes. Besides this, while functioning as the Speaker, he cannot take part in the deliberations of the Lok Sabha. When the Speaker is presiding, the Deputy Speaker is like any other member of the House. In that situation, he has the right to speak, take part in the proceedings, and vote on any question. It may be noted that in the 17th Lok Sabha (2019–2024), the post of Deputy Speaker remained vacant, and in the current 18th Lok Sabha also, the post of Deputy Speaker was vacant till January 2026.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा में किसी राजनीतिक दल या दलों के गठबंधन को विपक्ष के रूप में आधिकारिक मान्यता देने के लिए लोकसभा अध्यक्ष द्वारा आवश्यक न्यूनतम संख्या कितनी है:","question_en":"The minimum number required for the Speaker of the Lok Sabha to grant official recognition to a political party or a coalition of political parties as the Opposition is:","options":[{"hi":"50 सदस्य","en":"50 members"},{"hi":"60 सदस्य","en":"60 members"},{"hi":"80 सदस्य","en":"80 members"},{"hi":"लोकसभा की कुल सदस्य संख्या का 1/3","en":"1/3 of the total membership of the Lok Sabha"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"लोकसभा में विपक्ष की आधिकारिक मान्यता के लिए आवश्यक है कि संबंधित नेता उस दल से हो जिसके पास लोकसभा में सरकार के विरोध में सबसे अधिक संख्यात्मक शक्ति हो। नियम के अनुसार, लोकसभा में मुख्य विपक्षी दल के रूप में मान्यता के लिए संबंधित दल के पास लोकसभा की कुल सदस्य संख्या का कम से कम 10 प्रतिशत, अर्थात 543, होना चाहिए। 2014 और 2019 के लोकसभा आम चुनावों में कोई भी विपक्षी दल अकेले इतनी सीटें नहीं जीत सका; इसी कारण 16वीं और 17वीं लोकसभा में विपक्ष के नेता का पद रिक्त रहा। 18वीं लोकसभा में भारतीय राष्ट्रीय कांग्रेस के राहुल गांधी विपक्ष के नेता बने। ([Constitution of India][1])","explanation_en":"For official recognition of the Opposition in the Lok Sabha, it is necessary that the leader concerned should belong to the party having the largest numerical strength among those opposed to the government in the Lok Sabha. According to the rule, for recognition as the principal Opposition party in the Lok Sabha, the concerned party must have at least 10 percent of the total strength of the Lok Sabha, that is, 543. In the 2014 and 2019 general elections to the Lok Sabha, no opposition party individually secured that many seats; that is why the post of Leader of the Opposition remained vacant in the 16th and 17th Lok Sabha. In the 18th Lok Sabha, Rahul Gandhi of the Indian National Congress became the Leader of the Opposition. ([Constitution of India][1])","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"सूची - I का सूची - II से मिलान कीजिए और सूचियों के नीचे दिए गए कोड का प्रयोग करके सही उत्तर चुनिए। सूची - I (लोकसभा) सूची - II (लोकसभा अध्यक्ष) A. 11वीं लोकसभा 1. ओम बिरला B. 12वीं लोकसभा 2. पी. ए. संगमा C. 14वीं लोकसभा 3. सोमनाथ चटर्जी D. 17वीं लोकसभा 4. जी. एम. सी. बालयोगी कोड: A B C D","question_en":"Match List - I with List – II and choose the correct answer using the code given below the lists.\nList - I List - II (Lok Sabha) (Lok Sabha Speaker) / A. 11th Lok Sabha 1. Om Birla / B. 12th Lok Sabha 2. P. A. Sangma / C. 14th Lok Sabha 3. Somnath Chatterjee / D. 17th Lok Sabha 4. G.M.C. Balyogi\nCode : / A B C D","options":[{"hi":"2 4 3 1","en":"2 4 3 1"},{"hi":"4 2 3 1","en":"4 2 3 1"},{"hi":"3 2 4 1","en":"3 2 4 1"},{"hi":"2 3 4 1","en":"2 3 4 1"}],"answer":0,"answer_note":"","explanation_hi":"पी. ए. संगमा 11वीं लोकसभा के अध्यक्ष थे; जी. एम. सी. बालयोगी 12वीं लोकसभा के अध्यक्ष थे; सोमनाथ चटर्जी 14वीं लोकसभा के अध्यक्ष थे; और ओम बिरला 17वीं लोकसभा के अध्यक्ष थे। ओम बिरला 18वीं लोकसभा के भी अध्यक्ष हैं और दूसरे कार्यकाल में कार्यरत हैं। इसलिए सही संयोजन विकल्प (a) में दिया गया है। ([Constitution of India][1])","explanation_en":"P. A. Sangma was the Speaker of the 11th Lok Sabha; G. M. C. Balayogi was the Speaker of the 12th Lok Sabha; Somnath Chatterjee was the Speaker of the 14th Lok Sabha; and Om Birla was the Speaker of the 17th Lok Sabha. Om Birla is also the Speaker of the 18th Lok Sabha and is serving a second term. Therefore, the correct combination is given in option (a). ([Constitution of India][1])","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"लोकसभा सचिवालय किसके प्रत्यक्ष नियंत्रण में आता है?","question_en":"The Lok Sabha Secretariat comes under the direct control of the:","options":[{"hi":"केंद्रीय गृह मंत्रालय","en":"Union Home Ministry"},{"hi":"संसदीय कार्य मंत्रालय","en":"Ministry of Parliamentary Affairs"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"लोकसभा अध्यक्ष","en":"Speaker of the Lok Sabha"}],"answer":3,"answer_note":"","explanation_hi":"लोकसभा सचिवालय लोकसभा अध्यक्ष के निर्देशन और नियंत्रण में कार्य करता है। सचिवालय के कर्मचारियों, सदन परिसर और संसद भवन एस्टेट पर अध्यक्ष का सर्वोच्च अधिकार होता है। अध्यक्ष यह अधिकार लोकसभा के महासचिव की सहायता से प्रयोग करता है।","explanation_en":"The Lok Sabha Secretariat functions under the direction and control of the Speaker of the Lok Sabha. The Speaker has supreme authority over the Secretariat staff, the House premises, and the Parliament House Estate. The Speaker exercises this authority with the assistance of the Secretary-General of the Lok Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"संसद - I: लोकसभा","topic_en":"The Parliament - I. Lok Sabha","question_hi":"संसद के सचिवालय में पदों के संबंध में निम्नलिखित में से कौन-से कथन सही हैं? (1) संसद के प्रत्येक सदन के सचिवालय के लिए साझा पद सृजित किए जा सकते हैं। (2) संसद को किसी भी सदन के सचिवालय कर्मचारियों की सेवा-शर्तों को विनियमित करने का अधिकार है। नीचे दिए गए कोड से सही उत्तर चुनिए:","question_en":"With reference to the post’s in Secretariate of the Parliament, which of the following statement/s is/are correct? / (1) Common posts may be created for the Secretariate of each House of Parliament. / (2) The Parliament has right to regulate the service conditions of Secretariate staff of either House of it. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"केवल (2)","en":"Only (2)"},{"hi":"न (1) न (2)","en":"Neither (1) nor (2)"},{"hi":"केवल (1)","en":"Only (1)"},{"hi":"(1) और (2) दोनों","en":"Both (1) and (2)"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 98 के खंड (1) के अंतर्गत प्रत्येक सदन के लिए अलग सचिवालय की व्यवस्था है, और इस खंड के परंतुक के अनुसार दोनों सदनों के सचिवालयों के लिए साझा पद सृजित किए जा सकते हैं। अनुच्छेद 98 के खंड (2) के अनुसार संसद विधि द्वारा किसी भी सदन के सचिवालय कर्मचारियों की भर्ती और सेवा शर्तों को विनियमित कर सकती है। इस प्रकार प्रश्न में दिए गए दोनों कथन सही हैं।","explanation_en":"Under clause (1) of Article 98 of the Constitution, there is a provision for a separate secretariat for each House of Parliament, and according to the proviso to this clause, common posts may be created for the Secretariats of both Houses of Parliament. Under clause (2) of Article 98, Parliament may by law regulate the recruitment and conditions of service of the secretariat staff of either House. Thus, both the statements given in the question are correct.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्यसभा (राज्य परिषद) के सदस्य किसके द्वारा निर्वाचित किए जाते हैं?","question_en":"The members of Council of States are elected by -","options":[{"hi":"राज्यों की विधानसभाओं के सदस्य","en":"Members of Legislative Assembly of States."},{"hi":"राज्यों की विधान परिषदों के सदस्य","en":"Members of Legislative Council of States."},{"hi":"विधानसभा और विधान परिषद, दोनों के सदस्य","en":"Members of both Legislative Assembly and Council."},{"hi":"नगरपालिकाओं और ग्राम पंचायतों के सदस्य","en":"Members of Municipalities and Gram Panchayat."}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 80(4) के अनुसार, राज्यसभा में राज्यों के प्रतिनिधि राज्य विधानसभाओं के निर्वाचित सदस्यों द्वारा आनुपातिक प्रतिनिधित्व के आधार पर एकल संक्रमणीय मत पद्धति से चुने जाते हैं। इसके अतिरिक्त, अनुच्छेद 80(1) के अंतर्गत राष्ट्रपति द्वारा राज्यसभा के 12 सदस्य मनोनीत किए जाते हैं, और अनुच्छेद 80(5) तथा संबंधित विधियों के अंतर्गत विधानमंडल वाले केंद्र शासित प्रदेशों के प्रतिनिधि उनकी विधानसभाओं के निर्वाचित सदस्यों द्वारा चुने जाते हैं।","explanation_en":"According to Article 80(4) of the Constitution, the representatives of the States in the Rajya Sabha are elected by the elected members of the State Legislative Assemblies on the basis of proportional representation by means of the single transferable vote. In addition, under Article 80(1), 12 members of the Rajya Sabha are nominated by the President, and under Article 80(5) and the relevant laws, the representatives of Union Territories having legislatures are elected by the elected members of their Legislative Assemblies.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्यसभा के संबंध में निम्नलिखित में से कौन-से कथन सही हैं? 1. यह भंग होने के अधीन नहीं है। 2. इसका कार्यकाल पाँच वर्ष का है। 3. प्रत्येक दो वर्ष बाद इसके एक-तिहाई सदस्य सेवानिवृत्त होते हैं। 4. इसके सदस्यों की आयु 25 वर्ष से कम नहीं होगी। नीचे दिए गए कोड का प्रयोग करके सही उत्तर चुनिए:","question_en":"Which of the following are correct about the Rajya Sabha? / 1. It is not a subject to dissolution. / 2. It has a term of five years. / 3. One-third of its members retire after every two years. / 4. Its members shall not be less than 25 years of age. / Select the correct answer using the code given below:\nCode :","options":[{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"1 और 3","en":"1 and 3"},{"hi":"2 और 4","en":"2 and 4"}],"answer":2,"answer_note":"","explanation_hi":"राज्यसभा एक स्थायी सदन है और इसे भंग नहीं किया जा सकता। इसके सदस्यों का कार्यकाल 6 वर्ष है, और यथासंभव इसके एक-तिहाई सदस्य हर दूसरे वर्ष सेवानिवृत्त होते हैं। इसके सदस्यों की न्यूनतम आयु 30 वर्ष होनी चाहिए।","explanation_en":"The Rajya Sabha is a permanent House and cannot be dissolved. The term of its members is 6 years, and as nearly as possible, one-third of its members retire every second year. The minimum age of its members should be 30 years.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्यसभा के संबंध में निम्नलिखित में से कौन-सा कथन सही है?","question_en":"Which one of the following statements about Rajya Sabha is correct?","options":[{"hi":"यह भंग होने के अधीन नहीं है।","en":"It is not subject to dissolution."},{"hi":"इसके सदस्य राज्यों के क्षेत्रीय निर्वाचन क्षेत्रों से प्रत्यक्ष निर्वाचन द्वारा चुने जाते हैं।","en":"Its members are chosen by direct election from territorial constituencies in the States."},{"hi":"इसे यथाशीघ्र राज्यसभा के एक सदस्य को अपना सभापति चुनना आवश्यक है।","en":"It is required to choose, as soon as may be a member of the Rajya Sabha to be the Chairman thereof."},{"hi":"भारत के महान्यायवादी को राज्यसभा में बोलने का अधिकार नहीं है।","en":"The Attorney General of India does not have the right to speak in Rajya Sabha."}],"answer":0,"answer_note":"","explanation_hi":"राज्यसभा एक स्थायी सदन है। इसे भंग नहीं किया जाता, इसके सदस्यों का कार्यकाल 6 वर्ष है, और यथासंभव इसके एक-तिहाई सदस्य हर दो वर्ष में सेवानिवृत्त होते हैं। इसके सदस्य अप्रत्यक्ष रूप से (राज्य विधानसभाओं के निर्वाचित सदस्यों द्वारा) चुने जाते हैं। साथ ही, उपराष्ट्रपति राज्यसभा के पदेन सभापति होते हैं, और महान्यायवादी को संसद के दोनों सदनों में बोलने का अधिकार है।","explanation_en":"The Rajya Sabha is a permanent House. It is not dissolved, its members have a term of 6 years, and as nearly as possible, one-third of its members retire every two years. Its members are elected indirectly (by the elected members of the State Legislative Assemblies). Also, the Vice-President is the ex-officio Chairman of the Rajya Sabha, and the Attorney General has the right to speak in both Houses of Parliament.","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राष्ट्रपति राज्य परिषद (राज्यसभा) में कुल कितने सदस्य मनोनीत कर सकता है?","question_en":"President may nominate in Council of States total -","options":[{"hi":"10 सदस्य","en":"10 Members"},{"hi":"2 सदस्य","en":"2 Members"},{"hi":"15 सदस्य","en":"15 Members"},{"hi":"12 सदस्य","en":"12 Members"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 80(1)(a) और 80(3) के अनुसार, राष्ट्रपति द्वारा राज्यसभा में 12 व्यक्ति मनोनीत किए जाते हैं, जिनके पास साहित्य, विज्ञान, कला और समाज सेवा के क्षेत्रों में विशेष ज्ञान या व्यावहारिक अनुभव होता है।","explanation_en":"According to Articles 80(1)(a) and 80(3), 12 persons are nominated to the Rajya Sabha by the President, having special knowledge or practical experience in the fields of literature, science, art and social service.","source":"","source_missing":true,"exam":"unknown"},{"id":36,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्य परिषद (राज्यसभा) का उम्मीदवार बनने के लिए न्यूनतम आयु कितनी आवश्यक है?","question_en":"The minimum age required to be a candidate for Council of States is -","options":[{"hi":"25 Year","en":"25 Year"},{"hi":"30 Year","en":"30 Year"},{"hi":"32 Year","en":"32 Year"},{"hi":"35 Year","en":"35 Year"}],"answer":1,"answer_note":"","explanation_hi":"भारत की संसद में राष्ट्रपति और दो सदन होते हैं। निचला सदन लोकसभा कहलाता है और ऊपरी सदन राज्यसभा कहलाता है। राज्यसभा के लिए निर्वाचित होने हेतु न्यूनतम आयु 30 वर्ष है।","explanation_en":"The Parliament of India consists of the President and two Houses. The lower House is called the Lok Sabha and the upper House is called the Rajya Sabha. The minimum age required for election to the Rajya Sabha is 30 years.","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्य सूची के किसी विषय पर विधि बनाने की संसद की शक्ति के संबंध में निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which one of the following statements is not correct regarding the power of the Parliament to legislate on a matter in the State List?","options":[{"hi":"राज्यसभा को यह घोषित करना होगा कि यह राष्ट्रीय हित में आवश्यक है","en":"The Rajya Sabha has to declare that it would be necessary in the national interest"},{"hi":"राज्यसभा द्वारा उपस्थित और मतदान करने वाले सदस्यों के कम से कम दो-तिहाई बहुमत से प्रस्ताव पारित होना चाहिए।","en":"A resolution has to be passed by Rajya Sabha by not less than two-third of the members present and voting."},{"hi":"यह विधि संपूर्ण देश या उसके किसी भाग के लिए हो सकती है।","en":"The legislation could be for the whole or any part of the Country."},{"hi":"केवल राज्यसभा ही राष्ट्रीय हित में राज्य सूची के विषय पर विधि बना सकती है।","en":"Only the Rajya Sabha can make laws with respect to a matter in the State list in the national interest."}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 249 के अनुसार, यदि राज्यसभा उपस्थित और मतदान करने वाले सदस्यों के कम से कम दो-तिहाई बहुमत से यह प्रस्ताव पारित करती है कि राज्य सूची के किसी विषय पर संसद द्वारा विधि बनाना राष्ट्रीय हित में आवश्यक है, तो संसद उस विषय पर विधि बना सकती है। ऐसी विधि संपूर्ण भारत या उसके किसी भाग के लिए बनाई जा सकती है। राज्य सूची के विषय पर राष्ट्रीय हित में विधि, राज्यसभा द्वारा ऐसा प्रस्ताव पारित करने के बाद संसद द्वारा बनाई जाती है, न कि अकेले राज्यसभा द्वारा। अतः कथन (d) सही नहीं है।","explanation_en":"Under Article 249 of the Constitution, if the Rajya Sabha passes a resolution by a majority of not less than two-thirds of the members present and voting that it is necessary in the national interest for Parliament to make a law on a matter in the State List, then Parliament can make a law on that subject. Such a law may be made for the whole or any part of India. A law in the national interest on a subject in the State List is made by Parliament after the Rajya Sabha passes such a resolution, and not by the Rajya Sabha alone. Therefore, statement (d) is not correct.","source":"UPPCS (Mains) 2017","source_missing":false,"exam":"uppcs-mains"},{"id":38,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"निम्नलिखित पर विचार कीजिए: अभिकथन (A): धन विधेयक लोकसभा द्वारा पारित होकर राज्यसभा को प्रेषित किए जाने के बाद, राज्यसभा की सिफारिशें प्राप्ति की तिथि से 14 दिनों के भीतर लोकसभा द्वारा स्वीकार की जानी चाहिए और फिर उन्हें विधेयक में समाविष्ट किया जाना चाहिए। कारण (R): धन विधेयक राज्यसभा में प्रस्तुत नहीं किया जा सकता। नीचे दिए गए कोड से सही उत्तर चुनिए:","question_en":"Consider the followings : Assertion (A) : Recommendations of the Rajya Sabha, after a Money Bill is passed by the Lok Sabha and transmitted to the Rajya Sabha, have to be accepted by the Lok Sabha within 14 days from the receipt of recommendations and then get them incorporated in the Bill. Reason (R) : Money Bill cannot be introduced in the Rajya Sabha. / Select the correct answer from the codes given below: Codes :","options":[{"hi":"दोनों, (A) और (R), सही हैं और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."},{"hi":"दोनों, (A) और (R), सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true but (R) is the not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false but (R) is true."}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 109 के अनुसार धन विधेयक केवल लोकसभा में प्रस्तुत किया जा सकता है। लोकसभा द्वारा पारित होने के बाद धन विधेयक सिफारिशों के लिए राज्यसभा को भेजा जाता है, और राज्यसभा 14 दिनों के भीतर उसे अपनी सिफारिशों के साथ लोकसभा को लौटाती है। फिर भी लोकसभा राज्यसभा की किसी भी सिफारिश को स्वीकार या अस्वीकार करने के लिए स्वतंत्र है। यदि राज्यसभा 14 दिनों के भीतर धन विधेयक लोकसभा को नहीं लौटाती, तो वह उसी रूप में दोनों सदनों द्वारा पारित माना जाता है, जिस रूप में लोकसभा ने उसे पारित किया था। अतः राज्यसभा के पास धन विधेयक में संशोधन करने या उसे अस्वीकार करने की कोई शक्ति नहीं है।","explanation_en":"According to Article 109, a Money Bill can be introduced only in the Lok Sabha. After a Money Bill is passed by the Lok Sabha, it is transmitted to the Rajya Sabha for recommendations, and the Rajya Sabha returns it to the Lok Sabha with its recommendations within 14 days. However, the Lok Sabha is free to accept or reject any recommendation of the Rajya Sabha. If the Rajya Sabha does not return the Money Bill to the Lok Sabha within 14 days, it is deemed to have been passed by both Houses in the form in which it was passed by the Lok Sabha. Therefore, the Rajya Sabha has no power to amend or reject a Money Bill.","source":"","source_missing":true,"exam":"unknown"},{"id":39,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्यसभा की तुलना में लोकसभा की निम्नलिखित में से कौन-सी विशेष शक्तियाँ हैं? I. धन या वित्त विधेयक केवल लोक सभा में प्रस्तुत किया जा सकता है। II. धन विधेयक की अस्वीकृति या संशोधन से संबंधित। III. मंत्रिपरिषद का उत्तरदायित्व। IV. एक या अधिक अखिल भारतीय सेवाओं के सृजन से संबंधित। नीचे दिए गए कोड से सही उत्तर चुनिए:","question_en":"Which of the following are exclusive powers of Lok Sabha in comparison to the Rajya Sabha? I. A Money/Finance Bill can be introduced only in the House of the People. II. Regarding the rejection or amendment of Money Bill. III. The accountability of Council of Ministers. IV. Concerning the creation of one or more All India Services. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"I, II, III, IV","en":"I, II, III, IV"},{"hi":"I, II, III","en":"I, II, III"},{"hi":"I, III, IV","en":"I, III, IV"},{"hi":"II, III, IV","en":"II, III, IV"}],"answer":1,"answer_note":"","explanation_hi":"लोकसभा को राज्यसभा की तुलना में धन विधेयक के प्रस्तुत किए जाने तथा उसकी अस्वीकृति या संशोधन के संबंध में [अनुच्छेद 109] और मंत्रिपरिषद के उत्तरदायित्व के संबंध में [अनुच्छेद 75(3)] विशेष शक्तियाँ प्राप्त हैं। अखिल भारतीय सेवाओं के सृजन (अनुच्छेद 312) के संबंध में राज्यसभा को विशेष शक्ति प्राप्त है।","explanation_en":"The Lok Sabha has exclusive powers, as compared to the Rajya Sabha, with regard to the introduction of a Money Bill and its rejection or amendment [Art. 109], as well as with regard to the responsibility of the Council of Ministers [Art. 75(3)]. With regard to the creation of All India Services (Art. 312), the Rajya Sabha has the exclusive power.","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्य परिषद (राज्यसभा) को निम्नलिखित में से किस संबंध में विशेष शक्तियाँ प्राप्त हैं?","question_en":"The Council of States has exclusive powers in relation to which of the following?","options":[{"hi":"राष्ट्रपति को हटाने की कार्यवाही आरंभ करना","en":"To initiate proceedings for the removal of the President"},{"hi":"सर्वोच्च न्यायालय के न्यायाधीश को हटाने की कार्यवाही आरंभ करना","en":"To initiate proceedings for the removal of a judges of the Supreme Court"},{"hi":"एक नई अखिल भारतीय सेवा के सृजन की सिफारिश करना","en":"To recommend creation of a new All India Service"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 312 के अंतर्गत, एक नई अखिल भारतीय सेवा के सृजन के लिए प्रस्ताव पारित करना राज्यसभा की विशेष शक्ति है। इस अनुच्छेद के अनुसार, यदि राज्यसभा उपस्थित और मतदान करने वाले सदस्यों के कम से कम दो-तिहाई बहुमत से अखिल भारतीय सेवाओं के सृजन के पक्ष में प्रस्ताव पारित करती है, जिनमें अखिल भारतीय न्यायिक सेवा भी सम्मिलित है, तो संसद विधि द्वारा ऐसी एक या अधिक सेवाओं का सृजन कर सकती है।","explanation_en":"Under Article 312 of the Constitution of India, passing a resolution for the creation of a new All India Service is an exclusive power of the Rajya Sabha. According to this Article, if the Rajya Sabha passes a resolution, supported by not less than two-thirds of the members present and voting, in favour of the creation of All India Services, including an All India Judicial Service, Parliament may create such service or services by law.","source":"","source_missing":true,"exam":"unknown"},{"id":41,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"नई अखिल भारतीय सेवा के सृजन के संबंध में निम्नलिखित में से कौन-से कथन सही हैं? 1. राष्ट्रीय हित में, राज्यसभा नई अखिल भारतीय सेवा के सृजन के लिए प्रस्ताव पारित कर सकती है। 2. नई अखिल भारतीय सेवा के सृजन हेतु प्रस्ताव राज्यसभा द्वारा सदन के कुल सदस्यों के दो-तिहाई बहुमत से पारित होना चाहिए। नीचे दिए गए कोड से सही उत्तर चुनिए:","question_en":"With reference to creation of new All India Service, which of the following statements is/are correct ? / 1. In the national interest, the Rajya Sabha can pass a resolution for creation of new All India Service. / 2. The resolution for creation of new All India Service must be passed by the Rajya Sabha by two-third majority of the total members of the house. / Select the correct answer from the code given below :\nCode :","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न 1 न 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 312(1) के अनुसार, यदि राज्यसभा यह घोषित करते हुए प्रस्ताव पारित करती है कि ऐसा करना राष्ट्रीय हित में आवश्यक या समीचीन है, और वह प्रस्ताव उपस्थित और मतदान करने वाले सदस्यों के कम से कम दो-तिहाई बहुमत से पारित होता है, तो संसद विधि द्वारा एक या अधिक नई अखिल भारतीय सेवाओं के सृजन का उपबंध कर सकती है। अतः कथन 1 सही है। कथन 2 गलत है, क्योंकि आवश्यक बहुमत राज्यसभा की कुल सदस्य संख्या का दो-तिहाई नहीं, बल्कि उपस्थित और मतदान करने वाले सदस्यों का दो-तिहाई है।","explanation_en":"According to Article 312(1) of the Constitution of India, if the Rajya Sabha passes a resolution declaring that it is necessary or expedient in the national interest to do so, and that resolution is passed by a majority of not less than two-thirds of the members present and voting, then Parliament may by law provide for the creation of one or more new All India Services. Therefore, statement 1 is correct. Statement 2 is incorrect, because the required majority is not two-thirds of the total membership of the Rajya Sabha, but two-thirds of the members present and voting.","source":"","source_missing":true,"exam":"unknown"},{"id":42,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"निम्नलिखित में से किस राज्य युग्म का राज्य परिषद (राज्यसभा) में समान प्रतिनिधित्व है?","question_en":"Which one of the following pairs of states has equal representation in the Council of States:","options":[{"hi":"आंध्र प्रदेश और महाराष्ट्र","en":"Andhra Pradesh and Maharashtra"},{"hi":"आंध्र प्रदेश और तमिलनाडु","en":"Andhra Pradesh and Tamil Nadu"},{"hi":"गुजरात और राजस्थान","en":"Gujarat and Rajasthan"},{"hi":"महाराष्ट्र और तमिलनाडु","en":"Maharashtra and Tamil Nadu"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"प्रश्न के समय आंध्र प्रदेश और तमिलनाडु का राज्यसभा में समान प्रतिनिधित्व था। वर्तमान में, आंध्र प्रदेश के विभाजन के बाद, आंध्र प्रदेश की राज्यसभा में 11 सीटें हैं और तेलंगाना की 7 सीटें हैं, जबकि तमिलनाडु की 18 सीटें हैं। इसी प्रकार, महाराष्ट्र की 19, गुजरात की 11 और राजस्थान की 10 राज्यसभा सीटें हैं। वर्तमान में, राज्यों/केंद्र शासित प्रदेशों के जिन समूहों का राज्यसभा में समान प्रतिनिधित्व है, वे इस प्रकार हैं: आंध्र प्रदेश, गुजरात और मध्य प्रदेश (प्रत्येक की 11 सीटें); ओडिशा और राजस्थान (प्रत्येक की 10 सीटें); बिहार और पश्चिम बंगाल (प्रत्येक की 16 सीटें); छत्तीसगढ़ और हरियाणा (प्रत्येक की 5 सीटें); पंजाब, असम और तेलंगाना (प्रत्येक की 7 सीटें); उत्तराखंड, हिमाचल प्रदेश और दिल्ली राष्ट्रीय राजधानी क्षेत्र (प्रत्येक की 3 सीटें); तथा अरुणाचल प्रदेश, गोवा, मणिपुर, मेघालय, मिजोरम, नागालैंड, सिक्किम, त्रिपुरा और पुदुचेरी (प्रत्येक की 1 सीट)।","explanation_en":"At the time of the question, Andhra Pradesh and Tamil Nadu had equal representation in the Rajya Sabha. At present, after the bifurcation of Andhra Pradesh, Andhra Pradesh has 11 Rajya Sabha seats and Telangana has 7 seats, whereas Tamil Nadu has 18 seats. Similarly, Maharashtra has 19, Gujarat 11, and Rajasthan 10 Rajya Sabha seats. At present, the groups of States/Union Territories having equal representation in the Rajya Sabha are: Andhra Pradesh, Gujarat and Madhya Pradesh (11 seats each); Odisha and Rajasthan (10 seats each); Bihar and West Bengal (16 seats each); Chhattisgarh and Haryana (5 seats each); Punjab, Assam and Telangana (7 seats each); Uttarakhand, Himachal Pradesh and NCT of Delhi (3 seats each); and Arunachal Pradesh, Goa, Manipur, Meghalaya, Mizoram, Nagaland, Sikkim, Tripura and Puducherry (1 seat each).","source":"","source_missing":true,"exam":"unknown"},{"id":43,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्य परिषद में उत्तर प्रदेश को आवंटित सीटें निम्नलिखित में से किन राज्यों को आवंटित कुल सीटों के बराबर हैं?","question_en":"Seats allocated to Uttar Pradesh in the Council of States are the total number of seats allocated to:","options":[{"hi":"आंध्र प्रदेश और मध्य प्रदेश","en":"Andhra Pradesh and Madhya Pradesh"},{"hi":"आंध्र प्रदेश और तमिलनाडु","en":"Andhra Pradesh and Tamil Nadu"},{"hi":"बिहार और गुजरात","en":"Bihar and Gujarat"},{"hi":"महाराष्ट्र और मध्य प्रदेश","en":"Maharashtra and Madhya Pradesh"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"दिए गए राज्यों की राज्यसभा सीटें इस प्रकार हैं– आंध्र प्रदेश – 11 (पहले 18); मध्य प्रदेश – 11 (पहले 16); तमिलनाडु – 18; बिहार – 16; गुजरात – 11; महाराष्ट्र – 19; उत्तर प्रदेश – 31 (पहले 34); पश्चिम बंगाल – 16; कर्नाटक – 12। इस प्रकार, उत्तराखंड के उत्तर प्रदेश से गठन के कारण उत्तर प्रदेश को आवंटित राज्यसभा सीटें 34 से घटकर अब 31 हो गई हैं। इसी प्रकार, मध्य प्रदेश से छत्तीसगढ़ के गठन के कारण वहाँ की सीटें 16 से घटकर 11 हो गईं। झारखंड के गठन के कारण बिहार की सीटें 22 से घटकर 16 हो गईं। तेलंगाना के गठन के बाद आंध्र प्रदेश के पास 11 सीटें और तेलंगाना के पास 7 सीटें हैं। चूँकि प्रश्न वर्ष 2000 से संबंधित है, उस समय उत्तर प्रदेश की राज्यसभा सीटें 34 थीं, जो तत्कालीन आंध्र प्रदेश (18) और मध्य प्रदेश (16) के कुल योग के बराबर थीं, अर्थात छत्तीसगढ़ के गठन से पहले।","explanation_en":"The Rajya Sabha seats of the given States are as follows– Andhra Pradesh – 11 (earlier 18) Madhya Pradesh – 11 (earlier 16) Tamil Nadu – 18 Bihar – 16 Gujarat – 11 Maharashtra – 19 Uttar Pradesh – 31 (earlier 34) West Bengal – 16 Karnataka – 12 Thus, due to the formation of Uttarakhand from Uttar Pradesh, the number of Rajya Sabha seats allotted to Uttar Pradesh has now come down from 34 to 31. Similarly, due to the creation of Chhattisgarh from Madhya Pradesh, the number of seats there declined from 16 to 11. Bihar’s number of seats declined from 22 to 16 due to the creation of Jharkhand. After the creation of Telangana, Andhra Pradesh has 11 seats and Telangana has 7 seats. Since the question pertains to the year 2000, at that time Uttar Pradesh had 34 Rajya Sabha seats, which was equal to the combined total of the then Andhra Pradesh (18) and Madhya Pradesh (16), that is, before the formation of Chhattisgarh.","source":"","source_missing":true,"exam":"unknown"},{"id":44,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"सूची I का सूची II से मिलान कीजिए और सूचियों के नीचे दिए गए कोड का प्रयोग करके सही उत्तर चुनिए। सूची I (राज्य) सूची II (राज्यसभा में सीटों की संख्या) A. महाराष्ट्र 1. 16 B. कर्नाटक 2. 18 C. बिहार 3. 19 D. तमिलनाडु 4. 12 कोड: A B C D","question_en":"Match List I with List II and choose the correct answer using the code given below the lists.\nList I (State) List - II (Number of seats in Rajya Sabha) / A. Maharashtra 1. 16 / B. Karnataka 2. 18 / C. Bihar 3. 19 / D. Tamil Nadu 4. 12\nCode : / A B C D","options":[{"hi":"2 1 3 4","en":"2 1 3 4"},{"hi":"2 4 3 1","en":"2 4 3 1"},{"hi":"1 2 4 3","en":"1 2 4 3"},{"hi":"3 4 1 2","en":"3 4 1 2"}],"answer":3,"answer_note":"","explanation_hi":"संविधान की चौथी अनुसूची के अनुसार, दिए गए राज्यों को राज्यसभा में सीटों का आवंटन इस प्रकार है: महाराष्ट्र – 19 सीटें; कर्नाटक – 12 सीटें; बिहार – 16 सीटें; तमिलनाडु – 18 सीटें। अतः सही संयोजन विकल्प (d) में दिया गया है।","explanation_en":"According to the Fourth Schedule of the Constitution, the allocation of seats in the Rajya Sabha to the given States is as follows: Maharashtra – 19 seats Karnataka – 12 seats Bihar – 16 seats Tamil Nadu – 18 seats Therefore, the correct combination is given in option (d).","source":"","source_missing":true,"exam":"unknown"},{"id":45,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"सूची -1 का सूची - II से मिलान कीजिए और सूचियों के नीचे दिए गए कोड का प्रयोग करके सही उत्तर चुनिए। सूची -1 सूची-II (राज्य) (राज्यसभा में प्रतिनिधित्व) A. राजस्थान 1. 10 सीटें B. गुजरात 2. 7 सीटें C. कर्नाटक 3. 11 सीटें D. पंजाब 4. 12 सीटें कोड: A B C D","question_en":"Match List -1 with List - II and select the correct answer using the codes given below the list s.\nList -1 List-II (State) (Representation in Rajya Sabha) / A. Rajasthan 1.10 seats / B. Gujarat 2. 7 seats / C. Karnataka 3. 11 seats / D. Punjab 4.12 seats Codes / A B C D","options":[{"hi":"1 3 4 2","en":"1 3 4 2"},{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":0,"answer_note":"","explanation_hi":"सही मिलान इस प्रकार है – राज्य राज्यसभा में प्रतिनिधित्व राजस्थान – 10 गुजरात – 11 कर्नाटक – 12 पंजाब – 7","explanation_en":"The correct matching is as follows – State Representation in Rajya Sabha Rajasthan – 10 Gujarat – 11 Karnataka – 12 Punjab – 7","source":"","source_missing":true,"exam":"unknown"},{"id":46,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"सूची-I का सूची-II से मिलान कीजिए और नीचे दिए गए कोड का प्रयोग करके सही उत्तर चुनिए। सूची-I (राज्य) सूची-II (राज्यसभा में सदस्यों की संख्या) A. गुजरात 1. 9 B. कर्नाटक 2. 11 C. केरल 3. 12 D. ओडिशा 4. 10 कोड: A B C D","question_en":"Match List-I with List-II and select the correct answer by using the code given below:\nList-I List-II (States) (No. of members in Rajya Sabha) / A. Gujarat 1. 9 / B. Karnataka 2. 11 / C. Kerala 3. 12 / D. Odisha 4. 10\nCode : / A B C D","options":[{"hi":"1 4 3 2","en":"1 4 3 2"},{"hi":"3 2 4 1","en":"3 2 4 1"},{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"1 2 3 4","en":"1 2 3 4"}],"answer":2,"answer_note":"","explanation_hi":"सूची-I और सूची-II का सही मिलान इस प्रकार है – राज्य राज्यसभा में सदस्यों की संख्या गुजरात – 11 कर्नाटक – 12 केरल – 9 ओडिशा – 10","explanation_en":"The correct matching of List-I and List-II is as follows – State Number of members in the Rajya Sabha Gujarat – 11 Karnataka – 12 Kerala – 9 Odisha – 10","source":"","source_missing":true,"exam":"unknown"},{"id":47,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"निम्नलिखित में से किस राज्य की राज्यसभा में निर्वाचित सदस्यों की संख्या सबसे कम है?","question_en":"Which among the following States has the lowest number of elected members in the Rajya Sabha?","options":[{"hi":"छत्तीसगढ़","en":"Chhattisgarh"},{"hi":"हिमाचल प्रदेश","en":"Himachal Pradesh"},{"hi":"झारखंड","en":"Jharkhand"},{"hi":"जम्मू और कश्मीर","en":"Jammu and Kashmir"}],"answer":1,"answer_note":"","explanation_hi":"दिए गए राज्यों/केंद्र शासित प्रदेश से राज्यसभा के लिए निर्वाचित सदस्यों की संख्या इस प्रकार है – छत्तीसगढ़ (5), हिमाचल प्रदेश (3), झारखंड (6) और जम्मू और कश्मीर (4)।","explanation_en":"The number of members elected to the Rajya Sabha from the given States/Union Territory is as follows – Chhattisgarh (5), Himachal Pradesh (3), Jharkhand (6), and Jammu and Kashmir (4).","source":"","source_missing":true,"exam":"unknown"},{"id":48,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"केंद्र शासित प्रदेशों का प्रतिनिधित्व किसमें होता है?","question_en":"The Union Territories get representation in –","options":[{"hi":"लोकसभा","en":"Lok Sabha"},{"hi":"राज्यसभा","en":"Rajya Sabha"},{"hi":"संसद के दोनों सदन","en":"Both Houses of Parliament"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"केंद्र शासित प्रदेशों का संसद के दोनों सदनों में प्रतिनिधित्व होता है। राज्यसभा की अधिकतम सदस्य संख्या 250 है। दिल्ली (3), पुदुचेरी (1) और जम्मू और कश्मीर (4) केंद्र शासित प्रदेशों का राज्यसभा में प्रतिनिधित्व है, जबकि शेष केंद्र शासित प्रदेशों का इसमें प्रतिनिधित्व नहीं है। लोकसभा में केंद्र शासित प्रदेशों के अधिकतम 20 सदस्य प्रतिनिधित्व कर सकते हैं।","explanation_en":"The Union Territories are represented in both Houses of Parliament. The maximum strength of the Rajya Sabha is 250. The Union Territories of Delhi (3), Puducherry (1), and Jammu and Kashmir (4) are represented in the Rajya Sabha, while the remaining Union Territories do not have representation in it. In the Lok Sabha, a maximum of 20 members can represent the Union Territories.","source":"","source_missing":true,"exam":"unknown"},{"id":49,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्य परिषद (राज्यसभा) का सभापति कौन होता है?","question_en":"The Chairman of Council of States (Rajya Sabha) is","options":[{"hi":"राष्ट्रपति द्वारा नियुक्त","en":"Appointed by President"},{"hi":"संसद द्वारा निर्वाचित","en":"Elected by Parliament"},{"hi":"उपराष्ट्रपति पदेन सभापति होता है","en":"Vice-President is ex-officio Chairman"},{"hi":"राज्य परिषद के सदस्यों द्वारा निर्वाचित","en":"Elected by members of State Council"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 89(1) और 64 के अनुसार, उपराष्ट्रपति राज्यसभा का पदेन सभापति होता है। अतः विकल्प (c) सही है। अनुच्छेद 66(1) के अनुसार, उपराष्ट्रपति का निर्वाचन एक निर्वाचक मंडल द्वारा किया जाता है, जिसमें संसद के दोनों सदनों, अर्थात राज्यसभा और लोकसभा, के सदस्य होते हैं।","explanation_en":"According to Articles 89(1) and 64 of the Constitution, the Vice-President is the ex officio Chairman of the Rajya Sabha. Therefore, option (c) is correct. Under Article 66(1), the Vice-President is elected by an electoral college consisting of the members of both Houses of Parliament, namely the Rajya Sabha and the Lok Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":50,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"किस सदन का पीठासीन अधिकारी उस सदन का सदस्य नहीं होता?","question_en":"In which House is the presiding officer not a member of that House?","options":[{"hi":"राज्यसभा","en":"Rajya-Sabha"},{"hi":"लोकसभा","en":"Lok-Sabha"},{"hi":"विधानसभा","en":"Vidhan-Sabha"},{"hi":"विधान परिषद","en":"Vidhan-Parishad"}],"answer":0,"answer_note":"","explanation_hi":"राज्यसभा के पदेन सभापति उपराष्ट्रपति होते हैं, और वे राज्यसभा के सदस्य नहीं होते, यद्यपि उनका निर्वाचन संसद के दोनों सदनों के सदस्यों से बने निर्वाचक मंडल द्वारा किया जाता है। संविधान के अनुच्छेद 89(1) और 64 के अनुसार, वे राज्यसभा के पदेन सभापति हैं।","explanation_en":"The ex officio Chairman of the Rajya Sabha is the Vice-President, and he is not a member of the Rajya Sabha, though he is elected by an electoral college consisting of the members of both Houses of Parliament. According to Articles 89(1) and 64 of the Constitution, he is the ex officio Chairman of the Rajya Sabha.","source":"","source_missing":true,"exam":"unknown"},{"id":51,"topic_hi":"संसद - II: राज्यसभा","topic_en":"Parliament - II. Rajya Sabha","question_hi":"राज्यसभा का पहली बार गठन किस वर्ष में हुआ?","question_en":"In which year was Rajya Sabha constituted for the first time?","options":[{"hi":"1950","en":"1950"},{"hi":"1951","en":"1951"},{"hi":"1952","en":"1952"},{"hi":"1953","en":"1953"}],"answer":2,"answer_note":"","explanation_hi":"राज्यसभा का पहली बार गठन 3 अप्रैल 1952 को हुआ। इसकी पहली बैठक 13 मई 1952 को हुई।","explanation_en":"The Rajya Sabha was constituted for the first time on 3 April 1952. Its first sitting was held on 13 May 1952.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

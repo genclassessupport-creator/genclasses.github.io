@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-18-election-parties","title":"Polity PYQ — Election Commission & Parties","shortTitle":"Election Commission & Parties","subtitle":"Purvavlokan GS · Indian Polity · निर्वाचन आयोग एवं राजनीतिक दल","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Election Commission & Parties. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":50,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारत का संविधान निर्वाचन आयोग का उपबंध किस अनुच्छेद के अंतर्गत करता है?","question_en":"The Constitution of India provides for an Election Commission under Article –","options":[{"hi":"321","en":"321"},{"hi":"322","en":"322"},{"hi":"323","en":"323"},{"hi":"324","en":"324"}],"answer":3,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 324 के अंतर्गत निर्वाचन आयोग का उपबंध किया गया है। इसके अंतर्गत संसद और राज्य विधानमंडलों के साथ-साथ राष्ट्रपति और उपराष्ट्रपति के पदों के निर्वाचनों के लिए निर्वाचक नामावलियों की तैयारी और निर्वाचनों के संचालन का अधीक्षण, निर्देशन और नियंत्रण निर्वाचन आयोग में निहित किया गया है।","explanation_en":"Under Article 324 of the Constitution of India, provision has been made for an Election Commission for the superintendence, direction, and control of the preparation of electoral rolls and the conduct of elections to Parliament and the State Legislatures, as well as to the offices of the President and Vice-President.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारत के मुख्य निर्वाचन आयुक्त का कार्यकाल कितना है?","question_en":"What is the tenure of the Chief Election Commissioner of India?","options":[{"hi":"पाँच वर्ष","en":"Five Years"},{"hi":"राष्ट्रपति की इच्छा पर्यंत","en":"During the pleasure of the President"},{"hi":"छह वर्ष या 65 वर्ष की आयु तक, जो भी पहले हो","en":"Six years or till the age of 65 years whichever is earlier"},{"hi":"पाँच वर्ष या 65 वर्ष की आयु तक, जो भी पहले हो","en":"Five years or till the age of 65 years whichever is earlier"}],"answer":2,"answer_note":"","explanation_hi":"वर्तमान में भारत के निर्वाचन आयोग में मुख्य निर्वाचन आयुक्त और दो अन्य निर्वाचन आयुक्त होते हैं, जिनकी नियुक्ति राष्ट्रपति करते हैं। मुख्य निर्वाचन आयुक्त और निर्वाचन आयुक्तों को वेतन और भत्ते भारत के उच्चतम न्यायालय के न्यायाधीशों के समतुल्य मिलते हैं। मुख्य निर्वाचन आयुक्त और निर्वाचन आयुक्तों का पदावधि पदभार ग्रहण करने की तिथि से छह वर्ष है, या जब तक वे 65 वर्ष की आयु प्राप्त न कर लें, इनमें से जो भी पहले हो।","explanation_en":"At present, the Election Commission of India consists of the Chief Election Commissioner and two other Election Commissioners, who are appointed by the President. The Chief Election Commissioner and the Election Commissioners receive salaries and allowances equivalent to those of judges of the Supreme Court of India. The term of office of the Chief Election Commissioner and the Election Commissioners is six years from the date of assuming office or until they attain the age of 65 years, whichever is earlier.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारत के मुख्य निर्वाचन आयुक्त का पद किसके समतुल्य है?","question_en":"The status of the Chief Election Commissioner of India is equal to the –","options":[{"hi":"भारत के मुख्य न्यायाधीश","en":"Chief Justice of India"},{"hi":"किसी राज्य के राज्यपाल","en":"Governor of a State"},{"hi":"लोकसभा के अध्यक्ष","en":"Speaker of Lok Sabha"},{"hi":"किसी राज्य की विधानसभा के अध्यक्ष","en":"Speaker of Legislative Assembly of a State"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"मुख्य निर्वाचन आयुक्त और अन्य दो निर्वाचन आयुक्तों को उच्चतम न्यायालय के न्यायाधीशों के समतुल्य वेतन और भत्ते दिए जाते हैं, और संविधान के अनुच्छेद 324(5) के परंतुक के अनुसार मुख्य निर्वाचन आयुक्त को उसी प्रक्रिया और उन्हीं आधारों पर पद से हटाया जा सकता है जिन पर उच्चतम न्यायालय के न्यायाधीश को हटाया जाता है। वरीयता क्रम की दृष्टि से उच्चतम न्यायालय के न्यायाधीश 9वें स्थान पर हैं, जबकि मुख्य निर्वाचन आयुक्त 9A स्थान पर हैं। इसके अतिरिक्त भारत के मुख्य न्यायाधीश और लोकसभा अध्यक्ष वरीयता क्रम में 6वें स्थान पर हैं। राज्यों के राज्यपाल अपने-अपने राज्य में 4थे स्थान पर हैं, जबकि किसी राज्य की विधानसभा के अध्यक्ष का स्थान 14वाँ है। इस प्रकार स्पष्ट है कि दिए गए विकल्पों में से कोई भी सही नहीं है।","explanation_en":"The Chief Election Commissioner and the other two Election Commissioners are given salaries and allowances equal to those of judges of the Supreme Court, and under the proviso to Article 324(5) of the Constitution, the Chief Election Commissioner can be removed from office only in the same manner and on the same grounds as a judge of the Supreme Court. From the point of view of the order of precedence, judges of the Supreme Court are placed at the 9th position, while the Chief Election Commissioner is placed at 9A. In addition, the Chief Justice of India and the Speaker of the Lok Sabha are placed at the 6th position in the order of precedence. Governors of States, within their respective States, are placed at the 4th position, while the Speaker of a State Legislative Assembly is placed at the 14th position. Thus, it is clear that none of the given options is correct.","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित दो कथन दिए गए हैं: अभिकथन (A): संसद और राज्य विधानमंडलों के स्वतंत्र और निष्पक्ष निर्वाचन कराने की शक्तियाँ एक स्वतंत्र निकाय, अर्थात निर्वाचन आयोग को दी गई हैं। कारण (R): निर्वाचन आयुक्तों को हटाने की शक्ति कार्यपालिका के पास है। उपर्युक्त के संदर्भ में निम्नलिखित में से कौन-सा सही है?","question_en":"Given below are two statements: Assertion (A) : Powers for conducting elections to the Parliament and State Legislatures in a free and fair manner have been given to an independent body i.e. the Election Commission. Reason (R) : Power of removal of Election Commissioners is with the executive. In the context of above, which one of the following is correct?\nCode :","options":[{"hi":"दोनों (A) और (R) सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"दोनों (A) और (R) सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true but, (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false but, (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 324 के अंतर्गत संसद और राज्य विधानमंडलों के निर्वाचनों के लिए एक स्वतंत्र निर्वाचन आयोग गठित किया गया है, ताकि स्वतंत्र और निष्पक्ष निर्वाचन सुनिश्चित हों; अतः अभिकथन (A) सही है। मुख्य निर्वाचन आयुक्त को संसद द्वारा उसी प्रकार हटाया जा सकता है जैसे उच्चतम न्यायालय के न्यायाधीश को हटाया जाता है; अर्थात मुख्य निर्वाचन आयुक्त को हटाने की शक्ति विधायिका के पास है। परंतु मुख्य निर्वाचन आयुक्त से भिन्न निर्वाचन आयुक्तों के मामले में यह प्रक्रिया आवश्यक नहीं है। उन्हें मुख्य निर्वाचन आयुक्त की सिफारिश पर राष्ट्रपति कार्यपालिका शक्ति के प्रयोग में हटा सकते हैं। इस आधार पर कारण (R) भी सही है। परंतु यह कारण अभिकथन की व्याख्या नहीं करता। वास्तव में, प्रश्न की भाषा और विश्लेषण के कारण कुछ भ्रम भी है। (1) यदि \"निर्वाचन आयुक्त\" शब्द में मुख्य निर्वाचन आयुक्त और अन्य निर्वाचन आयुक्त दोनों शामिल हों, तो कारण (R) गलत होगा। (2) अन्य निर्वाचन आयुक्तों को हटाने की शक्ति मुख्य निर्वाचन आयुक्त की सिफारिश पर राष्ट्रपति में निहित है, और मुख्य निर्वाचन आयुक्त को हटाने की शक्ति संसद में निहित है; अर्थात अन्य निर्वाचन आयुक्तों को हटाने की शक्ति भी मुख्य निर्वाचन आयुक्त के माध्यम से अप्रत्यक्ष रूप से संसद या विधायिका में निहित है। इस विश्लेषण पर भी कारण (R) गलत होगा।","explanation_en":"Under Article 324 of the Constitution of India, an independent Election Commission has been constituted for elections to Parliament and the State Legislatures and for ensuring free and fair elections; therefore, Assertion (A) is true. The Chief Election Commissioner can be removed from office by Parliament in the same manner as a judge of the Supreme Court is removed; that is, the power to remove the Chief Election Commissioner lies with the legislature. However, in the case of Election Commissioners other than the Chief Election Commissioner, this process is not required. They may be removed by the President in the exercise of executive power on the recommendation of the Chief Election Commissioner. On this basis, Reason / (R) is also true. However, the reason does not explain the assertion. In fact, due to the language and analysis of the question, there is also some confusion. / (1) If the term “Election Commissioners” includes both the Chief Election Commissioner and the other Election Commissioners, then Reason (R) would be incorrect. / (2) The power to remove the other Election Commissioners is vested in the President on the recommendation of the Chief Election Commissioner, and the power to remove the Chief Election Commissioner is vested in Parliament; that is, even the power to remove the other Election Commissioners is indirectly vested in Parliament or the legislature through the Chief Election Commissioner. On this analysis also, Reason / (R) would be incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निर्वाचन आयोग के कार्य हैं: (I) संसद और राज्य विधानसभा के सभी निर्वाचन संचालित करना। (II) राष्ट्रपति और उपराष्ट्रपति के पदों के लिए निर्वाचन संचालित करना। (III) किसी राज्य में स्वतंत्र और निष्पक्ष निर्वाचन कराने में असमर्थ स्थिति होने पर राष्ट्रपति शासन की सिफारिश करना। (IV) निर्वाचक नामावलियाँ तैयार करने के कार्य का पर्यवेक्षण, निर्देशन और नियंत्रण करना। कूट:","question_en":"The functions of Election Commission of India are-(I) To conduct all the elections of the Parliament and State Legislative Assembly. (II) To conduct elections for the post of President and Vice-President. (III) To recommend for President’s Rule in case of any State not in condition to hold or conduct free and fair elections in any State. (IV) To Supervise, direct and control the work of preparing electoral lists.\nCode :","options":[{"hi":"I, II, III","en":"I, II, III"},{"hi":"I, II और IV","en":"I, II and IV"},{"hi":"I, III, IV","en":"I, III, IV"},{"hi":"उपर्युक्त सभी","en":"all of them"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 324(1) के अनुसार निर्वाचक नामावलियों की तैयारी का अधीक्षण, निर्देशन और नियंत्रण, तथा संसद और प्रत्येक राज्य के विधानमंडल के सभी निर्वाचनों का संचालन, और राष्ट्रपति व उपराष्ट्रपति के पदों के निर्वाचन, एक निर्वाचन आयोग नामक निकाय में निहित हैं। अनुच्छेद 327 के अंतर्गत विधानमंडलों के निर्वाचनों से संबंधित उपबंध बनाने की शक्ति संसद में निहित है। निर्वाचन आयोग केवल इस आधार पर किसी राज्य में राष्ट्रपति शासन की सिफारिश नहीं करता कि वहाँ स्वतंत्र और निष्पक्ष निर्वाचन के लिए परिस्थितियाँ अनुकूल नहीं हैं। परंतु अनुच्छेद 356(5) के अंतर्गत किसी राज्य में राष्ट्रपति शासन की अवधि एक वर्ष से आगे तभी बढ़ाई जा सकती है जब संपूर्ण भारत में या राज्य के संपूर्ण या किसी भाग में राष्ट्रीय आपातकाल की उद्घोषणा प्रवृत्त हो, और निर्वाचन आयोग यह प्रमाणित करे कि उस अवधि में विधानसभा के सामान्य निर्वाचन कराने में कठिनाइयों के कारण राज्य में राष्ट्रपति शासन का जारी रहना आवश्यक है।","explanation_en":"According to Article 324(1) of the Constitution, the superintendence, direction, and control of the preparation of electoral rolls, and the conduct of, all elections to Parliament and to the Legislature of every State, as well as of elections to the offices of the President and the Vice-President, shall be vested in a Commission called the Election Commission. Under Article 327, the power to make provisions with respect to elections to the Legislatures is vested in Parliament. The Election Commission does not recommend the imposition of President’s Rule in a State merely on the ground that conditions are not favourable for free and fair elections. However, under Article 356(5), the period of President’s Rule in a State can be extended beyond one year only if a Proclamation of National Emergency is in operation in the whole of India or in the whole or any part of the State, and the Election Commission certifies that the continuance of President’s Rule in the State is necessary on account of difficulties in holding general elections to the Legislative Assembly during that period.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित में से कौन-से भारत के निर्वाचन आयुक्त के कार्य हैं? 1. लोकसभा के अध्यक्ष और उपाध्यक्ष तथा राज्यसभा के उपसभापति के पदों के लिए निर्वाचन संचालित करना। 2. नगर निगमों और नगरपालिकाओं के निर्वाचन संचालित करना। 3. उपर्युक्त निर्वाचनों से उत्पन्न सभी शंकाओं और विवादों का निर्णय करना। नीचे दिए गए कूटों से सही उत्तर चुनिए:","question_en":"Which of the following are the functions of the Election Commissioner of India? / 1. Conduct of elections for the posts of the Speaker and the Deputy Speaker of the Lok Sabha and Deputy Chairman of the Rajya Sabha. / 2. Conduct of elections of the Municipal Corporations and Municipalities. / 3. Deciding on all doubts and disputes arising out of the above elections. / Select the correct answer from the codes given below:","options":[{"hi":"2 और 3","en":"2 and 3"},{"hi":"1 और 2","en":"1 and 2"},{"hi":"1 और 3","en":"1 and 3"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 324 के अंतर्गत भारत का निर्वाचन आयोग संसद और प्रत्येक राज्य के विधानमंडल के निर्वाचनों तथा राष्ट्रपति और उपराष्ट्रपति के पदों के निर्वाचनों का अधीक्षण, निर्देशन और नियंत्रण करता है। उपराष्ट्रपति राज्यसभा का पदेन सभापति होता है, जबकि लोकसभा के अध्यक्ष और उपाध्यक्ष तथा राज्यसभा के उपसभापति का चुनाव संबंधित सदन अपने ही सदस्यों में से करता है। नगर पालिकाओं और नगर निगमों के निर्वाचन अनुच्छेद 243ZA के अंतर्गत संबंधित राज्य निर्वाचन आयोग द्वारा कराए जाते हैं। अनुच्छेद 71(1) के अंतर्गत राष्ट्रपति और उपराष्ट्रपति के निर्वाचन से उत्पन्न सभी शंकाओं और विवादों का निर्णय उच्चतम न्यायालय करता है। संसद और राज्य विधानमंडलों के निर्वाचनों से संबंधित विवाद अनुच्छेद 329(ख) और लोक प्रतिनिधित्व अधिनियम, 1951 के अंतर्गत विधि द्वारा निर्धारित प्राधिकारी द्वारा तय होते हैं, जो वर्तमान में उच्च न्यायालय है। इसी प्रकार पंचायतों और नगरपालिकाओं के निर्वाचनों से संबंधित विवाद क्रमशः अनुच्छेद 243-O और 243ZG के अंतर्गत राज्य विधानमंडल द्वारा निर्धारित प्राधिकारी द्वारा तय किए जाते हैं। अतः निर्वाचनों से उत्पन्न शंकाओं और विवादों का निर्णय न्यायपालिका करती है। इस प्रकार प्रश्न में दिए गए कथनों में से कोई भी भारत के निर्वाचन आयोग के कार्यों के संदर्भ में सही नहीं है।","explanation_en":"Under Article 324 of the Constitution, the Election Commission of India exercises superintendence, direction, and control over the conduct of elections to Parliament and to the Legislature of every State, as well as elections to the offices of the President and the Vice-President. The Vice-President is the ex officio Chairman of the Rajya Sabha, whereas the Speaker and Deputy Speaker of the Lok Sabha and the Deputy Chairman of the Rajya Sabha are elected by the respective House from among its own members. Elections to Municipalities and Municipal Corporations are conducted by the State Election Commission concerned under Article 243ZA of the Constitution. Under Article 71(1), all doubts and disputes arising out of the elections of the President and the Vice-President are decided by the Supreme Court. Disputes relating to elections to Parliament and State Legislatures are decided under Article 329(b) and the Representation of the People Act, 1951, by the authority prescribed by law, which at present is the High Court. Similarly, disputes relating to elections to Panchayats and Municipalities are decided, under Articles 243-O and 243ZG respectively, by the authority prescribed by the State Legislature. Therefore, doubts and disputes arising out of elections are decided by the judiciary. Thus, none of the statements given in the question is correct with reference to the functions of the Election Commission of India.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित में से कौन-सा निर्वाचन आयोग से संबंधित नहीं है?","question_en":"Which of the following is not related to Election Commission?","options":[{"hi":"चुनाव की अधिसूचना जारी करना","en":"To issue notification of election"},{"hi":"निर्वाचन चिह्नों का वितरण करना","en":"To distribute election symbols"},{"hi":"निर्वाचनों की वैधता तय करना","en":"To settle the validity of elections."},{"hi":"निर्वाचनों को शांतिपूर्वक संचालित करना","en":"To conduct elections peacefully."}],"answer":2,"answer_note":"","explanation_hi":"निर्वाचन आयोग की सिफारिश पर लोकसभा और राज्यसभा के लिए निर्वाचन अधिसूचना राष्ट्रपति जारी करते हैं, और राज्य या केंद्रशासित प्रदेश की विधानसभा और विधान परिषद के लिए संबंधित राज्यपाल या प्रशासक जारी करते हैं। इसके बाद निर्वाचन आयोग समय, निर्वाचन की तिथि आदि के संबंध में विस्तृत अधिसूचनाएँ जारी करता है। निर्वाचन चिह्नों का आवंटन निर्वाचन आयोग द्वारा निर्वाचन चिह्न (आरक्षण और आवंटन) आदेश, 1968 के अंतर्गत किया जाता है। अनुच्छेद 324 के अंतर्गत आयोग को स्वतंत्र और निष्पक्ष निर्वाचन कराने और उसके लिए आवश्यक निर्देश जारी करने, आदर्श आचार संहिता लागू कराने आदि का दायित्व सौंपा गया है, जिसमें व्यापक अर्थ में निर्वाचनों का शांतिपूर्ण संचालन सुनिश्चित करना भी शामिल है। अतः विकल्प (a), (b) और (d) निर्वाचन आयोग से संबंधित हैं। निर्वाचन विवादों का निर्णय करना निर्वाचन आयोग का कार्य नहीं, बल्कि न्यायपालिका का कार्य है। वास्तव में, निर्वाचनों की वैधता से संबंधित शंकाएँ और विवाद न्यायपालिका तय करती है: राष्ट्रपति और उपराष्ट्रपति के निर्वाचनों में उच्चतम न्यायालय, और संसद व राज्य विधानमंडलों के निर्वाचनों में उच्च न्यायालय। अतः विकल्प (c) सही उत्तर है।","explanation_en":"On the recommendation of the Election Commission, the election notification is issued by the President for the Lok Sabha and Rajya Sabha, and by the concerned Governor/ Administrator for the Legislative Assembly and Legislative Council of a State/Union Territory. Thereafter, detailed notifications regarding the time, date of election, etc. are issued by the Election Commission. The allotment of election symbols is done by the Election Commission under the Election Symbols (Reservation and Allotment) Order, 1968. Under Article 324, the Commission is entrusted with the responsibility of conducting free and fair elections and issuing necessary directions for that purpose, enforcing the Model Code of Conduct, etc., which in a broader sense includes ensuring the peaceful conduct of elections. Thus, options (a), (b), and (d) are related to the Election Commission. Adjudicating election disputes is not the function of the Election Commission but of the judiciary. In fact, doubts and disputes relating to the validity of elections are decided by the judiciary – the Supreme Court in the case of Presidential and Vice-Presidential elections, and the High Courts in the case of elections to Parliament and State Legislatures. Therefore, option (c) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"संसद सदस्यों की अयोग्यता से संबंधित विवादों का निर्णय कौन करता है?","question_en":"Who decides disputes regarding disqualification of Members of Parliament?","options":[{"hi":"राष्ट्रपति","en":"The President"},{"hi":"संबंधित सदन","en":"The Concerned House"},{"hi":"निर्वाचन आयोग","en":"The Election Commission"},{"hi":"निर्वाचन आयोग से परामर्श करके राष्ट्रपति","en":"The President in consultation with the Election Commission"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 102(1) में संसद के किसी भी सदन का सदस्य चुने जाने और सदस्य बने रहने के लिए अयोग्यताएँ दी गई हैं। इस संबंध में संविधान के अनुच्छेद 103 के अंतर्गत संसद सदस्यों की अयोग्यता से संबंधित विवादों का निर्णय राष्ट्रपति निर्वाचन आयोग की राय के अनुसार करते हैं, जबकि दल-बदल के आधार पर अयोग्यता से संबंधित प्रश्नों का निर्णय संविधान की दसवीं अनुसूची के उपबंधों के अंतर्गत सदन के सभापति या अध्यक्ष करते हैं।","explanation_en":"Clause (1) of Article 102 of the Constitution mentions the disqualifications for being chosen as, and for being, a member of either House of Parliament. In this regard, under Article 103 of the Constitution, disputes relating to the disqualification of Members of Parliament are decided by the President according to the opinion of the Election Commission, whereas questions relating to disqualification on the ground of defection are decided by the Chairman/ Speaker of the House under the provisions of the Tenth Schedule of the Constitution.","source":"UPPCS (Pre) 2015","source_missing":false,"exam":"uppcs-pre"},{"id":9,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित दो कथन दिए गए हैं: अभिकथन (A): आदर्श आचार संहिता का पालन चुनाव की घोषणा होते ही राजनीतिक दलों द्वारा किया जाना चाहिए। कारण (R): आदर्श आचार संहिता संसद द्वारा अधिनियमित की गई थी। नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Given below are two statements: Assertion (A) : Model code of conduct is to be followed by political parties as soon as an election is announced. Reason (R) : Model code of conduct was enacted by Parliament. / Choose the correct answer from the code given below:\nCode :","options":[{"hi":"दोनों (A) और (R) सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."},{"hi":"दोनों (A) और (R) सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true and (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"आदर्श आचार संहिता राजनीतिक दलों और उम्मीदवारों के मार्गदर्शन के लिए बनाए गए मानदंडों वाला एक दस्तावेज़ है, जो उनके आचरण और व्यवहार को नियंत्रित करता है। यह राजनीतिक दलों की आम सहमति से विकसित हुई है और उन पर बाध्यकारी है। आदर्श आचार संहिता निर्वाचन आयोग द्वारा जारी संहिता है, संसद द्वारा पारित अधिनियम नहीं। यह उस समय से प्रभावी होती है जब निर्वाचन आयोग निर्वाचन की तिथियाँ घोषित करने वाली प्रेस विज्ञप्ति जारी करता है, और निर्वाचन पूरा होने तक प्रभावी रहती है (Union of India vs Harbans Singh Jalal & others), जिसे उच्चतम न्यायालय ने भी स्वीकार किया है। अतः कथन (A) सही है, परंतु (R) गलत है। इसलिए विकल्प (c) सही उत्तर है।","explanation_en":"The Model Code of Conduct is a document containing norms meant for the guidance of political parties and candidates, and it regulates their conduct and behaviour. It has evolved through the consensus of political parties and is binding on them. The Model Code of Conduct is a code issued by the Election Commission, not an Act passed by Parliament. It comes into force from the time the Election Commission issues the press note announcing the election dates and remains effective till the completion of the election (Union of India vs Harbans Singh Jalal & others) a principle endorsed by Supreme Court. Thus, statement (A) is true, but (R) is false. Therefore, option (c) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारत में मतदान करने और निर्वाचित होने का अधिकार किस प्रकार का अधिकार है?","question_en":"Right to Vote and to be Elected in India is a-","options":[{"hi":"मौलिक अधिकार","en":"Fundamental Right"},{"hi":"संवैधानिक अधिकार","en":"Constitutional Right"},{"hi":"प्राकृतिक अधिकार","en":"Natural Right"},{"hi":"विधिक अधिकार","en":"Legal Right"}],"answer":3,"answer_note":"","explanation_hi":"लोक प्रतिनिधित्व अधिनियम, 1951 की धारा 79(d) निर्वाचन संबंधी अधिकारों को परिभाषित करती है, जिनमें किसी व्यक्ति का निर्वाचन में उम्मीदवार होने या न होने, उम्मीदवारी वापस लेने या न लेने, तथा मतदान करने या मतदान से विरत रहने का अधिकार शामिल है। (Jyoti Basu and Others v. Debi Ghosal and Others) मामले में उच्चतम न्यायालय ने कहा कि निर्वाचित होने का अधिकार एक विधिक अधिकार है। इसी प्रकार लोक प्रतिनिधित्व अधिनियम, 1951 की धारा 62 मतदान के अधिकार से संबंधित है, और उच्चतम न्यायालय ने भी माना है कि मतदान का अधिकार एक विधिक या विधिसम्मत अधिकार है। अतः स्पष्ट है कि भारत में मतदान का अधिकार और चुनाव लड़ने का अधिकार, दोनों विधिक अधिकार हैं।","explanation_en":"Section 79(d) of the Representation of the People Act, 1951 defines electoral rights, which include the right of a person to be or not to be a candidate at an election, to withdraw or not to withdraw candidature, and to vote or refrain from voting at an election. In (Jyoti Basu and Others v. Debi Ghosal and Others), the Supreme Court held that the right to be elected is a legal right. Similarly, Section 62 of the Representation of the People Act, 1951 deals with the right to vote. The Supreme Court has also held that the right to vote is a legal/statutory right. Therefore, it is clear that in India, the right to vote and the right to stand for election are legal/statutory rights.","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारत में मतदान का अधिकार किस प्रकार का अधिकार है?","question_en":"The Right to Vote in India is a","options":[{"hi":"मौलिक अधिकार","en":"Fundamental Right"},{"hi":"संवैधानिक अधिकार","en":"Constitutional Right"},{"hi":"प्राकृतिक अधिकार","en":"Natural Right"},{"hi":"विधिक अधिकार","en":"Legal Right"}],"answer":3,"answer_note":"","explanation_hi":"भारत में मतदान का अधिकार और चुनाव लड़ने का अधिकार लोक प्रतिनिधित्व अधिनियम, 1951 द्वारा शासित होते हैं। चूँकि ये अधिकार संसद द्वारा बनाए गए अधिनियम के अंतर्गत प्रदान किए गए हैं, इसलिए ये विधिक अधिकार हैं। उच्चतम न्यायालय ने भी इन्हें विधिक या विधिसम्मत अधिकार माना है। हालाँकि, उत्तर प्रदेश लोक सेवा आयोग ने अपनी पूर्व उत्तर कुंजी में मतदान के अधिकार को संवैधानिक अधिकार माना था। इसका आधार संभवतः संविधान के अनुच्छेद 326 में वयस्क मताधिकार का उल्लेख हो सकता है।","explanation_en":"In India, the right to vote and the right to stand for election are governed by the Representation of the People Act, 1951. Since these rights are granted under an Act made by Parliament, they are legal rights. The Supreme Court has also treated them as legal/statutory rights. However, the Uttar Pradesh Public Service Commission, in its earlier answer key, had treated the right to vote as a constitutional right. The basis for this may be the mention of universal adult suffrage under Article 326 of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"18 वर्ष की आयु के युवाओं द्वारा मतदान का अधिकार पहली बार किस वर्ष के आम चुनाव में प्रयोग किया गया?","question_en":"Voting right by the youths at the age of 18 years was exercised for the first time in the General Election of","options":[{"hi":"1987","en":"1987"},{"hi":"1988","en":"1988"},{"hi":"1989","en":"1989"},{"hi":"1990","en":"1990"}],"answer":2,"answer_note":"","explanation_hi":"61वें संविधान संशोधन अधिनियम, 1988 द्वारा मतदान की न्यूनतम आयु 21 वर्ष से घटाकर 18 वर्ष की गई, जो 28 मार्च 1989 से प्रभावी हुई। युवा मतदाताओं ने 18 वर्ष की आयु में पहली बार नवंबर 1989 में हुए नौवीं लोकसभा के आम चुनाव में मताधिकार का प्रयोग किया।","explanation_en":"By the 61st Constitutional Amendment Act, 1988, the voting age was reduced from 21 years to 18 years, which came into effect on 28 March 1989. Young voters first exercised the franchise at the age of 18 in the general election to the 9th Lok Sabha held in November 1989.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारतीय संविधान का कौन-सा अनुच्छेद लोकसभा और विधानसभा के प्रतिनिधियों के निर्वाचन के लिए मतदान का अधिकार, अर्थात वयस्क मताधिकार (adult suffrage), प्रदान करता है?","question_en":"Which Article of the Indian Constitution provides right to vote i.e. adult suffrage for electing representatives of Lok Sabha and Vidhan Sabha?","options":[{"hi":"अनुच्छेद 326","en":"Article 326"},{"hi":"अनुच्छेद 325","en":"Article 325"},{"hi":"अनुच्छेद 324","en":"Article 324"},{"hi":"अनुच्छेद 323","en":"Article 323"}],"answer":0,"answer_note":"","explanation_hi":"भारतीय संविधान के भाग XV के अंतर्गत अनुच्छेद 326 वयस्क मताधिकार का उपबंध करता है। इसमें कहा गया है कि लोकसभा और प्रत्येक राज्य की विधानसभा के निर्वाचन वयस्क मताधिकार के आधार पर होंगे। अर्थात, भारत का प्रत्येक नागरिक जो उस तिथि को, जो उपयुक्त विधानमंडल द्वारा या उसके अधीन बनाई गई किसी विधि द्वारा तय की जाए, कम से कम 18 वर्ष का हो, और निवास न होने, विकृत चित्त, अपराध, या भ्रष्ट अथवा अवैध आचरण के आधार पर इस संविधान या उपयुक्त विधानमंडल की किसी विधि द्वारा अन्यथा निरर्हित न हो, वह ऐसे किसी भी निर्वाचन में मतदाता के रूप में पंजीकृत होने का हकदार होगा। यह आयु 61वें संविधान संशोधन अधिनियम, 1988 द्वारा 21 वर्ष से घटाकर 18 वर्ष की गई, जो 28 मार्च 1989 से प्रभावी हुई। अतः विकल्प (a) सही उत्तर है।","explanation_en":"Under Part XV of the Indian Constitution, Article 326 provides for adult suffrage. It states that elections to the Lok Sabha and to the Legislative Assembly of every State shall be on the basis of adult suffrage. In other words, every person who is a citizen of India and who is not less than 18 years of age on such date as may be fixed in that behalf by or under any law made by the appropriate legislature, and is not otherwise disqualified under this Constitution or any law made by the appropriate legislature on the ground of non-residence, unsoundness of mind, crime, or corrupt or illegal practice, shall be entitled to be registered as a voter at any such election. This age was reduced from 21 years to 18 years by the 61st Constitutional Amendment Act, 1988 with effect from 28 March 1989. Therefore, option (a) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"विधानमंडलों के निर्वाचन के सिद्धांतों में निम्नलिखित शामिल हैं: 1. यह वयस्क मताधिकार के आधार पर होगा। 2. प्रत्येक क्षेत्रीय निर्वाचन क्षेत्र के लिए केवल एक निर्वाचक नामावली होगी। 3. निर्वाचक नामावली के निर्माण में धर्म, नस्ल, लिंग आदि का कोई स्थान नहीं होगा। 4. राजनीतिक दल अपने मानदंड रखने के लिए स्वतंत्र होंगे। कूट से सही उत्तर चुनिए:","question_en":"The Principles for election to the State Legislatures include: / 1. It will be on the basis of adult suffrage. / 2. There will be only one electoral roll for every territorial constituency. / 3. Religion, Race, Sex, etc., will have no place in the formation of the electoral roll. / 4. The political parties will be free to have their norms. / Select the correct answer from the given code:\nCode :","options":[{"hi":"1, 3 और 4","en":"1, 3 and 4"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"चारों","en":"All the four"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 326 में उपबंध है कि लोकसभा और राज्य विधानसभाओं के निर्वाचन वयस्क मताधिकार के आधार पर होंगे। साथ ही, अनुच्छेद 325 के अनुसार प्रत्येक क्षेत्रीय निर्वाचन क्षेत्र के लिए एक ही सामान्य निर्वाचक नामावली होगी, और केवल धर्म, नस्ल, जाति, लिंग या इनमें से किसी के आधार पर किसी भी व्यक्ति को ऐसी नामावली में सम्मिलित होने के अयोग्य नहीं ठहराया जाएगा। इस प्रकार कथन 1, 2 और 3 राज्य विधानमंडलों के निर्वाचनों से संबंधित संवैधानिक सिद्धांत हैं। इसके अतिरिक्त, निर्वाचन आयोग के पास विभिन्न निर्वाचनों के लिए पंजीकरण हेतु राजनीतिक दल अपने नियम, जैसे दल का संविधान और आंतरिक विनियम, स्वयं बना सकते हैं। अतः सामान्य अर्थ में इसे भी राज्य विधानमंडलों के निर्वाचनों से संबंधित सिद्धांतों में सम्मिलित किया गया है। अतः सही उत्तर विकल्प (d) है।","explanation_en":"Article 326 of the Constitution provides that elections to the Lok Sabha and the State Legislative Assemblies shall be on the basis of adult suffrage. Also, according to Article 325, there shall be one general electoral roll for every territorial constituency, and no person shall be ineligible for inclusion in such roll only on the grounds of religion, race, caste, sex, or any of them. Thus, statements 1, 2, and 3 are constitutional principles relating to elections to the State Legislatures. Further, for registration with the Election Commission for various elections, political parties in India may frame their own rules, such as party constitution and internal regulations. Thus, in a general sense, this too has been included among the principles relating to elections to the State Legislatures. Hence, the correct answer is option (d).","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"2009 के लोकसभा चुनावों में कुल निर्वाचकों की संख्या मिलियन में कितनी थी? (1 मिलियन = 10 लाख)।","question_en":"What is the total number of electors in Lok Sabha elections of 2009 in Million? (1 million = 10 Lakh).","options":[{"hi":"815","en":"815"},{"hi":"613","en":"613"},{"hi":"714","en":"714"},{"hi":"903","en":"903"}],"answer":2,"answer_note":"","explanation_hi":"2009 के लोकसभा के आम चुनाव में पंजीकृत निर्वाचकों की कुल संख्या, अर्थात मतदान के पात्र व्यक्तियों की संख्या, लगभग 714 मिलियन थी। 2024 के लोकसभा के आम चुनाव में पंजीकृत निर्वाचकों की कुल संख्या 979.75 मिलियन थी। यह 2019 के लोकसभा के आम चुनाव में पंजीकृत निर्वाचकों की कुल संख्या, जो 911.95 मिलियन थी, से 7.43 प्रतिशत अधिक थी।","explanation_en":"In the 2009 general election to the Lok Sabha, the total number of registered electors, that is, persons eligible to vote, was about 714 million. In the 2024 general election to the Lok Sabha, the total number of registered electors was 979.75 million. This was 7.43 percent higher than the total number of registered electors in the 2019 general election to the Lok Sabha, which was 911.95 million.","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित में से कौन-सा सही सुमेलित नहीं है? लोकसभा निर्वाचन वर्ष","question_en":"Which one of the following is not correctly matched? Lok Sabha Election Year","options":[{"hi":"ग्यारहवीं लोकसभा – 1996","en":"Eleventh – 1996"},{"hi":"सातवीं लोकसभा – 1982","en":"Seventh – 1982"},{"hi":"तेरहवीं लोकसभा – 1999","en":"Thirteenth – 1999"},{"hi":"नौवीं लोकसभा – 1989","en":"Ninth – 1989"}],"answer":1,"answer_note":"","explanation_hi":"सातवीं लोकसभा के निर्वाचन जनवरी 1980 में हुए थे। प्रश्न में दिए गए अन्य सभी युग्म सही सुमेलित हैं।","explanation_en":"The elections to the Seventh Lok Sabha were held in January 1980. All the other pairs given in the question are correctly matched.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) और दूसरे को कारण (R) के रूप में चिह्नित किया गया है: अभिकथन (A): आनुपातिक प्रतिनिधित्व की प्रणाली अल्पसंख्यक प्रतिनिधित्व की समस्या को कुछ सीमा तक हल कर सकती है। कारण (R): आनुपातिक प्रतिनिधित्व की प्रणाली जातीयता, लिंग, हितों और विचारधाराओं पर आधारित सभी प्रकार के समूहों को उचित प्रतिनिधित्व प्रदान करने में सक्षम बनाती है। नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Given below are two statements, one labelled as Assertion (A) and the other as Reason (R) : Assertion (A): The system of proportional repre-sentation may solve the problem of minority representation to some extent. Reason (R) : The system of proportional representa-tion enables due representation to all type of groups based on ethnicity, gender, interests, and ideologies. / Choose the correct answer from the code given below:\nCode :","options":[{"hi":"दोनों (A) और (R) सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"दोनों (A) और (R) सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":0,"answer_note":"","explanation_hi":"आनुपातिक प्रतिनिधित्व की प्रणाली, एक निर्वाचन तंत्र के रूप में, सभी प्रकार के समूहों को उनकी संख्या के अनुपात में पर्याप्त प्रतिनिधित्व संभव और सरल बनाती है, चाहे वे जातीयता, लिंग, हितों या विचारधाराओं पर आधारित हों। यह प्रणाली सभी वर्गों का उचित प्रतिनिधित्व सुनिश्चित करने का प्रयास करती है। अतः यह अल्पसंख्यक प्रतिनिधित्व की समस्या के समाधान में योगदान देती है। इस प्रकार (A) और (R) दोनों सही हैं, और (R), (A) की सही व्याख्या है।","explanation_en":"The system of proportional representation, as an electoral mechanism, makes possible and easier the adequate representation of all kinds of groups in proportion to their numbers, whether based on ethnicity, gender, interests, or ideologies. This system seeks to ensure proper representation of all sections. Therefore, it contributes to solving the problem of minority representation. Thus, both / (A) and (R) are correct, and (R) is the correct explanation of (A).","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निर्वाचन आयोग को 'त्रि-सदस्यीय आयोग' कब बनाया गया?","question_en":"In which year was the Election Commission made a ‘three-member Commission’?","options":[{"hi":"1982","en":"1982"},{"hi":"1988","en":"1988"},{"hi":"1989","en":"1989"},{"hi":"1990","en":"1990"}],"answer":2,"answer_note":"","explanation_hi":"मूल रूप से भारत के निर्वाचन आयोग में केवल एक मुख्य निर्वाचन आयुक्त था। 16 अक्टूबर 1989 को पहली बार दो अतिरिक्त निर्वाचन आयुक्त नियुक्त किए गए, और इस प्रकार आयोग पहली बार त्रि-सदस्यीय बना। हालाँकि वे केवल 1 जनवरी 1990 तक ही पद पर रहे। 1 अक्टूबर 1993 को दो अतिरिक्त निर्वाचन आयुक्त फिर से नियुक्त किए गए, और तब से आयोग त्रि-सदस्यीय निकाय के रूप में बना हुआ है।","explanation_en":"Originally, the Election Commission of India had only one Chief Election Commissioner. On 16 October 1989, for the first time, two additional Election Commissioners were appointed to the Election Commission, and thus it became a three-member Commission for the first time. However, they remained in office only up to 1 January 1990. On 1 October 1993, two additional Election Commissioners were again appointed, and since then the Commission has remained a three-member body.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"भारत में निर्वाचन सुधारों को सबसे पुराने से सबसे नए तक सही कालानुक्रम में व्यवस्थित कीजिए: 1. मतदाता फ़ोटो पहचान पत्र 2. इलेक्ट्रॉनिक मतदान मशीन 3. मतदाता सत्यापित पेपर ऑडिट ट्रेल 4. NOTA नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Consider the following Election Reforms in India and arrange them in correct chronological order starting from earliest to the last. / 1. Voters photo identity card / 2. Electronic voting machine / 3. Voter verifiable paper audit trail / 4. NOTA / Select the correct answer from the code given below :\nCode :","options":[{"hi":"2, 1, 3, 4","en":"2, 1, 3, 4"},{"hi":"1, 2, 4, 3","en":"1, 2, 4, 3"},{"hi":"1, 2, 3, 4","en":"1, 2, 3, 4"},{"hi":"2, 1, 4, 3","en":"2, 1, 4, 3"}],"answer":0,"answer_note":"","explanation_hi":"इलेक्ट्रॉनिक मतदान मशीन (EVM): ए.सी. जोस बनाम सिवन पिल्लई व अन्य में उच्चतम न्यायालय के निर्णय में 19 मई 1982 को परूर (केरल) विधानसभा क्षेत्र में हुए मतदान में EVM के प्रायोगिक उपयोग का उल्लेख है। निर्वाचक फ़ोटो पहचान पत्र (EPIC): निर्वाचन आयोग ने यह योजना 1993 में शुरू की। मतदाता सत्यापित पेपर ऑडिट ट्रेल (VVPAT): VVPAT का पहली बार उपयोग 4 सितंबर 2013 को नागालैंड के नोकसेन विधानसभा उपचुनाव में हुआ। NOTA (इनमें से कोई नहीं): उच्चतम न्यायालय के 27 सितंबर 2013 के निर्देशों के अनुसार EVM में NOTA विकल्प जोड़ा गया, और यह 11 अक्टूबर 2013 से प्रभावी हुआ। इस प्रकार सही कालक्रम है: EVM (1982) → EPIC (1993) → VVPAT (2013) → NOTA (2013), जो विकल्प (a) में दिया गया है। नोट: UPPSC ने अपनी प्रारंभिक उत्तर कुंजी में इस प्रश्न का उत्तर विकल्प (d) दिया था, जो सही नहीं है।","explanation_en":"Electronic Voting Machine (EVM) – In the Supreme Court decision in A.C. Jose v. Sivan Pillai & Ors., the experimental use of EVMs in the polling held on 19 May 1982 in the Parur (Kerala) Assembly constituency has been recorded. Electors Photo Identity Card (EPIC) – The Election Commission launched the EPIC scheme in 1993. Voter Verified Paper Audit Trail (VVPAT) – VVPAT was used for the first time on 4 September 2013 in the Noksen Assembly by-election in Nagaland. NOTA (None of the Above) – In accordance with the Supreme Court’s directions dated 27 September 2013, the NOTA option was added to EVMs, and it came into effect from 11 October 2013. Thus, the correct chronology is – EVM (1982) → EPIC (1993) → VVPAT (2013) → NOTA (2013), which is given in option (a). Note: In its preliminary answer key, UPPSC gave option / (d) as the answer to this question, which is not correct.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"निम्नलिखित तथ्यों पर विचार कीजिए: 1. सुकुमार सेन भारत के पहले मुख्य निर्वाचन आयुक्त थे। 2. रमा देवी भारत की पहली महिला मुख्य निर्वाचन आयुक्त थीं। नीचे दिए गए कूटों से सही उत्तर चुनिए:","question_en":"Consider the facts given below: / 1. Sukumar Sen was the first Chief Election Commissioner of India. / 2. Rama Devi was the first woman Chief Election Commissioner of India. / Choose the correct answer from the codes given below. Codes:","options":[{"hi":"केवल 1 सही है","en":"Only 1 is correct"},{"hi":"केवल 2 सही है","en":"Only 2 is correct"},{"hi":"1 और 2 दोनों सही हैं","en":"Both 1 and 2 are correct"},{"hi":"1 और 2 दोनों गलत हैं","en":"Both 1 and 2 are incorrect"}],"answer":2,"answer_note":"","explanation_hi":"सुकुमार सेन भारत के पहले मुख्य निर्वाचन आयुक्त थे। उनका कार्यकाल 21 मार्च 1950 से 19 दिसंबर 1958 तक रहा। वी.एस. रमादेवी भारत की पहली और अब तक की एकमात्र महिला मुख्य निर्वाचन आयुक्त थीं। उनका कार्यकाल 26 नवंबर 1990 से 11 दिसंबर 1990 तक रहा।","explanation_en":"Sukumar Sen was the first Chief Election Commissioner of India. His tenure was from 21 March 1950 to 19 December 1958. V.S. Ramadevi was the first and, so far, the only woman Chief Election Commissioner of India. Her tenure was from 26 November 1990 to 11 December 1990.","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"निर्वाचन आयोग","topic_en":"Election Commission","question_hi":"राष्ट्रीय मतदाता दिवस किस दिन मनाया जाता है?","question_en":"National Voters Day is celebrated on -","options":[{"hi":"15 जनवरी","en":"15th January"},{"hi":"25 जनवरी","en":"25th January"},{"hi":"17 जनवरी","en":"17th January"},{"hi":"27 जनवरी","en":"27th January"}],"answer":1,"answer_note":"","explanation_hi":"राष्ट्रीय मतदाता दिवस 25 जनवरी को मनाया जाता है। यह दिवस 25 जनवरी 2011 को भारत के निर्वाचन आयोग की स्थापना की स्मृति में और लोकतांत्रिक प्रक्रिया में मतदाताओं और युवाओं की भागीदारी बढ़ाने के उद्देश्य से शुरू किया गया था।","explanation_en":"National Voters’ Day is celebrated on 25 January. This day was started on 25 January 2011 to mark the foundation of the Election Commission of India and to increase the participation of voters and youth in the democratic process.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"भारत में किसी राजनीतिक दल को राष्ट्रीय दल के रूप में मान्यता पाने के लिए कम से कम कितने राज्यों में राज्य दल का दर्जा प्राप्त होना चाहिए?","question_en":"A political party in India can be recognized as National Party if it has state party status in at least:","options":[{"hi":"तीन राज्य","en":"Three states"},{"hi":"चार राज्य","en":"Four states"},{"hi":"पाँच राज्य","en":"Five states"},{"hi":"सात राज्य","en":"Seven states"}],"answer":1,"answer_note":"","explanation_hi":"निर्वाचन चिह्न (आरक्षण और आवंटन) आदेश, 1968 (यथा संशोधित) के अनुसार निर्वाचन आयोग किसी राजनीतिक दल को राष्ट्रीय दल के रूप में तभी मान्यता देता है जब निम्नलिखित तीन शर्तों में से कोई एक पूरी होती है: (a) उस दल द्वारा खड़े किए गए उम्मीदवार लोकसभा या उन राज्यों की विधानसभाओं के अंतिम सामान्य निर्वाचन में किसी भी चार या अधिक राज्यों में से प्रत्येक में कुल वैध डाले गए मतों का कम से कम 6 प्रतिशत प्राप्त करें, और इसके अतिरिक्त दल कुल मिलाकर लोकसभा की कम से कम 4 सीटें जीते। (b) दल लोकसभा के अंतिम सामान्य निर्वाचन में लोकसभा की कुल सीटों का कम से कम 2 प्रतिशत जीते, और ये सदस्य कम से कम तीन राज्यों से निर्वाचित हों। (c) दल को कम से कम चार राज्यों में राज्य दल के रूप में मान्यता प्राप्त हो।","explanation_en":"According to the Election Symbols (Reservation and Allotment) Order, 1968 (as amended), a political party is recognized by the Election Commission as a National Party only if any one of the following three conditions is fulfilled– / (a) The candidates set up by that political party secure at least 6 percent of the total valid votes polled in each of any four or more states in the last general election to the Lok Sabha or to the Legislative Assemblies of those states, and in addition, the party wins at least four Lok Sabha seats in total. / (b) The party wins at least 2 percent of the total number of seats in the Lok Sabha in the last general election to the Lok Sabha, and these members are elected from at least three states. / (c) The party is recognized as a State Party in at least four states.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"कोई राजनीतिक दल क्षेत्रीय दल के रूप में कब मान्यता प्राप्त करता है, यदि:","question_en":"A political party is recognized as a regional party, if","options":[{"hi":"राज्य में लोकसभा या विधानसभा के निर्वाचन में 4% मत प्राप्त करे।","en":"It gets 4% votes in the State either in Lok Sabha or the Assembly election."},{"hi":"राज्य में लोकसभा या विधानसभा के निर्वाचन में 6% मत प्राप्त करे।","en":"It gets 6% votes in the State either in Lok Sabha or the Assembly election."},{"hi":"राज्य में लोकसभा या विधानसभा के निर्वाचन में 8% मत प्राप्त करे।","en":"It gets 8% votes in the State either in Lok Sabha or the Assembly election."},{"hi":"इनमें से कोई नहीं।","en":"None of the above."}],"answer":2,"answer_note":"","explanation_hi":"निर्वाचन चिह्न (आरक्षण और आवंटन) आदेश, 1968 (यथा संशोधित) के अनुसार, किसी राजनीतिक दल को राज्य-स्तरीय दल के रूप में मान्यता पाने के लिए (प्रश्न में \"क्षेत्रीय दल\" से आशय राज्य-स्तरीय दल है) आवश्यक है कि उस राज्य में वह निम्नलिखित में से कोई एक प्राप्त करे: राज्य की विधानसभा के अंतिम सामान्य निर्वाचन में कुल वैध डाले गए मतों का कम से कम 6 प्रतिशत और कम से कम 2 सीटें; या राज्य से लोकसभा के अंतिम सामान्य निर्वाचन में कुल वैध डाले गए मतों का कम से कम 6 प्रतिशत और उस राज्य से लोकसभा की कम से कम 1 सीट; या राज्य की विधानसभा के अंतिम सामान्य निर्वाचन में विधानसभा की कुल सीटों का कम से कम 3 प्रतिशत (इसमें आधे से अधिक भिन्नांश को 1 गिना जाता है), या न्यूनतम 3 सीटें, जो भी अधिक हो; या राज्य को लोकसभा के अंतिम सामान्य निर्वाचन में आवंटित प्रत्येक 25 सदस्यों या उसके किसी भिन्नांश पर कम से कम 1 सदस्य; या राज्य में लोकसभा या विधानसभा के अंतिम सामान्य निर्वाचन में राज्य में डाले गए कुल वैध मतों का कम से कम 8 प्रतिशत। अतः स्पष्ट है कि प्रश्न में दिए विकल्पों में से सही उत्तर विकल्प (c) है, परंतु उत्तर प्रदेश लोक सेवा आयोग ने अपनी संशोधित उत्तर कुंजी में विकल्प (b) को सही माना, जो गलत था।","explanation_en":"According to the Election Symbols (Reservation and Allotment) Order, 1968 (as amended), for a political party to be recognized as a State-level party (here, in the question, “regional party” means a State-level party), it is necessary that, in that particular State, it must secure – either at least 6% of the total valid votes polled in the last general election to the Legislative Assembly of the State and at least 2 seats; or at least 6% of the total valid votes polled in the last general election to the Lok Sabha and at least 1 Lok Sabha seat from that State; or at least 3% of the total seats in the State Legislative Assembly in the last general election to the Assembly (in this, every fraction exceeding one-half shall be counted as 1), or a minimum of 3 seats, whichever is higher; or at least 1 member for every 25 members or any fraction thereof allotted to that State in the Lok Sabha in the last general election; or at least 8% of the total valid votes polled in the State in the last general election to the Lok Sabha or the Legislative Assembly. Thus, it is clear that, out of the options given in the question, the correct answer is option (c), but the Uttar Pradesh Public Service Commission, in its revised answer key, treated option (b) as correct, which was incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"भारतीय राष्ट्रीय कांग्रेस में 'राष्ट्रीय' शब्द किससे प्रभावित था?","question_en":"The word ‘National’ in Indian National Congress was influenced by-","options":[{"hi":"प्राचीन भारतीय उदाहरण","en":"Ancient Indian precedents"},{"hi":"ब्रिटिश शासन के विरुद्ध प्रतिक्रिया","en":"Reaction against British rule"},{"hi":"यूरोपीय उदाहरण","en":"European Precedents"},{"hi":"अमेरिका का स्वतंत्रता संघर्ष","en":"Freedom struggle of America"}],"answer":1,"answer_note":"","explanation_hi":"'Indian National Congress' नाम में 'National' शब्द को विशेष रूप से भारतीय राष्ट्रवाद की भावना और अखिल भारतीय प्रतिनिधित्व व्यक्त करने के लिए अपनाया गया था। अतः भारतीय राष्ट्रीय कांग्रेस में 'राष्ट्रीय' शब्द मुख्य रूप से ब्रिटिश शासन के विरुद्ध बढ़ते राष्ट्रीय विरोध और एक अखिल भारतीय मंच की आवश्यकता से प्रभावित था। परंतु कई इतिहासकार (जैसे रामचंद्र गुहा) इसे ब्रिटिश डोमिनियन की स्वशासी संस्थाओं (कनाडा-ऑस्ट्रेलिया शैली) और यूरोप के राष्ट्रवादी आंदोलन से प्रभावित मानते हैं।","explanation_en":"In the name ‘Indian National Congress’, the word ‘National’ was specifically adopted to express the spirit of Indian nationalism and all-India representation. Thus, in the Indian National Congress, the word ‘National’ was mainly influenced by the rising national opposition to British rule and the need for an all-India platform. However, many historians (like Ramchandra Guha) consider it to be influenced by self-governing institutions of British dominion style (Canada - Australia) and Nationalist Movement of Europe.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित में से कौन-सा एक क्षेत्रीय राजनीतिक दल है?","question_en":"Which of the following is a Regional Political party?","options":[{"hi":"कांग्रेस","en":"Congress"},{"hi":"भाजपा","en":"BJP"},{"hi":"भाकपा","en":"CPI"},{"hi":"अकाली दल","en":"Akali Dal"}],"answer":2,"answer_note":"","explanation_hi":"प्रश्न में दिए राजनीतिक दलों में कांग्रेस और भाजपा राष्ट्रीय दल हैं, जबकि अकाली दल (शिरोमणि अकाली दल) पंजाब में राज्य-स्तरीय (क्षेत्रीय) राजनीतिक दल के रूप में मान्यता प्राप्त है। भाकपा (भारतीय कम्युनिस्ट पार्टी) प्रश्न के समय राष्ट्रीय दल का दर्जा रखती थी, परंतु 2023 में इसका राष्ट्रीय दल का दर्जा वापस ले लिया गया।","explanation_en":"Among the political parties given in the question, Congress and BJP are national parties, whereas Akali Dal (Shiromani Akali Dal) is recognized as a State-level (regional) political party in Punjab. CPI (Communist Party of India) had the status of a national party at the time of the question. However its states of national party was withdrawn in 2023.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित में से कौन-सा दल राष्ट्रीय राजनीतिक दल नहीं है?","question_en":"Which one of the following parties is not a National Political Party?","options":[{"hi":"भारतीय कम्युनिस्ट पार्टी","en":"Communist Party of India"},{"hi":"भारतीय जनता पार्टी","en":"Bharatiya Janata Party"},{"hi":"तेलुगु देशम","en":"Telugu Desham"},{"hi":"भारतीय राष्ट्रीय कांग्रेस","en":"Indian National Congress"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्न के समय भाकपा (भारतीय कम्युनिस्ट पार्टी) को राष्ट्रीय दल का दर्जा प्राप्त था, परंतु 2023 में उसका राष्ट्रीय दल का दर्जा समाप्त हो गया। तेलुगु देशम (तेलुगु देशम पार्टी – TDP) एक राज्य-स्तरीय राजनीतिक दल है और राष्ट्रीय राजनीतिक दल नहीं है। वर्तमान में राष्ट्रीय राजनीतिक दल के रूप में मान्यता प्राप्त 6 राजनीतिक दल हैं: भारतीय जनता पार्टी, भारतीय राष्ट्रीय कांग्रेस, बहुजन समाज पार्टी, भारतीय कम्युनिस्ट पार्टी (मार्क्सवादी), नेशनल पीपुल्स पार्टी और आम आदमी पार्टी।","explanation_en":"At the time of the question, CPI (Communist Party of India) had the status of a national party, but its National party status was ended in 2023. Telugu Desam (Telugu Desam Party – TDP) is a State-level political party and is not a national political party. At present 6 political parties recognised an National Political Party are - Bhartiya Janata Party. Indian National congress, bahujana Samaj Party, Communist Party of India (Marxist), National Peoples Party and Aam Aadami Party.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"'स्वतंत्र श्रमिक दल' (Independent Labour Party) के संस्थापक कौन थे?","question_en":"Who was the founder of ‘Independent Labour Party’?","options":[{"hi":"आर. श्रीनिवासन","en":"R.Srinivasan"},{"hi":"बी.आर. अंबेडकर","en":"B.R. Ambedkar"},{"hi":"सी. राजगोपालाचारी","en":"C. Rajagopalachari"},{"hi":"लाला लाजपत राय","en":"Lala Lajpat Roy"}],"answer":1,"answer_note":"","explanation_hi":"भारत में स्वतंत्र श्रमिक दल की स्थापना डॉ. बी.आर. अंबेडकर ने 1936 में की थी।","explanation_en":"In India, the Independent Labour Party was founded by Dr. B.R. Ambedkar in 1936.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित राजनीतिक दलों को उनकी स्थापना के कालक्रम में व्यवस्थित कीजिए: I. बहुजन समाज पार्टी II. समाजवादी पार्टी III. तेलुगु देशम पार्टी IV. ऑल इंडिया तृणमूल कांग्रेस नीचे दिए गए कूट से सही उत्तर चुनिए।","question_en":"Consider the following Political Parties and arrange them in the chronological order of their establishment. I. Bahujan Samaj Party II. Samajwadi Party III. Telugu Desham Party IV. All India Trinamool Congress / Select the correct answer from the code given below.\nCode :","options":[{"hi":"II, I, III, IV","en":"II, I, III, IV"},{"hi":"I, II, III, IV","en":"I, II, III, IV"},{"hi":"III, I, II, IV","en":"III, I, II, IV"},{"hi":"III, II, I, IV","en":"III, II, I, IV"}],"answer":2,"answer_note":"","explanation_hi":"राजनीतिक दलों के स्थापना वर्ष इस प्रकार हैं: बहुजन समाज पार्टी – 1984; समाजवादी पार्टी – 1992; तेलुगु देशम पार्टी – 1982; ऑल इंडिया तृणमूल कांग्रेस – 1998। अतः इन दलों की स्थापना का सही कालक्रम III, I, II, IV है, जो विकल्प (c) में दिया गया है।","explanation_en":"Political Party Year of Establishment Bahujan Samaj Party – 1984 Samajwadi Party – 1992 Telugu Desam Party – 1982 All India Trinamool Congress – 1998 Hence, the correct chronological order of the establishment of these parties is III, I, II, IV, which is given in option (c).","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए।","question_en":"Match List-I with List-II and select the correct answer by using the code given below the lists:\nList-I List-II (Political Party) (Year of Formation) / A. CPI 1. 1972 / B. CPM 2. 1920 / C. AIADMK 3. 1964 / D. Telugu Desham 4. 1982\nCode : / A B C D","options":[{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"3 2 4 1","en":"3 2 4 1"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"4 1 3 2","en":"4 1 3 2"}],"answer":0,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है: (राजनीतिक दल) (गठन वर्ष): भाकपा – 1925; माकपा – 1964; AIADMK – 1972; तेलुगु देशम – 1982। नोट: एम.एन. रॉय, अवनी मुखर्जी और अन्य ने 1920 में ताशकंद में कम्युनिस्ट पार्टी ऑफ इंडिया की स्थापना की थी, जबकि भारत में वर्तमान भाकपा की स्थापना 1925 में कानपुर में एम. सिंगारवेलु चेट्टियार, एस.वी. घाटे, मुज़फ़्फ़र अहमद और अन्य के नेतृत्व में कम्युनिस्ट नेताओं के सम्मेलन में हुई थी। अतः भारत में वर्तमान में सक्रिय भाकपा का स्थापना वर्ष 1925 है; तथापि प्रश्न में दिए गए वर्षों के संदर्भ में विकल्प (a) को इस प्रश्न का उत्तर माना जा सकता है।","explanation_en":"The correct matching is as follows: (Political Party) (Year of Formation) CPI – 1925 CPM – 1964 AIADMK – 1972 Telugu Desam – 1982 Note: M.N. Roy, Avani Mukherji, and others founded the Communist Party of India at Tashkent in 1920, whereas the Communist Party of India in India, that is, the present CPI, was founded in 1925 at the conference of communist leaders held at Kanpur under the leadership of M. Singaravelu Chettiar, S.V. Ghate, Muzaffar Ahmad, and others. Thus, the foundation year of the presently active CPI in India is 1925; however, with reference to the years given in the question, option (a) may be treated as the answer to this question.","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित ट्रेड यूनियनों को उनकी राजनीतिक संबद्धता से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए।","question_en":"Match List-I with List-II and select the correct answer from the code given below the lists.\nList – I List – II (Trade Unions) (Party Affiliation) / A. Bhartiya Majdoor Sangh 1. Indian National Congress / B. Indian National Trade 2. Communist Union Congress Party of India / C. United Trade Union Congress 3. Communist Party of India (Marxist) / D. All India Trade Union 4. Bhartiya Janta Congress Party\nCode : / A B C D","options":[{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"4 1 3 2","en":"4 1 3 2"},{"hi":"2 4 3 1","en":"2 4 3 1"},{"hi":"1 3 2 4","en":"1 3 2 4"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"भारत के प्रमुख ट्रेड यूनियनों और उनकी राजनीतिक संबद्धता, मूल संगठन या सीधे जुड़ाव के आधार पर, इस प्रकार हैं: भारतीय मज़दूर संघ – राष्ट्रीय स्वयंसेवक संघ (भारतीय जनता पार्टी); भारतीय राष्ट्रीय ट्रेड यूनियन कांग्रेस (INTUC) – भारतीय राष्ट्रीय कांग्रेस; यूनाइटेड ट्रेड यूनियन कांग्रेस (UTUC) – क्रांतिकारी समाजवादी पार्टी; ऑल इंडिया ट्रेड यूनियन कांग्रेस (AITUC) – भारतीय कम्युनिस्ट पार्टी; भारतीय ट्रेड यूनियन केंद्र (CITU) – भारतीय कम्युनिस्ट पार्टी (मार्क्सवादी)। नोट: भारतीय मज़दूर संघ (BMS) अपने आधिकारिक दस्तावेज़ों में किसी भी राजनीतिक दल से असंबद्ध होने का दावा करता है।","explanation_en":"The major trade unions of India and their political affiliations, on the basis of parent organisation or direct association, are as follows: Trade Union Political Affiliation Bharatiya Mazdoor Sangh – Rashtriya Swayamsevak (BMS) Sangh (Bharatiya Janata Party) Indian National Trade – Indian National Congress Union Congress (INTUC) United Trade Union – Revolutionary Socialist Party Congress (UTUC) All India Trade Union – Communist Party of India Congress (AITUC) Centre of Indian Trade – Communist Party of Unions (CITU) India (Marxist) Note: Bharatiya Mazdoor Sangh (BMS), in its official documents, claims to be unaffiliated with any political party.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"तेरहवीं लोकसभा के निर्वाचन में राजनीतिक दलों द्वारा जीती गई सीटों के साथ राजनीतिक दलों की निम्नलिखित सूची दी गई है। इनमें से कौन-सा सही सुमेलित नहीं है?","question_en":"Given below is a list of political parties along with seats won by them in the election to thirteenth Lok Sabha. Which one of these is not correctly matched?","options":[{"hi":"CPM-32","en":"CPM-32"},{"hi":"TDP-30","en":"TDP-30"},{"hi":"BJD-10","en":"BJD-10"},{"hi":"BSP-14","en":"BSP-14"}],"answer":1,"answer_note":"","explanation_hi":"तेरहवीं लोकसभा में TDP के 29 सीटें थीं। अतः विकल्प (b) सही सुमेलित नहीं है। (1) C.P.M. – 13वीं लोकसभा – 33, 17वीं – 3, 18वीं – 4 (2) T.D.P. – 13वीं लोकसभा – 29, 17वीं – 3, 18वीं – 16 (3) B.S.P. – 13वीं लोकसभा – 14, 17वीं – 10, 18वीं – 0 (4) B.J.D. – 13वीं लोकसभा – 10, 17वीं – 12, 18वीं – 0","explanation_en":"In the 13th Lok Sabha, TDP had 29 seats. Therefore, option / (b) is not correctly matched. / (1) C.P.M. – 13th – 33, 17th – 3, 18th – 4 / (2) T.D.P. – 13th – 29, 17th – 3, 18th – 16 / (3) B.S.P. – 13th – 14, 17th – 10, 18th – 0 / (4) B.J.D. – 13th – 10, 17th – 12, 18th – 0","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"लोकसभा निर्वाचन 2024 कितने चरणों में संपन्न हुए थे?","question_en":"The Lok Sabha Elections 2024 were held in how many phases?","options":[{"hi":"9 चरण","en":"9 phases"},{"hi":"7 चरण","en":"7 phases"},{"hi":"8 चरण","en":"8 phases"},{"hi":"6 चरण","en":"6 phases"}],"answer":1,"answer_note":"","explanation_hi":"भारत के निर्वाचन आयोग ने 16 मार्च 2024 को निर्वाचन कार्यक्रम की घोषणा की, जिसके अनुसार 19 अप्रैल से 1 जून 2024 तक कुल 7 चरणों में मतदान कराया गया। प्रत्येक चरण में विभिन्न लोकसभा निर्वाचन क्षेत्रों के लिए मतदान हुआ, और परिणाम 4 जून 2024 को घोषित किए गए।","explanation_en":"The Election Commission of India announced the election schedule on 16 March 2024, according to which polling was conducted in a total of 7 phases from 19 April to 1 June 2024. Polling for different Lok Sabha constituencies was held in each phase, and the results were declared on 4 June 2024.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"केरल में पहली कम्युनिस्ट राज्य सरकार किस वर्ष बनी?","question_en":"The first communist state government in Kerala was formed in–","options":[{"hi":"1953","en":"1953"},{"hi":"1955","en":"1955"},{"hi":"1957","en":"1957"},{"hi":"1959","en":"1959"}],"answer":2,"answer_note":"","explanation_hi":"वर्ष 1957 में केरल राज्य में हुए विधानसभा चुनावों में भारतीय कम्युनिस्ट पार्टी (CPI) ने कांग्रेस को पराजित किया। मुख्यमंत्री के रूप में ई.एम.एस. नंबूदिरिपाद ने स्वतंत्र भारत में पहली कम्युनिस्ट राज्य सरकार बनाई।","explanation_en":"In 1957, in the Assembly elections held in the state of Kerala, the Communist Party of India (CPI) defeated the Congress. E.M.S. Namboodiripad, as the Chief Minister of Kerala, formed the first communist state government in independent India.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित कथनों पर विचार कीजिए: अभिकथन (A): भारतीय जनता पार्टी के नेतृत्व वाली गठबंधन सरकार के राष्ट्रीय एजेंडा में कुछ नीतिगत मार्गदर्शन, कुछ वादे और उसके शासन के लिए कुछ मार्गदर्शक सिद्धांत हैं। कारण (R): इसमें बहुत-सी बातों पर विस्तार से चर्चा की गई है। उपर्युक्त कथनों के संदर्भ में निम्नलिखित में से कौन-सा सही है? कूट:","question_en":"Consider the following statements – Assertion (A) : The coalition government led by Bharatiya Janata Party contains some policy guidance in the National agenda, some promises and few guiding principles for its governance. Reason (R) : It discusses a lot of things in detail. Which one of the following is correct in context to above statements. Codes :","options":[{"hi":"दोनों (A) और (R) सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"दोनों (A) और (R) सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true but, (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false but, (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"भारत में गठबंधन सरकारों में कई दल शामिल होते हैं। इसलिए सभी दलों के विचारों और हितों को ध्यान में रखते हुए एक न्यूनतम साझा कार्यक्रम (Common Minimum Programme) तैयार किया जाता है, और उसी के अनुसार सरकार चलाने का प्रयास किया जाता है। अतः कथन (A) और कारण (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","explanation_en":"In India, coalition governments consist of several parties. Therefore, a Common Minimum Programme is prepared keeping in view the views and interests of all the parties, and efforts are made to run the government accordingly. Thus, both Statement (A) and Reason (R) are correct, but / (R) is not the correct explanation of (A).","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित कथनों पर विचार कीजिए: अभिकथन (A): भारत में कोई निश्चित दलीय प्रणाली नहीं है। कारण (R): बहुत अधिक राजनीतिक दल हैं। नीचे दिए गए कूट से सही उत्तर चुनिए:","question_en":"Consider the following statements: Assertion (A) : There is no fixed party system in India. Reason (R) : There are too many political parties. / Select the correct answer from code given below:\nCode:","options":[{"hi":"दोनों (A) और (R) सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"दोनों (A) और (R) सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true but, (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है। [U.P.P.C.S. (Mains) 2004; U.P. Lower Sub. (Spl) (Pre)]","en":"(A) is false but, (R) is true. U.P.P.C.S. (Mains) 2004; U.P. Lower Sub. (Spl) (Pre)"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय लोकतंत्र सात दशकों से अधिक समय से एक मज़बूत लोकतांत्रिक प्रणाली के रूप में कार्य कर रहा है; फिर भी, सामाजिक-आर्थिक और राजनीतिक परिवर्तनों के कारण दलीय प्रणाली में पुनर्गठन होता रहता है। जातिवाद और क्षेत्रवाद के साथ-साथ धर्म, वर्ग, भाषा, लिंग, विकासात्मक चिंताएँ और बहुसंख्यकवादी राजनीति का एक रूप भी यहाँ महत्वपूर्ण भूमिका निभाते हैं। भारत में कई क्षेत्रीय राजनीतिक दल विशेष रूप से क्षेत्रीय नेतृत्व और स्थानीय हितों का प्रतिनिधित्व करने के उद्देश्य से बने हैं, जबकि राष्ट्रीय और वैचारिक दलों की उत्पत्ति भिन्न रही है। इसी कारण भारत में बड़ी संख्या में राजनीतिक दल मौजूद हैं। परंतु केवल यही कारण नहीं है कि भारत में एक स्थिर दलीय प्रणाली पूरी तरह विकसित नहीं हो पाई है; इसके अन्य सामाजिक-आर्थिक कारण भी हैं। अतः विकल्प (b) सही उत्तर है।","explanation_en":"Indian democracy has been functioning as a strong democratic system for more than seven decades; yet, due to socio-economic and political changes, the party system continues to undergo restructuring. Along with casteism and regionalism, religion, class, language, gender, developmental concerns, and a form of majoritarian politics also play an important role here. In India, many regional political parties have been formed especially with the objective of representing regional leadership and local interests, whereas the origin of national and ideological parties has been different. For this reason, a very large number of political parties exist in India. But this alone is not the reason why a stable party system has not fully developed in India. There are other socio-economic reasons as well. Therefore, option (b) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":36,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित कथनों का अध्ययन कीजिए और नीचे दिए गए कूट से सही उत्तर चुनिए: अभिकथन (A): भारत के पास एक लिखित संविधान है। कारण (R): सशक्त क्षेत्रीय दलों का उदय क्षेत्रीय आकांक्षाओं का संकेतक है। कूट:","question_en":"Study the following statements and select the correct answer from the code given below: Assertion (A) : India has a written Constitution. Reason (R) : Growth of strong regional parties is an indicator of regional aspirations.\nCode :","options":[{"hi":"दोनों (A) और (R) सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)"},{"hi":"दोनों (A) और (R) सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"भारत का संविधान एक लिखित संविधान है। अतः कथन (A) सही है। इसके अतिरिक्त, सशक्त क्षेत्रीय दल मुख्य रूप से क्षेत्रीय आकांक्षाओं को पूरा करने के लिए विकसित होते हैं, और वे क्षेत्रीय नेतृत्व प्रदान करने के साथ-साथ स्थानीय हितों का प्रतिनिधित्व करना चाहते हैं। ये क्षेत्रीय दल किसी विशेष क्षेत्र की समस्याओं को हल करने और वहाँ की सुविधाओं में सुधार लाने की बात करते हैं, जिसके कारण उस क्षेत्र का जनमत उनकी ओर झुकता है। अतः कारण (R) भी सही है। परंतु कारण (R), कथन (A) की सही व्याख्या नहीं है।","explanation_en":"The Constitution of India is a written Constitution. Hence, Statement (A) is correct. Moreover, powerful regional parties mainly develop in order to fulfil regional aspirations, and they seek to represent local interests along with providing regional leadership. These regional parties speak of solving the problems of a particular region and improving facilities there, because of which public opinion in that region tends to incline towards them. Hence, Reason (R) is also correct. But Reason (R) is not the correct explanation of Statement (A).","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"आंतरिक दल लोकतंत्र (Inner-Party Democracy) का अर्थ है –","question_en":"Inner-Party Democracy stands for –","options":[{"hi":"समान कार्यक्रम के साथ कई दलों द्वारा बनाई गई सरकार","en":"A Government formed by several parties with a common programme"},{"hi":"सरकार बनाने वाले दल या दलों के सबसे निकट का दल","en":"Party closest to the party or parties forming the Government"},{"hi":"दल के पदाधिकारियों के चुनाव हेतु दल के भीतर समय-समय पर होने वाले चुनाव","en":"Periodical elections within the party to elect the office bearers of the party"},{"hi":"सत्ता में रहने वाले दलों द्वारा सरकारी गोपनीयता साझा करना","en":"Secrets of Government are shared by parties in power"}],"answer":2,"answer_note":"","explanation_hi":"आंतरिक दल लोकतंत्र का अर्थ है राजनीतिक दलों के भीतर पारदर्शी, सदस्य-आधारित निर्णय प्रक्रियाएँ, नियमित आंतरिक चुनाव और जवाबदेही तंत्र, जिनके माध्यम से दल के पदाधिकारी और उम्मीदवार चुने जाते हैं तथा अन्य महत्वपूर्ण निर्णय लोकतांत्रिक ढंग से लिए जाते हैं। अतः दिए गए विकल्पों में से आंतरिक दल लोकतंत्र का आशय किसी राजनीतिक दल के आंतरिक चुनावों से है, जो दल के पदाधिकारियों के चयन के लिए समय-समय पर आयोजित किए जाते हैं।","explanation_en":"Internal party democracy means transparent, member-driven decision-making processes, regular internal elections, and accountability mechanisms within political parties, through which party office-bearers and candidates are selected and other important decisions are taken in a democratic manner. Therefore, among the given options, internal party democracy refers to the internal elections of a political party, which are held from time to time for the selection of party office-bearers.","source":"","source_missing":true,"exam":"unknown"},{"id":38,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"दल-बदल विरोधी विधेयक (Anti-Defection Bill) किस तारीख को पारित हुआ था?","question_en":"What was the date when the Anti-defection Bill was passed?","options":[{"hi":"17 फरवरी, 1985","en":"17 February, 1985"},{"hi":"15 फरवरी, 1985","en":"15 February, 1985"},{"hi":"30 मार्च, 1985","en":"30 March, 1985"},{"hi":"21 अप्रैल, 1985","en":"21 April, 1985"}],"answer":1,"answer_note":"","explanation_hi":"दल-बदल विरोधी अधिनियम से संबंधित विधेयक (52वाँ संविधान संशोधन अधिनियम) को लोकसभा ने 30 जनवरी 1985 को और राज्यसभा ने 31 जनवरी 1985 को पारित किया। राष्ट्रपति की सहमति प्राप्त होने के बाद इसे 15 फरवरी 1985 को अधिनियमित किया गया। यह अधिनियम 1 मार्च 1985 से प्रभावी हुआ। इस अधिनियम द्वारा संविधान के अनुच्छेद 101, 102, 190 और 191 में संशोधन किए गए, और संविधान में दसवीं अनुसूची जोड़कर दल-बदल रोकने के उपबंध किए गए। यह ध्यान देने योग्य है कि इस अनुसूची के पैरा 7, जो न्यायालयों के अधिकार-क्षेत्र पर रोक से संबंधित है, को उच्चतम न्यायालय ने किहोटो होलोहन बनाम ज़ाचिल्लू और अन्य (1993) में असंवैधानिक घोषित किया था, और पैरा 3 (विभाजन की स्थिति में अपवाद से संबंधित) को 91वें संविधान संशोधन अधिनियम, 2003 द्वारा हटा दिया गया था।","explanation_en":"The Bill relating to the Anti-Defection Act (the 52nd Constitutional Amendment Act) was passed by the Lok Sabha on 30 January, 1985, and by the Rajya Sabha on 31 January, 1985. It was enacted on 15 February, 1985, after receiving the assent of the President. This Act came into force on 1 March, 1985. By this Act, amendments were made to Articles 101, 102, 190 and 191 of the Constitution, and provisions to curb defection were introduced by adding the Tenth Schedule to the Constitution. It is noteworthy that Paragraph 7 of this Schedule, relating to the bar on the jurisdiction of courts, was declared unconstitutional by the Supreme Court in Kihoto Hollohan v. Zachillhu and Others (1993), and Paragraph 3, (relating to the exception in case of split), was removed by the 91st Constitutional Amendment Act, 2003.","source":"","source_missing":true,"exam":"unknown"},{"id":39,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"निम्नलिखित में से कौन-सा एक दल-बदल विरोधी कानून के अंतर्गत नहीं आता है?","question_en":"Which one of the following is not covered by the Anti-Defection Law?","options":[{"hi":"किसी दल में सामूहिक (एक साथ) दल-बदल।","en":"An-bloc defections in a Party."},{"hi":"किसी दल में विभिन्न चरणों में बड़े पैमाने पर दल-बदल।","en":"Large defections in a Party in various spell."},{"hi":"एक ही चरण में छोटा दल-बदल।","en":"Smaller defection in a single spell."},{"hi":"संसद में दल के सदस्य सरकार को गिराने या समर्थन देने के लिए मतदान करें।","en":"Party members in Parliament casting vote either to topple or support a Government."}],"answer":1,"answer_note":"","explanation_hi":"52वें संविधान संशोधन अधिनियम, 1985 द्वारा दल-बदल के आधार पर अयोग्यता से संबंधित उपबंध भारतीय संविधान की दसवीं अनुसूची में शामिल किए गए। इसमें किसी पूरे दल का एक साथ दल-बदल, एक छोटे समूह का एक साथ दल-बदल, और अधिकृत दल-नेतृत्व के निर्देश के विरुद्ध मतदान करने से संबंधित उपबंध शामिल हैं। इसके माध्यम से भारत में पहली बार राजनीतिक दलों को संवैधानिक मान्यता दी गई। यह कानून विभिन्न चरणों में होने वाले किसी दल में बड़े पैमाने के दल-बदल की स्थिति का उल्लेख नहीं करता।","explanation_en":"By the 52nd Constitutional Amendment Act, 1985, provisions relating to disqualification on the ground of defection were included in the Tenth Schedule of the Indian Constitution. It includes provisions relating to defection of an entire party at one time, defection by a small group at one time, and voting against the direction of the authorized party leadership. Through this, political parties were given constitutional recognition in India for the first time. This law does not mention the situation of large-scale defection in a party taking place in different stages.","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"राजनीतिक दल","topic_en":"Political Parties","question_hi":"कामराज योजना का सिद्धांत था-","question_en":"The principle of ‘Kamaraj Plan’ was-","options":[{"hi":"एक आदर्श समाजवादी समाज की स्थापना करना","en":"To Establish an ideal socialist society"},{"hi":"तमिलनाडु का औद्योगिक विकास","en":"Industrial Development of Tamil Nadu"},{"hi":"भारतीय राष्ट्रीय कांग्रेस को सक्रिय और जीवंत बनाना","en":"Making Indian National Congress Vibrant"},{"hi":"सहकारी खेती को बढ़ावा देना","en":"Promotion of cooperative farming"}],"answer":2,"answer_note":"","explanation_hi":"वर्ष 1963 में कामराज योजना के. कामराज ने तैयार की थी, जो कांग्रेस के वरिष्ठ नेता थे और उस समय मद्रास राज्य के मुख्यमंत्री थे। वे 9 अक्टूबर 1963 को कांग्रेस अध्यक्ष चुने गए। इस योजना के अंतर्गत उन्होंने सुझाव दिया कि वरिष्ठ कांग्रेस नेताओं को मंत्री पदों से त्यागपत्र देकर संगठन के कार्य में स्वयं को समर्पित करना चाहिए। इस प्रकार, यह योजना भारतीय राष्ट्रीय कांग्रेस को पुनर्जीवित करने और राष्ट्रीय विकास में उसके योगदान को बढ़ाने के लिए तैयार की गई थी।","explanation_en":"In 1963, the Kamaraj Plan was prepared by K. Kamaraj, a senior Congress leader and the then Chief Minister of Madras State, who was elected Congress President on 9 October 1963. Under this plan, he suggested that senior Congress leaders should resign from ministerial posts and devote themselves to organizational work. Thus, this plan was prepared to revitalize the Indian National Congress and to increase its contribution to national development.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

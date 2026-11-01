@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-13-supreme-court","title":"Polity PYQ — Supreme Court","shortTitle":"Supreme Court","subtitle":"Purvavlokan GS · Indian Polity · उच्चतम न्यायालय","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Supreme Court. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":60,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत के उच्चतम न्यायालय के न्यायाधीशों की वर्तमान स्वीकृत संख्या है –","question_en":"The current sanctioned strength of Judges of Supreme Court of India is –","options":[{"hi":"20","en":"20"},{"hi":"25","en":"25"},{"hi":"30","en":"30"},{"hi":"31","en":"31"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"भारत का उच्चतम न्यायालय संविधान के अनुच्छेद 124 के अंतर्गत स्थापित किया गया था। अनुच्छेद 124 में न्यायाधीशों की संख्या का उल्लेख भी है। संविधान लागू होने के समय, मुख्य न्यायाधीश सहित उच्चतम न्यायालय के न्यायाधीशों की कुल संख्या आठ थी। अनुच्छेद 124(1) के अंतर्गत संसद ने उच्चतम न्यायालय (न्यायाधीशों की संख्या) अधिनियम, 1956 द्वारा इस संख्या को बढ़ाकर ग्यारह किया। बाद में इसे 1960 में चौदह, 1978 में अठारह और 1986 में मुख्य न्यायाधीश सहित छब्बीस किया गया। वर्ष 2008 के संशोधन द्वारा मुख्य न्यायाधीश के अतिरिक्त अन्य न्यायाधीशों की संख्या 30 निर्धारित की गई। उल्लेखनीय है कि उच्चतम न्यायालय (न्यायाधीशों की संख्या) संशोधन अधिनियम, 2019 द्वारा मुख्य न्यायाधीश के अतिरिक्त अन्य न्यायाधीशों की संख्या 30 से बढ़ाकर 33 की गई। अतः वर्तमान में मुख्य न्यायाधीश सहित उच्चतम न्यायालय के न्यायाधीशों की कुल स्वीकृत संख्या 34 (33 + 1) है।","explanation_en":"The Supreme Court of India was established under Article 124 of the Constitution of India. Under Article 124, the no. of judges is also mentioned. When the Constitution came into force, the total number of judges in the Supreme Court, including the Chief Justice, was eight. Under Article 124(1), Parliament, through the Supreme Court (Number of Judges) Act, 1956, increased this number to eleven. Later, it was increased to fourteen in 1960, eighteen in 1978, and twenty-six in 1986, including the Chief Justice. Under the 2008 amendment, the number of judges other than the Chief Justice was fixed at 30. It is noteworthy that under the Supreme Court (Number of Judges) Amendment Act, 2019, the number of judges other than the Chief Justice was increased from 30 to 33. Thus, at present, the total sanctioned strength of judges in the Supreme Court, including the Chief Justice, is 34 (33 + 1).","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय का कोई न्यायाधीश अपना पद त्यागपत्र देकर किसे संबोधित पत्र लिखकर त्याग सकता है?","question_en":"A Judge of the Supreme Court may resign his office by writing a letter to –","options":[{"hi":"मुख्य न्यायाधीश","en":"The Chief Justice"},{"hi":"राष्ट्रपति","en":"The President"},{"hi":"प्रधानमंत्री","en":"The Prime Minister"},{"hi":"विधि मंत्री","en":"The Law Minister"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 124(2) के परंतुक के खंड (a) के अनुसार, उच्चतम न्यायालय का न्यायाधीश राष्ट्रपति को संबोधित अपने हस्ताक्षरित पत्र द्वारा पद त्याग सकता है। राष्ट्रपति उच्चतम न्यायालय के प्रत्येक न्यायाधीश को अपने हस्ताक्षर और मुहर वाले वारंट द्वारा नियुक्त करते हैं।","explanation_en":"According to clause (a) of the proviso to Article 124(2) of the Constitution of India, a judge of the Supreme Court may resign from office by a letter under his or her hand addressed to the President. The President appoints every judge of the Supreme Court by warrant under his hand and seal.","source":"U.P.P.C.S. (Pre.) 2023","source_missing":false,"exam":"uppcs-pre"},{"id":3,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय में सेवानिवृत्ति की आयु है-","question_en":"The age of retirement in the Supreme Court is-","options":[{"hi":"62 वर्ष","en":"62 Years"},{"hi":"63 वर्ष","en":"63 Years"},{"hi":"64 वर्ष","en":"64 Years"},{"hi":"65 वर्ष","en":"65 Years"}],"answer":3,"answer_note":"","explanation_hi":"उच्चतम न्यायालय के न्यायाधीशों की सेवानिवृत्ति आयु 65 वर्ष है, जबकि उच्च न्यायालयों में यह 62 वर्ष है।","explanation_en":"The retirement age of judges of the Supreme Court is 65 years, whereas in the High Courts it is 62 years.","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय के न्यायाधीशों के वेतन किसके द्वारा निर्धारित होते हैं?","question_en":"Salaries of the Judges of the Supreme Court are determined by –","options":[{"hi":"राष्ट्रपति द्वारा नियुक्त वेतन आयोग।","en":"Pay Commission appointed by the President."},{"hi":"विधि आयोग","en":"Law Commission"},{"hi":"संसद","en":"Parliament"},{"hi":"मंत्रिपरिषद","en":"Council of Ministers"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 125(1) के अंतर्गत, उच्चतम न्यायालय के न्यायाधीशों के वेतन संसद द्वारा बनाए गए विधि द्वारा निर्धारित होते हैं।","explanation_en":"Under Article 125(1) of the Constitution, the salaries of the judges of the Supreme Court are determined by a law made by Parliament.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"सेवानिवृत्ति के बाद उच्चतम न्यायालय के न्यायाधीशों को किसके समक्ष वकालत करने की अनुमति है?","question_en":"The Judges of the Supreme Court, after retirement, are permitted to carry on practice before –","options":[{"hi":"केवल उच्चतम न्यायालय","en":"Supreme Court only"},{"hi":"केवल उच्च न्यायालय","en":"High Courts only"},{"hi":"उच्चतम न्यायालय और उच्च न्यायालय दोनों","en":"Both Supreme Court and High Court"},{"hi":"किसी भी न्यायालय में नहीं","en":"None of the Courts"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 124(7) के अनुसार, सेवानिवृत्ति के बाद उच्चतम न्यायालय के न्यायाधीश किसी भी न्यायालय में वकालत नहीं कर सकते, जबकि अनुच्छेद 220 के अंतर्गत उच्च न्यायालय का स्थायी न्यायाधीश सेवानिवृत्ति के बाद उच्चतम न्यायालय और अन्य उच्च न्यायालयों में वकालत कर सकता है, लेकिन उसी उच्च न्यायालय में नहीं जिसमें वह स्थायी न्यायाधीश के रूप में कार्यरत रहा हो।","explanation_en":"According to Article 124(7) of the Constitution, after retirement, judges of the Supreme Court cannot practise in any court, whereas under Article 220, a permanent judge of a High Court, after retirement, can practise in the Supreme Court and in other High Courts, but not in the same High Court in which he or she served as a permanent judge.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत के उच्चतम न्यायालय के कार्यकारी मुख्य न्यायाधीश की नियुक्ति किसके द्वारा की जाती है?","question_en":"Acting Chief Justice of the Supreme Court of India is appointed by-","options":[{"hi":"उच्चतम न्यायालय के मुख्य न्यायाधीश","en":"Chief Justice of the Supreme Court"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"राष्ट्रपति","en":"President"},{"hi":"विधि मंत्री","en":"Law Minister"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 126 के अनुसार, उच्चतम न्यायालय के कार्यकारी मुख्य न्यायाधीश की नियुक्ति राष्ट्रपति द्वारा की जाती है। यह तब किया जाता है जब मुख्य न्यायाधीश का पद रिक्त हो या मुख्य न्यायाधीश अपने कर्तव्यों का पालन करने में असमर्थ हों।","explanation_en":"According to Article 126, the Acting Chief Justice of the Supreme Court is appointed by the President. This is done when the office of the Chief Justice is vacant or when the Chief Justice is unable to perform his or her duties.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय का कॉलेजियम भारत के मुख्य न्यायाधीश और कुछ वरिष्ठ न्यायाधीशों से मिलकर बनता है, जो उच्चतम न्यायालय में नियुक्ति के लिए नामों की सिफारिश करते हैं। इसमें शामिल ऐसे वरिष्ठ न्यायाधीशों की संख्या है।","question_en":"The Supreme Court’s Collegium comprises the Chief Justice of India and a few Senior Judges for recommending appointees to the Supreme Court. The number of such Senior Judges, who are part of this body, is","options":[{"hi":"3","en":"3"},{"hi":"4","en":"4"},{"hi":"5","en":"5"},{"hi":"6","en":"6"}],"answer":1,"answer_note":"","explanation_hi":"भारत के उच्चतम न्यायालय ने 1993 में उच्च न्यायपालिका के न्यायाधीशों की नियुक्ति और स्थानांतरण के लिए कॉलेजियम प्रणाली अपनाई। 1993 में 'Supreme Court Advocates-on-Record Association v. Union of India' में उच्चतम न्यायालय ने पहली बार न्यायाधीशों की नियुक्ति के लिए कॉलेजियम प्रणाली निर्धारित की। इस निर्णय के अंतर्गत कॉलेजियम में भारत के मुख्य न्यायाधीश और उच्चतम न्यायालय के दो सर्वोच्च वरिष्ठ न्यायाधीश शामिल थे। वर्ष 1998 में इसका विस्तार करके इसमें भारत के मुख्य न्यायाधीश और उच्चतम न्यायालय के चार सर्वोच्च वरिष्ठ न्यायाधीश शामिल किए गए।","explanation_en":"The Supreme Court of India adopted the collegium system in 1993 for the appointment and transfer of judges of the higher judiciary. In 1993, in 'Supreme Court Advocates-on-Record Association v. Union of India', the Supreme Court, for the first time, laid down the collegium system for the appointment of judges. Under this decision, the collegium consisted of the Chief Justice of India and the two senior-most judges of the Supreme Court. In 1998, it was expanded to consist of the Chief Justice of India and the four senior-most judges of the Supreme Court.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित में से किसने सिफारिश की है कि उच्च न्यायालयों में न्यायाधीशों की नियुक्ति कार्यपालिका, विधायिका और मुख्य न्यायाधीश की भागीदारी से होनी चाहिए?","question_en":"Which of the following has recommended that appointment of Judges to Higher Courts should be through the participation of the Executive, Legislature and Chief Justice?","options":[{"hi":"संविधान के कार्यकरण की समीक्षा के लिए राष्ट्रीय आयोग।","en":"National Commission to Review the Working of the Constitution."},{"hi":"राष्ट्रीय न्यायिक आयोग","en":"National Judicial Commission"},{"hi":"द्वितीय प्रशासनिक सुधार आयोग","en":"Second Administrative Reforms Commission"},{"hi":"विधि आयोग की रिपोर्ट","en":"Report of Law Commission"}],"answer":2,"answer_note":"","explanation_hi":"द्वितीय प्रशासनिक सुधार आयोग ने उच्च न्यायपालिका, अर्थात उच्चतम न्यायालय और उच्च न्यायालयों के न्यायाधीशों की नियुक्ति में कार्यपालिका, विधायिका और मुख्य न्यायाधीश की भागीदारी की सिफारिश की। इस आयोग का गठन 31 अगस्त 2005 को वीरप्पा मोइली की अध्यक्षता में किया गया था।","explanation_en":"The Second Administrative Reforms Commission recommended the participation of the executive, the legislature, and the Chief Justice in the appointment of judges of the higher judiciary, that is, the Supreme Court and the High Courts. This Commission was constituted on 31 August 2005 under the chairmanship of Veerappa Moily.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारतीय संविधान में “एड हॉक न्यायाधीशों” की नियुक्ति का प्रावधान किसमें है–","question_en":"The Indian Constitution provides for the appointment of “Ad hoc Judges” in–","options":[{"hi":"उच्चतम न्यायालय","en":"Supreme Court"},{"hi":"उच्च न्यायालय","en":"High Courts"},{"hi":"जिला और सत्र न्यायालय","en":"District and Session Courts"},{"hi":"उपरोक्त सभी","en":"All the above"}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 127(1) के अंतर्गत, यदि किसी समय उच्चतम न्यायालय की बैठक चलाने या जारी रखने के लिए न्यायाधीशों का गणपूर्ति (कोरम) उपलब्ध न हो, तो भारत के मुख्य न्यायाधीश राष्ट्रपति की पूर्व सहमति से और संबंधित उच्च न्यायालय के मुख्य न्यायाधीश से परामर्श करके, उस उच्च न्यायालय के ऐसे न्यायाधीश को, जो उच्चतम न्यायालय के न्यायाधीश के रूप में नियुक्त होने के योग्य हो, उच्चतम न्यायालय का एड हॉक न्यायाधीश नामित कर सकते हैं। एड हॉक न्यायाधीशों की नियुक्ति का प्रावधान केवल उच्चतम न्यायालय के संदर्भ में है, अन्य न्यायालयों के लिए नहीं। दूसरी ओर, उच्च न्यायालयों में अनुच्छेद 224 के अंतर्गत अपर और कार्यकारी न्यायाधीश नियुक्त किए जा सकते हैं, लेकिन उच्चतम न्यायालय में नहीं।","explanation_en":"Under Article 127(1) of the Constitution, if at any time there is no quorum of judges available to hold or continue a sitting of the Supreme Court of India, the Chief Justice of India may, with the previous consent of the President and after consultation with the Chief Justice of the concerned High Court, nominate a judge of that High Court, who is qualified to be appointed as a judge of the Supreme Court, as an ad hoc judge of the Supreme Court. The provision relating to the appointment of ad hoc judges exists only in the context of the Supreme Court and not for other courts. On the other hand, additional and acting judges may be appointed in the High Courts under Article 224 of the Constitution, but not in the Supreme Court.","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"संविधान की व्याख्या से संबंधित किसी भी वाद की सुनवाई के लिए उच्चतम न्यायालय के न्यायाधीशों की न्यूनतम संख्या है –","question_en":"The minimum number of Judges of the Supreme Court required for hearing any case involving interpretation of the Constitution is –","options":[{"hi":"दस","en":"Ten"},{"hi":"नौ","en":"Nine"},{"hi":"सात","en":"Seven"},{"hi":"पाँच","en":"Five"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 145(3) के अनुसार, संविधान की व्याख्या से संबंधित पर्याप्त विधि-प्रश्न वाले किसी भी वाद में, या अनुच्छेद 143 के अंतर्गत किए गए किसी संदर्भ की सुनवाई के लिए, न्यूनतम न्यायाधीशों की संख्या पाँच है। अतः उच्चतम न्यायालय में संविधान की व्याख्या से संबंधित वाद की सुनवाई के लिए कम से कम पाँच न्यायाधीश आवश्यक हैं। इसे संविधान पीठ कहा जाता है।","explanation_en":"Under Article 145(3) of the Constitution, in any case involving a substantial question of law as to the interpretation of the Constitution, or for hearing a reference made under Article 143, the minimum number of judges required is five. Thus, at least five judges are required to hear a case relating to the interpretation of the Constitution in the Supreme Court. This is known as a Constitution Bench.","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत के उच्चतम न्यायालय की शक्तियों के संबंध में निम्नलिखित में से कौन-सा कथन सत्य नहीं है?","question_en":"Which of the following statements is not true about the power of Supreme Court of India?","options":[{"hi":"लोगों के मौलिक अधिकारों की रक्षा के लिए रिट जारी करने की उसकी अनन्य शक्ति है।","en":"It has the exclusive power to issue writs to protect the fundamental rights of the People."},{"hi":"अंतर-सरकारी विवादों में उसका मूल और अनन्य क्षेत्राधिकार है।","en":"It has original and exclusive jurisdiction in inter-governmental disputes."},{"hi":"भारत के राष्ट्रपति द्वारा उसे भेजे गए विधि या तथ्य के प्रश्न पर उसका परामर्शी क्षेत्राधिकार है।","en":"It has advisory jurisdiction on a question of law or fact which may be referred to it by the President of India"},{"hi":"उसे अपने निर्णय या आदेश की पुनर्विचार करने की शक्ति है।","en":"It has power to review its own judgment or order."}],"answer":0,"answer_note":"","explanation_hi":"उच्चतम न्यायालय अनुच्छेद 32 के अंतर्गत नागरिकों और अन्य व्यक्तियों के मौलिक अधिकारों के उल्लंघन की स्थिति में रिट जारी कर सकता है। परंतु यह उच्चतम न्यायालय की अनन्य शक्ति नहीं है, क्योंकि उच्च न्यायालयों को भी अनुच्छेद 226 के अंतर्गत मौलिक अधिकारों की रक्षा के लिए ऐसे आदेश जारी करने की शक्ति प्राप्त है। अन्य विकल्प सही हैं।","explanation_en":"The Supreme Court can issue writs under Article 32 in cases of violation of the fundamental rights of citizens and other persons. However, this is not the exclusive power of the Supreme Court, because the High Courts also have the power under Article 226 to issue such orders for the protection of fundamental rights. The other options are correct.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत का उच्चतम न्यायालय एक ‘अभिलेख न्यायालय’ (Court of Record) है। इसका अर्थ है कि –","question_en":"The Supreme Court of India is a ‘Court of Record.’ It implies that –","options":[{"hi":"उसे अपने निर्णयों का अभिलेख रखना होता है।","en":"It has to keep a record of its decisions"},{"hi":"उसके सभी निर्णयों का साक्ष्य मूल्य है और उन्हें किसी न्यायालय में प्रश्नगत नहीं किया जा सकता।","en":"All its decisions have evidentiary value and cannot be questioned in any court."},{"hi":"उसे अपनी अवमानना के लिए दंडित करने की शक्ति है।","en":"It has the power to punish for its contempt."},{"hi":"उसके निर्णयों के विरुद्ध कोई अपील नहीं की जा सकती।","en":"No appeal can be made against its decisions."}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 129 उच्चतम न्यायालय को अभिलेख न्यायालय घोषित करता है। अभिलेख न्यायालय का अर्थ है: (i) ऐसे न्यायालय के निर्णय और कार्यवाहियाँ लिखित रूप में दर्ज और सुरक्षित रखी जाती हैं, ताकि उन्हें पूर्वनिर्णय के रूप में उद्धृत किया जा सके; और (ii) ऐसे न्यायालय को अपनी अवमानना के लिए दंड देने की शक्ति प्राप्त है। अतः उच्चतम न्यायालय के अभिलेख न्यायालय होने का अर्थ है कि उसके निर्णयों का साक्ष्य मूल्य है और उन्हें किसी अधीनस्थ न्यायालय में प्रश्नगत नहीं किया जा सकता। फिर भी, उच्चतम न्यायालय स्वयं अपने निर्णयों की पुनर्विचार कर सकता है, जो संविधान के अनुच्छेद 137 और उसकी अंतर्निहित शक्तियों के अंतर्गत है। इस आधार पर, यद्यपि विकल्प (c) अधिक उपयुक्त उत्तर है और विकल्प (b) को भी सही माना जा सकता है, परंतु उत्तर प्रदेश लोक सेवा आयोग ने विकल्प (b) को सही उत्तर घोषित किया।","explanation_en":"Article 129 declares the Supreme Court to be a Court of Record. A Court of Record means: / (i) the judgments and proceedings of such a court are recorded in writing and preserved so that they may be cited as precedents; and (ii) such a court has the power to punish for its own contempt. Therefore, the Supreme Court being a Court of Record means that its judgments have evidentiary value and cannot be questioned in any subordinate court. However, the Supreme Court itself may review its own judgments under Article 137 of the Constitution and under its inherent powers. On this basis, although option (c) is the more appropriate answer and option (b) may also be treated as correct, but the Uttar Pradesh Public Service Commission declared option (b) as the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित में से कौन-सा युग्म (अनुच्छेद–प्रावधान) सही सुमेलित नहीं है?","question_en":"Which one of the following pairs (Article- provision) is not correctly matched?","options":[{"hi":"अनुच्छेद 124 - उच्चतम न्यायालय का अभिलेख न्यायालय होना","en":"Article 124 - Supreme Court to be a Court of Record"},{"hi":"अनुच्छेद 143 - उच्चतम न्यायालय का परामर्शी क्षेत्राधिकार","en":"Article 143 - Advisory Jurisdiction of Supreme Court"},{"hi":"अनुच्छेद 132 - उच्चतम न्यायालय का अपीलीय क्षेत्राधिकार","en":"Article 132 - Appellate Jurisdiction of Supreme Court"},{"hi":"अनुच्छेद 136 - उच्चतम न्यायालय द्वारा अपील की विशेष अनुमति","en":"Article 136 - Special leave to appeal by the Supreme Court"}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 129 के अनुसार, उच्चतम न्यायालय अभिलेख न्यायालय होगा और उसे ऐसे न्यायालय की सभी शक्तियाँ होंगी, जिनमें अपनी अवमानना के लिए दंड देने की शक्ति भी शामिल है। अभिलेख न्यायालय का अर्थ है कि उसके सभी निर्णयों का साक्ष्य मूल्य है। अनुच्छेद 124 उच्चतम न्यायालय की स्थापना और गठन से संबंधित उपबंधों को समाहित करता है। प्रश्न में उल्लिखित अन्य सभी अनुच्छेद और उनके प्रावधान सही सुमेलित हैं।","explanation_en":"According to Article 129 of the Constitution, the Supreme Court shall be a Court of Record and shall have all the powers of such a court, including the power to punish for its contempt. A Court of Record means that all its decisions have evidentiary value. Article 124 contains provisions relating to the establishment and constitution of the Supreme Court. All the other Articles mentioned in the question and their provisions are correctly matched.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत में निम्नलिखित में से कौन-से न्यायालय ‘अभिलेख न्यायालय’ के रूप में जाने जाते हैं?","question_en":"Which of the following Courts in India is/are known as the Court (s) of Record?","options":[{"hi":"केवल उच्च न्यायालय","en":"The High Courts only"},{"hi":"केवल उच्चतम न्यायालय","en":"The Supreme Court only"},{"hi":"उच्च न्यायालय और उच्चतम न्यायालय","en":"The High Courts and the Supreme Court"},{"hi":"जिला न्यायालय","en":"The District Courts"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 129 के अंतर्गत उच्चतम न्यायालय को अभिलेख न्यायालय का दर्जा दिया गया है, और अनुच्छेद 215 के अंतर्गत उच्च न्यायालयों को भी अभिलेख न्यायालय का दर्जा दिया गया है।","explanation_en":"Under Article 129 of the Indian Constitution, the Supreme Court has been given the status of a Court of Record, and under Article 215, the High Courts have also been given the status of Courts of Record.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय की बैठकें नई दिल्ली में होती हैं, परंतु वह अन्यत्र भी बैठक कर सकता है –","question_en":"The Supreme Court holds its meetings in New Delhi, but it can meet elsewhere –","options":[{"hi":"राष्ट्रपति की स्वीकृति से।","en":"With the approval of President."},{"hi":"यदि उच्चतम न्यायालय के न्यायाधीशों का बहुमत ऐसा निर्णय करे।","en":"If the majority of Judges of Supreme Court so decide."},{"hi":"संसद की स्वीकृति से।","en":"With the approval of Parliament."},{"hi":"राज्य विधानमंडल के अनुरोध पर।","en":"On the request of State Legislature."}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 130 के अनुसार, उच्चतम न्यायालय दिल्ली में या ऐसे अन्य स्थान या स्थानों पर बैठेगा, जिन्हें भारत के मुख्य न्यायाधीश राष्ट्रपति की स्वीकृति से समय-समय पर नियत करें। अतः सही उत्तर विकल्प (a) है।","explanation_en":"According to Article 130 of the Constitution, the Supreme Court shall sit in Delhi or in such other place or places as the Chief Justice of India may, with the approval of the President, from time to time appoint. Therefore, the correct answer is option (a).","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत के उच्चतम न्यायालय ने निम्नलिखित में से किस वाद में ‘मूल ढाँचे का सिद्धांत’ (Doctrine of Basic Structure) प्रतिपादित किया?","question_en":"In which of the following cases, the Supreme Court of India enunciated the ‘Doctrine of Basic Structure’?","options":[{"hi":"गोलकनाथ","en":"Golaknath"},{"hi":"ए.के. गोपालन","en":"A.K. Gopalan"},{"hi":"केशवानंद भारती","en":"Keshavanand Bharti"},{"hi":"मेनका गांधी","en":"Menka Gandhi"}],"answer":2,"answer_note":"","explanation_hi":"केशवानंद भारती बनाम केरल राज्य और अन्य (1973) में, उच्चतम न्यायालय की 13 न्यायाधीशों की संविधान पीठ ने संविधान के मूल ढाँचे का सिद्धांत प्रतिपादित किया। इस निर्णय में, यद्यपि संसद की संविधान संशोधन की शक्ति को स्वीकार किया गया, फिर भी यह भी धारित किया गया कि अनुच्छेद 368 संसद को संविधान के मूल ढाँचे या रूपरेखा को बदलने का अधिकार नहीं देता।","explanation_en":"In Keshavananda Bharati v. State of Kerala and Others (1973), a 13-judge Constitution Bench of the Supreme Court laid down the doctrine of the Basic Structure of the Constitution. In this judgment, although Parliament’s power to amend the Constitution was accepted, it was also held that Article 368 does not empower Parliament to alter the basic structure or framework of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"संविधान के निम्नलिखित में से किन अनुच्छेदों को उच्चतम न्यायालय ने संविधान के ‘अनुलंघनीय मूल ढाँचे’ के रूप में घोषित किया है: नीचे दिए गए कूट से सही उत्तर चुनिए: 1. अनुच्छेद 32 2. अनुच्छेद 226 3. अनुच्छेद 227 4. अनुच्छेद 245। कूट:","question_en":"Which of the following Articles of the Constitution of India have been declared by the Supreme Court as the ‘Inviolable basic structure’ of the Constitution: / Select the correct answer from the code given below: / 1. Article 32 2. Article 226 / 3. Article 227 4. Article 245\nCode :","options":[{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"1, 3 और 4","en":"1, 3 and 4"},{"hi":"1, 2 और 4","en":"1, 2 and 4"},{"hi":"1, 2, 3 और 4","en":"1, 2, 3 and 4"}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 32 और 226 क्रमशः उच्चतम न्यायालय और उच्च न्यायालयों के रिट क्षेत्राधिकार का प्रतिनिधित्व करते हैं। अनुच्छेद 227 अधीनस्थ न्यायालयों और अधिकरणों पर उच्च न्यायालयों की अधीक्षण शक्ति का प्रतिनिधित्व करता है। इन तीनों अनुच्छेदों को उच्चतम न्यायालय ने अपने विभिन्न निर्णयों (जैसे L. Chandra Kumar v. Union of India, 1997) में संविधान के अनुलंघनीय मूल ढाँचे का भाग घोषित किया है। अनुच्छेद 245 (संसद और राज्यों के विधानमंडलों द्वारा बनाई गई विधियों का विस्तार) को उच्चतम न्यायालय ने संविधान के मूल ढाँचे का भाग घोषित नहीं किया है।","explanation_en":"Articles 32 and 226 respectively represent the writ jurisdiction of the Supreme Court and the High Courts. Article 227 represents the supervisory power of the High Courts over subordinate courts and tribunals. These three Articles have been declared by the Supreme Court in its various decisions (such as L. Chandra Kumar v. Union of India, 1997) to form part of the inviolable basic structure of the Constitution. Article 245 (extent of laws made by Parliament and by the Legislatures of States) has not been declared by the Supreme Court to be a part of the basic structure of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत में ‘संविधान की मूल संरचना सिद्धांत’ का स्रोत है","question_en":"The source of the ‘Basic Structure Theory of the Constitution’ in India is","options":[{"hi":"संविधान","en":"The Constitution"},{"hi":"न्यायिक व्याख्या","en":"Judicial Interpretation"},{"hi":"विधिवेत्ताओं का मत","en":"Opinion of the Jurists"},{"hi":"संसदीय कानून","en":"Parliamentary Statute"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के मूल ढाँचे का सिद्धांत केशवानंद भारती बनाम केरल राज्य और अन्य में समझाया गया था, और इसकी पुष्टि मिनर्वा मिल्स मामले में भी की गई थी। अतः स्पष्ट है कि इस सिद्धांत का स्रोत न्यायिक व्याख्या है।","explanation_en":"The doctrine of the Basic Structure of the Constitution was explained in Keshavananda Bharati v. State of Kerala and Others, and it was also affirmed in the Minerva Mills case. Hence, it is clear that the source of this doctrine is judicial interpretation.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"अब तक उच्चतम न्यायालय द्वारा गठित दूसरी सबसे बड़ी पीठ किस मामले में गठित हुई थी?","question_en":"The second largest bench Constituted by the Supreme Court till date was in the –","options":[{"hi":"गोलकनाथ मामला","en":"Golaknath Case"},{"hi":"मिनर्वा मिल्स मामला","en":"Minerva Mills Case"},{"hi":"बैंक राष्ट्रीयकरण मामला","en":"Bank Nationalisation Case"},{"hi":"टी.एम.ए. पाई फाउंडेशन मामला","en":"T.M.A. Pai Foundation Case"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"केशवानंद भारती मामले (1973) में उच्चतम न्यायालय द्वारा गठित अब तक की सबसे बड़ी पीठ 13 न्यायाधीशों की थी। उच्चतम न्यायालय की दूसरी सबसे बड़ी पीठ, जिसमें 11 न्यायाधीश थे, I.C. गोलकनाथ बनाम पंजाब राज्य (1967) में गठित हुई थी, साथ ही R.C. कूपर बनाम भारत संघ (बैंक राष्ट्रीयकरण मामला, 1970), T.M.A. पाई फाउंडेशन बनाम कर्नाटक राज्य (2002), और माधवराव सिंधिया बनाम भारत संघ (1971) जैसे कई अन्य मामलों में भी। अतः चूँकि एक से अधिक विकल्प सही हैं, इसलिए यह प्रश्न दोषपूर्ण है।","explanation_en":"In the Keshavananda Bharati case (1973), the largest Bench ever constituted by the Supreme Court consisted of 13 judges. The second largest Bench of the Supreme Court, consisting of 11 judges, was constituted in I.C. Golaknath v. State of Punjab (1967) as well as in several other cases such as R.C. Cooper v. Union of India (Bank Nationalisation case, 1970), T.M.A. Pai Foundation v. State of Karnataka (2002), and Madhav Rao Scindia v. Union of India (1971). Therefore, since more than one option is correct, this question is defective.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित में से किस मामले में उच्चतम न्यायालय ने यह मत व्यक्त किया कि मौलिक अधिकार व्यक्ति को अपने जीवन की राह उस ढंग से तय करने में सक्षम बनाते हैं जो उसे सबसे अच्छा लगे?","question_en":"In which of the following cases, did the Supreme Court hold that? “Fundamental Rights enable a man to chalk out his life in the manner he likes best?”","options":[{"hi":"इंदिरा गांधी बनाम राज नारायण","en":"Indira Gandhi Vs. Raj Narain"},{"hi":"गोलकनाथ बनाम पंजाब राज्य","en":"Golaknath Vs. The State of Punjab"},{"hi":"बैंक राष्ट्रीयकरण मामला","en":"Bank Nationalization Case"},{"hi":"अज़हर बनाम नगर निगम","en":"Azhar Vs. Municipal Corporation"}],"answer":1,"answer_note":"","explanation_hi":"गोलकनाथ बनाम पंजाब राज्य (1967) में उच्चतम न्यायालय ने उपरोक्त मत व्यक्त किया था। इस मामले में उच्चतम न्यायालय ने अवलोकन किया: \"मौलिक अधिकार मानव व्यक्तित्व के विकास के लिए आवश्यक आदिम अधिकार हैं। ये वे अधिकार हैं जो व्यक्ति को अपने जीवन की राह उस ढंग से तय करने में सक्षम बनाते हैं जो उसे सबसे अच्छा लगे।\"","explanation_en":"In Golaknath v. State of Punjab (1967), the Supreme Court expressed the above view. In this case, the Supreme Court observed: “Fundamental rights are the primordial rights necessary for the development of human personality. They are the rights which enable a man to chalk out his own life in the manner he likes best.”","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित कथनों पर विचार कीजिए और बताइए कि इनमें से कौन-सा सही है?","question_en":"Consider the following statements and state which one of them is correct?","options":[{"hi":"भारत के उच्चतम न्यायालय के पास केवल मूल क्षेत्राधिकार है।","en":"Supreme Court of India has only Original Jurisdiction."},{"hi":"इसके पास केवल मूल और अपीली क्षेत्राधिकार है।","en":"It has only Original and Appellate Jurisdiction."},{"hi":"इसके पास केवल परामर्शदात्री और अपीली क्षेत्राधिकार है।","en":"It has only Advisory and Appellate Jurisdiction."},{"hi":"इसके पास मूल, अपीली तथा परामर्शदात्री, तीनों क्षेत्राधिकार हैं","en":"It has Original, Appellate as well as Advisory Jurisdiction"}],"answer":3,"answer_note":"","explanation_hi":"भारत के संविधान के अंतर्गत अनुच्छेद 131 उच्चतम न्यायालय के मूल क्षेत्राधिकार से संबंधित है, अनुच्छेद 132 से 136 उसके अपीली क्षेत्राधिकार से संबंधित हैं, और अनुच्छेद 143 उसके परामर्शदात्री क्षेत्राधिकार से संबंधित है।","explanation_en":"Under the Constitution of India, Article 131 deals with the original jurisdiction of the Supreme Court, Articles 132 to 136 deal with its appellate jurisdiction, and Article 143 deals with its advisory jurisdiction.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"संवैधानिक मामलों में उच्चतम न्यायालय के अपीली क्षेत्राधिकार से संबंधित संविधान का कौन-सा अनुच्छेद है?","question_en":"Which Article of the Constitution of India deals with the Appellate Jurisdiction of the Supreme Court in connection with Constitutional Cases?","options":[{"hi":"अनुच्छेद 131","en":"Article 131"},{"hi":"अनुच्छेद 132","en":"Article 132"},{"hi":"अनुच्छेद 132 को अनुच्छेद 134A के साथ पढ़ना","en":"Article 132 read with Article 134A"},{"hi":"अनुच्छेद 133 को अनुच्छेद 134A के साथ पढ़ना","en":"Article 133 read with Article 134A"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 132 के अनुसार, यदि उच्च न्यायालय अनुच्छेद 134A के अंतर्गत प्रमाणित करता है कि मामले में संविधान की व्याख्या से संबंधित विधि का सारभूत प्रश्न निहित है, तो किसी भी उच्च न्यायालय के किसी भी सिविल, आपराधिक या अन्य कार्यवाही में दिए गए किसी निर्णय, डिक्री या अंतिम आदेश के विरुद्ध उच्चतम न्यायालय में अपील की जा सकती है। अनुच्छेद 133 केवल सिविल अपीलों से संबंधित है। अनुच्छेद 134A उच्चतम न्यायालय में अपील के लिए उच्च न्यायालय के प्रमाण-पत्र से संबंधित है। अतः संवैधानिक मामलों में उच्चतम न्यायालय का अपीली क्षेत्राधिकार तब उत्पन्न होता है जब अनुच्छेद 132 को अनुच्छेद 134A के साथ पढ़ा जाए।","explanation_en":"According to Article 132, an appeal shall lie to the Supreme Court from any judgment, decree, or final order of a High Court in any civil, criminal, or other proceeding, if the High Court certifies under Article 134A that the case involves a substantial question of law as to the interpretation of the Constitution. Article 133 relates only to civil appeals. Article 134A refers to the certificate of the High Court for appeal to the Supreme Court. Thus, in constitutional matters, the appellate jurisdiction of the Supreme Court arises when Article 132 is read together with Article 134A.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"संविधान की व्याख्या से संबंधित सभी वाद उच्चतम न्यायालय में किस क्षेत्राधिकार के अंतर्गत लाए जा सकते हैं?","question_en":"All the cases regarding interpretation of the Constitution can be brought to the Supreme Court under its–","options":[{"hi":"मूल क्षेत्राधिकार","en":"Original Jurisdiction"},{"hi":"अपीली क्षेत्राधिकार","en":"Appellate Jurisdiction"},{"hi":"परामर्शदात्री क्षेत्राधिकार","en":"Advisory Jurisdiction"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"उच्चतम न्यायालय भारत के राज्यक्षेत्र में सभी न्यायालयों से अपील का सर्वोच्च न्यायालय है। इसके अपीली क्षेत्राधिकार को निम्नलिखित शीर्षकों में बाँटा जा सकता है – (i) ऐसे मामले जिनमें संविधान की व्याख्या शामिल हो, और जिनमें उच्च न्यायालय प्रमाणित करता है कि उनमें संविधान की व्याख्या से संबंधित विधि का सारभूत प्रश्न है (अनुच्छेद 132); (ii) सिविल मामले, चाहे उनमें संवैधानिक प्रश्न हो या न हो (अनुच्छेद 133); (iii) आपराधिक मामले, चाहे उनमें संवैधानिक प्रश्न हो या न हो (अनुच्छेद 134); (iv) विशेष अनुमति द्वारा अपीलें (अनुच्छेद 136)। अतः संविधान की व्याख्या से संबंधित सभी विवाद, उच्च न्यायालय द्वारा अपेक्षित प्रमाण-पत्र दिए जाने के बाद, उच्चतम न्यायालय में अपीली क्षेत्राधिकार के अंतर्गत लाए जा सकते हैं। साथ ही, यदि संविधान की व्याख्या मौलिक अधिकारों के प्रवर्तन से जुड़ी हो, तो मामला अनुच्छेद 32 के अंतर्गत सीधे उच्चतम न्यायालय में लाया जा सकता है।","explanation_en":"The Supreme Court is the highest court of appeal from all courts within the territory of India. Its appellate jurisdiction may be divided into the following heads – / (i) Cases involving interpretation of the Constitution, in which the High Court certifies that they raise a substantial question of law as to the interpretation of the Constitution (Article 132) (ii) Civil cases, whether they involve a constitutional question or not (Article 133) (iii) Criminal cases, whether they involve a constitutional question or not (Article 134) (iv) Appeals by special leave (Article 136) Therefore, all disputes relating to the interpretation of the Constitution may be brought before the Supreme Court under its appellate jurisdiction, after the High Court grants the requisite certificate. Also, if the interpretation of the Constitution is connected with the enforcement of fundamental rights, the matter may be brought directly before the Supreme Court under Article 32.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत में क्यूरेटिव याचिका उच्चतम न्यायालय में संविधान के किस अनुच्छेद के अंतर्गत दायर की जा सकती है?","question_en":"Curative Petition in India can be filed in Supreme Court under Article –","options":[{"hi":"अनुच्छेद 138","en":"138"},{"hi":"अनुच्छेद 140","en":"140"},{"hi":"अनुच्छेद 142","en":"142"},{"hi":"अनुच्छेद 146","en":"146"}],"answer":2,"answer_note":"","explanation_hi":"रूपा अशोक हुर्रा बनाम अशोक हुर्रा व अन्य, 2002 (4) SCC 388 में उच्चतम न्यायालय के निर्णय के अनुसार, पूर्ण न्याय करने के लिए किसी वाद या मामले में उच्चतम न्यायालय में अनुच्छेद 142 के अंतर्गत क्यूरेटिव याचिका दायर की जा सकती है। वास्तव में, क्यूरेटिव याचिका एक न्यायिक नवाचार है, जो रूपा अशोक हुर्रा मामले और उसके बाद के निर्णयों में अनुच्छेद 142, 129, 137 और 145 की व्याख्या के माध्यम से विकसित हुआ है। ऐसी याचिका केवल तब दायर की जा सकती है जब उच्चतम न्यायालय के अंतिम निर्णय के विरुद्ध पुनर्विचार याचिका खारिज हो चुकी हो। अनुच्छेद 137 के अंतर्गत उच्चतम न्यायालय को, संसद द्वारा बनाई गई किसी विधि या अनुच्छेद 145 के अंतर्गत बनाए गए नियमों के अधीन, अपने निर्णय या आदेश की समीक्षा करने और उसे संशोधित या परिवर्तित करने की शक्ति प्राप्त है।","explanation_en":"According to the decision of the Supreme Court in Rupa Ashok Hurra v. Ashok Hurra & Others, 2002 (4) SCC 388, a curative petition may be filed in the Supreme Court under Article 142 for doing complete justice in any cause or matter. In fact, the curative petition is a judicial innovation that has evolved through the interpretation of Articles 142, 129, 137, and 145 in the Rupa Ashok Hurra case and subsequent decisions. Such a petition may be filed only after the review petition against a final judgment of the Supreme Court has been dismissed. Under Article 137, the Supreme Court has the power, subject to any law made by Parliament or rules made under Article 145, to review its own judgment or order and can modify or change it.","source":"UPPCS (Mains) 2009","source_missing":false,"exam":"uppcs-mains"},{"id":25,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"न्यायिक पुनरावलोकन से न्यायालय का कौन-सा अधिकार अभिप्रेत है?","question_en":"Judicial Review implies the right of the Court to –","options":[{"hi":"यदि कोई विधि या आदेश संविधान के विरुद्ध है, तो उसे असंवैधानिक घोषित करना","en":"Declare any law or order inconstitutional if it is contrary to the Constitution."},{"hi":"निचली अदालतों के आदेश की समीक्षा करना","en":"Review the order of the Lower Courts."},{"hi":"निचली अदालतों के निर्णयों के विरुद्ध अपीलें सुनना","en":"Hear appeals against the decision of the Lower Courts."},{"hi":"विधियों की समीक्षा करना, ताकि यह देखा जा सके कि वे निर्धारित प्रक्रिया के अनुसार पारित हुई हैं","en":"Review the laws to see that they have been passed as per the procedure laid down."}],"answer":0,"answer_note":"","explanation_hi":"भारत में उच्चतम न्यायालय (साथ ही उच्च न्यायालयों) को न्यायिक पुनरावलोकन की शक्ति प्राप्त है। इस शक्ति के अंतर्गत संघ और राज्य, दोनों स्तरों पर विधियों और कार्यपालिका आदेशों की संवैधानिक वैधता की जाँच की जा सकती है। यदि उच्चतम न्यायालय (या उच्च न्यायालय) उन्हें अधिकारातीत पाता है, तो वे जिस सीमा तक संविधान का उल्लंघन करते हैं, उस सीमा तक असंवैधानिक, अवैध और शून्य घोषित किए जा सकते हैं। संविधान के विभिन्न उपबंध, जैसे अनुच्छेद 13, 32, 131–136, 142, 143, 226, 227, 245, 246, 251, 254 और 372, प्रत्यक्ष या अप्रत्यक्ष रूप से न्यायिक पुनरावलोकन की शक्ति प्रदान करते हैं।","explanation_en":"In India, the Supreme Court (as well as the High Courts) has the power of judicial review. Under this power, the constitutional validity of laws and executive orders at both the Union and State levels can be examined. If the Supreme Court (or the High Courts) finds them to be ultra vires, they may be declared unconstitutional, illegal, and void to the extent to which they violate the Constitution. Various provisions of the Constitution, such as Articles 13, 32, 131–136, 142, 143, 226, 227, 245, 246, 251, 254 and 372, directly or indirectly confer the power of judicial review.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत में न्यायिक पुनरावलोकन की शक्ति किसे प्राप्त है?","question_en":"In India, the power of Judicial Review is enjoyed by?","options":[{"hi":"केवल उच्चतम न्यायालय को","en":"The Supreme Court alone"},{"hi":"उच्चतम न्यायालय के साथ-साथ उच्च न्यायालयों को","en":"The Supreme Court as well as High Courts"},{"hi":"सभी न्यायालयों को","en":"All the Courts"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"न्यायिक पुनरावलोकन का अर्थ है कार्यपालिका और विधायिका के कृत्यों की वैधता की न्यायपालिका द्वारा जाँच करना, या विधियों और प्रशासनिक नीतियों की संवैधानिकता की परख करना, और उन उपबंधों को असंवैधानिक घोषित करना जो संविधान का उल्लंघन करते हैं। भारतीय संविधान में यह अवधारणा संयुक्त राज्य अमेरिका के संविधान से ली गई है। भारत में मुख्यतः अनुच्छेद 13, 32, 131–136 और 142 के अंतर्गत ये शक्तियाँ उच्चतम न्यायालय को सौंपी गई हैं, और अनुच्छेद 226 तथा 227 के अंतर्गत राज्यों के उच्च न्यायालय भी न्यायिक पुनरावलोकन की शक्ति का प्रयोग करते हैं।","explanation_en":"Judicial review means the examination by the judiciary the validity of the acts of the executive and the legislature, or the testing of the constitutionality of laws and administrative policies, and declare those provisions unconstitutional which transgress the Constitution. In the Indian Constitution, this concept is derived from the Constitution of the United States of America. In India, mainly under Articles 13, 32, 131–136 and 142, these powers are vested in the Supreme Court, and under Articles 226 and 227, the High Courts of the States also exercise the power of judicial review.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"न्यायिक पुनरावलोकन की व्यवस्था किन देशों में प्रचलित है?","question_en":"The system of Judicial Review, is prevalent in","options":[{"hi":"केवल भारत में","en":"India only"},{"hi":"केवल यू.के. में","en":"U.K. only"},{"hi":"केवल यू.एस.ए. में","en":"U.S.A. only"},{"hi":"भारत और अमेरिका, दोनों में","en":"Both in India and U.S.A."}],"answer":3,"answer_note":"","explanation_hi":"न्यायिक पुनरावलोकन की व्यवस्था भारत और अमेरिका, दोनों में विद्यमान है। भारत में अनुच्छेद 13 न्यायिक पुनरावलोकन का उपबंध करता है, और यह संयुक्त राज्य अमेरिका के संविधान से प्रेरित है। यू.के. (यूनाइटेड किंगडम) में संसद सर्वोच्च है, और उसके द्वारा बनाई गई विधियों को न्यायालय शून्य घोषित नहीं कर सकते।","explanation_en":"The system of judicial review exists in both India and the U.S.A. (United States of America). Article 13 of the Indian constitution provides for judicial review, and it is inspired by the Constitution of the United States of America. In the U.K. (United Kingdom), Parliament is supreme, and the laws made by it cannot be declared void by the courts.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"अभिकथन (A) : भारत में न्यायिक पुनरावलोकन का दायरा सीमित है। कारण (R) : भारतीय संविधान \"उधार का थैला\" है। नीचे दिए गए कूटों का प्रयोग करके सही उत्तर चुनिए।","question_en":"Assertion (A) : The scope of Judicial review is limited in India. Reason (R) : Indian Constitution is “a bag of borrowing.” / Select the correct answer using the codes given below. Codes :","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"भारत में न्यायिक पुनरावलोकन का दायरा अमेरिका की तुलना में सीमित है। किंतु केशवानंद भारती (1973) और मेनका गांधी (1978) जैसे मामलों के बाद उच्चतम न्यायालय ने न्यायिक पुनरावलोकन का दायरा धीरे-धीरे बढ़ाया। फिर भी यह शक्ति संवैधानिक ढाँचे के भीतर ही प्रयोग की जाती है। इसका एक बड़ा कारण यह है कि अमेरिकी संविधान \"ड्यू प्रोसेस ऑफ लॉ\" का सिद्धांत अपनाता है, जबकि भारतीय संविधान ने न्यायिक पुनरावलोकन के आधार के रूप में \"विधि द्वारा स्थापित प्रक्रिया\" (Procedure Established by Law) को अपनाया। किंतु मेनका गांधी और उसके बाद के निर्णयों में उच्चतम न्यायालय ने स्पष्ट किया कि \"विधि द्वारा स्थापित प्रक्रिया\" भी न्यायोचित, निष्पक्ष और युक्तियुक्त होनी चाहिए, जिससे व्यवहार में यह काफ़ी हद तक \"ड्यू प्रोसेस\" के समतुल्य हो गई है। अतः अभिकथन (A) सही है। दूसरी ओर, भारतीय संविधान के विभिन्न उपबंध अन्य देशों के संविधानों से लिए गए हैं। इसलिए कारण (R) भी सही है, परंतु कारण (R), अभिकथन (A) की सही व्याख्या नहीं है। अतः विकल्प (b) सही उत्तर है।","explanation_en":"The scope of judicial review in India is limited in comparison to the United States. However, after cases such as Kesavananda Bharati (1973) and Maneka Gandhi (1978), the Supreme Court gradually expanded the scope of judicial review. Even so, it remains a power exercised within the constitutional framework. One major reason is that, while the American Constitution adopts the principle of “Due Process of Law,” the Indian Constitution adopted “Procedure Established by Law” as the basis of judicial review. However, in Maneka Gandhi and later decisions, the Supreme Court made it clear that “procedure established by law” must also be “just, fair and reasonable,” which in practice has made it largely comparable to “due process.” Thus, Assertion (A) is true. On the other hand, various provisions of the Indian Constitution have been borrowed from the constitutions of other countries. Therefore, Reason (R) is also true, but Reason (R) is not the correct explanation of Assertion (A). Hence, option (b) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारतीय संविधान का संरक्षकत्व किसके पास निहित है?","question_en":"The Guardianship of Indian Constitution is vested in:","options":[{"hi":"राष्ट्रपति","en":"President"},{"hi":"लोकसभा","en":"Lok Sabha"},{"hi":"उच्चतम न्यायालय","en":"Supreme Court"},{"hi":"मंत्रिपरिषद","en":"Council of Ministers"}],"answer":2,"answer_note":"","explanation_hi":"संविधान की अंतिम व्याख्या का अधिकार उच्चतम न्यायालय के पास है। उच्चतम न्यायालय को संविधान का संरक्षक और रक्षक माना जाता है।","explanation_en":"The final authority to interpret the Constitution rests with the Supreme Court. The Supreme Court is regarded as the guardian and protector of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"नीचे दिए गए दो कथनों में से एक को अभिकथन (A) और दूसरे को कारण (R) के रूप में चिह्नित किया गया है। अभिकथन (A) : भारत के उच्चतम न्यायालय के पास केंद्रीय विधियों की संवैधानिक वैधता के संबंध में अनन्य क्षेत्राधिकार है। कारण (R) : उच्चतम न्यायालय भारतीय संविधान का संरक्षक है। नीचे दिए गए कूटों से सही उत्तर चुनिए। कूट :","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A) : The Supreme Court of India has exclusive jurisdiction regarding Constitutional Validity of Central laws. Reason (R) : The Supreme court is the Guardian of the India Constitution. / Select the correct answer from the codes given below: Codes :","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false"},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":3,"answer_note":"","explanation_hi":"भारत का उच्चतम न्यायालय संविधान का संरक्षक और रक्षक है। किंतु केंद्रीय विधियों की संवैधानिक वैधता के संबंध में अधिकार क्षेत्र केवल उच्चतम न्यायालय के पास नहीं, बल्कि उच्च न्यायालयों के पास भी है। उच्चतम न्यायालय की तरह उच्च न्यायालय भी संसद या किसी राज्य विधानमंडल द्वारा बनाई गई किसी भी विधि की वैधता की जाँच कर सकते हैं और यदि वह संविधान के उपबंधों के अनुरूप न हो, तो उसे असंवैधानिक घोषित कर सकते हैं। फिर भी, उच्च न्यायालय के निर्णय के विरुद्ध उच्चतम न्यायालय में अपील की जा सकती है। उल्लेखनीय है कि 42वें संविधान संशोधन अधिनियम, 1976 द्वारा संविधान में अनुच्छेद 131-A के अंतर्गत केंद्रीय विधियों की संवैधानिक वैधता से संबंधित प्रश्नों पर उच्चतम न्यायालय का अनन्य क्षेत्राधिकार स्थापित करने का उपबंध किया गया था, और अनुच्छेद 226-A के अंतर्गत अनुच्छेद 226 (उच्च न्यायालय) की कार्यवाहियों में केंद्रीय विधियों की वैधता पर विचार न किए जाने का उपबंध किया गया था। किंतु ये उपबंध 43वें संविधान संशोधन अधिनियम, 1977 द्वारा निरस्त कर दिए गए। आयोग ने इस प्रश्न का उत्तर विकल्प (a) माना था, जो उचित नहीं है।","explanation_en":"The Supreme Court of India is the guardian and protector of the Constitution. However, with regard to the constitutional validity of Central laws, jurisdiction is vested not only in the Supreme Court but also in the High Courts. Like the Supreme Court, the High Courts can also examine the validity of any law enacted by Parliament or a State Legislature and, if it is not comply with the provisions of the Constitution, declare it unconstitutional. However, an appeal against the decision of a High Court can be made to the Supreme Court. It is noteworthy that by the 42nd Constitutional Amendment Act, 1976, provisions were made in the Constitution under Article 131-A conferring exclusive jurisdiction of the Supreme Court in matters relating to questions as to the constitutional validity of Central laws, and for the non-consideration of the validity of central law's in proceedings under Article 226 (of the High Court) under Article 226-A. However, these provisions were repealed by the 43rd Constitutional Amendment Act, 1977. The Commission had considered option (a) as the answer to this question, which is not appropriate.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित में से कौन-सा मामला उच्च न्यायालय और उच्चतम न्यायालय, दोनों के क्षेत्राधिकार में आता है?","question_en":"Which of the following cases comes under the Jurisdiction of High Court and Supreme Court?","options":[{"hi":"केंद्र और राज्यों के बीच विवाद।","en":"Dispute between the Centre and States."},{"hi":"राज्यों के बीच विवाद।","en":"Dispute between States."},{"hi":"मौलिक अधिकारों का प्रवर्तन।","en":"Enforcement of Fundamental Rights."},{"hi":"संविधान के उल्लंघन से संरक्षण।","en":"Protection from violation of the Constitution."}],"answer":2,"answer_note":"","explanation_hi":"संविधान ने उच्चतम न्यायालय और उच्च न्यायालय, दोनों को संविधान के भाग III में वर्णित मौलिक अधिकारों की रक्षा की शक्ति प्रदान की है। उच्चतम न्यायालय अनुच्छेद 32 के अंतर्गत और उच्च न्यायालय अनुच्छेद 226 के अंतर्गत मौलिक अधिकारों के प्रवर्तन के लिए बंदी प्रत्यक्षीकरण, परमादेश, प्रतिषेध, उत्प्रेषण और अधिकार-पृच्छा जैसी रिट जारी कर सकते हैं। अन्य विकल्पों में, केंद्र और राज्यों के बीच के विवाद तथा राज्यों के बीच के विवाद अनुच्छेद 131 के अंतर्गत उच्चतम न्यायालय के अनन्य मूल क्षेत्राधिकार में आते हैं, जबकि असंवैधानिक विधियों या कार्यकारी कार्रवाइयों से संरक्षण के लिए उच्चतम न्यायालय और उच्च न्यायालय, दोनों के पास न्यायिक पुनरावलोकन की शक्ति है। फिर भी, विभिन्न लोक सेवा आयोगों ने केवल विकल्प (c) को ही इस प्रश्न का विशिष्ट उत्तर माना है।","explanation_en":"The Constitution has conferred upon both the Supreme Court and the High Courts the power to protect the Fundamental Rights described in Part III of the Constitution. The Supreme Court under Article 32 and the High Courts under Article 226 can issue writs such as Habeas Corpus, Mandamus, Prohibition, Certiorari, and Quo Warranto for the enforcement of Fundamental Rights. In the other options, disputes between the Centre and the States, and disputes among States, fall within the exclusive original jurisdiction of the Supreme Court under Article 131, whereas for protection against unconstitutional laws or executive actions, both the Supreme Court and the High Courts possess the power of judicial review. However, various Public Service Commissions have treated option (c) alone as the specific answer to this question.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"संविधान का कौन-सा अनुच्छेद उच्चतम न्यायालय को भारतीय नागरिकों के मौलिक अधिकारों की रक्षा करने का अधिकार देता है?","question_en":"Under which Article of the Constitution of India Supreme Court safeguards the Fundamental Rights of the Indian citizens?","options":[{"hi":"अनुच्छेद 74","en":"74"},{"hi":"अनुच्छेद 56","en":"56"},{"hi":"अनुच्छेद 16","en":"16"},{"hi":"अनुच्छेद 32","en":"32"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 32 (संवैधानिक उपचारों का अधिकार) के अंतर्गत उच्चतम न्यायालय इस भाग में प्रदत्त मौलिक अधिकारों की रक्षा करता है।","explanation_en":"Under Article 32 of the Indian Constitution (Right to Constitutional Remedies), the Supreme Court protects the Fundamental Rights conferred under this Part.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"मौलिक अधिकारों के उल्लंघन को रोकने के लिए कुछ रिट जारी करने की उच्चतम न्यायालय की शक्तियों से संबंधित निम्नलिखित कथनों पर विचार कीजिए – (1) उच्चतम न्यायालय के पास बंदी प्रत्यक्षीकरण, परमादेश, प्रतिषेध, अधिकार-पृच्छा और उत्प्रेषण जैसी रिट जारी करने की शक्ति है, जो मौलिक अधिकारों के प्रवर्तन के लिए उपयुक्त हैं। (2) संसद विधि द्वारा किसी अन्य न्यायालय को, उसके क्षेत्राधिकार की सीमा में, उच्चतम न्यायालय की शक्तियों का प्रयोग करने के लिए सशक्त कर सकती है। उपर्युक्त में से कौन-से कथन सही हैं? नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"Consider the following statements concerning the powers of the Supreme Court to issue certain writs to prevent violation of Fundamental Rights-(1) The Supreme Court has power to issue writs like Habeas Corpus, Mandamus, Prohibition, Quo Warranto and Certiorari which is appropriate for the enforcement of Fundamental Rights. / (2) Parliament may by law empower any other court to exercise within its jurisdiction the powers given to Supreme Court. Which of the above mentioned statement/statements is/are correct? / Select the correct answer from the code given below :\nCode :","options":[{"hi":"न (1) और न (2)","en":"Neither (1) nor (2)"},{"hi":"केवल (1)","en":"Only (1)"},{"hi":"केवल (2)","en":"Only (2)"},{"hi":"(1) और (2), दोनों","en":"Both (1) and (2)"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 32 के खंड (2) के अंतर्गत उच्चतम न्यायालय को मौलिक अधिकारों में से किसी के प्रवर्तन के लिए उपयुक्त निदेश, आदेश या रिट जारी करने की शक्ति प्राप्त है, जिनमें बंदी प्रत्यक्षीकरण, परमादेश, प्रतिषेध, अधिकार-पृच्छा और उत्प्रेषण की प्रकृति की रिट शामिल हैं। अतः कथन 1 सही है। संविधान के अनुच्छेद 32 के खंड (3) के अनुसार, उच्चतम न्यायालय को प्रदत्त शक्तियों पर प्रतिकूल प्रभाव डाले बिना, संसद विधि द्वारा किसी अन्य न्यायालय को, उसके क्षेत्राधिकार की स्थानीय सीमाओं के भीतर, खंड (2) के अंतर्गत उच्चतम न्यायालय द्वारा प्रयोग की जा सकने वाली सभी या किन्हीं शक्तियों का प्रयोग करने के लिए सशक्त कर सकती है। अतः कथन 2 भी सही है।","explanation_en":"Under Clause (2) of Article 32 of the Constitution, the Supreme Court is empowered to issue such directions, orders, or writs, including writs in the nature of Habeas Corpus, Mandamus, Prohibition, Quo Warranto, and Certiorari, as may be appropriate for the enforcement of any of the Fundamental Rights. Thus, Statement 1 is correct. According to Clause (3) of Article 32 of the Constitution, without prejudice to the powers conferred upon the Supreme Court, Parliament may by law empower any other court to exercise, within the local limits of its jurisdiction, all or any of the powers exercisable by the Supreme Court under Clause (2). Thus, Statement 2 is also correct.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"विधि के किसी प्रश्न पर उच्चतम न्यायालय से परामर्श-राय लेने का अधिकार किसे है?","question_en":"Who has the right to seek advisory opinion of the Supreme Court on any question of law –","options":[{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"राष्ट्रपति","en":"President"},{"hi":"कोई भी उच्च न्यायालय","en":"Any High Court"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 143(1) के अंतर्गत भारत के राष्ट्रपति को विधि या तथ्य के किसी ऐसे प्रश्न पर, जो लोक महत्त्व का हो, उच्चतम न्यायालय की परामर्श-राय माँगने की शक्ति प्राप्त है।","explanation_en":"Under Article 143(1) of the Indian Constitution, the President of India is empowered to seek the advisory opinion of the Supreme Court on any question of law or fact of public importance.","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत के राष्ट्रपति उच्चतम न्यायालय और उच्च न्यायालयों के न्यायाधीशों की नियुक्ति और स्थानांतरण की प्रक्रिया के संबंध में संविधान के किस अनुच्छेद के अंतर्गत उच्चतम न्यायालय को संदर्भित करते हैं?","question_en":"Under which Article, the President of India refer to the Supreme Court regarding the process of appointment and transfer of Judges in the Supreme Court and High Courts?","options":[{"hi":"अनुच्छेद 127 उपखंड (1)","en":"Article 127 sub clause (1)"},{"hi":"अनुच्छेद 143 उपखंड (1)","en":"Article 143 sub clause (1)"},{"hi":"अनुच्छेद 143 उपखंड (11)","en":"Article 143 sub Clause (11)"},{"hi":"अनुच्छेद 144 उपखंड (a)","en":"Article 144 sub Clause (a)"}],"answer":1,"answer_note":"","explanation_hi":"वर्ष 1998 में, उच्चतम न्यायालय और उच्च न्यायालयों के न्यायाधीशों की नियुक्ति और स्थानांतरण से संबंधित परामर्श-प्रक्रिया के संदर्भ में, राष्ट्रपति ने अनुच्छेद 143(1) के अंतर्गत उच्चतम न्यायालय को संदर्भ भेजा। यह लोकप्रिय रूप से ज्ञात \"तीन न्यायाधीश मामलों\" का तीसरा मामला था। इस मामले में उच्चतम न्यायालय की 9 सदस्यीय संविधान पीठ ने निर्णय दिया कि उच्चतम न्यायालय के न्यायाधीशों की नियुक्ति तथा उच्च न्यायालयों के न्यायाधीशों/मुख्य न्यायाधीशों के स्थानांतरण के मामले में भारत के मुख्य न्यायाधीश से परामर्श का वास्तविक अर्थ भारत के मुख्य न्यायाधीश और उच्चतम न्यायालय के चार वरिष्ठतम न्यायाधीशों से बने कॉलेजियम से परामर्श है। किंतु उच्च न्यायालय के न्यायाधीशों की नियुक्ति से संबंधित मामलों में इसका अर्थ भारत के मुख्य न्यायाधीश और उच्चतम न्यायालय के अन्य दो वरिष्ठतम न्यायाधीशों से बने कॉलेजियम से परामर्श है।","explanation_en":"In 1998, with regard to the consultative process for the appointment and transfer of judges of the Supreme Court and High Courts, the President made a reference to the Supreme Court under Article 143(1). This was the third case of the popularly known the “Three Judges Cases.” In this case, the 9-member Constitution Bench of the Supreme Court held that, in the matter of appointment of judges of the Supreme Court and transfer of judges/Chief Justices of the High Courts, consultation with the Chief Justice of India actually means consultation with the collegium consisting of the Chief Justice of India and the four senior-most judges of the Supreme Court. However, in matters relating to the appointment of High Court judges, it means consultation with the collegium consisting of the Chief Justice of India and the two other senior-most judges of the Supreme Court.","source":"","source_missing":true,"exam":"unknown"},{"id":36,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय की परामर्शदात्री शक्तियों का अर्थ है कि वह","question_en":"The advisory powers of the Supreme Court of India imply that it may","options":[{"hi":"लोक महत्त्व के विधि या तथ्य संबंधी प्रश्नों पर राष्ट्रपति को परामर्श दे सकता है।","en":"Advise to the President on the issues of law or fact which are of public importance."},{"hi":"संविधान से जुड़े सभी मामलों पर भारत सरकार को परामर्श दे सकता है।","en":"Advise to the government of India on all Constitution matters."},{"hi":"विधि संबंधी मामलों पर प्रधानमंत्री को परामर्श दे सकता है।","en":"Advise to the Prime Minister on legal matters."},{"hi":"उपर्युक्त सभी व्यक्तियों को परामर्श दे सकता है।","en":"Advise to all the above persons."}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 143 के अंतर्गत राष्ट्रपति दो प्रकार के मामलों पर उच्चतम न्यायालय की राय माँग सकता है – (1) लोक महत्त्व के विधि या तथ्य के प्रश्न, और (2) संविधान लागू होने से पूर्व की किसी संधि, करार, प्रसंविदा, वचनबद्धता, सनद या ऐसे ही किसी अन्य मामले से संबंधित विषय। पहले प्रकार में उच्चतम न्यायालय के लिए अपनी राय देना आवश्यक नहीं है, परंतु दूसरे प्रकार में उसे राय देनी ही होती है। परामर्शदात्री क्षेत्राधिकार के अंतर्गत प्राप्त संदर्भ की सुनवाई कम से कम पाँच न्यायाधीशों की पीठ करती है। न्यायालय द्वारा दी गई राय सरकार पर बाध्यकारी नहीं होती।","explanation_en":"Under Article 143, the President may seek the opinion of the Supreme Court on two kinds of matters – (1) questions of law or fact of public importance, and (2) matters relating to any pre-Constitution treaty, agreement, covenant, engagement, sanad or other similar matter. In the first case, it is not obligatory for the Supreme Court to give its opinion, but in the second one it must do so. A reference received under the advisory jurisdiction is heard by a Bench of at least five judges. The opinion given by the Court is not binding on the Government.","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"\"मैं भारत के संविधान के प्रति सच्ची श्रद्धा और निष्ठा रखूँगा..... भारत की प्रभुता और अखंडता को अक्षुण्ण रखूँगा..... अपने पद के कर्तव्यों का निर्वहन करूँगा... संविधान और विधि को बनाए रखूँगा।\" यह किसके द्वारा ली जाने वाली शपथ का प्रारूप है –","question_en":"“I will bear true faith and allegiance to the Constitution of India.....uphold the Sovereignty and Integrity of India..... Perform the duties of my office... uphold the Constitution and Law.” it is the form of Oath taken by –","options":[{"hi":"भारत के राष्ट्रपति","en":"The President of India"},{"hi":"भारत के मुख्य न्यायाधीश","en":"The Chief Justice of India"},{"hi":"संसद सदस्य","en":"The Member of Parliament"},{"hi":"राज्यपाल","en":"The Governor"}],"answer":1,"answer_note":"","explanation_hi":"उपर्युक्त शपथ का प्रारूप वही है जो संविधान की तीसरी अनुसूची में उच्चतम न्यायालय के न्यायाधीशों और भारत के नियंत्रक-महालेखापरीक्षक के लिए निर्धारित है। अतः सही उत्तर विकल्प (b) है।","explanation_en":"The form of the above oath is the same as that prescribed under the Third Schedule of the Constitution for the judges of the Supreme Court and the Comptroller and Auditor General of India. Therefore, the correct answer is option (b).","source":"","source_missing":true,"exam":"unknown"},{"id":38,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"उच्चतम न्यायालय ने हाल ही में केंद्र के पवित्र कर्तव्य के उल्लंघन के आधार पर प्रवासी (अधिकरणों द्वारा निर्धारण) अधिनियम, 1983 को असंवैधानिक घोषित किया, यह किस अनुच्छेद के अंतर्गत है?","question_en":"Under which article, did Supreme Court recently declare the Migrants (Determination by Tribunal) Act, 1983 as unconstitutional for violation of the sacred duty of centre?","options":[{"hi":"अनुच्छेद - 355","en":"Article - 355"},{"hi":"अनुच्छेद - 356","en":"Article - 356"},{"hi":"अनुच्छेद - 256","en":"Article - 256"},{"hi":"अनुच्छेद - 257","en":"Article - 257"}],"answer":0,"answer_note":"","explanation_hi":"जुलाई 2005 में, 'सर्बानंद सोनोवाल बनाम भारत संघ' मामले में उच्चतम न्यायालय ने अवैध प्रवासी (अधिकरणों द्वारा निर्धारण) अधिनियम, 1983 को संविधान के अनुच्छेद 355 के उल्लंघन के आधार पर असंवैधानिक घोषित किया। उच्चतम न्यायालय के अनुसार, यह अधिनियम भारत में अवैध घुसपैठ को प्रोत्साहित कर रहा था, और जब तक यह विधि लागू रही, तब तक केंद्र देश की रक्षा के लिए अनुच्छेद 355 के अंतर्गत अपनी जिम्मेदारी निभाने में असमर्थ था। न्यायालय ने इसे अनुच्छेद 14 के उल्लंघन के आधार पर भी असंवैधानिक माना। यह निर्णय असम में बांग्लादेशियों की बड़े पैमाने पर अवैध घुसपैठ के संदर्भ में दिया गया था। ध्यान रहे कि अनुच्छेद 355 यह उपबंध करता है कि संघ का यह कर्तव्य होगा कि वह प्रत्येक राज्य को बाह्य आक्रमण और आंतरिक अशांति से संरक्षित करे, और यह सुनिश्चित करे कि प्रत्येक राज्य की सरकार संविधान के उपबंधों के अनुसार चलाई जाए।","explanation_en":"In July 2005, in 'Sarbananda Sonowal v. Union of India', the Supreme Court declared the Illegal Migrants (Determination by Tribunals) Act, 1983 unconstitutional on the ground of violation of Article 355 of the Constitution. According to the Supreme Court, the Act was encouraging illegal infiltration into India, and as long as this law remained in force, the Centre was unable to discharge its responsibility under Article 355 to protect the country. The Court also held it unconstitutional for violating Article 14. The judgment was delivered in the context of large-scale illegal infiltration of Bangladeshis into Assam. It may be noted that Article 355 provides that it shall be the duty of the Union to protect every State against external aggression and internal disturbance and to ensure that the government of every State must be carried on in accordance with the provisions of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":39,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"TDSAT के निर्णयों को किसके समक्ष चुनौती दी जा सकती है?","question_en":"TDSAT judgments can be challenged in the:","options":[{"hi":"TRAI, उच्च न्यायालय, उच्चतम न्यायालय","en":"TRAI, High Court, Supreme Court"},{"hi":"TRAI और उच्चतम न्यायालय","en":"TRAI and Supreme Court"},{"hi":"उच्च न्यायालय और उच्चतम न्यायालय","en":"High Court and Supreme Court"},{"hi":"केवल उच्चतम न्यायालय","en":"Supreme Court only"}],"answer":2,"answer_note":"","explanation_hi":"दूरसंचार विवाद निपटान एवं अपीलीय अधिकरण (TDSAT) की स्थापना वर्ष 2000 में TRAI अधिनियम, 1997 में किए गए संशोधन द्वारा की गई थी। इसका उद्देश्य दूरसंचार क्षेत्र के विवादों का न्यायनिर्णयन करना है। वर्तमान में दूरसंचार, प्रसारण और हवाई अड्डा शुल्क से संबंधित मामलों में इसके निर्णयों के विरुद्ध अपील केवल उच्चतम न्यायालय में की जा सकती है, जैसा कि TRAI अधिनियम, 1997 की धारा 18(2) में है, जबकि साइबर मामलों में इसके निर्णयों के विरुद्ध अपील उच्च न्यायालय में की जा सकती है (IT अधिनियम, 2000 की धारा 62 के अंतर्गत)।","explanation_en":"The Telecom Disputes Settlement and Appellate Tribunal (TDSAT) was established by the amendment made to the TRAI Act, 1997, in the year 2000. Its purpose is to provide adjudication of disputes in the telecommunications sector. At present, in matters relating to telecommunications, broadcasting and airport tariffs, appeals against its decisions can be made only to the Supreme Court under Section 18(2) of the TRAI Act, 1997, whereas in cyber matters, appeals against its decisions can be made to the High Court (under Section 62 of the IT Act, 2000).","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"फातिमा बीवी का हाल ही में निधन हुआ। उनके संबंध में निम्नलिखित कथनों पर विचार कीजिए – 1. वह भारत के उच्चतम न्यायालय की पहली महिला न्यायाधीश थीं। 2. उन्होंने 1997-2001 तक केरल के राज्यपाल के रूप में कार्य किया। 3. वह उच्च न्यायपालिका में प्रवेश करने वाली पहली मुस्लिम महिला थीं। नीचे दिए गए कूटों से सही उत्तर चुनिए।","question_en":"Fathima Beevi died recently. Consider the following statements regarding her : / 1. She was the first woman judge of the Supreme Court of India. / 2. She served as the Governor of Kerala from 1997-2001. / 3. She was the first Muslim woman to enter into higher judiciary. / Select the correct answer from the codes given below:","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"1 और 3","en":"1 and 3"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1, 2 और 3","en":"1, 2 and 3"}],"answer":1,"answer_note":"","explanation_hi":"न्यायमूर्ति एम. फातिमा बीवी का 23 नवंबर 2023 को निधन हुआ। वर्ष 1989 में वह भारत के उच्चतम न्यायालय की पहली महिला न्यायाधीश बनीं। वह उच्च न्यायपालिका तक पहुँचने वाली पहली मुस्लिम महिला भी थीं। वर्ष 1992 में उच्चतम न्यायालय से सेवानिवृत्त होने के बाद उन्होंने 1993 से 1997 तक राष्ट्रीय मानवाधिकार आयोग के सदस्य के रूप में कार्य किया, और 1997 से 2001 तक केरल नहीं, बल्कि तमिलनाडु की राज्यपाल के रूप में कार्य किया। अतः कथन 1 और 3 सही हैं, जबकि कथन 2 गलत है।","explanation_en":"Justice M. Fathima Beevi passed away on 23 November 2023. In 1989, she became the first woman judge of the Supreme Court of India. She was also the first Muslim woman to reach the higher judiciary. After retiring from the Supreme Court in 1992, she served as a Member of the National Human Rights Commission from 1993 to 1997 and as the Governor of Tamil Nadu, not Kerala, from 1997 to 2001. Thus, statements 1 and 3 are correct, while statement 2 is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":41,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"अप्रैल 2010 में उच्चतम न्यायालय की चौथी महिला न्यायाधीश के रूप में निम्नलिखित में से किसकी नियुक्ति हुई?","question_en":"Which one of the following is appointed as the fourth female Judge of Supreme Court in April 2010?","options":[{"hi":"न्यायमूर्ति फातिमा बीवी","en":"Justice Fathima Beevi"},{"hi":"न्यायमूर्ति सुजाता मनोहर","en":"Justice Sujata Manohar"},{"hi":"न्यायमूर्ति ज्ञान सुधा मिश्रा","en":"Justice Gyan Sudha Misra"},{"hi":"न्यायमूर्ति रूमा पाल","en":"Justice Ruma Pal"}],"answer":2,"answer_note":"","explanation_hi":"प्रश्न में उल्लिखित अवधि के दौरान न्यायमूर्ति ज्ञान सुधा मिश्रा उच्चतम न्यायालय में एकमात्र महिला न्यायाधीश थीं। उनकी नियुक्ति अप्रैल 2010 में राष्ट्रपति द्वारा की गई थी। इससे पहले वह झारखंड उच्च न्यायालय की मुख्य न्यायाधीश रह चुकी थीं। उनसे पहले न्यायमूर्ति फातिमा बीवी, न्यायमूर्ति सुजाता मनोहर और न्यायमूर्ति रूमा पाल भी उच्चतम न्यायालय के न्यायाधीश रह चुकी थीं। 13 सितंबर 2011 को न्यायमूर्ति रंजना प्रकाश देसाई उच्चतम न्यायालय की न्यायाधीश नियुक्त हुईं, और वह उच्चतम न्यायालय की पाँचवीं महिला न्यायाधीश बनीं। इसके बाद 13 अगस्त 2014 को न्यायमूर्ति आर. बनुमथी और 27 अप्रैल 2018 को न्यायमूर्ति इंदु मल्होत्रा उच्चतम न्यायालय के न्यायाधीश बने। उनके बाद 7 अगस्त 2018 को न्यायमूर्ति इंदिरा बनर्जी, और 31 अगस्त 2021 को न्यायमूर्ति हिमा कोहली, न्यायमूर्ति बेला त्रिवेदी और न्यायमूर्ति बी.वी. नागरत्ना उच्चतम न्यायालय के न्यायाधीश नियुक्त हुए। अतः जनवरी 2026 तक उच्चतम न्यायालय में कुल 11 महिला न्यायाधीश नियुक्त हो चुकी थीं। किंतु वर्तमान में केवल न्यायमूर्ति बी.वी. नागरत्ना ही उच्चतम न्यायालय की महिला न्यायाधीश के रूप में कार्यरत हैं।","explanation_en":"During the period referred to in the question, Justice Gyan Sudha Misra was the only woman judge in the Supreme Court. She was appointed by the President in April 2010. Prior to this, she had served as the Chief Justice of the Jharkhand High Court. Before her, Justice Fathima Beevi, Justice Sujata Manohar, and Justice Ruma Pal had also served as judges of the Supreme Court. On 13 September 2011, Justice Ranjana Prakash Desai was appointed as a judge of the Supreme Court, and she became the fifth woman judge of the Supreme Court. Thereafter, on 13 August 2014, Justice R. Banumathi, and on 27 April 2018, Justice Indu Malhotra became judges of the Supreme Court. After them, on 7 August 2018, Justice Indira Banerjee, and on 31 August 2021, Justice Hima Kohli, Justice Bela Trivedi, and Justice B.V. Nagarathna were appointed as judges of the Supreme Court. Thus, up to January 2026, a total of 11 women judges had been appointed to the Supreme Court. However, at present, only Justice B.V. Nagarathna is serving as a woman judge of the Supreme Court.","source":"","source_missing":true,"exam":"unknown"},{"id":42,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"हाल ही में उच्चतम न्यायालय के न्यायाधीश नियुक्त हुए निम्नलिखित में से कौन पहले किसी उच्च न्यायालय के न्यायाधीश नहीं थे?","question_en":"Who amongst the following, recently appointed as Supreme Court judge, was not earlier judge of a High Court?","options":[{"hi":"डी. वाई. चंद्रचूड़","en":"D. Y. Chandrachud"},{"hi":"ए.एम. खानविलकर","en":"A.M. Khanwilkar"},{"hi":"एल. नागेश्वर राव","en":"L. Nageshwara Rao"},{"hi":"अशोक भूषण","en":"Ashok Bhushan"}],"answer":2,"answer_note":"","explanation_hi":"प्रश्न में उल्लिखित न्यायाधीशों में से एल. नागेश्वर राव उच्चतम न्यायालय के न्यायाधीश बनने से पहले किसी उच्च न्यायालय के न्यायाधीश नहीं रहे थे। इसके बजाय, वह उच्चतम न्यायालय में वरिष्ठ अधिवक्ता थे। उन्होंने अगस्त 2003 से मई 2004 तक और फिर 26 अगस्त 2013 से 18 दिसंबर 2014 तक भारत के अपर सॉलिसिटर जनरल के रूप में कार्य किया।","explanation_en":"Among the judges mentioned in the question, L. Nageswara Rao had not served as a judge of any High Court before becoming a judge of the Supreme Court. Instead, he was a senior advocate in the Supreme Court. He served as the Additional Solicitor General of India from August 2003 to May 2004 and again from 26 August 2013 to 18 December 2014.","source":"","source_missing":true,"exam":"unknown"},{"id":43,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारतीय न्यायिक व्यवस्था में जनहित याचिका (PIL) का प्रचलन शुरू हुआ, तब भारत के मुख्य न्यायाधीश कौन थे?","question_en":"Who was the Chief Justice of India when Public Interest litigation was introduced in the Indian Judicial System?","options":[{"hi":"एम. हिदायतुल्ला","en":"M. Hidayatullah"},{"hi":"ए.एम. अहमदी","en":"A.M. Ahmedi"},{"hi":"पी.एन. भगवती","en":"P.N. Bhagwati"},{"hi":"ए.एस. आनंद","en":"A.S. Anand"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"भारतीय न्यायिक व्यवस्था में जनहित याचिका (PIL) का आरंभ उच्चतम न्यायालय की पहल पर हुआ। इसके अंतर्गत नागरिक समाज का कोई भी व्यक्ति या समूह लोकहित के मामलों में न्यायिक राहत प्राप्त करने के लिए न्यायालय का दरवाज़ा खटखटा सकता है। पहली बार वर्ष 1979 में, उच्चतम न्यायालय के न्यायाधीश पी.एन. भगवती ने हुसैनारा खातून बनाम बिहार राज्य मामले में जनहित याचिका स्वीकार की। यह याचिका पुष्पा कपिला हिंगोरानी ने दायर की थी। उन्हें \"PIL की माँ\" के नाम से भी जाना जाता है। उल्लेखनीय है कि जब पी.एन. भगवती ने यह याचिका स्वीकार की, तब वह मुख्य न्यायाधीश नहीं, बल्कि उच्चतम न्यायालय के न्यायाधीश थे। वह 17 जुलाई 1973 को उच्चतम न्यायालय के न्यायाधीश नियुक्त हुए थे, जबकि मुख्य न्यायाधीश के रूप में उनका कार्यकाल 12 जुलाई 1985 से 20 दिसंबर 1986 तक था। जब पहली जनहित याचिका स्वीकार की गई, तब भारत के मुख्य न्यायाधीश वाई.वी. चंद्रचूड़ थे, जो 22 फरवरी 1978 से 11 जुलाई 1985 तक मुख्य न्यायाधीश रहे। अतः दिए गए कोई भी विकल्प सही नहीं है।","explanation_en":"Public Interest Litigation (PIL) began in the Indian judicial system on the initiative of the Supreme Court. Under this, any individual or group from civil society can approach the court to obtain judicial relief in matters of public interest. For the first time, in 1979, Justice P.N. Bhagwati of the Supreme Court accepted a PIL in the case of Hussainara Khatoon v. State of Bihar. This petition was filed by Pushpa Kapila Hingorani. She is also known as the “Mother of PIL.” It is noteworthy that when P.N. Bhagwati accepted this petition, he was a judge of the Supreme Court, not the Chief Justice. He was appointed as a judge of the Supreme Court on 17 July 1973, whereas his tenure as Chief Justice was from 12 July 1985 to 20 December 1986. At the time when the first PIL was accepted, Y.V. Chandrachud, who served as Chief Justice from 22 February 1978 to 11 July 1985, was the Chief Justice of India. Therefore, none of the given options is correct.","source":"UPPCS (Mains) 2008","source_missing":false,"exam":"uppcs-mains"},{"id":44,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित कथनों पर विचार कीजिए और नीचे दिए गए कूट से सही उत्तर चुनिए: अभिकथन (A) : जनहित याचिका जनहित में सोचने वाले नागरिकों को न्यायालय तक पहुँचने की अनुमति देती है। कारण (R) : जनहित में सोचने वाले लोग किसी ऐसे व्यक्ति की ओर से न्याय माँग सकते हैं, जो किसी भी कारण से न्यायालय तक नहीं पहुँच पाता। नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए। कूट :","question_en":"Consider the following statements and choose the correct answer from the code given below : Assertion (A) : The public interest litigation permits public-minded citizens to approach the Court of Law. Reason (R) : The public-minded people may seek Justice on behalf of a person who is unable to reach the Court of Law for any reasons. / Select the correct answer using the code given below:\nCode :","options":[{"hi":"(A) और (R) दोनों सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":0,"answer_note":"","explanation_hi":"जनहित याचिका के माध्यम से नागरिक समाज का कोई भी व्यक्ति या समूह किसी व्यक्ति, समूह या समाज के हित से संबंधित मामलों में न्यायिक राहत प्राप्त करने के लिए न्यायालय से संपर्क कर सकता है। अतः अभिकथन और कारण, दोनों सही हैं, और कारण अभिकथन की सही व्याख्या करता है।","explanation_en":"Through Public Interest Litigation, any individual or group from civil society may approach the court to obtain judicial relief in matters concerning the interest of a person, a group, or society. Thus, both the statement and the reason are correct, and the reason correctly explains the statement.","source":"","source_missing":true,"exam":"unknown"},{"id":45,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"नीचे दिए गए दो कथनों में से एक को अभिकथन (A) और दूसरे को कारण (R) के रूप में चिह्नित किया गया है। अभिकथन (A): भारत में जनहित याचिका कानून के शासन के लिए अनिवार्य है। कारण (R): जनहित याचिका सामाजिक और आर्थिक रूप से कमज़ोर वर्गों को न्याय तक प्रभावी पहुँच प्रदान करती है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A): Public Interest Litigation in India is essential for the rule of law. Reason (R): Public Interest Litigation provides effective access of Justice to socially and economically weaker sections. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."}],"answer":1,"answer_note":"","explanation_hi":"जनहित याचिका (PIL) भारत में न्यायालयों द्वारा विकसित एक प्रक्रिया है, जिसने लोकस स्टैंडाइ (अर्थात याचिका दायर करने का विधिक अधिकार) का दायरा बढ़ाया और सामाजिक तथा आर्थिक रूप से वंचित वर्गों के लिए न्याय तक पहुँच को सुगम बनाया। अतः कारण (R) में कहा गया है कि जनहित याचिका कमज़ोर वर्गों को न्याय तक प्रभावी पहुँच देती है, यह कथन सही है। किंतु अभिकथन (A) में प्रयुक्त वाक्यांश \"कानून के शासन के लिए आवश्यक\" एक अनिवार्य या अपरिहार्य शर्त होने का दावा करता है, जो सही नहीं है। भारत में कानून का शासन संविधान की मूल संरचना, अनुच्छेद 14 के अंतर्गत समता के सिद्धांत, अनुच्छेद 32 के अंतर्गत संवैधानिक उपचारों के अधिकार, अनुच्छेद 226 के अंतर्गत उच्च न्यायालयों की रिट शक्तियों, न्यायिक पुनरावलोकन और अन्य संस्थागत व्यवस्थाओं पर आधारित है। ये व्यवस्थाएँ जनहित याचिका के उद्भव से पहले भी विद्यमान थीं, और जनहित याचिका के बिना भी कानून का शासन बना रह सकता है। अतः जनहित याचिका कानून के शासन को निश्चित रूप से सुदृढ़ और प्रोत्साहित करती है, किंतु वह उसके अस्तित्व के लिए अनिवार्य शर्त नहीं है। अतः (A) गलत है। नोट: UPPSC ने अपनी प्रारंभिक उत्तर-कुंजी में इस प्रश्न का उत्तर विकल्प (d) दिया था, जो ऊपर दिए गए तर्क या तर्कसंगति के आधार पर सही प्रतीत नहीं होता। किंतु यदि प्रश्न को इस अर्थ में समझा जाए कि जनहित याचिका सामाजिक और आर्थिक रूप से कमज़ोर वर्गों को न्याय तक प्रभावी पहुँच देकर कानून के शासन के प्रवर्तन को सुदृढ़ करने का एक महत्त्वपूर्ण तत्त्व है, तो विकल्प (d) को भी सही उत्तर के रूप में स्वीकार किया जा सकता है।","explanation_en":"Public Interest Litigation (PIL) is a procedure developed by the courts in India that expanded the scope of locus standi, (that is, the legal right to file a petition), and facilitated access to justice for socially and economically deprived sections. Thus, the statement in Reason (R) that PIL gives weaker sections effective access to justice is correct. However, the phrase used in Assertion (A), “necessary for the rule of law,” makes a claim of an essential or indispensable condition, which is not correct. In India, the rule of law is based on the basic structure of the Constitution, the principle of equality under Article 14, the right to constitutional remedies under Article 32, the writ powers of the High Courts under Article 226, judicial review, and other institutional arrangements. These arrangements existed even before the emergence of PIL, and the rule of law can continue to exist even without PIL. Therefore, PIL certainly strengthens and promotes the rule of law, but it is not an indispensable condition for its existence. Hence, (A) is false. Note: In its preliminary answer key, UPPSC gave option (d) as the answer to this question, which does not appear to be correct on the basis of the reasoning or logic given above. However, if the question is interpreted in the sense that PIL is an important element in strengthening the enforcement of the rule of law by providing effective access to justice to socially and economically weaker sections, then option (d) may also be accepted as the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":46,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"जनहित याचिका (PIL) की अवधारणा किस देश में उत्पन्न हुई?","question_en":"The concept of Public Interest Litigation originated in:","options":[{"hi":"ऑस्ट्रेलिया","en":"Australia"},{"hi":"भारत","en":"India"},{"hi":"संयुक्त राज्य अमेरिका","en":"The United States"},{"hi":"यूनाइटेड किंगडम","en":"The United Kingdom"}],"answer":2,"answer_note":"","explanation_hi":"जनहित याचिका (PIL) की अवधारणा अमेरिका (U.S.A.) में उत्पन्न हुई।","explanation_en":"The concept of Public Interest Litigation (PIL) originated in the U.S.A. (America).","source":"","source_missing":true,"exam":"unknown"},{"id":47,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"भारत में ‘न्यायिक सक्रियता’ किससे संबंधित है?","question_en":"‘Judicial Activism’ in India is related to –","options":[{"hi":"प्रतिबद्ध न्यायपालिका","en":"Committed Judiciary"},{"hi":"जनहित याचिका","en":"Public Interest Litigation"},{"hi":"न्यायिक पुनरावलोकन","en":"Judicial Review"},{"hi":"न्यायिक स्वतंत्रता","en":"Judicial Independence"}],"answer":1,"answer_note":"","explanation_hi":"भारत में यद्यपि न्यायिक सक्रियता न्यायिक पुनरावलोकन और जनहित याचिका, दोनों से संबंधित है, फिर भी यह मुख्यतः जनहित याचिका की प्रक्रिया के माध्यम से सामाजिक परिवर्तन के एक माध्यम के रूप में उभरी है। अतः दिए गए विकल्पों में विकल्प (b) सबसे उपयुक्त है।","explanation_en":"In India, although Judicial Activism is related to both Judicial Review and Public Interest Litigation (PIL), it has mainly emerged as a vehicle of social change through the process of Public Interest Litigation. Therefore, among the given options, option (b) is the most appropriate.","source":"","source_missing":true,"exam":"unknown"},{"id":48,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"सितंबर 2003 में एक न्यायालय के निर्णय ने भारतीय समाज में महिलाओं की स्थिति को गौरवान्वित किया। वह न्यायालय है –","question_en":"The status of women in Indian Society was glorified by a Judgement of a Court in September, 2003. The Court is–","options":[{"hi":"उच्चतम न्यायालय","en":"Supreme Court of India"},{"hi":"स्थानीय न्यायालय","en":"Local Courts"},{"hi":"विशेष न्यायालय","en":"Special Courts"},{"hi":"उच्च न्यायालय","en":"High Court,"}],"answer":0,"answer_note":"","explanation_hi":"23 सितंबर 2003 को, उच्चतम न्यायालय की न्यायमूर्ति एम.बी. शाह और न्यायमूर्ति डॉ. ए.आर. लक्ष्मणन की पीठ ने विजयलक्ष्मी बनाम पंजाब विश्वविद्यालय व अन्य मामले में यह निर्णय दिया कि सरकारी बालिका महाविद्यालय में प्राचार्य पद पर नियुक्ति में किसी महिला को वरीयता देना भारत के संविधान के अनुच्छेद 14, 15 और 16 में निहित समता के अधिकार का उल्लंघन नहीं करता।","explanation_en":"On 23 September 2003, a Bench comprising Justice M.B. Shah and Justice Dr. A.R. Lakshmanan of the Supreme Court, in Vijayalakshmi vs. Punjab University and Others, held that giving preference to a woman in appointment to the post of Principal in a government girls’ college does not violate the right to equality under Articles 14, 15 and 16 of the Constitution of India.","source":"","source_missing":true,"exam":"unknown"},{"id":49,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"निम्नलिखित में से किस मामले में उच्चतम न्यायालय ने यह अवलोकन किया कि केंद्रीय अन्वेषण ब्यूरो एक ‘पिंजरे का तोता’ (Caged Parrot) है?","question_en":"In which of the following cases the Supreme Court observed that Central Bureau of Investigation is a ‘Caged Parrot’?","options":[{"hi":"रेल बोर्ड रिश्वत मामला","en":"Rail Board Bribery Case"},{"hi":"विनीत नारायण बनाम भारत संघ","en":"Vineet Narain Vs. Union of India"},{"hi":"2G स्पेक्ट्रम घोटाला मामला","en":"2G Spectrum Scam Case"},{"hi":"कोल गेट घोटाला मामला","en":"Coal Gate Scam Case"}],"answer":3,"answer_note":"","explanation_hi":"कोयला आवंटन घोटाला मामले की सुनवाई के दौरान उच्चतम न्यायालय ने CBI (केंद्रीय अन्वेषण ब्यूरो) को ‘पिंजरे का तोता’ कहा। उल्लेखनीय है कि वर्ष 2024 में, दिल्ली आबकारी नीति मामले में तत्कालीन दिल्ली के मुख्यमंत्री अरविंद केजरीवाल को जमानत देते समय उच्चतम न्यायालय की एक पीठ ने अवलोकन किया कि CBI को ‘पिंजरे के तोते’ की छवि से बाहर निकलकर ‘uncaged parrot’ के रूप में देखा जाना चाहिए।","explanation_en":"During the hearing of the Coal Allocation Scam case, the Supreme Court described the CBI (Central Bureau of Investigation) as a ‘caged parrot’. It is noteworthy that in 2024, while granting bail to the then Chief Minister of Delhi, Arvind Kejriwal, in the Delhi Excise Policy case, a Bench of the Supreme Court observed that the CBI should shed the perception of being a ‘caged parrot’ and be seen as an ‘uncaged parrot’.","source":"","source_missing":true,"exam":"unknown"},{"id":50,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"समलैंगिकता से संबंधित उच्चतम न्यायालय का निर्णय निम्नलिखित में से किससे संबंधित है?","question_en":"Supreme Court judgment regarding homosexuality is related to which of the following?","options":[{"hi":"भारतीय दंड संहिता की धारा 377","en":"Section 377 of IPC"},{"hi":"भारतीय संविधान का अनुच्छेद 377","en":"Article 377 of the Indian Constitution"},{"hi":"भारतीय संविधान का अनुच्छेद 277","en":"Article 277 of the Indian Constitution"},{"hi":"इनमें से कोई नहीं","en":"None of the Above"}],"answer":0,"answer_note":"","explanation_hi":"6 सितंबर 2018 को उच्चतम न्यायालय की पाँच न्यायाधीशों की संविधान पीठ ने विभिन्न याचिकाओं की सुनवाई करते हुए, समलैंगिक वयस्कों के बीच सहमति से यौन संबंधों के संदर्भ में तत्कालीन भारतीय दंड संहिता (IPC) की धारा 377 को आंशिक रूप से असंवैधानिक घोषित किया। ध्यान रहे कि IPC की धारा 377 अप्राकृतिक यौन अपराधों से संबंधित थी। यह भी ध्यान रहे कि 1 जुलाई 2024 से IPC को भारतीय न्याय संहिता (BNS) द्वारा प्रतिस्थापित कर दिया गया।","explanation_en":"On 6 September 2018, a five-judge Constitution Bench of the Supreme Court, while hearing various petitions, declared Section 377 of the then Indian Penal Code (IPC) partially unconstitutional in the context of consensual sexual relations between homosexual adults. It may be noted that Section 377 of the IPC dealt with unnatural sexual offences. It may also be noted that with effect from 1 July 2024, the IPC was replaced by the Bharatiya Nyaya Sanhita (BNS).","source":"","source_missing":true,"exam":"unknown"},{"id":51,"topic_hi":"उच्चतम न्यायालय","topic_en":"The Supreme Court","question_hi":"किस विधि के अंतर्गत यह निर्धारित है कि भारत के उच्चतम न्यायालय की सभी कार्यवाहियाँ अंग्रेज़ी भाषा में होंगी?","question_en":"Under which law is it prescribed that all proceedings in the Supreme Court of India shall be in English language?","options":[{"hi":"उच्चतम न्यायालय नियम, 1966","en":"The Supreme Court Rules, 1966"},{"hi":"भारत के संविधान का अनुच्छेद 145","en":"Article 145 of the Constitution of India."},{"hi":"संसद द्वारा बनाई गई एक विधि","en":"A Legislation made by Parliament."},{"hi":"भारत के संविधान का अनुच्छेद 348","en":"Article 348 of the Constitution of India."}],"answer":3,"answer_note":"","explanation_hi":"भारत के संविधान का अनुच्छेद 348 उच्चतम न्यायालय और उच्च न्यायालयों में प्रयोग की जाने वाली भाषा तथा अधिनियमों, विधेयकों आदि के संबंध में उपबंध रखता है। इसमें स्पष्ट रूप से उल्लेख है कि इस भाग (भाग XVII – राजभाषा) के पूर्ववर्ती उपबंधों में निहित किसी भी बात के होते हुए भी, जब तक संसद विधि द्वारा अन्यथा उपबंध न करे, उच्चतम न्यायालय और प्रत्येक उच्च न्यायालय की सभी कार्यवाहियाँ अंग्रेज़ी भाषा में होंगी।","explanation_en":"Article 348 of the Constitution of India contains provisions regarding the language to be used in the Supreme Court and the High Courts and for Acts, Bills, etc. It clearly mentions that, notwithstanding anything contained in the preceding provisions of this Part (Part XVII – Official Language), until Parliament otherwise provides by law, all proceedings in the Supreme Court and in every High Court shall be in the English language.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

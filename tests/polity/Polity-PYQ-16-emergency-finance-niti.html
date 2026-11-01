@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-16-emergency-finance-niti","title":"Polity PYQ — Emergency, Finance & NITI","shortTitle":"Emergency, Finance & NITI","subtitle":"Purvavlokan GS · Indian Polity · आपातकाल, वित्त आयोग एवं नीति आयोग","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Emergency, Finance & NITI. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":40,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"भारतीय संविधान में कितने प्रकार के आपातकालों की परिकल्पना की गई है?","question_en":"How many types of emergencies have been envisaged under the Indian Constitution?","options":[{"hi":"दो","en":"Two"},{"hi":"तीन","en":"Three"},{"hi":"चार","en":"Four"},{"hi":"एक","en":"One"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के अंतर्गत तीन प्रकार के आपातकालों की परिकल्पना की गई है – 1. अनुच्छेद 352 के अंतर्गत राष्ट्रीय आपातकाल; 2. संवैधानिक तंत्र की विफलता होने पर अनुच्छेद 356 के अंतर्गत राज्यों में राष्ट्रपति शासन; और 3. अनुच्छेद 360 के अंतर्गत वित्तीय आपातकाल।","explanation_en":"Under the Indian Constitution, three types of emergency are envisaged – / 2. National Emergency under Article 352; / 3. President’s Rule in States under Article 356 on failure of constitutional machinery; and / 4. Financial Emergency under Article 360.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) और दूसरे को कारण (R) कहा गया है। अभिकथन (A): भारतीय संविधान का अनुच्छेद 352 आपातकाल की घोषणा से संबंधित है। कारण (R): आपातकाल किसी भी समय घटित हो सकता है। नीचे दिए गए कूटों से सही उत्तर चुनिए।","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A): Article 352 of the Indian Constitution deals with the declaration of an emergency. Reason (R): An emergency may take place at any time. / Select the correct answer from the codes given below:","options":[{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."},{"hi":"(A) और (R) दोनों सही हैं और (R), (A) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."}],"answer":0,"answer_note":"","explanation_hi":"संविधान का अनुच्छेद 352 आपातकाल की घोषणा से संबंधित है। इस अनुच्छेद के अंतर्गत भारत के राष्ट्रपति पूरे भारत या उसके किसी भाग के लिए आपातकाल की घोषणा कर सकते हैं, यदि भारत या उसके किसी भाग की सुरक्षा युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह से खतरे में हो, या ऐसा खतरा आसन्न हो। वस्तुतः युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह के कारण आपातकालीन स्थिति किसी भी समय उत्पन्न हो सकती है। अतः (A) और (R) दोनों सही हैं, परंतु (R), (A) का सही स्पष्टीकरण नहीं है।","explanation_en":"Article 352 of the Indian Constitution relates to the proclamation of emergency. Under this Article, the President of India may proclaim emergency for the whole of India or any part of its territory if the security of India or of any part of its territory is threatened by war, external aggression, or armed rebellion, or if the danger thereof is imminent. In fact, an emergency situation may arise at any time due to war, external aggression, or armed rebellion. Thus, both (A) and (R) are true, but (R) is not the correct explanation of (A).","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"संविधान के किस अनुच्छेद के अंतर्गत बाह्य आक्रमण और आंतरिक अशांति से राज्यों की रक्षा करना भारत सरकार की ज़िम्मेदारी है?","question_en":"Under which Article of the Constitution it is the responsibility of the Indian Government to protect States from external aggression and internal disturbance?","options":[{"hi":"अनुच्छेद 355","en":"Article 355"},{"hi":"अनुच्छेद 356","en":"Article 356"},{"hi":"अनुच्छेद 352","en":"Article 352"},{"hi":"अनुच्छेद 360","en":"Article 360"}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 352 – यदि राष्ट्रपति का समाधान हो जाए कि गंभीर आपातकालीन स्थिति विद्यमान है या उत्पन्न होने वाली है, जिससे भारत या उसके किसी भाग की सुरक्षा युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह से खतरे में है, तो राष्ट्रपति राष्ट्रीय आपातकाल की घोषणा कर सकते हैं। ध्यान रहे कि मूल संविधान में अनुच्छेद 352 के “आंतरिक अशांति” शब्द को 44वें संविधान संशोधन अधिनियम, 1978 द्वारा “सशस्त्र विद्रोह” से बदल दिया गया था। अनुच्छेद 355 – संघ का यह कर्तव्य होगा कि वह प्रत्येक राज्य को बाह्य आक्रमण और आंतरिक अशांति से संरक्षित रखे और यह सुनिश्चित करे कि प्रत्येक राज्य की सरकार संविधान के उपबंधों के अनुसार चलाई जाए। अनुच्छेद 356 – यदि राष्ट्रपति को किसी राज्य के राज्यपाल की रिपोर्ट मिलने पर या अन्यथा यह समाधान हो जाए कि ऐसी स्थिति उत्पन्न हो गई है जिसमें राज्य की सरकार संविधान के उपबंधों के अनुसार नहीं चलाई जा सकती, तो राष्ट्रपति इस अनुच्छेद के अंतर्गत उस राज्य में राष्ट्रपति शासन लागू कर सकते हैं। अनुच्छेद 360 – यदि राष्ट्रपति का समाधान हो जाए कि ऐसी स्थिति उत्पन्न हो गई है जिसमें भारत या उसके किसी भाग की वित्तीय स्थिरता या साख को खतरा है, तो वे वित्तीय आपातकाल की घोषणा कर सकते हैं।","explanation_en":"Article 352 – If the President is satisfied that a grave emergency exists, or is about to arise, whereby the security of India or any part thereof is threatened by war, external aggression, or armed rebellion, the President may proclaim a National Emergency. It should be noted that in the original Constitution, the expression “internal disturbance” in Article 352 was replaced by “armed rebellion” by the 44th Constitutional Amendment Act, 1978. Article 355 – It shall be the duty of the Union to protect every State against external aggression and internal disturbance and to ensure that the government of every State is carried on in accordance with the provisions of the Constitution. Article 356 – If the President, on receipt of a report from the Governor of a State or otherwise, is satisfied that a situation has arisen in which the government of the State cannot be carried on in accordance with the provisions of the Constitution, the President may impose President’s Rule in that State under this Article. Article 360 – If the President is satisfied that a situation has arisen whereby the financial stability or credit of India or of any part thereof is threatened, he may proclaim a Financial Emergency.","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"संसद द्वारा आपातकाल की अवधि के अनुमोदन की समय-सीमा निम्नलिखित में से कौन-सी है?","question_en":"Which one of the following is the time limit for the ratification of an Emergency period by the Parliament?","options":[{"hi":"14 दिन","en":"14 days"},{"hi":"1 माह","en":"1 month"},{"hi":"3 माह","en":"3 months"},{"hi":"6 माह","en":"6 months"}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 352 के अनुसार राष्ट्रपति युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह के आधार पर, मंत्रिपरिषद की सिफ़ारिश पर आपातकाल की घोषणा करते हैं। आपातकाल की घोषणा का संसद द्वारा एक माह के भीतर अनुमोदन होना आवश्यक है। आपातकाल की घोषणा या उसकी निरंतरता के अनुमोदन के संकल्प को संसद के प्रत्येक सदन द्वारा उस सदन की कुल सदस्य संख्या के बहुमत से और उपस्थित तथा मतदान करने वाले सदस्यों के कम से कम दो-तिहाई बहुमत से पारित किया जाना चाहिए। यदि संसद द्वारा साधारण बहुमत से आपातकाल की घोषणा को अस्वीकृत करने वाला संकल्प पारित किया जाता है, तो राष्ट्रपति उसे वापस ले लेते हैं।","explanation_en":"According to Article 352, the President proclaims Emergency on the grounds of war, external aggression, or armed rebellion, and on the recommendation of the Council of Ministers. The Proclamation of Emergency must be approved by Parliament within one month. The resolutions approving the Proclamation of Emergency or its continuance must be passed by each House of Parliament by a majority of the total membership of that House and by a majority of not less than two-thirds of the members present and voting. If a resolution disapproving the Proclamation of Emergency is passed by a simple majority of Parliament, the President withdraws it.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"संविधान के किस अनुच्छेद के अंतर्गत भारत का राष्ट्रपति मौलिक अधिकारों के प्रवर्तन को (अनुच्छेद 20 और 21 को छोड़कर) निलंबित कर सकता है?","question_en":"Under which of the following articles the President of India can suspend the enforcement of Fundamental Rights (except Articles 20, 21)?","options":[{"hi":"अनुच्छेद 358","en":"Article 358"},{"hi":"अनुच्छेद 359","en":"Article 359"},{"hi":"अनुच्छेद 13","en":"Article 13"},{"hi":"अनुच्छेद 356","en":"Article 356"}],"answer":1,"answer_note":"","explanation_hi":"44वें संविधान संशोधन अधिनियम, 1978 के बाद, जब अनुच्छेद 352 के अंतर्गत राष्ट्रीय आपातकाल की घोषणा प्रवृत्त हो, तब राष्ट्रपति अनुच्छेद 359 के अंतर्गत संविधान के भाग III द्वारा प्रदत्त अन्य मौलिक अधिकारों के प्रवर्तन को निलंबित करने का आदेश जारी कर सकते हैं, किंतु अनुच्छेद 20 और 21 को छोड़कर, अर्थात उन अधिकारों के प्रवर्तन के लिए किसी भी न्यायालय में जाने के अधिकार को। जब आपातकाल युद्ध या बाह्य आक्रमण के आधार पर घोषित हो, तब आपातकाल से संबंधित बनाई गई विधियों और की गई कार्यपालिका कार्रवाइयों के संबंध में अनुच्छेद 19 का प्रवर्तन अनुच्छेद 358 के अंतर्गत स्वतः निलंबित हो जाता है।","explanation_en":"After the 44th Constitutional Amendment Act, 1978, when a Proclamation of National Emergency under Article 352 is in operation, the President may, under Article 359, issue an order suspending the enforcement of other Fundamental Rights conferred by Part III of the Constitution, except Articles 20 and 21, that is, the right to move any court for the enforcement of those rights. When an Emergency is proclaimed on the grounds of war or external aggression, the enforcement of Article 19 stands automatically suspended under Article 358 in respect of laws made and executive actions taken in connection with the Emergency.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"भारत के राष्ट्रपति के पास ... को निलंबित करने की शक्ति है","question_en":"The President of India has the power to suspend the","options":[{"hi":"मौलिक अधिकार","en":"Fundamental Rights"},{"hi":"अनुच्छेद 21 में वर्णित मौलिक अधिकार","en":"Fundamental Rights described in Article 21"},{"hi":"अनुच्छेद 21-A में वर्णित मौलिक अधिकार","en":"Fundamental Rights described in Article 21-A"},{"hi":"अनुच्छेद 19 में वर्णित मौलिक अधिकार","en":"Fundamental Rights described in Article 19"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"जब अनुच्छेद 352 के अंतर्गत आपातकाल युद्ध या बाह्य आक्रमण के आधार पर घोषित हो, तो आपातकाल से संबंधित बनाई गई विधियों और की गई कार्यपालिका कार्रवाइयों के संबंध में अनुच्छेद 19 में वर्णित मौलिक अधिकार अनुच्छेद 358 के अंतर्गत स्वतः निलंबित हो जाते हैं। दूसरी ओर, 44वें संशोधन के बाद अनुच्छेद 359 के अंतर्गत राष्ट्रपति को अनुच्छेद 20 और 21 को छोड़कर अन्य मौलिक अधिकारों के प्रवर्तन को निलंबित करने की शक्ति है। इसमें अनुच्छेद 21-A भी सम्मिलित है। अनुच्छेद 20 और 21 में प्राप्त मौलिक अधिकार किसी भी स्थिति में निलंबित नहीं किए जा सकते। साथ ही, जब आपातकाल केवल सशस्त्र विद्रोह के आधार पर घोषित हो, तब अनुच्छेद 19 स्वतः निलंबित नहीं होता; बल्कि राष्ट्रपति अनुच्छेद 359 के अंतर्गत उसके प्रवर्तन को निलंबित कर सकते हैं। अतः इस प्रश्न में तीन विकल्प – (a), (c) और (d) – सही उत्तर के रूप में उभरते हैं। इसी कारण आयोग ने इस प्रश्न को मूल्यांकन से बाहर रखा।","explanation_en":"When an Emergency is proclaimed under Article 352 on the ground of war or external aggression, the Fundamental Rights mentioned in Article 19 automatically stand suspended under Article 358 in respect of laws made and executive actions taken in connection with the Emergency. On the other hand, under Article 359, the President has the power to suspend the enforcement of other Fundamental Rights, except those under Articles 20 and 21, after the 44th Constitutional Amendment. This includes Article 21-A as well. The Fundamental Rights available under Articles 20 and 21 cannot be suspended in any situation. Also, when Emergency is declared only on the ground of armed rebellion, Article 19 does not automatically stand suspended; rather, the President may suspend its enforcement under Article 359. Thus, in this question, three options – (a), (c), and (d) – emerge as correct answers. That is why the Commission kept this question out of evaluation.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"राष्ट्रीय आपातकाल के दौरान लोकसभा की अवधि –","question_en":"During National Emergency the term of the House of People –","options":[{"hi":"बढ़ाई नहीं जा सकती।","en":"Cannot be extended."},{"hi":"आपातकाल रहने तक बढ़ाई जा सकती है।","en":"Can be extended till the Emergency lasts."},{"hi":"केवल एक वर्ष के लिए बढ़ाई जा सकती है।","en":"Can be extended for one year only."},{"hi":"आपातकाल रहने तक बढ़ाई जा सकती है, परंतु एक बार में केवल एक वर्ष के लिए।","en":"Can be extended till Emergency lasts but only by one year at a time."}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 352 के अंतर्गत राष्ट्रीय आपातकाल की घोषणा की स्थिति में, अनुच्छेद 83(2) के परंतुक के अनुसार, संसद विधि द्वारा लोकसभा की अवधि को निर्दिष्ट की गई अवधि के लिए बढ़ा सकती है, किंतु एक बार में एक वर्ष से अधिक नहीं; और ऐसा विस्तार किसी भी स्थिति में आपातकाल की घोषणा के प्रवृत्त न रहने के बाद छह माह से अधिक नहीं चल सकता। अतः विकल्प (d) सही उत्तर है।","explanation_en":"In the event of a National Emergency proclaimed under Article 352, the term of the Lok Sabha may be extended by Parliament by law, according to the proviso to Article 83(2), for such period as may be specified, but not exceeding one year at a time; and such extension shall in no case continue beyond a period of six months after the Proclamation of Emergency has ceased to operate. Thus, option (d) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"निम्नलिखित में से किस राज्य में राज्यपाल शासन (Governor’s Rule) लागू करने का कोई उपबंध नहीं है?","question_en":"In which of the following States there is no provision for the imposition of Governor’s Rule?","options":[{"hi":"मणिपुर","en":"Manipur"},{"hi":"मिज़ोरम","en":"Mizoram"},{"hi":"मेघालय","en":"Meghalaya"},{"hi":"जम्मू और कश्मीर","en":"Jammu and Kashmir"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"संविधान के अनुच्छेद 356 के अंतर्गत, संवैधानिक तंत्र की विफलता की स्थिति में, राष्ट्रपति किसी राज्य में राष्ट्रपति शासन लागू कर सकते हैं। किंतु अनुच्छेद 370 के अंतर्गत जम्मू और कश्मीर की विशेष स्थिति को देखते हुए, अनुच्छेद 356 के अंतर्गत राष्ट्रपति शासन (1964 से) के अतिरिक्त, वहाँ राज्य में संवैधानिक तंत्र के विफल होने की स्थिति में जम्मू और कश्मीर के संविधान के भाग VI की धारा 92 के अंतर्गत राज्यपाल शासन का भी उपबंध था। उल्लेखनीय है कि जम्मू और कश्मीर के विशेष प्रावधान और पृथक संविधान अब समाप्त कर दिए गए हैं, और जम्मू और कश्मीर पुनर्गठन अधिनियम, 2019 के द्वारा पूर्व राज्य जम्मू और कश्मीर को दो केंद्र शासित प्रदेशों – जम्मू और कश्मीर तथा लद्दाख – में पुनर्गठित कर दिया गया है। प्रश्न के अनुसार दिए गए विकल्पों में मणिपुर, मिज़ोरम और मेघालय में राज्यपाल शासन लागू करने का कोई उपबंध नहीं है। उत्तर प्रदेश लोक सेवा आयोग ने अपनी उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर रखा था।","explanation_en":"Under Article 356 of the Indian Constitution, President’s Rule may be imposed by the President in a state in the event of a failure of constitutional machinery. However, in view of the special status of Jammu and Kashmir under Article 370, apart from President’s Rule under Article 356 (from 1964), there was also a provision for Governor’s Rule under Section 92 of Part VI of the Constitution of Jammu and Kashmir in the event of a breakdown of constitutional machinery in the state. It is noteworthy that the special provisions and separate Constitution for Jammu and Kashmir have now been abolished, and under the Jammu and Kashmir Reorganisation Act, 2019, the former State of Jammu and Kashmir has been reorganized into two Union Territories – Jammu and Kashmir and Ladakh. According to the question, among the given options, Manipur, Mizoram, and Meghalaya do not have a provision for the imposition of Governor’s Rule. The Uttar Pradesh Public Service Commission had excluded this question from evaluation in its answer key.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"राष्ट्रपति शासन अधिकतम किस अवधि तक लगाया जा सकता है?","question_en":"President’s Rule can be imposed for a maximum period of –","options":[{"hi":"1 वर्ष","en":"1 year"},{"hi":"2 वर्ष","en":"2 years"},{"hi":"6 माह","en":"6 months"},{"hi":"3 वर्ष","en":"3 years"}],"answer":3,"answer_note":"","explanation_hi":"यद्यपि अनुच्छेद 356 के अंतर्गत राष्ट्रपति शासन की घोषणा अधिकतम 3 वर्ष तक प्रवृत्त रह सकती है, जिसके लिए संसद के दोनों सदनों द्वारा प्रत्येक 6 माह में अनुमोदन आवश्यक है, फिर भी एक वर्ष से आगे की किसी भी अवधि का अनुमोदन संसद तभी कर सकती है जब उस समय – (1) संपूर्ण भारत में या संबंधित राज्य के पूरे या किसी भाग में अनुच्छेद 352 के अंतर्गत आपातकाल की घोषणा प्रवृत्त हो, और (2) निर्वाचन आयोग यह प्रमाणित करे कि उस राज्य में चुनाव कराना संभव नहीं है। (मई 1987 में पंजाब राज्य में लागू राष्ट्रपति शासन की अवधि संवैधानिक संशोधनों के माध्यम से क्रमिक रूप से बढ़ाई गई थी।)","explanation_en":"Although a Proclamation of President’s Rule under Article 356 of the Constitution may continue in force for a maximum period of 3 years, subject to approval by both Houses of Parliament every 6 months, any continuation beyond one year can be approved by Parliament only if, at that time – (1) a Proclamation of Emergency under Article 352 is in operation in the whole of India or in the whole or any part of the state concerned, and (2) the Election Commission certifies that holding elections in that state is not possible. (The duration of President’s Rule imposed in the State of Punjab in May 1987 was successively extended through constitutional amendments.)","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"अनुच्छेद 356 के अंतर्गत भारत में पहली बार राष्ट्रपति शासन किस राज्य में लागू किया गया था?","question_en":"Under Article 356 of the Constitution of India, President’s Rule was imposed for the first time in –","options":[{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"त्रावणकोर-कोचीन","en":"Travancore-Cochin"},{"hi":"पेप्सू (PEPSU)","en":"PEPSU"},{"hi":"बिहार","en":"Bihar"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 356 के अंतर्गत राष्ट्रपति शासन सर्वप्रथम 1951 में तत्कालीन पंजाब राज्य में, और फिर 1953 में पटियाला और पूर्वी पंजाब राज्य संघ (PEPSU) में लागू हुआ था। उल्लेखनीय है कि 1 नवंबर 1956 को राज्यों के पुनर्गठन के दौरान PEPSU का पंजाब में विलय कर दिया गया था। दिए गए विकल्पों में से सही उत्तर विकल्प (c) है।","explanation_en":"Under Article 356 of the Constitution, President’s Rule was first imposed in the erstwhile State of Punjab in 1951, and then in 1953 in the Patiala and East Punjab States Union (PEPSU). It is noteworthy that PEPSU was merged into Punjab during the reorganisation of states on November 1, 1956. Among the given options, the correct answer is option (c).","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"भारतीय संविधान का निम्नलिखित में से कौन-सा अनुच्छेद अब तक प्रयोग में नहीं लाया गया है?","question_en":"Which one of the following Articles of the Indian Constitution has not so far been used?","options":[{"hi":"अनुच्छेद 60","en":"Article 60"},{"hi":"अनुच्छेद 352","en":"Article 352"},{"hi":"अनुच्छेद 356","en":"Article 356"},{"hi":"अनुच्छेद 360","en":"Article 360"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 360 में वित्तीय आपातकाल से संबंधित उपबंध हैं। यह अनुच्छेद अब तक प्रयोग में नहीं लाया गया है। इसके अनुसार, यदि राष्ट्रपति का समाधान हो जाए कि ऐसी स्थिति उत्पन्न हो गई है जिसमें भारत या उसके किसी भाग की वित्तीय स्थिरता या साख को खतरा है, तो वे वित्तीय आपातकाल की घोषणा कर सकते हैं। अनुच्छेद 352 के अनुसार, यदि राष्ट्रपति का समाधान हो जाए कि गंभीर आपातकालीन स्थिति विद्यमान है या आसन्न है, जिससे भारत या उसके किसी भाग की सुरक्षा युद्ध, बाह्य आक्रमण या सशस्त्र विद्रोह से खतरे में है, तो वे इस अनुच्छेद के अंतर्गत उद्घोषणा जारी कर सकते हैं। यह अनुच्छेद अब तक तीन बार प्रयोग में लाया गया है (वर्ष 1962, 1971 और 1975 में)। अनुच्छेद 356 के अंतर्गत राष्ट्रपति, राज्य में संवैधानिक तंत्र की विफलता होने पर, राज्यों में राष्ट्रपति शासन लागू कर सकते हैं। दूसरी ओर, अनुच्छेद 60 राष्ट्रपति की पद की शपथ से संबंधित है।","explanation_en":"Article 360 contains provisions relating to Financial Emergency. This Article has not been used so far. According to this Article, if the President is satisfied that a situation has arisen whereby the financial stability or credit of India or of any part thereof is threatened, he may proclaim a Financial Emergency. According to Article 352, if the President is satisfied that a grave emergency exists, or is imminent, whereby the security of India or any part thereof is threatened by war, external aggression, or armed rebellion, he may issue a Proclamation under this Article. This Article has been used three times so far (in the years 1962, 1971, and 1975). Under Article 356, the President may impose President’s Rule in states if there is a failure of constitutional machinery in the state. Article 60, on the other hand, relates to the oath of office of the President.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"आपातकालीन उपबंध","topic_en":"Emergency Provisions","question_hi":"यह किसने कहा, “राष्ट्रपति की आपातकालीन शक्ति संविधान के साथ धोखा है”?","question_en":"Who said, “The emergency power of the President is a fraud with the Constitution”?","options":[{"hi":"के.एम. मुंशी","en":"K.M. Munshi"},{"hi":"बी.एन. राउ","en":"B.N. Rao"},{"hi":"के.एम. नंबियार","en":"K.M. Nambiar"},{"hi":"एच.एन. कुंजरू","en":"H.N. Kunjaru"}],"answer":2,"answer_note":"","explanation_hi":"के.एम. नंबियार ने राज्यों में राष्ट्रपति शासन से संबंधित संवैधानिक उपबंधों का विरोध करते हुए कहा था कि “राष्ट्रपति की आपातकालीन शक्ति संविधान के साथ धोखा है।”","explanation_en":"K.M. Nambiar, while opposing the constitutional provisions relating to President’s Rule in the States, said that “the President’s emergency power is a fraud upon the Constitution.”","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"केंद्र और राज्यों के बीच भारत में करों का वितरण किसके द्वारा किया जाता है?","question_en":"Distribution of Taxes between Centre and States in India is done by the :","options":[{"hi":"संसद","en":"Parliament"},{"hi":"योजना आयोग","en":"Planning Commission"},{"hi":"राष्ट्रीय विकास परिषद","en":"National Development Council"},{"hi":"वित्त आयोग","en":"Finance Commission"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 280 के अंतर्गत गठित वित्त आयोग राष्ट्रपति को संघ और राज्यों के बीच करों से प्राप्त शुद्ध आगम के वितरण तथा राज्यों के बीच ऐसे आगम के आवंटन के तरीके के संबंध में सिफ़ारिशें करता है। करों का वास्तविक वितरण भारत सरकार द्वारा राष्ट्रपति के आदेशों के अंतर्गत, वित्त आयोग की सिफ़ारिशों पर विचार करने के बाद, अनुच्छेद 270 के उपबंधों के अनुसार किया जाता है।","explanation_en":"The Finance Commission, constituted under Article 280 of the Indian Constitution, makes recommendations to the President regarding the distribution of the net proceeds of taxes between the Centre and the States and the manner of allocation of such proceeds among the States. The actual distribution of taxes is made by the Government of India under the orders of the President, after considering the recommendations of the Finance Commission, in accordance with the provisions of Article 270.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"सामान्यतः भारत में वित्त आयोग हर पाँच वर्ष के लिए किसलिए नियुक्त किया जाता है –","question_en":"Generally, in India Finance Commission is appointed for every five years-","options":[{"hi":"राज्यों की वित्तीय स्थिति निर्धारित करने के लिए।","en":"To determine the financial position of the States."},{"hi":"केंद्र सरकार की वित्तीय स्थिति निर्धारित करने के लिए।","en":"To determine the financial position of Central Government."},{"hi":"केंद्र सरकार के वित्तीय संसाधन निर्धारित करने के लिए।","en":"To determine the financial resources of Central Government."},{"hi":"केंद्र सरकार के अनुदानों और राजस्व में राज्यों का हिस्सा निर्धारित करने के लिए।","en":"To determine the share of the States in the grants and revenues of the Central Government."}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 280 संविधान के प्रारंभ के दो वर्ष के भीतर और उसके बाद प्रत्येक पाँच वर्ष के अंतराल पर वित्त आयोग के गठन का उपबंध करता है (या राष्ट्रपति आवश्यक समझें तो उससे पहले भी)। इसका प्राथमिक कार्य संघ और राज्यों के बीच करों से प्राप्त शुद्ध आगम के वितरण और राज्यों के बीच ऐसे आगम के आवंटन के तरीके के संबंध में राष्ट्रपति को सिफ़ारिशें करना है। वित्त आयोग भारत की संचित निधि से राज्यों के राजस्व के अनुदान-सहायता को नियंत्रित करने वाले सिद्धांतों की भी सिफ़ारिश करता है। इसके अतिरिक्त, (73वें और 74वें संविधान संशोधनों के बाद) यह राज्य वित्त आयोगों की सिफ़ारिशों के आधार पर पंचायतों और नगरपालिकाओं के संसाधनों को पूरक बनाने के लिए राज्य की संचित निधि बढ़ाने हेतु आवश्यक उपायों पर भी राष्ट्रपति को सिफ़ारिशें करता है। यह अपनी रिपोर्ट राष्ट्रपति को प्रस्तुत करता है। उल्लेखनीय है कि प्रथम वित्त आयोग का गठन 22 नवंबर 1951 को अध्यक्ष के.सी. नियोगी की अध्यक्षता में किया गया था।","explanation_en":"Article 280 of the Constitution provides for the constitution of a Finance Commission within two years of the commencement of the Constitution and thereafter at intervals of every five years, (or even earlier if the President considers it necessary). Its primary function is to make recommendations to the President regarding the distribution of the net proceeds of taxes between the Union and the States and the manner of allocation of such proceeds among the States. The Finance Commission also recommends the principles governing grants-in-aid of the revenues of the States out of the Consolidated Fund of India. Further, (following the 73rd and 74th Constitutional Amendments), it also makes recommendations to the President regarding the measures needed to augment the Consolidated Fund of a State so as to supplement the resources of Panchayats and Municipalities on the basis of the recommendations made by the State Finance Commissions. It submits its report to the President. It is noteworthy that the First Finance Commission was constituted on 22 November 1951 with K.C. Neogy as its Chairman.","source":"UPPCS (Mains) 2008, 2010, 2011","source_missing":false,"exam":"uppcs-mains"},{"id":15,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"संघ वित्त आयोग के संदर्भ में, निम्नलिखित में से कौन-से कथन सही हैं? 1. वित्त आयोग में एक अध्यक्ष और छह सदस्य होते हैं; 2. यह अपनी रिपोर्ट नीति आयोग को प्रस्तुत करता है। नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए। कूट :","question_en":"With reference to Union Finance Commission, which of the following statement/s is/are correct? / (1) Finance Commission has a Chairman and six members. / (2) It submits its report to the NITI Aayog. / Select the correct answer using the code given below :\nCode :","options":[{"hi":"(1) और (2) दोनों","en":"Both (1) and (2)"},{"hi":"केवल (2)","en":"Only (2)"},{"hi":"न तो (1) और न ही (2)","en":"Neither (1) nor (2)"},{"hi":"केवल (1)","en":"Only (1)"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 280 के खंड (1) के अंतर्गत वित्त आयोग में एक अध्यक्ष और अन्य चार सदस्य होते हैं, अर्थात कुल पाँच सदस्य। उसी अनुच्छेद के खंड (3) के अंतर्गत यह सिफ़ारिशों वाली अपनी रिपोर्ट राष्ट्रपति को प्रस्तुत करता है। अतः प्रश्न में दिए गए दोनों कथन गलत हैं।","explanation_en":"Under clause (1) of Article 280 of the Constitution, the Finance Commission consists of one Chairman and four other members, making a total of five members. Under clause (3) of the same article, it submits its report containing recommendations to the President. Thus, both the statements given in the question are incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"निम्नलिखित में से कौन-सा एक सांविधिक निकाय है?","question_en":"Among the following, which one is the statutory body?","options":[{"hi":"श्रम आयोग","en":"Labour Commission"},{"hi":"नीति आयोग","en":"NITI Aayog"},{"hi":"योजना आयोग","en":"Planning Commission"},{"hi":"वित्त आयोग","en":"Finance Commission"}],"answer":3,"answer_note":"","explanation_hi":"वित्त आयोग का गठन संविधान के अनुच्छेद 280 के अंतर्गत होता है। अतः यह एक संवैधानिक निकाय है। श्रम आयोग, नीति आयोग और योजना आयोग किसी विधि (अधिनियम) द्वारा गठित न होने के कारण सांविधिक निकाय नहीं हैं/थे।","explanation_en":"The Finance Commission is constituted under Article 280 of the Constitution. Therefore, it is a constitutional body. The Labour Commission, NITI Aayog, and Planning Commission are/were not statutory bodies, because they were not constituted through an Act of law.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) और दूसरे को कारण (R) कहा गया है। अभिकथन (A): भारत का राष्ट्रपति वित्त आयोग के अध्यक्ष और सदस्यों की अर्हताएँ निर्धारित करता है। कारण (R): अध्यक्ष और सदस्यों की नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है। नीचे दिए गए कूटों का प्रयोग करके सही उत्तर चुनिए। कूट:","question_en":"Given below are two statements one is labelled as Assertion (A) and other as Reason (R): Assertion (A): The President of India determines the qualifications of the Chairman and Members of the Finance Commission. Reason (R): Chairman and members are appointed by the President of India. / Select the correct answer using the codes given below. Codes:","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है","en":"Both (A) and (R) are true and (R) is correct explanation of (A)"},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है","en":"Both (A) and (R) are true, but (R) is not correct explanation of (A)"},{"hi":"(A) सही है, परंतु (R) गलत है","en":"(A) is true, but (R) is false"},{"hi":"(A) गलत है, परंतु (R) सही है","en":"(A) is false, but (R) is true"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 280(2) के अनुसार संसद विधि द्वारा वित्त आयोग के सदस्यों के रूप में नियुक्ति के लिए अपेक्षित अर्हताएँ और उनके चयन का तरीका निर्धारित कर सकती है। इस उपबंध के अनुसार संसद द्वारा बनाए गए वित्त आयोग (विविध उपबंध) अधिनियम, 1951 में अध्यक्ष और सदस्यों की अर्हताएँ, नियुक्ति, कार्यकाल, वेतन और शक्तियाँ परिभाषित की गई हैं। अतः स्पष्ट है कि अभिकथन (A) गलत है। अनुच्छेद 280(1) के अंतर्गत वित्त आयोग के अध्यक्ष और सदस्यों की नियुक्ति राष्ट्रपति द्वारा की जाती है। इसलिए कारण (R) सही है।","explanation_en":"According to Article 280(2) of the Constitution, Parliament may by law determine the qualifications required for appointment as members of the Finance Commission and the manner in which they shall be selected. In pursuance of this provision, the Finance Commission (Miscellaneous Provisions) Act, 1951, enacted by Parliament, defines the qualifications, appointment, tenure, salary, and powers of the Chairman and members of the Finance Commission. It is thus clear that Assertion (A) is false. Under Article 280(1) of the Constitution, the Chairman and members of the Finance Commission are appointed by the President. Therefore, Reason (R) is true.","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"वित्त आयोग के मुख्य कार्य हैं –","question_en":"The main functions of Finance Commission is –","options":[{"hi":"केंद्रीय करों में राज्यों का हिस्सा निर्धारित करना और केंद्र द्वारा राज्यों को दी जाने वाली वित्तीय सहायता के सिद्धांत निर्धारित करना।","en":"To determine the part of States in central taxes and to determine the principles of financial aid given by the Centre to States."},{"hi":"राज्यों पर वित्तीय नियंत्रण","en":"Financial control over States"},{"hi":"केंद्र पर वित्तीय नियंत्रण","en":"Financial control over Central"},{"hi":"उपरोक्त में से कोई नहीं","en":"None of the above"}],"answer":0,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 280(3) के अनुसार वित्त आयोग के कार्य हैं – 1. संघ और राज्यों के बीच राजस्व के वितरण और राज्यों के बीच उसके आवंटन के लिए मानदंड और सिद्धांतों की सिफ़ारिश करना; 2. संघ द्वारा राज्यों को दिए जाने वाले अनुदान-सहायता को नियंत्रित करने वाले सिद्धांतों की सिफ़ारिश करना; 3. राज्य वित्त आयोगों की सिफ़ारिशों के आधार पर पंचायतों और नगरपालिकाओं के संसाधनों को सुदृढ़ करने के लिए राज्यों की संचित निधि बढ़ाने हेतु आवश्यक उपायों का सुझाव देना; और 4. सुदृढ़ वित्त के हित में राष्ट्रपति द्वारा उसे निर्दिष्ट किसी अन्य विषय पर राष्ट्रपति को सिफ़ारिशें करना।","explanation_en":"According to Article 280(3) of the Constitution, the functions of the Finance Commission are – 1. To recommend the criteria and principles for the distribution of revenue between the Centre and the States and for its allocation among the States. 2. To recommend the principles governing grants-in-aid to be given by the Union to the States. 3. To suggest the measures needed to augment the Consolidated Funds of the States in order to strengthen the resources of Panchayats and Municipalities on the basis of the recommendations made by the State Finance Commissions. 4. To make recommendations to the President on any other matter referred to it by the President in the interest of sound finance.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"13वें वित्त आयोग के अध्यक्ष कौन थे?","question_en":"Who was the Chairman of the 13 Finance Commission? th","options":[{"hi":"इंदिरा राजारमन","en":"Indira Rajaraman"},{"hi":"सी. रंगराजन","en":"C. Rangarajan"},{"hi":"विजय केलकर","en":"Vijay Kelkar"},{"hi":"उपरोक्त में से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 280 के अंतर्गत हर पाँच वर्ष पर वित्त आयोग के गठन का उपबंध किया गया है। वित्त आयोग में अध्यक्ष के अतिरिक्त चार अन्य सदस्य होते हैं, जिनकी नियुक्ति भारत का राष्ट्रपति करता है। विजय केलकर 13वें वित्त आयोग के अध्यक्ष थे। 14वें वित्त आयोग का गठन डॉ. वाई. वी. रेड्डी की अध्यक्षता में किया गया था। 15वें वित्त आयोग का गठन नवंबर 2017 में डॉ. एन. के. सिंह की अध्यक्षता में हुआ था। इसने वर्ष 2020-21 की अवधि के लिए अपनी पहली रिपोर्ट 5 दिसंबर 2019 को और वर्ष 2021-26 की अवधि के लिए अपनी दूसरी रिपोर्ट 9 नवंबर 2020 को राष्ट्रपति को प्रस्तुत की। 31 दिसंबर 2023 को 16वें वित्त आयोग का गठन नीति आयोग के पूर्व उपाध्यक्ष अरविंद पनगढ़िया की अध्यक्षता में किया गया। इसने 1 अप्रैल 2026 से आरंभ होने वाली पाँच वर्षीय अवधि के लिए 17 नवंबर 2025 को अपनी रिपोर्ट राष्ट्रपति को प्रस्तुत की।","explanation_en":"Under Article 280 of the Indian Constitution, provision has been made for the constitution of a Finance Commission every five years. In addition to a Chairman, the Finance Commission consists of four other members, who are appointed by the President of India. Vijay Kelkar was the Chairman of the 13th Finance Commission. The 14th Finance Commission was constituted under the chairmanship of Dr. Y. V. Reddy. The 15th Finance Commission was constituted in November 2017 under the chairmanship of Dr. N. K. Singh. It submitted its first report for the award period 2020–21 to the President on 5 December 2019 and its second report for the award period 2021–26 on 9 November 2020. On 31 December 2023, the 16th Finance Commission was constituted under the chairmanship of former NITI Aayog Vice-Chairman Arvind Panagariya. It submitted its report to the President on 17 November 2025 for the five-year period beginning on 1 April 2026.","source":"UPPCS (Pre) 2016","source_missing":false,"exam":"uppcs-pre"},{"id":20,"topic_hi":"वित्त आयोग","topic_en":"The Finance Commission","question_hi":"निम्नलिखित कथनों पर विचार कीजिए और नीचे दिए गए कूट से सही उत्तर चुनिए। अभिकथन (A): राज्य वित्त आयोग एक संवैधानिक निकाय है। कारण (R): संघ वित्त आयोग पंचायतों को वित्तीय सहायता की सिफ़ारिश नहीं कर सकता। कूट :","question_en":"Consider the following statements and select the correct answer from the code given below: Assertion (A): State Finance Commission is a Constitutional body. Reason (R) : Union Finance Commission cannot recommend financial assistance to Panchayats.\nCode :","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)"},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 243-I के अंतर्गत उपबंधित है कि राज्यपाल 73वें संविधान संशोधन अधिनियम, 1992 के प्रारंभ से एक वर्ष के भीतर, और उसके बाद प्रत्येक पाँच वर्ष पर, पंचायतों की वित्तीय स्थिति की समीक्षा के लिए एक वित्त आयोग का गठन करेगा। इसके अतिरिक्त, अनुच्छेद 243-Y (243-M) के अंतर्गत नगरपालिकाओं की वित्तीय स्थिति की समीक्षा से संबंधित उपबंध भी किए गए हैं। अतः राज्य वित्त आयोग एक संवैधानिक निकाय है। दूसरी ओर, अनुच्छेद 280(3)(bb) के अनुसार, संघ वित्त आयोग राज्य वित्त आयोग की सिफ़ारिशों के आधार पर राज्य में पंचायतों के संसाधनों को पूरक बनाने के लिए राज्य की संचित निधि बढ़ाने हेतु आवश्यक उपायों का सुझाव देता है। अतः कथन (A) सही है, परंतु कारण (R) गलत है।","explanation_en":"Under Article 243-I of the Indian Constitution, it is provided that the Governor shall, within one year from the commencement of the 73rd Constitutional Amendment Act, 1992, and thereafter every five years, constitute a Finance Commission to review the financial position of the Panchayats. Further, under Article 243-Y, (243-M) provision has also been made regarding the review of the financial position of the Municipalities. Thus, the State Finance Commission is a constitutional body. On the other hand, according to Article 280(3)(bb), the Union Finance Commission shall suggest the measures needed to augment the Consolidated Fund of a State so as to supplement the resources of the Panchayats in the State on the basis of the recommendations made by the State Finance Commission. Thus, Statement (A) is correct, but Reason (R) is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"योजना आयोग को प्रधानमंत्री द्वारा समाप्त किया गया है –","question_en":"The Planning Commission has been abolished by Prime Minister","options":[{"hi":"नरेंद्र मोदी","en":"Narendra Modi"},{"hi":"मोरारजी देसाई","en":"Morarji Desai"},{"hi":"अटल बिहारी वाजपेयी","en":"Atal Bihari Vajpayee"},{"hi":"आई. के. गुजराल","en":"I.K. Gujral"}],"answer":0,"answer_note":"","explanation_hi":"प्रधानमंत्री नरेंद्र मोदी ने 15 अगस्त 2014 को लाल किले की प्राचीर से स्पष्ट घोषणा की थी कि योजना आयोग के स्थान पर एक नई संस्था अस्तित्व में आएगी। तदनुसार योजना आयोग समाप्त कर दिया गया, और उसके स्थान पर 1 जनवरी 2015 को मंत्रिमंडल के एक संकल्प द्वारा नीति आयोग (NITI: National Institution for Transforming India) की स्थापना की गई। वर्तमान में इसके उपाध्यक्ष सुमन बेरी हैं, जो 1 मई 2022 से इस पद पर हैं।","explanation_en":"Prime Minister Narendra Modi had clearly announced from the ramparts of the Red Fort on 15 August 2014 that a new institution would come into existence in place of the Planning Commission. Accordingly, the Planning Commission was abolished, and in its place, NITI Aayog (NITI: National Institution for Transforming India) was established on 1 January 2015 through a Cabinet Resolution. At present, its Vice-Chairman is Suman Bery, with effect from 1 May 2022.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"योजना आयोग की स्थापना किसके द्वारा की गई थी –","question_en":"Planning Commission was established by-","options":[{"hi":"राष्ट्रपति द्वारा अध्यादेश जारी करके","en":"Issuing ordinance by the President"},{"hi":"संसद द्वारा कानून बनाकर","en":"Making a law by Parliament"},{"hi":"संघ मंत्रिमंडल द्वारा पारित एक विशेष संकल्प द्वारा","en":"A special resolution passed by the Union Cabinet"},{"hi":"इनमें से कोई नहीं","en":"None of the Above"}],"answer":2,"answer_note":"","explanation_hi":"योजना आयोग एक संविधानेतर निकाय था। इसका उल्लेख संविधान में नहीं था। इसका गठन 15 मार्च 1950 को संघ मंत्रिमंडल के एक संकल्प द्वारा किया गया था।","explanation_en":"The Planning Commission was an extra-constitutional body. It was not mentioned in the Constitution. It was constituted on 15 March 1950 by a resolution of the Union Cabinet.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन-सी एक संविधानेतर एजेंसी है?","question_en":"Which of the following is an extra constitutional agency?","options":[{"hi":"संघ लोक सेवा आयोग","en":"Union Public Service Commission"},{"hi":"वित्त आयोग","en":"Finance Commission"},{"hi":"निर्वाचन आयोग","en":"Election Commission"},{"hi":"नीति आयोग","en":"NITI Aayog"}],"answer":3,"answer_note":"","explanation_hi":"दिए गए विकल्पों में नीति आयोग एक संविधानेतर निकाय है। इसका उल्लेख संविधान में नहीं है। इसकी स्थापना 1 जनवरी 2015 को संघ मंत्रिमंडल के संकल्प द्वारा की गई थी, जबकि संघ लोक सेवा आयोग (अनुच्छेद 315), वित्त आयोग (अनुच्छेद 280) और निर्वाचन आयोग (अनुच्छेद 324) संवैधानिक निकाय हैं।","explanation_en":"Among the given options, NITI Aayog is an extra-constitutional body. It is not mentioned in the Constitution. It was established on 1 January 2015 by a resolution of the Union Cabinet, whereas the Union Public Service Commission (Art. 315), Finance Commission (Art. 280) and Election Commission (Art. 324) are constitutional bodies.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन-सा एक संवैधानिक निकाय नहीं है?","question_en":"Which one of the following is not a Constitutional body?","options":[{"hi":"संघ लोक सेवा आयोग","en":"Union Public Service Commission"},{"hi":"राज्य लोक सेवा आयोग","en":"State Public Service Commission"},{"hi":"वित्त आयोग","en":"Finance Commission"},{"hi":"योजना आयोग","en":"Planning Commission"}],"answer":3,"answer_note":"","explanation_hi":"प्रश्न में उल्लिखित आयोगों में से संविधान में संघ लोक सेवा आयोग और राज्य लोक सेवा आयोगों का प्रावधान अनुच्छेद 315 के अंतर्गत है, तथा वित्त आयोग का प्रावधान अनुच्छेद 280 के अंतर्गत है, जबकि योजना आयोग का संविधान में प्रावधान नहीं था। इसकी स्थापना 1950 में एक कार्यकारी आदेश द्वारा की गई थी। वर्तमान में, योजना आयोग के स्थान पर स्थापित नीति आयोग भी संवैधानिक निकाय नहीं है।","explanation_en":"Among the commissions mentioned in the question, the Constitution provides for the Union Public Service Commission and the State Public Service Commissions under Article 315, and the Finance Commission under Article 280, whereas the Planning Commission was not provided for in the Constitution. It was established in 1950 by an executive order. At present, NITI Aayog, which was set up in place of the Planning Commission, is also not a constitutional body.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन-सा एक संवैधानिक निकाय नहीं है?","question_en":"Which one of the following is not a Constitutional body?","options":[{"hi":"संघ लोक सेवा आयोग","en":"Union Public Service Commission"},{"hi":"वित्त आयोग","en":"Finance Commission"},{"hi":"योजना आयोग","en":"Planning Commission"},{"hi":"निर्वाचन आयोग","en":"Election Commission"}],"answer":2,"answer_note":"","explanation_hi":"योजना आयोग एक संविधानेतर निकाय था, क्योंकि इसका उल्लेख संविधान में नहीं था। दूसरी ओर, संघ लोक सेवा आयोग (अनुच्छेद 315), वित्त आयोग (अनुच्छेद 280), निर्वाचन आयोग (अनुच्छेद 324) और अंतर्राज्यीय परिषद (अनुच्छेद 263) आदि संवैधानिक निकाय हैं। योजना आयोग के स्थान पर गठित नीति आयोग भी एक संविधानेतर निकाय है।","explanation_en":"The Planning Commission was an extra-constitutional body because it was not mentioned in the Constitution. On the other hand, the Union Public Service Commission (Art. 315), Finance Commission (Art. 280), Election Commission (Art. 324) and the Inter-State Council (Art. 263), etc., are constitutional bodies. NITI Aayog, which has replaced the Planning Commission, is also an extra-constitutional body.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"योजना आयोग के अध्यक्ष के रूप में कौन कार्य करता है?","question_en":"Who works as the Chairman of the Planning Commission?","options":[{"hi":"राष्ट्रपति","en":"President"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"उपराष्ट्रपति","en":"Vice-President"},{"hi":"रिज़र्व बैंक के गवर्नर","en":"Governor of Reserve Bank"}],"answer":1,"answer_note":"","explanation_hi":"योजना आयोग के पहले अध्यक्ष तत्कालीन प्रधानमंत्री जवाहरलाल नेहरू थे, क्योंकि प्रधानमंत्री इसके पदेन अध्यक्ष होते थे। नीति आयोग, जिसने योजना आयोग का स्थान लिया है, के भी पदेन अध्यक्ष प्रधानमंत्री ही होते हैं।","explanation_en":"The first Chairman of the Planning Commission was the then Prime Minister, Jawaharlal Nehru, because the Prime Minister was its ex-officio Chairman. The Prime Minister is also the ex-officio Chairman of NITI Aayog, which has replaced the Planning Commission.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन-सा नीति आयोग के संबंध में सही नहीं है?","question_en":"Which one of the following is not correct about NITI Aayog?","options":[{"hi":"इसकी स्थापना योजना आयोग के स्थान पर की गई थी","en":"It was set up to replace the Planning Commission"},{"hi":"इसका एक पूर्णकालिक अध्यक्ष होता है","en":"It has a full-time Chairman"},{"hi":"इसकी स्थापना जनवरी 2015 में की गई थी","en":"It was set up in January 2015"},{"hi":"यह सहकारी संघवाद के सिद्धांत पर आधारित है","en":"It is based on the principle of Cooperative Federalism"}],"answer":1,"answer_note":"","explanation_hi":"विकल्प (b) नीति आयोग के संबंध में सही नहीं है, क्योंकि नीति आयोग के अध्यक्ष प्रधानमंत्री होते हैं। नीति आयोग का गठन 1 जनवरी 2015 को योजना आयोग के स्थान पर किया गया था। यह सहकारी संघवाद के सिद्धांत पर आधारित है।","explanation_en":"Option (b) is not correct regarding NITI Aayog, because the Chairman of NITI Aayog is the Prime Minister. NITI Aayog was constituted on 1 January 2015 in place of the Planning Commission. It is based on the principle of cooperative federalism.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन नीति आयोग की शासी परिषद का भाग नहीं है?","question_en":"Which among the following is not a part of the Governing Council of NITI Aayog ?","options":[{"hi":"राज्यों के राज्यपाल","en":"Governors of States"},{"hi":"दिल्ली और पुडुचेरी के मुख्यमंत्री","en":"Chief Ministers of Delhi and Puducherry"},{"hi":"अंडमान और निकोबार द्वीप समूह के उपराज्यपाल","en":"Lieutenant Governor of Andaman and Nicobar Islands"},{"hi":"राज्यों के सभी मुख्यमंत्री","en":"All Chief Ministers of States"}],"answer":0,"answer_note":"","explanation_hi":"नीति आयोग की शासी परिषद में प्रधानमंत्री (अध्यक्ष), सभी राज्यों के मुख्यमंत्री, विधानमंडल वाले केंद्र शासित प्रदेशों के मुख्यमंत्री, केंद्र शासित प्रदेशों के उपराज्यपाल, पदेन सदस्य, उपाध्यक्ष, पूर्णकालिक सदस्य और विशेष आमंत्रित सदस्य सम्मिलित होते हैं। राज्यों के राज्यपाल इसमें सम्मिलित नहीं हैं। अतः विकल्प (a) सही उत्तर है।","explanation_en":"The Governing Council of NITI Aayog includes the Prime Minister (Chairman), the Chief Ministers of all States, the Chief Ministers of Union Territories having legislatures, the Lieutenant Governors of Union Territories, ex-officio members, the Vice-Chairperson, full-time members and special invitees. The Governors of States are not included in it. Therefore, option (a) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"योजना आयोग के उपाध्यक्ष का दर्जा किसके समकक्ष होता है?","question_en":"The Deputy Chairman of the Planning Commission is equivalent to-","options":[{"hi":"उपराष्ट्रपति","en":"Vice-President"},{"hi":"राज्य का मंत्री","en":"Minister of the State"},{"hi":"कैबिनेट मंत्री","en":"Cabinet Minister"},{"hi":"सर्वोच्च न्यायालय के न्यायाधीश","en":"Judge of the Supreme Court"}],"answer":2,"answer_note":"","explanation_hi":"योजना आयोग के उपाध्यक्ष का दर्जा भारत सरकार में कैबिनेट मंत्री के समकक्ष था। उल्लेखनीय है कि गुलज़ारीलाल नंदा योजना आयोग के प्रथम उपाध्यक्ष थे।","explanation_en":"The Vice-Chairman of the Planning Commission had the status equivalent to that of a Cabinet Minister in the Government of India. It is noteworthy that Gulzarilal Nanda was the first Vice-Chairman of the Planning Commission.","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन भारत में योजना आयोग के उपाध्यक्ष नहीं रहे हैं?","question_en":"Who among the following has not been the Deputy Chairman of the Planning Commission in India?","options":[{"hi":"डॉ. मनमोहन सिंह","en":"Dr. Manmohan Singh"},{"hi":"प्रणब मुखर्जी","en":"Pranab Mukherjee"},{"hi":"पी. चिदंबरम","en":"P. Chidambaram"},{"hi":"मोंटेक एस. अहलूवालिया","en":"Montek S. Ahluwalia"}],"answer":2,"answer_note":"","explanation_hi":"पी. चिदंबरम योजना आयोग के उपाध्यक्ष नहीं रहे, जबकि डॉ. मनमोहन सिंह 15 जनवरी 1985 से 31 अगस्त 1987 तक, प्रणब मुखर्जी 24 जून 1991 से 15 मई 1996 तक, और मोंटेक सिंह अहलूवालिया 4 जुलाई 2004 से 26 मई 2014 तक योजना आयोग के उपाध्यक्ष रहे।","explanation_en":"P. Chidambaram has not served as the Vice-Chairman of the Planning Commission, whereas Dr. Manmohan Singh served from 15 January 1985 to 31 August 1987, Pranab Mukherjee from 24 June 1991 to 15 May 1996, and Montek Singh Ahluwalia from 4 July 2004 to 26 May 2014 as Vice-Chairmen of the Planning Commission.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) और दूसरे को कारण (R) कहा गया है। अभिकथन (A): योजना आयोग को केवल संघ ही नहीं, बल्कि राज्यों के लिए भी “आर्थिक मंत्रिमंडल” के रूप में परिभाषित किया गया है। कारण (R): यह राष्ट्रीय संसाधनों के संतुलित उपयोग के लिए पंचवर्षीय योजनाएँ तैयार करता है। उपर्युक्त कथनों के संदर्भ में निम्नलिखित में से कौन-सा सही है? कूट :","question_en":"Given below are two statements, one labelled as assertion (A) and the other labelled as Reason (R): Assertion (A) : Planning Commission has been defined as the economic cabinet, not merely for the Union but the States also. Reason (R) : It formulates the five-year plans for the balanced utilization of national resources. In context of the above statements, which one of the following is correct?\nCode :","options":[{"hi":"(A) और (R) दोनों सही हैं, और (R), (A) की सही व्याख्या है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is false, but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"योजना आयोग राष्ट्रीय संसाधनों के संतुलित उपयोग के लिए पंचवर्षीय योजनाएँ तैयार करता था। उसकी विवेकाधीन, संविधानेतर शक्तियों की व्यापक प्रकृति और उसे सौंपे गए विषयों के विस्तृत दायरे के कारण आलोचक उसे न केवल संघ, बल्कि राज्यों के लिए भी “आर्थिक मंत्रिमंडल” कहते थे। अतः अभिकथन और कारण दोनों सही हैं, परंतु कारण अभिकथन की सही व्याख्या नहीं करता।","explanation_en":"The Planning Commission used to formulate Five-Year Plans for the balanced utilization of national resources. Because of the broad nature of its discretionary extra-constitutional powers and the wide scope of matters referred to it, critics described it as the ‘economic cabinet’ not only for the Union but also for the States. Thus, both the assertion and the reason are correct, but the reason does not correctly explain the assertion.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"भारत में राष्ट्रीय विकास परिषद का गठन कब हुआ था?","question_en":"When was the National Development Council formed in India?","options":[{"hi":"26 जनवरी, 1950","en":"26th January, 1950"},{"hi":"2 अक्टूबर, 1950","en":"2nd October, 1950"},{"hi":"6 अगस्त, 1951","en":"6th August, 1951"},{"hi":"6 अगस्त, 1952","en":"6th August, 1952"}],"answer":3,"answer_note":"","explanation_hi":"राष्ट्रीय विकास परिषद का गठन 6 अगस्त 1952 को किया गया था।","explanation_en":"The National Development Council was constituted on August 6, 1952.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which one of the following statements in not true?","options":[{"hi":"प्रधानमंत्री भारत के योजना आयोग के अध्यक्ष होते हैं।","en":"Prime Minister is the Chairman of the Planning Commission of India."},{"hi":"योजना आयोग भारत में योजना के लिए सर्वोच्च निर्णय लेने वाली संस्था है।","en":"Planning Commission is the highest decision-making body for planning in India."},{"hi":"योजना आयोग का सचिव राष्ट्रीय विकास परिषद का भी सचिव होता है।","en":"Secretary of the Planning Commission is also the Secretary of the National Development Council."},{"hi":"राष्ट्रीय विकास परिषद की अध्यक्षता प्रधानमंत्री करते हैं।","en":"The National Development Council is presided over by the Prime Minister of India."}],"answer":1,"answer_note":"","explanation_hi":"भारत में योजना के लिए सर्वोच्च निर्णय लेने वाली संस्था योजना आयोग नहीं, बल्कि राष्ट्रीय विकास परिषद थी। अन्य तीन कथन सही हैं। योजना आयोग की समाप्ति के बाद नीति आयोग की शासी परिषद का गठन हुआ, जिसकी संरचना राष्ट्रीय विकास परिषद से लगभग मिलती-जुलती है। तब से राष्ट्रीय विकास परिषद की भूमिका लगभग समाप्त हो गई है और वह व्यावहारिक रूप से निष्क्रिय हो गई है।","explanation_en":"In India, the highest decision-making body for planning was not the Planning Commission but the National Development Council. The other three statements are true. After the abolition of the Planning Commission, the Governing Council of NITI Aayog was formed, whose structure is almost similar to that of the National Development Council. Since then, the role of the National Development Council has virtually ended, and it has become functionally inactive.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"राष्ट्रीय विकास परिषद (NDC) – 1. राष्ट्रीय योजना की प्रगति पर चर्चा करती है; 2. राष्ट्रीय योजना के लक्ष्यों को प्राप्त करने के उपाय सुझाती है; 3. राष्ट्रीय योजना तैयार करने के लिए दिशा-निर्देश देती है; 4. योजना में धन के आवंटन का सुझाव देती है। उपर्युक्त कथनों पर विचार करते हुए नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"The National Development Council (NDC) – / 1. Discusses the progress of the National Plan. / 2. Suggests the ways to achieve the goals of the National Plan. / 3. Gives guidelines to formulate the National Plan. / 4. Suggests allocation of money in Planning. Considering the above statements, select the correct answer from the code given below : Codes :","options":[{"hi":"1, 2 और 3","en":"1, 2, and 3"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"1, 2 और 4","en":"1, 2 and 4"},{"hi":"उपरोक्त सभी","en":"All of the above"}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रीय विकास परिषद के मुख्य कार्य इस प्रकार थे – (i) राष्ट्रीय योजना के निर्माण के लिए दिशा-निर्देश देना और योजना के लिए उपलब्ध संसाधनों का आकलन करना; (ii) योजना आयोग द्वारा तैयार की गई राष्ट्रीय योजना पर विचार करना; (iii) राष्ट्रीय विकास को प्रभावित करने वाले सामाजिक और आर्थिक मुद्दों पर विचार करना; (iv) समय-समय पर योजना के कार्यकरण की समीक्षा करना और राष्ट्रीय योजना के उद्देश्यों की प्राप्ति के लिए सलाह देना। योजना में धन के आवंटन का सुझाव देने का कार्य तत्कालीन योजना आयोग करता था, न कि राष्ट्रीय विकास परिषद। अतः सही उत्तर विकल्प (a) है।","explanation_en":"The main functions of the National Development Council were as follows: / (i) To provide guidelines for the formulation of the national plan and also to assess the resources available for the plan. (ii) To consider the national plan prepared by the Planning Commission. (iii) To consider social and economic issues affecting national development. (iv) To review the working of the plan from time to time and to provide advice for achieving the objectives of the national plan. The function of suggesting the allocation of funds in the plan was performed by the then Planning Commission, not by the National Development Council. Therefore, the correct answer is option (a).","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"योजना आयोग, नीति आयोग","topic_en":"The Planning Commission / NITI AAYOG","question_hi":"राष्ट्रीय विकास परिषद मुख्य रूप से किससे संबंधित है –","question_en":"National Development Council is primarily related to –","options":[{"hi":"पंचवर्षीय योजनाओं का अनुमोदन","en":"Approval of five-year plans"},{"hi":"ग्राम विकास योजनाओं का क्रियान्वयन","en":"Execution of village development plans"},{"hi":"विकास योजनाओं का निर्माण","en":"Formation of development plans"},{"hi":"राज्यों और संघ के बीच वित्तीय संबंध","en":"The financial relation between States and Union."}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रीय विकास परिषद का गठन 6 अगस्त 1952 को पंचवर्षीय योजनाओं के निर्माण में राज्यों की भागीदारी सुनिश्चित करने के लिए किया गया था। यह योजना आयोग द्वारा तैयार की गई पंचवर्षीय योजनाओं का अनुमोदन करती थी। राष्ट्रीय विकास परिषद योजना आयोग और राज्य सरकारों के बीच समन्वयक के रूप में कार्य करती थी। राष्ट्रीय विकास परिषद की अंतिम बैठक 27 दिसंबर 2012 को हुई थी। उसके बाद कोई बैठक नहीं हुई, और व्यवहार में अब उसकी भूमिका नीति आयोग की शासी परिषद द्वारा ले ली गई है।","explanation_en":"The National Development Council was constituted on August 6, 1952, to ensure the participation of the States in the formulation of Five-Year Plans. It used to approve the Five-Year Plans prepared by the Planning Commission. The National Development Council acted as a coordinator between the Planning Commission and the State Governments. The last meeting of the National Development Council was held on December 27, 2012. After that, no meeting was held, and in practice its role has now been taken over by the Governing Council of NITI Aayog.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

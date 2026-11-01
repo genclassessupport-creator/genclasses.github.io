@@ -89,6 +89,7 @@ html[data-theme="light"] .ncard:hover{box-shadow:0 12px 32px rgba(120,90,30,.16)
 html[data-theme="light"] .plat:hover{box-shadow:0 16px 40px rgba(120,90,30,.2),0 0 30px rgba(154,114,35,.14)}
 html[data-theme="light"] footer{background:rgba(246,241,228,.7)}
 html[data-theme="light"] .b-ncert{background:rgba(109,79,194,.12);color:#5B3FB0}
+html[data-theme="light"] .b-polity{background:rgba(30,100,160,.12);color:#1a5f8a}
 html[data-theme="light"] .b-upsssc{background:rgba(166,91,20,.12);color:#96520F}
 html[data-theme="light"] .b-upspecial{background:rgba(18,115,184,.12);color:#0F6AA8}
 html[data-theme="light"] .b-uppcs2026{background:rgba(196,70,30,.12);color:#B8451A}
@@ -303,6 +304,7 @@ section{position:relative;z-index:3;padding:104px 26px}
 .b-gs{background:rgba(127,180,255,.13);color:var(--blue)}
 .b-csat{background:rgba(127,214,164,.13);color:var(--green)}
 .b-ncert{background:rgba(179,153,255,.14);color:#c3b0ff}
+.b-polity{background:rgba(80,170,230,.16);color:#7ec8f0;border:1px solid rgba(80,170,230,.35)}
 .b-upsssc{background:rgba(240,150,90,.15);color:#e8944e}
 .b-upspecial{background:rgba(90,180,240,.15);color:#5ab4f0}
 .b-uppcs2026{background:rgba(255,120,80,.18);color:#ff9a6b;border:1px solid rgba(255,120,80,.35)}
@@ -336,6 +338,10 @@ section{position:relative;z-index:3;padding:104px 26px}
 .tacc-arw{font-size:13px;color:var(--gold);transition:transform .3s;display:inline-block}
 .tacc-head.open .tacc-arw{transform:rotate(180deg)}
 .tacc-item{opacity:1!important;animation:none!important}
+.exam-filters{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 10px;padding:0 2px}
+.exam-filters button{border:1px solid var(--line);background:var(--glass);color:var(--mist);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Mukta',sans-serif}
+.exam-filters button.on{border-color:var(--gold);color:var(--gold-hi);background:rgba(217,174,95,.14)}
+.exam-filters button .n{opacity:.7;margin-left:4px;font-weight:600}
 .tfoot{margin-top:30px;text-align:center;font-size:14.5px;color:var(--mist)}
 .tfoot a{color:var(--gold-hi);font-weight:700;border-bottom:1px solid var(--gold-deep);transition:border-color .2s}
 .tfoot a:hover{border-color:var(--gold-hi)}
@@ -777,6 +783,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
   <div class="ticker-track">
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
+    <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 Polity PYQ — 960 प्रश्न · परीक्षा टैग</span><span data-en>📜 Polity PYQ — 960 Qs · exam tags</span></a>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
     <a href="/flashcards/"><span class="pill-new">NEW</span> <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
     <a href="/ro-aro/drafting/"><span class="pill-new">NEW</span> <span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></a>
@@ -786,6 +793,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
     <a href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
+    <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 Polity PYQ — 960 प्रश्न · परीक्षा टैग</span><span data-en>📜 Polity PYQ — 960 Qs · exam tags</span></a>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
     <a href="/flashcards/"><span class="pill-new">NEW</span> <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
     <a href="/ro-aro/drafting/"><span class="pill-new">NEW</span> <span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></a>
@@ -862,6 +870,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
       <a href="#tests"><span class="ic">◎</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span data-hi>परीक्षा-स्तरीय</span><span data-en>Exam-level</span></a>
       <a href="#special-notes"><span class="ic">★</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span data-hi>कस्टम डिमांड</span><span data-en>Custom demand</span></a>
       <a href="/ncert/"><span class="ic">📗</span><strong>NCERT</strong><span data-hi>पाठ्यपुस्तक · अभ्यास</span><span data-en>Textbooks · practice</span></a>
+      <a href="/polity/"><span class="ic">📜</span><strong>Polity PYQ</strong><span data-hi>960 प्रश्न · परीक्षा टैग</span><span data-en>960 Qs · exam tags</span></a>
     </div>
   </div>
 </section>
@@ -1004,6 +1013,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
       <button class="ttab" data-filter="gs"><span data-hi>सामान्य अध्ययन</span><span data-en>General Studies</span> <span class="cnt" data-cnt="gs"></span></button>
       <button class="ttab" data-filter="csat">CSAT <span class="cnt" data-cnt="csat"></span></button>
       <button class="ttab" data-filter="ncert">NCERT <span class="cnt" data-cnt="ncert"></span></button>
+      <button class="ttab" data-filter="polity">Polity PYQ <span class="cnt" data-cnt="polity"></span></button>
       <button class="ttab" data-filter="upsssc">UPSSSC <span class="cnt" data-cnt="upsssc"></span></button>
       <button class="ttab" data-filter="upspecial">UP SPECIAL <span class="cnt" data-cnt="upspecial"></span></button>
     </div>
@@ -1236,17 +1246,17 @@ var CONFIG = { user: "genclassessupport-creator", repo: "genclasses.github.io" }
 
 function isEn(){ return (document.documentElement.getAttribute("lang") || "hi") === "en"; }
 function L(hi, en){ return isEn() ? en : hi; }
-var SEC_NAME_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_NAME_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_HEAD_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_HEAD_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_UNIT_HI = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
-var SEC_UNIT_EN = { uppcs2026: "Tests", ca: "Tests", gs: "Tests", csat: "", ncert: "Tests", upsssc: "Chapters", upspecial: "Tests" };
+var SEC_NAME_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_NAME_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_HEAD_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "भारतीय राजव्यवस्था PYQ", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_HEAD_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Indian Polity PYQ", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_UNIT_HI = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", polity: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
+var SEC_UNIT_EN = { uppcs2026: "Tests", ca: "Tests", gs: "Tests", csat: "", ncert: "Tests", polity: "Tests", upsssc: "Chapters", upspecial: "Tests" };
 function SEC_NAME(sec){ return (isEn()?SEC_NAME_EN:SEC_NAME_HI)[sec] || sec; }
 function SEC_HEAD(sec){ return (isEn()?SEC_HEAD_EN:SEC_HEAD_HI)[sec] || SEC_NAME(sec); }
 function SEC_UNIT(sec){ var m=isEn()?SEC_UNIT_EN:SEC_UNIT_HI; return m.hasOwnProperty(sec)?m[sec]:L("टेस्ट","Tests"); }
 var OPEN_SEC = null;
-var DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
+var DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], polity: [], upsssc: [], upspecial: [], notes: [] };
 /* अध्याय (टेस्ट नहीं) — इनके कार्ड पर "अध्याय खोलें" दिखेगा; बाक़ी पर "टेस्ट प्रारंभ करें"। */
 var CHAPTERS = {};
 var FILTER = "all";
@@ -1363,11 +1373,12 @@ function buildData(tree){
     else if (low.indexOf("tests/gs/") === 0 && /\.html?$/.test(low)) DATA.gs.push(p);
     else if (low.indexOf("tests/csat/") === 0 && /\.html?$/.test(low)) DATA.csat.push(p);
     else if (low.indexOf("tests/ncert/") === 0 && /\.html?$/.test(low)) DATA.ncert.push(p);
+    else if (low.indexOf("tests/polity/") === 0 && /\.html?$/.test(low)) DATA.polity.push(p);
     else if (low.indexOf("tests/upsssc/") === 0 && /\.html?$/.test(low)) DATA.upsssc.push(p);
     else if (low.indexOf("tests/upspecial/") === 0 && /\.html?$/.test(low)) DATA.upspecial.push(p);
     else if (low.indexOf("notes/") === 0 && /\.(html?|pdf)$/.test(low)) DATA.notes.push(p);
   });
-  DATA.uppcs2026.sort(nsort).reverse(); DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
+  DATA.uppcs2026.sort(nsort).reverse(); DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.polity.sort(nsort); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
 }
 
 function stateEl(msg){
@@ -1470,20 +1481,101 @@ function addCsatItems(){
   });
 }
 
+var POLITY_META = null; // {path: {exams:[], count:N, title_en}}
+var POLITY_EXAM_FILTER = "all";
+var POLITY_EXAM_LABELS = {
+  all: {hi:"सभी", en:"All"},
+  "uppcs-pre": {hi:"UPPCS Pre", en:"UPPCS Pre"},
+  "uppcs-mains": {hi:"UPPCS Mains", en:"UPPCS Mains"},
+  "ro-aro": {hi:"RO/ARO", en:"RO/ARO"},
+  lower: {hi:"UP Lower", en:"UP Lower"},
+  "uda-lda": {hi:"UDA/LDA", en:"UDA/LDA"},
+  other: {hi:"अन्य", en:"Other"},
+  unknown: {hi:"स्रोत N/A", en:"Source N/A"}
+};
+
+function loadPolityMeta(cb){
+  if (POLITY_META) { if(cb) cb(); return; }
+  fetch("/tests/polity/manifest.json", {cache:"no-cache"}).then(function(r){ return r.ok ? r.json() : null; }).then(function(j){
+    POLITY_META = {};
+    if (j && j.manifest) {
+      j.manifest.forEach(function(m){
+        POLITY_META[m.path] = m;
+      });
+    }
+    if (cb) cb();
+  }).catch(function(){ POLITY_META = {}; if(cb) cb(); });
+}
+
+function polityExamsOf(path){
+  var m = POLITY_META && POLITY_META[path];
+  if (!m) return [];
+  var ec = m.exam_counts || {};
+  return Object.keys(ec).filter(function(k){ return ec[k] > 0; });
+}
+
+function addPolityFilters(){
+  var wrap = document.createElement("div");
+  wrap.className = "exam-filters tacc-item";
+  wrap.setAttribute("data-secitem", "polity");
+  var order = ["all","uppcs-pre","uppcs-mains","ro-aro","lower","uda-lda","other","unknown"];
+  // counts across tests
+  var counts = {all: DATA.polity.length};
+  DATA.polity.forEach(function(path){
+    polityExamsOf(path).forEach(function(ex){
+      counts[ex] = (counts[ex]||0) + 1;
+    });
+  });
+  order.forEach(function(key){
+    if (key !== "all" && !counts[key]) return;
+    var lab = POLITY_EXAM_LABELS[key] || {hi:key, en:key};
+    var btn = document.createElement("button");
+    btn.type = "button";
+    if (POLITY_EXAM_FILTER === key) btn.className = "on";
+    btn.innerHTML = L(lab.hi, lab.en) + ' <span class="n">' + (counts[key]||0) + "</span>";
+    btn.addEventListener("click", function(){
+      POLITY_EXAM_FILTER = key;
+      renderTests();
+    });
+    wrap.appendChild(btn);
+  });
+  var note = document.createElement("div");
+  note.className = "tacc-item";
+  note.setAttribute("data-secitem", "polity");
+  note.style.cssText = "grid-column:1/-1;font-size:12.5px;color:var(--mist);margin:-4px 0 8px";
+  note.innerHTML = L(
+    "फ़िल्टर उन टेस्टों को दिखाता है जिनमें उस परीक्षा के टैग वाले प्रश्न हैं। प्रत्येक प्रश्न पर परीक्षा/वर्ष बैज दिखता है। <a href='/polity/' style='color:var(--gold-hi)'>Polity हब →</a>",
+    "Filter shows tests that contain questions tagged for that exam. Each question shows an exam/year badge. <a href='/polity/' style='color:var(--gold-hi)'>Polity hub →</a>"
+  );
+  grid.appendChild(wrap);
+  grid.appendChild(note);
+}
+
 function addSecItems(s){
+  if (s === "polity") addPolityFilters();
+  var shown = 0;
   DATA[s].forEach(function(p, i){
-    var c = testCard(s, p, i);
+    if (s === "polity" && POLITY_EXAM_FILTER !== "all") {
+      var exams = polityExamsOf(p);
+      if (exams.indexOf(POLITY_EXAM_FILTER) < 0) return;
+    }
+    var c = testCard(s, p, shown);
     c.classList.add("tacc-item"); c.setAttribute("data-secitem", s);
-    grid.appendChild(c);
+    if (s === "polity") c.setAttribute("data-exams", polityExamsOf(p).join(","));
+    grid.appendChild(c); shown++;
   });
 }
 
 function renderTests(){
+  if (DATA.polity && DATA.polity.length && !POLITY_META) {
+    loadPolityMeta(function(){ renderTests(); });
+    return;
+  }
   grid.innerHTML = "";
   if (STATE === "loading") { grid.appendChild(stateEl(L("टेस्ट-सूची तैयार हो रही है…","Preparing the test list…"))); return; }
   if (STATE === "offline") { grid.appendChild(stateEl(L("टेस्ट-सूची साइट के GitHub Pages पर प्रकाशित होते ही यहाँ स्वतः दिखाई देगी।","The test list will appear here automatically once published on GitHub Pages."))); return; }
   if (STATE === "error")   { grid.appendChild(stateEl(L("सूची इस समय लोड नहीं हो सकी — कृपया पृष्ठ पुनः खोलें।","Could not load the list right now — please reload the page."))); return; }
-  var secs = (FILTER === "all") ? ["uppcs2026", "ca", "gs", "csat", "ncert", "upsssc", "upspecial"] : [FILTER];
+  var secs = (FILTER === "all") ? ["uppcs2026", "ca", "gs", "csat", "ncert", "polity", "upsssc", "upspecial"] : [FILTER];
   var any = false;
   secs.forEach(function(s){
     var count = DATA[s] ? DATA[s].length : 0;
@@ -1500,14 +1592,14 @@ function renderTests(){
 }
 
 function renderCounts(){
-  var total = DATA.uppcs2026.length + DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.upsssc.length + DATA.upspecial.length;
+  var total = DATA.uppcs2026.length + DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.polity.length + DATA.upsssc.length + DATA.upspecial.length;
   var set = function(k, n){
     var el = document.querySelector('[data-cnt="' + k + '"]');
     if (!el) return;
     if (STATE === "ready" && n > 0) { el.textContent = n; el.style.display = "inline-flex"; }
     else { el.style.display = "none"; }
   };
-  set("all", total); set("uppcs2026", DATA.uppcs2026.length); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
+  set("all", total); set("uppcs2026", DATA.uppcs2026.length); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("polity", DATA.polity.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
 }
 
 function renderNotes(){
@@ -1548,7 +1640,7 @@ function renderAll(){ renderTests(); renderCounts(); renderNotes(); }
 document.addEventListener("gen-lang", function(){ renderAll(); });
 
 function rebuild(paths){
-  DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], upsssc: [], upspecial: [], notes: [] };
+  DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], polity: [], upsssc: [], upspecial: [], notes: [] };
   var seen = {}, uniq = [];
   paths.forEach(function(it){
     var key = (typeof it === "string") ? it : (it && it.path);

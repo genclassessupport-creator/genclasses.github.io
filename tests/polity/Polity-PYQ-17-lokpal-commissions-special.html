@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-17-lokpal-commissions-special","title":"Polity PYQ — Lokpal, Commissions & Special Provisions","shortTitle":"Lokpal, Commissions & Special Provisions","subtitle":"Purvavlokan GS · Indian Polity · लोकपाल, आयोग एवं विशेष उपबंध","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Lokpal, Commissions & Special Provisions. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":50,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"भारतीय लोकपाल (Ombudsman) का मॉडल है –","question_en":"Indian Model of Ombudsman is –","options":[{"hi":"लेखपाल","en":"Lekhpal"},{"hi":"तहसीलदार","en":"Tehsildar"},{"hi":"राज्यपाल","en":"Governor"},{"hi":"लोकपाल","en":"Lokpal"}],"answer":3,"answer_note":"","explanation_hi":"भारत में लोकपाल और लोकायुक्त की स्थापना का सुझाव सर्वप्रथम प्रथम प्रशासनिक सुधार आयोग द्वारा दिया गया था। यह आयोग 5 जनवरी 1966 को मोरारजी देसाई की अध्यक्षता में गठित किया गया था। बाद में, 1967 में, के. हनुमंतैया प्रथम प्रशासनिक सुधार आयोग के अध्यक्ष नियुक्त किए गए। आयोग का कार्यकाल 1970 में समाप्त हुआ। ओम्बुड्समैन का भारतीय समकक्ष लोकपाल है। यह सर्वप्रथम 1809 में स्वीडन में एक स्वतंत्र पर्यवेक्षी संस्था के रूप में स्थापित किया गया था।","explanation_en":"In India, the suggestion for the establishment of Lokpal and Lokayukta was first made by the First Administrative Reforms Commission. This Commission was constituted on January 5, 1966, under the chairmanship of Morarji Desai. Later, in 1967, K. Hanumanthaiah was appointed Chairman of the First Administrative Reforms Commission. The tenure of the Commission ended in 1970. The Indian equivalent of the Ombudsman is Lokpal. It was first established in Sweden in 1809 as an independent supervisory institution.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"पहला लोकपाल विधेयक संसद में किस वर्ष प्रस्तुत किया गया था?","question_en":"The first Lokpal Bill was presented in the Parliament in–","options":[{"hi":"1967","en":"1967"},{"hi":"1971","en":"1971"},{"hi":"1968","en":"1968"},{"hi":"1972","en":"1972"}],"answer":2,"answer_note":"","explanation_hi":"पहला लोकपाल विधेयक 1968 में चौथी लोकसभा में संसद में प्रस्तुत किया गया था। इसे 1969 में लोकसभा ने पारित कर दिया, लेकिन यह राज्यसभा में लंबित रहा और चौथी लोकसभा भंग हो जाने के कारण यह विधेयक समाप्त हो गया।","explanation_en":"The first Lokpal Bill was introduced in Parliament in 1968 in the Fourth Lok Sabha. It was passed by the Lok Sabha in 1969, but as it remained pending in the Rajya Sabha and the Fourth Lok Sabha was dissolved, the Bill lapsed.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"लोकपाल विधेयक, 2011 के संबंध में निम्नलिखित कथनों में से कौन-से सही हैं? 1. यह 4 अगस्त, 2011 को लोकसभा में प्रस्तुत किया गया था। 2. इसे गृह मंत्री श्री पी. चिदंबरम ने प्रस्तुत किया था। 3. इसे स्थायी समिति को सौंपा गया है। 4. नागरिक समाज के सदस्यों ने इसे 'कमज़ोर' बताया है। नीचे दिए गए कूटों से सही उत्तर चुनिए।","question_en":"Which of the following statements about the Lokpal Bill, 2011 is/are correct? / 1. Was introduced in the Lok Sabha on August 4, 2011. / 2. Was introduced by Shri P. Chidambaram, Home Minister. / 3. Has been referred to the Standing Committee. / 4. Has been termed by Civil Society members as ‘weak.’ / Select the correct answer from the codes given below:\nCode :","options":[{"hi":"केवल 1 और 2","en":"1 and 2 only"},{"hi":"केवल 1, 2 और 3","en":"1,2 and 3 only"},{"hi":"केवल 2 और 4","en":"2 and 4 only"},{"hi":"केवल 1, 3 और 4","en":"1, 3 and 4 only"}],"answer":3,"answer_note":"","explanation_hi":"लोकपाल विधेयक 4 अगस्त, 2011 को तत्कालीन कार्मिक, लोक शिकायत और पेंशन राज्य मंत्री वी. नारायणसामी द्वारा लोकसभा में प्रस्तुत किया गया था। इसके बाद इसे कार्मिक, लोक शिकायत, विधि और न्याय संबंधी स्थायी समिति को भेजा गया। नागरिक समाज के सदस्यों ने इसे 'कमज़ोर' माना। अतः कथन 1, 3 और 4 सही हैं, जबकि कथन 2 गलत है। यह उल्लेखनीय है कि बाद में लोकपाल और लोकायुक्तों से संबंधित विधेयक को 1 जनवरी, 2014 को लोकपाल और लोकायुक्त अधिनियम, 2013 के रूप में अधिसूचित किया गया, और यह 16 जनवरी, 2014 से लागू हुआ।","explanation_en":"The Lokpal Bill was introduced in the Lok Sabha on 4 August, 2011 by the then Minister of State for Personnel, Public Grievances and Pensions, V. Narayanasamy. Thereafter, it was referred to the Parliamentary Standing Committee on Personnel, Public Grievances, Law and Justice. Members of civil society considered it “weak”. Therefore, statements 1, 3 and 4 are correct, while statement 2 is incorrect. It is noteworthy that later the Bill relating to Lokpal and Lokayuktas was notified as the Lokpal and Lokayuktas Act, 2013 on 1 January, 2014, and it came into force on 16 January, 2014.","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"लोकपाल विधेयक का मसौदा तैयार करने वाले पैनल में नागरिक समाज के प्रतिनिधियों में निम्नलिखित शामिल हैं: 1. अन्ना हजारे 2. प्रशांत जोशी 3. संतोष हेगड़े 4. किरण बेदी 5. शांति भूषण। नीचे दिए गए कूट से सही उत्तर चुनिए।","question_en":"Civil Society’s representatives in the panel for drafting the Lokpal Bill include: / 1. Anna Hazare 2. Prashant Joshi / 3. Santosh Hegde 4. Kiran Bedi / 5. Shanti Bhushan / Select your correct answer from the code given below:","options":[{"hi":"केवल 1, 3, 4 और 5","en":"Only 1, 3, 4 and 5"},{"hi":"केवल 1, 2, 3 और 4","en":"Only 1, 2, 3 and 4"},{"hi":"केवल 1, 2 और 3","en":"Only 1, 2 and 3"},{"hi":"केवल 1, 3 और 5","en":"Only 1, 3 and 5"}],"answer":3,"answer_note":"","explanation_hi":"नागरिक समाज की ओर से लोकपाल विधेयक का मसौदा तैयार करने के लिए गठित समिति में पाँच सदस्य थे – अन्ना हजारे, अरविंद केजरीवाल, शांति भूषण, एन. संतोष हेगड़े और प्रशांत भूषण।","explanation_en":"On behalf of civil society, the committee formed to prepare the draft of the Lokpal Bill had five members – Anna Hazare, Arvind Kejriwal, Shanti Bhushan, N. Santosh Hegde and Prashant Bhushan.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"लोकपाल और लोकायुक्त अधिनियम, 2013 के अनुसार, लोकपाल की नियुक्ति राष्ट्रपति द्वारा एक चयन समिति की सिफारिश पर की जाएगी, जिसके अध्यक्ष प्रधानमंत्री होंगे और जिसमें अन्य के साथ निम्नलिखित शामिल होंगे: 1. भारत के मुख्य न्यायाधीश या उनके द्वारा नामित उच्चतम न्यायालय का एक न्यायाधीश 2. राज्यसभा के सभापति 3. लोकसभा अध्यक्ष 4. लोकसभा में नेता प्रतिपक्ष। नीचे दिए गए कूटों से सही उत्तर चुनिए।","question_en":"According to the Lokpal and Lokayuktas Act, 2013 the Lokpal would be appointed by the President after obtaining the recommendations of a Selection Committee, with the Prime Minister as chairperson and consisting, among others, of the following: / 1. Chief Justice of India or a Supreme Court Judge nominated by him / 2. Chairman of the Rajya Sabha / 3. Speaker of the Lok Sabha / 4. Leader of Opposition in the Lok Sabha / Select the correct answer from the codes given below:","options":[{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"1, 2, 3 और 4","en":"1, 2, 3 and 4"},{"hi":"1, 3 और 4","en":"1, 3 and 4"}],"answer":3,"answer_note":"","explanation_hi":"लोकपाल और लोकायुक्त अधिनियम, 2013 की धारा 4(1) के अनुसार, लोकपाल के अध्यक्ष और सदस्यों की नियुक्ति राष्ट्रपति द्वारा निम्नलिखित से मिलकर बनी एक चयन समिति की सिफारिश पर की जाती है – (a) प्रधानमंत्री – अध्यक्ष; (b) लोकसभा अध्यक्ष – सदस्य; (c) लोकसभा में नेता प्रतिपक्ष (2016 के संशोधन के अनुसार, लोकसभा में मान्यता प्राप्त नेता प्रतिपक्ष के अभाव में, सबसे बड़े विपक्षी दल का नेता) – सदस्य; (d) भारत के मुख्य न्यायाधीश या मुख्य न्यायाधीश द्वारा नामित उच्चतम न्यायालय का एक न्यायाधीश – सदस्य; (e) उपर्युक्त खंड (a) से (d) में निर्दिष्ट अध्यक्ष और सदस्यों की सिफारिश पर राष्ट्रपति द्वारा नामित एक प्रतिष्ठित विधिवेत्ता – सदस्य। अतः विकल्प (d) सही उत्तर है।","explanation_en":"According to Section 4(1) of the Lokpal and Lokayuktas Act, 2013, the Chairperson and Members of the Lokpal shall be appointed by the President on the recommendation of a Selection Committee consisting of the following – / (a) The Prime Minister – Chairperson; / (b) The Speaker of the Lok Sabha – Member; / (c) The Leader of the Opposition in the Lok Sabha (as per the 2016 amendment, in the absence of a recognized Leader of the Opposition in the Lok Sabha, the leader of the largest opposition party) – Member; / (d) The Chief Justice of India or a Judge of the Supreme Court nominated by the Chief Justice of India – Member; / (e) One eminent jurist, to be nominated by the President on the recommendation of the Chairperson and Members specified in clauses (a) to (d) above – Member. Thus, option (d) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से किस राज्य में सबसे पहले लोकायुक्त का पद स्थापित किया गया था?","question_en":"In which of the following States, the office of Lokayukta was, first established?","options":[{"hi":"महाराष्ट्र","en":"Maharashtra"},{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"बिहार","en":"Bihar"},{"hi":"ओडिशा","en":"Odisha"}],"answer":0,"answer_note":"","explanation_hi":"महाराष्ट्र भारत का पहला राज्य था जहाँ 1972 में महाराष्ट्र लोकायुक्त और उप-लोकायुक्त अधिनियम, 1971 के अंतर्गत लोकायुक्त का पद स्थापित किया गया। ओडिशा पहला राज्य था जिसने 1970 में लोकायुक्त की स्थापना से संबंधित विधान पारित किया, लेकिन वहाँ यह संस्था केवल 1983 में अस्तित्व में आई।","explanation_en":"Maharashtra was the first state in India where the office of Lokayukta was established in 1972 under the Maharashtra Lokayukta and Upa-Lokayuktas Act, 1971. Odisha was the first state to pass legislation relating to the establishment of the Lokayukta in 1970, but the institution came into existence there only in 1983.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"उत्तर प्रदेश के लोकायुक्त अपनी रिपोर्ट किसे सौंपते हैं?","question_en":"The Lokayukta of Uttar Pradesh submits its report to–","options":[{"hi":"मुख्यमंत्री","en":"Chief Minister"},{"hi":"उच्च न्यायालय के मुख्य न्यायाधीश","en":"Chief Justice of High Court"},{"hi":"राज्यपाल","en":"Governor"},{"hi":"विधान सभा अध्यक्ष","en":"Speaker of Legislative Assembly"}],"answer":2,"answer_note":"","explanation_hi":"उत्तर प्रदेश लोकायुक्त और उप-लोकायुक्त अधिनियम, 1975 के अंतर्गत लोकायुक्त अपनी रिपोर्ट राज्यपाल को सौंपते हैं, जिसे फिर राज्य विधानमंडल के दोनों सदनों की मेज़ पर रखा जाता है।","explanation_en":"Under the Uttar Pradesh Lokayukta and Up-Lokayukt Act, 1975, the Lokayukta submits the report to the Governor, which is then laid on the table of both Houses of the State Legislature.","source":"","source_missing":true,"exam":"unknown"},{"id":8,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"उत्तर प्रदेश लोकायुक्त का कार्यकाल कितना है?","question_en":"What is tenure of Uttar Pradesh Lokayukta?","options":[{"hi":"5 वर्ष","en":"5 year"},{"hi":"6 वर्ष","en":"6 year"},{"hi":"7 वर्ष","en":"7 year"},{"hi":"8 वर्ष","en":"8 year"}],"answer":0,"answer_note":"","explanation_hi":"जब यह प्रश्न पूछा गया था, तब विकल्प (d) सही उत्तर था। परंतु वर्तमान में उत्तर प्रदेश के लोकायुक्त का कार्यकाल 5 वर्ष या 70 वर्ष की आयु तक, जो भी पहले हो, निश्चित है। उत्तर प्रदेश लोकायुक्त और उप-लोकायुक्त अधिनियम, 1975 के अंतर्गत लोकायुक्त या उप-लोकायुक्त का प्रारंभिक कार्यकाल पद ग्रहण करने की तिथि से 5 वर्ष निश्चित किया गया था। 1988 के संशोधन द्वारा इसे बढ़ाकर 6 वर्ष किया गया। इसके बाद उत्तर प्रदेश लोकायुक्त और उप-लोकायुक्त (संशोधन) अधिनियम, 2012 द्वारा कार्यकाल 6 वर्ष से बढ़ाकर 8 वर्ष किया गया, और उत्तराधिकारी के पद ग्रहण करने तक पद पर बने रहने का प्रावधान भी किया गया। फरवरी 2024 में उत्तर प्रदेश में लोकायुक्त के कार्यकाल में फिर से संशोधन करके इसे 5 वर्ष या 70 वर्ष की आयु तक, जो भी पहले हो, किया गया, और कार्यकाल समाप्त होने के बाद भी लोकायुक्त तब तक पद पर बने रहेंगे जब तक उनका उत्तराधिकारी पद ग्रहण न कर ले।","explanation_en":"At the time this question was asked, option (d) was the correct answer. However, at present, the tenure of the Lokayukta of Uttar Pradesh is fixed at 5 years or up to the age of 70 years, whichever is earlier. Under the Uttar Pradesh Lokayukta and Up-Lokayukt Act, 1975, the initial tenure of the Lokayukta or Up-Lokayukta was fixed at 5 years from the date of assuming office. By the 1988 amendment, it was increased to 6 years. Thereafter, by the Uttar Pradesh Lokayukta and Up-Lokayukta (Amendment) Act, 2012, the tenure was increased from 6 years to 8 years, and a provision was also made for continuance in office until the successor assumed charge. In Uttar Pradesh, the tenure of the Lokayukta was again amended in February 2024 to 5 years or up to the age of 70 years, whichever is earlier, and even after the expiry of the tenure, the Lokayukta shall continue in office until the successor assumes charge.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"2011 में लोकायुक्त विधेयक पारित करने वाला पहला भारतीय राज्य कौन-सा है?","question_en":"The first Indian State to pass the Lokayukta Bill in 2011 is–","options":[{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"बिहार","en":"Bihar"},{"hi":"उत्तराखंड","en":"Uttarakhand"},{"hi":"झारखंड","en":"Jharkhand"}],"answer":2,"answer_note":"","explanation_hi":"उत्तराखंड 1 नवंबर 2011 को लोकायुक्त विधेयक पारित करने वाला भारत का पहला राज्य था।","explanation_en":"Uttarakhand was the first Indian state to pass the Lokayukta Bill on 1 November 2011.","source":"","source_missing":true,"exam":"unknown"},{"id":10,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक अभिकथन (Assertion) है और दूसरा कारण (Reason) है। अभिकथन (A): भारत के संविधान में 'अल्पसंख्यक' शब्द की परिभाषा नहीं दी गई है। कारण (R): अल्पसंख्यक आयोग एक संवैधानिक निकाय नहीं है। उपर्युक्त कथनों के संबंध में निम्नलिखित में से कौन-सा सही है?","question_en":"Given below are two statements, in which one is Assertion and second is Reason. Assertion (A) : The definition of term ‘Minority’ is not given in the Constitution of India. Reason (R) : Minority Commission is not a Constitutional body. Which of the following is correct in regards to the statements above ?","options":[{"hi":"(A) और (R) दोनों सही हैं, और (R), (A) की सही व्याख्या करता है","en":"Both (A) and (R) are true, and (R) explains (A) correctly."},{"hi":"(A) और (R) दोनों सही हैं, लेकिन (R), (A) की सही व्याख्या नहीं करता","en":"Both (A) and (R) are true, but (R) does not explain / (A) correctly."},{"hi":"(A) सही है, लेकिन (R) गलत है","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, लेकिन (R) सही है","en":"(A) is false, but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"भारत के संविधान में 'अल्पसंख्यक' शब्द को परिभाषित नहीं किया गया है, और राष्ट्रीय अल्पसंख्यक आयोग एक सांविधिक निकाय है, संवैधानिक निकाय नहीं, क्योंकि इसकी स्थापना संसद द्वारा अधिनियमित राष्ट्रीय अल्पसंख्यक आयोग अधिनियम, 1992 के अंतर्गत की गई थी। अतः अभिकथन और कारण दोनों सही हैं, परंतु कारण अभिकथन की सही व्याख्या नहीं है।","explanation_en":"The term ‘minority’ has not been defined in the Constitution of India, and the National Commission for Minorities is a statutory body, not a constitutional body, because it was established under the National Commission for Minorities Act, 1992 enacted by Parliament. Thus, both the assertion and the reason are correct, but the reason is not the correct explanation of the assertion.","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"भाषाई अल्पसंख्यकों के लिए विशेष अधिकारी के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए: 1. संविधान में प्रत्येक राज्य के लिए भाषाई अल्पसंख्यकों हेतु विशेष अधिकारी के पद का प्रावधान है। 2. इसके लिए 9वें संविधान संशोधन अधिनियम द्वारा एक नया अनुच्छेद 350 B जोड़ा गया। उपर्युक्त कथनों में से कौन-सा/कौन-से सही है/हैं?","question_en":"Consider the following statements with reference to Special Officer for Linguistic Minorities : / 1. In the Constitution, there is a provision for the post of Special Officer for Linguistic Minorities for every State. / 2. A new Article 350 B was added for this by the 9th Constitution Amendment Act. Which of the above statements is/are correct?","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 और न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"}],"answer":1,"answer_note":"","explanation_hi":"7वें संविधान संशोधन अधिनियम, 1956 की धारा 21 द्वारा संविधान में जोड़े गए नए अनुच्छेद 350A और 350B में क्रमशः 'प्राथमिक स्तर पर मातृभाषा में शिक्षा की सुविधाओं' और 'भाषाई अल्पसंख्यकों के लिए विशेष अधिकारी' के संबंध में प्रावधान किए गए। अनुच्छेद 350B के खंड (1) के अनुसार, भाषाई अल्पसंख्यकों के लिए एक विशेष अधिकारी होगा, जिसकी नियुक्ति राष्ट्रपति द्वारा की जाएगी। अतः यह प्रावधान प्रत्येक राज्य के लिए अलग से नहीं, बल्कि केंद्रीय स्तर पर पूरे भारत के लिए है। इस अधिकारी को भारत में भाषाई अल्पसंख्यकों के आयुक्त के रूप में नामित किया गया है। इसलिए दोनों दिए गए कथन गलत हैं।","explanation_en":"Under the new Articles 350A and 350B added to the Constitution by Section 21 of the 7th Constitutional Amendment Act, 1956, provisions were made respectively for “facilities for instruction in the mother tongue at the primary stage” and for a “Special Officer for Linguistic Minorities.” According to clause (1) of Article 350B, there shall be a Special Officer for linguistic minorities to be appointed by the President. Thus, the provision is not for each State separately, but at the central level for the whole of India. This officer has been designated as the Commissioner for Linguistic Minorities in India. Therefore, both the given statements are incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"उस समिति का नाम बताइए जिसने राजनेताओं और अपराधियों के गठजोड़ की जाँच करके रिपोर्ट प्रस्तुत की है?","question_en":"Name the committee which has investigated and submitted the report on the nexus of politicians and criminals?","options":[{"hi":"ज्ञानप्रकाश समिति","en":"Gyanprakash Committee"},{"hi":"वोहरा समिति","en":"Vohra Committee"},{"hi":"गोस्वामी समिति","en":"Goswami Committee"},{"hi":"राजमन्नार समिति","en":"Rajamannar Committee"}],"answer":1,"answer_note":"","explanation_hi":"वोहरा समिति का गठन जुलाई 1993 में तत्कालीन गृह सचिव एन.एन. वोहरा की अध्यक्षता में राजनेताओं और अपराधियों के बीच गठजोड़ की जाँच करने के लिए किया गया था। इस समिति ने अक्टूबर 1993 में अपनी रिपोर्ट प्रस्तुत की।","explanation_en":"The Vohra Committee was constituted in July 1993 under the chairmanship of the then Home Secretary N.N. Vohra to investigate the nexus between politicians and criminals. This committee submitted its report in October 1993.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"मानवाधिकार की अवधारणा मुख्य रूप से किस पर बल देती है?","question_en":"The concept of Human Rights primarily emphasizes on","options":[{"hi":"संपत्ति का अधिकार","en":"Right to Property"},{"hi":"समानता का अधिकार","en":"Right to equality"},{"hi":"धर्म का अधिकार","en":"Right to Religion"},{"hi":"मनुष्य की एक मानव के रूप में गरिमा","en":"Dignity of Man as a Human Being"}],"answer":3,"answer_note":"","explanation_hi":"सार्वभौमिक मानवाधिकार घोषणा की प्रस्तावना मानव व्यक्ति की अंतर्निहित गरिमा और मूल्य तथा समान अधिकारों पर बल देती है। अतः मानवाधिकार की अवधारणा का मुख्य बल मनुष्य की एक मानव के रूप में गरिमा पर है।","explanation_en":"The Preamble to the Universal Declaration of Human Rights emphasizes the inherent dignity and worth of the human person and equal rights. Therefore, the main emphasis of the concept of human rights is on human dignity as a human being.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से किसे मानवाधिकारों की दूसरी पीढ़ी माना जाता है?","question_en":"Which one of the following is considered to be the second generation of Human Rights?","options":[{"hi":"काम का अधिकार","en":"Right to Work"},{"hi":"शिक्षा का अधिकार","en":"Right to Education"},{"hi":"स्वतंत्रता का अधिकार","en":"Right to Liberty"},{"hi":"समानता का अधिकार","en":"Right to Equality"}],"answer":0,"answer_note":"","explanation_hi":"संयुक्त राष्ट्र की सार्वभौमिक मानवाधिकार घोषणा, 1948 के अनुच्छेद 3 से 21 में उल्लिखित अधिकारों को सामान्यतः प्रथम पीढ़ी के मानवाधिकार (नागरिक और राजनीतिक मानवाधिकार) माना जाता है, जबकि अनुच्छेद 22 से 28 में उल्लिखित अधिकारों को सामान्यतः द्वितीय पीढ़ी के मानवाधिकार (आर्थिक, सामाजिक और सांस्कृतिक मानवाधिकार) माना जाता है। अनुच्छेद 23 में काम का अधिकार और अनुच्छेद 26 में शिक्षा का अधिकार मानवाधिकार के रूप में शामिल हैं। इसलिए प्रश्न के अनुसार, काम का अधिकार और शिक्षा का अधिकार, दोनों द्वितीय पीढ़ी के मानवाधिकार हैं।","explanation_en":"The rights mentioned in Articles 3 to 21 of the Universal Declaration of Human Rights, 1948 of the United Nations are generally regarded as first-generation human rights (civil and political human rights), whereas the rights mentioned in Articles 22 to 28 are generally regarded as second-generation human rights (economic, social and cultural human rights). Article 23 includes the right to work and Article 26 includes the right to education as human rights. Therefore, according to the question, both the right to work and the right to education are second-generation human rights.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित पर विचार कीजिए और नीचे दिए गए कूट से सही उत्तर चुनिए: अभिकथन (A): राष्ट्रीय मानवाधिकार आयोग (NHRC) की अध्यक्षता ऐसे व्यक्ति द्वारा की जानी है जो भारत के पूर्व मुख्य न्यायाधीश रह चुके हों। कारण (R): NHRC के अध्यक्ष का कार्यकाल 5 वर्ष या 70 वर्ष की आयु तक, जो भी पहले हो, होता है।","question_en":"Consider the following and select the correct answer from the code given below: Assertion (A) : The National Human Rights Commission (NHRC) is to be headed by a person who has been a former Chief Justice of India. Reason (R) : The Chairperson of NHRC holds office for a term of 5 years or till he attains the age of 70 years, whichever is earlier.\nCode :","options":[{"hi":"(A) सही है, लेकिन (R) गलत है","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, लेकिन (R) सही है","en":"(A) is false, but (R) is true."},{"hi":"(A) और (R) दोनों सही हैं","en":"Both (A) and (R) are true."},{"hi":"(A) और (R) दोनों गलत हैं","en":"Both (A) and (R) are false."}],"answer":3,"answer_note":"","explanation_hi":"प्रश्न पूछे जाने के समय के संदर्भ में विकल्प (c) सही उत्तर था। मानवाधिकार संरक्षण (संशोधन) अधिनियम, 2019 द्वारा 1993 के अधिनियम में किए गए संशोधनों के अनुसार, राष्ट्रीय मानवाधिकार आयोग का अध्यक्ष ऐसा व्यक्ति हो सकता है जो भारत का मुख्य न्यायाधीश या उच्चतम न्यायालय का न्यायाधीश रहा हो। अध्यक्ष का कार्यकाल भी 5 वर्ष से घटाकर 3 वर्ष या 70 वर्ष की आयु तक, जो भी पहले हो, कर दिया गया है। अतः वर्तमान संदर्भ में विकल्प (d) सही उत्तर है।","explanation_en":"In the context of the time when the question was asked, option (c) was the correct answer. According to the amendments made in the 1993 Act by the Protection of Human Rights (Amendment) Act, 2019, the Chairperson of the National Human Rights Commission may be a person who has been the Chief Justice of India or a Judge of the Supreme Court. The tenure of the Chairperson has also been reduced from 5 years to 3 years or until attaining the age of 70 years, whichever is earlier. Therefore, in the present context, option (d) is the correct answer.","source":"UPPCS (Mains) 2007","source_missing":false,"exam":"uppcs-mains"},{"id":16,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से कौन-सा एक संवैधानिक निकाय नहीं है?","question_en":"Which one of the following is not a Constitutional body?","options":[{"hi":"मानवाधिकार आयोग","en":"The Human Rights Commission"},{"hi":"राज्य वित्त आयोग","en":"Finance Commission of a State"},{"hi":"लोकसभा सचिवालय","en":"The Lok Sabha Secretariat"},{"hi":"केंद्रीय वित्त आयोग","en":"Finance Commission at the Centre"}],"answer":0,"answer_note":"","explanation_hi":"मानवाधिकार आयोग एक गैर-संवैधानिक और सांविधिक निकाय है, जिसका गठन मानवाधिकार संरक्षण अधिनियम, 1993 के अंतर्गत किया गया है। अन्य तीनों संस्थाओं का उल्लेख संविधान में है (राज्य वित्त आयोग – संबंधित संवैधानिक प्रावधान; संसद का सचिवालय – अनुच्छेद 98; केंद्रीय वित्त आयोग – अनुच्छेद 280 और 281)।","explanation_en":"The Human Rights Commission is a non-constitutional and statutory body, constituted under the Protection of Human Rights Act, 1993. The other three institutions are mentioned in the Constitution (State Finance Commission – relevant constitutional provisions; Secretariat of Parliament – Article 98; Central Finance Commission – Articles 280 and 281).","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से किसका दर्जा अन्य तीनों से भिन्न है?","question_en":"Which one of the following has a status different from the other three?","options":[{"hi":"पिछड़ा वर्ग आयोग","en":"Backward Class Commission"},{"hi":"वित्त आयोग","en":"Finance Commission"},{"hi":"राष्ट्रीय मानवाधिकार आयोग","en":"National Human Rights Commission"},{"hi":"निर्वाचन आयोग","en":"Election Commission"}],"answer":2,"answer_note":"","explanation_hi":"राष्ट्रीय मानवाधिकार आयोग एक गैर-संवैधानिक और सांविधिक निकाय है, जबकि अन्य तीनों (राष्ट्रीय पिछड़ा वर्ग आयोग – अनुच्छेद 338B, और पिछड़ी जातियों की दशाओं की जाँच के लिए आयोग – अनुच्छेद 340; वित्त आयोग – अनुच्छेद 280; और निर्वाचन आयोग – अनुच्छेद 324) संवैधानिक निकाय हैं।","explanation_en":"The National Human Rights Commission is a non-constitutional and statutory body, whereas the other three (National Commission for Backward Classes – Article 338B, and commission for the investigation of the conditions of backward classes – Article 340; Finance Commission – Article 280; and Election Commission – Article 324) are constitutional bodies.","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से कौन-सा सही सुमेलित नहीं है? निकाय और स्थापना वर्ष","question_en":"Which among the following is NOT correctly matched? Bodies Establishment","options":[{"hi":"अंतर्राज्यीय परिषद - 1990","en":"Inter-state Council - 1990"},{"hi":"राष्ट्रीय विकास परिषद - 1954","en":"National Development - 1954 Council"},{"hi":"केंद्रीय सतर्कता आयोग - 1964","en":"Central Vigilance - 1964 Commission"},{"hi":"राष्ट्रीय मानवाधिकार आयोग - 1993","en":"National Human Rights - 1993 Commission"}],"answer":1,"answer_note":"","explanation_hi":"दिए गए विकल्पों में से विकल्प (b) सही सुमेलित नहीं है। सही सुमेलन इस प्रकार है: अंतर्राज्यीय परिषद – 1990; राष्ट्रीय विकास परिषद – 1952; केंद्रीय सतर्कता आयोग – 1964; राष्ट्रीय मानवाधिकार आयोग – 1993।","explanation_en":"Among the given options, option (b) is not correctly matched. The correct matching is as follows: Institutions Establishment Inter-State Council – 1990 National Development Council – 1952 Central Vigilance Commission – 1964 National Human Rights Commission – 1993","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"संविधान की समीक्षा के लिए राष्ट्रीय आयोग की नियुक्ति के संबंध में निम्नलिखित कथनों पर विचार कीजिए: (1) इसकी रिपोर्ट सिफारिशी प्रकृति की होगी। (2) इसकी नियुक्ति को संसद द्वारा अनुमोदित किया गया था। (3) इसकी अध्यक्षता मुख्य न्यायाधीश एम.एन. वेंकट-चेलैया करते हैं। (4) यह देश की सामाजिक-आर्थिक आवश्यकताओं पर केंद्रित होगा। इनमें से कौन-से कथन सही हैं?","question_en":"Consider the following statements regarding appointment of National Commission for revising the Constitution-(1) The report will be of recommendatory nature. / (2) The appointment was approved by Parliament. / (3) It is presided over by Chief Justice M.N. Venkat-chelaiya. / (4) It will focus on socio-economic needs of the country. Which of these statements are correct?","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"1 और 3","en":"1 and 3"},{"hi":"1,2 और 3","en":"1,2 and 3"},{"hi":"2,3 और 4","en":"2,3 and 4"}],"answer":1,"answer_note":"","explanation_hi":"संविधान की समीक्षा के लिए आयोग की नियुक्ति केंद्र सरकार ने 22 फरवरी 2000 के संकल्प द्वारा न्यायमूर्ति एम.एन. वेंकटचलैया की अध्यक्षता में की थी, न कि संसद द्वारा। इसका कार्य पिछले 50 वर्षों में संविधान के कार्यकरण की समीक्षा करना और आधुनिक भारत की बदलती सामाजिक-आर्थिक विकास आवश्यकताओं के संदर्भ में उसकी प्रभावशीलता का आकलन करना था, साथ ही प्रभावी और कुशल शासन व्यवस्था को ध्यान में रखते हुए संसदीय लोकतंत्र के ढाँचे के भीतर परिवर्तन सुझाना था। आयोग ने 31 मार्च 2002 को अपनी अंतिम रिपोर्ट प्रस्तुत की, जो सिफारिशी प्रकृति की थी। इसके आधार पर, कथन 1 और 3 के साथ कथन 4 को भी सही माना जा सकता है; फिर भी, प्रश्न में दिए विकल्पों में विकल्प (b) सबसे उपयुक्त उत्तर है।","explanation_en":"The Commission for the review of the Constitution was appointed by the Central Government under the resolution dated 22 February 2000 under the chairmanship of Justice M. N. Venkatachaliah, and not by Parliament. Its task was to review the working of the Constitution during the past 50 years and to assess its effectiveness in the context of the changing needs of the socio-economic development of modern India, while keeping in view an effective and efficient system of governance, and to suggest changes within the framework of parliamentary democracy. The Commission submitted its final report on 31 March 2002, which was recommendatory in nature. On this basis, along with Statements 1 and 3, Statement 4 may also be treated as correct; however, among the options given in the question, option (b) is the most appropriate answer.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"भारतीय संविधान का कौन-सा अनुच्छेद केंद्रीय सतर्कता आयोग का वर्णन करता है?","question_en":"Which Article of the Indian Constitution describe the Central Vigilance Commission?","options":[{"hi":"अनुच्छेद 268","en":"Article 268"},{"hi":"अनुच्छेद 280","en":"Article 280"},{"hi":"अनुच्छेद 276","en":"Article 276"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":3,"answer_note":"","explanation_hi":"केंद्रीय सतर्कता आयोग की स्थापना 1964 में केंद्र सरकार द्वारा पारित एक संकल्प के अंतर्गत की गई थी। इसकी स्थापना संथानम समिति की सिफारिश पर हुई थी। वर्तमान में इसे 2003 में संसद द्वारा पारित एक अधिनियम के अंतर्गत सांविधिक दर्जा प्राप्त है। यह संविधान में उल्लिखित नहीं है।","explanation_en":"The Central Vigilance Commission was constituted in 1964 under a resolution passed by the Central Government. It was established on the recommendation of the Santhanam Committee. At present, it has statutory status under an Act enacted by Parliament in 2003. It is not mentioned in the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से कौन-सा युग्म सही सुमेलित नहीं है? संस्था और स्थापना वर्ष","question_en":"Which of the following pairs is not correctly matched? Institution Year of Establishment","options":[{"hi":"केंद्रीय अन्वेषण ब्यूरो - 1963","en":"Central Bureau of Investigation 1963"},{"hi":"केंद्रीय सतर्कता आयोग - 1964","en":"Central Vigilance Commission 1964"},{"hi":"भ्रष्टाचार निवारण अधिनियम - 1985","en":"Prevention of Corruption Act 1985"},{"hi":"प्रवर्तन निदेशालय - 2000","en":"Enforcement Directorate 2000"}],"answer":2,"answer_note":"","explanation_hi":"केंद्रीय अन्वेषण ब्यूरो की स्थापना 1963 में और केंद्रीय सतर्कता आयोग की स्थापना 1964 में हुई थी। परंतु भ्रष्टाचार निवारण अधिनियम 1988 में अधिनियमित हुआ था, और प्रवर्तन निदेशालय की स्थापना 1956 में हुई थी। अतः स्पष्ट है कि विकल्प (c) और (d) गलत सुमेलित हैं।","explanation_en":"The Central Bureau of Investigation was established in 1963 and the Central Vigilance Commission in 1964. However, the Prevention of Corruption Act was enacted in 1988, and the Enforcement Directorate was established in 1956. Therefore, it is clear that options (c) and (d) are incorrectly matched.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"मंडल आयोग, जिसके प्रस्तावों ने व्यापक विवाद पैदा किया, किसके द्वारा गठित किया गया था?","question_en":"Mandal Commission, whose proposals created massive dispute, was set up by-","options":[{"hi":"इंदिरा गांधी","en":"Indira Gandhi"},{"hi":"मोरारजी देसाई","en":"Morarji Desai"},{"hi":"राजीव गांधी","en":"Rajeev Gandhi"},{"hi":"विश्वनाथ प्रताप सिंह","en":"Vishwanath Pratap Singh"}],"answer":1,"answer_note":"","explanation_hi":"मंडल आयोग (पिछड़ा वर्ग आयोग) का गठन 1979 में तत्कालीन प्रधानमंत्री मोरारजी देसाई के नेतृत्व वाली जनता पार्टी की सरकार द्वारा संविधान के अनुच्छेद 340 के प्रावधानों के अंतर्गत किया गया था, ताकि सामाजिक और शैक्षिक रूप से पिछड़े वर्गों की पहचान की जा सके। इसके अध्यक्ष बिंदेश्वरी प्रसाद मंडल थे। आयोग के अन्य चार सदस्य थे – दीवान मोहन लाल, आर.आर. भोले, दीन बंधु साहू और के. सुब्रमण्यम। नवंबर 1979 में स्वास्थ्य कारणों से दीन बंधु साहू के त्यागपत्र देने के बाद, उनके स्थान पर एल.आर. नाइक को सदस्य नियुक्त किया गया। आयोग ने दिसंबर 1980 में राष्ट्रपति को अपनी रिपोर्ट सौंपी।","explanation_en":"The Mandal Commission (Backward Classes Commission) was constituted in 1979 by the Janata Party Government led by the then Prime Minister Morarji Desai under the provisions of Article 340 of the Constitution to identify the socially and educationally backward classes. Its Chairman was Bindeshwari Prasad Mandal. The Commission had four other members – Diwan Mohan Lal, R.R. Bhole, Deen Bandhu Sahu and K. Subramanyam. After Deen Bandhu Sahu resigned in November 1979 due to health reasons, L.R. Naik was appointed in his place as a member. The Commission submitted its report to the President in December 1980.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"संघ लोक सेवा आयोग किस प्रकार का संगठन है?","question_en":"Union Public Service Commission is a–","options":[{"hi":"नियामक संगठन","en":"Regulatory Organization"},{"hi":"विधिक संगठन","en":"Legal Organization"},{"hi":"संसदीय अध्यादेश द्वारा स्थापित","en":"Established by Parliamentary Ordinance"},{"hi":"संवैधानिक संगठन","en":"Constitutional Organization"}],"answer":3,"answer_note":"","explanation_hi":"संघ लोक सेवा आयोग एक संवैधानिक निकाय है, क्योंकि इसकी स्थापना संविधान के प्रावधानों के अंतर्गत की गई है।","explanation_en":"The Union Public Service Commission is a constitutional body because it has been established under the provisions of the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"संघ लोक सेवा आयोग (UPSC) अपने कार्य निम्नलिखित में से किन स्रोतों से प्राप्त करता है? 1. संविधान 2. संसदीय विधियाँ 3. कार्यपालिका के नियम और आदेश 4. परंपराएँ। नीचे दिए गए कूटों से सही उत्तर चुनिए।","question_en":"The UPSC derives its functions from which of the following sources? / 1. The Constitution / 2. Parliamentary Laws / 3. Executive Rules and Orders / 4. Conventions / Select the correct answer from the codes given below:","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"1 और 3","en":"1 and 3"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1, 2, 3 और 4","en":"1, 2, 3 and 4"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 320 में संघ लोक सेवा आयोग (और राज्य लोक सेवा आयोगों) के कार्यों का वर्णन है। इसके अतिरिक्त, अनुच्छेद 321 के अंतर्गत संसद विधि द्वारा संघ लोक सेवा आयोग के कार्यों का विस्तार कर सकती है। संविधान और संसदीय विधि के अतिरिक्त, संघ लोक सेवा आयोग अपने कार्य और शक्तियाँ कार्यपालिका के नियमों, विनियमों और आदेशों से तथा स्थापित परंपराओं से भी प्राप्त करता है। अतः विकल्प (d) सही उत्तर है।","explanation_en":"Under Article 320 of the Constitution, the functions of the Union Public Service Commission (and the State Public Service Commissions) are described. Further, under Article 321, Parliament may by law extend the functions of the Union Public Service Commission. In addition to the Constitution and parliamentary law, the Union Public Service Commission also derives its functions and powers from executive rules, regulations and orders, as well as from established conventions. Thus, option (d) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"संघ लोक सेवा आयोग अपनी वार्षिक रिपोर्ट किसे प्रस्तुत करता है?","question_en":"The Union Public Service Commission submits its annual report to the –","options":[{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"राष्ट्रपति","en":"President"},{"hi":"लोकसभा अध्यक्ष","en":"Speaker of the Lok Sabha"},{"hi":"गृह मंत्री","en":"Home Minister"}],"answer":1,"answer_note":"","explanation_hi":"अनुच्छेद 323(1) के अनुसार, संघ लोक सेवा आयोग का यह कर्तव्य है कि वह प्रत्येक वर्ष आयोग द्वारा किए गए कार्य पर एक रिपोर्ट राष्ट्रपति को प्रस्तुत करे। राष्ट्रपति उसे एक ज्ञापन के साथ संसद के प्रत्येक सदन के समक्ष रखते हैं। इस ज्ञापन में उन मामलों का उल्लेख होता है जिनमें आयोग की सिफारिशें स्वीकार नहीं की गईं, साथ ही उन सिफारिशों को न स्वीकार करने के कारण भी बताए जाते हैं।","explanation_en":"According to Article 323(1), it shall be the duty of the Union Public Service Commission to submit to the President, every year, a report on the work done by the Commission. The President lays it before each House of Parliament along with a memorandum. This memorandum mentions the matters in which the recommendations of the Commission were not accepted, along with the reasons for not accepting those recommendations.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"राज्य लोक सेवा आयोग के किसी सदस्य को किसके द्वारा हटाया जा सकता है?","question_en":"A member of St ate Public Service Commission may be removed by","options":[{"hi":"राज्यपाल, विधान सभा में महाभियोग के आधार पर","en":"The Governor on the basis of impeachment in Vidhan Sabha"},{"hi":"राज्यपाल, उच्चतम न्यायालय द्वारा की गई जाँच के बाद","en":"The Governor, after the enquiry conducted by the Supreme Court"},{"hi":"राष्ट्रपति, उच्चतम न्यायालय द्वारा की गई जाँच के बाद","en":"The President, after the enquiry conducted by the Supreme Court"},{"hi":"राज्यपाल, उच्च न्यायालय द्वारा की गई जाँच के बाद","en":"The Governor, after the enquiry conducted by the High Court"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 317(1) के अनुसार, खंड (3) के उपबंधों के अधीन, लोक सेवा आयोग के अध्यक्ष या किसी अन्य सदस्य को केवल कदाचार के आधार पर, राष्ट्रपति के आदेश द्वारा ही पद से हटाया जा सकता है। यह आदेश राष्ट्रपति द्वारा उच्चतम न्यायालय को निर्देशित किए जाने पर, उस न्यायालय द्वारा अनुच्छेद 145 में निर्धारित प्रक्रिया के अनुसार की गई जाँच के बाद प्रस्तुत रिपोर्ट के आधार पर पारित होता है। इसके अतिरिक्त, अनुच्छेद 317(3) के अंतर्गत राष्ट्रपति कुछ विशेष आधारों पर, जैसे दिवालिया होना, किसी सवेतन रोजगार में लगना, या मानसिक अथवा शारीरिक अक्षमता, अध्यक्ष या किसी अन्य सदस्य को हटा सकते हैं, और इन आधारों पर उच्चतम न्यायालय द्वारा जाँच आवश्यक नहीं है।","explanation_en":"According to Article 317(1), subject to the provisions of clause (3), the Chairman or any other member of a Public Service Commission shall be removed from office only on the ground of misbehaviour by an order of the President, passed on the basis of the report submitted by the Supreme Court after an inquiry held, in accordance with the procedure prescribed under Article 145 for this purpose, on a reference made to that Court by the President. In addition, under Article 317(3), the President may also remove the Chairman or any other member on certain special grounds, such as insolvency, engagement in any paid employment, or infirmity of mind or body, and for these grounds an inquiry by the Supreme Court is not necessary.","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"निम्नलिखित में से किन अधिकारियों को हटाने में संसद की कोई भूमिका नहीं होती है? 1. उच्च न्यायालय के न्यायाधीश 2. उच्चतम न्यायालय के न्यायाधीश 3. संघ लोक सेवा आयोग के अध्यक्ष 4. भारत के नियंत्रक-महालेखापरीक्षक। नीचे दिए गए कूटों से सही उत्तर चुनिए।","question_en":"In the removal of which of the following officials does the Parliament NOT play any role? / 1. Judges of High Court / 2. Judges of the Supreme Court / 3. Chairman of the Union Public Service Commission / 4. Comptroller and Auditor General of India / Choose the correct answer from the codes given below: Codes :","options":[{"hi":"केवल 1 और 2","en":"1 and 2 only"},{"hi":"केवल 3 और 4","en":"3 and 4 only"},{"hi":"केवल 1, 2 और 3","en":"1, 2 and 3 only"},{"hi":"केवल 3","en":"3 only"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 317 के अनुसार, लोक सेवा आयोग के अध्यक्ष या किसी अन्य सदस्य को केवल कदाचार के आधार पर, अनुच्छेद 145 में निर्धारित प्रक्रिया के अनुसार की गई उच्चतम न्यायालय की जाँच की रिपोर्ट पर, जब राष्ट्रपति द्वारा मामला उस न्यायालय को निर्देशित किया गया हो, राष्ट्रपति के आदेश द्वारा ही हटाया जा सकता है। दूसरी ओर, उच्चतम न्यायालय और उच्च न्यायालयों के न्यायाधीशों तथा भारत के नियंत्रक-महालेखापरीक्षक को हटाने में संसद की भूमिका होती है। इन्हें संविधान में दिए गए तरीके से, संसद के प्रत्येक सदन द्वारा विशेष बहुमत से संबोधन पारित किए जाने के बाद राष्ट्रपति के आदेश द्वारा हटाया जा सकता है।","explanation_en":"According to Article 317, the Chairman or any other member of a Public Service Commission shall be removed from office only on the ground of misbehaviour by an order of the President, based on the report of the Supreme Court after an inquiry conducted in accordance with the procedure prescribed under Article 145, when the matter is referred to that Court by the President. On the other hand, Parliament has a role in the removal of judges of the Supreme Court and the High Courts, as well as the Comptroller and Auditor General of India. They may be removed by an order of the President after an address is passed by each House of Parliament by a special majority in the manner laid down in the Constitution.","source":"","source_missing":true,"exam":"unknown"},{"id":28,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"दो या अधिक राज्यों के लिए संयुक्त लोक सेवा आयोग किसके द्वारा स्थापित किया जा सकता है?","question_en":"A Joint Public Service Commission for two or more States can be established by","options":[{"hi":"संसद, संबंधित राज्यों के अनुरोध पर","en":"Parliament, if requested by concerned States"},{"hi":"लोकसभा","en":"Lok Sabha"},{"hi":"संघ लोक सेवा आयोग","en":"Union Public Service Commission"},{"hi":"राज्यसभा","en":"Rajya Sabha"}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 315(2) के अनुसार, यदि दो या अधिक राज्य यह सहमति दें कि उन राज्यों के लिए एक ही लोक सेवा आयोग होगा, और उन राज्यों के विधानमंडल में से प्रत्येक द्वारा इस आशय का संकल्प पारित किया जाए, तो संसद विधि द्वारा उन राज्यों के लिए संयुक्त लोक सेवा आयोग की नियुक्ति का उपबंध कर सकती है।","explanation_en":"Under Article 315(2) of the Constitution, if two or more States agree that there shall be one Public Service Commission for those States, and if a resolution to that effect is passed by the Legislature of each of those States, Parliament may by law provide for the appointment of a Joint Public Service Commission for those States.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"संघ लोक सेवा आयोग को किसकी स्वीकृति से राज्य लोक सेवा आयोग के कार्य सौंपे जा सकते हैं?","question_en":"The Union Public Service Commission can be entrusted with the functions of a State Public Service Commission with the approval of –","options":[{"hi":"भारत के मुख्य न्यायाधीश","en":"Chief Justice of India"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"लोकसभा अध्यक्ष","en":"Speaker of the Lok Sabha"},{"hi":"भारत के राष्ट्रपति","en":"President of India"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 315(4) के अनुसार, यदि किसी राज्य का राज्यपाल संघ लोक सेवा आयोग से ऐसा करने का अनुरोध करता है, तो आयोग राष्ट्रपति के अनुमोदन से उस राज्य की सभी या किन्हीं आवश्यकताओं की पूर्ति करने के लिए सहमत हो सकता है। अतः राज्यपाल के अनुरोध और राष्ट्रपति के अनुमोदन पर किसी राज्य से संबंधित कार्य संघ लोक सेवा आयोग को सौंपे जा सकते हैं।","explanation_en":"Article 315(4) provides that if the Governor of a State requests the Union Public Service Commission to do so, the Commission may, with the approval of the President, agree to serve all or any of the needs of that State. Therefore, on the request of the Governor and with the approval of the President, the functions relating to a State may be entrusted to the Union Public Service Commission.","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"उत्तर प्रदेश राज्य लोक सेवा आयोग के कार्यों का विस्तार किसके द्वारा किया जा सकता है?","question_en":"The functions of the State Public Service Commission of Uttar Pradesh can be extended by","options":[{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"कार्मिक, लोक शिकायत और पेंशन संबंधी केंद्रीय मंत्रालय","en":"Union Ministry of Personnel, Public Grievances and Pensions"},{"hi":"राष्ट्रपति","en":"The President"},{"hi":"उत्तर प्रदेश राज्य विधानमंडल","en":"Uttar Pradesh State Legislature"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 321 के अनुसार, राज्य विधानमंडल द्वारा निर्मित अधिनियम द्वारा, राज्य की सेवाओं या किसी स्थानीय प्राधिकरण या विधि द्वारा गठित अन्य निगमित निकाय या किसी लोक संस्था की सेवाओं के संबंध में राज्य लोक सेवा आयोग को अतिरिक्त कार्य सौंपे जा सकते हैं। अतः राज्य लोक सेवा आयोग के कार्यों का विस्तार राज्य विधानमंडल द्वारा निर्मित अधिनियम के अंतर्गत किया जा सकता है।","explanation_en":"According to Article 321, by an Act made by the State Legislature, additional functions may be conferred on the State Public Service Commission in respect of the services of the State or the services of any local authority or other body corporate constituted by law or of any public institution. Hence, the functions of the State Public Service Commission may be extended under an Act made by the State Legislature.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"उत्तर प्रदेश लोक सेवा आयोग के व्यय किस पर भारित होते हैं?","question_en":"The expenses of the Public Service Commission of Uttar Pradesh are charged upon –","options":[{"hi":"भारत की संचित निधि","en":"Consolidated Fund of India"},{"hi":"राज्य की संचित निधि","en":"Consolidated Fund of State"},{"hi":"शुल्क से उत्पन्न अपनी निधि","en":"It’s own Fund generated by fees"},{"hi":"आकस्मिकता निधि","en":"Contingent Fund"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 322 के अनुसार, संघ लोक सेवा आयोग के व्यय भारत की संचित निधि पर भारित होते हैं, जबकि राज्य लोक सेवा आयोगों के व्यय संबंधित राज्य की संचित निधि पर भारित होते हैं।","explanation_en":"According to Article 322 of the Constitution, the expenses of the Union Public Service Commission are charged on the Consolidated Fund of India, whereas the expenses of the State Public Service Commissions are charged on the Consolidated Fund of the respective State.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"भारत में लोक सेवा आयोग की स्थापना पहली बार किस अधिनियम द्वारा की गई थी?","question_en":"Which Act established Public Service Commission in India for the first time?","options":[{"hi":"भारतीय परिषद अधिनियम, 1892","en":"Indian Council Act, 1892"},{"hi":"परिषद अधिनियम, 1909","en":"Council Act, 1909"},{"hi":"भारत सरकार अधिनियम, 1919","en":"Government of India Act, 1919"},{"hi":"भारत सरकार अधिनियम, 1935","en":"Government of India Act, 1935"}],"answer":2,"answer_note":"","explanation_hi":"भारत सरकार अधिनियम, 1919 की धारा 96(C) के अंतर्गत भारत का पहला लोक सेवा आयोग 1 अक्टूबर 1926 को स्थापित हुआ। उस समय इसमें एक अध्यक्ष और चार सदस्य थे। सर रॉस बार्कर इसके पहले अध्यक्ष थे। भारत सरकार अधिनियम, 1935 के अंतर्गत इसका नाम बदलकर 1 अप्रैल 1937 को संघीय लोक सेवा आयोग कर दिया गया, और 26 जनवरी 1950 को भारत का संविधान लागू होने के साथ यह संघ लोक सेवा आयोग बन गया। प्रांतीय स्तर पर मद्रास सेवा आयोग की स्थापना पहली बार 1930 में हुई। भारत सरकार अधिनियम, 1935 के अंतर्गत प्रत्येक प्रांत या प्रांतों के समूह के लिए प्रांतीय लोक सेवा आयोगों का प्रावधान भी किया गया, जिसके अंतर्गत 1937 में सात प्रांतीय लोक सेवा आयोग स्थापित हुए।","explanation_en":"Under Section 96(C) of the Government of India Act, 1919, the first Public Service Commission in India was established on 1 October 1926. At that time, it consisted of one Chairman and four members. Sir Ross Barker was its first Chairman. Under the Government of India Act, 1935, its name was changed to the Federal Public Service Commission on 1 April 1937, and with the commencement of the Constitution of India on 26 January 1950, it became the Union Public Service Commission. At the provincial level, the Madras Service Commission was established for the first time in 1930. Under the Government of India Act, 1935, provisions were also made for Provincial Public Service Commissions for each province or group of provinces, under which seven Provincial Public Service Commissions were established in 1937.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"लोकपाल और प्रमुख आयोग","topic_en":"Lokpal and Important Commissions","question_hi":"पी.सी. होता समिति (लोक सेवा सुधार) किस वर्ष गठित की गई थी?","question_en":"In which year was P.C. Hota Committee on Civil Services Reforms constituted?","options":[{"hi":"2003","en":"2003"},{"hi":"2004","en":"2004"},{"hi":"2005","en":"2005"},{"hi":"2006","en":"2006"}],"answer":1,"answer_note":"","explanation_hi":"लोक सेवाओं से संबंधित सुधारों के सभी पहलुओं की जाँच करने के उद्देश्य से भारत सरकार ने 3 फरवरी 2004 को संघ लोक सेवा आयोग के पूर्व अध्यक्ष पी.सी. होता की अध्यक्षता में एक समिति गठित की। इस समिति ने 30 जुलाई 2004 को अपनी रिपोर्ट प्रस्तुत की।","explanation_en":"With the objective of examining all aspects of reforms relating to public services, the Government of India constituted a committee on 3 February 2004 under the chairmanship of P.C. Hota, former Chairman of the Union Public Service Commission (UPSC). This committee submitted its report on 30 July 2004.","source":"","source_missing":true,"exam":"unknown"},{"id":34,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"भारतीय संविधान का कौन-सा अनुच्छेद विभिन्न राज्यों के संबंध में विशेष उपबंधों से संबंधित है?","question_en":"Which Article of the Indian Constitution deals with special provisions with respect to different States?","options":[{"hi":"अनुच्छेद 369","en":"Art. 369"},{"hi":"अनुच्छेद 370","en":"Art. 370"},{"hi":"अनुच्छेद 371","en":"Art. 371"},{"hi":"अनुच्छेद 372","en":"Art. 372"}],"answer":2,"answer_note":"","explanation_hi":"अनुच्छेद 369 संसद की उस अस्थायी शक्ति से संबंधित है, जिसके द्वारा (संविधान प्रारंभ होने की तिथि से पाँच वर्ष की अवधि के लिए) राज्य सूची के कुछ विषयों पर इस प्रकार विधि बनाई जा सकती थी, मानो वे समवर्ती सूची के विषय हों; अनुच्छेद 370 जम्मू और कश्मीर राज्य से संबंधित एक अस्थायी उपबंध था; अनुच्छेद 371 से 371-J में क्रमशः महाराष्ट्र और गुजरात, नागालैंड, असम, मणिपुर, आंध्र प्रदेश या तेलंगाना, सिक्किम, मिज़ोरम, अरुणाचल प्रदेश, गोवा और कर्नाटक राज्यों के लिए विशेष उपबंध हैं; अनुच्छेद 372 विद्यमान विधियों के प्रवृत्त रहने और उनके अनुकूलन से संबंधित है।","explanation_en":"Article 369 deals with the temporary power of Parliament to make laws, (for a period of five years from the commencement of the Constitution), with respect to certain matters in the State List as if they were matters in the Concurrent List; Article 370 was a temporary provision relating to the State of Jammu and Kashmir; Articles 371 to 371-J contain special provisions relating respectively to the states of Maharashtra and Gujarat, Nagaland, Assam, Manipur, Andhra Pradesh or Telangana, Sikkim, Mizoram, Arunachal Pradesh, Goa and Karnataka; Article 372 deals with the continuance in force of existing laws and their adaptation.","source":"","source_missing":true,"exam":"unknown"},{"id":35,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"भारत के संविधान का अनुच्छेद 371-B निम्नलिखित में से किस/किन राज्यों के लिए विशेष उपबंध करता है?","question_en":"Article 371-B of the Constitution of India makes special provisions for which of the following State/s?","options":[{"hi":"महाराष्ट्र और गुजरात","en":"Maharashtra and Gujarat"},{"hi":"असम","en":"Assam"},{"hi":"नागालैंड","en":"Nagaland"},{"hi":"मणिपुर","en":"Manipur"}],"answer":1,"answer_note":"","explanation_hi":"भाग XXI में, जो अस्थायी, संक्रमणकालीन और विशेष उपबंधों से संबंधित है, अनुच्छेद 371-B असम राज्य से संबंधित विशेष उपबंध रखता है।","explanation_en":"Under Part XXI of the Indian Constitution, which deals with temporary, transitional and special provisions, Article 371-B contains special provisions relating to the State of Assam.","source":"","source_missing":true,"exam":"unknown"},{"id":36,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"संविधान का अनुच्छेद 371 निम्नलिखित में से किन राज्यों के लिए विशेष उपबंध करता है?","question_en":"Article 371 of the Constitution makes special provisions for which of the following States?","options":[{"hi":"जम्मू और कश्मीर","en":"Jammu and Kashmir"},{"hi":"महाराष्ट्र और गुजरात","en":"Maharashtra and Gujarat"},{"hi":"नागालैंड","en":"Nagaland"},{"hi":"आंध्र प्रदेश","en":"Andhra Pradesh"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 371 के अंतर्गत महाराष्ट्र और गुजरात राज्यों के संबंध में विशेष उपबंध किए गए हैं।","explanation_en":"Under Article 371 of the Constitution, special provisions have been made with respect to the states of Maharashtra and Gujarat.","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"भारत के संविधान के अनुच्छेद 371-J के अंतर्गत देश के किस क्षेत्र को विशेष दर्जा प्रदान किया गया?","question_en":"Which region of the country was conferred special status under Article 371-J of the Constitution of India?","options":[{"hi":"नागालैंड","en":"Nagaland"},{"hi":"हैदराबाद और कर्नाटक","en":"Hyderabad and Karnataka"},{"hi":"महाराष्ट्र और गुजरात","en":"Maharashtra and Gujarat"},{"hi":"लद्दाख","en":"Ladakh"}],"answer":1,"answer_note":"","explanation_hi":"संविधान (अट्ठानबेवाँ संशोधन) अधिनियम, 2012 द्वारा भाग XXI में अनुच्छेद 371-I के बाद एक नया अनुच्छेद 371-J सम्मिलित किया गया। अनुच्छेद 371-J कर्नाटक के राज्यपाल को कर्नाटक राज्य के हैदराबाद-कर्नाटक क्षेत्र के विकास के लिए कदम उठाने की शक्ति देता है। वर्ष 2019 में इस क्षेत्र का नाम बदलकर 'कल्याण कर्नाटक क्षेत्र' कर दिया गया।","explanation_en":"By the Constitution (Ninety-eighth Amendment) Act, 2012, a new Article 371-J was inserted in Part XXI of the Constitution after Article 371-I. Article 371-J empowers the Governor of Karnataka to take steps for the development of the Hyderabad-Karnataka region of the State of Karnataka. In 2019, the name of this region was changed to the ‘Kalyana Karnataka Region’.","source":"","source_missing":true,"exam":"unknown"},{"id":38,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"भारत में केंद्र के लिए और प्रत्येक राज्य के लिए केवल एक ही संविधान है। फिर भी एक राज्य इसका अपवाद है। वह राज्य कौन-सा है?","question_en":"In India, there is only one Constitution for the Centre as well as for each state. However, a state is exception to it. That state is","options":[{"hi":"आंध्र प्रदेश","en":"Andhra Pradesh"},{"hi":"जम्मू और कश्मीर","en":"Jammu and Kashmir"},{"hi":"तमिलनाडु","en":"Tamil Nadu"},{"hi":"केरल","en":"Kerala"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"भारत में संघ और राज्यों के लिए एक ही संविधान है, परंतु जम्मू और कश्मीर राज्य इसका अपवाद था, क्योंकि अनुच्छेद 370 के अंतर्गत जम्मू और कश्मीर के संबंध में कुछ अस्थायी विशेष उपबंध किए गए थे। परंतु 6 अगस्त 2019 को राष्ट्रपति द्वारा संसद की अनुशंसा पर जारी एक अधिसूचना द्वारा अनुच्छेद 370 के अंतर्गत जम्मू और कश्मीर का विशेष दर्जा समाप्त हो गया। इसके अतिरिक्त, जम्मू और कश्मीर पुनर्गठन अधिनियम, 2019 द्वारा 31 अक्टूबर 2019 से इस पूर्ववर्ती राज्य को दो केंद्र शासित प्रदेशों, जम्मू और कश्मीर तथा लद्दाख, में विभाजित कर दिया गया।","explanation_en":"In India, there is one Constitution for both the Union and the states, but the State of Jammu and Kashmir was an exception because certain temporary special provisions had been made in respect of Jammu and Kashmir under Article 370. However, by a notification issued by the President on 6 August 2019 on the recommendation of Parliament, the special status of Jammu and Kashmir under Article 370 ceased to operate. Further, by the Jammu and Kashmir Reorganisation Act, 2019, this erstwhile state was, from 31 October 2019, divided into two Union Territories – Jammu and Kashmir and Ladakh.","source":"","source_missing":true,"exam":"unknown"},{"id":39,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"भारतीय संविधान का अनुच्छेद 370 किससे संबंधित है?","question_en":"Article 370 of the Indian Constitution is related to –","options":[{"hi":"जम्मू और कश्मीर राज्य","en":"State of Jammu and Kashmir"},{"hi":"सिक्किम राज्य","en":"State of Sikkim"},{"hi":"नागालैंड राज्य","en":"State of Nagaland"},{"hi":"मणिपुर राज्य","en":"State of Manipur"}],"answer":0,"answer_note":"","explanation_hi":"भाग XXI, जिसमें \"अस्थायी, संक्रमणकालीन और विशेष उपबंध\" हैं, के अंतर्गत जम्मू और कश्मीर के लिए विशेष उपबंध अनुच्छेद 370 में निहित था।","explanation_en":"Part XXI of the Indian Constitution provides for “Temporary, Transitional and Special Provisions,” under which the special provision for Jammu and Kashmir was contained in Article 370.","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"भारतीय संविधान के वे अनुच्छेद जो स्वतः जम्मू और कश्मीर राज्य पर लागू होते हैं, कौन-से हैं?","question_en":"Articles of the Constitution of India that apply on their own to the State of Jammu and Kashmir, are","options":[{"hi":"अनुच्छेद 1 और 241","en":"Articles 1 and 241"},{"hi":"अनुच्छेद 2 और 356","en":"Articles 2 and 356"},{"hi":"अनुच्छेद 1 और 370","en":"Articles 1 and 370"},{"hi":"अनुच्छेद 370 और 371-A","en":"Articles 370 and 371-A"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"प्रश्न के समय अनुच्छेद 1 और अनुच्छेद 370 जम्मू और कश्मीर राज्य पर स्वतः लागू होते थे। अनुच्छेद 1 ने जम्मू और कश्मीर को पहली अनुसूची के अंतर्गत भारत के राज्यक्षेत्र में स्थान दिया, जबकि अनुच्छेद 370 ने जम्मू और कश्मीर राज्य को विशेष दर्जा प्रदान किया था। वर्तमान में जम्मू और कश्मीर राज्य अस्तित्व में नहीं है। उसके स्थान पर दो केंद्र शासित प्रदेश, जम्मू और कश्मीर तथा लद्दाख, विद्यमान हैं। इसका विशेष दर्जा भी समाप्त कर दिया गया है।","explanation_en":"At the time of the question, Article 1 and Article 370 of the Constitution of India applied automatically to the State of Jammu and Kashmir. Article 1 placed Jammu and Kashmir within the territory of India under the First Schedule, while Article 370 granted special status to the State of Jammu and Kashmir. At present, the State of Jammu and Kashmir no longer exists. In its place, two Union Territories, namely Jammu and Kashmir and Ladakh, exist. Its special status has also been abolished.","source":"","source_missing":true,"exam":"unknown"},{"id":41,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"जम्मू और कश्मीर राज्य के लिए 'सदर-ए-रियासत' का पदनाम 'राज्यपाल' में कब बदला गया?","question_en":"When was the designation Sadr-e-Riyasat changed to Governor for the State of Jammu and Kashmir?","options":[{"hi":"1948","en":"1948"},{"hi":"1950","en":"1950"},{"hi":"1952 (c) 1967","en":"1952 (c) 1967"},{"hi":"—","en":"—"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"जम्मू और कश्मीर की संविधान सभा ने महाराजा के वंशानुगत शासन को समाप्त कर दिया और 1952 में पहली बार कर्ण सिंह को सदर-ए-रियासत के रूप में निर्वाचित किया। इसके बाद जम्मू और कश्मीर के संविधान (छठा संशोधन) अधिनियम, 1965 द्वारा, जो 10 अप्रैल 1965 से प्रभावी हुआ, सदर-ए-रियासत का पदनाम बदलकर राज्यपाल और वज़ीर-ए-आज़म का पदनाम बदलकर मुख्यमंत्री कर दिया गया। अतः सही उत्तर दिए गए विकल्पों में उपलब्ध नहीं है।","explanation_en":"The Constituent Assembly of Jammu and Kashmir abolished the hereditary rule of the Maharaja and first elected Karan Singh as the Sadr-e-Riyasat in 1952. Later, by the Constitution of Jammu and Kashmir (Sixth Amendment) Act, 1965, which came into effect on 10 April 1965, the designation of Sadr-e-Riyasat was changed to Governor, and that of Wazir-e-Azam was changed to Chief Minister. Therefore, the correct answer is not available among the options given in the question.","source":"","source_missing":true,"exam":"unknown"},{"id":42,"topic_hi":"अस्थायी और विशेष उपबंध","topic_en":"Temporary Special Provisions","question_hi":"निम्नलिखित घटनाओं को कालक्रम में व्यवस्थित कीजिए और नीचे दिए गए कूटों से सही उत्तर चुनिए: I. महाराजा हरि सिंह ने विलय पत्र (Instrument of Accession) पर हस्ताक्षर किए। II. भारत का संविधान लागू हुआ। III. जम्मू और कश्मीर की संप्रभु संविधान सभा ने भारत में विलय की पुष्टि की। IV. जम्मू और कश्मीर राज्य का नया संविधान लागू हुआ। कूट:","question_en":"Arrange the following events in a chronological order and select the correct answer from the codes given below : I. Maharaja Hari Singh signed the Instrument of Accession. II. Constitution of India was enforced. III. Accession to India ratified by the Sovereign Constituent Assembly of Jammu and Kashmir. IV. New Constitution of the State of Jammu and Kashmir came into force. Codes :","options":[{"hi":"I, III, IV, II","en":"I, III, IV, II"},{"hi":"III, IV, I, II","en":"III, IV, I, II"},{"hi":"I, II, III, IV","en":"I, II, III, IV"},{"hi":"IV, III, II, I","en":"IV, III, II, I"}],"answer":2,"answer_note":"","explanation_hi":"महाराजा हरि सिंह ने 26 अक्टूबर 1947 को भारत के साथ विलय पत्र पर हस्ताक्षर किए। भारत का संविधान 26 नवंबर 1949 को अपनाया गया, और उसी दिन नागरिकता, अनंतिम संसद, अस्थायी और संक्रमणकालीन उपबंध आदि से संबंधित प्रावधान लागू हो गए, जबकि पूरा संविधान 26 जनवरी 1950 को लागू हुआ। जम्मू और कश्मीर की संप्रभु संविधान सभा ने फरवरी 1954 में पारित एक प्रस्ताव द्वारा विलय पत्र के माध्यम से राज्य के भारत में विलय की पुष्टि की। इसके बाद 17 नवंबर 1956 को जम्मू और कश्मीर का संविधान अपनाते समय उसने फिर से उस विलय को स्वीकृति दी, जबकि जम्मू और कश्मीर राज्य का नया संविधान 26 जनवरी 1957 को लागू हुआ।","explanation_en":"Maharaja Hari Singh of Jammu and Kashmir signed the Instrument of Accession with India on 26 October 1947. The Constitution of India was adopted on 26 November 1949, and on that very day the provisions relating to citizenship, the provisional Parliament, temporary and transitional provisions, etc. came into force, while the entire Constitution came into force on 26 January 1950. The sovereign Constituent Assembly of Jammu and Kashmir, by a resolution passed in February 1954, ratified the State’s accession to India through the Instrument of Accession. Thereafter, while adopting the Constitution of Jammu and Kashmir on 17 November 1956, it again approved that accession, whereas the new Constitution of the State of Jammu and Kashmir came into force on 26 January 1957.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

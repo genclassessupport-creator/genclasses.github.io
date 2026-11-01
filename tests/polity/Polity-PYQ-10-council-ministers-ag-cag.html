@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — परीक्षा</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
+    --glass:rgba(111,78,20,.05);
+    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
+    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
+    --cream:#20180A; --mist:#5A5343;
+    --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
+    --shadow:0 18px 48px rgba(120,90,30,.16);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#FFFDF5}
+  html[data-theme="light"] .btn.primary{color:#FFFDF5}
+  html[data-theme="light"] .lang-b.on{color:#FFFDF5}
+  html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
+  html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
+  html[data-theme="light"] .badge.ok{background:rgba(24,122,80,.14);color:#0F6A44}
+  html[data-theme="light"] .badge.skip{background:rgba(32,24,10,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(32,24,10,.08) var(--scoreDeg),rgba(32,24,10,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(154,114,35,.1),0 15px 38px rgba(120,90,30,.2)}
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
+  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"polity-pyq-10-council-ministers-ag-cag","title":"Polity PYQ — Council of Ministers, AG & CAG","shortTitle":"Council of Ministers, AG & CAG","subtitle":"Purvavlokan GS · Indian Polity · मंत्रिपरिषद, महान्यायवादी एवं CAG","tag":"Polity PYQ","description":"Indian Polity & Governance previous year questions — Council of Ministers, AG & CAG. Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract.","durationMinutes":55,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"id":1,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"संविधान के अनुच्छेद 300 के अनुसार, भारत सरकार का विधिक नाम है–","question_en":"According to Article 300 of the Constitution of India, the legal name of the Government of India is–","options":[{"hi":"संघ सरकार","en":"The Union Government"},{"hi":"भारत का संघ","en":"The Union of India"},{"hi":"इंडिया","en":"India"},{"hi":"भारत","en":"Bharat"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 300 के अनुसार, भारत सरकार का विधिक नाम (वह नाम जिससे भारत सरकार द्वारा या उसके विरुद्ध वाद किए जाते हैं) \"भारत का संघ\" है। इस अनुच्छेद के खंड (1) के अनुसार, भारत सरकार भारत के संघ के नाम से वाद कर सकती है या उसके विरुद्ध वाद किया जा सकता है।","explanation_en":"According to Article 300 of the Constitution of India, the legal name of the Government of India (the legal name used in suits by or against the Government of India) is “The Union of India”. According to clause (1) of this Article, the Government of India may sue or be sued in the name of the Union of India.","source":"","source_missing":true,"exam":"unknown"},{"id":2,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित कथनों पर विचार कीजिए और नीचे दिए गए कूट से सही उत्तर चुनिए: 1. संघ की कार्यपालिका शक्ति प्रधानमंत्री में निहित है। 2. प्रधानमंत्री की नियुक्ति राष्ट्रपति द्वारा की जाती है। 3. प्रधानमंत्री मंत्रिपरिषद का प्रमुख होता है। 4. प्रधानमंत्री को अपनी नियुक्ति के समय संसद के किसी भी सदन का सदस्य होना आवश्यक नहीं है। कूट :","question_en":"Consider the following statements and select the correct answer from the code given below: / 1. The executive power of the Union is vested in the Prime Minister. / 2. The Prime Minister is appointed by the President. / 3. The Prime Minister is the head of the Council of Ministers. / 4. The Prime Minister, at the time of his appointment, needs not be a member of either House of Parliament.\nCode :","options":[{"hi":"केवल 1, 2 और 4 सही हैं।","en":"Only 1, 2 and 4 are correct."},{"hi":"केवल 1, 2 और 3 सही हैं।","en":"Only 1, 2 and 3 are correct."},{"hi":"केवल 2, 3 और 4 सही हैं।","en":"Only 2, 3 and 4 are correct."},{"hi":"केवल 1, 3 और 4 सही हैं।","en":"Only 1, 3 and 4 are correct."}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 53(1) के अनुसार, संघ की कार्यपालिका शक्ति राष्ट्रपति में निहित होती है, और वह उसका प्रयोग संविधान के अनुसार स्वयं या अपने अधीनस्थ अधिकारियों के माध्यम से करता है। अनुच्छेद 74(1) के अंतर्गत प्रधानमंत्री मंत्रिपरिषद का प्रमुख होता है। अनुच्छेद 75(1) के अनुसार प्रधानमंत्री की नियुक्ति राष्ट्रपति द्वारा की जाती है। अनुच्छेद 75(5) के प्रावधान के अंतर्गत, संसद का सदस्य न होने वाला व्यक्ति भी प्रधानमंत्री बन सकता है या मंत्रिपरिषद में शामिल हो सकता है, परंतु उसे छह महीने के भीतर संसद के किसी एक सदन का सदस्य बनना होगा।","explanation_en":"According to Article 53(1) of the Constitution, the executive power of the Union shall be vested in the President, and it shall be exercised by him either directly or through officers subordinate to him in accordance with the Constitution. Under Article 74(1), the Prime Minister is the head of the Council of Ministers. According to Article 75(1), the Prime Minister is appointed by the President. Under the provision of Article 75(5), a person who is not a member of Parliament may still become the Prime Minister or be included in the Council of Ministers, but he must become a member of either House within six months.","source":"","source_missing":true,"exam":"unknown"},{"id":3,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारत के प्रधानमंत्री के संबंध में निम्नलिखित में से कौन-सा कथन सही है?","question_en":"Which of the following statements is correct about Prime Minister of India?","options":[{"hi":"प्रधानमंत्री मंत्रिपरिषद का नाममात्र का प्रमुख होता है।","en":"Prime Minister is the nominal head of the Council of Ministers."},{"hi":"वह संसद के प्रति उत्तरदायी नहीं होता।","en":"He is not responsible to the Parliament."},{"hi":"वह अपने किसी भी मंत्री को हटा नहीं सकता।","en":"He cannot dismiss any of his ministers."},{"hi":"प्रधानमंत्री मंत्रिपरिषद का वास्तविक प्रमुख होता है।","en":"Prime Minister is the real head of the Council of Ministers."}],"answer":3,"answer_note":"","explanation_hi":"भारत के संविधान का अनुच्छेद 74(1) स्पष्ट रूप से कहता है कि राष्ट्रपति को सहायता और सलाह देने के लिए प्रधानमंत्री के प्रमुख पद पर एक मंत्रिपरिषद होगी। राष्ट्रपति संसदीय परंपरा के अनुसार सामान्यतः उस व्यक्ति को प्रधानमंत्री नियुक्त करता है जो लोक सभा में बहुमत वाले दल का नेता हो, या जो अन्य राजनीतिक दलों का समर्थन प्राप्त कर लोक सभा में विश्वास मत जीतने में सक्षम हो। अन्य सभी मंत्रियों की नियुक्ति राष्ट्रपति प्रधानमंत्री की सलाह पर करता है। अनुच्छेद 75(3) के अंतर्गत मंत्रिपरिषद (प्रधानमंत्री सहित) सामूहिक रूप से लोक सभा के प्रति उत्तरदायी होती है। व्यवहार में प्रधानमंत्री राष्ट्रपति के माध्यम से किसी भी मंत्री को हटवा सकता है। वास्तव में प्रधानमंत्री ही मंत्रिपरिषद का वास्तविक नेता होता है। अतः विकल्प (d) सही उत्तर है।","explanation_en":"Article 74(1) of the Constitution of India clearly states that there shall be a Council of Ministers with the Prime Minister at the head to aid and advise the President. The President generally appoints as Prime Minister, according to parliamentary convention, the person who is the leader of the party having a majority in the Lok Sabha or a person who is able to secure the support of other political parties and win a vote of confidence in the Lok Sabha. All other ministers are appointed by the President on the advice of the Prime Minister. Under Article 75(3), the Council of Ministers (including the Prime Minister) is collectively responsible to the Lok Sabha. In practice, the Prime Minister can remove any minister through President. In actual practice, the Prime Minister is the real leader of the Council of Ministers. Therefore, option (d) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":4,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारतीय संविधान का अनुच्छेद 78 किसके कर्तव्यों का प्रावधान करता है?","question_en":"Article 78 of the Constitution of India lays down the duties of the –","options":[{"hi":"लोक सभा अध्यक्ष","en":"Speaker of Lok Sabha"},{"hi":"राज्यसभा के सभापति","en":"Chairman of Rajya Sabha"},{"hi":"भारत के नियंत्रक-महालेखापरीक्षक","en":"Comptroller and Auditor General of India"},{"hi":"प्रधानमंत्री","en":"Prime Minister"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान का अनुच्छेद 78 प्रधानमंत्री के कर्तव्यों का प्रावधान करता है, जिसके अनुसार प्रधानमंत्री का यह कर्तव्य होगा कि– (क) संघ के कार्यों के प्रशासन से संबंधित और विधायन के प्रस्तावों से संबंधित मंत्रिपरिषद के सभी निर्णयों की सूचना राष्ट्रपति को दे; (ख) संघ के कार्यों के प्रशासन से संबंधित और विधायन के प्रस्तावों से संबंधित ऐसी जानकारी दे जो राष्ट्रपति मांगे; और (ग) यदि राष्ट्रपति ऐसा अपेक्षित करे, तो किसी ऐसे विषय को, जिस पर किसी मंत्री ने निर्णय लिया हो परंतु जिस पर मंत्रिपरिषद ने विचार न किया हो, मंत्रिपरिषद के विचार के लिए प्रस्तुत करे।","explanation_en":"Article 78 of the Indian Constitution provides for the duties of the Prime Minister, under which it shall be the duty of the Prime Minister to– / (a) communicate to the President all decisions of the Council of Ministers relating to the administration of the affairs of the Union and proposals for legislation; / (b) furnish such information relating to the administration of the affairs of the Union and proposals for legislation as the President may call for; and / (c) if the President so requires, submit for the consideration of the Council of Ministers any matter on which a minister has taken a decision but which has not been considered by the Council of Ministers.","source":"","source_missing":true,"exam":"unknown"},{"id":5,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"मंत्रिमंडल में शामिल हैं–","question_en":"Cabinet includes-","options":[{"hi":"कैबिनेट-स्तर के मंत्री","en":"Ministers with Cabinet-rank"},{"hi":"राज्य-स्तर के मंत्री","en":"Ministers of State level"},{"hi":"कैबिनेट मंत्री और राज्य मंत्री","en":"Cabinet Ministers and State Minister"},{"hi":"कैबिनेट मंत्री, स्वतंत्र प्रभार वाले राज्य मंत्री और राज्य मंत्री","en":"Cabinet Ministers, ministers of state with independent charge and ministers of State"}],"answer":0,"answer_note":"","explanation_hi":"मंत्रिमंडल में केवल प्रधानमंत्री और कैबिनेट-स्तर के मंत्री होते हैं, जबकि मंत्रिपरिषद में प्रधानमंत्री, कैबिनेट मंत्री, राज्य मंत्री और उप-मंत्री (यदि हों) शामिल होते हैं। \"कैबिनेट\" शब्द का उल्लेख केवल 44वें संविधान संशोधन द्वारा अनुच्छेद 352(3) में किया गया है।","explanation_en":"The Cabinet consists only of the Prime Minister and Cabinet-rank Ministers, whereas the Council of Ministers includes the Prime Minister, Cabinet Ministers, Ministers of State, and Deputy Ministers (if any). The term “Cabinet” has been mentioned only in Article 352(3) by the 44th Constitutional Amendment.","source":"","source_missing":true,"exam":"unknown"},{"id":6,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारतीय संविधान का कौन-सा अनुच्छेद मंत्रिपरिषद की नियुक्ति और अयोग्यता का वर्णन करता है?","question_en":"Which Article of the Indian Constitution describes the appointment and disqualification of the Council of Ministers.","options":[{"hi":"अनुच्छेद 70","en":"Article 70"},{"hi":"अनुच्छेद 72","en":"Article 72"},{"hi":"अनुच्छेद 74","en":"Article 74"},{"hi":"अनुच्छेद 75","en":"Article 75"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान का अनुच्छेद 75 मंत्रिपरिषद की नियुक्ति और उसको हटाने से संबंधित है। अनुच्छेद 75(1) के अनुसार, प्रधानमंत्री की नियुक्ति राष्ट्रपति द्वारा की जाती है, और अन्य मंत्रियों की नियुक्ति राष्ट्रपति प्रधानमंत्री की सलाह पर करता है। अनुच्छेद 75(2) के अनुसार, मंत्री राष्ट्रपति के प्रसादपर्यंत पद धारण करते हैं।","explanation_en":"Article 75 of the Indian Constitution deals with the appointment and removal of the Council of Ministers. According to Article 75(1), the Prime Minister is appointed by the President, and the other ministers are appointed by the President on the advice of the Prime Minister. According to Article 75(2), the ministers hold office during the pleasure of the President.","source":"","source_missing":true,"exam":"unknown"},{"id":7,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"कोई केंद्रीय मंत्री, जो किसी भी सदन का सदस्य नहीं है, कितने समय तक मंत्री पद पर बना रह सकता है?","question_en":"A Central Minister who is not the member of any House, can remain in the office for –","options":[{"hi":"1 वर्ष","en":"1 year"},{"hi":"6 महीने","en":"6 months"},{"hi":"3 महीने","en":"3 months"},{"hi":"1 महीना","en":"1 month"}],"answer":1,"answer_note":"","explanation_hi":"प्रधानमंत्री मंत्रिपरिषद का प्रमुख होता है। अपने सहयोगियों के चयन में उसे पूर्ण विवेकाधिकार होता है, ताकि वह ऐसे व्यक्तियों को चुन सके जो उसके साथ काम कर सकें। इस प्रकार वह मंत्रियों के चयन में अपने विवेक का प्रयोग करता है। प्रधानमंत्री की सलाह पर राष्ट्रपति ऐसे व्यक्ति को भी मंत्री नियुक्त कर सकता है जो संसद का सदस्य न हो, परंतु उस व्यक्ति को छह महीने के भीतर संसद का सदस्य बनना होगा। ऐसा न होने पर वह छह महीने के बाद मंत्री नहीं रहता [अनुच्छेद 75(5)]।","explanation_en":"The Prime Minister is the head of the Council of Ministers. He has full discretion in choosing as his colleagues those persons who can work with him. Thus, he exercises his own judgment in the selection of ministers. On the advice of the Prime Minister, the President may also appoint a person who is not a member of Parliament as a minister, but that person must become a member of Parliament within six months. If this does not happen, he ceases to be a minister after six months [Article 75(5)].","source":"यू.पी.पी.सी.एस. (पूर्व) 1995","source_missing":false,"exam":"other"},{"id":8,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारत की संसद के संबंध में निम्नलिखित में से कौन-सा कथन सत्य नहीं है?","question_en":"Which of the following statements is not true regarding the Parliament of India.","options":[{"hi":"संविधान में संसदीय शासन व्यवस्था का प्रावधान है।","en":"The Constitution provides for a Parliamentary form of Government."},{"hi":"संसद का कार्य एक मंत्रिमंडल का प्रावधान करना है।","en":"The function of the Parliament is to provide for a Cabinet."},{"hi":"मंत्रिमंडल की सदस्यता निचले सदन तक सीमित है।","en":"The membership of the cabinet is restricted to the Lower House."},{"hi":"मंत्रिमंडल को लोकप्रिय सदन में बहुमत का विश्वास प्राप्त होता है।","en":"The cabinet enjoys the confidence of the majority in the popular chamber of the house."}],"answer":2,"answer_note":"","explanation_hi":"विकल्प (c) का कथन गलत है, क्योंकि मंत्रिमंडल का सदस्य केवल निचले सदन (लोक सभा) का ही नहीं, बल्कि उच्च सदन (राज्यसभा) का भी हो सकता है। संसद के किसी भी सदन से बाहर का व्यक्ति भी मंत्रिमंडल का सदस्य बन सकता है, परंतु उसे छह महीने के भीतर संसद के किसी एक सदन का सदस्य बनना होगा।","explanation_en":"The statement in option (c) is incorrect because a member of the Cabinet may belong not only to the Lower House (Lok Sabha) but also to the Upper House (Rajya Sabha). Even a person from outside both Houses of Parliament may become a member of the Cabinet, but he must become a member of either House of Parliament within six months.","source":"","source_missing":true,"exam":"unknown"},{"id":9,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"मंत्रिपरिषद सामूहिक रूप से उत्तरदायी है: 1. लोक सभा के प्रति 2. संवैधानिक बाध्यता के अंतर्गत 3. अनुच्छेद 75 (3) के अनुसार 4. अनुच्छेद 74 (3) के अनुसार। उपर्युक्त में से कौन-से कथन सही हैं?","question_en":"The Council of Ministers is collectively responsible: / 1. To the House of the People / 2. Under a Constitutional Obligation / 3. As per Article 75 (3) / 4. As per Article 74 (3) Which of the above statements are correct?","options":[{"hi":"केवल 1 और 2","en":"1, and 2 only"},{"hi":"केवल 1, 2 और 3","en":"1, 2 and 3 only"},{"hi":"केवल 1, 3 और 4","en":"1, 3 and 4 only"},{"hi":"1, 2, 3 और 4","en":"1, 2, 3 and 4"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 75(3) के अनुसार, मंत्रिपरिषद सामूहिक रूप से लोक सभा के प्रति उत्तरदायी है। यह एक संवैधानिक बाध्यता है। अतः सही उत्तर विकल्प (b) है। संविधान में अनुच्छेद 74(3) का अस्तित्व नहीं है।","explanation_en":"According to Article 75(3) of the Constitution, the Council of Ministers is collectively responsible to the Lok Sabha. This is a constitutional obligation. Therefore, the correct answer is option (b). Article 74(3) does not exist in the Constitution.","source":"UPPCS (Pre) 2012","source_missing":false,"exam":"uppcs-pre"},{"id":10,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारतीय संविधान के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए: 1. संघ की मंत्रिपरिषद सामूहिक रूप से लोक सभा के प्रति उत्तरदायी होगी। 2. संघ के मंत्री प्रधानमंत्री के प्रसादपर्यंत पद धारण करेंगे। इनमें से :","question_en":"Consider the following statements in the context of Indian Constitution: / 1. The Union Council of Ministers shall be collectively responsible to the Lok Sabha. / 2. Union Ministers shall hold office during the pleasure of the Prime Minister. Of these :","options":[{"hi":"केवल 1 सही है","en":"Only 1 is correct"},{"hi":"1 और 2 दोनों सही हैं","en":"Both 1 and 2 are correct."},{"hi":"न तो 1 और न ही 2 सही है","en":"Neither 1 nor 2 is correct."},{"hi":"केवल 2 सही है","en":"Only 2 is correct."}],"answer":0,"answer_note":"","explanation_hi":"अनुच्छेद 75(2) के अनुसार, संघ के मंत्री राष्ट्रपति के प्रसादपर्यंत पद धारण करते हैं, और अनुच्छेद 75(3) के अनुसार मंत्रिपरिषद सामूहिक रूप से लोक सभा के प्रति उत्तरदायी होती है। अतः दिए गए कथनों में केवल कथन 1 सही है, जबकि कथन 2 गलत है।","explanation_en":"According to Article 75(2), the ministers of the Union hold office during the pleasure of the President, and according to Article 75(3), the Council of Ministers is collectively responsible to the Lok Sabha. Therefore, of the given statements, only statement 1 is correct, while statement 2 is incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":11,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"अभिकथन (A): भारत में संघ की मंत्रिपरिषद लोक सभा और राज्यसभा दोनों के प्रति सामूहिक रूप से उत्तरदायी है। कारण (R): लोक सभा और राज्यसभा दोनों के सदस्य संघ सरकार के मंत्री बनने के पात्र हैं। कूट :","question_en":"Assertion (A) : The Council of Ministers in the Union of India is collectively responsible both to the Lok Sabha and the Rajya Sabha. Reason (R) : The members of both the Lok Sabha and the Rajya Sabha are eligible to be the Ministers of the Union Government.\nCode :","options":[{"hi":"(A) और (R) दोनों व्यक्तिगत रूप से सत्य हैं और (R), (A) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are individually true and (R) is the correct explanation of (A)"},{"hi":"(A) और (R) दोनों व्यक्तिगत रूप से सत्य हैं, परंतु (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are individually true but (R) is not the correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) असत्य है।","en":"(A) is true, but (R) is false."},{"hi":"(A) असत्य है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 75(3) के अनुसार, संघ की मंत्रिपरिषद सामूहिक रूप से निचले सदन, अर्थात लोक सभा के प्रति उत्तरदायी है, न कि राज्यसभा के प्रति। अतः अभिकथन (A) गलत है। भारतीय संविधान के अनुसार मंत्रियों की नियुक्ति प्रधानमंत्री की सिफारिश पर राष्ट्रपति द्वारा की जाती है। लोक सभा और राज्यसभा दोनों के सदस्य संघ सरकार में मंत्री बन सकते हैं। यदि किसी गैर-सदस्य को मंत्री नियुक्त किया जाता है, तो अनुच्छेद 75(5) के अंतर्गत उसे छह महीने के भीतर संसद के किसी एक सदन का सदस्य बनना होगा। अतः कारण (R) सही है।","explanation_en":"According to Article 75(3) of the Constitution, the Union Council of Ministers is collectively responsible to the Lower House of Parliament (Lok Sabha), and not to the Rajya Sabha. Therefore, Statement (A) is incorrect. According to the Indian Constitution, ministers are appointed by the President on the recommendation of the Prime Minister. Members of both the Lok Sabha and the Rajya Sabha can become ministers in the Union Government. If a non-member is appointed as a minister, then under Article 75(5), he must become a member of either House of Parliament within six months. Thus, Reason (R) is correct.","source":"","source_missing":true,"exam":"unknown"},{"id":12,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारत में मंत्रिपरिषद निम्नलिखित में से कौन-सा प्रस्ताव ला सकती है?","question_en":"Which one of the following motions, the Council of Ministers in India can move?","options":[{"hi":"अविश्वास प्रस्ताव","en":"No-Confidence Motion"},{"hi":"निंदा प्रस्ताव","en":"Censure Motion"},{"hi":"स्थगन प्रस्ताव","en":"Adjournment Motion"},{"hi":"विश्वास प्रस्ताव","en":"Confidence Motion"}],"answer":3,"answer_note":"","explanation_hi":"संसद में विश्वास प्रस्ताव सरकार द्वारा समर्थन व्यक्त करने वाले प्रस्ताव के रूप में रखा जाता है। ऐसा प्रस्ताव केवल लोक सभा में ही स्वीकृत या अस्वीकृत होता है। जब सरकार को सदन में अपना बहुमत सिद्ध करना होता है, तब वह लोक सभा में विश्वास प्रस्ताव लाती है। विश्वास प्रस्ताव औपचारिक रूप से प्रधानमंत्री, मंत्रिपरिषद या उसके किसी भी सदस्य द्वारा रखा जा सकता है, जबकि लोक सभा में सरकार के विरुद्ध अविश्वास प्रस्ताव व्यवहार में विपक्ष का कोई सदस्य रखता है। यदि लोक सभा में अविश्वास प्रस्ताव बहुमत से पारित हो जाता है, तो मंत्रिपरिषद को त्यागपत्र देना पड़ता है। निंदा प्रस्ताव और स्थगन प्रस्ताव भी सामान्यतः विपक्ष द्वारा ही रखे जाते हैं।","explanation_en":"In Parliament, a Confidence Motion is moved by the government as a motion expressing support. Such a motion is accepted or rejected only in the Lok Sabha. The government brings a Confidence Motion in the Lok Sabha when it has to prove its majority in the House. A Confidence Motion may formally be moved by the Prime Minister, the Council of Ministers, or any one of its members, whereas a No-confidence Motion against the government in the Lok Sabha is, in practice, moved by a member of the opposition. If a No-confidence Motion is passed in the Lok Sabha, the Council of Ministers has to resign. A Censure Motion and an Adjournment Motion are also generally moved by the opposition.","source":"","source_missing":true,"exam":"unknown"},{"id":13,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"मंत्रिपरिषद के विरुद्ध 'अविश्वास प्रस्ताव' प्रस्तुत करने के लिए लोक सभा के कितने सदस्यों की आवश्यकता होती है?","question_en":"The number of Lok Sabha members required to table a ‘No Confidence Motion’ against the Council of Ministers is","options":[{"hi":"30","en":"30"},{"hi":"40","en":"40"},{"hi":"50","en":"50"},{"hi":"60","en":"60"}],"answer":2,"answer_note":"","explanation_hi":"लोक सभा की प्रक्रिया और कार्य संचालन नियमावली के नियम 198 के अनुसार, मंत्रिपरिषद के विरुद्ध 'अविश्वास प्रस्ताव' लाने के लिए लोक सभा के कम से कम 50 सदस्यों का समर्थन आवश्यक है।","explanation_en":"Under Rule 198 of the Procedure and Conduct of Business in the Lok Sabha, the support of at least 50 members of the Lok Sabha is necessary to move a ‘No-confidence Motion’ against the Council of Ministers.","source":"","source_missing":true,"exam":"unknown"},{"id":14,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"संघ मंत्रिपरिषद के त्यागपत्र के बाद उत्पन्न होने वाली निम्नलिखित में से कौन-सी स्थिति सही नहीं है?","question_en":"Which one of the following is not a correct situation arising after the resignation of the Council of Ministers?","options":[{"hi":"राष्ट्रपति शासन लागू होगा।","en":"President’s Rule will be imposed."},{"hi":"राष्ट्रपति उसे वैकल्पिक व्यवस्था होने तक कार्य जारी रखने के लिए कहेगा।","en":"The President will ask to continue till alternative arrangement."},{"hi":"वैकल्पिक व्यवस्था का अर्थ है नई सरकार बनाने के लिए जल्द से जल्द संभव आम चुनाव।","en":"The alternative arrangement means earliest possible General Election to be held to form a new Government."},{"hi":"जाती हुई मंत्रिपरिषद नई सरकार के गठन तक प्रभार में रह सकती है।","en":"Outgoing Council of Ministers may have had charge till the formation of the new Government"}],"answer":0,"answer_note":"","explanation_hi":"राज्यों में संविधान के अनुच्छेद 356 के अंतर्गत संवैधानिक तंत्र की विफलता की स्थिति में राष्ट्रपति शासन लगाया जाता है। संघ मंत्रिपरिषद के त्यागपत्र की स्थिति में केंद्र में राष्ट्रपति शासन लगाने का संविधान में कोई प्रावधान नहीं है। वही मंत्रिपरिषद तब तक कार्य करती रहती है, जब तक वैकल्पिक व्यवस्था नहीं हो जाती, अर्थात जब तक नई सरकार का गठन नहीं हो जाता।","explanation_en":"President’s Rule is imposed in states under Article 356 in the event of the failure of the constitutional machinery. There is no provision in the Indian Constitution for imposing President’s Rule at the Centre in the event of the resignation of the Union Council of Ministers. The same Council of Ministers continues to function until an alternative arrangement is made, that is, until a new government is formed.","source":"","source_missing":true,"exam":"unknown"},{"id":15,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"भारत के 12वें प्रधानमंत्री कौन थे?","question_en":"Who was the 12th Prime Minister of India?","options":[{"hi":"चंद्रशेखर","en":"Chandra Shekhar"},{"hi":"देवगौड़ा","en":"Deve Gowda"},{"hi":"आई.के. गुजराल","en":"I.K. Gujral"},{"hi":"ए.बी. वाजपेयी","en":"A.B. Vajpayee"}],"answer":1,"answer_note":"","explanation_hi":"व्यक्तियों की गणना के अनुसार (कार्यवाहक प्रधानमंत्री के रूप में गुलजारी लाल नंदा सहित), एच.डी. देवगौड़ा भारत के 12वें प्रधानमंत्री थे। वे 1 जून 1996 से 21 अप्रैल 1997 तक इस पद पर रहे। इस संदर्भ में, नरेंद्र मोदी देश के 15वें प्रधानमंत्री हैं, जिन्होंने 9 जून 2024 को तीसरी बार लगातार प्रधानमंत्री पद की शपथ ली।","explanation_en":"According to the count by individual persons, (including Gulzarilal Nanda as Acting Prime Minister), H.D. Deve Gowda was the 12th Prime Minister of India. He held this office from 1 June 1996 to 21 April 1997. In this context, Narendra Modi is the 15th Prime Minister of the country, and he took oath as Prime Minister for the third consecutive time on 9 June 2024. ([Prime Minister of India][1])","source":"","source_missing":true,"exam":"unknown"},{"id":16,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित में से कौन व्यक्ति राजनीतिक जीवन में बीच-बीच में अंतराल के साथ एक से अधिक बार प्रधानमंत्री पद पर आसीन हुए? 1. जवाहरलाल नेहरू 2. लाल बहादुर शास्त्री 3. गुलजारी लाल नंदा 4. इंदिरा गांधी 5. अटल बिहारी वाजपेयी नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"Who among the following occupied the office of the Prime Minister of India more than once with gaps in between their political career ? / 1. Jawaharlal Nehru / 2. Lal Bahadur Shastri / 3. Gulzari Lal Nanda / 4. Indira Gandhi / 5. Atal Bihari Vajpayee\nCode :","options":[{"hi":"केवल 1, 2 और 3","en":"1,2 and 3 only"},{"hi":"केवल 1, 3 और 4","en":"1,3 and 4 only"},{"hi":"केवल 3, 4 और 5","en":"3, 4 and 5 only"},{"hi":"केवल 1, 2, 4 और 5","en":"1,2,4 and 5 only"}],"answer":2,"answer_note":"","explanation_hi":"जवाहरलाल नेहरू के प्रधानमंत्री कार्यकाल में कोई अंतराल नहीं था। गुलजारी लाल नंदा दो बार कार्यवाहक प्रधानमंत्री रहे: पहली बार 27 मई 1964 से 9 जून 1964 तक और फिर 11 जनवरी 1966 से 24 जनवरी 1966 तक। इंदिरा गांधी 1966 में और फिर 1980 में प्रधानमंत्री बनीं, और अटल बिहारी वाजपेयी पहली बार 1996 में और फिर 1998 से प्रधानमंत्री बने; इस प्रकार वे दो अलग-अलग कार्यकालों में रहे। अतः सही उत्तर विकल्प (c) है।","explanation_en":"There was no interval in the tenure of Jawaharlal Nehru as Prime Minister. Gulzarilal Nanda served as Acting Prime Minister twice – first from 27 May 1964 to 9 June 1964 and again from 11 January 1966 to 24 January 1966. Indira Gandhi became Prime Minister in 1966 and again in 1980, and Atal Bihari Vajpayee became Prime Minister first in 1996 and again from 1998; thus, they served in two separate terms. Therefore, option (c) is the correct answer.","source":"","source_missing":true,"exam":"unknown"},{"id":17,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित में से कौन प्रधानमंत्री बनने से पहले कभी किसी राज्य का मुख्यमंत्री नहीं रहा था?","question_en":"Who amongst the following had never been the Chief Minister of any State before becoming the Prime Minister of India?","options":[{"hi":"एच.डी. देव गौड़ा","en":"H.D. Dev Gowda"},{"hi":"पी.वी. नरसिम्हा राव","en":"P.V. Narasimha Rao"},{"hi":"चंद्रशेखर","en":"Chandra Shekhar"},{"hi":"मोरारजी देसाई","en":"Morarji Desai"}],"answer":2,"answer_note":"","explanation_hi":"प्रधानमंत्री बनने से पहले चंद्रशेखर किसी राज्य के मुख्यमंत्री नहीं रहे थे, जबकि एच.डी. देवगौड़ा कर्नाटक के, पी.वी. नरसिम्हा राव आंध्र प्रदेश के और मोरारजी देसाई तत्कालीन बॉम्बे राज्य के मुख्यमंत्री रहे थे।","explanation_en":"Before becoming Prime Minister, Chandra Shekhar had not served as the Chief Minister of any state, whereas H.D. Deve Gowda had been the Chief Minister of Karnataka, P.V. Narasimha Rao of Andhra Pradesh, and Morarji Desai of the then Bombay State.","source":"","source_missing":true,"exam":"unknown"},{"id":18,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित में से कौन प्रधानमंत्री रहते हुए लोक सभा का सदस्य था?","question_en":"Who among the following was the member of Lok Sabha during his Prime Ministership?","options":[{"hi":"देवगौड़ा","en":"Deve Gowda"},{"hi":"आई.के. गुजराल","en":"I.K. Gujral"},{"hi":"चंद्रशेखर","en":"Chandrashekhar"},{"hi":"डॉ. मनमोहन सिंह","en":"Dr. Manmohan Singh"}],"answer":2,"answer_note":"","explanation_hi":"देवगौड़ा, आई.के. गुजराल और डॉ. मनमोहन सिंह प्रधानमंत्री के कार्यकाल के दौरान लोक सभा के सदस्य नहीं थे; वे राज्यसभा के सदस्य थे। दूसरी ओर, चंद्रशेखर 10 नवंबर 1990 से 21 जून 1991 तक भारत के प्रधानमंत्री रहे और इस दौरान वे बलिया लोक सभा निर्वाचन क्षेत्र से संसद सदस्य थे।","explanation_en":"Deve Gowda, I.K. Gujral, and Dr. Manmohan Singh were not members of the Lok Sabha during their tenure as Prime Minister; they were members of the Rajya Sabha. Chandra Shekhar, on the other hand, was the Prime Minister of India from 10 November 1990 to 21 June 1991, and during this period he was a Member of Parliament from the Ballia Lok Sabha constituency.","source":"","source_missing":true,"exam":"unknown"},{"id":19,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"उदारीकरण, निजीकरण और वैश्वीकरण की नीति को किस प्रधानमंत्री द्वारा नई आर्थिक नीति के रूप में घोषित किया गया?","question_en":"The Policy of Liberalisation, Privatisation, and Globalisation was announced as New Economic Policy by Prime Minister","options":[{"hi":"राजीव गांधी","en":"Rajeev Gandhi"},{"hi":"विश्वनाथ प्रताप सिंह","en":"Vishwanath Pratap Singh"},{"hi":"पी.वी. नरसिम्हा राव","en":"P.V. Narasimha Rao"},{"hi":"अटल बिहारी वाजपेयी","en":"Atal Bihari Vajpayee"}],"answer":2,"answer_note":"","explanation_hi":"24 जुलाई 1991 को तत्कालीन प्रधानमंत्री नरसिम्हा राव ने नई औद्योगिक नीति की घोषणा की। उनके द्वारा लागू किए गए आर्थिक सुधारों में उदारीकरण, निजीकरण, वैश्वीकरण और बाज़ारीकरण की नीतियाँ अपनाई गईं।","explanation_en":"On 24 July 1991, the then Prime Minister Narasimha Rao announced the New Industrial Policy. The economic reforms introduced by him adopted the policies of liberalization, privatization, globalization and marketization.","source":"","source_missing":true,"exam":"unknown"},{"id":20,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"डॉ. मनमोहन सिंह के संबंध में निम्नलिखित में से कौन-सा कथन सत्य नहीं है?","question_en":"Which of the following statements is not true for Dr. Manmohan Singh?","options":[{"hi":"भारत के पूर्व वित्त मंत्री","en":"Former Finance Minister of India"},{"hi":"भारतीय रिज़र्व बैंक के पूर्व गवर्नर","en":"Former Governor of Reserve Bank of India"},{"hi":"वित्त आयोग के पूर्व अध्यक्ष","en":"Former Chairman of Finance Commission"},{"hi":"अंतर्राष्ट्रीय मुद्रा कोष (IMF) में भारत के पूर्व प्रतिनिधि","en":"Former Representative of India at the IMF"}],"answer":2,"answer_note":"","explanation_hi":"भारत के पूर्व प्रधानमंत्री डॉ. मनमोहन सिंह (जिनका 26 दिसंबर 2024 को निधन हुआ), भारत के वित्त मंत्री, योजना आयोग के उपाध्यक्ष, भारतीय रिज़र्व बैंक के पूर्व गवर्नर और अंतर्राष्ट्रीय मुद्रा कोष में भारत के पूर्व प्रतिनिधि रहे, परंतु वे कभी वित्त आयोग के अध्यक्ष नहीं रहे।","explanation_en":"Former Prime Minister of India, Dr. Manmohan Singh (who passed away on 26 December 2024), served as India’s Finance Minister, Deputy Chairman of the Planning Commission, former Governor of the Reserve Bank of India, and India’s former representative to the International Monetary Fund, but he was never the Chairman of the Finance Commission.","source":"","source_missing":true,"exam":"unknown"},{"id":21,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"अभिकथन (A): मंत्री नीति बनाते हैं और सिविल सेवक उस नीति का पालन करते हैं। कारण (R): संसदीय शासन प्रणाली 'मंत्रियों के सामूहिक उत्तरदायित्व' के सिद्धांत पर कार्य करती है। कूट :","question_en":"Assertion(A) : Ministers make policy and civil servants adhere to that policy. Reason(R) : Parliamentary form of government works on the Principle of ‘‘Collective responsbility of ministers’’\nCode :","options":[{"hi":"(A) और (R) दोनों सत्य हैं, और (A), (R) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are true, and (A) is correct explanation of (R)."},{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, and (R) is not correct explanation of (A)."},{"hi":"(A) सत्य है, (R) असत्य है।","en":"(A) is true, (R) is false."},{"hi":"(A) असत्य है, (R) सत्य है।","en":"(A) is false, (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"अभिकथन और कारण दोनों सही हैं, परंतु कारण अभिकथन का सही स्पष्टीकरण नहीं है। मंत्रियों के उत्तरदायित्व के कारण अधिकारी 'गुमनामी' के सिद्धांत द्वारा संरक्षित रहते हैं, और अधिकारियों द्वारा किए गए क्रियान्वयन का अंतिम उत्तरदायित्व मंत्री पर होता है।","explanation_en":"Both the assertion and the reason are correct, but the reason is not the correct explanation of the assertion. Because of ministerial responsibility, officials remain protected by the principle of ‘anonymity’, and the ultimate responsibility for implementation carried out by officials rests with the minister.","source":"","source_missing":true,"exam":"unknown"},{"id":22,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित कथनों पर विचार कीजिए और नीचे दिए गए कूट से सही उत्तर चुनिए: अभिकथन (A): किसी व्यक्ति को उप-प्रधानमंत्री के रूप में वर्णित करना एक राजनीतिक निर्णय है। कारण (R): इससे उसे प्रधानमंत्री की कोई शक्ति प्राप्त नहीं होती। कूट :","question_en":"Consider the following statements and choose the correct answer from the code given below Assertion (A) : Describing a person as Deputy Prime Minister is a political decision. Reason (R) : It does not confer on him any power of the Prime Minister.\nCode :","options":[{"hi":"(A) और (R) दोनों सत्य हैं, और (R), (A) का सही स्पष्टीकरण है।","en":"Both (A) and (R) are true, and (R) is the correct explanation of (A)."},{"hi":"(A) और (R) दोनों सत्य हैं, परंतु (R), (A) का सही स्पष्टीकरण नहीं है।","en":"Both (A) and (R) are true, but (R) is not a correct explanation of (A)."},{"hi":"(A) सत्य है परंतु (R) असत्य है।","en":"(A) is true but, (R) is false."},{"hi":"(A) असत्य है परंतु (R) सत्य है।","en":"(A) is false but, (R) is true."}],"answer":0,"answer_note":"","explanation_hi":"भारतीय संविधान के किसी भी अनुच्छेद में उप-प्रधानमंत्री के पद और उसके दायित्वों का उल्लेख नहीं है। प्रधानमंत्री की सलाह पर राष्ट्रपति मंत्रिपरिषद के किसी भी सदस्य को उप-प्रधानमंत्री नियुक्त कर सकता है। उप-प्रधानमंत्री के दायित्वों का निर्धारण प्रधानमंत्री का विशेष विशेषाधिकार है। के.एम. शर्मा बनाम देवी लाल एवं अन्य (1990) के वाद में उच्चतम न्यायालय ने स्पष्ट किया कि उप-प्रधानमंत्री का पदनाम केवल वर्णनात्मक है, और उप-प्रधानमंत्री कहलाने से किसी मंत्री को प्रधानमंत्री की कोई अतिरिक्त शक्ति प्राप्त नहीं होती। अतः अभिकथन और कारण दोनों सही हैं, और कारण अभिकथन का सही स्पष्टीकरण है।","explanation_en":"No Article of the Indian Constitution mentions the office and responsibilities of the Deputy Prime Minister. On the advice of the Prime Minister, the President may appoint any member of the Council of Ministers as Deputy Prime Minister. The determination of the responsibilities of the Deputy Prime Minister is the special prerogative of the Prime Minister. In the case of K.M. Sharma v. Devi Lal and Others (1990), the Supreme Court made it clear that the designation of Deputy Prime Minister is merely descriptive, and being called Deputy Prime Minister does not confer any additional powers of the Prime Minister upon a minister. Thus, both the assertion and the reason are correct, and the reason is the correct explanation of the assertion.","source":"","source_missing":true,"exam":"unknown"},{"id":23,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित में से कौन-सा आधिकारिक दस्तावेज़ भारत से संबंधित है?","question_en":"Which of the following official documents is related with India?","options":[{"hi":"ग्रीन पेपर","en":"Green Paper"},{"hi":"श्वेत पत्र (व्हाइट पेपर)","en":"White Paper"},{"hi":"पीली पुस्तक (येलो बुक)","en":"Yellow Book"},{"hi":"नीली पुस्तक (ब्लू बुक)","en":"Blue Book"}],"answer":1,"answer_note":"","explanation_hi":"भारत में किसी विषय पर सरकार या उसके किसी मंत्रालय द्वारा विस्तृत और आधिकारिक विवरण 'श्वेत पत्र' (White Paper) के रूप में जारी किया जाता है।","explanation_en":"In India, a detailed and official account on any subject is issued by the government or any of its ministries in the form of a ‘White Paper’.","source":"","source_missing":true,"exam":"unknown"},{"id":24,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"केंद्रीय मंत्रिमंडल का पुनर्गठन किसकी रिपोर्ट पर आधारित है?","question_en":"The Reorganization of Union Cabinet is based on the Report of-","options":[{"hi":"गोपालास्वामी अय्यंगर","en":"Gopalaswami Ayyangar"},{"hi":"के.एम. मुंशी","en":"K.M. Munshi"},{"hi":"टी.टी. कृष्णमाचारी","en":"T.T. Krishnamachari"},{"hi":"बी.सी. रॉय","en":"B.C. Roy"}],"answer":0,"answer_note":"","explanation_hi":"एन. गोपालास्वामी अय्यंगर ने 1949 में प्रस्तुत अपनी रिपोर्ट, जिसका शीर्षक सरकारी तंत्र के पुनर्गठन पर रिपोर्ट (Report on the Reorganization of the Machinery of Government) है, में सिफारिश की कि आर्थिक और सामाजिक सेवाओं के लिए मंत्रालयों के नए समूह बनाए जाएँ, जैसे प्राकृतिक संसाधन एवं कृषि ब्यूरो, उद्योग एवं वाणिज्य ब्यूरो, परिवहन एवं संचार ब्यूरो, तथा श्रम एवं सामाजिक सेवा ब्यूरो।","explanation_en":"In his report presented in 1949, titled Report on the Reorganization of the Machinery of Government, N. Gopalaswami Ayyangar recommended that new groups of ministries responsible for economic and social services should be established in the form of the Bureau of Natural Resources and Agriculture, the Bureau of Industry and Commerce, the Bureau of Transport and Communications, and the Bureau of Labour and Social Services.","source":"","source_missing":true,"exam":"unknown"},{"id":25,"topic_hi":"मंत्रिपरिषद","topic_en":"The Council of Ministers","question_hi":"निम्नलिखित में से कौन-सा युग्म सही मेल नहीं खाता?","question_en":"Which one of the following is NOT correctly matched?","options":[{"hi":"जे.एल. नेहरू - शांति वन","en":"J.L.Nehru - Shanti Van"},{"hi":"एल.बी. शास्त्री - विजय घाट","en":"L.B. Shastri - Vijaya Ghat"},{"hi":"इंदिरा गांधी - शक्ति स्थल","en":"Indira Gandhi - Shakti Sthal"},{"hi":"राजीव गांधी - कर्म भूमि","en":"Rajiv Gandhi - Karam Bhumi"}],"answer":3,"answer_note":"","explanation_hi":"राजीव गांधी का स्मारक स्थल 'वीर भूमि' है, 'कर्म भूमि' नहीं। 'कर्म भूमि' भारत के पूर्व राष्ट्रपति शंकर दयाल शर्मा का स्मारक स्थल है। अन्य युग्म सही मेल खाते हैं।","explanation_en":"Rajiv Gandhi’s memorial site is Veer Bhumi, not Karm Bhumi. ‘Karm Bhumi’ is the memorial site of former President of India, Shankar Dayal Sharma. The other pairs are correctly matched.","source":"","source_missing":true,"exam":"unknown"},{"id":26,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"निम्नलिखित में से कौन अपना पद राष्ट्रपति के प्रसादपर्यंत धारण करता है?","question_en":"Who among the following holds his/her office during the pleasure of the President?","options":[{"hi":"भारत के नियंत्रक-महालेखापरीक्षक","en":"Comptroller and Auditor General of India"},{"hi":"मुख्य निर्वाचन आयुक्त","en":"Chief Election Commissioner"},{"hi":"लोक सभा अध्यक्ष","en":"Speaker of Lok Sabha"},{"hi":"भारत का महान्यायवादी","en":"Attorney General of India"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 76(2) के अनुसार, महान्यायवादी भारत सरकार को विधि संबंधी मामलों पर परामर्श देता है। वह भारत सरकार का प्रथम विधि अधिकारी होता है, जिसकी नियुक्ति राष्ट्रपति करता है [अनुच्छेद 76(1)] और वह राष्ट्रपति के प्रसादपर्यंत पद धारण करता है [अनुच्छेद 76(4)]।","explanation_en":"According to Article 76(2), the Attorney General advises the Government of India on legal matters. He is the first law officer of the Government of India, who is appointed by the President [Article 76(1)] and holds office during the pleasure of the President [Article 76(4)].","source":"","source_missing":true,"exam":"unknown"},{"id":27,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत सरकार का मुख्य विधिक सलाहकार कौन है?","question_en":"The chief legal advisor to government of India is :","options":[{"hi":"भारत के सॉलिसिटर जनरल","en":"Solicitor General of India"},{"hi":"उच्चतम न्यायालय के मुख्य न्यायाधीश","en":"Chief Justice of Supreme Court"},{"hi":"विधि मंत्रालय के सचिव","en":"Secretary Ministry of Law"},{"hi":"भारत का महान्यायवादी","en":"Attorney General of India"}],"answer":3,"answer_note":"","explanation_hi":"भारत सरकार का मुख्य विधिक सलाहकार भारत का महान्यायवादी होता है। संविधान के अनुच्छेद 76(3) के अनुसार, अपने कर्तव्यों के निर्वहन में महान्यायवादी को भारत के राज्यक्षेत्र में सभी न्यायालयों में सुनवाई का अधिकार (right of audience) प्राप्त होता है।","explanation_en":"The chief legal adviser to the Government of India is the Attorney General of India. According to Article 76(3), in the performance of his duties, the Attorney General has the right of audience in all courts within the territory of India.","source":"UPPCS (Mains) 2008","source_missing":false,"exam":"uppcs-mains"},{"id":28,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के महान्यायवादी के संबंध में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? (1) ऐसे व्यक्ति की महान्यायवादी के रूप में नियुक्ति की जाती है जो उच्चतम न्यायालय के न्यायाधीश के रूप में नियुक्ति के लिए अर्हित हो। (2) महान्यायवादी को उसी प्रक्रिया द्वारा हटाया जा सकता है जिसके द्वारा उच्चतम न्यायालय के न्यायाधीशों को हटाया जाता है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"With reference to the Attorney General of India, which of the following statement/s is/are correct? / (1) A person is appointed as Attorney General, who is qualified to be appointed as a Judge of the Supreme Court. / (2) The Attorney General can be removed through the same process as the Judges of the Supreme Court. / Select the correct answer from the code given below:\nCode :","options":[{"hi":"दोनों (1) और (2)","en":"Both (1) and (2)"},{"hi":"न तो (1) और न ही (2)","en":"Neither (1) nor (2)"},{"hi":"केवल (2)","en":"Only (2)"},{"hi":"केवल (1)","en":"Only (1)"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 76 के खंड (1) के अनुसार, राष्ट्रपति ऐसे व्यक्ति को भारत का महान्यायवादी नियुक्त करेगा जो उच्चतम न्यायालय के न्यायाधीश के रूप में नियुक्ति के लिए अर्हित हो। अतः कथन 1 सही है। संविधान के अनुच्छेद 76 के खंड (4) के अनुसार, महान्यायवादी राष्ट्रपति के प्रसादपर्यंत पद धारण करता है; इसलिए राष्ट्रपति को उसे पद से हटाने का अधिकार है। अतः कथन 2 सही नहीं है।","explanation_en":"According to clause (1) of Article 76 of the Constitution, the President shall appoint a person who is qualified to be appointed as a Judge of the Supreme Court to be the Attorney General of India. Thus, statement 1 is correct. Under clause (4) of Article 76 of the Constitution, the Attorney General holds office during the pleasure of the President; therefore, the President has the authority to remove him from office. Thus, statement 2 is not correct.","source":"","source_missing":true,"exam":"unknown"},{"id":29,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के महान्यायवादी के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए: 1. राष्ट्रपति ऐसे व्यक्ति को नियुक्त करेगा जो उच्चतम न्यायालय के न्यायाधीश के रूप में नियुक्ति के लिए अर्हित हो। 2. महान्यायवादी को ऐसा पारिश्रमिक प्राप्त होगा जो संसद निर्धारित करे। नीचे दिए गए कूटों का प्रयोग करते हुए सही उत्तर चुनिए। कूट :","question_en":"Consider the following statements in the context of Attorney General of India : / 1. The President shall appoint a person who is qualified as to be appointed a Judge of Supreme Court. / 2. The Attorney General shall receive such remuneration as the Parliament may determine. / Select the correct answer using the codes given below. Codes :","options":[{"hi":"केवल 1 सही है","en":"Only 1 is correct"},{"hi":"केवल 2 सही है","en":"Only 2 is correct"},{"hi":"1 और 2 दोनों सही हैं","en":"Both 1 and 2 are correct"},{"hi":"न तो 1 और न ही 2 सही है","en":"Neither 1 nor 2 is correct"}],"answer":0,"answer_note":"","explanation_hi":"भारत का महान्यायवादी देश का सर्वोच्च विधि अधिकारी होता है। संविधान के अनुच्छेद 76(1) के अनुसार, राष्ट्रपति ऐसे व्यक्ति को भारत का महान्यायवादी नियुक्त करेगा जो उच्चतम न्यायालय के न्यायाधीश के रूप में नियुक्ति के लिए अर्हित हो। अनुच्छेद 76(4) के अनुसार, महान्यायवादी राष्ट्रपति के प्रसादपर्यंत पद धारण करेगा और ऐसा पारिश्रमिक प्राप्त करेगा जो राष्ट्रपति निर्धारित करे। अतः केवल कथन 1 सही है, जबकि कथन 2 सही नहीं है।","explanation_en":"The Attorney General of India is the highest law officer of the country. According to Article 76(1) of the Constitution, the President shall appoint a person who is qualified to be appointed as a Judge of the Supreme Court to be the Attorney General of India. According to Article 76(4), the Attorney General shall hold office during the pleasure of the President and shall receive such remuneration as the President may determine. Therefore, only statement 1 is correct, while statement 2 is not correct.","source":"","source_missing":true,"exam":"unknown"},{"id":30,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के महान्यायवादी के संबंध में निम्नलिखित कथनों पर विचार कीजिए: 1. उसकी नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है। 2. उसके पास उच्चतम न्यायालय के न्यायाधीश के लिए अपेक्षित समान अर्हताएँ होनी चाहिए। 3. वह संसद के किसी भी सदन का सदस्य होना चाहिए। 4. उसे संसद द्वारा महाभियोग के माध्यम से हटाया जा सकता है। इनमें से कौन-से कथन सही हैं?","question_en":"Consider the following statements about the Attorney General of India: / 1. He is appointed by the President of India / 2. He must have the same qualifications as are required for a Judge of the Supreme Court / 3. He must be a member of either House of Parliament / 4. He can be removed by impeachment by Parliament Which of these statements are correct?\nCode :","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"1 और 3","en":"1 and 3"},{"hi":"2, 3 और 4","en":"2,3 and 4"},{"hi":"3 और 4","en":"3 and 4"}],"answer":0,"answer_note":"","explanation_hi":"भारत का महान्यायवादी, जिसकी नियुक्ति राष्ट्रपति द्वारा की जाती है, उच्चतम न्यायालय के न्यायाधीश की नियुक्ति के लिए अपेक्षित अर्हताओं के समान अर्हताएँ रखता है। यद्यपि भारत का महान्यायवादी संसद के किसी भी सदन का सदस्य नहीं होता, फिर भी उसे किसी भी सदन की कार्यवाही में, दोनों सदनों की संयुक्त बैठक में, और संसद की किसी भी समिति में, जिसका वह सदस्य मनोनीत किया गया हो, भाग लेने और बोलने का अधिकार है, परंतु मतदान का अधिकार नहीं है (अनुच्छेद 88)। महान्यायवादी राष्ट्रपति के प्रसादपर्यंत पद धारण करता है [अनुच्छेद 76(4)]; इसलिए राष्ट्रपति को उसे पद से हटाने का अधिकार है। अतः कथन 1 और 2 सही हैं, जबकि कथन 3 और 4 गलत हैं।","explanation_en":"The Attorney General of India, who is appointed by the President, must possess the same qualifications as those required for appointment as a Judge of the Supreme Court. Even though the Attorney General of India is not a member of either House of Parliament, he has the right to speak and take part in the proceedings of either House, in a joint sitting of both Houses, and in any committee of Parliament of which he may be named a member, but he has no right to vote (Article 88). The Attorney General holds office during the pleasure of the President [Article 76(4)]; therefore, the President has the authority to remove him from office. Thus, statements 1 and 2 are correct, while statements 3 and 4 are incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":31,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के महान्यायवादी के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए: (1) वह प्रधानमंत्री के प्रसादपर्यंत पद धारण करता है। (2) वह संसद सदस्य के विशेषाधिकारों का हकदार नहीं है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट :","question_en":"Consider the following statements with reference to Attorney General of India : / (1) He holds office during the pleasure of the Prime Minister. / (2) He is not entitled to the privileges of a Member of Parliament / Select the correct answer from the code given below :\nCode :","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 और न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"}],"answer":1,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 76(2) के अनुसार, महान्यायवादी भारत सरकार को विधि संबंधी मामलों पर परामर्श देता है। वह भारत सरकार का प्रथम विधि अधिकारी होता है। उसकी नियुक्ति राष्ट्रपति द्वारा की जाती है और वह राष्ट्रपति के प्रसादपर्यंत पद धारण करता है। अतः कथन 1 गलत है। संविधान के अनुच्छेद 88 के अनुसार, भारत के महान्यायवादी को दोनों सदनों की कार्यवाही में और संसद की किसी भी समिति में, जिसका वह सदस्य मनोनीत किया गया हो, भाग लेने और बोलने का अधिकार है, परंतु मतदान का अधिकार नहीं है। अनुच्छेद 105(4) के अनुसार, संसद सदस्यों की शक्तियों, विशेषाधिकारों और उन्मुक्तियों से संबंधित उपबंध उन व्यक्तियों पर भी समान रूप से लागू होते हैं, जिन्हें संविधान के अंतर्गत संसद के किसी सदन या उसकी किसी समिति की कार्यवाही में बोलने और अन्यथा भाग लेने का अधिकार है। अतः कथन 2 भी गलत है।","explanation_en":"According to Article 76(2) of the Constitution of India, the Attorney General advises the Government of India on legal matters. He is the first law officer of the Government of India. He is appointed by the President and holds office during the pleasure of the President. Thus, Statement 1 is incorrect. Under Article 88 of the Constitution, the Attorney General of India has the right to take part in the proceedings of both Houses of Parliament and of any parliamentary committee of which he is named as a member, and to speak therein, but he has no right to vote. Under Article 105(4), the provisions relating to the powers, privileges and immunities of Members of Parliament apply equally to those persons who, under the Constitution, have the right to speak in, and otherwise take part in, the proceedings of a House of Parliament or any of its committees. Therefore, Statement 2 is also incorrect.","source":"","source_missing":true,"exam":"unknown"},{"id":32,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के महान्यायवादी के संबंध में निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which of the following statements is not correct regarding the Attorney General of India?","options":[{"hi":"वह मंत्रिमंडल का सदस्य नहीं है।","en":"He is not a member of the Cabinet."},{"hi":"उसे संसद के सदन में बोलने का अधिकार है।","en":"He has the right to speak in the House of Parliament."},{"hi":"उसे संसद में मतदान का अधिकार है।","en":"He has the right to vote in Parliament."},{"hi":"इनमें से कोई नहीं। UPPCS (Mains) 2017","en":"None of the above. UPPCS (Mains) 2017"}],"answer":null,"answer_note":"Multiple answers in book: (C & D)","explanation_hi":"दिए गए प्रश्न में विकल्प (a) और (b) के कथन सही हैं, जबकि विकल्प (c) का कथन गलत है। अतः विकल्प (d) सही नहीं हो सकता।","explanation_en":"In the given question, the statements in options (a) and (b) are correct, whereas the statement in option (c) is incorrect. Therefore, option (d) cannot be correct.","source":"","source_missing":true,"exam":"unknown"},{"id":33,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत का सॉलिसिटर जनरल ……..? है।","question_en":"Solicitor General of India is ……..?","options":[{"hi":"सरकारी अधिवक्ता","en":"Government Advocate"},{"hi":"राष्ट्रपति का विधि अधिकारी","en":"The Legal Officer of President"},{"hi":"विधिक सलाहकार","en":"Legal Advisor"},{"hi":"प्रशासनिक अधिकारी","en":"Administrative Officer"}],"answer":2,"answer_note":"","explanation_hi":"महान्यायवादी के अतिरिक्त अन्य विधि अधिकारी भी भारत सरकार के विधिक सलाहकार के रूप में नियुक्त किए जाते हैं। उन्हें सॉलिसिटर जनरल और अतिरिक्त सॉलिसिटर जनरल कहा जाता है। वे अपने कर्तव्यों के निर्वहन में महान्यायवादी की सहायता करते हैं।","explanation_en":"Apart from the Attorney General, other law officers are also appointed as legal advisers to the Government of India. They are called the Solicitor General and the Additional Solicitors General. They assist the Attorney General in the discharge of his duties.","source":"UPPCS (Pre) 1994","source_missing":false,"exam":"uppcs-pre"},{"id":34,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"निम्नलिखित में से कौन किसी राज्य सरकार का विधिक सलाहकार है?","question_en":"Who among the following is the legal adviser of a State Government?","options":[{"hi":"महाधिवक्ता","en":"The Advocate-General"},{"hi":"महान्यायवादी","en":"The Attorney-General"},{"hi":"सॉलिसिटर जनरल","en":"The Solicitor-General"},{"hi":"नियंत्रक-महालेखापरीक्षक","en":"The Comptroller and Auditor General"}],"answer":0,"answer_note":"","explanation_hi":"महाधिवक्ता राज्य सरकार को विधिक मामलों पर सलाह देता है [अनुच्छेद 165(2)]। प्रत्येक राज्य का राज्यपाल ऐसे व्यक्ति को महाधिवक्ता नियुक्त करता है जो उच्च न्यायालय का न्यायाधीश नियुक्त होने के योग्य हो [अनुच्छेद 165(1)]। वह राज्यपाल के प्रसादपर्यंत पद पर रहता है [अनुच्छेद 165(3)]। वह राज्य सरकार का मुख्य विधि अधिकारी है।","explanation_en":"The Advocate General advises the State Government on legal matters [Article 165(2)]. The Governor of each State appoints a person qualified to be appointed as a Judge of a High Court as the Advocate General [Article 165(1)]. He holds office during the pleasure of the Governor [Article 165(3)]. He is the chief law officer of the State Government.","source":"UPPCS (Mains) 2014","source_missing":false,"exam":"uppcs-mains"},{"id":35,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के नियंत्रक-महालेखापरीक्षक की नियुक्ति किसके द्वारा की जाती है?","question_en":"The Comptroller and Auditor General of India is appointed by-","options":[{"hi":"राष्ट्रपति","en":"President"},{"hi":"लोकसभा अध्यक्ष","en":"Speaker of Lok Sabha"},{"hi":"योजना आयोग के अध्यक्ष","en":"Chairman of Planning Commission"},{"hi":"वित्त मंत्री","en":"Finance Minister"}],"answer":0,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 148(1) के अंतर्गत भारत के नियंत्रक-महालेखापरीक्षक की नियुक्ति भारत के राष्ट्रपति द्वारा की जाती है। अनुच्छेद 151(1) के अनुसार नियंत्रक-महालेखापरीक्षक भारत सरकार के लेखाओं की जाँच करता है और अपनी रिपोर्ट राष्ट्रपति को प्रस्तुत करता है; तथा अनुच्छेद 151(2) के अंतर्गत वह राज्य सरकारों के लेखाओं की जाँच करता है और रिपोर्ट संबंधित राज्यपाल को प्रस्तुत करता है।","explanation_en":"Under Article 148(1) of the Constitution of India, the Comptroller and Auditor General of India is appointed by the President of India. According to Article 151(1), the Comptroller and Auditor General examines the accounts of the Government of India and submits his report to the President, and under Article 151(2), he examines the accounts of the State Governments and submits the report to the concerned Governor.","source":"UPPCS (Pre) 2012","source_missing":false,"exam":"uppcs-pre"},{"id":36,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत के नियंत्रक-महालेखापरीक्षक का कार्यकाल होता है –","question_en":"The tenure of Comptroller and Auditor General of India is –","options":[{"hi":"4 वर्ष","en":"4 Years"},{"hi":"5 वर्ष","en":"5 Years"},{"hi":"6 वर्ष","en":"6 Years"},{"hi":"7 वर्ष","en":"7 Years"}],"answer":2,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 148(3) के अंतर्गत संसद को नियंत्रक-महालेखापरीक्षक के वेतन और सेवा-शर्तें निर्धारित करने की शक्ति दी गई है। तदनुसार संसद ने 1971 में संबंधित प्रावधान बनाए, जिनके अनुसार नियंत्रक-महालेखापरीक्षक का कार्यकाल 6 वर्ष या 65 वर्ष की आयु प्राप्त करने तक, जो भी पहले हो, होता है।","explanation_en":"According to Article 148(3) of the Constitution of India, Parliament has been given the power to determine the salary and service conditions of the Comptroller and Auditor General. Accordingly, Parliament enacted the relevant provisions in 1971, under which the tenure of the Comptroller and Auditor General is 6 years, or until he attains the age of 65 years, whichever is earlier.","source":"","source_missing":true,"exam":"unknown"},{"id":37,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"निम्नलिखित में से कौन-सा कथन भारत के नियंत्रक-महालेखापरीक्षक के संबंध में सत्य नहीं है?","question_en":"Which of the following is not true about the Comptroller and Auditor General of India?","options":[{"hi":"वह राष्ट्रपति द्वारा नियुक्त किया जाता है","en":"He is appointed by the President"},{"hi":"उसका वेतन उच्चतम न्यायालय के न्यायाधीश के वेतन के बराबर होता है","en":"His salary is equal to that of the Judge of Supreme Court"},{"hi":"सेवानिवृत्ति के बाद वह सरकार के किसी अन्य पद के लिए अयोग्य हो जाता है","en":"He is disqualified for any further Government office after retirement"},{"hi":"उसे राष्ट्रपति द्वारा हटाया जा सकता है।","en":"He can be removed by the President."}],"answer":3,"answer_note":"","explanation_hi":"भारत के संविधान के अनुच्छेद 148(1) के अनुसार भारत के नियंत्रक-महालेखापरीक्षक (CAG) की नियुक्ति राष्ट्रपति द्वारा की जाती है। CAG को राष्ट्रपति सीधे नहीं हटा सकते; बल्कि उसे उसी प्रकार और उन्हीं आधारों पर हटाया जा सकता है जिन पर उच्चतम न्यायालय के न्यायाधीश को हटाया जाता है। नियंत्रक-महालेखापरीक्षक (कर्तव्य, शक्तियाँ और सेवा-शर्तें) अधिनियम, 1971 की धारा 3 के अंतर्गत भारत के नियंत्रक-महालेखापरीक्षक को उच्चतम न्यायालय के न्यायाधीश के बराबर वेतन दिया गया है। अनुच्छेद 148(4) के अनुसार सेवानिवृत्ति या पद से हटाए जाने के बाद नियंत्रक-महालेखापरीक्षक भारत सरकार या किसी राज्य सरकार के अधीन किसी भी पद पर नियुक्ति के लिए अयोग्य हो जाता है।","explanation_en":"According to Article 148(1) of the Constitution of India, the Comptroller and Auditor General (CAG) of India is appointed by the President. The CAG cannot be removed directly by the President; rather, he can be removed in the same manner and on the same grounds as a Judge of the Supreme Court. Under Section 3 of the Comptroller and Auditor-General’s (Duties, Powers and Conditions of Service) Act, 1971, the Comptroller and Auditor General of India is given a salary equal to that of a Judge of the Supreme Court. Under Article 148(4), after retirement or removal from office, the Comptroller and Auditor General becomes ineligible for appointment to any office under the Government of India or the Government of any State.","source":"","source_missing":true,"exam":"unknown"},{"id":38,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"निम्नलिखित में से कौन-सा कर्तव्य भारत के नियंत्रक-महालेखापरीक्षक द्वारा नहीं किया जाता है?","question_en":"Which one of the following duties is not performed by Comptroller and Auditor General of India?","options":[{"hi":"भारत की संचित निधि से होने वाले सभी व्यय की लेखापरीक्षा करना और उस पर प्रतिवेदन देना","en":"To audit and report on all expenditure from the Consolidated Fund of India"},{"hi":"आकस्मिकता निधि और लोक लेखा से होने वाले सभी व्यय की लेखापरीक्षा करना और उस पर प्रतिवेदन देना","en":"To audit and report on all expenditure from the Contingency Funds and Public Accounts"},{"hi":"सभी व्यापारिक, विनिर्माण, लाभ-हानि लेखाओं की लेखापरीक्षा करना और उन पर प्रतिवेदन देना","en":"To audit and report on all trading, manufacturing, profit and loss accounts"},{"hi":"सार्वजनिक धन की प्राप्ति और निर्गम को नियंत्रित करना, और यह सुनिश्चित करना कि सार्वजनिक राजस्व राजकोष में जमा हो","en":"To control the receipt and issue of public money, and to ensure that the public revenue is lodged in the Exchequer"}],"answer":3,"answer_note":"","explanation_hi":"भारत में नियंत्रक-महालेखापरीक्षक सार्वजनिक धन की प्राप्ति और निर्गम को नियंत्रित नहीं करता; वह उसकी लेखापरीक्षा करता है। नियंत्रक-महालेखापरीक्षक के कर्तव्य इस प्रकार हैं: (1) वह संघ और राज्य सरकारों (विधानमंडल वाले केंद्र शासित प्रदेशों सहित) की संचित निधियों और लोक लेखाओं से भारत के भीतर और बाहर किए गए सभी व्यय और लेन-देन की लेखापरीक्षा करता है। (2) वह व्यापारिक, विनिर्माण, लाभ-हानि लेखाओं की लेखापरीक्षा करता है। (3) वह भंडार लेखाओं की लेखापरीक्षा करता है। (4) राष्ट्रपति, संबंधित राज्य के राज्यपाल या विधानमंडल वाले केंद्र शासित प्रदेश के प्रशासक द्वारा प्राधिकृत या अनुरोध किए जाने पर वह स्थानीय निकायों की लेखापरीक्षा करता है। (5) सरकारी कंपनियों और निगमों की लेखापरीक्षा में उसकी महत्वपूर्ण भूमिका होती है। भारत का नियंत्रक-महालेखापरीक्षक अपने पदनाम के बावजूद भारत के वित्त का नियंत्रक नहीं होता; वह केवल लेखापरीक्षा का कार्य करता है। इसके विपरीत ब्रिटेन का नियंत्रक-महालेखापरीक्षक नियंत्रण और लेखापरीक्षा, दोनों की शक्तियों का प्रयोग करता है।","explanation_en":"In India, the Comptroller and Auditor General does not control the receipt and disbursement of public money; rather, he audits it. The following are the duties of the Comptroller and Auditor General: / (1) He audits the expenditure and transactions made within as well as outside India from the Consolidated Funds and Public Accounts of the Union and State Governments (and Union Territories having legislatures). / (2) He audits trading, manufacturing, profit and loss accounts. / (3) He audits store accounts. / (4) When authorized or requested by the President, the Governor of the concerned State, or the Administrator of a Union Territory having a legislature, he audits local bodies. / (5) He plays an important role in the audit of government companies and corporations. The Comptroller and Auditor General of India, despite his designation, does not act as a controller of India’s finances; he only performs the function of audit. In contrast, the Comptroller and Auditor General in Britain exercises both controlling and auditing powers.","source":"","source_missing":true,"exam":"unknown"},{"id":39,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"नियंत्रक-महालेखापरीक्षक की टिप्पणियों पर उचित कार्रवाई करने की अंतिम जिम्मेदारी किसके पास निहित है?","question_en":"The ultimate responsibility of taking due action on the comments of the Comptroller and Auditor General vests with","options":[{"hi":"भारत के राष्ट्रपति","en":"President of India"},{"hi":"उच्चतम न्यायालय","en":"Supreme Court"},{"hi":"संसद","en":"Parliament"},{"hi":"राष्ट्रीय विकास परिषद","en":"National Development Council"}],"answer":2,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 151(1) के अंतर्गत नियंत्रक-महालेखापरीक्षक के प्रतिवेदन राष्ट्रपति द्वारा संसद के दोनों सदनों के समक्ष रखे जाते हैं। इसके बाद इन प्रतिवेदनों की जाँच संसद की लोक लेखा समिति और अन्य संसदीय समितियाँ करती हैं, जो सरकार को सुधारात्मक कदमों की सिफारिश करती हैं। इसलिए व्यवहार में नियंत्रक-महालेखापरीक्षक की टिप्पणियों और अवलोकनों पर उचित कार्रवाई की अंतिम जिम्मेदारी संसद की होती है।","explanation_en":"Under Article 151(1) of the Constitution, the reports of the Comptroller and Auditor General are laid by the President before both Houses of Parliament. Thereafter, these reports are examined by the Public Accounts Committee of Parliament and other parliamentary committees, which recommend corrective steps to the government. Therefore, in effect, the final responsibility for taking appropriate action on the comments and observations of the Comptroller and Auditor General rests with Parliament.","source":"","source_missing":true,"exam":"unknown"},{"id":40,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"निम्नलिखित में से कौन संसद की लोक लेखा समिति की बैठकों में उपस्थित रहता है?","question_en":"Who among the following attends the meetings of the Public Accounts Committee of the Parliament?","options":[{"hi":"भारत के महान्यायवादी","en":"Attorney General of India"},{"hi":"भारत के सॉलिसिटर जनरल","en":"Solicitor General of India"},{"hi":"भारत के नियंत्रक-महालेखापरीक्षक","en":"Comptroller and Auditor General of India"},{"hi":"इनमें से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"भारत के नियंत्रक-महालेखापरीक्षक संसद की लोक लेखा समिति की बैठकों में उपस्थित रहता है। संविधान के अनुच्छेद 149 के अंतर्गत नियंत्रक-महालेखापरीक्षक के कर्तव्य और शक्तियाँ संसद द्वारा बनाए गए कानून से निर्धारित होती हैं।","explanation_en":"The Comptroller and Auditor General of India attends the meetings of the Public Accounts Committee of Parliament. Under Article 149 of the Constitution, the duties and powers of the Comptroller and Auditor General are determined by law made by Parliament.","source":"","source_missing":true,"exam":"unknown"},{"id":41,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"नियंत्रक-महालेखापरीक्षक की नियुक्ति राष्ट्रपति द्वारा की जाती है। उसे किस प्रकार हटाया जा सकता है –","question_en":"The Comptroller and Auditor General is appointed by the President. He can be removed –","options":[{"hi":"राष्ट्रपति द्वारा","en":"By the President"},{"hi":"संसद के दोनों सदनों द्वारा किए गए अभिभाषण के आधार पर","en":"On an address from both Houses of Parliament"},{"hi":"उच्चतम न्यायालय द्वारा","en":"By the Supreme Court"},{"hi":"राष्ट्रपति की सिफारिश पर उच्चतम न्यायालय द्वारा","en":"On the recommendation of the President by the Supreme Court"}],"answer":null,"answer_note":"Withdrawn / no key in book (*)","explanation_hi":"अनुच्छेद 148(1) के अनुसार भारत का एक नियंत्रक-महालेखापरीक्षक होगा, जिसकी नियुक्ति राष्ट्रपति अपने हस्ताक्षर और मुहर वाले वारंट द्वारा करेंगे, और उसे उसी प्रकार और उन्हीं आधारों पर पद से हटाया जाएगा जिस प्रकार और जिन आधारों पर उच्चतम न्यायालय के न्यायाधीश को हटाया जाता है। अनुच्छेद 124(4) के अनुसार सिद्ध कदाचार या अक्षमता के आधार पर संसद द्वारा अभिभाषण किए जाने के बाद उच्चतम न्यायालय के न्यायाधीश को राष्ट्रपति के आदेश से पद से हटाया जा सकता है। उच्चतम न्यायालय के न्यायाधीश को हटाने के लिए ऐसा अभिभाषण प्रत्येक सदन की कुल सदस्य संख्या के बहुमत तथा उस सदन के उपस्थित और मतदान करने वाले सदस्यों के दो-तिहाई से कम नहीं होने वाले बहुमत से समर्थित होना चाहिए। ऐसा अभिभाषण उसी सत्र में प्रस्तुत और पारित होना चाहिए तथा उसी सत्र में राष्ट्रपति को प्रस्तुत किया जाना चाहिए।","explanation_en":"According to Article 148(1), there shall be a Comptroller and Auditor General of India, who shall be appointed by the President by warrant under his hand and seal, and shall be removed from office in the same manner and on the same grounds as a Judge of the Supreme Court. Under Article 124(4), a Judge of the Supreme Court may be removed from office by an order of the President after an address by Parliament on the ground of proved misbehavior or incapacity. Such an address for the removal of a Judge of the Supreme Court must be supported by a majority of the total membership of each House and by a majority of not less than two-thirds of the members of that House present and voting. Such an address must be moved and passed in the same session of Parliament and presented to the President in that very session.","source":"","source_missing":true,"exam":"unknown"},{"id":42,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"भारत का नियंत्रक-महालेखापरीक्षक किसका मित्र और मार्गदर्शक है?","question_en":"The Comptroller and Auditor General of India is a friend and guide of:","options":[{"hi":"प्रवर समिति","en":"Select Committee"},{"hi":"प्राक्कलन समिति","en":"Estimates Committee"},{"hi":"प्रधानमंत्री","en":"Prime Minister"},{"hi":"लोक लेखा समिति","en":"Public Accounts Committee"}],"answer":3,"answer_note":"","explanation_hi":"लोक लेखा समिति की कार्यवाही में नियंत्रक-महालेखापरीक्षक (CAG) सहायता करता है, जो उसकी बैठकों में उपस्थित रहता है और समिति के विचार-विमर्श में मदद करता है। आधिकारिक रूप से उसे लोक लेखा समिति का “मित्र, दार्शनिक और मार्गदर्शक” कहा गया है।","explanation_en":"The proceedings of the Public Accounts Committee are assisted by the Comptroller and Auditor General (CAG), who remains present in its meetings and helps the committee in its deliberations. Officially, he has been described as the “friend, philosopher and guide” of the Public Accounts Committee.","source":"","source_missing":true,"exam":"unknown"},{"id":43,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"किस वर्ष में लेखा-कार्य को लेखापरीक्षा से अलग कर दिया गया और नियंत्रक-महालेखापरीक्षक का कार्य केवल सरकारी लेखाओं की लेखापरीक्षा तक सीमित रह गया?","question_en":"In which year was accounting separated from auditing and Comptroller and Auditor General's task only remained confined to auditing the Government Accounts?","options":[{"hi":"1975","en":"1975"},{"hi":"1977","en":"1977"},{"hi":"1976","en":"1976"},{"hi":"1981","en":"1981"}],"answer":2,"answer_note":"","explanation_hi":"नियंत्रक-महालेखापरीक्षक (कर्तव्य, शक्तियाँ और सेवा-शर्तें) अधिनियम, 1971 में संशोधन करके वर्ष 1976 में केंद्र सरकार के स्तर पर लेखा-कार्य को लेखापरीक्षा से अलग कर दिया गया, और नियंत्रक-महालेखापरीक्षक का कार्य केवल केंद्र सरकार के लेखाओं की लेखापरीक्षा तक सीमित कर दिया गया। 1976 से केंद्र में लेखा-कार्य भारतीय नागर लेखा सेवा की सहायता से विभिन्न केंद्रीय विभाग स्वयं करते हैं। किंतु राज्य स्तर पर भारत का नियंत्रक-महालेखापरीक्षक अब भी ये दोनों दायित्व, लेखा और लेखापरीक्षा, निभाता है।","explanation_en":"By amending the Comptroller and Auditor General’s (Duties, Powers and Conditions of Service) Act, 1971, in the year 1976, accounting was separated from auditing at the level of the Central Government, and the function of the Comptroller and Auditor General was confined only to the audit of the accounts of the Central Government. Since 1976, at the Centre, the work of accounting has been carried out by the various Central departments themselves with the assistance of the Indian Civil Accounts Service. However, at the State level, the Comptroller and Auditor General of India still discharges both these responsibilities – accounting and auditing.","source":"","source_missing":true,"exam":"unknown"},{"id":44,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"राज्यों के लेखाओं पर किसका नियंत्रण होता है?","question_en":"Accounts of the States are controlled by the:","options":[{"hi":"राज्यपाल","en":"Governor"},{"hi":"मुख्यमंत्री","en":"Chief Minister"},{"hi":"राज्य के वित्त सचिव","en":"State Finance Secretary"},{"hi":"इनमें से कोई नहीं","en":"None of these"}],"answer":3,"answer_note":"","explanation_hi":"केंद्र के साथ-साथ राज्यों के वित्तीय लेखाओं की जाँच भी भारत के नियंत्रक-महालेखापरीक्षक द्वारा की जाती है।","explanation_en":"Along with the Centre, the scrutiny of the financial accounts of the States is also carried out by the Comptroller and Auditor General of India.","source":"","source_missing":true,"exam":"unknown"},{"id":45,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"किसे \"लोक धन का संरक्षक\" कहा जाता है?","question_en":"Who is called the Guardian of Public Purse?","options":[{"hi":"राष्ट्रपति","en":"President"},{"hi":"नियंत्रक-महालेखापरीक्षक","en":"Comptroller and Auditor General"},{"hi":"संसद","en":"Parliament"},{"hi":"मंत्रिपरिषद","en":"Council of Ministers"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के अंतर्गत नियंत्रक-महालेखापरीक्षक संघ और राज्यों के सार्वजनिक धन से होने वाले सभी व्यय की लेखापरीक्षा करता है; इसलिए उसे \"लोक धन का संरक्षक\" कहा जाता है।","explanation_en":"Under the Indian Constitution, the Comptroller and Auditor General audits all expenditures from the public funds of the Union and the States; therefore, he is called the “guardian of the public purse.”","source":"","source_missing":true,"exam":"unknown"},{"id":46,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"सूची-I (पदाधिकारी) को सूची-II (संस्थाएँ) से सुमेलित कीजिए और नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए।\nसूची-I: A. भारत के उपराष्ट्रपति; B. भारत के नियंत्रक-महालेखापरीक्षक; C. भारत के सॉलिसिटर जनरल; D. भारत के महान्यायवादी।\nसूची-II: 1. लोक लेखा समिति; 2. लोकसभा की बैठकें; 3. राज्यसभा; 4. उच्चतम न्यायालय; 5. सार्वजनिक उपक्रम समिति। कूट: A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below.\nList-I (Officers) List-II (Institutions) / A. Vice-President of India 1. Public Accounts Committee / B. Comptroller and 2. Meetings of Lok Sabha Auditor General of India / C. Solicitor General of 3. Rajya Sabha India / D. Attorney General of 4. Supreme Court India / 5. Committee on Public Undertakings\nCode: / A B C D","options":[{"hi":"3 1 4 2","en":"3 1 4 2"},{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"4 2 3 1","en":"4 2 3 1"},{"hi":"1 4 2 3","en":"1 4 2 3"}],"answer":0,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है: भारत के उपराष्ट्रपति – राज्यसभा; भारत के नियंत्रक-महालेखापरीक्षक – लोक लेखा समिति; महाधिवक्ता – उच्चतम न्यायालय; भारत के महान्यायवादी – लोकसभा की बैठकें। नोट: प्रश्न में \"भारत का महाधिवक्ता\" लिखा गया है, जो गलत है। महाधिवक्ता राज्य स्तर पर नियुक्त होता है, जबकि संघ स्तर पर महान्यायवादी नियुक्त होता है।","explanation_en":"The correct matching is as follows: Vice-President of India – Rajya Sabha Comptroller and Auditor – Public Accounts Committee General of India Advocate General – Supreme Court Attorney General of India – Sitting of the Lok Sabha Note: In the question, “Advocate General of India” has been mentioned, which is incorrect. The Advocate General is appointed at the State level, whereas at the Union level the Attorney General is appointed.","source":"","source_missing":true,"exam":"unknown"},{"id":47,"topic_hi":"महान्यायवादी और नियंत्रक-महालेखापरीक्षक","topic_en":"The Attorney-General and the C.A.G.","question_hi":"निम्नलिखित में से कौन-सा विकल्प सही नहीं है? लोक वित्त (Public Finance) सरकार की वित्तीय गतिविधियों का अध्ययन करता है। इसमें ……… सम्मिलित हैं।","question_en":"Which of the following options is not correct? Public Finance Studies financial activities of the Government. It consists of ………","options":[{"hi":"सार्वजनिक व्यय का विश्लेषण","en":"Analysis of Public Expenditure"},{"hi":"सार्वजनिक राजस्व","en":"Public Revenue"},{"hi":"वित्तीय प्रशासन","en":"Financial Administration"},{"hi":"वाणिज्यिक बैंक का कार्यकरण","en":"Functioning of Commercial Bank"}],"answer":3,"answer_note":"","explanation_hi":"लोक वित्त सरकार की वित्तीय गतिविधियों का अध्ययन है। इसमें सार्वजनिक व्यय, सार्वजनिक राजस्व, सार्वजनिक ऋण, वित्तीय प्रशासन आदि शामिल होते हैं। लोक वित्त का वाणिज्यिक बैंकों के कार्यकरण से कोई संबंध नहीं है।","explanation_en":"Public finance is the study of the financial activities of the government. It includes public expenditure, public revenue, public debt, financial administration, etc. Public finance is not related to the functioning of commercial banks.","source":"","source_missing":true,"exam":"unknown"}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genPoints(t){
+  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function _genMatchTable(raw){
+  var t=String(raw);
+  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(!mI||!mII||mII.index<=mI.index) return null;
+  var intro=t.slice(0,mI.index).trim();
+  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
+  var rest=t.slice(mII.index+mII[0].length);
+  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
+  var segII, outro="";
+  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
+  else segII=rest.trim();
+  segII=segII.replace(/[;।,]\s*$/,"");
+  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
+  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
+  if(A.length<2||B.length<2) return null;
+  var n=Math.max(A.length,B.length), rows="";
+  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
+  return (intro?genEsc(intro)+"\n":"")
+       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
+       + (outro?genEsc(outro):"");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  var mt=_genMatchTable(raw);
+  if(mt) return mt;
+  return genEsc(_genPoints(String(raw)));
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>
