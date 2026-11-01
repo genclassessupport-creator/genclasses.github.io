@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — UPPCS Prelims PYQ — Environment & Ecology (Part B)</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    /* soft sage / mint-grey — eye-comfortable reading */
+    --ink0:#E6EEE9; --ink1:#F6F9F7; --ink2:#EEF3F0;
+    --glass:rgba(30,58,138,.06);
+    --line:rgba(201,214,207,.95); --line-2:rgba(30,58,138,.28);
+    --gold:#1E3A8A; --gold-hi:#172E5C; --gold-deep:#1E40AF;
+    --cream:#1F2A2E; --mist:#3D4A4F;
+    --blue:#1E40AF; --green:#1E3A8A; --rose:#C2314B;
+    --teal:#1E3A8A; --teal-hi:#1D3B6F;
+    --shadow:0 14px 36px rgba(23,46,92,.12);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(30,58,138,.07), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,59,111,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .btn.primary{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 22px rgba(30,58,138,.28)}
+  html[data-theme="light"] .btn.primary:hover{filter:brightness(1.05)}
+  html[data-theme="light"] .lang-b.on{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+  html[data-theme="light"] .option{background:#EEF3F0;border-color:#C9D6CF}
+  html[data-theme="light"] .option:hover{background:#E4EDE8;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;border-color:transparent}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#F6F9F7,#F2F6F4);border-color:#C9D6CF}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#F6F9F7,#EEF3F0)}
+  html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
+  html[data-theme="light"] .dot{background:rgba(31,42,46,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(30,58,138,.16);color:#1E3A8A}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;color:#1E3A8A}
+  html[data-theme="light"] .badge.ok{background:rgba(30,58,138,.14);color:#1E3A8A}
+  html[data-theme="light"] .badge.skip{background:rgba(31,42,46,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--teal) 0deg,var(--teal) var(--scoreDeg),rgba(31,42,46,.08) var(--scoreDeg),rgba(31,42,46,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(30,58,138,.1),0 15px 38px rgba(23,46,92,.16)}
+  html[data-theme="light"] .timer{background:rgba(30,58,138,.1);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .qno{color:#1E3A8A}
+  html[data-theme="light"] .pill{color:#1E3A8A;border-color:rgba(30,58,138,.35);background:#E3EAF6}
+  html[data-theme="light"] .btn.secondary{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
+  html[data-theme="light"] .stmt-item{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .stmt-item .tag{color:#1E3A8A}
+  html[data-theme="light"] .ar-block{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .ar-block .ar-lab{background:rgba(30,58,138,.12);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .match-col{background:#F6F9F7;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col h4{background:rgba(30,58,138,.1);color:#1E3A8A;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col .mi .mk{color:#1E3A8A}
+  html[data-theme="light"] .code-line{color:#1E3A8A}
+  html[data-theme="light"] .code-map .cm{background:rgba(30,58,138,.08);border-color:#C9D6CF}
+  html[data-theme="light"] .code-map .cm b{color:#1E3A8A}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,#E3EAF6,rgba(30,58,138,.08));color:#172E5C;border-color:rgba(30,58,138,.35)}
+
+  html[data-theme="light"] .topbar{
+    background:linear-gradient(180deg,#1E3A8A 0%,#1D3B6F 100%);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 6px 18px rgba(23,46,92,.2);
+  }
+  html[data-theme="light"] .topbar .logo,
+  html[data-theme="light"] .topbar .brand,
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .topbar .brand h1,
+  html[data-theme="light"] .topbar h1{color:#F6F9F7 !important}
+  html[data-theme="light"] .topbar .brand p{color:#B8CDF7 !important}
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6 !important;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#E3EAF6;border-color:rgba(255,255,255,.35)}
+
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"uppcs-pre-pyq-environment-ecology-B","title":"UPPCS Prelims PYQ — Environment & Ecology (Part B)","shortTitle":"Environment & Ecology (Part B)","subtitle":"UPPCS Prelims · 2018–2025 · पर्यावरण एवं पारिस्थितिकी (भाग B)","tag":"UPPCS Pre PYQ","description":"UPPCS Prelims PYQs (2018–2025) — Environment & Ecology (Part B). Each question shows the exam/year badge. Items with official (*) key are left unscored.","durationMinutes":49,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : उष्णकटिबंधीय देशों में तितलियों की प्रजातियां सर्वाधिक संख्या में पाई जाती हैं। कारण (R) : तितलियां कम तापमान में नहीं रह सकती हैं। नीचे दिए कूटों में से सही उत्तर का चयन कीजिए - कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): Tropical countries in Titaliyon of species highest number in Paee goes are. Reason (R): Titaliyan less temperature in not remain can are. Select the correct answer from the codes given below - Code","options":[{"hi":"(A) तथा (R) दोनों सही हैं तथा (R) कथन (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R) statement (A) of correct Explanation is."},{"hi":"(A) तथा (R) दोनों सही हैं, परंतु (R) कथन (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R) statement (A) of correct Explanation not is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":0,"answer_note":"","explanation_hi":"तितलियां अनियततापी प्राणी (Cold-blooded) हैं, इसलिए इनके रहने के लिए उष्ण एवं गर्म जलवायु वाला क्षेत्र सर्वश्रेष्ठ स्थान माना जाता है। यही कारण है कि तितलियों की सर्वाधिक प्रजातियां उष्णकटिबंधीय देशों में पाई जाती हैं। तितलियां अपने शरीर के तापमान को विनियमित करने में सक्षम नहीं होतीं। परिणामस्वरूप इनके शरीर का तापमान आस-पास के तापमान के अनुसार बदलता रहता है। बहुत कम तापमान होने की स्थिति में यह उड़ान नहीं भर सकतीं।","explanation_en":"Titaliyan Aniyatatapi Prani (Cold-blooded) are, therefore their remaining for tropical and warm climate having region Sarvashreshtha place is considered. Yahi Reason is that Titaliyon of highest species Tropical countries in Paee goes are. Titaliyan its own body of temperature to Viniyamit doing in Saksham not Hotin. Parinamasvarup their body of temperature As-near of temperature according to Badalata remains is. very less temperature being of status in this Uran not Bhar Sakatin.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":1},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"पारिस्थितिक तंत्र में एक पोषी स्तर से दूसरे पोषी स्तर में स्थानांतरण से ऊर्जा की मात्रा","question_en":"Ecosystem in one Poshi level from second Poshi level in Sthanantaran from energy of quantity","options":[{"hi":"बढ़ती है।","en":"Increasing is."},{"hi":"घटती है।","en":"Decreasing is."},{"hi":"स्थिर रहती है।","en":"Stable remains is."},{"hi":"बढ़ सकती है या घट सकती है।","en":"Increase can is or Ghat can is."}],"answer":1,"answer_note":"","explanation_hi":"पारिस्थितिक तंत्र में ऊर्जा का प्रवाह अजैविक प्रणाली से जैविक प्रणाली की दिशा में होता है। ऊष्मागतिकी के दूसरे नियम के अनुसार, जब ऊर्जा एक पोषण स्तर से अन्य स्तर में स्थान परिवर्तन करती है, तब उसका कुछ ह्रस (घटती) होता है, अर्थात हर पोषण स्तर पर उपलब्ध ऊर्जा की मात्रा घटती जाती है।","explanation_en":"Ecosystem in energy of flow Ajaivik system from biological system of direction in occurs. Ooshmagatiki of second Rule according to, when energy one nutrition level from other level in place change did is, then its some Hras (decreasing) occurs, i.e. every nutrition level at available energy of quantity decreasing goes is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":2},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में से कौन-सा जैविक नाइट्रोजन निर्धारण से संबंधित है?","question_en":"Which of the following is biological nitrogen determination from related?","options":[{"hi":"लाल शैवाल","en":"Red algae"},{"hi":"भूरा शैवाल","en":"Bhura algae"},{"hi":"हरा शैवाल","en":"Hara algae"},{"hi":"नीला-हरा शैवाल","en":"Nila-Hara algae"}],"answer":3,"answer_note":"","explanation_hi":"नील हरित शैवाल जलीय पौधों का एक ऐसा समूह होता है, जिसे साइनो बैक्टीरिया भी कहा जाता है, यह एककोशिकीय जीवाणु है। इस जीवाणु को धान की फसल के लिए वायुमंडलीय नाइट्रोजन को भूमि में संस्थापित कराने के उद्देश्य से उपयोग में लाया जाता है। नील हरित शैवाल प्रकाश संश्लेषण से ऊर्जा ग्रहण करके वायुमंडलीय नाइट्रोजन का भूमि में स्थिरीकरण करता है।","explanation_en":"Nil Harit algae aquatic plants of one such group occurs, which Saino Baiktiriya also is called, this Ekakoshikiy bacteria is. this bacteria to paddy of crop for atmospheric nitrogen to land in Sansthapit Karane of objective from use in Laya goes is. Nil Harit algae Photosynthesis from energy acceptance by doing atmospheric nitrogen of land in stabilization does is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":3},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"धुआं (स्मॉग) आवश्यक रूप से वायुमंडल में निम्नलिखित की उपस्थिति के कारण होता है","question_en":"Dhuan (Smog) necessary form from atmosphere in following of Upasthiti due to occurs","options":[{"hi":"ऑक्सीजन तथा ओजोन","en":"Oxygen and ozone"},{"hi":"ओजोन तथा नाइट्रोजन","en":"Ozone and nitrogen"},{"hi":"ऑक्सीजन तथा नाइट्रोजन","en":"Oxygen and nitrogen"},{"hi":"नाइट्रोजन तथा सल्फर के ऑक्साइड","en":"Nitrogen and sulfur of oxide"}],"answer":3,"answer_note":"","explanation_hi":"स्मॉग (Smog) शब्द धुआं (Smoke) और कोहरे (Fog) से मिलकर बना है, जिसे धूम्र-कोहरा कहा जाता है। यह गहन वायु प्रदूषण का एक प्रकार है। धूम्र-कोहरा या स्मॉग एक प्रकार का दृश्य वायु प्रदूषण है, जो कि वायुमंडल में नाइट्रोजन और सल्फर के ऑक्साइडों, ओजोन, धुएं और अन्य निलंबित कणों का संघटित रूप होता है। मानव-जनित स्मॉग कोयला दहन उत्सर्जनों, वाहन उत्सर्जनों, औद्योगिक उत्सर्जनों, वनों की आग, कृषि अवशेषों (पराली आदि) को जलाने तथा इन उत्सर्जनों की प्रकाश-रासायनिक अभिक्रियाओं के कारण उत्पन्न होता है।","explanation_en":"Smog (Smog) term Dhuan (Smoke) and Kohare (Fog) from together became is, which Dhumra-Kohara is called. this Gahan air pollution of one type is. Dhumra-Kohara or Smog one type of Drishya air pollution is, which that atmosphere in nitrogen and sulfur of oxides, ozone, Dhuen and other Nilambit particles of Sanghatit form occurs. human-Janit Smog coal Dahan emissions, Vahan emissions, industrial emissions, forests of Ag, agriculture remainss (stubble etc.) to Jalane and these emissions of light-chemical Abhikriyaon due to generated occurs.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":4},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित क्षेत्रों में से किसमें दुर्लभ उपलब्धि के लिए ‘वैश्विक - 500’ पुरस्कार दिया जाता है?","question_en":"Following regions in from in which Durlabh Upalabdhi for ‘Global - 500’ award given goes is?","options":[{"hi":"जीन संरक्षण","en":"Jin conservation"},{"hi":"पर्यावरण संरक्षण","en":"Environment conservation"},{"hi":"जनसंख्या नियंत्रण","en":"Population control"},{"hi":"प्रदूषण नियंत्रण","en":"Pollution control"}],"answer":1,"answer_note":"","explanation_hi":"ग्लोबल-500 पुरस्कार पर्यावरण संरक्षण हेतु किए गए उत्कृष्ट कार्यों के लिए प्रदान किया जाता है। यह पुरस्कार संयुक्त राष्ट्र पर्यावरण कार्यक्रम (UNEP) द्वारा वर्ष 1987 में प्रारंभ किया गया था।","explanation_en":"Global-500 award environment conservation for were done Utkrishta functions for provided is done. this award United Nations Environment Programme (UNEP) (UNEP) by year 1987 in started was done was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":5},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"भारत में सबसे अधिक जैवविविधता संपन्न क्षेत्र है","question_en":"India in most more Jaivavividhata held region is","options":[{"hi":"गंगा का मैदान","en":"Ganga of plain"},{"hi":"ट्रांस हिमालय","en":"Trans Himalaya"},{"hi":"पश्चिमी घाट","en":"Western Ghats"},{"hi":"मध्य भारत","en":"Central India"}],"answer":2,"answer_note":"","explanation_hi":"जैव विविधता हॉटस्पॉट (Hotspot) केवल उष्णकटिबंधीय प्रदेशों में ही नहीं बल्कि उच्च अक्षांशीय प्रदेशों में भी पाए जाते हैं। जैव विविधता के संदर्भ में भारत में पूर्वी हिमालय (हिमालय हॉटस्पॉट का भाग), पश्चिमी घाट (पश्चिमी घाट तथा श्री लंका हॉटस्पॉट का भाग), अधिकांश पूर्वोत्तर भारत तथा अंडमान द्वीपसमूह (इंडो-बर्मा हॉटस्पॉट का भाग) तथा निकोबार द्वीपसमूह (सुंडालैंड हॉटस्पॉट का भाग)।","explanation_en":"Biodiversity Hotaspot (Hotspot) only Tropical States in only not rather high latitudinal States in also are found. Biodiversity with reference to India in Eastern Himalaya (Himalaya Hotaspot of part), Western Ghats (Western Ghats and Shri Lanka Hotaspot of part), most North-East India and Andaman islands (Indo-Barma Hotaspot of part) and Nikobar islands (Sundalaind Hotaspot of part).","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":6},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में से कौन-सा भारत में सतत विकास लक्ष्यों के कार्यान्वयन के लिए एक नोडल संस्था है?","question_en":"Which of the following is India in Sustainable Development Goals (SDGs)s of Karyanvayan for one Nodal Institution?","options":[{"hi":"योजना आयोग","en":"Planning Commission"},{"hi":"विनिवेश आयोग","en":"Vinivesh Commission"},{"hi":"नीति आयोग","en":"NITI Aayog"},{"hi":"वित्त आयोग","en":"Finance Commission"}],"answer":2,"answer_note":"","explanation_hi":"भारत में सतत विकास लक्ष्यों (एजेंडा 2030) के समन्वय एवं कार्यान्वयन हेतु नोडल संस्था नीति (NITI) आयोग है।","explanation_en":"India in Sustainable Development Goals (SDGs)s (Ejenda 2030) of Samanvay and Karyanvayan for Nodal Institution policy (NITI) Commission is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":7},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में से कौन-सा सतत विकास लक्ष्य (SDG) भारत में 2030 तक सभी के लिए पानी की उपलब्धता और इसके स्थायी प्रबंधन को लक्षित करेगा?","question_en":"Following in from which-which Sustainable Development Goals (SDGs) (SDG) India in 2030 up to all for water of availability and its Sthayi management to Lakshit will do?","options":[{"hi":"एसडीजी - 6","en":"Esadiji - 6"},{"hi":"एसडीजी - 7","en":"Esadiji - 7"},{"hi":"एसडीजी - 8","en":"Esadiji - 8"},{"hi":"एसडीजी - 9","en":"Esadiji - 9"}],"answer":0,"answer_note":"","explanation_hi":"सतत विकास लक्ष्यों ने अंतरराष्ट्रीय समुदाय को इस बात के लिए संकल्पित कर दिया है कि वह जल एवं स्वच्छता से संबद्ध गतिविधियों के बारे में अंतरराष्ट्रीय सहयोग और कार्यक्रमों का विस्तार करे और जल एवं स्वच्छता प्रबंधन में सुधार के लिए स्थानीय समुदायों को समर्थन दे। लक्ष्य 6 के माध्यम से दुनिया के देशों ने संकल्प लिया है कि अगले 15 वर्षों में सुरक्षित पेयजल, पर्याप्त स्वच्छता और साफ-सफाई की सुविधा सबके लिए सर्वत्र सुलभ कराएंगे। सतत विकास लक्ष्य-6 वर्ष 2030 तक ‘सभी के लिए जल एवं स्वच्छता की उपलब्धता तथा सतत प्रबंधन’ को सुनिश्चित करता है।","explanation_en":"Sustainable Development Goals (SDGs)s International community to this Bat for Sankalpit tax given is that that water and sanitation from associated activities of about in International cooperation and programmes of expansion Kare and water and sanitation management in reform for local communitys to support De. target 6 through world of countries Sankalpa taken is that Agale 15 years in protected drinking water, sufficient sanitation and Saph-Saphaee of Suvidha Sabake for Sarvatra Sulabh Karaenge. Sustainable Development Goals (SDGs) -6 year 2030 up to ‘all for water and sanitation of availability and sustainable management’ to ensured does is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":8},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"‘संवृद्धि की सीमा’ की अवधारणा का प्रतिपादन किसके द्वारा किया गया था?","question_en":"‘growth of border’ of concept of Pratipadan by whom by was done was?","options":[{"hi":"क्लब ऑफ रोम","en":"Klab of Rom"},{"hi":"यूनेस्को","en":"Yunesko"},{"hi":"ब्रंटलैंड आयोग","en":"Brantalaind Commission"},{"hi":"एजेंडा 21","en":"Agenda 21"}],"answer":0,"answer_note":"","explanation_hi":"अप्रैल, 1968 में दस देशों के तीस व्यक्तियों का एक समूह जिसमें वैज्ञानिक, शिक्षक, अर्थशास्त्री, मानवतावादी, प्रशासक आदि शामिल थे, की रोम के ‘एकेडमिया डी लिन्सी’ (Accademia Dei Linci) में एक बैठक हुई। इस बैठक से ही क्लब ऑफ रोम (Club of Rome) का विकास हुआ। इसी क्लब ऑफ रोम के द्वारा ही ‘द लिमिट्स टू ग्रोथ’ (The Limits to Growth) का प्रतिपादन किया गया।","explanation_en":"April, 1968 in ten countries of Tis persons of one group in which scientist, Shikshak, economist, Manavatavadi, Prashasak etc. included were, of Rom of ‘Ekedamiya D Linsi’ (Accademia Dei Linci) in one Meeting occurred. this Meeting from only Klab of Rom (Club of Rome) of development occurred. this very Klab of Rom by only ‘the Limitsa to Groth’ (The Limits to Growth) of Pratipadan was done.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":9},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"भारत द्वारा भूमि क्षरण तटस्थता प्राप्त करने का लक्ष्य रखा गया है","question_en":"India by land depletion Tatasthata obtained doing of target kept was is","options":[{"hi":"2025 तक","en":"2025 up to"},{"hi":"2030 तक","en":"2030 up to"},{"hi":"2035 तक","en":"2035 up to"},{"hi":"2040 तक","en":"2040 up to"}],"answer":1,"answer_note":"","explanation_hi":"मरुस्थलीकरण से निपटने के लिए संयुक्त राष्ट्र अभिसमय का 12 दिवसीय 14वां कॉप (CoP-14) सम्मेलन नई दिल्ली में 02-13 सितंबर, 2019 के मध्य आयोजित हुआ। सम्मेलन में सदस्य देशों ने वर्ष 2030 तक भूमि क्षरण तटस्थता का लक्ष्य निर्धारित किया।","explanation_en":"Marusthalikaran from Nipatane for joint nation Abhisamay of 12 day 14th Kop (CoP-14) Conference new Delhi in 02-13 September, 2019 between held occurred. Conference in Member countries year 2030 up to land depletion Tatasthata of target prescribed done.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":10},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"इंडिया-स्टेट ऑफ फॉरेस्ट रिपोर्ट, 2017 के अनुसार, देश के कुल भौगोलिक क्षेत्रफल का कितना प्रतिशतांश वनों के अंतर्गत है?","question_en":"India-Stet of Phoresta report, 2017 according to, country of total Geographical area of Kitana Pratishatansh forests under is?","options":[{"hi":"20.34","en":"20.34"},{"hi":"22.34","en":"22.34"},{"hi":"21.54","en":"21.54"},{"hi":"23.54","en":"23.54"}],"answer":2,"answer_note":"","explanation_hi":"12 फरवरी, 2018 को 15वीं भारत वन स्थिति रिपोर्ट, 2017 जारी की गई। इस रिपोर्ट के अनुसार, देश में कुल वनावरण (Forest Cover) 70.83 मिलियन हेक्टेयर (708,273 वर्ग किमी.) है, जो देश के कुल भौगोलिक क्षेत्र का 21.54 प्रतिशत है। 18वीं भारत वन स्थिति रिपोर्ट, 2023 के अनुसार, देश में कुल वनावरण 715342.61 वर्ग किमी. है, जो देश के कुल भौगोलिक क्षेत्रफल का 21.76 प्रतिशत है।","explanation_en":"12 February, 2018 to 15th India forest status report, 2017 released was done. this report according to, country in total forest cover (Forest Cover) 70.83 million hectare (708,273 class km.) is, which country of total Geographical region of 21.54 percent (%) is. 18th India forest status report, 2023 according to, country in total forest cover 715342.61 class km. is, which country of total Geographical area of 21.76 percent (%) is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":11},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"भारत में बाघ परियोजना कब शुरू की गई?","question_en":"India in tiger project when started was done?","options":[{"hi":"1968 में","en":"1968 in"},{"hi":"1972 में","en":"1972 in"},{"hi":"1984 में","en":"1984 in"},{"hi":"1993 में","en":"1993 in"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] निर्दिष्ट बाघ अभयारण्यों में जंगली बाघों के संरक्षण के उद्देश्य से बाघ परियोजना 1 अप्रैल, 1973 को लांच की गई थी। उत्तर प्रदेश लोक सेवा आयोग ने इस प्रश्न को मूल्यांकन से बाहर कर दिया है।","explanation_en":"[Note: original Question in answer (*) marked is] Nirdishta tiger sanctuarys in Jangali tigers of conservation of objective from tiger project 1 April, 1973 to launched was done was. Uttar Pradesh Public Service Commission this Question to evaluation from outside tax given is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":12},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में कौन मानव जनित जीवोम का एक उदाहरण है?","question_en":"Following in which human Janit Jivom of one example is?","options":[{"hi":"जलतंत्र","en":"Jalatantra"},{"hi":"घास का मैदान","en":"Grassland of plain"},{"hi":"वर्षा वन","en":"Rainfall forest"},{"hi":"फसली भूमि","en":"Phasali land"}],"answer":3,"answer_note":"","explanation_hi":"जलतंत्र, घास का मैदान और वर्षा वन प्राकृतिक जीवोम के उदाहरण हैं, जबकि फसली भूमि मानव जनित जीवोम (Biome) का उदाहरण है।","explanation_en":"Jalatantra, grassland of plain and rainfall forest natural Jivom of example are, whereas Phasali land human Janit Jivom (Biome) of example is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":13},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में कौन-सा जानवर बिना पानी पिए सबसे लंबी अवधि तक रह सकता है?","question_en":"Following in which-which animal without water Pie most long period up to remain can is?","options":[{"hi":"जिराफ","en":"Jiraph"},{"hi":"ऊंट","en":"Oont"},{"hi":"कंगारू","en":"Kangaru"},{"hi":"कंगारू चूहा","en":"Kangaru Chuha"}],"answer":3,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों में कंगारू चूहा (Kangaroo rat) बिना पानी पिए सबसे लंबी अवधि तक जीवित रह सकता है। उसमें यह अनुकूलता उसके उत्सर्जन तंत्र (वृक्क) की विशेष संरचना व कार्यप्रणाली के कारण होता है।","explanation_en":"Given options in Kangaru Chuha (Kangaroo rat) without water Pie most long period up to Jivit remain can is. Usamen this Anukulata its emission system (Vrikka) of special structure and Karyapranali due to occurs.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":14},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"भारत का प्रथम नेशनल सेंटर फॉर मरीन बायोडाइवर्सि टी (एन.सी.एम.बी.) किस शहर में स्थित है?","question_en":"India of first National Sentar for Marin Bayodaivarsi T (N.C.M.B.) which city in is located?","options":[{"hi":"भावनगर में","en":"Bhavanagar in"},{"hi":"जामनगर में","en":"Jamanagar in"},{"hi":"मुंबई में","en":"Mumbai in"},{"hi":"पुडुचेरी में","en":"Puducherry in"}],"answer":1,"answer_note":"","explanation_hi":"भारत का प्रथम नेशनल सेंटर फॉर मरीन बायोडाइवर्सिटी (एन.सी.एम.बी.) गुजरात प्रांत के जामनगर में स्थित है। इस केंद्र (Centre) का उद्देश्य समुद्रतटीय क्षेत्र में स्थित जैव-विविधता की सुरक्षा करना है। यह सार्वजनिक एवं निजी क्षेत्र (पीपीपी) की भागीदारी से गठित होने वाला भारत का पहला अनुसंधान संस्थान है। गौरतलब है कि जामनगर के निकट स्थित समुद्री राष्ट्रीय उद्यान (Marine National Park), कच्छ की खाड़ी में स्थित है।","explanation_en":"India of first National Sentar for Marin Bayodaivarsiti (N.C.M.B.) Gujarat Province of Jamanagar in is located. this centre (Centre) of objective Samudratatiy region in located bio-diversity of security to do is. this public and private region (Pipipi) of participation from constituted being having India of first research Institute is. notably is that Jamanagar of near located marine National Park (Marine National Park), Kachchha of bay in is located.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":15},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"डाचिगम राष्ट्रीय उद्यान निम्नलिखित में से किससे संबंधित है?","question_en":"Dachigam National Park following in from Kisase is related?","options":[{"hi":"कस्तूरी मृग","en":"Kasturi Mrig"},{"hi":"गोल्डेन ओरियोल","en":"Golden Oriyol"},{"hi":"येलो-थ्रोटेड मार्टन","en":"Yelo-Throted Martan"},{"hi":"हंगुल या कश्मीर स्टैग","en":"Hangul or Kashmir Staig"}],"answer":3,"answer_note":"","explanation_hi":"डाचिगम राष्ट्रीय उद्यान की स्थापना वर्ष 1981 में हुई थी। यह उद्यान जम्मू एवं कश्मीर में स्थित है। यूं तो कस्तूरी मृग, गोल्डेन ओरियोल तथा येलो-थ्रोटेड मार्टन तीनों ही डाचिगम राष्ट्रीय उद्यान में पाए जाते हैं, लेकिन डाचिगम राष्ट्रीय उद्यान मुख्य रूप से हंगुल या कश्मीर स्टैग के लिए प्रसिद्ध है। हंगुल, लाल हिरण (Red Deer) की एक उप-प्रजाति है, जो केवल कश्मीर में पाई जाती है।","explanation_en":"Dachigam National Park of establishment year 1981 in took place. this park Jammu and Kashmir in is located. Yun then Kasturi Mrig, Golden Oriyol and Yelo-Throted Martan threes only Dachigam National Park in are found, but Dachigam National Park main form from Hangul or Kashmir Staig for famous is. Hangul, red Hiran (Red Deer) of one sub--species is, which only Kashmir in is found.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":16},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"विश्व जैव-विविधता दिवस कब मनाया जाता है?","question_en":"World bio-diversity Day when is celebrated?","options":[{"hi":"मार्च, 22","en":"March, 22"},{"hi":"मई, 22","en":"May, 22"},{"hi":"जून, 23","en":"June, 23"},{"hi":"अप्रैल, 16","en":"April, 16"}],"answer":1,"answer_note":"","explanation_hi":"जैव-विविधता संबंधी मुद्दों पर जागरूकता एवं समझ को बढ़ाने के उद्देश्य से संयुक्त राष्ट्र ने 22 मई को अंतरराष्ट्रीय जैव-विविधता दिवस घोषित किया है।","explanation_en":"Bio-diversity related to issues at Jagarukata and understanding to Barhane of objective from joint nation 22 May to International bio-diversity Day declared done is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":17},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्न में से किसमें ओजोन की सर्वाधिक सांद्रता मिलती है?","question_en":"Low in from in which ozone of highest concentration is found?","options":[{"hi":"ट्रोपोस्फीयर में","en":"Troposphiyar in"},{"hi":"मेसोस्फीयर में","en":"Mesosphiyar in"},{"hi":"स्ट्रैटोस्फीयर में","en":"Straitosphiyar in"},{"hi":"एक्सोस्फीयर में","en":"Eksosphiyar in"}],"answer":2,"answer_note":"","explanation_hi":"वायुमंडल की सबसे निचली परत को क्षोभमंडल या ट्रोपोस्फीयर कहा जाता है। इसके ऊपर क्रमश: स्ट्रैटोस्फीयर (समतापमंडल), मेसोस्फीयर (मध्यमंडल) तथा एक्सोस्फीयर (बहिर्मंडल) आते हैं। ओजोन की सर्वाधिक सांद्रता स्ट्रैटोस्फीयर (समतापमंडल) में मिलती है।","explanation_en":"Atmosphere of most Nichali layer to Troposphere or Troposphiyar is called. its above respectively: Straitosphiyar (Stratosphere), Mesosphiyar (Madhyamandal) and Eksosphiyar (Bahirmandal) Ate are. ozone of highest concentration Straitosphiyar (Stratosphere) in is found.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":18},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"वैश्विक ऊष्मन के फलस्वरूप निम्नलिखित में किसकी बारंबारता और प्रचंडता बढ़ रही है?","question_en":"Global Ooshman as a result of following in whose Barambarata and Prachandata increase remained is?","options":[{"hi":"केवल चक्रवात की","en":"Only cyclone of"},{"hi":"केवल तूफान की","en":"Only storm of"},{"hi":"केवल बवंडर की","en":"Only Bavandar of"},{"hi":"उपर्युक्त सभी की","en":"All of the above of"}],"answer":3,"answer_note":"","explanation_hi":"वैश्विक ऊष्मन पृथ्वी पर जीवन के समक्ष सबसे गंभीर चुनौती है। IPCC के अनुसार, वैश्विक ऊष्मन से ग्लेशियर के पिघलने की दर बढ़ेगी, समुद्री जल स्तर में वृद्धि होगी, सूखा और बाढ़ की बारंबारता एवं तीव्रता में वृद्धि होगी, चक्रवात, तूफान, बवंडर आदि की बारंबारता एवं तीव्रता में वृद्धि होगी।","explanation_en":"Global Ooshman Earth at life of before most Gambhir challenge is. IPCC according to, Global Ooshman from glacier of Pighalane of rate Barhegi, marine water level in growth will be, Sukha and Barh of Barambarata and Tivrata in growth will be, cyclone, storm, Bavandar etc. of Barambarata and Tivrata in growth will be.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":19},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में कौन स्व-वासन संरक्षण रणनीति का उदाहरण नहीं है?","question_en":"Following in which Sva-Vasan conservation strategy of example not is?","options":[{"hi":"जैवमंडल आगार","en":"Jaivamandal Agar"},{"hi":"वनस्पतिक बाग","en":"Vanaspatik Bag"},{"hi":"राष्ट्रीय उद्यान","en":"National Park"},{"hi":"पवित्र उपवन","en":"Pavitra Upavan"}],"answer":1,"answer_note":"","explanation_hi":"जीवों का उनके प्राकृतिक आवास में संरक्षण ‘स्व-वासन’ (in-situ) संरक्षण कहलाता है। जीन बैंक, ऊतक संवर्धन केंद्र, वनस्पतिक उद्यान, चिड़िया घर, एक्वेरियम आदि बाह्य-वासन (Ex- situ) कहलाते हैं।","explanation_en":"Organisms of their natural housing in conservation ‘Sva-Vasan’ (in-situ) conservation is called is. Jin Bank, Ootak promotion centre, Vanaspatik park, Chiriya Ghar, Ekveriyam etc. Bahya-Vasan (Ex- situ) Kahalate are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":20},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"सूर्य के प्रकाश से पराबैंगनी विकिरण अभिक्रिया निम्न में से क्या पैदा करती है?","question_en":"Sun of light from ultraviolet (UV) radiation Abhikriya low in from what Paida did is?","options":[{"hi":"कार्बन मोनोक्साइड","en":"Carbon Monoksaid"},{"hi":"सल्फर डाइऑक्साइड","en":"Sulfur dioxide"},{"hi":"ओजोन","en":"Ozone"},{"hi":"फ्लोराइड्स","en":"Phloraidsa"}],"answer":2,"answer_note":"","explanation_hi":"समतापमंडल (Stratosphere) में ओजोन का निर्माण मुख्यत: पराबैंगनी विकिरण (Ultraviolet Radiation) द्वारा होता है। यह संपूर्ण क्रिया दो चरणों में संपन्न होती है। पहले चरण के अंतर्गत सूर्य के प्रकाश में उपस्थित उच्च ऊर्जा युक्त किरणें ऑक्सीजन अणु (O2) पर प्रहार कर उसे दो परमाणुओं में तोड़ती हैं। दूसरे चरण में प्रत्येक ऑक्सीजन परमाणु, ऑक्सीजन अणु से क्रिया करके ओजोन (O3) का निर्माण करता है। यह क्रिया निरंतर तब तक चलती रहती है, जब तक समतापमंडल में पराबैंगनी किरणें उपस्थित रहती हैं।","explanation_en":"Stratosphere (Stratosphere) in ozone of construction mainly: ultraviolet (UV) radiation (Ultraviolet Radiation) by occurs. this entire action two phases in held occurs. before phase under Sun of light in present high energy equipped with rays oxygen molecule (O2) at Prahar tax it two Paramanuon in Torati are. second phase in each oxygen atomic, oxygen molecule from action by doing ozone (O3) of construction does is. this action Nirantar then up to Chalati remains is, when up to Stratosphere in ultraviolet (UV) rays present remains are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":21},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित युग्मों में कौन सही सुमेलित नहीं है?","question_en":"Which of the following pairs is NOT correctly matched?","options":[{"hi":"रेनेटिंग - पनीर","en":"Reneting - Panir"},{"hi":"जैव-प्रौद्योगिकी - प्लास्मिड्स","en":"Bio-technology - Plasmidsa"},{"hi":"गोल्डेन चावल - विटामिन A","en":"Golden rice - vitamin A"},{"hi":"ओजोन परत - ट्रोपोस्फीयर","en":"Ozone Layer - Troposphiyar"}],"answer":3,"answer_note":"","explanation_hi":"ओजोन परत मुख्यत: स्ट्रैटोस्फीयर (समतापमंडल) के निचले हिस्से में पृथ्वी से लगभग 15-50 किमी. की ऊंचाई पर अवस्थित रहती है। स्पष्ट है कि युग्म (d) सही सुमेलित नहीं है।","explanation_en":"Ozone Layer mainly: Straitosphiyar (Stratosphere) of Nichale parts in Earth from approximately 15-50 km. of altitude at situated remains is. clear is that pair (d) correct matched not is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":22},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित युग्मों में कौन सही सुमेलित नहीं है?","question_en":"Which of the following pairs is NOT correctly matched?","options":[{"hi":"बांदीपुर राष्ट्रीय उद्यान - कर्नाटक","en":"Bandipur National Park - Karnataka"},{"hi":"मानस वन्यजीव अभयारण्य - असम","en":"Manas Wildlife Sanctuary - Assam"},{"hi":"पेरियार वन्यजीव अभयारण्य - केरल","en":"Periyar Wildlife Sanctuary - Kerala"},{"hi":"सिमलीपाल राष्ट्रीय उद्यान - मध्य प्रदेश","en":"Simalipal National Park - Madhya Pradesh"}],"answer":3,"answer_note":"","explanation_hi":"सिमलीपाल राष्ट्रीय उद्यान की स्थापना वर्ष 1980 में हुई थी। यह ओडिशा के मयूरभंज जिले में स्थित है।","explanation_en":"Simalipal National Park of establishment year 1980 in took place. this Odisha of Mayurabhanj district in is located.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":23},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"मीथेन निम्न में से किससे निकलती या उत्सर्जित होती है?","question_en":"Methane low in from Kisase originates or Utsarjit occurs?","options":[{"hi":"केवल - धान के खेतों से","en":"Only - paddy of Kheton from"},{"hi":"केवल दीमक की बाम्बी से","en":"Only Dimak of Bambi from"},{"hi":"(a) और (b) दोनों से","en":"(a) and (b) both from"},{"hi":"उपर्युक्त में किसी से नहीं","en":"Above in any from not"}],"answer":2,"answer_note":"","explanation_hi":"धान के खेत, कोयले की खदानें एवं घरेलू पशु वातावरण में मीथेन उत्सर्जन के मानवीय स्रोत हैं, जबकि आर्द्रभूमि, दीमक, हाइड्रेट्स मीथेन उत्सर्जन के प्राकृतिक स्रोत हैं।","explanation_en":"Paddy of Khet, coal of Khadanen and domestic animal environment in methane emission of Manaviy source are, whereas Wetland, Dimak, Haidretsa methane emission of natural source are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":24},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"जुलाई, 2018 में निम्न में से किसके द्वारा ‘सफर’ (वायु गुणवत्ता एवं मौसम पूर्वानुमान प्रणाली) का उद्घाटन किया गया?","question_en":"July, 2018 in low in from by whom by ‘Saphar’ (air quality and season Purvanuman system) of inauguration was done?","options":[{"hi":"रविशंकर प्रसाद","en":"Ravishankar Prasad"},{"hi":"पीयूष गोयल","en":"Piyush Goyal"},{"hi":"डॉ. हर्षवर्धन","en":"Dr.. Harshavardhan"},{"hi":"उपर्युक्त में कोई नहीं","en":"Above in any not"}],"answer":2,"answer_note":"","explanation_hi":"21 जुलाई, 2018 को तत्कालीन पर्यावरण वन एवं जलवायु परिवर्तन मंत्री डॉ. हर्षवर्धन ने चांदनी चौक (दिल्ली) में एक अत्याधुनिक ‘वायु गुणवत्ता एवं मौसम पूर्वानुमान प्रणाली’ सफर (SAFAR) का अनावरण किया। सफर का पूर्ण रूप है - ‘सिस्टम फॉर एयर क्वालिटी एंड वेदर फोरकास्टिंग’ (System for Air Quality & Weather Forecasting)।","explanation_en":"21 July, 2018 to then environment forest and Climate Change Minister Dr.. Harshavardhan Chandani Chauk (Delhi) in one Atyadhunik ‘air quality and season Purvanuman system’ Saphar (SAFAR) of Anavaran done. Saphar of complete form is - ‘Sistam for Eyar Kvaliti and Vedar Phorakasting’ (System for Air Quality & Weather Forecasting).","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":25},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"‘वर्तमान में जनसंख्या के सुखों का परित्याग किए बिना भविष्य के लिए ऊर्जा तथा अन्य संसाधनों की बचत’ निम्न में से कौन-सी अवधारणा की परिभाषा है?","question_en":"‘present in population of Sukhon of Parityag done without future for energy and other resources of savings’ low in from which-C concept of definition is?","options":[{"hi":"आर्थिक वृद्धि","en":"Economic growth"},{"hi":"आर्थिक विकास","en":"Economic development"},{"hi":"संपोषणीय विकास","en":"Samposhaniy development"},{"hi":"मानव विकास","en":"Human development"}],"answer":2,"answer_note":"","explanation_hi":"संपोषणीय विकास (Sustainable Development) की अवधारणा का वास्तविक रूप से विकास वर्ष 1987 में ‘ब्रंटलैंड आयोग’ की रिपोर्ट ‘हमारा साझा भविष्य’ (Our Common Future) के साथ हुआ। ‘संपोषणीय विकास’ संसाधनों के उपयोग का एक आदर्श मॉडल है, जो यह बताता है कि आर्थिक विकास के साथ-साथ पर्यावरण को भी सुरक्षित रखना है। इसका उद्देश्य है- ‘वर्तमान और भविष्य की पीढ़ियों के लिए प्राकृतिक संसाधनों को सुरक्षित रखते हुए इसका इस प्रकार प्रयोग किया जाए कि प्राकृतिक संसाधनों का क्षरण न्यूनतम हो सके।","explanation_en":"Samposhaniy development (Sustainable Development) of concept of real form from development year 1987 in ‘Brantalaind Commission’ of report ‘Hamara Sajha future’ (Our Common Future) with occurred. ‘Samposhaniy development’ resources of use of one Adarsha model is, which this Batata is that economic development with-with environment to also protected Rakhana is. its objective is- ‘present and future of Pirhiyon for natural resources to protected Rakhate occurred its this type use done be that natural resources of depletion minimum be Sake.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":26},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"‘ग्रीन पीस इंटरनेशनल’ का मुख्यालय स्थित है?","question_en":"‘Grin Pis International’ of headquarters is located?","options":[{"hi":"एम्सटर्डम में","en":"Emsatardam in"},{"hi":"कैनबरा में","en":"Kainabara in"},{"hi":"ओटावा में","en":"Otava in"},{"hi":"नागासाकी में","en":"Nagasaki in"}],"answer":0,"answer_note":"","explanation_hi":"ग्रीन पीस इंटरनेशनल पर्यावरण के क्षेत्र में कार्य करने वाली एक गैर- सरकारी संस्था है। इसका मुख्यालय एम्सटर्डम, नीदरलैंड्स में स्थित है।","explanation_en":"Grin Pis International environment of region in function doing having one non-- government Institution is. its headquarters Emsatardam, Nidaralaindsa in is located.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":27},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में कौन द्वितीयक प्रदूषक है?","question_en":"Following in which secondary pollutant is?","options":[{"hi":"स्मॉग","en":"Smog"},{"hi":"कार्बन डाइऑक्साइड","en":"Carbon dioxide"},{"hi":"कार्बन मोनोऑक्साइड","en":"Carbon monoxide"},{"hi":"फ्लाई ऐश","en":"Phlaee Aish"}],"answer":0,"answer_note":"","explanation_hi":"वे वायु प्रदूषक, जो प्रदूषक स्रोत से सीधे वायु में मिलते हैं, प्राथमिक प्रदूषक कहलाते हैं। जैसे- कार्बन मोनोऑक्साइड, कार्बन डाइऑक्साइड तथा सल्फर डाइऑक्साइड। ऐसे वायु प्रदूषक, जो प्राथमिक वायु प्रदूषकों तथा साधारण वातावरणीय पदार्थों की क्रिया के फलस्वरूप उत्पन्न होते हैं, द्वितीयक वायु प्रदूषक कहलाते हैं। PAN, ओजोन तथा स्मॉग (Smog) द्वितीयक प्रदूषक हैं।","explanation_en":"They air pollutant, which pollutant source from directly air in are found are, primary pollutant Kahalate are. such as- carbon monoxide, carbon dioxide and sulfur dioxide. such air pollutant, which primary air pollutants and simple Vatavaraniy substances of action as a result of generated occur, secondary air pollutant Kahalate are. PAN, ozone and Smog (Smog) secondary pollutant are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":28},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित पारिस्थितिकी तंत्रों में किसमें प्रजातीय विविधता सापेक्षत: काफी अधिक होती है?","question_en":"Following Ecosystems in in which Prajatiy diversity Sapekshat: substantial more occurs?","options":[{"hi":"गहरे समुद्र","en":"Gahare sea"},{"hi":"उष्णकटिबंधीय वर्षा वन","en":"Tropical Rainforest"},{"hi":"कोरल रीफ","en":"Koral Riph"},{"hi":"मरुस्थल","en":"Desert"}],"answer":1,"answer_note":"","explanation_hi":"किसी निश्चित भौगोलिक क्षेत्र में पाए जाने वाले जीवों एवं पादपों की संख्या तथा उनकी विविधता को जैव विविधता कहा जाता है। उष्णकटिबंधीय वर्षा वनों में पृथ्वी के सभी पारिस्थितिक तंत्रों में सर्वाधिक जैव विविधता पाई जाती है। उष्णकटिबंधीय वर्षा वन भूमध्य रेखा के आस-पास विस्तृत हैं। हालांकि अधिकांश लोगों द्वारा माना जाता है कि प्रवाल भित्ति (Coral Reef) में सर्वाधिक जैव विविधता पाई जाती है, क्योंकि प्रवालों की 1,000,000 से भी अधिक प्रजातियां हैं, जिनमें से केवल 10 प्रतिशत प्रजातियों का ही अध्ययन किया जा सका है । प्रवालों को ‘सामुद्रिक वर्षा वन’ भी कहा जाता है।","explanation_en":"Any Nishchit Geographical region in Pae going having organisms and plants of number and their diversity to Biodiversity is called. Tropical Rainforests in Earth of all Ecosystems in highest Biodiversity is found. Tropical Rainforest Equator of As-near detailed are. however most people by is considered that Coral Reef (Coral Reef) in highest Biodiversity is found, because Pravalon of 1,000,000 from also more species are, among which from only 10 percent (%) species of only study done be Saka is. Pravalon to ‘Samudrik rainfall forest’ also is called.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":29},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में कौन सामान्य परिस्थिति में वृक्ष के पत्तों की सरसराहट का डेसीबल स्तर प्रदर्शित करता है?","question_en":"Following in which general Paristhiti in tree of Patton of Sarasarahat of decibel level Pradarshit does is?","options":[{"hi":"10 db","en":"10 db"},{"hi":"20 db","en":"20 db"},{"hi":"60 db","en":"60 db"},{"hi":"100 db","en":"100 db"}],"answer":1,"answer_note":"","explanation_hi":"सामान्य परिस्थिति में वृक्ष के पत्तों की सरसराहट से 20db की ध्वनि उत्पन्न होती है। ध्यातव्य है कि ध्वनि की इकाई डेसीबल (db) है।","explanation_en":"General Paristhiti in tree of Patton of Sarasarahat from 20db of sound generated occurs. notably is that sound of unit decibel (db) is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":30},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"जलवायु परिवर्तन पर संयुक्त राष्ट्र का सम्मेलन CoP21 आयोजित हुआ था?","question_en":"Climate Change at joint nation of Conference CoP21 held took place?","options":[{"hi":"मॉस्को में","en":"Mosko in"},{"hi":"पेरिस में","en":"Peris in"},{"hi":"बर्लिन में","en":"Barlin in"},{"hi":"टोक्यो में","en":"Tokyo in"}],"answer":1,"answer_note":"","explanation_hi":"जलवायु परिवर्तन पर संयुक्त राष्ट्र का सम्मेलन CoP21, 30 नवंबर से 11 दिसंबर, 2015 के मध्य फ्रांस की राजधानी पेरिस में हुआ था। गौरतलब है कि जलवायु परिवर्तन पर संयुक्त राष्ट्र का प्रथम सम्मेलन वर्ष 1992 में ब्राजील के रियो डी जेनेरियो शहर में हुआ था। 11नवंबर से 22 नवंबर, 2024 के मध्य CoP-29 का आयोजन बाकू, अजरबैजान में आयोजित किया गया था।","explanation_en":"Climate Change at joint nation of Conference CoP21, 30 November from 11 December, 2015 between France of capital Peris in took place. notably is that Climate Change at joint nation of first Conference year 1992 in Brazil of Rio D Jeneriyo city in took place. 11Navambar from 22 November, 2024 between CoP-29 of organization Baku, Ajarabaijan in was organized.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":31},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"जलवायु परिवर्तन पर भारत की प्रथम राष्ट्रीय कार्ययोजना कब लोकार्पित की गई थी?","question_en":"Climate Change at India of first National Karyayojana when Lokarpit was done was?","options":[{"hi":"2000 में","en":"2000 in"},{"hi":"2008 में","en":"2008 in"},{"hi":"2012 में","en":"2012 in"},{"hi":"2015 में","en":"2015 in"}],"answer":1,"answer_note":"","explanation_hi":"जलवायु परिवर्तन पर भारत की प्रथम राष्ट्रीय कार्ययोजना 30 जून, 2008 को लोकार्पित की गई। इस कार्ययोजना को जारी करने का उद्देश्य जलवायु परिवर्तन के बढ़ते दुष्प्रभावों को कम करना है। गौरतलब है कि जलवायु परिवर्तन के कारण कृषि, खाद्य सुरक्षा को खतरा पहुंचने के साथ ही समुद्री जल का बढ़ता स्तर, प्राकृतिक आपदाओं की तीव्रता, प्रजातियों का लुप्त होना और वेक्टर जनित बीमारियों की घटनाएं दिनोंदिन बढ़ रही हैं।","explanation_en":"Climate Change at India of first National Karyayojana 30 June, 2008 to Lokarpit was done. this Karyayojana to released doing of objective Climate Change of Barhate Dushprabhavon to less to do is. notably is that Climate Change due to agriculture, food security to threat Pahunchane with only marine water of increasing level, natural Apadaon of Tivrata, species of Lupta to be and Vektar Janit Bimariyon of events Dinondin increase remained are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":32},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"सबसे अधिक स्थिर पारिस्थितिकी तंत्र कौन-सा है?","question_en":"Most more stable Ecosystem which-which is?","options":[{"hi":"सागरीय (महासागर)","en":"Marine (ocean)"},{"hi":"वन","en":"Forest"},{"hi":"पर्वतीय","en":"Mountainous"},{"hi":"मरुस्थलीय","en":"Desert"}],"answer":0,"answer_note":"","explanation_hi":"सागरीय (महासागर) पारिस्थितिकी तंत्र, सबसे अधिक स्थिर पारिस्थितिकी तंत्र है। सागरीय पारिस्थितिकी तंत्र अपनी रासायनिक संरचना के कारण स्थिर रहता है। सागरीय जल खारा (Saline) होने के साथ ही घुलित ऑक्सीजन (Dissolved Oxygen), प्रकाश व तापमान के स्थिर रहने के कारण सबसे स्थिर तंत्र है।","explanation_en":"Marine (ocean) Ecosystem, most more stable Ecosystem is. marine Ecosystem its own chemical structure due to stable remains is. marine water Khara (Saline) being with only dissolved oxygen (Dissolved Oxygen), light and temperature of stable remaining due to most stable system is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":33},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"इंसीनरेटर्स का प्रयोग निम्नलिखित में किसके लिए किया जाता है?","question_en":"Insinaretarsa of use following in by whom for is done?","options":[{"hi":"कूड़ा-कचरा को जलाने के लिए","en":"Kura-waste to Jalane for"},{"hi":"कूड़ा-कचरा को इनमें रखने के लिए","en":"Kura-waste to among these keeping for"},{"hi":"हरे पेड़ों को काटने के लिए","en":"Hare Peron to Katane for"},{"hi":"खाद बनाने के लिए","en":"Khad making for"}],"answer":0,"answer_note":"","explanation_hi":"इंसीनरेशन (Incineration) एक अपशिष्ट उपचार प्रकिया है, जिसके तहत अपशिष्ट पदार्थों के दहन के माध्यम से उनमें शामिल कार्बनिक तत्वों को नष्ट किया जाता है। इस प्रक्रिया हेतु इंसीनरेटर्स का प्रयोग किया जाता है।","explanation_en":"Insinareshan (Incineration) one waste treatment Prakiya is, whose under waste substances of Dahan through Unamen included organic elements to Nashta is done. this process for Insinaretarsa of use is done.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":34},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"‘हरित गृह प्रभाव’ क्या है?","question_en":"‘Harit Home impact’ what is?","options":[{"hi":"वैश्विक ताप में वृद्धि","en":"Global temperature in growth"},{"hi":"वैश्विक ताप में कमी","en":"Global temperature in deficiency"},{"hi":"सागर जल के ताप में वृद्धि","en":"Sea water of temperature in growth"},{"hi":"नदियों एवं झीलों के ताप में वृद्धि","en":"Rivers and lakes of temperature in growth"}],"answer":0,"answer_note":"","explanation_hi":"हरित गृह प्रभाव, वैश्विक तापन में वृद्धि को कहा जाता है। जिस प्रकार से बिना मौसम की खेती के लिए कृत्रिम हरित गृह का निर्माण कर आपेक्षित वातावरण का निर्माण किया जाता है, उसी प्रकार हमारी पृथ्वी को वायुमंडल चारों तरफ से घेर कर रात में पृथ्वी से परावर्तित होने वाली ऊष्मा को रोकता है, जिससे पृथ्वी के दिन-रात का तापांतर अधिक नहीं हो पाता। वायु में प्रदूषकों की वृद्धि पृथ्वी से परावर्तित ऊष्मा को अधिक मात्रा में रोक रहा है, जिससे पृथ्वी के औसत तापमान में वृद्धि हो रही है। इसी को ‘हरित गृह प्रभाव’ कहा जाता है।","explanation_en":"Harit Home impact, Global Warming in growth to is called. Jis type from without season of cultivation for synthetic Harit Home of construction tax Apekshit environment of construction is done, that very type Hamari Earth to atmosphere fours towards from Gher tax Rat in Earth from reflected being having heat to Rokata is, by which Earth of day-Rat of Tapantar more not be Pata. air in pollutants of growth Earth from reflected heat to more quantity in Rok remained is, by which Earth of average temperature in growth be remained is. this very to ‘Harit Home impact’ is called.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":35},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित में कौन प्राकृतिक गैस का मुख्य भाग है?","question_en":"Following in which natural gas of main part is?","options":[{"hi":"इथेन","en":"Ithen"},{"hi":"ब्यूटेन","en":"Butane"},{"hi":"कार्बन मोनोऑक्साइड","en":"Carbon monoxide"},{"hi":"मीथेन","en":"Methane"}],"answer":3,"answer_note":"","explanation_hi":"प्राकृतिक गैस एक रंगहीन, गंधहीन पर्यावरण अनुकूल ऊर्जा स्रोत है। यह कई गैसों का मिश्रण होता है, जिसमें मुख्य रूप से मीथेन शामिल होती है।","explanation_en":"Natural gas one Rangahin, Gandhahin environment favourable energy source is. this many gases of mixture occurs, in which main form from methane included occurs.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":36},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"पशुओं को दिया जाने वाला कौन-सा दर्द निवारक भारत में गिद्धों के लगभग विलुप्त होने के लिए उत्तरदायी है?","question_en":"Pashuon to given going having which-which Darda Nivarak India in Giddhon of approximately Vilupta being for responsible is?","options":[{"hi":"आइबूप्रोफेन","en":"Aibuprophen"},{"hi":"एसिटामिनोफेन","en":"Esitaminophen"},{"hi":"एस्पिरिन","en":"Espirin"},{"hi":"डिक्लोफिनेक","en":"Diklophinek"}],"answer":3,"answer_note":"","explanation_hi":"डिक्लोफिनेक सोडियम एक दर्द-निवारक दवा है, जिसका उपयोग किसानों द्वारा पशुओं के लिए दर्द-निवारक के रूप में किया जाता है। जब इस दवा के उपयोग के दौरान पशु मर जाता है और उसी मरे हुए पशु का मांस गिद्ध खा लेता है, तो उसकी भी मृत्यु हो जाती है।","explanation_en":"Diklophinek sodium one Darda-Nivarak medicine is, whose use farmers by Pashuon for Darda-Nivarak as is done. when this medicine of use during animal Mar goes is and that very Mare occurred animal of Mans Giddha Kha Leta is, then its also death be goes is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":37},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित देशों में कौन-सा 2015 में सर्वाधिक CO2 का उत्सर्जक था?","question_en":"Following countries in which-which 2015 in highest CO2 of Utsarjak was?","options":[{"hi":"चीन","en":"China"},{"hi":"सं.रा. अमेरिका","en":"No..Ra. America"},{"hi":"भारत","en":"India"},{"hi":"फ्रांस","en":"France"}],"answer":0,"answer_note":"","explanation_hi":"वर्ष 2023 में सर्वाधिक CO2 उत्सर्जक शीर्ष 5 देश निम्न हैं- चीन - 33.98 प्रतिशत संयुक्त राज्य अमेरिका - 12.0 प्रतिशत भारत - 7.57 प्रतिशत रूस - 5.3 प्रतिशत जापान - 2.42 प्रतिशत","explanation_en":"Year 2023 in highest CO2 Utsarjak top 5 country low are- China - 33.98 percent (%) United States of America (USA) - 12.0 percent (%) India - 7.57 percent (%) Russia - 5.3 percent (%) Japan - 2.42 percent (%)","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":38},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्न में कौन-से कथन सही हैं? 1. प्राकृतिक आपदाएं सर्वाधिक क्षति विकासशील देशों में करती हैं। 2. भोपाल गैस त्रासदी मानव-निर्मित थी। 3. भारत आपदा - युक्त देश है। 4. मैन्ग्रोव चक्रवातों का प्रभाव कम करते हैं। कूट","question_en":"Low in which-from statement correct are? 1. natural disasters highest Kshati developing countries in did are. 2. Bhopal gas Trasadi human-built was. 3. India disaster - equipped with country is. 4. Maingrov cyclones of impact less did are. Code","options":[{"hi":"1, 2 तथा 3","en":"1, 2 and 3"},{"hi":"2, 3 तथा 4","en":"2, 3 and 4"},{"hi":"1, 2 तथा 4","en":"1, 2 and 4"},{"hi":"1, 3 तथा 4","en":"1, 3 and 4"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] प्राकृतिक आपदाओं के कारण सर्वाधिक क्षति विकासशील देशों में होती है। भोपाल गैस त्रासदी मानवीय चूक का परिणाम थी। गौरतलब है कि 2- 3 दिसंबर, 1984 को भोपाल के यूनियन कार्बाइड इंडिया लिमिटेड के कीटनाशक प्लांट में मिथाइल आइसोसाइनेट (एम. आई. एस.) नामक जहरीली गैस के रिसाव के कारण हजारों लोगों की मृत्यु हो गई थी। मैन्ग्रोव वन अपनी मजबूत और फैली हुई जड़ों के कारण चक्रवातों का प्रभाव कम करते हैं। भारत प्राकृतिक आपदाओं के लिए बेहद संवेदनशील/सुभेद्य देश है। UNDP ने भी भारत को विश्व के 10 सर्वाधिक आपदा प्रवण देशों में से एक घोषित किया है। कथन (3)में उल्लिखित है कि भारत आपदा युक्त देश है, जो कि सत्य प्रतीत होता है। हालांकि इस प्रश्न के अंग्रेजी संस्करण में कथन (3) में उल्लिखित है कि 'India is a disaster free (आपदा मुक्त) country’ जो कि असत्य है। अत: स्पष्ट है कि प्रश्न के अंग्रेजी संस्करण के अनुसार, कथन 1, 2 एवं 4 सही हैं, जबकि कथन (3) असत्य है। तदनुसार, अंग्रेजी संस्करण के अनुसार, विकल्प (c) सही उत्तर है।","explanation_en":"[Note: original Question in answer (*) marked is] natural Apadaon due to highest Kshati developing countries in occurs. Bhopal gas Trasadi Manaviy Chuk of Parinam was. notably is that 2- 3 December, 1984 to Bhopal of Yuniyan Karbaid India Limited of Kitanashak Plant in Mithail Aisosainet (M. I. S.) named Jaharili gas of Risav due to thousands people of death be was was. Maingrov forest its own strong and Phaili occurred Jaron due to cyclones of impact less did are. India natural Apadaon for Behad Sanvedanashil/Subhedya country is. UNDP also India to World of 10 highest disaster Pravan countries in from one declared done is. statement (3)in mentioned is that India disaster equipped with country is, which that true Pratit occurs. however this Question of English edition in statement (3) in mentioned is that 'India is a disaster free (disaster free) country’ which that is false. hence: clear is that Question of English edition according to, statement 1, 2 and 4 correct are, whereas statement (3) is false. Tadanusar, English edition according to, option (c) correct answer is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":39},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"धुआं में आंखों को प्रभावित करने वाला कौन-सा शक्तिशाली उत्तेज्य होता है?","question_en":"Dhuan in eyes to affected doing having which-which Shaktishali Uttejya occurs?","options":[{"hi":"ओजोन","en":"Ozone"},{"hi":"सल्फर डाइऑक्साइड","en":"Sulfur dioxide"},{"hi":"कार्बन डाइऑक्साइड","en":"Carbon dioxide"},{"hi":"पेरॉक्सीएसीटाइल नाइट्रेट","en":"Peroksiesitail nitrate"}],"answer":3,"answer_note":"","explanation_hi":"पेरॉक्सीएसीटाइल नाइट्रेट प्रकाश रासायनिक धुएं (Photo Chemicial Smog) में उपस्थित एक द्वितीयक प्रदूषक है, जो आंखों में जलन पैदा करता है।","explanation_en":"Peroksiesitail nitrate light chemical Dhuen (Photo Chemicial Smog) in present one secondary pollutant is, which eyes in Jalan Paida does is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":40},{"topic_hi":"पर्यावरण एवं पारिस्थितिकी","topic_en":"Environment and Ecology","question_hi":"निम्नलिखित ऊर्जा स्रोतों में से कौन पर्यावरणीय प्रदूषण नहीं उत्पन्न करता है?","question_en":"Following energy sources in from which environmental pollution not generated does is?","options":[{"hi":"नाभिकीय ऊर्जा","en":"Nuclear energy"},{"hi":"सौर ऊर्जा","en":"Solar Energy"},{"hi":"पेट्रोलियम ऊर्जा","en":"Petroleum energy"},{"hi":"कोयला ऊर्जा","en":"Coal energy"}],"answer":1,"answer_note":"","explanation_hi":"सूर्य के प्रकाश की ऊर्जा को विद्युत ऊर्जा में परिवर्तन से किसी भी प्रकार का प्रदूषण उत्पन्न नहीं होता।","explanation_en":"Sun of light of energy to electric energy in change from any also type of pollution generated not is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":41}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
+function _genPoints(t){
+  t = String(t);
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
+  return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

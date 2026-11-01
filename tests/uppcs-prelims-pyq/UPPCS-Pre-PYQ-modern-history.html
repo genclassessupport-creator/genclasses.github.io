@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — UPPCS Prelims PYQ — Modern History</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    /* soft sage / mint-grey — eye-comfortable reading */
+    --ink0:#E6EEE9; --ink1:#F6F9F7; --ink2:#EEF3F0;
+    --glass:rgba(30,58,138,.06);
+    --line:rgba(201,214,207,.95); --line-2:rgba(30,58,138,.28);
+    --gold:#1E3A8A; --gold-hi:#172E5C; --gold-deep:#1E40AF;
+    --cream:#1F2A2E; --mist:#3D4A4F;
+    --blue:#1E40AF; --green:#1E3A8A; --rose:#C2314B;
+    --teal:#1E3A8A; --teal-hi:#1D3B6F;
+    --shadow:0 14px 36px rgba(23,46,92,.12);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(30,58,138,.07), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,59,111,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .btn.primary{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 22px rgba(30,58,138,.28)}
+  html[data-theme="light"] .btn.primary:hover{filter:brightness(1.05)}
+  html[data-theme="light"] .lang-b.on{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+  html[data-theme="light"] .option{background:#EEF3F0;border-color:#C9D6CF}
+  html[data-theme="light"] .option:hover{background:#E4EDE8;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;border-color:transparent}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#F6F9F7,#F2F6F4);border-color:#C9D6CF}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#F6F9F7,#EEF3F0)}
+  html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
+  html[data-theme="light"] .dot{background:rgba(31,42,46,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(30,58,138,.16);color:#1E3A8A}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;color:#1E3A8A}
+  html[data-theme="light"] .badge.ok{background:rgba(30,58,138,.14);color:#1E3A8A}
+  html[data-theme="light"] .badge.skip{background:rgba(31,42,46,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--teal) 0deg,var(--teal) var(--scoreDeg),rgba(31,42,46,.08) var(--scoreDeg),rgba(31,42,46,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(30,58,138,.1),0 15px 38px rgba(23,46,92,.16)}
+  html[data-theme="light"] .timer{background:rgba(30,58,138,.1);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .qno{color:#1E3A8A}
+  html[data-theme="light"] .pill{color:#1E3A8A;border-color:rgba(30,58,138,.35);background:#E3EAF6}
+  html[data-theme="light"] .btn.secondary{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
+  html[data-theme="light"] .stmt-item{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .stmt-item .tag{color:#1E3A8A}
+  html[data-theme="light"] .ar-block{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .ar-block .ar-lab{background:rgba(30,58,138,.12);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .match-col{background:#F6F9F7;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col h4{background:rgba(30,58,138,.1);color:#1E3A8A;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col .mi .mk{color:#1E3A8A}
+  html[data-theme="light"] .code-line{color:#1E3A8A}
+  html[data-theme="light"] .code-map .cm{background:rgba(30,58,138,.08);border-color:#C9D6CF}
+  html[data-theme="light"] .code-map .cm b{color:#1E3A8A}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,#E3EAF6,rgba(30,58,138,.08));color:#172E5C;border-color:rgba(30,58,138,.35)}
+
+  html[data-theme="light"] .topbar{
+    background:linear-gradient(180deg,#1E3A8A 0%,#1D3B6F 100%);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 6px 18px rgba(23,46,92,.2);
+  }
+  html[data-theme="light"] .topbar .logo,
+  html[data-theme="light"] .topbar .brand,
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .topbar .brand h1,
+  html[data-theme="light"] .topbar h1{color:#F6F9F7 !important}
+  html[data-theme="light"] .topbar .brand p{color:#B8CDF7 !important}
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6 !important;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#E3EAF6;border-color:rgba(255,255,255,.35)}
+
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"uppcs-pre-pyq-modern-history","title":"UPPCS Prelims PYQ — Modern History","shortTitle":"Modern History","subtitle":"UPPCS Prelims · 2018–2025 · आधुनिक इतिहास","tag":"UPPCS Pre PYQ","description":"UPPCS Prelims PYQs (2018–2025) — Modern History. Each question shows the exam/year badge. Items with official (*) key are left unscored.","durationMinutes":83,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए। सूची-I सूची-II (गवर्नर जनरल/वायसराय) (महत्वपूर्ण योगदान/कार्य) A. लॉर्ड डलहौजी 1. बंगाल का स्थायी बंदोबस्त B. लॉर्ड कर्जन 2. सती प्रथा का निषेध C. लॉर्ड विलियम बेंटिंक 3. बंगाल का विभाजन D. लॉर्ड कॉर्नवालिस 4. व्यपगत का सिद्धांत कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the lists. List-I List-II (Governor Janaral/Viceroy) (important contribution/function) A. Lord Dalahauji 1. Bengal of Permanent Settlement B. Lord Karjan 2. Sati Pratha of prohibition C. Lord William Bentink 3. Bengal of division D. Lord Kornavalis 4. Doctrine of Lapse Code: A B C D","options":[{"hi":"4 3 1 2","en":"4 3 1 2"},{"hi":"3 4 2 1","en":"3 4 2 1"},{"hi":"3 4 1 2","en":"3 4 1 2"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":3,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है : (गवर्नर जनरल/वायसराय) (महत्वपूर्ण योगदान/कार्य) लॉर्ड डलहौजी – व्यपगत का सिद्धांत लॉर्ड कर्जन – बंगाल का विभाजन लॉर्ड विलियम बेंटिंक – सती प्रथा का निषेध लॉर्ड कॉर्नवालिस – बंगाल का स्थायी बंदोबस्त अत: इसका अभीष्ट उत्तर विकल्प (d) होगा।","explanation_en":"The correct matching is as follows: (Governor Janaral/Viceroy) (important contribution/function) Lord Dalahauji – Doctrine of Lapse Lord Karjan – Bengal of division Lord William Bentink – Sati Pratha of prohibition Lord Kornavalis – Bengal of Permanent Settlement Hence, the required correct answer is option (d) will be.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":1},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौन-सी जगहें 1816 की सुगौली संधि के तहत ब्रिटिश ईस्ट इंडिया कंपनी द्वारा प्राप्त की गई थीं? 1. काठमांडू 2. शिमला 3. रानीखेत 4. नैनीताल नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Following in from which-C Jagahen 1816 of Sugauli Treaty under British East India Company by obtained was done were? 1. Kathamandu 2. Shimla 3. Ranikhet 4. Nainital Select the correct answer from the code given below: Code","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"केवल 3 और 4","en":"Only 3 and 4"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"केवल 1","en":"Only 1"}],"answer":1,"answer_note":"","explanation_hi":"सुगौली संधि (1816) के तहत नेपाल ने ब्रिटिश ईस्ट इंडिया कंपनी को कुमाऊं, गढ़वाल का पूर्वी भाग और तराई के कुछ क्षेत्र सौंपे। कुमाऊं के अंतर्गत आने वाले क्षेत्र ब्रिटिश शासनाधीन हो गए। काठमांडू : यह नेपाल की राजधानी रही; संधि के तहत केवल ब्रिटिश रेजिडेंट की नियुक्ति का प्रावधान था, काठमांडू ब्रिटिश को नहीं मिला। शिमला : संधि से उस पहाड़ी पट्टी पर ब्रिटिश नियंत्रण स्थापित हुआ जिसमें शिमला स्थित है; पर ‘‘शिमला स्टेशन/नगर’’ का वास्तविक भूमि हस्तांतरण वर्ष 1830 में क्योंथल/पटियाला से हुआ। रानीखेत : रानीखेत कुमाऊं क्षेत्र (वर्तमान उत्तराखंड राज्य) में स्थित है। सुगौली संधि के बाद कुमाऊं ब्रिटिश के अधीन आया। नैनीताल : नैनीताल भी कुमाऊं का हिस्सा है; कुमाऊं के ब्रिटिश अधीन आते ही यह क्षेत्र भी कंपनी शासन में आ गया।","explanation_en":"Sugauli Treaty (1816) under Nepal British East India Company to Kumaoon, Garhaval of Eastern part and Taraee of some region Saumpe. Kumaoon under coming having region British Shasanadhin be were. Kathamandu: this Nepal of capital remained; Treaty under only British Rejident of Appointment of provision was, Kathamandu British to not Mila. Shimla: Treaty from that Pahari Patti at British control established occurred in which Shimla is located; at ‘‘Shimla Station/city’’ of real land Hastantaran year 1830 in Kyonthal/Patiyala from occurred. Ranikhet: Ranikhet Kumaoon region (present Uttarakhand State) in is located. Sugauli Treaty after Kumaoon British of under came. Nainital: Nainital also Kumaoon of part is; Kumaoon of British under Ate only this region also Company Rule in A was.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":2},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"एक्स-ला-चैपल 1748 की संधि के संदर्भ में निम्नलिखित में से कौन- सा/से कथन सही है/हैं? 1. प्रथम कर्नाटक युद्ध समाप्त हुआ। 2. मद्रास अंग्रेजों को वापस कर दिया गया। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"X-La-Chaipal 1748 of Treaty with reference to following in from which- which/from statement is correct/are? 1. first Karnataka Battle abolished occurred. 2. Madras British to Vapas tax given was. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":2,"answer_note":"","explanation_hi":"1748 की एक्स-ला-चैपल (Aix-la-Chapelle) संधि से यूरोप में ऑस्ट्रियाई उत्तराधिकार का युद्ध समाप्त हो गया और उसके परिणामस्वरूप भारत में प्रथम कर्नाटक युद्ध भी 1748 ई. में समाप्त हो गया तथा मद्रास अंग्रेजों को पुन: प्राप्त हो गया। अत: कथन 1 और 2 दोनों सही हैं।","explanation_en":"1748 of X-La-Chaipal (Aix-la-Chapelle) Treaty from Europe in Ostriyaee succession of Battle abolished be was and its Parinamasvarup India in first Karnataka Battle also 1748 AD. in abolished be was and Madras British to re-: obtained be was. hence: statement Both 1 and 2 are correct.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":3},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौन-सी घटनाएं वर्ष 1911 में घटित हुईं? 1. बंगाल का विभाजन रद्द करना 2. राजधानी का कलकत्ता से दिल्ली परिवर्तन 3. कांग्रेस तथा मुस्लिम लीग के बीच लखनऊ समझौता नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Following in from which-C events year 1911 in Ghatit Hueen? 1. Bengal of division annulled to do 2. capital of Calcutta from Delhi change 3. Congress and Muslim League between Lucknow Pact Select the correct answer from the code given below: Code","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"केवल 3","en":"Only 3"},{"hi":"2 और 3","en":"2 and 3"},{"hi":"केवल 1","en":"Only 1"}],"answer":0,"answer_note":"","explanation_hi":"बंगाल का विभाजन रद्द (1911) : वर्ष 1905 में किए गए बंगाल विभाजन को 12 दिसंबर, 1911 के दिल्ली दरबार में रद्द करने की घोषणा की गई। प्रशासनिक पुनर्गठन (जैसे– बंगाल से अलग कर बिहार और उड़ीसा प्रांत का गठन) वर्ष 1912 में प्रभावी हुआ, परंतु रद्द करने की घोषणा वर्ष 1911 में हुई, इसलिए यह घटना 1911 से संबद्ध मानी जाती है। राजधानी का कलकत्ता से दिल्ली परिवर्तन (1911) : उसी दिल्ली दरबार (12 दिसंबर, 1911) में भारत की राजधानी कलकत्ता से दिल्ली करने का निर्णय घोषित किया गया। औपचारिक स्थानांतरण और दफ्तरों का क्रमिक स्थानांतरण 1912 में पूरा हुआ; किंतु निर्णय/घोषणा 1911 में हुई थी। लखनऊ समझौता (1916) : कांग्रेस और मुस्लिम लीग के बीच लखनऊ समझौता वर्ष 1916 में हुआ था। अत: इसका अभीष्ट उत्तर विकल्प (a) होगा।","explanation_en":"Bengal of division annulled (1911): year 1905 in were done Partition of Bengal to 12 December, 1911 of Delhi court in annulled doing of declaration was done. Administrative reorganization (such as– Bengal from separate tax Bihar and Urisa Province of formation) year 1912 in effective occurred, but annulled doing of declaration year 1911 in occurred, therefore this event 1911 from associated Mani goes is. capital of Calcutta from Delhi change (1911): that very Delhi court (12 December, 1911) in India of capital Calcutta from Delhi doing of decision declared was done. formal Sthanantaran and Daphtaron of Kramik Sthanantaran 1912 in complete occurred; but decision/declaration 1911 in took place. Lucknow Pact (1916): Congress and Muslim League between Lucknow Pact year 1916 in took place. Hence, the required correct answer is option (a) will be.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":4},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से किसने जलियांवाला बाग हत्याकांड से दु:खी होकर वायसराय की कार्यकारिणी परिषद से इस्तीफा दे दिया था? 1. चेट्टूर शंकरन नायर 2. ईश्वरी प्रसाद 3. मुहम्मद शफी 4. इकबाल नारायण गुरटू नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Following in from who Jallianwala Bagh Massacre from Du:Khi having been Viceroy of Karyakarini Council from resignation De given was? 1. Chettur Shankaran Nair 2. Eeshvari Prasad 3. Muhammad Shaphi 4. Ikabal Narayan Guratu Select the correct answer from the code given below: Code","options":[{"hi":"2 और 3","en":"2 and 3"},{"hi":"केवल 4","en":"Only 4"},{"hi":"3 और 4","en":"3 and 4"},{"hi":"केवल 1","en":"Only 1"}],"answer":3,"answer_note":"","explanation_hi":"पंजाब में जलियांवाला बाग हत्याकांड और वहां लागू मार्शल लॉ प्रशासन एवं वहां किए गए व्यापक अत्याचारों के विरोध में शंकरन नायर ने वायसराय की कार्यकारिणी से इस्तीफा दे दिया था। जलियांवाला बाग हत्याकांड 13 अप्रैल, 1919 को हुआ था। इसी हत्याकांड के विरोध में रबींद्रनाथ टैगोर ने ब्रिटिश सरकार द्वारा प्रदान की गई ‘नाइटहुड’ या ‘सर’ की उपाधि त्याग दी थी।","explanation_en":"Punjab in Jallianwala Bagh Massacre and there implemented Marshal Lo Administration and there were done comprehensive Atyacharon of opposition in Shankaran Nair Viceroy of Karyakarini from resignation De given was. Jallianwala Bagh Massacre 13 April, 1919 to took place. this very massacre of opposition in Rabindranath Taigor British Government by provided was done ‘Naitahud’ or ‘Sir’ of title Tyag given was.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":5},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित विद्रोहों पर विचार कीजिए तथा इन्हें सही कालक्रमानुसार क्रम में व्यवस्थित कीजिए। 1. पबना 2. नील 3. कूका 4. संन्यासी नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Consider the following Revolts and arrange them in correct chronological order. 1. Pabana 2. Nil 3. Kuka 4. Sannyasi Select the correct answer from the code given below: Code","options":[{"hi":"4, 3, 2, 1","en":"4, 3, 2, 1"},{"hi":"3, 4, 1, 2","en":"3, 4, 1, 2"},{"hi":"3, 4, 2, 1","en":"3, 4, 2, 1"},{"hi":"4, 2, 3, 1","en":"4, 2, 3, 1"}],"answer":3,"answer_note":"","explanation_hi":"प्रश्नगत विद्रोहों का कालक्रम इस प्रकार है : • संन्यासी विद्रोह (बंगाल): लगभग 1763 ई-1800 ई. के बीच। • नील विद्रोह (बंगाल): नील की जबरन खेती के विरोध में किसानों का व्यापक आंदोलन 1859-60 ई. में। • कूका (नामधारी) विद्रोह (पंजाब): नामधारी/कूका आंदोलन के सशस्त्र टकराव और कठोर दमन की चरम घटनाएं 1871-72 ई. में हुईं। • पबना कृषक आंदोलन (बंगाल): जमींदारों के अत्याचारों व अवैध अबवाब/जबरन वसूली और बेदखली तथा लगान-वृद्धि के विरोध में किसानों द्वारा मुख्यत: 1873-76 ई. में चलाया गया आंदोलन। अत: इनका सही कालानुक्रमिक क्रम विकल्प (d) में है।","explanation_en":"Given Revolts of chronology this type is: • Sannyasi Revolt (Bengal): approximately 1763 AD-1800 AD. between. • Nil Revolt (Bengal): Nil of Jabaran cultivation of opposition in farmers of comprehensive Movement 1859-60 AD. in. • Kuka (Namadhari) Revolt (Punjab): Namadhari/Kuka Movement of Sashastra Takarav and Kathor Daman of Charam events 1871-72 AD. in Hueen. • Pabana farmer Movement (Bengal): Jamindaron of Atyacharon and illegal Abavab/Jabaran Vasuli and Bedakhali and land revenue-growth of opposition in farmers by mainly: 1873-76 AD. in Chalaya was Movement. hence: Inaka correct Kalanukramik order option (d) in is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":6},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित युद्धों पर विचार कीजिए तथा इन्हें सही कालक्रमानुसार क्रम में व्यवस्थित कीजिए। 1. प्रथम एंग्लो-मैसूर युद्ध 2. द्वितीय एंग्लो-फ्रांसीसी युद्ध 3. प्रथम एंग्लो-सिख युद्ध 4. प्रथम एंग्लो-अफगान युद्ध नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Consider the following Battles and arrange them in correct chronological order. 1. first Anglo-Mysore Battle 2. second Anglo-Phransisi Battle 3. first Anglo-Sikh Battle 4. first Anglo-Aphagan Battle Select the correct answer from the code given below: Code","options":[{"hi":"2, 1, 4, 3","en":"2, 1, 4, 3"},{"hi":"1, 2, 3, 4","en":"1, 2, 3, 4"},{"hi":"1, 2, 4, 3","en":"1, 2, 4, 3"},{"hi":"2, 1, 3, 4","en":"2, 1, 3, 4"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत युद्धों के मान्य ऐतिहासिक कालक्रम इस प्रकार हैं– • द्वितीय एंग्लो-फ्रांसीसी (द्वितीय कर्नाटक) युद्ध : 1749-1754 ई. • प्रथम एंग्लो-मैसूर युद्ध : 1767-1769 ई. • प्रथम एंग्लो-अफगान युद्ध : 1838/39-1842 ई. • प्रथम एंग्लो-सिख युद्ध : 1845-1846 ई. अत: इसका अभीष्ट उत्तर विकल्प (a) होगा।","explanation_en":"Given Battles of Manya Historical chronology this type are– • second Anglo-Phransisi (second Karnataka) Battle: 1749-1754 AD. • first Anglo-Mysore Battle: 1767-1769 AD. • first Anglo-Aphagan Battle: 1838/39-1842 AD. • first Anglo-Sikh Battle: 1845-1846 AD. Hence, the required correct answer is option (a) will be.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":7},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा इन्हें सही कालक्रमानुसार क्रम में व्यवस्थित कीजिए। 1. अंग्रेजों द्वारा अवध का अधिग्रहण 2. इल्बर्ट बिल विवाद 3. नील विद्रोह 4. द्वितीय एंग्लो-अफगान युद्ध नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Consider the following events and arrange them in correct chronological order. 1. British by Avadh of Adhigrahan 2. Ilbert Bill Vivad 3. Nil Revolt 4. second Anglo-Aphagan Battle Select the correct answer from the code given below: Code","options":[{"hi":"1, 3, 4, 2","en":"1, 3, 4, 2"},{"hi":"3, 1, 2, 4","en":"3, 1, 2, 4"},{"hi":"3, 1, 4, 2","en":"3, 1, 4, 2"},{"hi":"1,3, 2, 4","en":"1,3, 2, 4"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत घटनाओं का कालक्रम इस प्रकार है : अवध का अधिग्रहण – 1856 ई. नील विद्रोह – 1859-60 ई. द्वितीय एंग्लो-अफगान युद्ध – 1878-80 ई. इल्बर्ट बिल विवाद – 1883 ई.","explanation_en":"Given events of chronology this type is: Avadh of Adhigrahan – 1856 AD. Nil Revolt – 1859-60 AD. second Anglo-Aphagan Battle – 1878-80 AD. Ilbert Bill Vivad – 1883 AD.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":8},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा इन्हें सही काल- क्रमानुसार क्रम में व्यवस्थित कीजिए। 1. पूना समझौता 2. सविनय अवज्ञा आंदोलन की समाप्ति 3. गांधी-इर्विन समझौता 4. द्वितीय गोलमेज सम्मेलन नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Consider the following events and them correct period- Kramanusar order in arranged do. 1. Poona Pact 2. Civil Disobedience Movement of Samapti 3. Gandhi-Irwin Pact 4. Second Round Table Conference Select the correct answer from the code given below: Code","options":[{"hi":"3, 4, 2, 1","en":"3, 4, 2, 1"},{"hi":"4, 3, 1, 2","en":"4, 3, 1, 2"},{"hi":"4, 3, 2, 1","en":"4, 3, 2, 1"},{"hi":"3, 4, 1, 2","en":"3, 4, 1, 2"}],"answer":3,"answer_note":"","explanation_hi":"• गांधी-इर्विन समझौता 5 मार्च, 1931 को हुआ था। इसके फलस्वरूप कांग्रेस की भागीदारी के साथ द्वितीय गोलमेज सम्मेलन 7 सितंबर से 1 दिसंबर, 1931 के मध्य लंदन में आयोजित हुआ। • पूना समझौता 24 सितंबर, 1932 को संपन्न हुआ, जिससे ‘अछूतों/ दलितों’ हेतु पृथक निर्वाचिका के स्थान पर संयुक्त निर्वाचिका और आरक्षित सीटों का प्रावधान तय हुआ। • सविनय अवज्ञा आंदोलन का औपचारिक समापन A.I.C.C. की पटना बैठक 18–19 मई, 1934 में माना जाता है। अत: इसका कालक्रम 3 → 4 → 1 → 2, अर्थात विकल्प (d) सही उत्तर है।","explanation_en":"• Gandhi-Irwin Pact 5 March, 1931 to took place. its Phalasvarup Congress of participation with Second Round Table Conference 7 September from 1 December, 1931 between London in held occurred. • Poona Pact 24 September, 1932 to held occurred, by which ‘Achhuton/ Daliton’ for separate Nirvachika of place at joint Nirvachika and reserved seats of provision Tay occurred. • Civil Disobedience Movement of formal Samapan A.I.C.C. of Patna Meeting 18–19 May, 1934 in is considered. hence: its chronology 3 → 4 → 1 → 2, i.e. option (d) correct answer is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":9},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा इन्हें सही कालक्रमानुसार क्रम में व्यवस्थित कीजिए। 1. क्रिप्स मिशन 2. कैबिनेट मिशन 3. शिमला सम्मेलन 4. वेवेल योजना नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Consider the following events and arrange them in correct chronological order. 1. Cripps Mission 2. Cabinet Mission 3. Shimla Conference 4. Wavell Plan Select the correct answer from the code given below: Code","options":[{"hi":"1, 4, 3, 2","en":"1, 4, 3, 2"},{"hi":"4, 1, 2, 3","en":"4, 1, 2, 3"},{"hi":"4, 1, 3, 2","en":"4, 1, 3, 2"},{"hi":"1, 4, 2, 3","en":"1, 4, 2, 3"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत घटनाओं का कालक्रम इस प्रकार है– क्रिप्स मिशन- मार्च-अप्रैल, 1942 वेवेल योजना- 14 जून, 1945 को घोषित शिमला सम्मेलन- 25 जून-14 जुलाई, 1945 कैबिनेट मिशन- भारत आगमन मार्च, 1946","explanation_en":"Given events of chronology this type is– Cripps Mission - March-April, 1942 Wavell Plan - 14 June, 1945 to declared Shimla Conference- 25 June-14 July, 1945 Cabinet Mission - India Agaman March, 1946","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":10},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित पेशवाओं पर विचार कीजिए तथा इन्हें आरोही कालक्रमानुसार व्यवस्थित कीजिए— 1. रघुनाथ राव (राघोबा) 2. बालाजी बाजीराव 3. नारायण राव 4. बालाजी विश्वनाथ नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following Peshwas and them arrange them in ascending chronological order — 1. Raghunath Rao (Raghoba) 2. Balaji Bajirav 3. Narayan Rao 4. Balaji Vishvanath Select the correct answer from the code given below","options":[{"hi":"4, 2, 3, 1","en":"4, 2, 3, 1"},{"hi":"3, 4, 1, 2","en":"3, 4, 1, 2"},{"hi":"1, 2, 3, 4","en":"1, 2, 3, 4"},{"hi":"1, 3, 2, 4","en":"1, 3, 2, 4"}],"answer":0,"answer_note":"","explanation_hi":"पेशवा कार्यकाल बालाजी विश्वनाथ - 1713-20 ई. बालाजी बाजीराव - 1740-61 ई. नारायण राव - 1772-73 ई. रघुनाथ राव (राघोबा) - 1773-74 ई. अत: सही कालानुक्रम विकल्प (a) में प्राप्त हो रहा है।","explanation_en":"Peshwa tenure Balaji Vishvanath - 1713-20 AD. Balaji Bajirav - 1740-61 AD. Narayan Rao - 1772-73 AD. Raghunath Rao (Raghoba) - 1773-74 AD. hence: correct chronological order option (a) in obtained be remained is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":11},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा इन्हें कालानुक्रम में व्यवस्थित कीजिए— 1. ईस्ट इंडिया एसोसिएशन 2. नेशनल इंडियन एसोसिएशन 3. इंडियन सोसायटी 4. इंडियन एसोसिएशन नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following events and them arrange them in chronological order — 1. East India Association 2. National Indian Association 3. Indian Sosayati 4. Indian Association Select the correct answer from the code given below","options":[{"hi":"1, 2, 4, 3","en":"1, 2, 4, 3"},{"hi":"1, 3, 2, 4","en":"1, 3, 2, 4"},{"hi":"2, 1, 4, 3","en":"2, 1, 4, 3"},{"hi":"1, 2, 3, 4","en":"1, 2, 3, 4"}],"answer":3,"answer_note":"","explanation_hi":"संस्थाएं (स्थापना वर्ष) संस्थापक ईस्ट इंडिया एसोसिएशन (1866) - दादाभाई नौरोजी नेशनल इंडियन एसोसिएशन (1870) - मैरी कारपेंटर इंडियन सोसायटी (1872) - आनंद मोहन बोस इंडियन एसोसिएशन (1876) - सुरेंद्रनाथ बनर्जी एवं आनंद मोहन बोस अत: प्रश्नगत संस्थाओं का सही कालानुक्रम विकल्प (d) में प्राप्त हो रहा है। कुछ स्रोतों में नेशनल इंडियन एसोसिएशन की गठन की तिथि 1871 ई. भी मिलती है।","explanation_en":"Institutions (establishment year) founder East India Association (1866) - Dadabhaee Nauroji National Indian Association (1870) - Mairi Karapentar Indian Sosayati (1872) - Anand Mohan Bose Indian Association (1876) - Surendranath Banarji and Anand Mohan Bose hence: given Institutions of correct chronological order option (d) in obtained be remained is. some sources in National Indian Association of formation of date 1871 AD. also is found.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":12},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) तथा दूसरे को कारण (R) कहा गया है। अभिकथन (A) : शिवाजी को बड़े देशमुखों के विरोध का सामना करना पड़ा। कारण (R) : ये देशमुख स्वतंत्र मराठा राज्य के पक्ष में नहीं थे और बीजापुर के सामंत ही बने रहना चाहते थे। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A): Shivaji to large Deshamukhon of opposition of Samana to do Para. Reason (R): these Deshamukh independent Maratha State of Paksha in not were and Bijapur of Samant only became Rahana Chahate were. Select the correct answer from the code given below","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."},{"hi":"(A) और (R) दोनों सही हैं, किंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."}],"answer":0,"answer_note":"","explanation_hi":"शिवाजी को बड़े देशमुखों के विरोध का सामना करना पड़ा, क्योंकि देशमुख अपनी शक्ति और प्रभाव बनाए रखना चाहते थे। अत: कथन (A) सत्य है। देशमुख स्वतंत्र मराठा राज्य के पक्ष में नहीं थे और बीजापुर के सामंत ही बने रहना चाहते थे, क्योंकि बीजापुर के अधीन रहते हुए उन्हें अपने विशेषाधिकार और स्वायत्तता बनाए रखने का अवसर मिलता था और इसलिए वे शिवाजी के विरोध में थे। अत: (R) भी सत्य है और यह (A) की सही व्याख्या है।","explanation_en":"Shivaji to large Deshamukhon of opposition of Samana to do Para, because Deshamukh its own power and impact made Rakhana Chahate were. hence: statement (A) is true. Deshamukh independent Maratha State of Paksha in not were and Bijapur of Samant only became Rahana Chahate were, because Bijapur of under remain occurred them its own Visheshadhikar and Svayattata made keeping of opportunity is found was and therefore they Shivaji of opposition in were. hence: (R) also is true and this (A) of correct Explanation is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":13},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"कांग्रेस सोशलिस्ट पार्टी के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए— 1. जनवरी, 1934 में कांग्रेस सोशलिस्ट पार्टी का गठन किया गया। 2. समाजवाद से सहानुभूति होने के कारण औपचारिक रूप में जवाहरलाल नेहरू इस दल में शामिल हुए। उपर्युक्त में से कौन-सा/से कथन सही है/हैं?","question_en":"With reference to Congress Soshalista Party, consider the following statements— 1. January, 1934 in Congress Soshalista Party of formation was done. 2. Samajavad from Sahanubhuti being due to formal form in Jawaharlal Nehru this party in included occurred. Which of the statements given above is/are correct?","options":[{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"}],"answer":1,"answer_note":"","explanation_hi":"मई, 1934 में पटना कांग्रेस समिति की बैठक के दौरान ऑल इंडिया कांग्रेस सोशलिस्ट पार्टी की स्थापना को औपचारिक मान्यता दी गई तथा अक्टूबर, 1934 के दौरान बंबई में इसकी नीतियां एवं कार्य प्रणालियां तय की गईं। वर्ष 1934 में पटना में अखिल भारतीय कांग्रेस समाजवादी पार्टी के संयोजक जयप्रकाश नारायण थे। जयप्रकाश नारायण को पार्टी का महासचिव तथा आचार्य नरेंद्र देव को अध्यक्ष चुना गया था। जवाहरलाल नेहरू इस दल में कभी शामिल नहीं हुए थे। इस प्रकार प्रश्नगत दोनों ही कथन सही नहीं हैं।","explanation_en":"May, 1934 in Patna Congress Committee of Meeting during Ol India Congress Soshalista Party of establishment to formal recognition given was and October, 1934 during Bombay in its Nitiyan and function Pranaliyan Tay of Gaeen. year 1934 in Patna in All Indian Congress Socialist Party of Sanyojak Jayaprakash Narayan were. Jayaprakash Narayan to Party of Mahasachiv and Acharya Narendra Dev to Chairman elected was was. Jawaharlal Nehru this party in Kabhi included not took place. this type given both only statement correct not are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":14},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा इन्हें कालानुक्रम में व्यवस्थित कीजिए— 1. लिनलिथगो का अगस्त प्रस्ताव 2. क्रिप्स मिशन का भारत आगमन 3. रामगढ़ कांग्रेस अधिवेशन 4. कांग्रेसी मंत्रियों के त्यागपत्र नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following events and them arrange them in chronological order — 1. Linalithago of August resolution 2. Cripps Mission of India Agaman 3. Ramagarh Congress Session 4. Kangresi Ministers of resignation Select the correct answer from the code given below","options":[{"hi":"3, 1, 4, 2","en":"3, 1, 4, 2"},{"hi":"4, 3, 1, 2","en":"4, 3, 1, 2"},{"hi":"1, 3, 4, 2","en":"1, 3, 4, 2"},{"hi":"4, 2, 3, 1","en":"4, 2, 3, 1"}],"answer":1,"answer_note":"","explanation_hi":"द्वितीय विश्व युद्ध में ब्रिटेन द्वारा भारत को शामिल किए जाने के विरोध में कांग्रेस मंत्रिमंडल ने अक्टूबर, 1939 में त्यागपत्र दे दिया। कांग्रेस का 53वां अधिवेशन मार्च, 1940 में रामगढ़ (वर्तमान झारखंड राज्य में स्थित) में आयोजित किया गया, जिसकी अध्यक्षता मौलाना अबुल कलाम आजाद ने की थी। द्वितीय विश्व युद्ध में भारतीयों का समर्थन प्राप्त करने के लिए किया गया प्रयास लिनलिथगो प्रस्ताव या अगस्त प्रस्ताव के नाम से जाना जाता है, जिसे तत्कालीन वायसराय लिनलिथगो ने अगस्त, 1940 में रखा था। मार्च, 1942 में क्रिप्स मिशन भारत आया था। यह एकल सदस्यीय मिशन था, जिसमें स्टैफोर्ड क्रिप्स मिशन का प्रमुख था। अत: प्रश्नगत घटनाओं का सही क्रम 4, 3, 1, 2 है।","explanation_en":"Second World Battle in Britain by India to included done going of opposition in Congress Cabinet October, 1939 in resignation De given. Congress of 53rd Session March, 1940 in Ramagarh (present Jharkhand State in located) in held was done, whose Chairmanship Maulana Abul Kalam Ajad did. second World Battle in Indians of support obtained doing for was done effort Linalithago resolution or August resolution of name from is known, which then Viceroy Linalithago August, 1940 in kept was. March, 1942 in Cripps Mission India came was. this single member mission was, in which Staiphorda Cripps Mission of major was. hence: given events of correct order 4, 3, 1, 2 is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":15},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) तथा दूसरे को कारण (R) कहा गया है। अभिकथन (A) : प्रारंभिक राष्ट्रवादियों में से अधिकांश को ब्रिटिश राज ईश्वरीय देन लगता था जिसका उद्देश्य आधुनिकीकरण लाना था। कारण (R) : उनकी शिकायत केवल भारत में ‘अन-ब्रिटिश राज’ के खिलाफ थी। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A): early Rashtravadiyon in from most to British rule Eeshvariy Den Lagata was whose objective Adhunikikaran Lana was. Reason (R): their Shikayat only India in ‘An-British rule’ of against was. Select the correct answer from the code given below","options":[{"hi":"(A) और (R) दोनों सही हैं, किंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."},{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."}],"answer":2,"answer_note":"","explanation_hi":"प्रारंभिक राष्ट्रवादी नेताओं का एक बड़ा हिस्सा ब्रिटिश शासन को एक ऐसे कृत्य के रूप में देखता था, जिसे ईश्वर इच्छा (Providence) द्वारा निर्धारित किया गया था और जो भारत में आधुनिकता लाने के लिए आवश्यक था। वे मानते थे कि ब्रिटिश शासन भारत में औद्योगीकरण, शिक्षा और प्रशासनिक सुविधा आदि लाकर भारतीय समाज के विकास का मार्ग प्रशस्त कर रहा है और इन प्रारंभिक राष्ट्रवादियों की शिकायत केवल भारत में ‘अन-ब्रिटिश राज’ (Un-British rule) के खिलाफ थी। अत: अभिकथन और कारण दोनों सत्य हैं और कारण (R), अभिकथन (A) की सही व्याख्या भी करता है।","explanation_en":"Early Rashtravadi Netaon of one large part British Rule to one such Kritya as Dekhata was, which Eeshvar Ichchha (Providence) by prescribed was done was and which India in Adhunikata Lane for necessary was. they consider were that British Rule India in Audyogikaran, education and Administrative Suvidha etc. Lakar Indian society of development of route Prashasta tax remained is and these early Rashtravadiyon of Shikayat only India in ‘An-British rule’ (Un-British rule) of against was. hence: Assertion and Reason both true are and Reason (R), Assertion (A) of correct Explanation also does is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":16},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"विलियम ए.जे. आर्चबोल्ड के संदर्भ में निम्नलिखित में से कौन-सा एक कथन सही नहीं है?","question_en":"William A.J. Archabolda with reference to Which of the following is NOT one statement correct?","options":[{"hi":"वे राजकीय कॉलेज, ढाका के प्राचार्य थे।","en":"They Rajakiy college, Dhaka of principal were."},{"hi":"वे लाहौर कॉलेज, लाहौर के प्राचार्य थे।","en":"They Lahore college, Lahore of principal were."},{"hi":"वे एम.ए.ओ. कॉलेज, अलीगढ़ के प्राचार्य थे।","en":"They M.A.O. college, Aligarh of principal were."},{"hi":"वे म्योर सेंट्रल कॉलेज, इलाहाबाद के प्राचार्य थे।","en":"They Myor Sentral college, Allahabad of principal were."}],"answer":1,"answer_note":"","explanation_hi":"विलियम ऑर्थर जॉब्सन आर्चबोल्ड (1865-1947 ई.) एक प्रतिष्ठित इतिहासकार और शैक्षणिक प्रशासक थे। उन्होंने मोहम्मडन एंग्लो-ओरिएंटल (M.A.O.) कॉलेज, अलीगढ़ के प्राचार्य के पद पर वर्ष 1905 से 1909 तक कार्य किया। इस पद पर कार्य करते हुए उन्होंने वर्ष 1906 में शिमला में हुई वायसराय लॉर्ड मिंटो द्वितीय और मुस्लिम प्रतिनिधिमंडल की बैठक के आयोजन में भी अपनी महत्वपूर्ण भूमिका निभाई। एम.ए.ओ. कॉलेज के प्राचार्य पद से इस्तीफा देने के बाद उन्होंने राजकीय कॉलेज, ढाका और इलाहाबाद (वर्तमान प्रयागराज) के म्योर सेंट्रल कॉलेज के प्राचार्य के पद पर भी कार्य किया। विलियम ए.जे. आर्चबोल्ड ने लाहौर कॉलेज, लाहौर के प्राचार्य के पद पर कार्य नहीं किया था। अत: विकल्प (b) का कथन सही नहीं है।","explanation_en":"William Orthar Jobsan Archabolda (1865-1947 AD.) one Pratishthit historian and educational Prashasak were. he Mohammadan Anglo-Oriental (M.A.O.) college, Aligarh of principal of office at year 1905 from 1909 up to function done. this office at function did occurred he year 1906 in Shimla in occurred Viceroy Lord Minto II and Muslim delegation of Meeting of organization in also its own important role Nibhaee. M.A.O. college of principal office from resignation giving after he Rajakiy college, Dhaka and Allahabad (present Prayagraj) of Myor Sentral college of principal of office at also function done. William A.J. Archabolda Lahore college, Lahore of principal of office at function not did. hence: option (b) of statement is not correct.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":17},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा इन्हें प्रारंभ से कालक्रमानुसार व्यवस्थित कीजिए— 1. वेल्लोर विद्रोह 2. नाना फड़नवीस की मृत्यु 3. वेलेजली को वापस बुलाना 4. एंग्लो-नेपाली युद्ध नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following events and them started from arrange them in chronological order — 1. Vellor Revolt 2. Nana Pharanavis of death 3. Velejali to Vapas Bulana 4. Anglo-Nepali Battle Select the correct answer from the code given below","options":[{"hi":"2, 3, 1, 4","en":"2, 3, 1, 4"},{"hi":"4, 1, 3, 2","en":"4, 1, 3, 2"},{"hi":"2, 3, 4, 1","en":"2, 3, 4, 1"},{"hi":"3, 1, 2, 4","en":"3, 1, 2, 4"}],"answer":0,"answer_note":"","explanation_hi":"10 जुलाई, 1806 को तमिलनाडु के वेल्लोर के किले में एक सैन्य विद्रोह हुआ, जिसे वेल्लोर विद्रोह के नाम से जाना जाता है। नाना फड़नवीस मराठा साम्राज्य के एक प्रमुख राजनीतिज्ञ और प्रभावशाली व्यक्तित्व थे, जिनकी मृत्यु मार्च, 1800 में हुई थी। लॉर्ड वेलेजली ने बंगाल के गवर्नर जनरल के पद पर 1798 से 1805 ई. तक कार्य किया। वेलेजली की महत्वाकांक्षी नीतियों और कार्यों विशेष रूप से उसके आक्रामक विस्तारवादी दृष्टिकोण और सैन्य अभियानों ने ब्रिटेन में गंभीर चिंताएं पैदा कर दीं, जिस कारण 1805 ई. में उसे ब्रिटिश सरकार ने वापस बुला लिया। लॉर्ड हेस्टिंग्स (1813-23 ई.) के कार्यकाल में आंग्ल-नेपाल युद्ध (1814-16 ई.) हुआ था, जो सुगौली की संधि से समाप्त हुआ था। अत: प्रश्नगत घटनाओं का सही क्रम 2, 3, 1, 4 है।","explanation_en":"10 July, 1806 to Tamil Nadu of Vellor of fort in one military Revolt occurred, which Vellor Revolt of name from is known. Nana Pharanavis Maratha Empire of one major Rajanitigya and Prabhavashali Vyaktitva were, whose death March, 1800 in took place. Lord Velejali Bengal of Governor Janaral of office at 1798 from 1805 AD. up to function done. Velejali of Mahatvakankshi Nitiyon and functions special form from its Akramak Vistaravadi perspective and military campaigns Britain in Gambhir Chintaen Paida tax Din, Jis Reason 1805 AD. in it British Government Vapas Bula taken. Lord Hestingsa (1813-23 AD.) during the tenure of Angla-Nepal Battle (1814-16 AD.) took place, which Sugauli of Treaty from abolished took place. hence: given events of correct order 2, 3, 1, 4 is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":18},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए— सूची-I सूची-II (विद्रोह) (नेतृत्वकर्ता) A. पाइका विद्रोह 1. एडाचना कुंगन B. बरेली विद्रोह 2. राधाराम C. मालाबार विद्रोह 3. मुफ्ती मोहम्मद ऐवाज D. सिलहट विद्रोह 4. जगबंधु विद्याधर महापात्र कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the lists — List-I List-II (Revolt) (Netritvakarta) A. Paika Revolt 1. Edachana Kungan B. Bareli Revolt 2. Radharam C. Malabar Revolt 3. Muphti Mohammad Aivaj D. Silahat Revolt 4. Jagabandhu Vidyadhar Mahapatra Code: A B C D","options":[{"hi":"4 3 1 2","en":"4 3 1 2"},{"hi":"3 4 1 2","en":"3 4 1 2"},{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"2 1 3 4","en":"2 1 3 4"}],"answer":0,"answer_note":"","explanation_hi":"बक्शी जगबंधु 1817 ई. के पाइका विद्रोह के नायक थे, जो खोर्दा (वर्तमान ओडिशा राज्य में स्थित) में हुआ था। उनका जन्म पुरी के समीप रोरुंगा (Rorunga) में हुआ था और उनका वास्तविक नाम जगबंधु विद्याधर महापात्र भ्रमरबर रॉय था। 1816 ई. का बरेली विद्रोह नए पुलिस कर के विरोध में हुआ था, जिसका नेतृत्व धार्मिक नेता मुफ्ती मोहम्मद ऐवाज ने किया था। एडाचना कुंगन नायर वायनाड में केरल वर्मा पाजहस्सीराजा (Kerala Verma Pazhassiraja ) की नायर सेना के सैन्य कमांडर (1797-1805 ई.) थे, जिन्होंने ब्रिटिश उपनिवेशी अत्याचार के विरूद्ध विद्रोह किया, जिसे मालाबार विद्रोह के नाम से जाना जाता है। 1786 ई. का सिलहट विद्रोह, जिसे चारगोला विद्रोह तथा प्रतापगढ़ विद्रोह के नाम से जाना जाता है, ब्रिटिश शासन के विरुद्ध एक विद्रोह था जिसका नेतृत्व चारगोला के जमींदार राधाराम ने किया था।","explanation_en":"Bakshi Jagabandhu 1817 AD. of Paika Revolt of Nayak were, which Khorda (present Odisha State in located) in took place. their birth Puri of near Rorunga (Rorunga) in took place and their real name Jagabandhu Vidyadhar Mahapatra Bhramarabar Roy was. 1816 AD. of Bareli Revolt new Pulis tax of opposition in took place, whose leadership religious leader Muphti Mohammad Aivaj did. Edachana Kungan Nair Vayanad in Kerala Varma Pajahassiraja (Kerala Verma Pazhassiraja) of Nair army of military Kamandar (1797-1805 AD.) were, who British Upaniveshi Atyachar of against Revolt done, which Malabar Revolt of name from is known. 1786 AD. of Silahat Revolt, which Charagola Revolt and Pratapagarh Revolt of name from is known, British Rule of against one Revolt was whose leadership Charagola of Jamindar Radharam did.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":19},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित दिवसों पर विचार कीजिए और इन्हें कालानुक्रम में व्यवस्थित कीजिए : 1. विश्व स्वास्थ्य दिवस 2. राष्ट्रीय समुद्री दिवस 3. विश्व एथलेटिक्स दिवस 4. विश्व रेड क्रॉस दिवस नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following Days and them arrange them in chronological order: 1. World health Day 2. National marine Day 3. World Ethaletiksa Day 4. World Red Kros Day Select the correct answer from the code given below","options":[{"hi":"4, 2, 3, 1","en":"4, 2, 3, 1"},{"hi":"2, 1, 3, 4","en":"2, 1, 3, 4"},{"hi":"2, 3, 4, 1","en":"2, 3, 4, 1"},{"hi":"3, 2, 1, 4","en":"3, 2, 1, 4"}],"answer":1,"answer_note":"","explanation_hi":"विश्व स्वास्थ्य दिवस — 7 अप्रैल राष्ट्रीय समुद्री दिवस (भारत) — 5 अप्रैल विश्व एथलेटिक्स दिवस — 7 मई विश्व रेड क्रॉस दिवस — 8 मई अत: कालानुक्रम में व्यवस्थित करने पर सही क्रम 2, 1, 3, 4 है।","explanation_en":"World health Day — 7 April National marine Day (India) — 5 April World Ethaletiksa Day — 7 May World Red Kros Day — 8 May hence: chronological order in arranged doing at correct order 2, 1, 3, 4 is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":20},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित कथनों पर विचार कीजिए— 1. बिहार में जगदीशपुर के जमींदार, कुंवर सिंह ने अंग्रेजों के विरुद्ध विद्रोह का नेतृत्व किया। 2. लॉर्ड डलहौजी ने रानी लक्ष्मीबाई के दत्तक पुत्र को उत्तराधिकारी होने की मान्यता प्रदान की। उपर्युक्त में से कौन-सा/से कथन सही है/हैं?","question_en":"Consider the following statements— 1. Bihar in Jagadishapur of Jamindar, Kunvar lion British of against Revolt of leadership done. 2. Lord Dalahauji Queen Lakshmibaee of Dattak son to successor being of recognition provided of. Which of the statements given above is/are correct?","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"}],"answer":2,"answer_note":"","explanation_hi":"1857-58 में बिहार के जगदीशपुर में विद्रोह की अगुवाई करने वाले कुंवर सिंह तत्कालीन शाहाबाद के जगदीशपुर (वर्तमान में भोजपुर जिले का भाग) से संबंधित थे। अत: कथन 1 सही है। लॉर्ड डलहौजी की राज्य हड़प नीति (Doctrine of laps) के अनुसार यदि किसी भारतीय शासक की मृत्यु बिना किसी जैविक पुत्र के होती थी, तो वह राज्य ब्रिटिश ईस्ट इंडिया कंपनी के अधीन कर लिया जाता था। जब 1853 ई. में बिना किसी जैविक उत्तराधिकारी के झांसी के राजा गंगाधर राव की मृत्यु हुई, तो रानी लक्ष्मीबाई ने दामोदर राव को दत्तक पुत्र के रूप में गोद लेकर उसे झांसी का उत्तराधिकारी घोषित किया, जिसे डलहौजी ने मानने से इंकार कर दिया और राज्य हड़प नीति के तहत 1854 ई. में झांसी को ब्रिटिश साम्राज्य में मिला लिया। अत: कथन 2 गलत है।","explanation_en":"1857-58 in Bihar of Jagadishapur in Revolt of Aguvaee doing having Kunvar lion then Shahabad of Jagadishapur (present in Bhojapur district of part) from related were. hence: statement 1 is correct. Lord Dalahauji of State Harap policy (Doctrine of laps) according to if any Indian Ruler of death without any biological son of is was, then that State British East India Company of under tax taken goes was. when 1853 AD. in without any biological successor of Jhansi of King Gangadhar Rao of death occurred, then Queen Lakshmibaee Damodar Rao to Dattak son as God taking it Jhansi of successor declared done, which Dalahauji Manane from Inkar tax given and State Harap policy under 1854 AD. in Jhansi to British Empire in Mila taken. hence: statement 2 is incorrect.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":21},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौन एक (1857 के विद्रोह का स्थान - विद्रोह का आरंभ) सही सुमेलित नहीं है?","question_en":"Following in from which one (1857 of Revolt of place - Revolt of started) correct matched not is?","options":[{"hi":"लखनऊ - 4 जून 1857","en":"Lucknow - 4 June 1857"},{"hi":"झांसी - 11 मई, 1857","en":"Jhansi - 11 May, 1857"},{"hi":"मेरठ - 10 मई, 1857","en":"Meerut - 10 May, 1857"},{"hi":"बैरकपुर - 29 मार्च, 1857","en":"Bairakapur - 29 March, 1857"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] 1857 के विद्रोह का स्थान और विद्रोह का आरंभ का सही सुमेलन निम्न है - 1857 का विद्रोह का स्थान विद्रोह का आरंभ लखनऊ — 4 जून, 1857 झांसी — जून, 1857 मेरठ — 10 मई, 1857 बैरकपुर — 29 मार्च, 1857 नोट- कुछ स्रोतों में लखनऊ में 1857 के विद्रोह के प्रारंभ की तिथि 4 जून, 1857 दिया गया है, जबकि NCERT कक्षा 12 की पुस्तक में लखनऊ में इस विद्रोह के प्रारंभ की तिथि 30 मई, 1857 दिया गया है। उत्तर प्रदेश लोक सेवा आयोग ने अपनी उत्तर कुंजी में विकल्प (b) को सही उत्तर माना हैं।","explanation_en":"[Note: original Question in answer (*) marked is] 1857 of Revolt of place and Revolt of started of correct matching low is - 1857 of Revolt of place Revolt of started Lucknow — 4 June, 1857 Jhansi — June, 1857 Meerut — 10 May, 1857 Bairakapur — 29 March, 1857 Note- some sources in Lucknow in 1857 of Revolt of started of date 4 June, 1857 is given, whereas NCERT Kaksha 12 of book in Lucknow in this Revolt of started of date 30 May, 1857 is given. Uttar Pradesh Public Service Commission its own answer key in option (b) to correct answer considered are.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":22},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौनसा संगठन दिल्ली वायसरॉय लॉर्ड हार्डिंग पर बम फेंकने के लिए उत्तरदायी था?","question_en":"Following in from Kaunasa Organization Delhi Vayasaroy Lord Harding at Bam Phenkane for responsible was?","options":[{"hi":"अनुशीलन समिति","en":"Anushilan Committee"},{"hi":"अखित भारतीय मजदूर संघ","en":"Akhit Indian labourer Union"},{"hi":"युगांतर","en":"Yugantar"},{"hi":"युनाईटेड पेट्रियॉटिक संघ","en":"Yunaeeted Petriyotik Union"}],"answer":0,"answer_note":"","explanation_hi":"दिल्ली में वायसरॉय लॉर्ड हार्डिंग द्वितीय पर बम फेंकने के लिए अनुशीलन समिति उत्तरदायी था। हार्डिंग बम कांड, दिल्ली षड्यंत्र केस के रूप में प्रसिद्ध है।","explanation_en":"Delhi in Vayasaroy Lord Harding second at Bam Phenkane for Anushilan Committee responsible was. Harding Bam Kand, Delhi conspiracy Kes as famous is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":23},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"वर्ष 1918 के संयुक्त प्रांत किसान सभा का गठन निम्न में से किस नेता ने किया था?","question_en":"Year 1918 of joint Province farmer Assembly of formation low in from which leader did?","options":[{"hi":"स्वामी सहजानंद सरस्वती ने","en":"Swami Sahajanand Sarasvati"},{"hi":"बाबा रामचंद्र ने","en":"Baba Ramachandra"},{"hi":"इंद्र नारायण द्विवेदी ने","en":"Indra Narayan Dvivedi"},{"hi":"पं. जवाहरलाल नेहरू ने","en":"Pan. Jawaharlal Nehru"}],"answer":2,"answer_note":"","explanation_hi":"अवध में होमरुल लीग आंदोलन के कार्यकर्ता काफी सक्रिय थे। इन्होंने किसानों को संगठित करना शुरू किया। संगठन को नाम दिया गया ‘किसान सभा’। फरवरी, 1918 में इंद्र नारायण द्विवेदी, गौरीशंकर मिश्र और मदन मोहन मालवीय के प्रयासों से ‘संयुक्त प्रांत किसान सभा’ की स्थापना हुई।","explanation_en":"Avadh in Homarul League Movement of Karyakarta substantial Sakriy were. he farmers to Sangathit to do started done. Organization to name given was ‘farmer Assembly’. February, 1918 in Indra Narayan Dvivedi, Gaurishankar Mishra and Madan Mohan Malaviy of efforts from ‘joint Province farmer Assembly’ of establishment occurred.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":24},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"ई.वी. रामस्वामी नायकर के संदर्भ में निम्नलिखित कथनों में से कौन-सा/से सही है/हैं? (1) उन्होंने असहयोग आंदोलन में हिस्सा लिया। (2) उन्होंने वर्ष 1925 में कांग्रेस छोड़ दी। नीचे दिए गए कूट का प्रयोग करके सही उत्तर चुनिए- कूट","question_en":"AD.V. Ramasvami Nayakar with reference to following statements in from which-which/from is correct/are? (1) he Non-Cooperation Movement in part taken. (2) he year 1925 in Congress Chhor given. Select the correct answer using the code given below - Code","options":[{"hi":"दोनों 1 तथा 2","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 2","en":"Only 2"}],"answer":0,"answer_note":"","explanation_hi":"ई.वी. रामास्वामी नायकर ने असहयोग आंदोलन में भाग लिया था। वर्ष 1925 में उन्होंने कांग्रेस छोड़ दिया था; क्योंकि उनका मानना था कि पार्टी ने अपने नेतृत्व में गैर-ब्राह्मणों की उपेक्षा की। केरल में वायकोम (त्रावणकोर) नामक गांव में मंदिर प्रवेश को लेकर आंदोलन आरंभ हुआ। इस आंदोलन में ई.वी. रामास्वामी नायकर (पेरियार), के.पी. केशव ‘मेनन’, टी.के. माधवन तथा के कलप्पन ने भाग लिया।","explanation_en":"AD.V. Ramasvami Nayakar Non-Cooperation Movement in part taken was. year 1925 in he Congress Chhor given was; because their Manana was that Party its own leadership in non--Brahmins of Upeksha of. Kerala in Vayakom (Travanakor) named village in temple entry to taking Movement started occurred. this Movement in AD.V. Ramasvami Nayakar (Periyar), of.P. Keshav ‘Menan’, T.of. Madhavan and of Kalappan part taken.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":25},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"नेताजी सुभाष चंद्र बोस द्वारा आजाद हिंद फौज के हिस्से के रूप में गठित महिला रेजिमेंट का क्या नाम था?","question_en":"Netaji Subhash Chandra Bose by Ajad Hind Phauj of parts as constituted women Rejiment of what name was?","options":[{"hi":"वीरांगना रेजिमेंट","en":"Virangana Rejiment"},{"hi":"रानी झांसी रेजिमेंट","en":"Queen Jhansi Rejiment"},{"hi":"रानी भबानी रेजिमेंट","en":"Queen Bhabani Rejiment"},{"hi":"भारत माता रेजिमेंट","en":"India Mata Rejiment"}],"answer":1,"answer_note":"","explanation_hi":"सुभाष चंद्र बोस ने रानी लक्ष्मीबाई के नाम पर महिलाओं के लिए रानी झांसी रेजीमेंट स्थापित की। आजाद हिंद फौज के अन्य ब्रिगेड थे, जिसका नाम था - आजाद ब्रिगेड, सुभाष ब्रिगेड, नेहरू ब्रिगेड और गांधी ब्रिगेड।","explanation_en":"Subhash Chandra Bose Queen Lakshmibaee of name at women for Queen Jhansi Rejiment established of. Ajad Hind Phauj of other Briged were, whose name was - Ajad Briged, Subhash Briged, Nehru Briged and Gandhi Briged.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":26},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौन महिला स्वतंत्रता सेनानी ’भारत छोड़ो आंदोलन’ से संबंधित नहीं है?","question_en":"Following in from which women Freedom Senani ’ Quit India Movement ’ from related not is?","options":[{"hi":"मातंगिनी हाज़रा","en":"Matangini Hazara"},{"hi":"कनक लता बरूआ","en":"Kanak Lata Barua"},{"hi":"अरुणा आसफ अली","en":"Aruna Asaph Ali"},{"hi":"शांति घोष","en":"Peace Ghosh"}],"answer":3,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों में शांति घोष ’भारत छोड़ो आंदोलन’ से संबंधित नहीं थी। ध्यातव्य है कि दिसंबर, 1931 में तत्कालीन बंगाल की दो स्कूली छात्राओं शांति घोष और सुनीति चौधरी ने एक जिलाधिकारी की गोली मारकर हत्या कर दी थी। शेष अन्य विकल्पगत महिला स्वतंत्रता सेनानी ’भारत छोड़ो आंदोलन’ से संबंधित हैं।","explanation_en":"Given options in peace Ghosh ’ Quit India Movement ’ from related not was. notably is that December, 1931 in then Bengal of two Skuli Chhatraon peace Ghosh and Suniti Chaudhari one Jiladhikari of Goli Marakar Hatya tax given was. remaining other given in options women Freedom Senani ’ Quit India Movement ’ from related are.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":27},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"कालक्रम की दृष्टि से निम्नलिखित घटनाओं में से कौन-सी अंतिम थी?","question_en":"Chronology in terms of following events in from which-C last was?","options":[{"hi":"मोपला विद्रोह","en":"Mopala Revolt"},{"hi":"खिलाफत आंदोलन","en":"Khilafat Movement"},{"hi":"होम रूल आंदोलन","en":"Hom Rul Movement"},{"hi":"जलियांवाला बाग हत्याकांड","en":"Jallianwala Bagh Massacre"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत घटनाओं का कालक्रम इस प्रकार है - होमरूल आंदोलन - वर्ष 1916 जलियांवाला बाग हत्याकांड - अप्रैल, 1919 खिलाफत आंदोलन - सितंबर, 1919 मोपला विद्रोह - वर्ष 1921","explanation_en":"Given events of chronology this type is - Home Rule Movement - year 1916 Jallianwala Bagh Massacre - April, 1919 Khilafat Movement - September, 1919 Mopala Revolt - year 1921","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":28},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सूची- I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए। सूची-I सूची-II (व्यक्ति) (संबंधित कार्य/पद) A. डी.के. कार्वे 1. कलकत्ता में कन्या विद्यालय की स्थापना B. जे.ई.डी. बेथुन 2. सचिव, विडो री-मैरिज एसोसिएशन C. ईश्वर चन्द्र विद्यासागर3. बाल विवाह विरुद्ध संघर्ष प्रारंभ करना D. बी.एम. मालाबारी 4. कलकत्ता में संस्कृत कॉलेज के प्राचार्य कूट : A B C D","question_en":"List- I to List-II from matched do and lists of Select the correct answer from the code given below. List-I List-II (person) (related function/office) A. D.of. Karve 1. Calcutta in Kanya school of establishment B. J.AD.D. Bethun 2. Secretary, Vido Ri-Mairij Association C. Eeshvar Chandra Vidyasagar3. child marriage against struggle started to do D. B.M. Malabari 4. Calcutta in Sanskrit college of principal Code: A B C D","options":[{"hi":"2 1 4 3","en":"2 1 4 3"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"1 2 4 3","en":"1 2 4 3"},{"hi":"2 1 3 4","en":"2 1 3 4"}],"answer":0,"answer_note":"","explanation_hi":"सूची-I तथा सूची-II का सुमेलन निम्नवत है- सूची-I सूची- II (व्यक्ति) (संबंधित कार्य/पद) डी.के. कार्वे सचिव, विडो री-मैरिज एसोसिएशन जे.ई. डी. बेथुन कलकत्ता में कन्या विद्यालय की स्थापना ईश्वर चन्द्र विद्यासागर कलकत्ता में संस्कृत कॉलेज के प्राचार्य बी.एम. मालाबारी बाल विवाह विरुद्ध संघर्ष प्रारंभ करना","explanation_en":"List-I and List-II of matching as follows is- List-I List- II (person) (related function/office) D.of. Karve Secretary, Vido Ri-Mairij Association J.AD. D. Bethun Calcutta in Kanya school of establishment Eeshvar Chandra Vidyasagar Calcutta in Sanskrit college of principal B.M. Malabari child marriage against struggle started to do","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":29},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘सत्यशोधक समाज’ के संस्थापक कौन थे, जिनका प्राथमिक जोर सत्य की खोज पर था?","question_en":"‘ Satyashodhak Samaj ’ of founder which were, whose primary Jor true of Khoj at was?","options":[{"hi":"एम. जी. रानाडे","en":"M. G. Ranade"},{"hi":"राजा राम मोहन राय","en":"King Ram Mohan Roy"},{"hi":"ताराबाई शिन्दे","en":"Tarabaee Shinde"},{"hi":"ज्योतिबा फुले","en":"Jyotiba Phule"}],"answer":3,"answer_note":"","explanation_hi":"1873 ई. में सत्यशोधक समाज की स्थापना ज्योतिबा फुले ने की थी। इन्होंने शक्तिशाली गैर-ब्राह्मण आंदोलन का संचालन किया। इन्होंने अपनी पुस्तक ‘गुलामगीरी’ एवं अपने संगठन ‘सत्यशोधक समाज’ के द्वारा दलितों तथा वंचित वर्गों को न्याय दिलाने का कार्य किया था।","explanation_en":"1873 AD. in Satyashodhak Samaj of establishment Jyotiba Phule did. he Shaktishali non--Brahmin Movement of operation done. he its own book ‘Gulamagiri’ and its own Organization ‘ Satyashodhak Samaj ’ by Daliton and Vanchit classes to Justice Dilane of function did.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":30},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा उनको कालक्रमानुसार व्यवस्थित कीजिए। I. गदर पार्टी की स्थापना II. चिटगांव शस्त्रागार छापा III.बर्लिन में ‘इंडियन इंडिपेन्डेंस कमेटी’ की स्थापना IV .केंद्रीय एसेम्बली बम कांड नीचे दिए गए कूट से सही उत्तर का चयन कीजिए - कूट","question_en":"Consider the following events and Unako arrange them in chronological order. I. Ghadar Party of establishment II. Chitaganv Shastragar Chhapa III.Barlin in ‘Indian Indipendens Committee’ of establishment IV.Central Esembali Bam Kand Select the correct answer from the code given below - Code","options":[{"hi":"I, III, IV तथा II","en":"I, III, IV and II"},{"hi":"III, I, II तथा IV","en":"III, I, II and IV"},{"hi":"III, I, IV तथा II","en":"III, I, IV and II"},{"hi":"I, III, II तथा IV","en":"I, III, II and IV"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत घटनाओं का कालक्रम है - गदर पार्टी की स्थापना - 21 अप्रैल, 1913 बर्लिन में ‘इंडियन इंडिपेन्डेंस कमेटी’ की स्थापना - 1914 केंद्रीय एसेम्बली बम कांड - 8 अप्रैल, 1929 चिटगांव शस्त्रागार छापा - 18 अप्रैल, 1930","explanation_en":"Given events of chronology is - Ghadar Party of establishment - 21 April, 1913 Barlin in ‘Indian Indipendens Committee’ of establishment - 1914 Central Esembali Bam Kand - 8 April, 1929 Chitaganv Shastragar Chhapa - 18 April, 1930","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":31},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘हिंदुस्तान समाजवादी प्रजातंत्र संघ’ के संस्थापक कौन थे?","question_en":"‘Hindustan Socialist Prajatantra Union’ of founder which were?","options":[{"hi":"गोपेन चक्रवर्ती, फणींद्र बनर्जी, धरणी गोस्वामी","en":"Gopen Chakravarti, Phanindra Banarji, Dharani Gosvami"},{"hi":"यतींद्रनाथ, अजय घोष, फणींद्रनाथ घोष","en":"Yatindranath, Ajay Ghosh, Phanindranath Ghosh"},{"hi":"व्योमेश चंद्र, गोपेन चक्रवर्ती, सचिंद्र सान्याल","en":"Vyomesh Chandra, Gopen Chakravarti, Sachindra Sanyal"},{"hi":"व्योमेश चंद्र बनर्जी, अजय घोष, सचिंद्र सान्याल","en":"Vyomesh Chandra Banarji, Ajay Ghosh, Sachindra Sanyal"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] हिंदुस्तान समाजवादी प्रजातंत्र संघ (Hindustan Socialist Democratic Union) नाम से कोई भी संस्था इतिहास में नहीं रही है। Srikrishan ‘Sarala’ की पुस्तक Indian Revolutionaries 1757-1761, V ol-3 में भगत सिंह, चंद्रशेखर आजाद, शचीन्द्र सान्याल आदि द्वारा वर्ष 1928 में गठित संस्था का नाम ‘हिंदुस्तान समाजवादी प्रजातंत्र संघ’ बताया गया है; परंतु तत्कालीन दस्तावेजों, इतिहास की प्रामाणिक पुस्तकों मंे इस संस्था का नाम ‘हिंदुस्तान सोशलिस्ट रिपब्लिकन एसोसिएशन’ (HSRA) दिया गया है। अत: आयोग द्वारा पूछे गए इस प्रश्न में एक त्रुटि संस्था के नाम की है तथा दूसरी यह कि विकल्पगत संस्थापक सदस्यों के नामों पर विचार करें, तो यतींद्रनाथ मुखर्जी वर्ष 1915 में ही शहीद हो गए थे। गोपेन चक्रवर्ती और धरणी गोस्वामी कलकत्ता अनुशीलन समिति के सदस्य थे, साम्यवादी आंदोलन से जुड़े थे तथा मेरठ षड्यंत्र में अभियुक्त थे; परंतु ये दोनों HSRA के सदस्य नहीं थे। व्योमेश चंद्र बनर्जी उदारवादी नेता तथा भारतीय राष्ट्रीय कांग्रेस के पहले अध्यक्ष थे। HSRA के संस्थापक सदस्यों की दृष्टि से कोई भी विकल्प सही नहीं है।","explanation_en":"[Note: original Question in answer (*) marked is] Hindustan Socialist Prajatantra Union (Hindustan Socialist Democratic Union) name from any also Institution History in not remained is. Srikrishan ‘Sarala’ of book Indian Revolutionaries 1757-1761, V ol-3 in Bhagat lion, Chandrashekhar Ajad, Shachindra Sanyal etc. by year 1928 in constituted Institution of name ‘Hindustan Socialist Prajatantra Union’ Bataya was is; but then Dastavejon, History of Pramanik books Mane this Institution of name ‘Hindustan Soshalista Ripablikan Association’ (HSRA) is given. hence: Commission by Puchhe were this Question in one Truti Institution of name of is and second this that given in options founder Members of names at consideration do, then Yatindranath Mukharji year 1915 in only Shahid be were were. Gopen Chakravarti and Dharani Gosvami Calcutta Anushilan Committee of Member were, Samyavadi Movement from Jure were and Meerut conspiracy in Abhiyukta were; but these both HSRA of Member not were. Vyomesh Chandra Banarji Udaravadi leader and Indian National Congress of before Chairman were. HSRA of founder Members in terms of any also option is not correct.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":32},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"ज्योतिबा फुले संबंधित थे","question_en":"Jyotiba Phule related were","options":[{"hi":"श्रमिक संघ आंदोलन से","en":"Worker Union Movement from"},{"hi":"कृषक आंदोलन से","en":"Farmer Movement from"},{"hi":"सविनय अवज्ञा आंदोलन से","en":"Civil Disobedience Movement from"},{"hi":"जाति-विरोधी आंदोलन से","en":"Caste-anti- Movement from"}],"answer":3,"answer_note":"","explanation_hi":"ज्योतिबा फुले जाति-विरोधी आंदोलन से संबंधित थे। महात्मा ज्योतिबा फुले महाराष्ट्र मंे अछूतोद्धार व महिला शिक्षा का कार्य आरंभ करने वाले व्यक्तियों में से एक थे। दलितों तथा वंचित वर्गों को न्याय दिलाने के लिए इन्होंने ‘सत्यशोधक समाज’ की स्थापना की थी।","explanation_en":"Jyotiba Phule caste-anti- Movement from related were. Mahatma Jyotiba Phule Maharashtra Mane Achhutoddhar and women education of function started doing having persons in from one were. Daliton and Vanchit classes to Justice Dilane for he ‘ Satyashodhak Samaj ’ of establishment did.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":33},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"जलियांवाला बाग हत्याकांड के विरोध में किसने ब्रिटिश सरकार की ‘नाइटहुड’ की उपाधि को लौटा दिया था?","question_en":"Jallianwala Bagh Massacre of opposition in who British Government of ‘Naitahud’ of title to Lauta given was?","options":[{"hi":"रबिंद्रनाथ टैगोर","en":"Rabindranath Taigor"},{"hi":"शंकरन नायर","en":"Shankaran Nair"},{"hi":"मु. अली जिन्ना","en":"Mu. Ali Jinna"},{"hi":"रामेश्वर सिंह","en":"Rameshvar lion"}],"answer":0,"answer_note":"","explanation_hi":"13 अप्रैल, 1919 को जलियांवाला बाग हत्याकांड के बाद रबिंद्रनाथ टैगोर ने ब्रिटिश सरकार द्वारा प्रदान की गई ‘नाइटहुड’ की उपाधि लौटा दी थी। जलियांवाला बाग हत्याकांड के विरोध में शंकरन नायर ने वायसराय की कार्यकारिणी से इस्तीफा दे दिया था।","explanation_en":"13 April, 1919 to Jallianwala Bagh Massacre after Rabindranath Taigor British Government by provided was done ‘Naitahud’ of title Lauta given was. Jallianwala Bagh Massacre of opposition in Shankaran Nair Viceroy of Karyakarini from resignation De given was.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":34},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"उस विदेशी पत्रकार का नाम बताइए, जिसने धरसना साल्ट वर्क्स पर सत्याग्रह के बारे में समाचार दिए","question_en":"That foreign journalist of name Bataie, who Dharasana Salta Varksa at Satyagraha of about in Samachar given","options":[{"hi":"फ्रांसिस लुई","en":"Phransis Luee"},{"hi":"मार्क टुली","en":"Marka Tuli"},{"hi":"वेब मिलर","en":"Veb Milar"},{"hi":"फिलिप स्प्रेट","en":"Philip Spret"}],"answer":2,"answer_note":"","explanation_hi":"मई, 1930 में सविनय अवज्ञा आंदोलन के दौरान सरोजिनी नायडू के नेतृत्व में धरसना नमक गोदाम पर कांग्रेस कार्यकर्ताओं ने धावा बोल दिया। धरसना में पुलिस द्वारा की गई वीभत्स ज्यादतियों का उल्लेख वेब मिलर नामक पत्रकार ने किया है।","explanation_en":"May, 1930 in Civil Disobedience Movement during Sarojini Nayadu of leadership in Dharasana salt Godam at Congress Karyakartaon Dhava Bol given. Dharasana in Pulis by was done Vibhatsa Jyadatiyon of mention Veb Milar named journalist done is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":35},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से 1926 ई. में गठित ‘नौजवान-सभा’ का प्रारंभिक सदस्य कौन नहीं था?","question_en":"Following in from 1926 AD. in constituted ‘Naujavan-Assembly’ of early Member which not was?","options":[{"hi":"भगत सिंह","en":"Bhagat lion"},{"hi":"यशपाल","en":"Yashapal"},{"hi":"छबील दास","en":"Chhabil Das"},{"hi":"अंबिका चक्रवर्ती","en":"Ambika Chakravarti"}],"answer":3,"answer_note":"","explanation_hi":"वर्ष 1926 में लाहौर (वर्तमान पाकिस्तान में) में सरदार भगत सिंह, छबील दास, यशपाल आदि ने मिलकर नौजवान-सभा की स्थापना की थी। इसका उद्देश्य भारत में मजदूर एवं किसानों का राज्य स्थापित करना था।","explanation_en":"Year 1926 in Lahore (present Pakistan in) in Saradar Bhagat lion, Chhabil Das, Yashapal etc. together Naujavan-Assembly of establishment did. its objective India in labourer and farmers of State established to do was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":36},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित विदेशी यात्रियों को उनके भारत आने के कालक्रमानुसार व्यवस्थित कीजिए : I. विलियम हॉकिंस II. राल्फ फिच III. सर थॉमस रो IV . निकोलस डाउंटन नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। कूट","question_en":"Following foreign travellers to their India coming of arrange them in chronological order: I. William Hokins II. Ralpha Phich III. Sir Thomas Ro IV. Nikolas Dauntan Select the correct answer from the code given below. Code","options":[{"hi":"II, I, IV एवं III","en":"II, I, IV and III"},{"hi":"IV , II, I एवं III","en":"IV, II, I and III"},{"hi":"I, III, II एवं IV","en":"I, III, II and IV"},{"hi":"III, II, IV एवं I","en":"III, II, IV and I"}],"answer":0,"answer_note":"","explanation_hi":"विलियम हॉकिंस इंग्लैंड का राजदूत था जो 1608 ई. में सूरत पहुंचा था तथा अप्रैल, 1609 में मुगल शासक जहांगीर के दरबार में आगरा पहुंचा था। रॉल्फ फिच, भारत आने वाला पहला इंग्लिश यात्री था। वह 1583 ई. में गोवा पहुंचा था। सर थॉमस रो एक ब्रिटिश राजदूत था जो सितंबर, 1615 में जहांगीर के दरबार में आया था। निकोलस डाउंटन 1614-15 ई. में भारत आया था।","explanation_en":"William Hokins England of ambassador was which 1608 AD. in Surat Pahuncha was and April, 1609 in Mugal Ruler Jahangir of court in Agra Pahuncha was. Rolpha Phich, India coming having first Inglish traveller was. that 1583 AD. in Goa Pahuncha was. Sir Thomas Ro one British ambassador was which September, 1615 in Jahangir of court in came was. Nikolas Dauntan 1614-15 AD. in India came was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":37},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्न में से कौन एक 1924 के कानपुर षड़्यंत्र मामले में शामिल नह था?","question_en":"Low in from which one 1924 of Kanpur Sharyantra matters in included Nah was?","options":[{"hi":"मुजफ्फर अहमद","en":"Mujaphphar Ahamad"},{"hi":"नलिनी गुप्ता","en":"Nalini Gupta"},{"hi":"शौकत उसमानी","en":"Shaukat Usamani"},{"hi":"एम.ए. अंसारी","en":"M.A. Ansari"}],"answer":3,"answer_note":"","explanation_hi":"कम्युनिस्ट आंदोलन की शक्ति एवं बढ़ते प्रभाव को रोकने के लिए कानपुर में एक षड्यंत्र को आधार बनाकर कुछ कम्युनिस्टों पर मुकदमा चलाया गया। यह मुकदमा ‘कानपुर षड्यंत्र’ के नाम से प्रसिद्ध है। इस मुकदमे में एम.एन. राय, श्रीपाद अमृत डांगे, नलिनी गुप्ता, मुजफ्फर अहमद, शौकत उस्मानी, गुलाम शौकत हुसैन, रामचरण लाल शर्मा, सिंगार वेलू चेट्टियार आदि अभियुक्त बनाए गए थे। अत: दिए गए विकल्पों में एम.ए. अंसारी, कानपुर षड़यंत्र मामले में शामिल नहीं थे।","explanation_en":"Kamyunista Movement of power and Barhate impact to Rokane for Kanpur in one conspiracy to basis Banakar some Kamyuniston at trial Chalaya was. this trial ‘ Kanpur Conspiracy ’ of name from famous is. this trials in M.N. Roy, Shripad Amrit Dange, Nalini Gupta, Mujaphphar Ahamad, Shaukat Usmani, Gulam Shaukat Husain, Ramacharan red Sharma, Singar Velu Chettiyar etc. Abhiyukta made were were. hence: given options in M.A. Ansari, Kanpur Sharayantra matters in included not were.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":38},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘‘क्या आप मुझे एक भी स्वतंत्र देश दिखा सकते हैं जहां पृथक मताधिकार हो?......अंग्रेज जा चुके हैं, परंतु वे शरारत छोड़ गए हैं।’’ निम्नलिखित में से किसने उपर्युक्त वाक्य को संविधान सभा के बहस में कहा था?","question_en":"‘‘what Ap Mujhe one also independent country Dikha can are where separate Matadhikar be?......Angrej be Chuke are, but they Shararat Chhor were are. ’’ following in from who above Vakya to Constituent Assembly of Bahas in said was?","options":[{"hi":"सोमनाथ लाहिड़ी","en":"Somanath Lahiri"},{"hi":"जवाहरलाल नेहरू","en":"Jawaharlal Nehru"},{"hi":"सरदार वल्लभभाई पटेल","en":"Saradar Vallabhabhaee Patel"},{"hi":"एन.जी. रंगा","en":"N.G. Ranga"}],"answer":2,"answer_note":"","explanation_hi":"13 दिसंबर, 1946 को पंडित जवाहरलाल नेहरू ने संविधान सभा के समक्ष ‘उद्देश्य प्रस्ताव’ पेश किया था। यह एक ऐतिहासिक प्रस्ताव था, जिसमें स्वतंत्र भारत के संविधान के मूल आदर्शों की रूपरेखा प्रस्तुत की गई थी। उपर्युक्त अवसर पर बोलते हुए सरदार वल्लभभाई पटेल ने कहा था,.........अंग्रेज तो चले गए, मगर जाते-जाते शरारत का बीज बो गए। हम इस शरारत को और नहीं बढ़ाना चाहते.....।","explanation_en":"13 December, 1946 to Pandit Jawaharlal Nehru Constituent Assembly of before ‘objective resolution’ Pesh did. this one Historical resolution was, in which independent India of Constitution of original Adarshon of Ruparekha presented was done was. above opportunity at Bolate occurred Saradar Vallabhabhaee Patel said was,.........Angrej then Chale were, Magar go-go Shararat of Bij Bo were. Ham this Shararat to and not Barhana Chahate......","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":39},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा उनको कालक्रमानुसार व्यवस्थित कीजिए - I. शारदा अधिनियम II. नेहरू रिपोर्ट III.साइमन कमीशन का गठन IV . डांडी मार्च नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। कूट","question_en":"Consider the following events and Unako arrange them in chronological order - I. Sharada Act II. Nehru report III. Simon Commission of formation IV. Dandi March Select the correct answer from the code given below. Code","options":[{"hi":"III, II, I तथा IV","en":"III, II, I and IV"},{"hi":"I, II, III तथा IV","en":"I, II, III and IV"},{"hi":"IV , III, II तथा I","en":"IV, III, II and I"},{"hi":"I, IV , II तथा III","en":"I, IV, II and III"}],"answer":0,"answer_note":"","explanation_hi":"घटना वर्ष शारदा अधिनियम 1929 नेहरू रिपोर्ट 1928 साइमन कमीशन का गठन 1927 डांडी मार्च 1930 अत: कालक्रमानुसार सही उत्तर III, II, I, IV होगा।","explanation_en":"Event year Sharada Act 1929 Nehru report 1928 Simon Commission of formation 1927 Dandi March 1930 hence: chronological order correct answer III, II, I, IV will be.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":40},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"भारतीय इतिहास के संदर्भ में वायकोम सत्याग्रह के संबंध में निम्नलिखित कथनों में से कौन-सा/से सही है/हैं? 1. यह अस्पृश्यता और जातिगत भेदभाव के विरुद्ध एक सत्याग्रह था। ीं 2. महात्मा गांधी ने इस सत्याग्रह में भाग लिया था। नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए। कूट","question_en":"Indian History with reference to Vaikom Satyagraha in relation to following statements in from which-which/from is correct/are? 1. this untouchability and Jatigat Bhedabhav of against one Satyagraha was. In 2. Mahatma Gandhi this Satyagraha in part taken was. Select the correct answer using the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":2,"answer_note":"","explanation_hi":"केरल के हिंदू समाज में अस्पृश्यता तथा जातिगत भेदभाव के विरुद्ध तत्कालीन त्रावणकोर रियासत में एक सामाजिक विरोध प्रदर्शन का आयोजन हुआ था, जिसे वायकोम सत्याग्रह (1924-25) नाम दिया गया। मार्च, 1925 में महात्मा गांधी ने वायकोम (केरल) पहुंचकर ‘वायकोम सत्याग्रह’ में भाग लिया था।","explanation_en":"Kerala of Hindu society in untouchability and Jatigat Bhedabhav of against then Travanakor Riyasat in one social opposition performance of organization took place, which Vaikom Satyagraha (1924-25) name given was. March, 1925 in Mahatma Gandhi Vayakom (Kerala) Pahunchakar ‘ Vaikom Satyagraha ’ in part taken was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":41},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘एशियाटिक सोसाइटी ऑफ बंगाल’ का संस्थापक कौन था?","question_en":"‘ Asiatic Society of Bengal ’ of founder which was?","options":[{"hi":"जोनाथन डंकन","en":"Jonathan Dankan"},{"hi":"सर विलियम जोंस","en":"Sir William Jons"},{"hi":"वारेन हेस्टिंग्स","en":"Varen Hestingsa"},{"hi":"विलियम बेंटिक","en":"William Bentik"}],"answer":1,"answer_note":"","explanation_hi":"एशियाटिक सोसाइटी ऑफ बंगाल (वर्तमान नाम- एशियाटिक सोसायटी) की स्थापना वर्ष 1784 में सर विलियम जोंस द्वारा की गई थी। इसकी स्थापना का उद्देश्य ओरिएंटल रिसर्च को बढ़ावा देना था।","explanation_en":"Asiatic Society of Bengal (present name- Eshiyatik Sosayati) of establishment year 1784 in Sir William Jons by was done was. its establishment of objective Oriental Risarcha to promotion to give was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":42},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से किसने कभी भी भारतीय राष्ट्रीय कांग्रेस के किसी भी अधिवेशन की अध्यक्षता नहीं की?","question_en":"Following in from who Kabhi also Indian National Congress of any also Session presided over not of?","options":[{"hi":"लाला लाजपत राय","en":"Lala Lajapat Roy"},{"hi":"बाल गंगाधर तिलक","en":"Child Gangadhar Tilak"},{"hi":"गोपाल कृष्ण गोखले","en":"Gopal Krishna Gokhale"},{"hi":"सुभाष चंद्र बोस","en":"Subhash Chandra Bose"}],"answer":1,"answer_note":"","explanation_hi":"गोपाल कृष्ण गोखले ने बनारस में आयोजित भारतीय राष्ट्रीय कांग्रेस के 21वें वार्षिक सत्र (1905); सुभाष चंद्र बोस ने 51वें सत्र (1938) तथा 52वें सत्र (1939) तथा लाला लाजपत राय ने वर्ष 1920 में कलकत्ता में आयोजित विशेष सत्र की अध्यक्षता की थी, जबकि बाल गंगाधर तिलक ने कांग्रेस की अध्यक्षता कभी नहीं की थी।","explanation_en":"Gopal Krishna Gokhale Banaras in held Indian National Congress of 21st annual session (1905); Subhash Chandra Bose 51st session (1938) and 52nd session (1939) and Lala Lajapat Roy year 1920 in Calcutta in held special session presided over did, whereas child Gangadhar Tilak Congress presided over Kabhi not did.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":43},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"ब्रिटिश इंडिया के निम्नलिखित में से किस अधिनियम ने सामूहिक कार्यचालन के स्थान पर ‘विभाग’ या ‘विभागीय’ पद्धति द्वारा वायसराय की कार्यकारी परिषद पर उनके प्राधिकार को और अधिक बल प्रदान किया?","question_en":"British India of following in from which Act collective Karyachalan of place at ‘Department’ or ‘Vibhagiy’ method by Viceroy of Karyakari Council at their Pradhikar to and more force provided done?","options":[{"hi":"भारतीय परिषद अधिनियम, 1861","en":"Indian Council Act, 1861"},{"hi":"भारत सरकार अधिनियम, 1858","en":"Government of India Act, 1858"},{"hi":"भारतीय परिषद अधिनियम, 1892","en":"Indian Council Act, 1892"},{"hi":"भारतीय परिषद अधिनियम, 1909","en":"Indian Council Act, 1909"}],"answer":0,"answer_note":"","explanation_hi":"भारतीय परिषद अधिनियम, 1861 के द्वारा वायसराय की परिषद को कानून बनाने की शक्ति प्रदान की गई, जिसके तहत वायसराय लॉर्ड कैनिंग ने विभागीय प्रणाली की शुरूआत की।","explanation_en":"Indian Council Act, 1861 by Viceroy of Council to Law making of power provided was done, whose under Viceroy Lord Kaining Vibhagiy system of Shuruat of.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":44},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"राजा रंजीत सिंह ने किस स्थान पर अदालत-ए-आला की स्थापना की?","question_en":"King Ranjit lion which place at Court-A-Ala of establishment of?","options":[{"hi":"अमृतसर","en":"Amritasar"},{"hi":"लाहौर","en":"Lahore"},{"hi":"फिरोजपुर","en":"Phirojapur"},{"hi":"मुल्तान","en":"Multan"}],"answer":1,"answer_note":"","explanation_hi":"रंजीत सिंह (रणजीत सिंह) का राज्य चार प्रांतों—कश्मीर, मुल्तान, पेशावर और लाहौर में बंटा हुआ था। रंजीत सिंह की न्याय व्यवस्था कठोर थी। राज्य की सर्वोच्च अदालत का नाम अदालत-ए-आला थी। यह अदालत लाहौर में स्थित थी। रंजीत सिंह स्वयं इसके प्रधान न्यायाधीश थे।","explanation_en":"Ranjit lion (Ranajit lion) of State four Provinces—Kashmir, Multan, Peshavar and Lahore in Banta took place. Ranjit lion of Justice system Kathor was. State of supreme Court of name Court-A-Ala was. this Court Lahore in located was. Ranjit lion itself its Pradhan Judge were.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":45},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘‘ऐक्स-ला-शापेल - 1748’’ की संधि के संदर्भ में निम्नलिखित कथनों में से कौन-सा/से सही है/हैं? 1. प्रथम कर्नाटक युद्ध की समाप्ति। 2. अंग्रेजों को मद्रास पुन: प्राप्त हुआ। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"‘‘Aiksa-La-Shapel - 1748’’ of Treaty with reference to following statements in from which-which/from is correct/are? 1. first Karnataka Battle of Samapti. 2. British to Madras re-: obtained occurred. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":2,"answer_note":"","explanation_hi":"ऐक्स-ला-शापेल की संधि 1748 ई. से ऑस्ट्रिया के उत्तराधिकार का युद्ध समाप्त हो गया। यूरोप का युद्ध बंद होते ही कर्नाटक का प्रथम युद्ध समाप्त हो गया तथा मद्रास अंग्रेजों को पुन: प्राप्त हो गया। अत: कथन (1) और (2) दोनों सही हैं।","explanation_en":"Aiksa-La-Shapel of Treaty 1748 AD. from Ostriya of succession of Battle abolished be was. Europe of Battle Band are only Karnataka of first Battle abolished be was and Madras British to re-: obtained be was. hence: statement (1) and (2) both correct are.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":46},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सिक्किम का भारत में विलय किसने किया?","question_en":"Sikkim of India in Vilay who done?","options":[{"hi":"लॉर्ड हेस्टिंग्स","en":"Lord Hestingsa"},{"hi":"लॉर्ड विलियम बेंटिक","en":"Lord William Bentik"},{"hi":"लॉर्ड डलहौजी","en":"Lord Dalahauji"},{"hi":"लॉर्ड आकलैंड","en":"Lord Akalaind"}],"answer":2,"answer_note":"","explanation_hi":"सिक्किम जो नेपाल और भूटान देशों के मध्य स्थित एक संप्रभु राज्य था। उसके राजा पर यह दोष लगाया गया कि उसने दो अंग्रेज डॉक्टरों के साथ दुर्व्यवहार किया है। लॉर्ड डलहौजी के शासनकाल में उस राज्य के कुछ दूरवर्ती प्रदेश, जिसमें दार्जिलिंग तथा तराई का कुछ भाग भी सम्मिलित था, को भारत में मिला लिया गया।","explanation_en":"Sikkim which Nepal and Bhutan countries between located one Samprabhu State was. its King at this Dosh Lagaya was that he two Angrej Doktaron with Durvyavahar done is. Lord Dalahauji during the reign of that State of some Duravarti Pradesh, in which Darjiling and Taraee of some part also included was, to India in Mila taken was.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":47},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित नेताओं में से कौन द्वितीय गोलमेज सम्मेलन में भाग नहीं लिया था?","question_en":"Following Netaon in from which Second Round Table Conference in part not taken was?","options":[{"hi":"एम.के. गांधी","en":"M.of. Gandhi"},{"hi":"सरोजिनी नायडू","en":"Sarojini Nayadu"},{"hi":"पंडित मदन मोहन मालवीय","en":"Pandit Madan Mohan Malaviy"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr.. Rajendra Prasad"}],"answer":3,"answer_note":"","explanation_hi":"7 सितंबर, 1931 से 1 दिसंबर, 1931 तक चले द्वितीय गोलमेज सम्मेलन में महात्मा गांधी ने कांग्रेस के एकमात्र प्रतिनिधि के रूप में हिस्सा लिया। इनके अलावा सरोजिनी नायडू तथा मदन मोहन मालवीय ने भी इस सम्मेलन में हिस्सा लिया। एनी बेसेंट ने भी इस सम्मेलन में भाग लिया था। गांधीजी के साथ उनके सचिव महादेव देसाई, प्यारेलाल तथा मीराबेन और देवदास गांधी भी लंदन गए थे।","explanation_en":"7 September, 1931 from 1 December, 1931 up to Chale Second Round Table Conference in Mahatma Gandhi Congress of only Pratinidhi as part taken. their besides Sarojini Nayadu and Madan Mohan Malaviy also this Conference in part taken. Eni Besent also this Conference in part taken was. Gandhiji with their Secretary Mahadev Desaee, Pyarelal and Miraben and Devadas Gandhi also London were were.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":48},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए - सूची - I सूची - II (पुस्तक) (लेखक) A. द स्टोरी ऑफ माय डिपोर्टेशन1. सुरेन्द्रनाथ बनर्जी B. गीता रहस्य 2. मौलाना अबुल कलाम आजाद C. ए नेशन इन मेकिंग 3. लाला लाजपत राय D. इंडिया विंस फ्रीडम 4. बाल गंगाधर तिलक कूट : A B C D","question_en":"List - I to List - II from matched do and lists of Select the correct answer from the code given below - List - I List - II (book) (author) A. the Stori of May Diporteshan1. Surendranath Banarji B. Gita Rahasya 2. Maulana Abul Kalam Ajad C. A Neshan these Meking 3. Lala Lajapat Roy D. India Vins Phridam 4. child Gangadhar Tilak Code: A B C D","options":[{"hi":"3 4 1 2","en":"3 4 1 2"},{"hi":"4 2 1 3","en":"4 2 1 3"},{"hi":"2 4 1 3","en":"2 4 1 3"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":0,"answer_note":"","explanation_hi":"सही सुमेलन है - सूची - I सूची - II (पुस्तक) (लेखक) द स्टोरी ऑफ माय डिपोर्टेशन - लाला लाजपत राय गीता रहस्य - बाल गंगाधर तिलक ए नेशन इन मेकिंग - सुरेन्द्रनाथ बनर्जी इंडिया विंस फ्रीडम - मौलाना अबुल कलाम आजाद","explanation_en":"Correct matching is - List - I List - II (book) (author) the Stori of May Diporteshan - Lala Lajapat Roy Gita Rahasya - child Gangadhar Tilak A Neshan these Meking - Surendranath Banarji India Vins Phridam - Maulana Abul Kalam Ajad","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":49},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौन 1755 में डिंडीगुल मैसूर में एक आधुनिक शस्त्रागार की स्थापना की थी?","question_en":"Following in from which 1755 in Dindigul Mysore in one Modern Shastragar of establishment did?","options":[{"hi":"नंजराज","en":"Nanjaraj"},{"hi":"हैदर अली","en":"Haidar Ali"},{"hi":"देवराज","en":"Devaraj"},{"hi":"चिक्का कृष्णराज","en":"Chikka Krishnaraj"}],"answer":1,"answer_note":"","explanation_hi":"1742 ई. में वेंकट राय के नेतृत्व में मैसूर सेना ने डिंडीगुल पर विजय प्राप्त की। 1755 ई. में मैसूर के महाराज ने स्थिति को संभालने के लिए हैदर अली को डिंडीगुल भेजा। 1755 ई. में हैदर अली ने डिंडीगुल पर कब्जा कर लिया और इस किले को एक सैन्य चौकी में बदल दिया। बाद में हैदर अली मैसूर का वास्तविक शासक बन गया।","explanation_en":"1742 AD. in Venkat Roy of leadership in Mysore army Dindigul at victory obtained of. 1755 AD. in Mysore of Maharaj status to Sambhalane for Haidar Ali to Dindigul Bheja. 1755 AD. in Haidar Ali Dindigul at Kabja tax taken and this fort to one military Chauki in Badal given. after in Haidar Ali Mysore of real Ruler become was.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":50},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) और दूसरे को कारण (R) कहा गया है - कथन (A) : ब्रिटिश सरकार ने भारत के अलग-अलग भागों में भू- राजस्व की अलग-अलग व्यवस्था लागू की थी। कारण (R) : इससे भारतीय किसानों में अलग-अलग वर्ग बन गए। नीचे दिए गए कूट में से सही उत्तर चुनिए। कूट","question_en":"Below two statement are given, among which one to statement (A) and second to Reason (R) is called - statement (A): British Government India of separate-separate parts in land- revenue of separate-separate system implemented did. Reason (R): from this Indian farmers in separate-separate class become were. Select the correct answer from the code given below. Code","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":0,"answer_note":"","explanation_hi":"ब्रिटिश सरकार ने भारत के अलग-अलग भागों में भू-राजस्व की अलग- अलग व्यवस्था लागू की थी। ये व्यवस्थाएं थीं - स्थायी बंदोबस्त प्रणाली, रैयतवाड़ी व्यवस्था तथा महालवाड़ी पद्धति। स्थायी बंदोबस्त व्यवस्था बंगाल, बिहार, उड़ीसा तथा उत्तर प्रदेश के वाराणसी तक के क्षेत्र में लागू थी। इसके अंतर्गत समूचे ब्रिटिश भारत के क्षेत्र का लगभग 19 प्रतिशत हिस्सा शामिल था। रैयतवाड़ी व्यवस्था (ब्रिटिश भारत का लगभग 51 प्रतिशत हिस्सा) मद्रास, बंबई के कुछ हिस्से, पूर्वी बंगाल, असम तथा कुर्ग (आधुनिक कर्नाटक का एक भाग) में लागू थी। महालवाड़ी पद्धति (ब्रिटिश भारत का लगभग 30 प्रतिशत हिस्सा) संयुक्त प्रांत, मध्य प्रांत एवं बरार तथा पंजाब (कुछ परिवर्तनों के साथ) में लागू की गई थी। अत: स्पष्ट है कि इससे भारतीय किसानों में अलग-अलग वर्ग बन गए थे। अत: कथन और कारण दोनों सत्य हैं तथा कारण (R) कथन (A) की सही व्याख्या करता है।","explanation_en":"British Government India of separate-separate parts in land-revenue of separate- separate system implemented did. these systems were - Permanent Settlement system, Ryotwari System and Mahalavari method. Permanent Settlement system Bengal, Bihar, Urisa and Uttar Pradesh of Varanasi up to of region in implemented was. its under Samuche British India of region of approximately 19 percent (%) part included was. Ryotwari System (British India of approximately 51 percent (%) part) Madras, Bombay of some parts, Eastern Bengal, Assam and Kurga (Modern Karnataka of one part) in implemented was. Mahalavari method (British India of approximately 30 percent (%) part) joint Province, Central Province and Barar and Punjab (some changes with) in implemented was done was. hence: clear is that from this Indian farmers in separate-separate class become were were. hence: statement and Reason both true are and Reason (R) statement (A) of correct Explanation does is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":51},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए - सूची-I सूची-II A. इलाहाबाद की संधि 1. 1782 B. मंगलौर की संधि 2. 1784 C. सालबाई की संधि 3. 1769 D. मद्रास की संधि 4. 1765 कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer from the code given below the lists - List-I List-II A. Allahabad of Treaty 1. 1782 B. Mangalaur of Treaty 2. 1784 C. Salabaee of Treaty 3. 1769 D. Madras of Treaty 4. 1765 Code: A B C D","options":[{"hi":"4 2 3 1","en":"4 2 3 1"},{"hi":"2 4 3 1","en":"2 4 3 1"},{"hi":"4 2 1 3","en":"4 2 1 3"},{"hi":"2 4 1 3","en":"2 4 1 3"}],"answer":2,"answer_note":"","explanation_hi":"इलाहाबाद की प्रथम संधि अंग्रेजों और मुगल बादशाह शाहआलम द्वितीय के मध्य 12 अगस्त, 1765 ई. को हुई थी, जबकि इलाहाबाद की द्वितीय संधि अंग्रेजों और अवध के नवाब शुजाउद्दौला के बीच 16 अगस्त, 1765 ई. को हुई। मंगलौर की संधि द्वितीय आंग्ल-मैसूर युद्ध (1780-84 ई.) के बाद अंग्रेजों और टीपू सुल्तान के मध्य 1784 ई. में हुई थी। सालबाई की संधि प्रथम आंग्ल-मराठा युद्ध ( 1775-82 ई.) के बाद महादजी सिंधिया की मध्यस्थता में अंग्रेजों और मराठों के मध्य 1782 ई. में हुई थी। मद्रास की संधि प्रथम आंग्ल-मैसूर युद्ध (1767-69 ई.) के बाद 1769 ई. में हैदर अली और अंग्रेजों के बीच हुई थी।","explanation_en":"Allahabad of first Treaty British and Mugal Emperor Shahaalam second between 12 August, 1765 AD. to took place, whereas Allahabad of second Treaty British and Avadh of Navab Shujauddaula between 16 August, 1765 AD. to occurred. Mangalaur of Treaty second Angla-Mysore Battle (1780-84 AD.) after British and Tipu Sultan between 1784 AD. in took place. Salabaee of Treaty first Angla-Maratha Battle (1775-82 AD.) after Mahadaji Sindhiya of Madhyasthata in British and Marathon between 1782 AD. in took place. Madras of Treaty first Angla-Mysore Battle (1767-69 AD.) after 1769 AD. in Haidar Ali and British between took place.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":52},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं को कालानुक्रम में व्यवस्थित कीजिए और नीचे दिए कूटों में से सही उत्तर चुनिए - I. पूना पैक्ट II. गांधी-इर्विन समझौता III.क्रिप्स मिशन IV .सविनय अवज्ञा आंदोलन कूट","question_en":"Following events to arrange them in chronological order and below given codes in from select the correct answer - I. Puna Paikta II. Gandhi-Irwin Pact III. Cripps Mission IV. Civil Disobedience Movement Code","options":[{"hi":"IV , II, III, I","en":"IV , II, III, I"},{"hi":"II, IV , I, III","en":"II, IV , I, III"},{"hi":"IV , II, I, III","en":"IV , II, I, III"},{"hi":"III, I, IV , II","en":"III, I, IV , II"}],"answer":2,"answer_note":"","explanation_hi":"सविनय अवज्ञा आंदोलन गांधीजी के नेतृत्व में हुए दांडी मार्च और नमक कानून के उल्लंघन के साथ वर्ष 1930 में प्रारंभ हुआ था, जो कि 5 मार्च, 1931 को हुए गांधी-इर्विन समझौते के पश्चात स्थगित कर दिया गया। 16 अगस्त, 1932 को ब्रिटिश प्रधानमंत्री रैम्जे मैक्डोनाल्ड द्वारा घोषित सांप्रदायिक पंचाट के बाद गांधीजी और अम्बेडकर के मध्य पूना समझौता 24 सितंबर, 1932 को हुआ था। क्रिप्स मिशन मार्च, 1942 में भारत आया था।","explanation_en":"Civil Disobedience Movement Gandhiji of leadership in occurred Dandi March and salt Law of Ullanghan with year 1930 in started took place, which that 5 March, 1931 to occurred Gandhi-Irvin Agreements after Sthagit tax given was. 16 August, 1932 to British Prime Minister Raimje Maikdonalda by declared Sampradayik Panchat after Gandhiji and Ambedakar between Poona Pact 24 September, 1932 to took place. Cripps Mission March, 1942 in India came was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":53},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"असैनिक प्रशासन 1905 के संदर्भ में, कौन-सा कथन सही है/हैं? 1. लॉर्ड कर्जन ने प्रांतीय सीमाओं को पुनर्गठित करने का निर्णय लिया। 2. पूर्वी बंगाल और आसाम नामक एक नया प्रांत बनाया गया। नीचे दिए गए कूटों में से सही उत्तर चुनिए","question_en":"Asainik Administration 1905 with reference to, which-which statement is correct/are? 1. Lord Karjan Provincial borders to Punargathit doing of decision taken. 2. Eastern Bengal and Asam named one new Province made was. Select the correct answer from the codes given below","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":1,"answer_note":"","explanation_hi":"वर्ष 1905 में वायसराय लॉर्ड कर्जन ने प्रांतीय सीमाओं को पुनर्गठित करने का निर्णय लिया। इसने बंगाल को दो भागों में बांटकर ‘पूर्वी बंगाल और आसाम’ नामक एक नया प्रांत बनाया तथा बंगाल के पश्चिमी भाग में शेष बंगाल, बिहार, उड़ीसा, आदि को शामिल किया। इसके अतिरिक्त उसने मद्रास और मध्य प्रांत एवं बरार की सीमाओं में भी बदलाव किया था।","explanation_en":"Year 1905 in Viceroy Lord Karjan Provincial borders to Punargathit doing of decision taken. Isane Bengal to two parts in Bantakar ‘Eastern Bengal and Asam’ named one new Province made and Bengal of Western part in remaining Bengal, Bihar, Urisa, etc. to included done. its apart from he Madras and Central Province and Barar of borders in also Badalav did.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":54},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"मुस्लिम लीग एवं भारतीय राष्ट्रीय कांग्रेस के बीच राजनीतिक गतिरोध को दूर करने के लिए ‘‘सी.आर. फॉर्मूला’’ किसने बनाया था?","question_en":"Muslim League and Indian National Congress between political Gatirodh to far doing for ‘‘C.R. Phormula’’ who made was?","options":[{"hi":"जवाहरलाल नेहरू","en":"Jawaharlal Nehru"},{"hi":"राजगोपालाचारी","en":"Rajagopalachari"},{"hi":"चित्तरंजन दास","en":"Chittaranjan Das"},{"hi":"वी.पी. मेनन","en":"V.P. Menan"}],"answer":1,"answer_note":"","explanation_hi":"मद्रास प्रांत के प्रभावशाली नेता सी. राजगोपालाचारी ने मुस्लिम लीग एवं भारतीय राष्ट्रीय कांग्रेस के बीच राजनीतिक गतिरोध को दूर करने के लिए जुलाई, 1944 में दोनों पक्षों के मध्य समझौते की एक योजना गांधीजी की स्वीकृति से प्रस्तुत की थी, जिसे ‘सी.आर. फॉर्मूला’ कहा जाता है। जिन्ना ने इस फॉर्मूले को अस्वीकार कर दिया था।","explanation_en":"Madras Province of Prabhavashali leader C. Rajagopalachari Muslim League and Indian National Congress between political Gatirodh to far doing for July, 1944 in both Pakshon between Agreements of one scheme Gandhiji of approval from presented did, which ‘C.R. Phormula’ is called. Jinna this Phormule to rejected tax given was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":55},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘दि राइज एंड ग्रोथ ऑफ इकोनॉमिक नेशनलिज्म इन इंडिया’ के लेखक थे","question_en":"‘Di Raij and Groth of Economic Neshanalijma these India’ of author were","options":[{"hi":"पार्थ सार्थी गुप्त","en":"Partha Sarthi Gupta"},{"hi":"एस. गोपाल","en":"S. Gopal"},{"hi":"बी.आर. नंदा","en":"B.R. Nanda"},{"hi":"बिपिन चंद्र","en":"Bipin Chandra"}],"answer":3,"answer_note":"","explanation_hi":"‘दि राइज एंड ग्रोथ ऑफ इकोनॉमिक नेशनलिज्म इन इंडिया : इकोनॉमिक पॉलिसीज ऑफ इंडियन नेशनल लीडरशिप, 1880-1905’ प्रसिद्ध इतिहासकार बिपिन चंद्र द्वारा लिखी गई पुस्तक है।","explanation_en":"‘Di Raij and Groth of Economic Neshanalijma these India: Economic Polisij of Indian National Lidaraship, 1880-1905’ famous historian Bipin Chandra by wrote was book is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":56},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्न घटनाओं को कालानुक्रम में व्यवस्थित कीजिए और नीचे दिए कूटों में से सही उत्तर चुनिए - I. महाराजा हरि सिंह ने विलय-पत्र पर हस्ताक्षर किए। II. भारत का संविधान लागू हुआ। III.जम्मू-कश्मीर की प्रभुसत्तासंपन्न संविधान सभा ने भारत में विलय को अनुमोदित किया। IV .जम्मू तथा कश्मीर राज्य का नया संविधान लागू हुआ। कूट","question_en":"Low events to arrange them in chronological order and below given codes in from select the correct answer - I. Maharaja Hari lion Vilay-letter at signature done. II. India of Constitution implemented occurred. III.Jammu-Kashmir of Prabhusattasampanna Constituent Assembly India in Vilay to Anumodit done. IV.Jammu and Kashmir State of new Constitution implemented occurred. Code","options":[{"hi":"I, III, IV , II","en":"I, III, IV , II"},{"hi":"III, IV , I, II","en":"III, IV , I, II"},{"hi":"I, II, III, IV","en":"I, II, III, IV"},{"hi":"IV , III, II, I","en":"IV , III, II, I"}],"answer":2,"answer_note":"","explanation_hi":"जम्मू और कश्मीर के महाराजा हरि सिंह ने 26 अक्टूबर, 1947 को भारत के साथ विलय–पत्र पर हस्ताक्षर किए थे। भारत का संविधान 26 नवंबर, 1949 को अंगीकृत किया गया था तथा इसी दिन संविधान के नागरिकता, अंत:कालीन संसद, अस्थायी एवं संक्रमणकालीन उपबंध लागू हो गए थे, जबकि पूर्ण रूप से संविधान 26 जनवरी, 1950 को लागू हुआ। जम्मू-कश्मीर की प्रभुसत्तासंपन्न संविधान सभा ने जम्मू और कश्मीर के संविधान को 17 नवंबर, 1956 को स्वीकार करने के साथ भारत में विलय को अनुमोदित किया था, जबकि जम्मू और कश्मीर राज्य का नया संविधान 26 जनवरी, 1957 को प्रवृत्त हुआ था।","explanation_en":"Jammu and Kashmir of Maharaja Hari lion 26 October, 1947 to India with Vilay–letter at signature done were. India of Constitution 26 November, 1949 to Angikrit was done was and this very day Constitution of Citizenship, end:Kalin Parliament, Asthayi and Sankramanakalin provision implemented be were were, whereas complete form from Constitution 26 January, 1950 to implemented occurred. Jammu-Kashmir of Prabhusattasampanna Constituent Assembly Jammu and Kashmir of Constitution to 17 November, 1956 to accepted doing with India in Vilay to Anumodit did, whereas Jammu and Kashmir State of new Constitution 26 January, 1957 to Pravritta took place.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":57},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"‘नेटिव मैरिज एक्ट’ किस वर्ष पारित किया गया था?","question_en":"‘Netiv Mairij Act’ which year passed was done was?","options":[{"hi":"1870","en":"1870"},{"hi":"1872","en":"1872"},{"hi":"1874","en":"1874"},{"hi":"1876","en":"1876"}],"answer":1,"answer_note":"","explanation_hi":"‘नेटिव मैरिज एक्ट’ जिसका आधिकारिक नाम द इंडियन क्रिश्चियन मैरिज एक्ट 1872 है, में ईसाइयों की विवाह पद्धति से संबंधित प्रावधान किए गए, जिसमें से कुछ महत्वपूर्ण प्रावधान इस प्रकार हैं- (i) अधिनियम की धारा 4 के अनुसार दो व्यक्तियों के बीच प्रत्येक विवाह, जिनमें से एक या दोनों ईसाई हैं, के लिए कुछ प्रमुख प्रावधान किए गए। (ii) इन प्रावधानों में लड़के एवं लड़कियों के लिए न्यूनतम विवाह की आयु क्रमश: 18 एवं 14 वर्ष निर्धारित की गई। (iii) इसी के साथ बहुविवाह की प्रथा को प्रतिबंधित कर दिया गया।","explanation_en":"‘Netiv Mairij Act’ whose official name the Indian Krishchiyan Mairij Act 1872 is, in Eesaiyon of marriage method from related provision were done, in which from some important provision this type are- (i) Act of Section 4 according to two persons between each marriage, among which from one or both Eesaee are, for some major provision were done. (ii) these provisions in Larake and girls for minimum marriage of age respectively: 18 and 14 year prescribed was done. (iii) this very with Bahuvivah of Pratha to Pratibandhit tax given was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":58},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूटों में से सही उत्तर चुनिए - सूची - I सूची - II (आंदोलन) (वर्ष) A. पाबना 1. 1855 -56 B. एका 2. 1873 -85 C. संथाल 3. 1922 D. ताना भगत 4. 1914 कूट : A B C D","question_en":"List - I to List - II from matched do and lists of Select the correct answer from the codes given below - List - I List - II (Movement) (year) A. Pabana 1. 1855 -56 B. Eka 2. 1873 -85 C. Santhal 3. 1922 D. Tana Bhagat 4. 1914 Code: A B C D","options":[{"hi":"1 2 4 3","en":"1 2 4 3"},{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"3 1 4 2","en":"3 1 4 2"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] प्रश्नगत आंदोलनों तथा उनके कालक्रम का सही सुमेलन इस प्रकार है– पाबना विद्रोह – 1873-76 एका आंदोलन – 1922 संथाल विद्रोह – 1855-56 ताना भगत आंदोलन – 1914 नोट- 1885 ई. में बंगाल काश्तकारी अधिनियम द्वारा कृषकों का भूमि पर अधिकार स्पष्ट किया गया था, जो पाबना आंदोलन की मुख्य मांग थी। इस आंदोलन की तीव्रता 1873-1876 ई. तक थी। उत्तर प्रदेश लोक सेवा आयोग ने इसका उत्तर विकल्प (b) माना है, जो कि त्रुटिपूर्ण है।","explanation_en":"[Note: original Question in answer (*) marked is] given Movements and their chronology of The correct matching is as follows – Pabana Revolt – 1873-76 Eka Movement – 1922 Santhal Revolt – 1855-56 Tana Bhagat Movement – 1914 Note- 1885 AD. in Bengal Kashtakari Act by farmers of land at Right clear was done was, which Pabana Movement of main demand was. this Movement of Tivrata 1873-1876 AD. up to was. Uttar Pradesh Public Service Commission its answer option (b) considered is, which that erroneous is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":59},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित में से कौन-सा सही सुमेलित नहीं है? (घटना) (वर्ष)","question_en":"Which of the following is NOT correct matched? (event) (year)","options":[{"hi":"भारतीय जलसेना अधिनियम 1927","en":"Indian Jalasena Act 1927"},{"hi":"सविनय अवज्ञा आंदोलन 1930","en":"Civil Disobedience Movement 1930"},{"hi":"द्वितीय गोलमेज अधिवेशन 1931","en":"Second Golamej Session 1931"},{"hi":"सांप्रदायिक निर्णय 1933","en":"Sampradayik decision 1933"}],"answer":3,"answer_note":"","explanation_hi":"अंग्रेजों की ‘बांटो और राज करो’ की नीति के तहत ब्रिटिश प्रधानमंत्री रैम्जे मैक्डोनाल्ड द्वारा 16 अगस्त, 1932 को सांप्रदायिक निर्णय (कम्युनल अवॉर्ड) प्रस्तुत किया गया था, जिसके तहत दलित वर्ग को भी अल्पसंख्यक श्रेणी में मानते हुए मुसलमानों और सिक्खों के साथ उनके लि ए भी विधानमंडलों में सीटों के आरक्षण और पृथक निर्वाचक मंडलों की व्यवस्था की गई थी। अन्य प्रश्नगत युग्म सही सुमेलित हैं। भारत सरकार (भारतीय नौसेना) अधिनियम – 1927 सविनय अवज्ञा आंदोलन का प्रारंभ – 1930 द्वितीय गोलमेज अधिवेशन – 7 सितंबर – 1 दिसंबर, 1931 नोट- उत्तर प्रदेश लोक सेवा आयोग द्वारा जारी अंतिम उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर कर दिया गया है।","explanation_en":"British of ‘Banto and rule Karo’ of policy under British Prime Minister Raimje Maikdonalda by 16 August, 1932 to Sampradayik decision (Kamyunal Avorda) presented was done was, whose under Dalit class to also Minority range in consider occurred Muslims and Sikkhon with their Li A also Legislatures in seats of Reservation and separate electoral Mandalon of system was done was. other given pair correct matched are. India Government (Indian navy) Act – 1927 Civil Disobedience Movement of started – 1930 second Golamej Session – 7 September – 1 December, 1931 Note- Uttar Pradesh Public Service Commission by released last answer key in this Question to evaluation from outside tax is given.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":60},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्न घटनाओं को कालानुक्रम में व्यवस्थित कीजिए और नीचे दिए कूटों में से सही उत्तर चुनिए - I. साइमन आयोग की नियुक्ति II. जलियांवाला बाग हत्याकांड III. महात्मा गांधी की दांडी यात्रा IV .फिरोजशाह मेहता की मृत्यु कूट","question_en":"Low events to arrange them in chronological order and below given codes in from select the correct answer - I. Saiman Commission of Appointment II. Jallianwala Bagh Massacre III. Mahatma Gandhi of Dandi journey IV.Phirojashah Mehta of death Code","options":[{"hi":"IV , II, I, III","en":"IV , II, I, III"},{"hi":"I, II, IV , III","en":"I, II, IV , III"},{"hi":"II, III, IV , I","en":"II, III, IV , I"},{"hi":"IV , III, II, I","en":"IV , III, II, I"}],"answer":0,"answer_note":"","explanation_hi":"कांग्रेस के नेता और बॉम्बे क्रॉनिकल समाचार-पत्र के संस्थापक फिरोजशाह मेहता की मृत्यु 5 नवंबर, 1915 को हुई थी। जलियांवाला बाग हत्याकांड अमृतसर में 13 अप्रैल, 1919 को बैसाखी के दिन हुआ था। साइमन कमीशन के गठन की घोषणा 8 नवंबर, 1927 को की गई थी। महात्मा गांधी ने अपने 80 चुने हुए अनुयायियों के साथ 12 मार्च, 1930 को अहमदाबाद के साबरमती आश्रम से ऐतिहासिक दांडी मार्च की शुरुआत की थी तथा 5 अप्रैल, 1930 को दांडी (जिला-नौसारी, गुजरात) पहुंचकर अगले दिन 6 अप्रैल, 1930 को वहां नमक कानून को तोड़ा था। इस प्रकार सही कालानुक्रम विकल्प (a) में प्राप्त हो रहा है।","explanation_en":"Congress of leader and Bombe Kronikal Samachar-letter of founder Phirojashah Mehta of death 5 November, 1915 to took place. Jallianwala Bagh Massacre Amritasar in 13 April, 1919 to Baisakhi of day took place. Simon Commission of formation of declaration 8 November, 1927 to was done was. Mahatma Gandhi its own 80 Chune occurred Anuyayiyon with 12 March, 1930 to Ahamadabad of Sabaramati Ashram from Historical Dandi March of beginning did and 5 April, 1930 to Dandi (district-Nausari, Gujarat) Pahunchakar Agale day 6 April, 1930 to there salt Law to Tora was. this type correct chronological order option (a) in obtained be remained is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":61},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"आई.एन.ए. के अधिकारियों पर मुकदमा चलाया गया था","question_en":"I.N.A. of Officers at trial Chalaya was was","options":[{"hi":"लाल किला, दिल्ली में","en":"Red fort, Delhi in"},{"hi":"ग्वालियर फोर्ट में","en":"Gvaliyar Phorta in"},{"hi":"आमेर फोर्ट, जयपुर में","en":"Amer Phorta, Jayapur in"},{"hi":"आगरा फोर्ट में","en":"Agra Phorta in"}],"answer":0,"answer_note":"","explanation_hi":"आई.एन.ए. (आजाद हिंद फौज) के गिरफ्तार अधिकारियों पर नवंबर, 1945 में दिल्ली के लाल किले में मुकदमा चलाया गया था। इस मुकदमे में मुख्य अभियुक्त आई.एन.ए. के तीन अधिकारी–मेजर शाहनवाज खां, कर्नल गुरु बख्स सिंह और कर्नल प्रेम सहगल थे, जिन पर राजद्रोह का आरोप था। इस मुकदमे में बचाव पक्ष के वकीलों का नेतृत्व भूलाभाई देसाई ने किया था।","explanation_en":"I.N.A. (Ajad Hind Phauj) of Giraphtar Officers at November, 1945 in Delhi of red fort in trial Chalaya was was. this trials in main Abhiyukta I.N.A. of three Officer–Mejar Shahanavaj Khan, Karnal Guru Bakhsa lion and Karnal Prem Sahagal were, Jin at Rajadroh of Arop was. this trials in Bachav Paksha of Vakilon of leadership Bhulabhaee Desaee did.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":62},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : बंगाल की एशियाटिक सोसाइटी की स्थापना वॉरेन हेस्टिंग्स के काल में हुई थी और उसने सर विलियम जोन्स के पक्ष में उक्त विद्वत संस्था की अध्यक्षता का प्रस्ताव अस्वीकार कर दिया था। कारण (R) : वॉरेन हेस्टिंग्स स्वयं एक उद्भट विद्वान तथा प्राच्य विद्या का प्रखर समर्थक था जो संस्कृत, फारसी व अरबी के अध्ययन को प्रोत्साहित करता था। नीचे दिए कूटों में से सही उत्तर चुनिए - कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): Bengal of Eshiyatik Sosaiti of establishment Voren Hestingsa of period in took place and he Sir William Jonsa of Paksha in Ukta Vidvat Institution presided over of resolution rejected tax given was. Reason (R): Voren Hestingsa itself one Udbhat scholar and Prachya Vidya of Prakhar Samarthak was which Sanskrit, Persian and Arabi of study to encouraged used to do. below given codes in from select the correct answer - Code","options":[{"hi":"(A) और (R) दोनों सही हैं और (R) कथन (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R) statement (A) of correct Explanation is."},{"hi":"(A) और (R) दोनों सही हैं, किंतु (R) कथन (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R) statement (A) of correct Explanation not is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":1,"answer_note":"","explanation_hi":"वॉरेन हेस्टिंग्स 1774-85 ई. के दौरान बंगाल का गवर्नर जनरल था। वह स्वयं एक उत्कृष्ट विद्वान तथा प्राच्य विद्या का प्रखर समर्थक था जो संस्कृत, फारसी और अरबी के अध्ययन को प्रोत्साहित करता था। उसके सहयोग और समर्थन से ही 1784 ई. में बंगाल की एशियाटिक सोसाइटी की स्थापना हुई थी तथापि उसने सर विलियम जोंस के पक्ष में इस संस्था की अध्यक्षता का प्रस्ताव अस्वीकार कर दिया था। चार्ल्स विल्किन्स, नथानियल हैल्हेड, जोनाथन डंकन आदि ने वॉरेन हेस्टिंग्स के प्रश्रय और समर्थन के तहत ही प्राच्य विद्या के अध्ययन में योगदान दिया था। चार्ल्स विल्किन्स द्वारा किए गए ‘भगवद्गीता’ के अंग्रेजी अनुवाद की प्रस्तावना वॉरेन हेस्टिंग्स ने ही लिखी थी। प्रश्नानुसार कथन में दो बातों का जिक्र है- (1) एशियाटिक सोसाइटी की स्थापना और (2) वॉरेन हेस्टिंग्स द्वारा विलियम जोंस के पक्ष में इसकी अध्यक्षता स्वीकार न करना। वहीं कारण में उसका स्वयं विद्वान होना तथा प्राच्य विद्या के अध्ययन को प्रोत्साहित करना वर्णित है। यहां प्राच्य विद्या के अध्ययन को प्रोत्साहन कथन की दोनों बातों का कारण होना पुष्ट करता है। इस प्रकार स्पष्ट है कि प्रश्नगत कथन और कारण दोनों सही हैं किंतु (R) कथन (A) की सही व्याख्या नहीं है।","explanation_en":"Voren Hestingsa 1774-85 AD. during Bengal of Governor Janaral was. that itself one Utkrishta scholar and Prachya Vidya of Prakhar Samarthak was which Sanskrit, Persian and Arabi of study to encouraged used to do. its cooperation and support from only 1784 AD. in Bengal of Eshiyatik Sosaiti was established however he Sir William Jons of Paksha in this Institution presided over of resolution rejected tax given was. Charlsa Vilkinsa, Nathaniyal Hailhed, Jonathan Dankan etc. Voren Hestingsa of Prashray and support under only Prachya Vidya of study in contribution given was. Charlsa Vilkinsa by were done ‘Bhagavadgita’ of English translation of Preamble Voren Hestingsa only wrote was. Prashnanusar statement in two Baton of Jikra is- (1) Eshiyatik Sosaiti of establishment and (2) Voren Hestingsa by William Jons of Paksha in its Chairmanship accepted not to do. Vahin Reason in its itself scholar to be and Prachya Vidya of study to encouraged to do described is. here Prachya Vidya of study to incentive statement of both Baton of Reason to be Pushta does is. this type clear is that given statement and Reason both correct are but (R) statement (A) of correct Explanation not is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":63},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : 1946 में मुस्लिम लीग ने ‘कैबिनेट मिशन प्लान’ के लिए दी गई अपनी स्वीकृति वापस ले ली थी। कारण (R) : 1946 में गठित अंतरिम सरकार में मुस्लिम लीग शामिल हुई थी। नीचे दिए कूटों में से सही उत्तर चुनिए। कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): 1946 in Muslim League ‘ Cabinet Mission Plan’ for given was its own approval Vapas Le taken was. Reason (R): 1946 in constituted Antarim Government in Muslim League included took place. below given codes in from select the correct answer. Code","options":[{"hi":"कथन (A) तथा कारण (R) दोनों सही हैं तथा कारण (R), कथन (A) की सही व्याख्या है।","en":"Statement (A) and Reason (R) both correct are and Reason (R), statement (A) of correct Explanation is."},{"hi":"कथन (A) तथा कारण (R) दोनों सही हैं, परंतु कारण (R), कथन (A) की व्याख्या नहीं है।","en":"Statement (A) and Reason (R) both correct are, but Reason (R), statement (A) of Explanation not is."},{"hi":"कथन (A) सही है, परंतु कारण (R) गलत है।","en":"Statement (A) is correct, but Reason (R) is incorrect."},{"hi":"कथन (A) गलत है, परंतु कारण (R) सही है।","en":"Statement (A) is incorrect, but Reason (R) is correct."}],"answer":1,"answer_note":"","explanation_hi":"कैबिनेट मिशन प्लान को बहुत अनिच्छा (कांग्रेस प्रांतों के गुट बनाने पर अप्रसन्न थी और मुस्लिम लीग पाकिस्तान के निर्माण को न मानने पर) के साथ कांग्रेस और मुस्लिम लीग ने स्वीकार कर लिया। जुलाई, 1946 में जब नेहरू ने यह कहा कि समूहीकरण अनिवार्य नहीं है तथा समूह ब और स के राज्य असम और उत्तर-पश्चिम सीमा प्रांत समूह में शामिल होने से इनकार कर सकते है, इसके बाद मुस्लिम लीग ने कैबिनेट मिशन प्लान को अस्वीकार कर दिया तथा सीधी कार्यवाही का प्रस्ताव किया। बाद में वायसराय ने कांग्रेस के जवाहरलाल नेहरू को अंतरिम सरकार बनाने का निमंत्रण दिया। इसमें मुस्लिम लीग को भी सम्मिलित होने को कहा गया, जिसे उसने अस्वीकार कर दिया। परंतु बाद में वायसराय के पुन: सुझाव देने पर उसने मुसलमानों के हितों की रक्षा के लिए 13 अक्टूबर, 1946 के प्रस्ताव द्वारा इसमें सम्मिलित होना स्वीकार कर लिया। अत: स्पष्ट है कि कथन और कारण दोनों सत्य हैं, परंतु कारण (R), कथन (A) की व्याख्या नहीं है।","explanation_en":"Cabinet Mission Plan to very Anichchha (Congress Provinces of Gut making at Aprasanna was and Muslim League Pakistan of construction to not Manane at) with Congress and Muslim League accepted tax taken. July, 1946 in when Nehru this said that Samuhikaran mandatory not is and group B and S of State Assam and North-West border Province group in included being from Inakar tax can is, its after Muslim League Cabinet Mission Plan to rejected tax given and Sidhi Karyavahi of resolution done. after in Viceroy Congress of Jawaharlal Nehru to Antarim Government making of Nimantran given. in this Muslim League to also included being to said was, which he rejected tax given. but after in Viceroy of re-: Sujhav giving at he Muslims of Hiton of defence for 13 October, 1946 of resolution by in this included to be accepted tax taken. hence: clear is that statement and Reason both true are, but Reason (R), statement (A) of Explanation not is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":64},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित घटनाओं को कालक्रमानुसार व्यवस्थित कीजिए और नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। A. हंटर आयोग B. सैडलर आयोग C. वुड का घोषणा-पत्र D. सार्जेंट योजना कूट","question_en":"Following events to arrange them in chronological order and Select the correct answer from the code given below. A. Hantar Commission B. Saidalar Commission C. Vud of declaration-letter D. Sarjent scheme Code","options":[{"hi":"A B D C","en":"A B D C"},{"hi":"C B A D","en":"C B A D"},{"hi":"A B C D","en":"A B C D"},{"hi":"C A B D","en":"C A B D"}],"answer":3,"answer_note":"","explanation_hi":"वुड घोषणा-पत्र ‘बोर्ड ऑफ कंट्रोल’ के प्रधान चार्ल्स वुड द्वारा 1854 ई. में जारी किया गया था। हंटर आयोग की स्थापना ब्रिटिश शासनकाल में वायसराय लॉर्ड रिपन (1880-1884 ई.) द्वारा 1882 ई. में की गई थी। सैडलर आयोग का गठन वर्ष 1917 में कलकत्ता विश्वविद्यालय की समस्याओं के अध्ययन के लिए डॉक्टर एम.ई. सैडलर के नेतृत्व में किया गया था। सार्जेंट योजना वर्ष 1944 में प्रस्तुत की गई थी। इस समय ब्रिटिश अधिकारी सार्जेंट ब्रिटिश भारत सरकार में शिक्षा सलाहकार के पद पर नियुक्त थे, जिनके नाम से यह ‘राष्ट्रीय शिक्षा योजना’ प्रस्तुत की गई थी। अत: विकल्प (d) सही उत्तर होगा।","explanation_en":"Vud declaration-letter ‘Board of Kantrol’ of Pradhan Charlsa Vud by 1854 AD. in released was done was. Hantar Commission of establishment British reign in Viceroy Lord Ripan (1880-1884 AD.) by 1882 AD. in was done was. Saidalar Commission of formation year 1917 in Calcutta university of Samasyaon of study for Doktar M.AD. Saidalar of leadership in was done was. Sarjent scheme year 1944 in presented was done was. this time British Officer Sarjent British India Government in education Salahakar of office at appointed were, whose name from this ‘National education scheme’ presented was done was. hence: option (d) correct answer will be.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":65},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित नेताओं में किसने क्रांतिकारी संगठन, ‘अभिनव भारत समाज’ की स्थापना की?","question_en":"Following Netaon in who Revolutionary Organization, ‘Abhinav India society’ of establishment of?","options":[{"hi":"भगत सिंह","en":"Bhagat lion"},{"hi":"विनायक दामोदर सावरकर","en":"Vinayak Damodar Savarakar"},{"hi":"बारींद्र कुमार घोष","en":"Barindra Kumar Ghosh"},{"hi":"पुलिन बिहारी","en":"Pulin Bihari"}],"answer":1,"answer_note":"","explanation_hi":"विनायक दामोदर सावरकर और उनके भाई गणेश दामोदर सावरकर ने ‘मित्र मेला’ नामक संगठन शुरू किया था, जिसे वर्ष 1904 में नासिक में वी.डी. सावरकर ने नाम परिवर्तित कर ‘अभिनव भारत समाज’ (Young India Society) नामक क्रांतिकारी संगठन के रूप में परिवर्तित कर दिया था।","explanation_en":"Vinayak Damodar Savarakar and their Bhaee Ganesh Damodar Savarakar ‘Mitra fair’ named Organization started did, which year 1904 in Nasik in V.D. Savarakar name changed tax ‘Abhinav India society’ (Young India Society) named Revolutionary Organization as changed tax given was.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":66},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित युग्मों में कौन सही सुमेलित नहीं है? विद्रोह वर्ष","question_en":"Which of the following pairs is NOT correctly matched? Revolt year","options":[{"hi":"संथाल 1855","en":"Santhal 1855"},{"hi":"कोल 1831","en":"Kol 1831"},{"hi":"खासी 1829","en":"Khasi 1829"},{"hi":"अहोम 1815","en":"Ahom 1815"}],"answer":3,"answer_note":"","explanation_hi":"गोमधर कुंवर के नेतृत्व में 1828 ई. में अहोम क्षेत्र के लोगों द्वारा अहोम विद्रोह प्रारंभ हुआ था, जिसे ईस्ट इंडिया कंपनी ने दबा दिया। तीरत सिंह के नेतृत्व में जयंतिया एवं गारो पहाड़ियों के गारो, खासी तथा सिंहपो लोगों ने खासी विद्रोह (1829-1833 ई.) किया था। छोटानागपुर क्षेत्र में कोल विद्रोह का नेतृत्व 1831-32 ई. में बुद्धू या बुद्धो भगत एवं गंगा नारायण ने किया था। 1855-56 ई. का संथाल विद्रोह एक प्रसिद्ध आदिवासी विद्रोह था, जिसके नेता सिद्धू, कान्हू, चांद एवं भैरव नामक चार भाई थे।","explanation_en":"Gomadhar Kunvar of leadership in 1828 AD. in Ahom region of people by Ahom Revolt started took place, which East India Company Daba given. Tirat lion of leadership in Jayantiya and Garo hills of Garo, Khasi and Sinhapo people Khasi Revolt (1829-1833 AD.) did. Chhotanagapur region in Kol Revolt of leadership 1831-32 AD. in Buddhu or Buddho Bhagat and Ganga Narayan did. 1855-56 AD. of Santhal Revolt one famous Adivasi Revolt was, whose leader Siddhu, Kanhu, Chand and Bhairav named four Bhaee were.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":67},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्न वायसराय में से किसने कांग्रेस को ‘अत्यधिक अल्पसंख्यक’ लोगों का प्रतिनिधित्व करने वाली कहकर उपहास किया था?","question_en":"Low Viceroy in from who Congress to ‘excessive Minority’ people of representation doing having Kahakar Upahas did?","options":[{"hi":"लॉर्ड डफरिन","en":"Lord Dapharin"},{"hi":"लॉर्ड कर्जन","en":"Lord Karjan"},{"hi":"लॉर्ड मिंटो","en":"Lord Minto"},{"hi":"लॉर्ड लैंसडाउन","en":"Lord Lainsadaun"}],"answer":0,"answer_note":"","explanation_hi":"भारतीय राष्ट्रीय कांग्रेस की स्थापना (1885 ई.) के समय भारत का वायसराय लॉर्ड डफरिन (कार्यकाल 1884-1888 ई.) था। उसने कांग्रेस का यह कहकर मजाक उड़ाया था कि यह ‘सूक्ष्मदर्शी अल्पसंख्यकों की संस्था’ है।","explanation_en":"Indian National Congress of establishment (1885 AD.) of time India of Viceroy Lord Dapharin (tenure 1884-1888 AD.) was. he Congress of this Kahakar Majak Uraya was that this ‘Sukshmadarshi Minorities of Institution’ is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":68},{"topic_hi":"आधुनिक इतिहास","topic_en":"Modern History","question_hi":"निम्नलिखित युग्मों में कौन सही सुमेलित नहीं है? स्थान नेतृत्व","question_en":"Which of the following pairs is NOT correctly matched? place leadership","options":[{"hi":"संभलपुर सुरेंद्र साई","en":"Sambhalapur Surendra Saee"},{"hi":"गंजाम राधाकृष्ण दंडसेना","en":"Ganjam Radhakrishna Dandasena"},{"hi":"कश्मीर गुलाब सिंह","en":"Kashmir Gulab lion"},{"hi":"लखनऊ लियाकत अली","en":"Lucknow Liyakat Ali"}],"answer":3,"answer_note":"","explanation_hi":"लियाकत अली का संबंध इलाहाबाद (प्रयागराज) से था। शेष सभी विकल्प सही सुमेलित हैं।","explanation_en":"Liyakat Ali of relation Allahabad (Prayagraj) from was. remaining all option correct matched are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":69}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
+function _genPoints(t){
+  t = String(t);
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
+  return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

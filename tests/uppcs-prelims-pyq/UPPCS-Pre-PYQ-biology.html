@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — UPPCS Prelims PYQ — Biology</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    /* soft sage / mint-grey — eye-comfortable reading */
+    --ink0:#E6EEE9; --ink1:#F6F9F7; --ink2:#EEF3F0;
+    --glass:rgba(30,58,138,.06);
+    --line:rgba(201,214,207,.95); --line-2:rgba(30,58,138,.28);
+    --gold:#1E3A8A; --gold-hi:#172E5C; --gold-deep:#1E40AF;
+    --cream:#1F2A2E; --mist:#3D4A4F;
+    --blue:#1E40AF; --green:#1E3A8A; --rose:#C2314B;
+    --teal:#1E3A8A; --teal-hi:#1D3B6F;
+    --shadow:0 14px 36px rgba(23,46,92,.12);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(30,58,138,.07), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,59,111,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .btn.primary{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 22px rgba(30,58,138,.28)}
+  html[data-theme="light"] .btn.primary:hover{filter:brightness(1.05)}
+  html[data-theme="light"] .lang-b.on{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+  html[data-theme="light"] .option{background:#EEF3F0;border-color:#C9D6CF}
+  html[data-theme="light"] .option:hover{background:#E4EDE8;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;border-color:transparent}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#F6F9F7,#F2F6F4);border-color:#C9D6CF}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#F6F9F7,#EEF3F0)}
+  html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
+  html[data-theme="light"] .dot{background:rgba(31,42,46,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(30,58,138,.16);color:#1E3A8A}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;color:#1E3A8A}
+  html[data-theme="light"] .badge.ok{background:rgba(30,58,138,.14);color:#1E3A8A}
+  html[data-theme="light"] .badge.skip{background:rgba(31,42,46,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--teal) 0deg,var(--teal) var(--scoreDeg),rgba(31,42,46,.08) var(--scoreDeg),rgba(31,42,46,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(30,58,138,.1),0 15px 38px rgba(23,46,92,.16)}
+  html[data-theme="light"] .timer{background:rgba(30,58,138,.1);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .qno{color:#1E3A8A}
+  html[data-theme="light"] .pill{color:#1E3A8A;border-color:rgba(30,58,138,.35);background:#E3EAF6}
+  html[data-theme="light"] .btn.secondary{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
+  html[data-theme="light"] .stmt-item{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .stmt-item .tag{color:#1E3A8A}
+  html[data-theme="light"] .ar-block{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .ar-block .ar-lab{background:rgba(30,58,138,.12);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .match-col{background:#F6F9F7;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col h4{background:rgba(30,58,138,.1);color:#1E3A8A;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col .mi .mk{color:#1E3A8A}
+  html[data-theme="light"] .code-line{color:#1E3A8A}
+  html[data-theme="light"] .code-map .cm{background:rgba(30,58,138,.08);border-color:#C9D6CF}
+  html[data-theme="light"] .code-map .cm b{color:#1E3A8A}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,#E3EAF6,rgba(30,58,138,.08));color:#172E5C;border-color:rgba(30,58,138,.35)}
+
+  html[data-theme="light"] .topbar{
+    background:linear-gradient(180deg,#1E3A8A 0%,#1D3B6F 100%);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 6px 18px rgba(23,46,92,.2);
+  }
+  html[data-theme="light"] .topbar .logo,
+  html[data-theme="light"] .topbar .brand,
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .topbar .brand h1,
+  html[data-theme="light"] .topbar h1{color:#F6F9F7 !important}
+  html[data-theme="light"] .topbar .brand p{color:#B8CDF7 !important}
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6 !important;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#E3EAF6;border-color:rgba(255,255,255,.35)}
+
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"uppcs-pre-pyq-biology","title":"UPPCS Prelims PYQ — Biology","shortTitle":"Biology","subtitle":"UPPCS Prelims · 2018–2025 · जीव विज्ञान","tag":"UPPCS Pre PYQ","description":"UPPCS Prelims PYQs (2018–2025) — Biology. Each question shows the exam/year badge. Items with official (*) key are left unscored.","durationMinutes":71,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"प्रोटीन के पाचन के लिए आमाशय में निम्नलिखित में से कौन-सा/ से एंजाइम निकलता है? 1. काइमोट्रिप्सिन 2. ट्रिप्सिन 3. पेप्सिन नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Protein of digestion for stomach in following in from which-which/ from enzyme Nikalata is? 1. Kaimotripsin 2. Tripsin 3. Pepsin Select the correct answer from the code given below: Code","options":[{"hi":"केवल 1 और 2","en":"Only 1 and 2"},{"hi":"केवल 3","en":"Only 3"},{"hi":"केवल 3 और 3","en":"Only 3 and 3"},{"hi":"1, 2 और 3","en":"1, 2 and 3"}],"answer":1,"answer_note":"","explanation_hi":"आमाशय की मुख्य/पेप्टिक कोशिकाएं पेप्सिनोजेन नामक प्रोएंजाइम का स्राव करती हें, जो हाइड्रोक्लोरिक अम्ल (HCl) की उपस्राथ्ष्ट्स्थित में संक्रिय होकर पेप्सिन बनता है। यही पेप्सिन आमाशय में प्रोटीन पाचन की शुरुआता करता है। इसके विपरीत, ट्रिप्सिन और काइमोट्रिप्सिन अग्न्याशय द्वारा निष्क्रिय रूप (ट्रिप्सिनोजेन/काइमोट्रिप्सिनोजेन) में स्रावित होते हैं और उनका सक्रियण व क्रिया ड्यूओडेनम/छोटी आंत में होती है, न कि आमाशय में।","explanation_en":"Stomach of main/Peptik cells Pepsinojen named Proenjaim of Srav did Hen, which Haidroklorik acid (HCl) of Upasrathshtsthit in Sankriy having been Pepsin Banata is. Yahi Pepsin stomach in protein digestion of Shuruata does is. its Viparit, Tripsin and Kaimotripsin pancreas by Nishkriy form (Tripsinojen/Kaimotripsinojen) in secreted occur and their Sakriyan and action Dyuodenam/small intestine in occurs, not that stomach in.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":1},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित कथनों में से कौन-सा/से कथन सही है/हैं? 1. डॉल्फिन और व्हेल ब्लोहोल्स के माध्यम से सांस लेती हैं। 2. केंचुए अपनी त्वचा के माध्यम से सांस लेते हैं। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Following statements in from which-which/from statement is correct/are? 1. dolphin and Vhel Bloholsa through Sans Leti are. 2. earthworms its own skin through Sans Lete are. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":2,"answer_note":"","explanation_hi":"कथन 1 सही है। डॉल्फिन और व्हेल जलीय स्तनधारी (Mammals) हैं जो पानी के भीतर गलफड़ों से नहीं, बल्कि हवा से श्वसन करती हैं। इनके सिर के ऊपर स्थित ब्लोहोल (नाक छिद्र) के द्वारा वे सतह पर आकर सांस छोड़ती और लेती हैं। कथन 2 भी सही है। केंचुए (फाइलम ऐनीलिडा) में कोई विशिष्ट श्वसन-अंग (फेफड़े/गलफड़े) नहीं होता। वे क्यूटेनियस/त्वचीय श्वसन, यानी नम त्वचा के माध्यम से गैसों के आदान-प्रदान द्वारा श्वसन करते हैं। त्वचा की नमी (म्यूकस/बॉडी फ्लूइड) और त्वचा के पास की कोशिकाएं ऑक्सीजन के प्रसार (अर्थात शरीर के विभिन्न हिस्सों तक पहुंचना) और कार्बन डाइऑक्साइड के निष्कासन (अर्थात रक्त से त्वचा के माध्यम से बाहर निकलना) में सहायक होती हैं।","explanation_en":"Statement 1 is correct. dolphin and Vhel aquatic Stanadhari (Mammals) are which water of within Galapharon from not, rather wind from respiration did are. their Sir of above located Blohol (Nak Chhidra) by they surface at Akar Sans Chhorati and Leti are. statement 2 also is correct. earthworms (Phailam Ainilida) in any specific respiration-organ (Phephare/Galaphare) not is. they Kyuteniyas/Tvachiy respiration, Yani Nam skin through gases of Adan-provided by respiration did are. skin of moisture (Myukas/Bodi Phluid) and skin of near of cells oxygen of Prasar (i.e. body of various parts up to Pahunchana) and carbon dioxide of Nishkasan (i.e. blood from skin through outside Nikalana) in tributary is are.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":2},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"‘ केंचुए’ के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. केंचुए मिट्टी की उर्वरता को बढ़ाते हैं और किसानों के मित्र के रूप में जाने जाते हैं। 2. केंचुए में दो जोड़ी हृदय होते हैं। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"With reference to ‘ earthworms’, which of the following statements is/are correct? 1. earthworms soil of Urvarata to Barhate are and farmers of Mitra as going go are. 2. earthworms in two Jori heart occur. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":3,"answer_note":"","explanation_hi":"कथन 1 सत्य है : केंचुए मिट्टी की उर्वरता व स्वास्थ्य सुधारते हैं और इसी कारण ‘किसानों के मित्र’ कहे जाते हैं। इस संदर्भ में प्रचलित अभिव्यक्तियों का आशय यह है कि केंचुए मिट्टी की संरचना-सुधार, कार्बनिक पदार्थ-वृद्धि और जल प्रवेशन जैसे पहलुओं पर सकारात्मक प्रभाव डालते हैं। कथन 2 असत्य है : केंचुए में ‘हृदय’ जैसे धड़कने वाले रक्त-वाहिकीय पंप चार जोड़ी खंड 7, 9, 12 और 13 में पाए जाते हैं। अत: ‘दो जोड़ी’ कहना गलत है।","explanation_en":"Statement 1 is true: earthworms soil of Urvarata and health Sudharate are and this very Reason ‘farmers of Mitra’ Kahe go are. this reference in Prachalit Abhivyaktiyon of meaning this is that earthworms soil of structure-reform, organic substance-growth and water Praveshan such as Pahaluon at Sakaratmak impact Dalate are. statement 2 is false: earthworms in ‘heart’ such as Dharakane having blood-Vahikiy Pamp four Jori section 7, 9, 12 and 13 in are found. hence: ‘two Jori’ Kahana is incorrect.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":3},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"लाइकेन के संदर्भ में निम्नलिखित में से कौन-सा/से का सही है/हैं ? 1. लाइकेन प्रदूषण के बहुत अच्छे संकेतक हैं। 2. लाइकेन प्रदूषित क्षेत्रों में अच्छी तरह से उगते हैं। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Lichen with reference to following in from which-which/from of is correct/are? 1. lichen pollution of very Achchhe indicator are. 2. lichen polluted regions in Achchhi manner from Ugate are. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":3,"answer_note":"","explanation_hi":"लाइकेन वायुमंडलीय प्रदूषण (विशेषकर सल्फर डाइऑक्साइड आदि) के प्रति संवेदनशील होते हैं, इसलिए इन्हें वायु गुणवत्ता के विश्वसनीय जैव संकेतक के रूप में व्यापक रूप से उपयोग किया जाता है। सामान्यत: प्रदूषित क्षेत्रों में (विशेषकर जहां SO2 अधिक हो) लाइकेन अच्छी तरह नहीं बढ़ते। स्वच्छ वायु में इनकी विविधता/प्रचुरता अधिक मिलती है, जबकि अत्यधिक प्रदूषित क्षेत्रों में ये अनुपस्थित तक हो सकते हैं। अत: इस प्रकार कथन (1) सही है, जबकि कथन (2) त्रुटिपूर्ण है।","explanation_en":"Lichen atmospheric pollution (especially sulfur dioxide etc.) of towards Sanvedanashil occur, therefore them air quality of Vishvasaniy bio indicator as comprehensive form from use is done. generally: polluted regions in (especially where SO2 more be) lichen Achchhi manner not Barhate. clean air in Inaki diversity/Prachurata more is found, whereas excessive polluted regions in these Anupasthit up to be can are. hence: this type statement (1) is correct, whereas statement (2) erroneous is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":4},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"‘ रक्त’ के संदर्भ में, निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. रक्त प्लाज्मा और विभिन्न प्रकार की कोशिकाओं से बना होता है। 2. हीमोग्लोबिन की उपस्थिति रक्त को लालिमायुक्त बनाती है। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"With reference to ‘ blood’, which of the following statements is/are correct? 1. blood Plajma and various type of cells from became occurs. 2. haemoglobin of Upasthiti blood to Lalimayukta Banati is. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":2,"answer_note":"","explanation_hi":"रक्त द्रव संयोजी ऊतक है, जिसके दो प्रमुख भाग होते हैं–(i) प्लाज्मा तथा (ii) रक्त कणिकाएं या रुधिराणु। कुल रक्त का लगभग 55 प्रतिशत भाग प्लाज्मा तथा शेष 45 प्रतिशत भाग रुधिराणु होता है। रुधिराणु तीन प्रकार के होते हैं–(i) लाल रक्त कणिकाएं, (ii) श्वेत रक्त कणिकाएं तथा (iii) प्लेटलेट्स। अत: (1) सही है। लाल रुधिराणु में हीमोग्लोबीन नामक प्रोटीन पाई जाती है। हीमोग्लोबीन ऑक्सीजन का परिवहन करता है, इसमें हीम (Heam) नामक लाल रंग का पदार्थ पाया जाता है, जो इसे रंग प्रदान करता है।","explanation_en":"Blood liquid Sanyoji Ootak is, whose two major part occur–(i) Plajma and (ii) blood Kanikaen or Rudhiranu. total blood of approximately 55 percent (%) part Plajma and remaining 45 percent (%) part Rudhiranu occurs. Rudhiranu three type of occur–(i) red blood Kanikaen, (ii) Shvet blood Kanikaen and (iii) Pletaletsa. hence: (1) is correct. red Rudhiranu in Himoglobin named protein is found. Himoglobin oxygen of transport does is, in this Him (Heam) named red Rang of substance is found, which it Rang provided does is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":5},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को अभिकथन (A) तथा दूसरे को कारण (R) कहा गया है। अभिकथन (A): पुरुषों और महिलाओं की आवाजें अलग-अलग होती हैं। कारण (R) : पुरुषों और महिलाओं में वोकल कॉर्ड की लंबाई और मोटाई अलग-अलग होती है। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A): men and women of Avajen separate-separate is are. Reason (R): men and women in Vokal Korda of length and thickness separate-separate occurs. Select the correct answer from the code given below: Code","options":[{"hi":"(A) और (R) दोनों सही हैं, किंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."}],"answer":3,"answer_note":"","explanation_hi":"मानव आवाज का मूल स्वर (पिच) मुख्यत: स्वर रज्जुओं की लंबाई, द्रव्यमान (मोटाई) और तनन पर निर्भर होता है; जबकि गुण (टिंबर) का निर्धारण प्रमुखत: ध्वन्यनाल /वोकल ट्रैक्ट के अनुनाद (फॉर्मेंट्स) से होता है। सामान्यत: वयस्क पुरुषों में स्वर रज्जाएं महिलाओं की तुलना में औसतन अधिक लंबी और मोटी होती हैं। अधिक लंबाई व द्रव्यमान के कारण पुरुषों की स्वर रज्जाएं कंपन की निम्न मूल आवृत्ति उत्पन्न करती हैं, जिससे उनकी आवाज अपेक्षाकृत भारी/गहरी सुनाई देती है; जबकि महिलाओं में अपेक्षाकृत छोटी और पतली स्वर रज्जाएं उच्च मूल आवृत्ति देती हैं, इसलिए आवाज अपेक्षाकृत तीखी/उच्च पिच की होती है। ध्वन्यनाल (vocal tract) की लंबाई/अनुनाद, उच्चारण की आदतें आदि भी आवाज के गुण पर प्रभाव डालते हैं; पुरुष महिला आवाज के औसत अंतर में स्वर रज्जुओं की लंबाई मोटाई महत्वपूर्ण कारण हैं; साथ ही ध्वन्यनाल/ वोकल ट्रैक्ट की लंबाई अनुनाद भी निर्णायक भूमिका निभाते हैं। इसलिए (A) सत्य है और (R) भी सत्य है तथा (R), (A) की सही व्याख्या करता है।","explanation_en":"Human sound of original Svar (Pich) mainly: Svar Rajjuon of length, mass (thickness) and Tanan at dependent occurs; whereas property (Timbar) of determination Pramukhat: Dhvanyanal /Vokal Traikta of Anunad (Phormentsa) from occurs. generally: adult men in Svar Rajjaen women compared to Ausatan more long and Moti is are. more length and mass due to men of Svar Rajjaen Kampan of low original Avritti generated did are, by which their sound Apekshakrit Bhari/deep Sunaee gives is; whereas women in Apekshakrit small and Patali Svar Rajjaen high original Avritti give, therefore sound Apekshakrit Tikhi/high Pich of occurs. Dhvanyanal (vocal tract) of length/Anunad, Uchcharan of Adaten etc. also sound of property at impact Dalate are; male women sound of average difference in Svar Rajjuon of length thickness important Reason are; with only Dhvanyanal/ Vokal Traikta of length Anunad also Nirnayak role Nibhate are. therefore (A) is true and (R) also is true and (R), (A) of correct Explanation does is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":6},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा उच्च से निचले क्रम में पौधों की प्रजातियों का सही क्रम है?","question_en":"Which of the following is high from Nichale order in plants of species of correct order?","options":[{"hi":"वर्ग – संघ – गण – पादप जगत","en":"Class – Union – Gan – plant Jagat"},{"hi":"गण – वर्र्ग – संघ – पादप जगत","en":"Gan – Varrga – Union – plant Jagat"},{"hi":"वर्ग – पादप जगत – संघ – गण","en":"Class – plant Jagat – Union – Gan"},{"hi":"पादप जगत – संघ – वर्ग – गण","en":"Plant Jagat – Union – class – Gan"}],"answer":3,"answer_note":"","explanation_hi":"जीव विज्ञान में, वर्गीकरण (Classification) जीवों (चाहे वे जीवित हों या विलुप्त) को समान विशेषताओं के आधार पर समूहों में व्यवस्थित करने की प्रक्रिया है। जीवों के नामकरण और वर्गीकरण का विज्ञान टैक्सोनॉमी (Taxonomy) कहलाता है। पौधों का ‘वर्गीकरण पदानुक्रम’ (Classification Hierarchy of Plants) पादप जगत (Plant Kingdom) संघ (Phylum) वर्ग (Class) गण (Order) कुल (Family) वंश (Genus) जाति (Species) नोट- उपर्युक्त पद्धति पौधों को पादप जगत (उच्चतम) से जाति (सबसे निचला) तक वर्गीकृत करती है।","explanation_en":"Organism Science in, classification (Classification) organisms (Chahe they Jivit Hon or Vilupta) to similar Visheshataon on the basis of groups in arranged doing of process is. organisms of Namakaran and classification of Science Taiksonomi (Taxonomy) is called is. plants of ‘classification Padanukram’ (Classification Hierarchy of Plants) plant Jagat (Plant Kingdom) Union (Phylum) class (Class) Gan (Order) total (Family) Dynasty (Genus) caste (Species) Note- above method plants to plant Jagat (highest) from caste (most Nichala) up to classified did is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":7},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा जैविक अनुक्रम की प्रावस्थाओं का सही क्रम है?","question_en":"Which of the following is biological Anukram of Pravasthaon of correct order?","options":[{"hi":"आस्थापन — प्रवास — प्रतिक्रिया — स्थिरीकरण","en":"Asthapan — Pravas — Pratikriya — stabilization"},{"hi":"आस्थापन — प्रवास — स्थिरीकरण — प्रतिक्रिया","en":"Asthapan — Pravas — stabilization — Pratikriya"},{"hi":"प्रवास — प्रतिक्रिया — स्थिरीकरण — आस्थापन","en":"Pravas — Pratikriya — stabilization — Asthapan"},{"hi":"प्रवास — आस्थापन — प्रतिक्रिया — स्थिरीकरण","en":"Pravas — Asthapan — Pratikriya — stabilization"}],"answer":3,"answer_note":"","explanation_hi":"प्रवास (Migration) प्रक्रिया तब होती है, जब जीव एक स्थान से दूसरे स्थान पर जाते हैं। इसके बाद आस्थापन (Invasion) होता है, जब ये प्रजातियां नए स्थान पर प्रवेश करती हैं और उस स्थान पर बसने की कोशिश करती हैं। इसके बाद प्रतिक्रिया (Reaction) आती है, जब इन प्रजातियों की वातावरण और स्थानीय जीवों के साथ एक पारस्परिक प्रतिक्रिया होती है। अंत में स्थिरीकरण (Stablization) की प्रक्रिया होती है, जिसमें नई प्रजातियां उस नए स्थान पर अनुकूलित हो जाती हैं और वहां वे एक साम्य स्थिति में रहती हैं।","explanation_en":"Pravas (Migration) process then occurs, when organism one place from second place at go are. its after Asthapan (Invasion) occurs, when these species new place at entry did are and that place at Basane of Koshish did are. its after Pratikriya (Reaction) comes is, when these species of environment and local organisms with one Parasparik Pratikriya occurs. end in stabilization (Stablization) of process occurs, in which new species that new place at Anukulit be goes are and there they one Samya status in remains are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":8},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"भूमि पर रहने वाले पौधे और जानवर क्या कहलाते हैं?","question_en":"Land at remaining having plants and animal what Kahalate are?","options":[{"hi":"अजैविक","en":"Ajaivik"},{"hi":"जलीय निवासी","en":"Aquatic inhabitants"},{"hi":"स्थलीय निवासी","en":"Sthaliy inhabitants"},{"hi":"जैविक","en":"Biological"}],"answer":2,"answer_note":"","explanation_hi":"भूमि (Land) पर रहने वाले पौधे एवं पशु स्थलीय निवासी (Terrestrial habitants) कहलाते हैं, जबकि जल में रहने वाले पौधे एवं पशु जलीय निवासी (Aquatic habitants) कहलाते हैं।","explanation_en":"Land (Land) at remaining having plants and animal Sthaliy inhabitants (Terrestrial habitants) Kahalate are, whereas water in remaining having plants and animal aquatic inhabitants (Aquatic habitants) Kahalate are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":9},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"वह जोड़ जहां गर्दन सिर से मिलती है","question_en":"That Jor where Gardan Sir from is found","options":[{"hi":"पिवटल जोड़","en":"Pivatal Jor"},{"hi":"सैडल जोड़","en":"Saidal Jor"},{"hi":"हिंज जोड़","en":"Hinj Jor"},{"hi":"बॉल एवं सॉकेट जोड़","en":"Bol and Soket Jor"}],"answer":0,"answer_note":"","explanation_hi":"पिवटल जोड़ (Pivotal joint) में एक हड्डी का गोल सिरा (Rounded end) दूसरी हड्डी द्वारा बने रिंग (Ring) में फिट होता है। यह संरचना घूर्णन गति (Rotational movement) को सक्षम बनाती है, क्योंकि गोलाकार हड्डी स्वयं अपने अक्ष (Axis) के चारों ओर घूमती है। पिवटल जोड़ का एक उदाहरण गर्दन (Neck) की पहली और दूसरी कशेरुकाओं (Vertebrae) का जोड़ है, जो सिर (Head) को आगे एवं पीछे करने में सक्षम बनाता है।","explanation_en":"Pivatal Jor (Pivotal joint) in one Haddi of Gol Sira (Rounded end) second Haddi by became Ring (Ring) in Phit occurs. this structure Ghurnan speed (Rotational movement) to Saksham Banati is, because Golakar Haddi itself its own Aksha (Axis) of fours towards Ghumati is. Pivatal Jor of one example Gardan (Neck) of first and second Kasherukaon (Vertebrae) of Jor is, which Sir (Head) to ahead and Pichhe doing in Saksham Banata is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":10},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"इनमें से रोग पैदा करने वाला सूक्ष्मजीव है","question_en":"Among these from disease Paida doing having Sukshmajiv is","options":[{"hi":"अर्किया","en":"Arkiya"},{"hi":"रोगाणु","en":"Roganu"},{"hi":"बैक्टीरिया","en":"Baiktiriya"},{"hi":"प्रोटोजोआ","en":"Protojoa"}],"answer":1,"answer_note":"","explanation_hi":"रोग पैदा करने वाले सूक्ष्मजीव रोगाणु (Pathogens) कहलाते हैं। विषाणु, जीवाणु, कवक (Fungi) और परजीवी (Parasites) सभी रोगाणुओं के उदाहरण हैं।","explanation_en":"Disease Paida doing having Sukshmajiv Roganu (Pathogens) Kahalate are. virus, bacteria, Kavak (Fungi) and Parajivi (Parasites) all Roganuon of example are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":11},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"CPR (सी.पी.आर.) से तात्पर्य है","question_en":"CPR (C.P.R.) from meaning is","options":[{"hi":"कार्डियो प्रोग्राम बचाव","en":"Kardiyo Program Bachav"},{"hi":"कार्डियक पल्सेटाइल संशोधन","en":"Kardiyak Palsetail Amendment"},{"hi":"कार्डियोपल्मोनरी पुनर्जीवन","en":"Kardiyopalmonari Punarjivan"},{"hi":"कार्डियोपल्मोनरी संशोधन","en":"Kardiyopalmonari Amendment"}],"answer":2,"answer_note":"","explanation_hi":"CPR (Cardiopulmonary Resuscitation) एक आपातकालीन जीवन रक्षक प्रक्रिया उपचार है। दिल धड़कना बंद कर देने पर इस प्रक्रिया को कार्यान्वित किया जाता है। कार्डियक अरेस्ट के बाद तुरंत CPR देने से जीवित रहने की संभावनाएं दो या तीन गुना बढ़ सकती हैं।","explanation_en":"CPR (Cardiopulmonary Resuscitation) one Emergency life Rakshak process treatment is. Dil Dharakana Band tax giving at this process to Karyanvit is done. Kardiyak Aresta after Turant CPR giving from Jivit remaining of Sambhavanaen two or three Guna increase can are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":12},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"वह एकमात्र शिरा जो ऑक्सीजन युक्त रक्त वहन करती है, कहलाती है","question_en":"That only Shira which oxygen equipped with blood Vahan did is, is called is","options":[{"hi":"पल्मोनरी शिरा","en":"Palmonari Shira"},{"hi":"सिस्टिक शिरा","en":"Sistik Shira"},{"hi":"कार्डियक शिरा","en":"Kardiyak Shira"},{"hi":"हिपेटिक पोर्टल शिरा","en":"Hipetik portal Shira"}],"answer":0,"answer_note":"","explanation_hi":"हृदय में 4 कक्ष (Chambers) होते हैं, जिनमें रक्त प्रवाहित होता है। रक्त दाहिने अलिंद (Right atrium) में प्रवेश करता है और दाहिने निलय (Right ventricle) से होकर गुजरता है। दाहिना निलय रक्त को फेफड़ों में पम्प करता है, जहां यह ऑक्सीजनयुक्त हो जाता है। ऑक्सीजनयुक्त रक्त पल्मोनरी शिराओं (Pulmonary veins) द्वारा हृदय में वापस लाया जाता है, जहां यह बाएं अलिंद (Left atrium) में प्रवेश करता है। बाएं अलिंद से रक्त बाएं निलय (Left ventricle) में प्रवाहित होता है।","explanation_en":"Heart in 4 Kaksha (Chambers) occur, among which blood flows occurs. blood Dahine Alind (Right atrium) in entry does is and Dahine Nilay (Right ventricle) from having been Gujarata is. Dahina Nilay blood to Phepharon in Pampa does is, where this Oksijanayukta be goes is. Oksijanayukta blood Palmonari Shiraon (Pulmonary veins) by heart in Vapas Laya goes is, where this Baen Alind (Left atrium) in entry does is. Baen Alind from blood Baen Nilay (Left ventricle) in flows occurs.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":13},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मधुमेह जो कि एक बहुत ही सामान्य विकार है, संबंधित होता है","question_en":"Madhumeh which that one very only general Vikar is, related occurs","options":[{"hi":"वृक्क से","en":"Vrikka from"},{"hi":"पित्ताशय से","en":"Pittashay from"},{"hi":"यकृत से","en":"Liver from"},{"hi":"अग्न्याशय से","en":"Pancreas from"}],"answer":3,"answer_note":"","explanation_hi":"मधुमेह अग्न्याशय से संबंधित रोग है, जो इंसुलिन का पर्याप्त स्राव नहीं होने के कारण होता है। इंसुलिन हॉर्मोन अग्न्याशय के अंत:स्रावी भाग लैंगरहैन्स की दीपिकाओं (Islets of Langerhans) की β-कोशिकाओं से स्रावित होता है। इंसुलिन का पर्याप्त मात्रा में स्राव नहीं होने पर यकृत में ग्लाइकोजन संचित नहीं हो पाता और रक्त में शर्करा की मात्रा बढ़ जाती है।","explanation_en":"Madhumeh pancreas from related disease is, which Insulin of sufficient Srav not being due to occurs. Insulin hormone pancreas of end:endocrine part Laingarahainsa of Dipikaon (Islets of Langerhans) of β-cells from secreted occurs. Insulin of sufficient quantity in Srav not being at liver in Glaikojan Sanchit not be Pata and blood in sugar of quantity increase goes is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":14},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा कथन सही नहीं है?","question_en":"Which of the following is NOT statement correct?","options":[{"hi":"क्रोमोसोम डी.एन.ए. तथा प्रोटीन से बने होते हैं।","en":"Kromosom D.N.A. and protein from became occur."},{"hi":"किसी कोशिका का केंद्रक कोशिकीय विभाजन/प्रजनन में हिस्सा नहीं लेता है।","en":"Any cell of Kendrak Koshikiy division/reproduction in part not Leta is."},{"hi":"क्रोमोसोम संततियों के लिए सूचनाएं रक्षित रखते हैं।","en":"Kromosom Santatiyon for informations Rakshit Rakhate are."},{"hi":"डी.एन.ए. की कार्यात्मक इकाई को जीन कहते हैं।","en":"D.N.A. of Karyatmak unit to Jin call are."}],"answer":1,"answer_note":"","explanation_hi":"केंद्रक (Nucleus) एक अत्यधिक विशिष्ट कोशिकांग (Organelle) है, जो कोशिका के सूचना प्रसंस्करण और प्रशासनिक केंद्र के रूप में कार्य करता है। केंद्रक के दो मुख्य कार्य हैं : यह कोशिका की आनुवंशिक सामग्री या DNA को संगृहीत करता है और यह कोशिका की गतिविधियों का समन्वय करता है, जिनमें वृद्धि, मध्यवर्ती चयापचय (Intermediary Metabolism), प्रोटीन संश्लेषण और प्रजनन (कोशिका विभाजन) शामिल हैं। नाभिक में कोशिका के विकास और प्रजनन के लिए आ वश्यक आनुवंशिक जानकारी संगृहीत होती है। इस प्रकार विकल्प (b) का कथन सही नहीं है, जबकि अन्य तीनों प्रश्नगत कथन सही हैं।","explanation_en":"Kendrak (Nucleus) one excessive specific Koshikang (Organelle) is, which cell of information Prasanskaran and Administrative centre as function does is. Kendrak of two main function are: this cell of genetic Samagri or DNA to Sangrihit does is and this cell of activities of Samanvay does is, among which growth, Madhyavarti Chayapachay (Intermediary Metabolism), protein synthesis and reproduction (cell division) included are. nucleus in cell of development and reproduction for A Vashyak genetic information Sangrihit occurs. this type option (b) of statement is not correct, whereas other threes given statement correct are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":15},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए : सूची-I सूची-II (विटामिन) (रोग) A. विटामिन A 1 . बेरीबेरी B. विटामिन B 2 . अंधापन C. विटामिन C 3 . रिकेट्स D. विटामिन D 4 . स्कर्वी कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the lists: List-I List-II (vitamin) (disease) A. vitamin A 1. Beriberi B. vitamin B 2. Andhapan C. vitamin C 3. Riketsa D. vitamin D 4. Skarvi Code: A B C D","options":[{"hi":"4 3 2 1","en":"4 3 2 1"},{"hi":"2 1 4 3","en":"2 1 4 3"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"1 3 2 4","en":"1 3 2 4"}],"answer":1,"answer_note":"","explanation_hi":"सूखा रोग या रिकेट्स विटामिन D की कमी से होता है। बेरी-बेरी आहार में विटामिन B1 (थायमिन) की कमी से होता है। निशान्धता या रतौंधी विटामिन A की कमी से होने वाला आंखों का रोग है। स्कर्वी रोग विटामिन C की कमी से होता है।","explanation_en":"Sukha disease or Riketsa vitamin D of deficiency from occurs. Beri-Beri diet in vitamin B1 (Thayamin) of deficiency from occurs. Nishandhata or Rataundhi vitamin A of deficiency from being having eyes of disease is. Skarvi disease vitamin C of deficiency from occurs.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":16},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"किस प्रकार का टीका डिप्थीरिया से बचाता है?","question_en":"Which type of vaccine Dipthiriya from Bachata is?","options":[{"hi":"लाइव अटेनिवेटेड","en":"Laiv Ateniveted"},{"hi":"वाइरल वेक्टर","en":"Vairal Vektar"},{"hi":"टॉक्सॉइड","en":"Toksoid"},{"hi":"एम.आर.एन.ए.","en":"M.R.N.A."}],"answer":2,"answer_note":"","explanation_hi":"डिप्थीरिया या रोहिणी एक जीवाणुजन्य रोग है, जो कोरिनीबैक्टीरियम डिप्थीरी नामक जीवाणु के कारण होता है। टॉकसॉइड (Toxoid) टीका डिप्थीरिया से बचाव के लिए प्रयोग किया जाता है।","explanation_en":"Dipthiriya or Rohini one Jivanujanya disease is, which Korinibaiktiriyam Dipthiri named bacteria due to occurs. Tokasoid (Toxoid) vaccine Dipthiriya from Bachav for use is done.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":17},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन एक कीटभक्षी पौधा है?","question_en":"Following in from which one Kitabhakshi plant is?","options":[{"hi":"निक्टेन्थिस","en":"Niktenthis"},{"hi":"नीलुम्बो","en":"Nilumbo"},{"hi":"निकोटियाना","en":"Nikotiyana"},{"hi":"नेपेंथिस","en":"Nepenthis"}],"answer":3,"answer_note":"","explanation_hi":"निक्टेन्थिस एक पुष्पीय पौधा (Flowering Plant) है। नीलुम्बो एक जलीय पौधा (aquatic plant) है। निकोटियाना एक शाकीय पौधा (herba- ceous plant) है। नेपेंथिस एक मांसाहारी/कीटभक्षी पौधा है।","explanation_en":"Niktenthis one Pushpiy plant (Flowering Plant) is. Nilumbo one aquatic plant (aquatic plant) is. Nikotiyana one Shakiy plant (herba- ceous plant) is. Nepenthis one Mansahari/Kitabhakshi plant is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":18},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मानव हृदय कितने चैम्बर्स (घटकों) का बना होता है?","question_en":"Human heart how many Chaimbarsa (components) of became occurs?","options":[{"hi":"केवल चार","en":"Only four"},{"hi":"केवल दो","en":"Only two"},{"hi":"केवल एक","en":"Only one"},{"hi":"केवल तीन","en":"Only three"}],"answer":0,"answer_note":"","explanation_hi":"मानव हृदय 4 प्रमुख कक्षों में विभाजित होता है। दो ऊपरी कक्षों को दायां एवं बायां अलिंद या एट्रियम कहते हैं। जबकि दो निचले कक्षों को दायां एवं बायां निलय या वेंट्रिकल्स कहते हैं।","explanation_en":"Human heart 4 major Kakshon in divided occurs. two upper Kakshon to Dayan and Bayan Alind or Etriyam call are. whereas two Nichale Kakshon to Dayan and Bayan Nilay or Ventrikalsa call are.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":19},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा हॉर्मोन अग्नाशय के लैंगरहैंस के आइलेट की बीटा सेल (कोशिकाओं) द्वारा स्रावित होता है?","question_en":"Which of the following is hormone pancreas of Laingarahains of Ailet of Bita cell (cells) by secreted is?","options":[{"hi":"एड्रेनालिन","en":"Edrenalin"},{"hi":"ग्लूकागान","en":"Glukagan"},{"hi":"इंसुलिन","en":"Insulin"},{"hi":"एल्डोस्टीरोन","en":"Eldostiron"}],"answer":2,"answer_note":"","explanation_hi":"अग्न्याशय के लैंगर हैंस के आइलेट की बीटा कोशिकाओं द्वारा इंसुलित नामक हॉर्मोन स्रावित होता है। जबकि अल्फा कोशिकाओं द्वारा ग्लूकेगान (Glucagan) नामक हॉर्मोन स्रावित होता है।","explanation_en":"Pancreas of Laingar Hains of Ailet of Bita cells by Insulit named hormone secreted occurs. whereas Alpha cells by Glukegan (Glucagan) named hormone secreted occurs.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":20},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"पौधों में जाइलम परिवहन के लिए जिम्मेदार होता है","question_en":"Plants in Jailam transport for Jimmedar occurs","options":[{"hi":"जल","en":"Water"},{"hi":"ऑक्सीजन","en":"Oxygen"},{"hi":"एमिनो एसिड","en":"Emino Esid"},{"hi":"भोजन","en":"Food"}],"answer":0,"answer_note":"","explanation_hi":"संवहनी पादपों में दो परिवहन ऊतक पाए जाते हैं- (1) फ्लोएम (ii) जाइलम जाइलम, जल के संवहन में प्रमुख भूमिका अदा करता है।","explanation_en":"Sanvahani plants in two transport Ootak are found- (1) Phloem (ii) Jailam Jailam, water of Sanvahan in major role Ada does is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":21},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"पोषक स्तर बनते हैं","question_en":"Nutrient level Banate are","options":[{"hi":"केवल मांसाहारी जंतुओं से","en":"Only Mansahari animals from"},{"hi":"केवल पौधों से","en":"Only plants from"},{"hi":"केवल जंतुओं से","en":"Only animals from"},{"hi":"खाद्य शृंखला में जीवों के संबंद्ध होने से","en":"Food range in organisms of Sambanddha being from"}],"answer":3,"answer_note":"","explanation_hi":"पोषक स्तर का निर्माण खाद्य शृंखला में जीवों के संबद्ध होने के फलस्वरूप होता है। खाद्य शृंखला विभिन्न प्रकार के जीवधारियों का एक ऐसा क्रम है, जिससे किसी पारिस्थितिक तंत्र में ऊर्जा का प्रवाह होता है। पारिस्थितिकी तंत्र की आहार शृंखला में सामान्यत: 3 से 4 पोषण स्तर होते हैं, जो इस प्रकार हैं - (i) पोषण स्तर - 1 — प्राथमिक उत्पादक (ii) पोषण स्तर - 2 — प्राथमिक उपभोक्ता (iii) पोषण स्तर - 3 — द्वितीयक उपभोक्ता (iv) पोषण स्तर - 4 — सर्वाहारी/अंतिम उपभोक्ता","explanation_en":"Nutrient level of construction food range in organisms of associated being as a result of occurs. food range various type of Jivadhariyon of one such order is, by which any Ecosystem in energy of flow occurs. Ecosystem of diet range in generally: 3 from 4 nutrition level occur, which this type are - (i) nutrition level - 1 — primary producer (ii) nutrition level - 2 — primary consumer (iii) nutrition level - 3 — secondary consumer (iv) nutrition level - 4 — Sarvahari/last consumer","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":22},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए तथा नीचे दिए गए कूट का प्रयोग करके सही उत्तर का चुनाव कीजिए - सूची-I सूची-II (व्याधि) (कारक) (A)पेप्टिक व्रण (1) विषाणु (B) डेंगू (2) प्रोटोजोआ (C)फील पांव (3) कृमि (D)मलेरिया (4) जीवाणु कूट","question_en":"Match List-I with List-II and below given Code of use by doing correct answer of Election do - List-I List-II (Vyadhi) (factor) (A)Peptik Vran (1) virus (B) dengue (2) Protojoa (C)Phil Panv (3) Krimi (D)malaria (4) bacteria Code","options":[{"hi":"A - (4), B - (2), C - (3), D - (1)","en":"A - (4), B - (2), C - (3), D - (1)"},{"hi":"A - (3), B - (4), C - (2), D - (1)","en":"A - (3), B - (4), C - (2), D - (1)"},{"hi":"A - (4), B - (1), C - (3), D - (2)","en":"A - (4), B - (1), C - (3), D - (2)"},{"hi":"A - (2), B - (3), C - (4), D - (1)","en":"A - (2), B - (3), C - (4), D - (1)"}],"answer":2,"answer_note":"","explanation_hi":"सही सुमेलन निम्नवत है - सूची-I सूची-II (व्याधि) (कारक) (A)पेप्टिक अल्सर (व्रण) — जीवाणु (B) डेंगू — विषाणु (C) फील पांव — कृमि (Worm) (D)मलेरिया — प्रोटोजोआ नोट- प्रश्न के हिंदी संस्करण में पेप्टिक अल्सर के कारक के विकल्प विषाणु उल्लिखित है, जो कि गलत है, यहां विषाणु के स्थान पर जीवाणु होगा। जबकि प्रश्न के अंग्रेजी संस्करण में Bacteria दिया गया है। अत: इस प्रश्न की व्याख्या अंग्रेजी संस्करण के अनुसार की गई है।","explanation_en":"The correct matching is as follows - List-I List-II (Vyadhi) (factor) (A)Peptik Alsar (Vran) — bacteria (B) dengue — virus (C) Phil Panv — Krimi (Worm) (D)malaria — Protojoa Note- Question of Hindi edition in Peptik Alsar of factor of option virus mentioned is, which that is incorrect, here virus of place at bacteria will be. whereas Question of English edition in Bacteria is given. hence: this Question of Explanation English edition according to was done is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":23},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"सूची- I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। सूची-I सूची-II (पादप रोग) (कारक) A. खट्टे नासर 1. कीट B. गन्ने का लाल सड़न रोग 2. ऑक्सीजन की कमी C. आलू का कृष्णकांत रोग 3. जीवाणु D. गेहूं का साहू रोग 4. कवक (फुई) कूट : A B C D","question_en":"List- I to List-II from matched do and lists of Select the correct answer from the code given below. List-I List-II (plant disease) (factor) A. Khatte Nasar 1. insect B. sugarcane of red Saran disease 2. oxygen of deficiency C. potato of Krishnakant disease 3. bacteria D. wheat of Sahu disease 4. Kavak (Phuee) Code: A B C D","options":[{"hi":"1 3 4 2","en":"1 3 4 2"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"4 1 3 2","en":"4 1 3 2"},{"hi":"3 4 2 1","en":"3 4 2 1"}],"answer":3,"answer_note":"","explanation_hi":"सूची-I सूची-II (पादप रोग) (कारक) खट्टे नासर जीवाणु (Citrus cracker) गन्ने का लाल सड़न रोग कवक (Fungus) (Red rot disease of sugarcane) आलू का कृष्णकांत रोग ऑक्सीजन की कमी गेहूं का सेंहू रोग कीट नोट : प्रश्न में गेहूं का ‘साहू’ रोग दिया गया है, जो कि ‘सेंहू’ रोग होना चाहिए।","explanation_en":"List-I List-II (plant disease) (factor) Khatte Nasar bacteria (Citrus cracker) sugarcane of red Saran disease Kavak (Fungus) (Red rot disease of sugarcane) potato of Krishnakant disease oxygen of deficiency wheat of Senhu disease insect Note: Question in wheat of ‘Sahu’ disease is given, which that ‘Senhu’ disease to be should.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":24},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा स्तनधारी अंडे देता है?","question_en":"Which of the following is Stanadhari Ande Deta?","options":[{"hi":"लोरिस","en":"Loris"},{"hi":"कंगारू","en":"Kangaru"},{"hi":"हैजहॉग","en":"Haijahog"},{"hi":"एकिडना","en":"Ekidana"}],"answer":3,"answer_note":"","explanation_hi":"एकिडना तथा प्लैटिपस ऐसे स्तनधारी हैं, जो अंडे देते हैं।","explanation_en":"Ekidana and Plaitipas such Stanadhari are, which Ande Dete are.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":25},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"बेसिलस हीमोफिलस इंफ्लुएंजा कारक है","question_en":"Besilas Himophilas Imphluenja factor is","options":[{"hi":"छोटे बच्चों में मैनिनजाइटिस (मस्तिष्क ज्वर) के एक स्वरूप का","en":"Small children in Maininajaitis (brain Jvar) of one nature of"},{"hi":"इंफ्लुएंजा का","en":"Imphluenja of"},{"hi":"काली खांसी का","en":"Black Khansi of"},{"hi":"निमोनिया का","en":"Nimoniya of"}],"answer":0,"answer_note":"","explanation_hi":"बेसिलस हीमोफिलस इंफ्लुएंजा एक ग्राम-निगेटिव जीवाणु है। नवजात शिशुओं में यह जीवाणु निमोनिया एवं मैनिनजाइटिस का कारक होता है, जबकि इंफ्लुएंजा (Influenza) विषाणुजनित रोग है।","explanation_en":"Besilas Himophilas Imphluenja one gram-Nigetiv bacteria is. neonatal Shishuon in this bacteria Nimoniya and Maininajaitis of factor occurs, whereas Imphluenja (Influenza) Vishanujanit disease is.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":26},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"सौर ऊर्जा को विद्युत ऊर्जा में किसके द्वारा परिवर्तित किया जाता है?","question_en":"Solar Energy to electric energy in by whom by changed is done?","options":[{"hi":"लेकलेंच कोशिकाओं के द्वारा","en":"Lekalench cells by"},{"hi":"फोटोवोलटाइक कोशिकाओं के द्वारा","en":"Photovolataik cells by"},{"hi":"शुष्क कोशिकाओं के द्वारा","en":"Arid cells by"},{"hi":"वोलटाइक कोशिकाओं के द्वारा","en":"Volataik cells by"}],"answer":1,"answer_note":"","explanation_hi":"फोटोवोलटाइक (PV devices) या सौर सेल, सौर ऊर्जा को सीधे विद्युत ऊर्जा में परिवर्तित कर देते हैं।","explanation_en":"Photovolataik (PV devices) or solar cell, Solar Energy to directly electric energy in changed tax Dete are.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":27},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"डेंगू बुखार निम्नलिखित में से किस मच्छर के काटने से होता है?","question_en":"Dengue Bukhar following in from which mosquito of Katane from occurs?","options":[{"hi":"एडीज","en":"Edij"},{"hi":"एनाफीलीज","en":"Enaphilij"},{"hi":"एशियाई बाघ मच्छर","en":"Eshiyaee tiger mosquito"},{"hi":"क्यूलेक्स","en":"Kyuleksa"}],"answer":0,"answer_note":"","explanation_hi":"डेंगू एक विषाणु जनित रोग है। डेंगू विषाणु ‘एडीज इजिप्टी’ (Aedes aegypti) प्रजाति के मादा मच्छर द्वारा प्रसारित होता है।","explanation_en":"Dengue one virus Janit disease is. dengue virus ‘Edij Ijipti’ (Aedes aegypti) species of Mada mosquito by Prasarit occurs.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":28},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा एक युग्म सही सुमेलित नहीं है?","question_en":"Which of the following is NOT one pair correct matched?","options":[{"hi":"एस्पार्टेम — संश्लेषित मधुरक","en":"Espartem — synthetic Madhurak"},{"hi":"रेयॉन — रूपांतरित स्टार्च","en":"Reyon — Rupantarit Starcha"},{"hi":"निओप्रीन — विशिष्ट रबड़","en":"Nioprin — specific rubber"},{"hi":"ऑक्सीटोसीन — हॉर्मोन","en":"Oksitosin — hormone"}],"answer":1,"answer_note":"","explanation_hi":"रेयॉन, अर्द्ध-सिंथेटिक (Semi-Synthetic) फाइबर है, न कि रूपांतरित स्टार्च। शेष विकल्प सही सुमेलित हैं।","explanation_en":"Reyon, Arddha-Sinthetik (Semi-Synthetic) Phaibar is, not that Rupantarit Starcha. remaining option correct matched are.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":29},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"रक्त में शर्करा का स्तर सामान्यतया प्रदर्शित किया जाता है","question_en":"Blood in sugar of level Samanyataya Pradarshit is done","options":[{"hi":"एमएम ऑफ Hg के रूप में","en":"Emaem of Hg as"},{"hi":"मिलीग्राम प्रति डेसीलीटर के रूप में","en":"Miligram towards Desilitar as"},{"hi":"पार्ट्स प्रति मिलियन के रूप में","en":"Partsa towards million as"},{"hi":"ग्राम प्रति लीटर के रूप में","en":"Gram towards litre as"}],"answer":1,"answer_note":"","explanation_hi":"रक्त शर्करा का स्तर आमतौर पर मिलीग्राम प्रति डेसीलीटर के रूप में व्यक्त किया जाता है, जबकि ग्राम प्रति लीटर का उपयोग द्रव्यमान सांद्रता के मापन हेतु किया जाता है। पीपीएम (पार्ट्स प्रति मिलियन) का उपयोग एक संदूषक (मिट्टी, छोटे कण आदि) की सांद्रता को मापने हेतु किया जाता है। एमएम ऑफ Hg का उपयोग शरीर में तरल पदार्थों के दबाव को मापने में किया जाता है।","explanation_en":"Blood sugar of level Amataur at Miligram towards Desilitar as Vyakta is done, whereas gram towards litre of use mass concentration of measurement for is done. Pipiem (Partsa towards million) of use one Sandushak (soil, small particle etc.) of concentration to Mapane for is done. Emaem of Hg of use body in Taral substances of Dabav to Mapane in is done.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":30},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"रक्त में निम्नलिखित में से किसकी उपस्थिति के कारण ‘ब्लू बेबी सिंड्रोम’ होता है?","question_en":"Blood in following in from whose Upasthiti due to ‘Blu Bebi Sindrom’ occurs?","options":[{"hi":"हीमोग्लोबिन","en":"Haemoglobin"},{"hi":"मिथेमोग्लोबिन","en":"Mithemoglobin"},{"hi":"लेड","en":"Lead"},{"hi":"नाइट्रेट","en":"Nitrate"}],"answer":1,"answer_note":"","explanation_hi":"ब्लू बेबी सिंड्रोम शरीर में ऑक्सीजन के परिवहन में रक्त की क्षमता के घटने का परिणाम होता है। पेय जल में नाइट्रेट की अधिकता इसका सबसे प्रमुख कारण है। मुख्य रूप से नवजात शिशु इस रोग से प्रभावित होते हैं। शिशु का शरीर नाइट्रेट को नाइट्राइट में बदल देता है । ये नाइट्राइट लाल रक्त कणिकाओं में उपस्थित हीमोग्लोबिन से अभिक्रिया करके मिथेमोग्लोबिन का निर्माण करते हैं। मिथेमोग्लोबिन की अधिकता से शरीर की कोशिकाओं को पर्याप्त मात्रा में ऑक्सीजन प्राप्त नहीं होती और यही स्थिति ब्लू बेबी सिंड्रोम है।","explanation_en":"Blu Bebi Sindrom body in oxygen of transport in blood of capacity of Ghatane of Parinam occurs. Pey water in nitrate of Adhikata its most major Reason is. main form from neonatal infant this disease from affected occur. infant of body nitrate to Naitrait in Badal gives. these Naitrait red blood Kanikaon in present haemoglobin from Abhikriya by doing Mithemoglobin of construction did are. Mithemoglobin of Adhikata from body of cells to sufficient quantity in oxygen obtained not is and Yahi status Blu Bebi Sindrom is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":31},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"बॉटुलिज्म है","question_en":"Botulijma is","options":[{"hi":"भोज्य-पदार्थ से होने वाला संक्रमण","en":"Bhojya-substance from being having infection"},{"hi":"भोज्य-पदार्थ से होने वाला विषैलापन","en":"Bhojya-substance from being having Vishailapan"},{"hi":"जल-जनित संक्रमण","en":"Water-Janit infection"},{"hi":"जल-जनित विषैलापन","en":"Water-Janit Vishailapan"}],"answer":1,"answer_note":"","explanation_hi":"खाद्य जनित बॉटुलिज्म एक गंभीर बीमारी है। यह आमतौर पर दूषित खाद्य पदार्थों में बनने वाले शक्तिशाली न्यूरोटॉक्सिन, बॉटुलिज्म विषाक्त पदार्थों के अंतर्ग्रहण से होता है। बॉटुलिज्म विषाक्तता के 7 प्रकार हैं, जो ए(A) से जी(G) तक हैं, जिनमें A, B, E एवं F मानव में बॉटुलिज्म का कारण बनते हैं। शेष तीन अन्य स्तनधारियों एवं पक्षियों में बॉटुलिज्म का कारण बनते हैं।","explanation_en":"Food Janit Botulijma one Gambhir disease is. this Amataur at Dushit food substances in Banane having Shaktishali Nyurotoksin, Botulijma Vishakta substances of Antargrahan from occurs. Botulijma Vishaktata of 7 type are, which A(A) from G(G) up to are, among which A, B, E and F human in Botulijma of Reason Banate are. remaining three other Stanadhariyon and Pakshiyon in Botulijma of Reason Banate are.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":32},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा वायु प्रदूषण का सूचक है?","question_en":"Which of the following is air pollution of indicator?","options":[{"hi":"पफबॉल्स","en":"Paphabolsa"},{"hi":"शैवाल","en":"Algae"},{"hi":"लाइकेन","en":"Lichen"},{"hi":"मॉस","en":"Mos"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] लाइकेन एवं मॉस दोनों वायु प्रदूषण के महत्वपूर्ण सूचक हैं। यदि वातावरण में सल्फर डाइऑक्साइड की मात्रा बढ़ जाती है, तो लाइकेन समाप्त होने लगते हैं। लाइकेन कवक एवं शैवाल के मिश्रित प्रजाति के हैं, जो पेड़ों के तने एवं चट्टानों पर पाए जाते हैं। मॉस भी लाइकेन की भांति ही होते हैं, जो चट्टानों एवं पेड़ों की सतहों पर पाए जाते हैं। वातावरण में नाइट्रोजन की मात्रा में वृद्धि होने पर मॉस समाप्त या कम होने लगते हैं। नोट- उ.प्र. लोक सेवा आयोग ने इस प्रश्न का उत्तर विकल्प (c) दिया है।","explanation_en":"[Note: original Question in answer (*) marked is] lichen and Mos both air pollution of important indicator are. if environment in sulfur dioxide of quantity increase goes is, then lichen abolished being Lagate are. lichen Kavak and algae of mixed species of are, which Peron of Tane and Chattanon at are found. Mos also lichen of Bhanti only occur, which Chattanon and Peron of surfaces at are found. environment in nitrogen of quantity in growth being at Mos abolished or less being Lagate are. Note- U..U.. Public Service Commission this Question of answer option (c) given is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":33},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"राइबोफ्लेविन की कमी से निम्न में से कौन-सा रोग होता है?","question_en":"Raibophlevin of deficiency from low in from which-which disease occurs?","options":[{"hi":"पेलाग्रा","en":"Pelagra"},{"hi":"स्कर्वी","en":"Skarvi"},{"hi":"बेरी बेरी","en":"Beri Beri"},{"hi":"चेईलोसिस","en":"Cheeelosis"}],"answer":3,"answer_note":"","explanation_hi":"राइबोफ्लेविन (विटामिन B2) की कमी तंत्रिका संबंधी बीमारियों, एनीमिया और हृदय रोगों से जुड़ी है। इसकी कमी से चेईलोसिस रोग होता है, जिसमें होंठ फटने की समस्या सामान्य होती है।","explanation_en":"Raibophlevin (vitamin B2) of deficiency Tantrika related to Bimariyon, Enimiya and heart diseases from Juri is. its deficiency from Cheeelosis disease occurs, in which Honth Phatane of problem general occurs.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":34},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा युग्म सही सुमेलित नहीं है?","question_en":"Which of the following is NOT pair correct matched?","options":[{"hi":"विटामिन-A — संतरा","en":"Vitamin-A — Santara"},{"hi":"विटामिन-C — नींबू","en":"Vitamin-C — Nimbu"},{"hi":"विटामिन-D — काड मछली का तेल","en":"Vitamin-D — Kad Machhali of oil"},{"hi":"विटामिन-B6 — धान का चोकर","en":"Vitamin-B6 — paddy of Chokar"}],"answer":0,"answer_note":"","explanation_hi":"संतरा पोषण का एक महत्वपूर्ण स्रोत है, इसमें बड़ी मात्रा में विटामिन सी (Vitamin-C), कैल्शियम आदि प्राप्त होता है। विटामिन A किसी भी व्यक्ति के लिए आवश्यक होना है। यह विटामिन कोशिका वृद्धि, प्रतिरक्षा कार्य, भ्रूण के विकास एवं दृष्टि में सहायक होता है।","explanation_en":"Santara nutrition of one important source is, in this large quantity in vitamin C (Vitamin-C), calcium etc. obtained occurs. vitamin A any also person for necessary to be is. this vitamin cell growth, Pratiraksha function, Bhrun of development and vision in tributary occurs.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":35},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा रोग मच्छर वाहित नहीं है?","question_en":"Which of the following is NOT disease mosquito Vahit?","options":[{"hi":"डेंगू ज्वर","en":"Dengue Jvar"},{"hi":"फाइलेरियासिस","en":"Phaileriyasis"},{"hi":"निद्रा रोग","en":"Nidra disease"},{"hi":"मलेरिया","en":"Malaria"}],"answer":2,"answer_note":"","explanation_hi":"निद्रा रोग सीसी मक्खी (Tsetse fly) के द्वारा वाहित है, परंतु इसका कारक प्रोटोजोआ होता है। डेंगू, मलेरिया एवं फाइलेरियासिस के वाहक मच्छर होते हैं।","explanation_en":"Nidra disease Sisi Makkhi (Tsetse fly) by Vahit is, but its factor Protojoa occurs. dengue, malaria and Phaileriyasis of Vahak mosquito occur.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":36},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से किस कुल के पौधे से टापा कपड़ा बनाया जाता है?","question_en":"Following in from which total of plants from Tapa Kapara made goes is?","options":[{"hi":"एस्किलीपिएडेसी","en":"Eskilipiedesi"},{"hi":"मोरेसी","en":"Moresi"},{"hi":"ग्रेमीनी","en":"Gremini"},{"hi":"माल्वेसी","en":"Malvesi"}],"answer":1,"answer_note":"","explanation_hi":"टापा कपड़ा बनाने हेतु शहतूत परिवार (मोरेसी) के पौधों की आंतरिक छाल का उपयोग किया जाता है। इसके अतिरिक्त ब्रेडफ्रूट एवं ममाकी का भी उपयोग किया जाता है। टापा वस्त्र प्रशांत महासागर के द्वीपों में मुख्य रूप से टोंगा, समोआ और फिजी में बना एक बार्कक्लोथ है। टंप शब्द ताहिती और कुक द्वीप से है, जहां कैप्टन कुक इसे इकट्ठा करने वाले और बाकी दुनिया से परिचित कराने वाले प्रथम यूरोपीय थे।","explanation_en":"Tapa Kapara making for Shahatut family (Moresi) of plants of Antarik Chhal of use is done. its apart from Bredaphrut and Mamaki of also use is done. Tapa textile Pacific Ocean of islands in main form from Tonga, Samoa and Phiji in became one Barkakloth is. Tamp term Tahiti and Kuk island from is, where Kaiptan Kuk it Ikattha doing having and Baki world from Parichit Karane having first Yuropiy were.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":37},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"फेफड़ों में गैसीय विनिमय का स्थल है","question_en":"Phepharon in Gaisiy Vinimay of site is","options":[{"hi":"ट्रैकियोल्स","en":"Traikiyolsa"},{"hi":"ब्रांकियोल्स","en":"Brankiyolsa"},{"hi":"पल्मोनरी शिराएं","en":"Palmonari Shiraen"},{"hi":"अल्वियोलाई","en":"Alviyolaee"}],"answer":3,"answer_note":"","explanation_hi":"गैस विनिमय के दौरान ऑक्सीजन फेफड़ों से रक्तनली में चली जाती है। उसी समय कार्बन डाइऑक्साइड रक्त से फेफड़ों तक जाती है। यह प्रक्रिया फेफड़े में स्थित एल्वियोली (Alveoli) एवं सूक्ष्म रक्त वाहिकाओं के नेटवर्क के बीच संपन्न होती है।","explanation_en":"Gas Vinimay during oxygen Phepharon from Raktanali in Chali goes is. that very time carbon dioxide blood from Phepharon up to goes is. this process Phephare in located Elviyoli (Alveoli) and micro blood Vahikaon of Netavarka between held occurs.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":38},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"सामान्य दृष्टि के लिए निम्नलिखित में से कौन-सा विटामिन आवश्यक होता है?","question_en":"General vision for Which of the following is vitamin necessary is?","options":[{"hi":"फोलिक अम्ल","en":"Pholik acid"},{"hi":"राइबोफ्लेविन","en":"Raibophlevin"},{"hi":"नियासिन","en":"Niyasin"},{"hi":"रेटिनॉल","en":"Retinol"}],"answer":3,"answer_note":"","explanation_hi":"विटामिन-A का रासायनिक नाम रेटिनॉल है। यह विटामिन नेत्र ज्योति के लिए आवश्यक पोषक तत्व है। रतौंधी (Night Blindness) रोग विटामिन- A की कमी से होता है।","explanation_en":"Vitamin-A of chemical name Retinol is. this vitamin Netra Jyoti for necessary nutrient element is. Rataundhi (Night Blindness) disease vitamin- A of deficiency from occurs.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":39},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"नीचे दो कथन दिए गए हैं, जिसमें से एक को अभिकथन (A) और दूसरे को कारण (R) कहा गया है – अभिकथन (A) : मानव शरीर अपने लिए आवश्यक सभी विटामिनों का संश्लेषण कर लेता है। कारण (R) : शरीर के उचित विकास के लिए विटामिन अनिवार्य होते हैं। नीचे दिए गए कूट की सहायता से सही उत्तर का चयन कीजिए। कूट","question_en":"Below two statement are given, in which from one to Assertion (A) and second to Reason (R) is called – Assertion (A): human body its own for necessary all vitamins of synthesis tax Leta is. Reason (R): body of Uchit development for vitamin mandatory occur. below given Code of assistance from select the correct answer. Code","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) और (R) दोनों सही हैं, किंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) सत्य है, किंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, किंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":3,"answer_note":"","explanation_hi":"अधिकांश विटामिन मानव शरीर में संश्लेषित नहीं किए जाते हैं और इसलिए उन्हें पर्याप्त मात्रा में भोजन द्वारा ग्रहण किए जाने की आवश्यकता होती है। स्पष्ट है अभिकथन (A) असत्य है, जबकि कारण (R) सत्य है।","explanation_en":"Most vitamin human body in synthetic not done go are and therefore them sufficient quantity in food by acceptance done going of requirement occurs. clear is Assertion (A) is false, whereas Reason (R) is true.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":40},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"सुपोषण (यूट्रोफिकेशन) के संबंध में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. यह जल में घुलित ऑक्सीजन को कम करता है। 2. यह जल निकाय के पोषक तत्व संवर्धन की घटना है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"With reference to eutrophication (Yutrophikeshan), which of the following statements is/are correct? 1. this water in dissolved oxygen to less does is. 2. this water Body of nutrient element promotion of event is. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 तथा 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":2,"answer_note":"","explanation_hi":"जल निकाय में जब जैविक तथा अजैविक दोनों प्रकार के पोषक तत्वों की वृद्धि हो जाती है, तो इस घटना को सुपोषण या यूट्रोफिकेशन कहते हैं। अपशिष्ट जलों के बहाव के साथ कार्बनिक पोषक तत्वों के आने के अलावा, कार्बनिक अपशिष्टों का जमाव भी जलाशयों की पोषक मात्रा को बढ़ा देता है। अत्यधिक पोषकों की उपस्थिति में शैवालों का विकास तेजी से होने लगता है। शैवाल के साथ-साथ जलीय पौधों की संख्या में वृद्धि हो जाती है, जो श्वसन क्रिया के लिए जल के अधिकांश ऑक्सीजन को अपने उपयोग में ले लेते हैं, जिससे जल में घुलित ऑक्सीजन कम होने लगता है तथा O के अभाव में जलीय जंतु मरने लगते हैं। 2","explanation_en":"Water Body in when biological and Ajaivik both type of nutrient elements of growth be goes is, then this event to eutrophication or Yutrophikeshan call are. waste waters of Bahav with organic nutrient elements of coming of besides, organic wastes of Jamav also Jalashayon of nutrient quantity to Barha gives. excessive nutrients of Upasthiti in algaes of development Teji from being Lagata is. algae with-with aquatic plants of number in growth be goes is, which respiration action for water of most oxygen to its own use in Le Lete are, by which water in dissolved oxygen less being Lagata is and O of lack in aquatic animal Marane Lagate are. 2","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":41},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से किस प्राकृतिक पदार्थ में लौह (Fe) विद्यमान होता है?","question_en":"Following in from which natural substance in iron (Fe) existing occurs?","options":[{"hi":"क्लोरोफिल","en":"Klorophil"},{"hi":"कोलैजन","en":"Kolaijan"},{"hi":"केराटिन","en":"Keratin"},{"hi":"मायोग्लोबिन","en":"Mayoglobin"}],"answer":3,"answer_note":"","explanation_hi":"मायोग्लोबिन (Myoglobin) लगभग सभी स्तनधारियों, सामान्यत: कशेरुकी प्राणियों के पेशीय ऊतकों में पाया जाने वाला एक प्रोटीन है। लौह (Fe) इसका आवश्यक घटक है।","explanation_en":"Mayoglobin (Myoglobin) approximately all Stanadhariyon, generally: Kasheruki Praniyon of Peshiy Ootakon in Paya going having one protein is. iron (Fe) its necessary component is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":42},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मानव शरीर में प्रोटीन का पाचन निम्नलिखित में से किस अंग में प्रारंभ होता है?","question_en":"Human body in protein of digestion following in from which organ in started occurs?","options":[{"hi":"यकृत","en":"Liver"},{"hi":"मुंह","en":"Munh"},{"hi":"छोटी आंत","en":"Small intestine"},{"hi":"आमाशय","en":"Stomach"}],"answer":3,"answer_note":"","explanation_hi":"मानव शरीर में प्रोटीन का पाचन आमाशय में प्रारंभ होता है। हालांकि पाचन का अधिकांश भाग छोटी आंत में संपन्न होता है तथा पचे हुए पदार्थों का अवशोषण (Absorption) भी मुख्यत: छोटी आंत में ही होता है।","explanation_en":"Human body in protein of digestion stomach in started occurs. however digestion of most part small intestine in held occurs and Pache occurred substances of Avashoshan (Absorption) also mainly: small intestine in only occurs.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":43},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मानव आहार में पालिश किए हुए चावल के उपयोग से निम्नलिखित रोग हो जाता है","question_en":"Human diet in Palish done occurred rice of use from following disease be goes is","options":[{"hi":"सूखा रोग","en":"Sukha disease"},{"hi":"रक्ताल्पता","en":"Raktalpata"},{"hi":"घेंघा","en":"Ghengha"},{"hi":"बेरीबेरी","en":"Beriberi"}],"answer":3,"answer_note":"","explanation_hi":"मानव आहार में पालिश किए हुए चावल के उपयोग से बेरीबेरी रोग हो जाता है, क्योंकि पालिश करने से चावल के छिलके में उपस्थित विटामिन B (थायमिन) आहार में उपलब्ध नहीं हो पाता है तथा छिलके के साथ 1 चावल से पृथक हो जाता है।","explanation_en":"Human diet in Palish done occurred rice of use from Beriberi disease be goes is, because Palish doing from rice of Chhilake in present vitamin B (Thayamin) diet in available not be Pata is and Chhilake with 1 rice from separate be goes is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":44},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा विटामिन मनुष्य में रक्त के जमने के लिए जिम्मेदार है?","question_en":"Which of the following is vitamin human in blood of Jamane for Jimmedar?","options":[{"hi":"विटामिन-के","en":"Vitamin-of"},{"hi":"विटामिन-ई","en":"Vitamin-AD"},{"hi":"विटामिन-ए","en":"Vitamin-A"},{"hi":"विटामिन-सी","en":"Vitamin-C"}],"answer":0,"answer_note":"","explanation_hi":"विटामिन-K मनुष्य में रक्त जमने के लिए जिम्मेदार होता है। इस विटामिन को रुधिर स्रावरोधी पदार्थ (Antihemorrhagic Factor) कहते हैं। इसकी कमी वाले व्यक्तियों का ऑपरेशन आसानी से नहीं किया जा सकता है, क्योंकि अधिक रुधिर बह जाने का डर बना रहता है।","explanation_en":"Vitamin-K human in blood Jamane for Jimmedar occurs. this vitamin to Rudhir Sravarodhi substance (Antihemorrhagic Factor) call are. its deficiency having persons of Operation Asani from not can be done, because more Rudhir Bah going of Dar became remains is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":45},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मानव मस्तिष्क के बारे में निम्नलिखित कथनों पर विचार कीजिए - 1. मस्तिष्क हृदयगति को नियंत्रित रखने के लिए उत्तरदायी है। 2. यह शरीर के संतुलन के लिए उत्तरदायी है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"With reference to human brain, consider the following statements - 1. brain Hridayagati to controlled keeping for responsible is. 2. this body of Santulan for responsible is. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1 सही है","en":"Only 1"},{"hi":"केवल 2 सही है","en":"Only 2"},{"hi":"1 और 2 दोनों सही हैं","en":"Both 1 and 2 are correct"},{"hi":"न तो 1 न ही 2 सही है","en":"Neither 1 nor 2 is correct"}],"answer":2,"answer_note":"","explanation_hi":"मानव मस्तिष्क के विभिन्न भागों के द्वारा सभी गतिविधियों का संचालन तथा नियमन किया जाता है। मस्तिष्क सोचने, हृदय गति नियंत्रण तथा शरीर के संतुलन आदि के लिए उत्तरदायी होता है। मेडुला, सेरिबेलम, सेरीब्रम आदि मस्तिष्क के प्रमुख भाग हैं। मेडुला हृदय गति, रक्तचाप आदि पर अपना नियंत्रण रखता है, जबकि सेरिबेलम शरीर की भंगिमा (Posture) तथा संतुलन बनाए रखने से लेकर खेलने-कूदने, नाचने आदि समस्त कौशल्यपूर्ण क्रियाओं का समन्वयन करता है।","explanation_en":"Human brain of various parts by all activities of operation and Niyaman is done. brain Sochane, heart speed control and body of Santulan etc. for responsible occurs. Medula, Seribelam, Seribram etc. brain of major part are. Medula heart speed, Raktachap etc. at its own control Rakhata is, whereas Seribelam body of Bhangima (Posture) and Santulan made keeping from taking Khelane-Kudane, Nachane etc. Samasta Kaushalyapurna Kriyaon of Samanvayan does is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":46},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा पदार्थ वृक्ष से प्राप्त किया जाता है?","question_en":"Which of the following is substance tree from obtained done goes?","options":[{"hi":"हींग","en":"Hing"},{"hi":"शिलाजीत","en":"Shilajit"},{"hi":"सुहागा","en":"Suhaga"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों में से हींग (Asafoetida) पौधों से प्राप्त किया जाता है। यह जिस पौधे से प्राप्त की जाती है, वह अम्बेलीफेरी (Umbelliferae) कुल से संबंधित है। फेरूला असाफोिएडा, फेरूला फोिएडा, फेरूला रूब्रीकॉलिस आदि के जड़ों से प्राप्त लेटेक्स को सुखाकर हींग प्राप्त की जाती है। अम्बेलीफेरी को एपिएसी कुल के नाम से भी जानते हैं।","explanation_en":"Given options in from Hing (Asafoetida) plants from obtained is done. this Jis plants from obtained is done, that Ambelipheri (Umbelliferae) total from is related. Pherula Asaphoieda, Pherula Phoieda, Pherula Rubrikolis etc. of Jaron from obtained Leteksa to Sukhakar Hing obtained is done. Ambelipheri to Epiesi total of name from also Janate are.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":47},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मानव शरीर में निम्नलिखित में से कौन-सी ग्रंथि अंत:स्रावी एवं बहि:स्रावी दोनों ही प्रकार की ग्रंथि है?","question_en":"Human body in Which of the following is gland end:endocrine and Bahi:endocrine both only type of gland?","options":[{"hi":"एड्रिनल ग्रंथि","en":"Edrinal gland"},{"hi":"अश्रुग्रंथि","en":"Ashrugranthi"},{"hi":"अग्न्याशय","en":"Pancreas"},{"hi":"थाइरॉइड","en":"Thairoid"}],"answer":2,"answer_note":"","explanation_hi":"अग्न्याशय एक मिश्रित ग्रंथि है, जिसमें बहि:स्रावी तथा अंत:स्रावी दोनों प्रकार के ऊतक या कोशिकाएं होती हैं। अग्न्याशय के दो मुख्य कार्य होते हैं– (i) बहि:स्रावी–यह मुख्यत: पाचन में सहायक होता है। (ii) अंत:स्रावी–यह मुख्यत: रक्त शर्करा को विनियमित करता है।","explanation_en":"Pancreas one mixed gland is, in which Bahi:endocrine and end:endocrine both type of Ootak or cells is are. pancreas of two main function occur– (i) Bahi:endocrine–this mainly: digestion in tributary occurs. (ii) end:endocrine–this mainly: blood sugar to Viniyamit does is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":48},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"तुलसी के पौधे का औषधीय महत्व निम्नांकित की उपस्थिति के कारण है","question_en":"Tulasi of plants of Aushadhiy importance following of Upasthiti due to is","options":[{"hi":"अकार्बनिक अम्ल","en":"Akarbanik acid"},{"hi":"कार्बनिक अम्ल","en":"Organic acid"},{"hi":"फीनॉल एवं फ्लेवोनाइड","en":"Phinol and Phlevonaid"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"तुलसी (ऑसीमम टेनुइफ्लोरम) एक औषधीय पौधा है। इसमें महत्वपूर्ण फाइटो रसायन (Phytochemicals) पाए जाते हैं, जो अपने प्रदाहनाशी (Anti-inflammatory) तथा प्रति ऑक्सीकारक (Anti-oxidant) गुणों के कारण विभिन्न गंभीर रोगों से सुरक्षा प्रदान करते हैं। तुलसी के पत्ते के अर्क में फ्लेवोनाइड, सैपोनिन, ग्लाइकोसाइड आदि उपस्थित होते हैं, जो इसके औषधीय गुणों में वृद्धि करते हैं।","explanation_en":"Tulasi (Osimam Tenuiphloram) one Aushadhiy plant is. in this important Phaito Chemistry (Phytochemicals) are found, which its own Pradahanashi (Anti-inflammatory) and towards Oksikarak (Anti-oxidant) propertys due to various Gambhir diseases from security provided did are. Tulasi of Patte of Arka in Phlevonaid, Saiponin, Glaikosaid etc. present occur, which its Aushadhiy propertys in growth did are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":49},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मानव आहार में पॉलिश किए हुए चावल के उपयोग से निम्नांकित रोग हो जाता है","question_en":"Human diet in Polish done occurred rice of use from following disease be goes is","options":[{"hi":"बेरी-बेरी","en":"Beri-Beri"},{"hi":"घेंघा","en":"Ghengha"},{"hi":"रतौंधी","en":"Rataundhi"},{"hi":"वर्णांधता","en":"Varnandhata"}],"answer":0,"answer_note":"","explanation_hi":"सफेद अनाज जैसे पॉलिश किए हुए चावल तथा गेहूं का आटा इत्यादि में थायमीन (Thiamine) पर्याप्त मात्रा में उपस्थित नहीं होता। यदि मानव आहार में मुख्यत: यही चीजें शामिल हैं, तो यह शरीर में थायमीन की कमी का कारण बन सकता है। उल्लेखनीय है कि बेरी- बेरी एक पोषण संबंधी विकार है, जो थायमीन (विटामिन B ) की कमी 1 के कारण होता है।","explanation_en":"Saphed foodgrains such as Polish done occurred rice and wheat of Ata etc. in Thayamin (Thiamine) sufficient quantity in present not is. if human diet in mainly: Yahi Chijen included are, then this body in Thayamin of deficiency of Reason become can is. notable is that Beri- Beri one nutrition related to Vikar is, which Thayamin (vitamin B) of deficiency 1 due to occurs.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":50},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से कौन-सा युग्म सही सुमेलित नहीं है? (विटामिन) (प्रचुर स्रोत)","question_en":"Which of the following is NOT pair correct matched? (vitamin) (Prachur source)","options":[{"hi":"विटामिन B धान की चोकर (राइस ब्रैन) 6","en":"Vitamin B paddy of Chokar (Rais Brain) 6"},{"hi":"विटामिन B कॉड-यकृत तेल 2","en":"Vitamin B Kod-liver oil 2"},{"hi":"विटामिन E गेहूं अंकुर तेल","en":"Vitamin E wheat Ankur oil"},{"hi":"विटामिन K एल्फाल्फा","en":"Vitamin K Elphalpha"}],"answer":1,"answer_note":"","explanation_hi":"कॉड यकृत तेल, कॉड मछली के यकृत से व्युत्पन्न एक आहार पूरक है। इसमें ओमेगा-3 फैटी एसिड के अतिरिक्त विटामिन A एवं विटामिन D भी उपस्थित होता है। विटामिन B को रिबोफ्लेविन (Riboflavin) 2 नाम से भी जाना जाता है। यह भोजन से ऊर्जा मुक्त करने में सहायक होता है। अंडे, हरी सब्जियां, फलियां, दूध इत्यादि इसके प्रमुख स्रोत हैं।","explanation_en":"Kod liver oil, Kod Machhali of liver from Vyutpanna one diet Purak is. in this Omega-3 Phaiti Esid of apart from vitamin A and vitamin D also present occurs. vitamin B to Ribophlevin (Riboflavin) 2 name from also is known. this food from energy free doing in tributary occurs. Ande, Hari Sabjiyan, Phaliyan, milk etc. its major source are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":51},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : अधिकांश विटामिन मानव शरीर में संश्लेषित नहीं किए जाते हैं। कारण (R) : मानव अंग केवल अनिवार्य सूक्ष्म पोषकों का ही संश्लेषण करते हैं। नीचे दिए गए कूटों में से सही उत्तर चुनिए","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): most vitamin human body in synthetic not done go are. Reason (R): human organ only mandatory micro nutrients of only synthesis did are. Select the correct answer from the codes given below","options":[{"hi":"(A) तथा (R) दोनों सही हैं और (R) कथन (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R) statement (A) of correct Explanation is."},{"hi":"(A) तथा (R) दोनों सही हैं, परंतु (R) कथन (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R) statement (A) of correct Explanation not is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":2,"answer_note":"","explanation_hi":"अधिकांश विटामिन मानव शरीर में संश्लेषित नहीं किए जाते हैं और इसलिए उन्हें पर्याप्त मात्रा में भोजन द्वारा ग्रहण किए जाने की आवश्यकता होती है। मानव शरीर द्वारा विटामिन A, B (थायमीन), B (रिबोफ्लेविन), 1 2 B (पैंटोथीनिक अम्ल), B (पाइरीडॉक्सिन), B (बायोटिन), B (फोलिक 5 6 7 9 अम्ल), B (सायनोकोबालैमिन), E तथा K संश्लेषित नहीं किए जा 12 सकते। मानव शरीर अधिकांश प्रोटीन-युक्त खाद्य पदार्थों में उपस्थित ट्रिप्टोफान (Tryptophan) नामक अमीनो अम्ल से विटामिन B का 3 निर्माण कर सकता है, साथ ही मानव शरीर विटामिन D का भी संश्लेषण कर सकता है। मानव शरीर हेतु आवश्यक संयुक्त रूप से लगभग 18 विटामिन (मुख्यत: 7) एवं लगभग 14 खनिज शामिल होते हैं तथा आहारीय घटकों को शरीर स्वयं पर्याप्त मात्रा में निर्मित नहीं कर सकता, इन्हें ही अनिवार्य सूक्ष्म पोषक कहते हैं। स्पष्ट है कि कारण (R) असत्य है।","explanation_en":"Most vitamin human body in synthetic not done go are and therefore them sufficient quantity in food by acceptance done going of requirement occurs. human body by vitamin A, B (Thayamin), B (Ribophlevin), 1 2 B (Paintothinik acid), B (Pairidoksin), B (Bayotin), B (Pholik 5 6 7 9 acid), B (Sayanokobalaimin), E and K synthetic not done be 12 can. human body most protein-equipped with food substances in present Triptophan (Tryptophan) named Amino acid from vitamin B of 3 construction tax can is, with only human body vitamin D of also synthesis tax can is. human body for necessary joint form from approximately 18 vitamin (mainly: 7) and approximately 14 mineral included occur and Ahariy components to body itself sufficient quantity in built not tax can, them only mandatory micro nutrient call are. clear is that Reason (R) is false.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":52},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"एंजाइमों के संदर्भ में निम्नलिखित कथनों में से कौन-सा सही है/हैं? 1. वे जैव उत्प्रेरक हैं। 2. वे शरीर में उसी स्थान पर अपना कार्य करते हैं जहां वे उत्पादित होते हैं। नीचे दिए हुए कूट से सही उत्तर चुनिए - कूट","question_en":"Enzymes with reference to following statements in from which-which is correct/are? 1. they bio Utprerak are. 2. they body in that very place at its own function did are where they produced occur. below given occurred Code from select the correct answer - Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":2,"answer_note":"","explanation_hi":"एंजाइम जैव उत्प्रेरक होते हैं, जो विशिष्ट जैविक क्रियाओं को अति उच्च दर से संपन्न कराते हैं। एंजाइमों के बिना जैव प्रक्रियाएं अति मंद दर से होती हैं। सामान्यत: एंजाइम उसी स्थान पर कार्य करते हैं जहां वे उत्पन्न होते हैं, जबकि हॉर्मोन अपने उद्गम स्थान से अलग स्थान पर अपना कार्य संपादित करते हैं।","explanation_en":"Enzyme bio Utprerak occur, which specific biological Kriyaon to Ati high rate from held Karate are. enzymes of without bio processs Ati Mand rate from is are. generally: enzyme that very place at function did are where they generated occur, whereas hormone its own origin place from separate place at its own function Sampadit did are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":53},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"मां का दुग्ध नवजात को लगभग संपूर्ण आहार प्रदान करता है, किंतु इसमें निम्नलिखित का अभाव होता है","question_en":"Man of milk neonatal to approximately entire diet provided does is, but in this following of lack occurs","options":[{"hi":"लौह","en":"Iron"},{"hi":"कैल्शियम","en":"Calcium"},{"hi":"मैग्नीशियम","en":"Maignishiyam"},{"hi":"पोटैशियम","en":"Potassium"}],"answer":0,"answer_note":"","explanation_hi":"मां का दूध नवजात को लगभग संपूर्ण आहार प्रदान करता है, किंतु इसमें लौह पोषक तत्वों का अभाव होता है। दुग्धस्रवण (Lacktation) के आरंभिक कुछ दिनों तक जो दूध निकलता है, उसे प्रथम स्तन्य या खीस (Colostrum) कहते हैं। इसमें कई प्रकार के प्रतिरक्षी तत्व समाहित होते हैं, जो नवजात शिशु में प्रतिरोधी क्षमता उत्पन्न करने के लिए अति आवश्यक होते हैं। कोलोस्ट्रम अथवा खीस में शिशु के बेहतर स्वास्थ्य के लिए जिंक, कैल्शियम, विटामिन A, B , B , पोटैशियम, मैग्नीशियम 6 12 आदि प्रचुर मात्रा में होता है।","explanation_en":"Man of milk neonatal to approximately entire diet provided does is, but in this iron nutrient elements of lack occurs. Dugdhasravan (Lacktation) of Arambhik some days up to which milk Nikalata is, it first Stanya or Khis (Colostrum) call are. in this many type of Pratirakshi element Samahit occur, which neonatal infant in Pratirodhi capacity generated doing for Ati necessary occur. Kolostram or Khis in infant of Behatar health for zinc, calcium, vitamin A, B, B, potassium, Maignishiyam 6 12 etc. Prachur quantity in occurs.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":54},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में से किस जीव का रक्त सफेद होता है?","question_en":"Following in from which organism of blood Saphed occurs?","options":[{"hi":"छिपकली","en":"Chhipakali"},{"hi":"तिलचट्टा","en":"Tilachatta"},{"hi":"घरेलू खटमल","en":"Domestic Khatamal"},{"hi":"मच्छर","en":"Mosquito"}],"answer":1,"answer_note":"","explanation_hi":"ऑक्सीजन हेतु हीमोग्लोबिन का प्रयोग न करने के कारण तिलचट्टे के खून का रंग लाल नहीं बल्कि रंगहीन होता है। कॉकरोच के रक्त द्वारा ऑक्सीजन का परिवहन नहीं किया जाता और इसका रंग भी लाल नहीं होता, क्योंकि इसमें हीमोग्लोबिन उपस्थित नहीं होता। कॉकरोच के शरीर के प्रत्येक खंड में स्थित ट्यूब (Tubes) की एक प्रणाली के माध्यम से कोशिकाओं तक सीधे ऑक्सीजन पहुंचती है। इनका रक्त रंगहीन या सफेद रंग का होता है। नोट- उत्तर प्रदेश लोक सेवा आयोग द्वारा जारी अंतिम उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर कर दिया गया, जबकि अनंतिम उत्तर कुंजी में विकल्प (b) को सही माना था।","explanation_en":"Oxygen for haemoglobin of use not doing due to Tilachatte of Khun of Rang red not rather Rangahin occurs. Kokaroch of blood by oxygen of transport not done goes and its Rang also red not is, because in this haemoglobin present not is. Kokaroch of body of each section in located Tyub (Tubes) of one system through cells up to directly oxygen Pahunchati is. Inaka blood Rangahin or Saphed Rang of occurs. Note- Uttar Pradesh Public Service Commission by released last answer key in this Question to evaluation from outside tax given was, whereas Anantim answer key in option (b) to correct considered was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":55},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"नाइट्रोजन स्थिरीकरण जीवाणु किस पौधे की जड़ के साथ संयोजन करते हैं?","question_en":"Nitrogen stabilization bacteria which plants of Jar with combination did are?","options":[{"hi":"दालें","en":"Dalen"},{"hi":"चावल","en":"Rice"},{"hi":"गेहूं","en":"Wheat"},{"hi":"गन्ना","en":"Sugarcane"}],"answer":0,"answer_note":"","explanation_hi":"नाइट्रोजन स्थिरीकरण जीवाणु दलहनी फसलों (दालों) की जड़ों के साथ सहजीवी संयोजन करते हैं। ये वायुमंडलीय नाइट्रोजन का स्थिरीकरण कर उसे अमोनिया में बदलते हैं, जो कि अमोनियम आयनों के रूप में नाइट्रीकारक जीवाणुओं द्वारा ग्रहण कर नाइट्राइट एवं फिर नाइट्रेट आयनों में परिवर्तित कर दी जाती है, जिसे मृदा के माध्यम से पादप ग्रहण करते हैं।","explanation_en":"Nitrogen stabilization bacteria Dalahani crops (Dalon) of Jaron with Sahajivi combination did are. these atmospheric nitrogen of stabilization tax it Amoniya in Badalate are, which that Amoniyam Ayanon as Naitrikarak Jivanuon by acceptance tax Naitrait and Phir nitrate Ayanon in changed tax given goes is, which soil through plant acceptance did are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":56},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नांकित में से कौन-सा सही सुमेलित नहीं है?","question_en":"Following in from which-which correct matched not is?","options":[{"hi":"ऑक्सीटोसीन हॉर्मोन","en":"Oksitosin hormone"},{"hi":"एस्पार्टेम संश्लेषित मधुरक","en":"Espartem synthetic Madhurak"},{"hi":"निओप्रीन विशिष्ट रबड़","en":"Nioprin specific rubber"},{"hi":"रेयॉन रूपांतरित स्टार्च","en":"Reyon Rupantarit Starcha"}],"answer":3,"answer_note":"","explanation_hi":"रेयॉन विनिर्मित फाइबर है, जिसे प्राकृतिक स्रोतों यथा वृक्ष एवं अन्य कृषि उत्पादों से प्राप्त किया जाता है। यह रूपांतरित स्टार्च नहीं है। शेष सभी सुमेलित हैं।","explanation_en":"Reyon Vinirmit Phaibar is, which natural sources such as tree and other agriculture products from obtained is done. this Rupantarit Starcha not is. remaining all matched are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":57},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"डी.एन.ए. की द्विकुंडलिनी संरचना किसके द्वारा की गई थी?","question_en":"D.N.A. of Dvikundalini structure by whom by was done was?","options":[{"hi":"जैकब तथा मोनोड","en":"Jaikab and Monod"},{"hi":"वॉटसन तथा क्रिक","en":"Votasan and Krik"},{"hi":"एच.जी. खुराना","en":"H.G. Khurana"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"जेम्स वॉटसन, फ्रांसिस क्रिक, एम.एच. एफ. विल्किन्स तथा फ्रैंकलिन नामक वैज्ञानिकों ने एक्स-रे विश्लेषण द्वारा डी.एन.ए. की द्विकुंडलिनी संरचना प्रस्तुत किया। इसके अनुसार, एक सीढ़ी की भांति DNA का अणु सीधा नहीं होता, बल्कि सर्पिलाकार सीढ़ी सदृश्य अर्थात द्विकुंडलिनी (Double - helical) संरचना के रूप में होता है।","explanation_en":"Jemsa Votasan, Phransis Krik, M.H. F. Vilkinsa and Phrainkalin named scientists X-Re Vishleshan by D.N.A. of Dvikundalini structure presented done. its according to, one Sirhi of Bhanti DNA of molecule Sidha not is, rather Sarpilakar Sirhi Sadrishya i.e. Dvikundalini (Double - helical) structure as occurs.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":58},{"topic_hi":"जीव विज्ञान","topic_en":"Biology","question_hi":"निम्नलिखित में कौन विटामिन C का सबसे अच्छा स्रोत है?","question_en":"Following in which vitamin C of most good source is?","options":[{"hi":"संतरा","en":"Santara"},{"hi":"सेब","en":"Seb"},{"hi":"गाजर","en":"Gajar"},{"hi":"आंवला","en":"Anvala"}],"answer":3,"answer_note":"","explanation_hi":"विटामिन 'C' का रासायनिक नाम एस्कार्बिक अम्ल (Ascorbic Acid) है तथा इसका सबसे उत्तम स्रोत (Source) आंवला है, इसके अलावा यह अन्य खट्टे फलों जैसे- नींबू, संतरा, मुसम्मी इत्यादि में भी प्रचुर मात्रा में पाया जाता है। इसका प्रमुख कार्य ऊतकों में कोशिकाओं को परस्पर बांधे रखने वाले अंतरकोशिकाओं पदार्थ के मैट्रिक्स, कोलैजन तंतुओं तथा दांतों के डेन्टीन के निर्माण को सामान्य अवस्था में बनाए रखने का है। यह जल में घुलनशील होता है। इसकी कमी से शरीर में स्कर्वी रोग हो जाता है।","explanation_en":"Vitamin 'C' of chemical name Eskarbik acid (Ascorbic Acid) is and its most Uttam source (Source) Anvala is, its besides this other Khatte fruits such as- Nimbu, Santara, Musammi etc. in also Prachur quantity in is found. its major function Ootakon in cells to Paraspar Bandhe keeping having Antarakoshikaon substance of Maitriksa, Kolaijan Tantuon and Danton of Dentin of construction to general stage in made keeping of is. this water in Ghulanashil occurs. its deficiency from body in Skarvi disease be goes is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":59}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
+function _genPoints(t){
+  t = String(t);
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
+  return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

@@ -1,0 +1,483 @@
+{
+  "total": 1200,
+  "unscored": 28,
+  "years": {
+    "2018": 150,
+    "2019": 150,
+    "2020": 150,
+    "2021": 150,
+    "2022": 150,
+    "2023": 150,
+    "2024": 150,
+    "2025": 150
+  },
+  "sections": [
+    {
+      "id": "history",
+      "title_en": "History",
+      "title_hi": "इतिहास",
+      "count": 167
+    },
+    {
+      "id": "polity",
+      "title_en": "Indian Polity",
+      "title_hi": "भारतीय राजव्यवस्था",
+      "count": 170
+    },
+    {
+      "id": "economy",
+      "title_en": "Indian Economy",
+      "title_hi": "भारतीय अर्थव्यवस्था",
+      "count": 142
+    },
+    {
+      "id": "geography",
+      "title_en": "Geography",
+      "title_hi": "भूगोल",
+      "count": 183
+    },
+    {
+      "id": "environment",
+      "title_en": "Environment & Ecology",
+      "title_hi": "पर्यावरण एवं पारिस्थितिकी",
+      "count": 141
+    },
+    {
+      "id": "science",
+      "title_en": "Science",
+      "title_hi": "विज्ञान",
+      "count": 124
+    },
+    {
+      "id": "population",
+      "title_en": "Population & Urbanization",
+      "title_hi": "जनसंख्या एवं नगरीकरण",
+      "count": 22
+    },
+    {
+      "id": "current",
+      "title_en": "Current Affairs",
+      "title_hi": "सम-सामयिकी",
+      "count": 146
+    },
+    {
+      "id": "up",
+      "title_en": "Uttar Pradesh Special",
+      "title_hi": "उत्तर प्रदेश राज्य विशेष",
+      "count": 32
+    },
+    {
+      "id": "misc",
+      "title_en": "Miscellaneous",
+      "title_hi": "विविध",
+      "count": 73
+    }
+  ],
+  "tests": [
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-ancient-history.html",
+      "slug": "ancient-history",
+      "section": "history",
+      "title_en": "Ancient History",
+      "title_hi": "प्राचीन इतिहास",
+      "count": 41,
+      "missing_answers": 0,
+      "years": {
+        "2018": 9,
+        "2020": 8,
+        "2021": 3,
+        "2022": 6,
+        "2023": 9,
+        "2024": 2,
+        "2025": 4
+      },
+      "exam_counts": {
+        "uppcs-pre": 41,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-biology.html",
+      "slug": "biology",
+      "section": "science",
+      "title_en": "Biology",
+      "title_hi": "जीव विज्ञान",
+      "count": 59,
+      "missing_answers": 1,
+      "years": {
+        "2018": 2,
+        "2019": 10,
+        "2020": 7,
+        "2021": 11,
+        "2022": 6,
+        "2023": 7,
+        "2024": 10,
+        "2025": 6
+      },
+      "exam_counts": {
+        "uppcs-pre": 59,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-chemistry.html",
+      "slug": "chemistry",
+      "section": "science",
+      "title_en": "Chemistry",
+      "title_hi": "रसायन विज्ञान",
+      "count": 42,
+      "missing_answers": 0,
+      "years": {
+        "2018": 2,
+        "2019": 7,
+        "2020": 6,
+        "2021": 6,
+        "2022": 5,
+        "2023": 4,
+        "2024": 3,
+        "2025": 9
+      },
+      "exam_counts": {
+        "uppcs-pre": 42,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-current-affairs-A.html",
+      "slug": "current-affairs",
+      "section": "current",
+      "title_en": "Current Affairs (Part A)",
+      "title_hi": "सम-सामयिकी (भाग A)",
+      "count": 100,
+      "missing_answers": 2,
+      "years": {
+        "2020": 9,
+        "2021": 21,
+        "2022": 25,
+        "2023": 16,
+        "2024": 17,
+        "2025": 12
+      },
+      "exam_counts": {
+        "uppcs-pre": 100,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-current-affairs-B.html",
+      "slug": "current-affairs",
+      "section": "current",
+      "title_en": "Current Affairs (Part B)",
+      "title_hi": "सम-सामयिकी (भाग B)",
+      "count": 46,
+      "missing_answers": 0,
+      "years": {
+        "2018": 17,
+        "2019": 21,
+        "2020": 8
+      },
+      "exam_counts": {
+        "uppcs-pre": 46,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-environment-ecology-A.html",
+      "slug": "environment-ecology",
+      "section": "environment",
+      "title_en": "Environment & Ecology (Part A)",
+      "title_hi": "पर्यावरण एवं पारिस्थितिकी (भाग A)",
+      "count": 100,
+      "missing_answers": 2,
+      "years": {
+        "2019": 13,
+        "2020": 19,
+        "2021": 12,
+        "2022": 16,
+        "2023": 21,
+        "2024": 5,
+        "2025": 14
+      },
+      "exam_counts": {
+        "uppcs-pre": 100,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-environment-ecology-B.html",
+      "slug": "environment-ecology",
+      "section": "environment",
+      "title_en": "Environment & Ecology (Part B)",
+      "title_hi": "पर्यावरण एवं पारिस्थितिकी (भाग B)",
+      "count": 41,
+      "missing_answers": 2,
+      "years": {
+        "2018": 31,
+        "2019": 10
+      },
+      "exam_counts": {
+        "uppcs-pre": 41,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-indian-economy-A.html",
+      "slug": "indian-economy",
+      "section": "economy",
+      "title_en": "Indian Economy (Part A)",
+      "title_hi": "भारतीय अर्थव्यवस्था (भाग A)",
+      "count": 100,
+      "missing_answers": 2,
+      "years": {
+        "2020": 7,
+        "2021": 18,
+        "2022": 12,
+        "2023": 15,
+        "2024": 25,
+        "2025": 23
+      },
+      "exam_counts": {
+        "uppcs-pre": 100,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-indian-economy-B.html",
+      "slug": "indian-economy",
+      "section": "economy",
+      "title_en": "Indian Economy (Part B)",
+      "title_hi": "भारतीय अर्थव्यवस्था (भाग B)",
+      "count": 42,
+      "missing_answers": 2,
+      "years": {
+        "2018": 14,
+        "2019": 13,
+        "2020": 15
+      },
+      "exam_counts": {
+        "uppcs-pre": 42,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-indian-geography.html",
+      "slug": "indian-geography",
+      "section": "geography",
+      "title_en": "Indian Geography",
+      "title_hi": "भारत का भूगोल",
+      "count": 98,
+      "missing_answers": 2,
+      "years": {
+        "2018": 12,
+        "2019": 10,
+        "2020": 10,
+        "2021": 10,
+        "2022": 13,
+        "2023": 11,
+        "2024": 17,
+        "2025": 15
+      },
+      "exam_counts": {
+        "uppcs-pre": 98,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-indian-polity-A.html",
+      "slug": "indian-polity",
+      "section": "polity",
+      "title_en": "Indian Polity (Part A)",
+      "title_hi": "भारतीय राजव्यवस्था (भाग A)",
+      "count": 100,
+      "missing_answers": 3,
+      "years": {
+        "2021": 10,
+        "2022": 18,
+        "2023": 23,
+        "2024": 25,
+        "2025": 24
+      },
+      "exam_counts": {
+        "uppcs-pre": 100,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-indian-polity-B.html",
+      "slug": "indian-polity",
+      "section": "polity",
+      "title_en": "Indian Polity (Part B)",
+      "title_hi": "भारतीय राजव्यवस्था (भाग B)",
+      "count": 70,
+      "missing_answers": 4,
+      "years": {
+        "2018": 19,
+        "2019": 18,
+        "2020": 21,
+        "2021": 12
+      },
+      "exam_counts": {
+        "uppcs-pre": 70,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-medieval-history.html",
+      "slug": "medieval-history",
+      "section": "history",
+      "title_en": "Medieval History",
+      "title_hi": "मध्यकालीन इतिहास",
+      "count": 57,
+      "missing_answers": 1,
+      "years": {
+        "2018": 8,
+        "2019": 11,
+        "2020": 7,
+        "2021": 2,
+        "2022": 8,
+        "2023": 7,
+        "2024": 5,
+        "2025": 9
+      },
+      "exam_counts": {
+        "uppcs-pre": 57,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-miscellaneous.html",
+      "slug": "miscellaneous",
+      "section": "misc",
+      "title_en": "Miscellaneous",
+      "title_hi": "विविध",
+      "count": 73,
+      "missing_answers": 1,
+      "years": {
+        "2018": 6,
+        "2019": 8,
+        "2020": 7,
+        "2021": 13,
+        "2022": 11,
+        "2023": 9,
+        "2024": 14,
+        "2025": 5
+      },
+      "exam_counts": {
+        "uppcs-pre": 73,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-modern-history.html",
+      "slug": "modern-history",
+      "section": "history",
+      "title_en": "Modern History",
+      "title_hi": "आधुनिक इतिहास",
+      "count": 69,
+      "missing_answers": 3,
+      "years": {
+        "2018": 6,
+        "2019": 12,
+        "2020": 6,
+        "2021": 11,
+        "2022": 6,
+        "2023": 7,
+        "2024": 11,
+        "2025": 10
+      },
+      "exam_counts": {
+        "uppcs-pre": 69,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-physics.html",
+      "slug": "physics",
+      "section": "science",
+      "title_en": "Physics",
+      "title_hi": "भौतिक विज्ञान",
+      "count": 23,
+      "missing_answers": 0,
+      "years": {
+        "2018": 5,
+        "2019": 5,
+        "2021": 3,
+        "2022": 4,
+        "2023": 1,
+        "2024": 2,
+        "2025": 3
+      },
+      "exam_counts": {
+        "uppcs-pre": 23,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-population-urbanization.html",
+      "slug": "population-urbanization",
+      "section": "population",
+      "title_en": "Population & Urbanization",
+      "title_hi": "जनसंख्या एवं नगरीकरण",
+      "count": 22,
+      "missing_answers": 2,
+      "years": {
+        "2018": 6,
+        "2020": 2,
+        "2021": 6,
+        "2022": 2,
+        "2023": 4,
+        "2024": 2
+      },
+      "exam_counts": {
+        "uppcs-pre": 22,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-up-special.html",
+      "slug": "up-special",
+      "section": "up",
+      "title_en": "Uttar Pradesh Special",
+      "title_hi": "उत्तर प्रदेश राज्य विशेष",
+      "count": 32,
+      "missing_answers": 1,
+      "years": {
+        "2018": 3,
+        "2019": 1,
+        "2020": 7,
+        "2021": 3,
+        "2022": 7,
+        "2023": 5,
+        "2025": 6
+      },
+      "exam_counts": {
+        "uppcs-pre": 32,
+        "unknown": 0
+      }
+    },
+    {
+      "path": "tests/uppcs-prelims-pyq/UPPCS-Pre-PYQ-world-geography.html",
+      "slug": "world-geography",
+      "section": "geography",
+      "title_en": "World Geography",
+      "title_hi": "विश्व का भूगोल",
+      "count": 85,
+      "missing_answers": 0,
+      "years": {
+        "2018": 10,
+        "2019": 11,
+        "2020": 11,
+        "2021": 9,
+        "2022": 11,
+        "2023": 11,
+        "2024": 12,
+        "2025": 10
+      },
+      "exam_counts": {
+        "uppcs-pre": 85,
+        "unknown": 0
+      }
+    }
+  ],
+  "note": "part-08.md skipped (combined duplicate of subject parts)"
+}

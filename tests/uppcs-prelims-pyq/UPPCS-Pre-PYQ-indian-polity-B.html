@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — UPPCS Prelims PYQ — Indian Polity (Part B)</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    /* soft sage / mint-grey — eye-comfortable reading */
+    --ink0:#E6EEE9; --ink1:#F6F9F7; --ink2:#EEF3F0;
+    --glass:rgba(30,58,138,.06);
+    --line:rgba(201,214,207,.95); --line-2:rgba(30,58,138,.28);
+    --gold:#1E3A8A; --gold-hi:#172E5C; --gold-deep:#1E40AF;
+    --cream:#1F2A2E; --mist:#3D4A4F;
+    --blue:#1E40AF; --green:#1E3A8A; --rose:#C2314B;
+    --teal:#1E3A8A; --teal-hi:#1D3B6F;
+    --shadow:0 14px 36px rgba(23,46,92,.12);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(30,58,138,.07), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,59,111,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .btn.primary{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 22px rgba(30,58,138,.28)}
+  html[data-theme="light"] .btn.primary:hover{filter:brightness(1.05)}
+  html[data-theme="light"] .lang-b.on{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+  html[data-theme="light"] .option{background:#EEF3F0;border-color:#C9D6CF}
+  html[data-theme="light"] .option:hover{background:#E4EDE8;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;border-color:transparent}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#F6F9F7,#F2F6F4);border-color:#C9D6CF}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#F6F9F7,#EEF3F0)}
+  html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
+  html[data-theme="light"] .dot{background:rgba(31,42,46,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(30,58,138,.16);color:#1E3A8A}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;color:#1E3A8A}
+  html[data-theme="light"] .badge.ok{background:rgba(30,58,138,.14);color:#1E3A8A}
+  html[data-theme="light"] .badge.skip{background:rgba(31,42,46,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--teal) 0deg,var(--teal) var(--scoreDeg),rgba(31,42,46,.08) var(--scoreDeg),rgba(31,42,46,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(30,58,138,.1),0 15px 38px rgba(23,46,92,.16)}
+  html[data-theme="light"] .timer{background:rgba(30,58,138,.1);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .qno{color:#1E3A8A}
+  html[data-theme="light"] .pill{color:#1E3A8A;border-color:rgba(30,58,138,.35);background:#E3EAF6}
+  html[data-theme="light"] .btn.secondary{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
+  html[data-theme="light"] .stmt-item{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .stmt-item .tag{color:#1E3A8A}
+  html[data-theme="light"] .ar-block{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .ar-block .ar-lab{background:rgba(30,58,138,.12);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .match-col{background:#F6F9F7;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col h4{background:rgba(30,58,138,.1);color:#1E3A8A;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col .mi .mk{color:#1E3A8A}
+  html[data-theme="light"] .code-line{color:#1E3A8A}
+  html[data-theme="light"] .code-map .cm{background:rgba(30,58,138,.08);border-color:#C9D6CF}
+  html[data-theme="light"] .code-map .cm b{color:#1E3A8A}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,#E3EAF6,rgba(30,58,138,.08));color:#172E5C;border-color:rgba(30,58,138,.35)}
+
+  html[data-theme="light"] .topbar{
+    background:linear-gradient(180deg,#1E3A8A 0%,#1D3B6F 100%);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 6px 18px rgba(23,46,92,.2);
+  }
+  html[data-theme="light"] .topbar .logo,
+  html[data-theme="light"] .topbar .brand,
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .topbar .brand h1,
+  html[data-theme="light"] .topbar h1{color:#F6F9F7 !important}
+  html[data-theme="light"] .topbar .brand p{color:#B8CDF7 !important}
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6 !important;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#E3EAF6;border-color:rgba(255,255,255,.35)}
+
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"uppcs-pre-pyq-indian-polity-B","title":"UPPCS Prelims PYQ — Indian Polity (Part B)","shortTitle":"Indian Polity (Part B)","subtitle":"UPPCS Prelims · 2018–2025 · भारतीय राजव्यवस्था (भाग B)","tag":"UPPCS Pre PYQ","description":"UPPCS Prelims PYQs (2018–2025) — Indian Polity (Part B). Each question shows the exam/year badge. Items with official (*) key are left unscored.","durationMinutes":84,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"उत्तर प्रदेश के राज्य लोक सेवा आयोग के कार्यों का विस्तार किया जा सकता है","question_en":"Uttar Pradesh of State Public Service Commission of functions of expansion can be done","options":[{"hi":"प्रधानमंत्री द्वारा","en":"Prime Minister by"},{"hi":"केंद्रीय कार्मिक, लोक शिकायत तथा पेंशन मंत्रालय द्वारा","en":"Central Karmik, Public Shikayat and pension Ministry by"},{"hi":"राष्ट्रपति द्वारा","en":"President by"},{"hi":"उत्तर प्रदेश विधानमंडल द्वारा","en":"Uttar Pradesh Legislature by"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 321—राज्य विधानमंडल द्वारा राज्य लोक सेवा आयोग को राज्य की सेवाओं अथवा किसी स्थानीय प्राधिकारी या विधि द्वारा गठित अन्य निगमित निकाय या किसी लोक संस्था की सेवाओं से संबंधित अतिरिक्त कार्य प्रदान किए जा सकते हैं। अत: राज्य विधानमंडल द्वारा अधिनियम के तहत राज्य लोक सेवा आयोग के कार्यक्षेत्र का विस्तार किया जा सकता है।","explanation_en":"Article 321—State Legislature by State Public Service Commission to State of Services or any local Pradhikari or method by constituted other Nigamit Body or any Public Institution of Services from related apart from function provided done be can are. hence: State Legislature by Act under State Public Service Commission of Karyakshetra of expansion can be done.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":1},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संसद की लोक लेखा समिति संवीक्षा करती है","question_en":"Indian Parliament of Public Accounts Committee Sanviksha did is","options":[{"hi":"नियंत्रक व महालेखापरीक्षक के प्रतिवेदन की","en":"Niyantrak and Mahalekhaparikshak of report of"},{"hi":"भारत की संचित निधि की","en":"India of Consolidated Fund of"},{"hi":"भारत के लोक लेखा की","en":"India of Public accounts of"},{"hi":"भारत की आकस्मिकता निधि की","en":"India of Contingency Fund of"}],"answer":0,"answer_note":"","explanation_hi":"लोक लेखा समिति में 22 सदस्य होते हैं; 15 लोक सभा एवं 7 राज्य सभा से। लोक सभा के स्पीकर को समिति के अध्यक्ष को नियुक्त करने का अधिकार प्राप्त है। लोक लेखा समिति भारत सरकार के विनियोग लेखाओं और उन पर भारत के नियंत्रक महालेखापरीक्षक के प्रतिवेदन की समीक्षा करती है।","explanation_en":"Public Accounts Committee in 22 Member occur; 15 Lok Sabha and 7 Rajya Sabha from. Lok Sabha of Speaker to Committee of Chairman to appointed doing of Right obtained is. Public Accounts Committee India Government of Viniyog Lekhaon and those at India of Niyantrak Mahalekhaparikshak of report of Samiksha did is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":2},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित राज्यों के गठन पर विचार कीजिए तथा इन्हें कालानुक्रम में व्यवस्थित कीजिए : I. गोवा II. तेलंगाना III.झारखंड IV .हरियाणा नीचे दिए गए कूट की सहायता से सही उत्तर का चयन कीजिए। कूट","question_en":"Consider the following States of formation and them arrange them in chronological order: I. Goa II. Telangana III.Jharkhand IV.Haryana below given Code of assistance from select the correct answer. Code","options":[{"hi":"I, II, III, IV","en":"I, II, III, IV"},{"hi":"IV , I, III, II","en":"IV , I, III, II"},{"hi":"III, II, IV , I","en":"III, II, IV , I"},{"hi":"IV , III, I, II","en":"IV , III, I, II"}],"answer":1,"answer_note":"","explanation_hi":"राज्य गठन का वर्ष गोवा 30 मई, 1987 तेलंगाना 2 जून, 2014 झारखंड 15 नवंबर, 2000 हरियाणा 1 नवंबर, 1966 सही कालानुक्रम निम्नवत है—IV , I, III, II","explanation_en":"State formation of year Goa 30 May, 1987 Telangana 2 June, 2014 Jharkhand 15 November, 2000 Haryana 1 November, 1966 correct chronological order as follows is—IV, I, III, II","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":3},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"कौन-से संविधान संशोधन अधिनियम द्वारा मतदान की आयु को 21 वर्ष से घटाकर 18 वर्ष किया गया था?","question_en":"Which-from Constitutional Amendment Act by Voting of age to 21 year from Ghatakar 18 year was done was?","options":[{"hi":"66वां संशोधन","en":"66th Amendment"},{"hi":"62वां संशोधन","en":"62nd Amendment"},{"hi":"61वां संशोधन","en":"61st Amendment"},{"hi":"63वां संशोधन","en":"63rd Amendment"}],"answer":2,"answer_note":"","explanation_hi":"संविधान (61वां संशोधन) अधिनियम, 1988 के माध्यम से भारत में लोक सभा एवं राज्यों की विधानसभाओं के चुनाव में मतदान की आयु को 21 वर्ष से घटाकर 18 वर्ष कर दिया गया है।","explanation_en":"Constitution (61st Amendment) Act, 1988 through India in Lok Sabha and States of Vidhanasabhaon of Election in Voting of age to 21 year from Ghatakar 18 year tax is given.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":4},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से कौन-से आयोग/समिति की सिफारिश पर भारत में अंतर्राज्य परिषद की स्थापना की गई?","question_en":"Following in from which-from Commission/Committee of recommendation at India in Antarrajya Council of establishment was done?","options":[{"hi":"पुंछी आयोग","en":"Punchhi Commission"},{"hi":"राजमन्नार समिति","en":"Rajamannar Committee"},{"hi":"कोठारी समिति","en":"Kothari Committee"},{"hi":"सरकारिया आयोग","en":"Sarakariya Commission"}],"answer":3,"answer_note":"","explanation_hi":"केंद्र एवं राज्यों के मध्य वर्तमान व्यवस्थाओं की कार्यप्रणाली की समीक्षा के उद्देश्य से वर्ष 1983 में जस्टिस आर.एस. सरकारिया की अध्यक्षता में एक आयोग गठित किया गया था। सरकारिया आयोग ने एक स्थायी अंतर्राज्य परिषद की स्थापना की सिफारिश की थी। मई, 1990 में राष्ट्रपति के आदेश द्वारा भारत के संविधान के अनुच्छेद 263 के तहत अंतर्राज्य परिषद का गठन किया गया था।","explanation_en":"Centre and States between present Vyavasthaon of Karyapranali of Samiksha of objective from year 1983 in Jastis R.S. Sarakariya under the chairmanship of one Commission constituted was done was. Sarakariya Commission one Sthayi Antarrajya Council of establishment of recommendation did. May, 1990 in President of Adesh by India of Constitution of Article 263 under Antarrajya Council of formation was done was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":5},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"सिविल सेवाओं में सुधार हेतु पी.सी. होता समिति का गठन किस वर्ष किया गया था?","question_en":"Sivil Services in reform for P.C. is Committee of formation which year was done was?","options":[{"hi":"2003","en":"2003"},{"hi":"2004","en":"2004"},{"hi":"2005","en":"2005"},{"hi":"2006","en":"2006"}],"answer":1,"answer_note":"","explanation_hi":"लोक सेवा संबंधी सुधारों के सभी पहलुओं का परीक्षण करने के उद्देश्य से 3 फरवरी, 2004 को UPSC के पूर्व चेयरमैन पी.सी. होता की अध्यक्षता में एक समिति का गठन किया गया था।","explanation_en":"Public Service related to reforms of all Pahaluon of test doing of objective from 3 February, 2004 to UPSC before Cheyaramain P.C. is under the chairmanship of one Committee of formation was done was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":6},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"राज्य लोक सेवा आयोग के सदस्य को हटाया जा सकता है","question_en":"State Public Service Commission of Member to removed be can is","options":[{"hi":"विधानसभा में महाभियोग के आधार पर राज्यपाल द्वारा","en":"Legislative Assembly in Mahabhiyog on the basis of Governor by"},{"hi":"उच्चतम न्यायालय की जांच के पश्चात राज्यपाल द्वारा","en":"Supreme Court of Janch after Governor by"},{"hi":"उच्चतम न्यायालय की जांच के पश्चात राष्ट्रपति द्वारा","en":"Supreme Court of Janch after President by"},{"hi":"उच्च न्यायालय की जांच के पश्चात राज्यपाल द्वारा","en":"High Court of Janch after Governor by"}],"answer":2,"answer_note":"","explanation_hi":"संविधान का अनुच्छेद 317 लोक सेवा आयोग के अध्यक्ष या किसी अन्य सदस्य को हटाए जाने और निलंबित किए जाने से संबंधित है। खंड (3) के उपबंधों के अधीन, उच्चतम न्यायालय की जांच के पश्चात लोक सेवा आयोग के अध्यक्ष या किसी अन्य सदस्य को केवल कदाचार (Misbehaviour) के आधार पर राष्ट्रपति के आदेश से उसके पद से हटाया जा सकता है।","explanation_en":"Constitution of Article 317 Public Service Commission of Chairman or any other Member to Hatae going and Nilambit done going from is related. section (3) of provisions of under, Supreme Court of Janch after Public Service Commission of Chairman or any other Member to only Kadachar (Misbehaviour) on the basis of President of Adesh from its office from removed be can is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":7},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"नीचे दिए गए तथ्यों पर ध्यान दीजिए - 1. भारत के प्रथम मुख्य निर्वाचन आयुक्त सुकुमार सेन थे। 2. भारत की पहली महिला मुख्य निर्वाचन आयुक्त रमा देवी थीं। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"Below given facts at attention Dijie - 1. India of first Chief Election Commissioner Sukumar Sen were. 2. India of first women Chief Election Commissioner Rama Devi were. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1 सही है","en":"Only 1"},{"hi":"केवल 2 सही है","en":"Only 2"},{"hi":"1 और 2 दोनों सही हैं","en":"Both 1 and 2 are correct"},{"hi":"1 और 2 दोनों गलत हैं","en":"Both 1 and 2 are incorrect"}],"answer":2,"answer_note":"","explanation_hi":"भारत के प्रथम मुख्य निर्वाचन आयुक्त सुकुमार सेन थे। इनका कार्यकाल 21 मार्च, 1950 से 19 दिसंबर, 1958 तक था। भारत की प्रथम महिला मुख्य निर्वाचन आयुक्त वी.एस. रमादेवी (कार्यकाल : 26 नवंबर, 1990-11 दिसंबर, 1990) थीं। भारत के वर्तमान (26वें) मुख्य निर्वाचन आयुक्त ज्ञानेश कुमार हैं।","explanation_en":"India of first Chief Election Commissioner Sukumar Sen were. Inaka tenure 21 March, 1950 from 19 December, 1958 up to was. India of first women Chief Election Commissioner V.S. Ramadevi (tenure: 26 November, 1990-11 December, 1990) were. India of present (26th) Chief Election Commissioner Gyanesh Kumar are.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":8},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से किस व्यक्ति ने मूल अधिकारों को ‘‘हमारे लोगों के लिए एक प्रतिज्ञा तथा सभ्य विश्व के साथ किया गया समझौता’’ कहा था?","question_en":"Following in from which person Fundamental Rightss to ‘‘Hamare people for one Pratigya and Sabhya World with was done Pact’’ said was?","options":[{"hi":"पंडित जवाहरलाल नेहरू","en":"Pandit Jawaharlal Nehru"},{"hi":"डॉ. भीमराव अंबेडकर","en":"Dr.. Bhimarav Ambedkar"},{"hi":"डॉ. राजेंद्र प्रसाद","en":"Dr.. Rajendra Prasad"},{"hi":"डॉ. एस. राधाकृष्णन","en":"Dr.. S. Radhakrishnan"}],"answer":3,"answer_note":"","explanation_hi":"मूल अधिकारों पर संविधान सभा में हुई बहस में भाग लेते हुए डॉ. एस. राधाकृष्णन ने कहा था, ‘‘यह हमारे लोगों के लिए एक प्रतिज्ञा और सभ्य विश्व के साथ किया गया एक समझौता है।’’","explanation_en":"Fundamental Rightss at Constituent Assembly in occurred Bahas in part Lete occurred Dr.. S. Radhakrishnan said was, ‘‘this Hamare people for one Pratigya and Sabhya World with was done one Pact is. ’’","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":9},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से कौन-सा विधेयक राज्य सभा में प्रथम बार प्रस्तावित नहीं किया जा सकता है?","question_en":"Which of the following is Bill Rajya Sabha in first time proposed not done be can?","options":[{"hi":"साधारण विधेयक","en":"Ordinary Bill"},{"hi":"सांविधानिक संशोधन विधेयक","en":"Constitutional Amendment Bill"},{"hi":"राज्य पुनर्गठन विधेयक","en":"State reorganization Bill"},{"hi":"धन विधेयक","en":"Money Bill"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 109 (2) के उपबंधों के अनुसार, धन विधेयक के संबंध में राज्य सभा के पास सीमित शक्तियां होती हैं। किसी धन विधेयक के लोक सभा द्वारा पारित होने तथा राज्य सभा के पास सिफारिश के लिए भेजे जाने के पश्चात इसे राज्य सभा द्वारा प्राप्ति की तारीख से 14 दिनों की अवधि के भीतर लोक सभा को वापस भेजा जाना होता है।","explanation_en":"Constitution of Article 109 (2) of provisions according to, Money Bill in relation to Rajya Sabha of near Simit powers is are. any Money Bill of Lok Sabha by passed being and Rajya Sabha of near recommendation for Bheje going after it Rajya Sabha by attainment of date from 14 days of period of within Lok Sabha to Vapas Bheja to go occurs.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":10},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित पर विचार कीजिए तथा उनको सही कालक्रम में व्यवस्थित कीजिए - I. गोलकनाथ वाद II. केशवानंद भारती वाद III. 24 वां संविधान संशोधन अधिनियम IV . 42वां संविधान संशोधन अधिनियम नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। कूट","question_en":"Following at consideration do and Unako correct chronology in arranged do - I. Golakanath case II. Keshavanand Bharati case III. 24 Van Constitutional Amendment Act IV. 42nd Constitutional Amendment Act Select the correct answer from the code given below. Code","options":[{"hi":"I, III, II, IV","en":"I, III, II, IV"},{"hi":"I, II, III, IV","en":"I, II, III, IV"},{"hi":"III, I, II, IV","en":"III, I, II, IV"},{"hi":"III, I, IV , II","en":"III, I, IV , II"}],"answer":0,"answer_note":"","explanation_hi":"घटना कालक्रम I. गोलकनाथ वाद (गोलकनाथ बनाम पंजाब राज्य) 1967 II. केशवानंद भारती वाद (केशवानंद भारती बनाम केरल राज्य) 1973 III. 24वां संविधान संशोधन अधिनियम 1971 IV . 42वां संविधान संशोधन अधिनियम 1976 अत: कालक्रमानुसार उत्तर I, III, II, IV होगा।","explanation_en":"Event chronology I. Golakanath case (Golakanath vs. Punjab State) 1967 II. Keshavanand Bharati case (Keshavanand Bharati vs. Kerala State) 1973 III. 24th Constitutional Amendment Act 1971 IV. 42nd Constitutional Amendment Act 1976 hence: chronological order answer I, III, II, IV will be.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":11},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। सूची-I सूची-II (राज्य) (राज्य सभा में प्रतिनिधित्व) A. राजस्थान 1. 10 सीटें B. गुजरात 2. 7 सीटें C. कर्नाटक 3. 11 सीटें D. पंजाब 4. 12 सीटें कूट : A B C D","question_en":"Match List-I with List-II and lists of Select the correct answer from the code given below. List-I List-II (State) (Rajya Sabha in representation) A. Rajasthan 1. 10 seats B. Gujarat 2. 7 seats C. Karnataka 3. 11 seats D. Punjab 4. 12 seats Code: A B C D","options":[{"hi":"1 3 4 2","en":"1 3 4 2"},{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"4 3 1 2","en":"4 3 1 2"}],"answer":0,"answer_note":"","explanation_hi":"राज्य राज्य सभा में प्रतिनिधित्व राजस्थान 10 गुजरात 11 कर्नाटक 12 पंजाब 7","explanation_en":"State Rajya Sabha in representation Rajasthan 10 Gujarat 11 Karnataka 12 Punjab 7","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":12},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) और दूसरे को कारण (R) कहा गया है - कथन (A) : भारतीय राजनीतिक व्यवस्था की प्रकृति में ‘निरंतरता एवं परिवर्तन’ के तत्व मूर्त रूप में पाए जाते हैं। कारण (R) : भारतीय राजनीतिक व्यवस्था में निम्न राजनीतिक कार्यशैलियों जैसे - आधुनिक शैली, परंपरागत शैली तथा संत शैली के तत्व समाहित हैं। नीचे दिए गए कूट में से सही उत्तर चुनिए। कूट","question_en":"Below two statement are given, among which one to statement (A) and second to Reason (R) is called - statement (A): Indian political system of nature in ‘Nirantarata and change’ of element Murta form in are found. Reason (R): Indian political system in low political Karyashailiyon such as - Modern style, Paramparagat style and saint style of element Samahit are. Select the correct answer from the code given below. Code","options":[{"hi":"(A) और (R) दोनों सही हैं तथा (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":0,"answer_note":"","explanation_hi":"भारतीय राजनीतिक व्यवस्था की प्रकृति में मौर्यकाल से लेकर आधुनिक युग तक अपने विशिष्ट तत्व मूर्त रूप में आज भी विद्यमान हैं। यद्यपि 180 विभिन्न युगों एवं कालों से निरंतर एवं परिवर्तनशील भारतीय राजनीतिक व्यवस्था में आधुनिक शैली, परंपरागत शैली एवं संत शैली के तत्व समाहित हैं। स्पष्ट है कि कथन एवं कारण दोनों सत्य हैं तथा कारण कथन की पुष्टि करता है।","explanation_en":"Indian political system of nature in Mauryakal from taking Modern Yug up to its own specific element Murta form in Aj also existing are. although 180 various Yugon and periods from Nirantar and Parivartanashil Indian political system in Modern style, Paramparagat style and saint style of element Samahit are. clear is that statement and Reason both true are and Reason statement of Pushti does is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":13},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए - सूची - I सूची - II A. भारतीय शस्त्र अधिनियम 1. 1876 B. शाही पद अधिनियम 2. 1878 C. भारतीय उच्च न्यायालय अधिनियम 3. 1869 D. भारतीय विवाह विच्छेद अधिनियम 4. 1861 कूट : A B C D","question_en":"List - I to List - II from matched do and lists of Select the correct answer from the code given below - List - I List - II A. Indian Shastra Act 1. 1876 B. Shahi office Act 2. 1878 C. Indian High Court Act 3. 1869 D. Indian marriage Vichchhed Act 4. 1861 Code: A B C D","options":[{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"3 1 2 4","en":"3 1 2 4"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"2 1 4 3","en":"2 1 4 3"}],"answer":3,"answer_note":"","explanation_hi":"सही सुमेलन है- सूची - I सूची - II भारतीय शस्त्र अधिनियम 1878 शाही पद अधिनियम 1876 भारतीय उच्च न्यायालय अधिनियम 1861 भारतीय विवाह विच्छेद अधिनियम 1869","explanation_en":"Correct matching is- List - I List - II Indian Shastra Act 1878 Shahi office Act 1876 Indian High Court Act 1861 Indian marriage Vichchhed Act 1869","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":14},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"संविधान के किस भाग में पंचायती राज व्यवस्था संबंधी प्रावधान दिए गए हैं?","question_en":"Constitution of which part in Panchayati Raj system related to provision are given?","options":[{"hi":"IX","en":"IX"},{"hi":"VI","en":"VI"},{"hi":"III","en":"III"},{"hi":"IV क","en":"IV A"}],"answer":0,"answer_note":"","explanation_hi":"73वें संविधान संशोधन अधिनियम, 1992 द्वारा संविधान के भाग 9 के तहत पंचायतों को संवैधानिक दर्जा प्रदान किया गया है। इसमें पंचायतों को स्वशासन की संस्था स्वीकार किया गया है।","explanation_en":"73rd Constitutional Amendment Act, 1992 by Constitution of part 9 under Panchayats to Constitutional Darja provided was done is. in this Panchayats to Svashasan of Institution accepted was done is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":15},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संघात्मक व्यवस्था में तृतीय तल कब जोड़ा गया?","question_en":"Indian Federal system in third level when Jora was?","options":[{"hi":"1990","en":"1990"},{"hi":"1991","en":"1991"},{"hi":"1992","en":"1992"},{"hi":"1993","en":"1993"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संघात्मक व्यवस्था में तृतीय तल वर्ष 1993 में जोड़ा गया। 73वां संवैधानिक संशोधन ग्रामीण स्थानीय सरकार से संबंधित है, जिन्हें पंचायती राज संस्थानों के रूप में भी जाना जाता है। 74वां संविधान संशोधन शहरी स्थानीय सरकार से संबंधित है, जिन्हें नगरपालिका भी कहा जाता है।","explanation_en":"Indian Federal system in third level year 1993 in Jora was. 73rd Constitutional Amendment rural local Government from is related, which Panchayati Raj Institutes as also is known. 74th Constitutional Amendment urban local Government from is related, which municipality also is called.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":16},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से कौन-सा संविधान के अनुच्छेद 3 के तहत संसद के एक कानून द्वारा संभव नहीं है?","question_en":"Which of the following is NOT Constitution of Article 3 under Parliament of one Law by Sambhav?","options":[{"hi":"नए राज्यों का गठन","en":"New States of formation"},{"hi":"राज्यों के क्षेत्रों में परिवर्तन","en":"States of regions in change"},{"hi":"राज्यों की सीमाओं में परिवर्तन","en":"States of borders in change"},{"hi":"नए राज्यों का प्रवेश","en":"New States of entry"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 3 के तहत नए राज्यों के निर्माण, उनके क्षेत्रों, सीमाओं तथा नाम में परिवर्तन का अधिकार (शक्ति) भारतीय संसद में निहित है, जबकि अनुच्छेद 1 के तहत संघ का नाम और राज्यक्षेत्र तथा अनुच्छेद 2 के तहत भारतीय संघ में नए राज्यों के प्रवेश या स्थापना का प्रावधान किया गया है।","explanation_en":"Indian Constitution of Article 3 under new States of construction, their regions, borders and name in change of Right (power) Indian Parliament in Nihit is, whereas Article 1 under Union of name and Rajyakshetra and Article 2 under Indian Union in new States of entry or establishment of provision was done is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":17},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्न में से कौन-से पदाधिकारियों को हटाने में संसद की कोई भूमिका नहीं होती है? 1. उच्च न्यायालय के न्यायाधीशों 2. उच्चतम न्यायालय के न्यायाधीशों 3. अध्यक्ष, संघ लोक सेवा आयोग 4. भारत के नियंत्रक और महालेखापरीक्षक नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"Low in from which-from Padadhikariyon to Hatane in Parliament of any role not occurs? 1. High Court of Judges 2. Supreme Court of Judges 3. Chairman, Union Public Service Commission (UPSC) 4. India of Niyantrak and Mahalekhaparikshak Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1 तथा 2","en":"Only 1 and 2"},{"hi":"केवल 3 तथा 4","en":"Only 3 and 4"},{"hi":"केवल 1, 2 तथा 3","en":"Only 1, 2 and 3"},{"hi":"केवल 3","en":"Only 3"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 317 के अनुसार, लोक सेवा आयोग के अध्यक्ष या किसी अन्य सदस्य को केवल कदाचार के आधार पर राष्ट्रपति के ऐसे आदेश से उसके पद से हटाया जाएगा, जो उच्चतम न्यायालय को राष्ट्रपति द्वारा निर्देश किए जाने पर उस न्यायालय द्वारा अनुच्छेद 145 के अधीन इस प्रयोजन के लिए निर्धारित प्रक्रिया के अनुसार की गई जांच के पश्चात इस संबंध में दिए गए प्रतिवेदन के आधार पर जारी किया गया हो, जबकि उच्च एवं उच्चतम न्यायालय के न्यायाधीशों एवं भारत के नियंत्रक एवं महालेखापरीक्षक को हटाने में संसद की भूमिका होती है।","explanation_en":"Article 317 according to, Public Service Commission of Chairman or any other Member to only Kadachar on the basis of President of such Adesh from its office from removed will be, which Supreme Court to President by Nirdesh done going at that Court by Article 145 of under this Prayojan for prescribed process according to was done Janch after this relation in given report on the basis of released was done be, whereas high and Supreme Court of Judges and India of Comptroller and Auditor General (CAG) to Hatane in Parliament of role occurs.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":18},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"पंचायतों के लिए कराए जाने वाले सभी निर्वाचनों के संचालन का अधीक्षण, निदेशन और नियंत्रण निहित होता है","question_en":"Panchayats for Karae going having all Elections of operation of Adhikshan, Nideshan and control Nihit occurs","options":[{"hi":"राज्यपाल में","en":"Governor in"},{"hi":"भारत के निर्वाचन आयोग में","en":"India of Election Commission in"},{"hi":"जिला पंचायत राज अधिकारी में","en":"Zila Panchayat rule Officer in"},{"hi":"राज्य निर्वाचन आयोग में","en":"State Election Commission in"}],"answer":3,"answer_note":"","explanation_hi":"अनुच्छेद 243 ट (1) के अनुसार, पंचायतों एवं अनुच्छेद 243 य क (1) के अनुसार, नगर पालिकाओं के चुनावों के लिए निर्वाचक नामावली तैयार कराने का और इनके निर्वाचनों के संचालन, अधीक्षण, निदेशन और नियंत्रण एक राज्य निर्वाचन आयोग में निहित होगा।","explanation_en":"Article 243 T (1) according to, Panchayats and Article 243 Y A (1) according to, city Palikaon of Elections for electoral Namavali prepared Karane of and their Elections of operation, Adhikshan, Nideshan and control one State Election Commission in Nihit will be.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":19},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित युग्मों में से कौन-सा एक सही सुमेलित नहीं है?","question_en":"Which one of the following pairs is NOT correctly matched?","options":[{"hi":"अन्तर्राज्य परिषद - अनुच्छेद 263","en":"Antarrajya Council - Article 263"},{"hi":"वित्त आयोग - अनुच्छेद 280","en":"Finance Commission - Article 280"},{"hi":"प्रशासनिक न्यायाधिकरण - अनुच्छेद 323 क","en":"Administrative Nyayadhikaran - Article 323 A"},{"hi":"संघ लोक सेवा आयोग - अनुच्छेद 315","en":"Union Public Service Commission (UPSC) - Article 315"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] प्रश्नगत सभी विकल्प सही सुमेलित हैं। सुमेलन इस प्रकार है - अन्तर्राज्य परिषद - अनुच्छेद 263 वित्त आयोग - अनुच्छेद 280 प्रशासनिक न्यायाधिकरण - अनुच्छेद 323 क संघ लोक सेवा आयोग - अनुच्छेद 315 नोट- उत्तर प्रदेश लोक सेवा आयोग ने इस प्रश्न का उत्तर विकल्प (c) माना है, जो कि त्रुटिपूर्ण है।","explanation_en":"[Note: original Question in answer (*) marked is] given all option correct matched are. matching this type is - Antarrajya Council - Article 263 Finance Commission - Article 280 Administrative Nyayadhikaran - Article 323 A Union Public Service Commission (UPSC) - Article 315 Note- Uttar Pradesh Public Service Commission this Question of answer option (c) considered is, which that erroneous is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":20},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संविधान का कौन-सा अनुच्छेद केंद्रीय सतर्कता आयोग का वर्णन करता है?","question_en":"Indian Constitution of which-which Article Central Satarkata Commission of description does is?","options":[{"hi":"अनुच्छेद 268","en":"Article 268"},{"hi":"अनुच्छेद 280","en":"Article 280"},{"hi":"अनुच्छेद 276","en":"Article 276"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":3,"answer_note":"","explanation_hi":"केंद्रीय सतर्कता आयोग केंद्र सरकार में भ्रष्टाचार रोकने के लिए एक प्रमुख संस्था है। वर्ष 1964 में केंद्र सरकार द्वारा पारित एक प्रस्ताव के अंतर्गत इसका गठन हुआ था। भ्रष्टाचार को रोकने पर बनाई गई संथानम समिति (1962-64 ई.) की सिफारिश पर इसका गठन हुआ था।","explanation_en":"Central Satarkata Commission centre Government in Bhrashtachar Rokane for one major Institution is. year 1964 in centre Government by passed one resolution under its formation took place. Bhrashtachar to Rokane at Banaee was Santhanam Committee (1962-64 AD.) of recommendation at its formation took place.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":21},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संविधान के अनुच्छेद 371ञ के अंतर्गत देश के किस क्षेत्र को विशेष स्थिति प्रदान की गई है?","question_en":"Indian Constitution of Article 371Ny under country of which region to special status provided was done is?","options":[{"hi":"नगालैंड","en":"Nagaland"},{"hi":"हैदराबाद और कर्नाटक","en":"Hyderabad and Karnataka"},{"hi":"महाराष्ट्र और गुजरात","en":"Maharashtra and Gujarat"},{"hi":"लद्दाख","en":"Ladakh"}],"answer":1,"answer_note":"","explanation_hi":"98वां संविधान (संशोधन) अधिनियम, 2012 द्वारा भारत के संविधान के भाग 21 में अनुच्छेद 371झ के बाद एक नया अनुच्छेद 371 ञ जोड़ा गया। अनुच्छेद 371 ञ कर्नाटक के राज्यपाल को हैदराबाद-कर्नाटक क्षेत्र के विकास हेतु कदम उठाने के लिए सशक्त करता है।","explanation_en":"98th Constitution (Amendment) Act, 2012 by India of Constitution of part 21 in Article 371Jh after one new Article 371 Ny Jora was. Article 371 Ny Karnataka of Governor to Hyderabad-Karnataka region of development for Kadam Uthane for Sashakta does is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":22},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से कौन-सा एक सही सुमेलित नहीं है?","question_en":"Which of the following is NOT one correct matched?","options":[{"hi":"मूल कर्तव्य - भाग IV क","en":"Fundamental Duties - part IV A"},{"hi":"राज्य - भाग VI","en":"State - part VI"},{"hi":"भारत का महान्यायवादी - भाग XIII","en":"Attorney General of India - part XIII"},{"hi":"संघ और राज्यों के अधीन सेवाएं - भाग XIV","en":"Union and States of under Services - part XIV"}],"answer":2,"answer_note":"","explanation_hi":"सही सुमेलन है- प्रावधान भाग मूल कर्तव्य - भाग IV क राज्य - भाग VI भारत का महान्यायवादी - भाग V (अनुच्छेद 76) संघ और राज्यों के अधीन सेवाएं - भाग XIV","explanation_en":"Correct matching is- provision part Fundamental Duties - part IV A State - part VI Attorney General of India - part V (Article 76) Union and States of under Services - part XIV","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":23},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संसद की सबसे बड़ी समिति कौन-सी है?","question_en":"Indian Parliament of most large Committee which-C is?","options":[{"hi":"लोक लेखा समिति","en":"Public Accounts Committee"},{"hi":"प्राक्कलन समिति","en":"Estimates Committee"},{"hi":"लोक उपक्रम समिति","en":"Public Upakram Committee"},{"hi":"याचिका समिति","en":"Petition Committee"}],"answer":1,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों में प्राक्कलन समिति संसद की सबसे बड़ी समिति है। इस समिति में सदस्यों की संख्या 30 होती है। इसके सदस्य केवल लोक सभा से ही लिए जाते हैं। इसका कार्यकाल 1 वर्ष होता है। प्राक्कलन समिति यह बताती है कि प्राक्कलनों में निहित नीति के अनुरूप क्या मितव्ययिता बरती जा सकती है तथा संगठन, कार्य कुशलता और प्रशासन में क्या-क्या सुधार किए जा सकते हैं, जबकि लोक लेखा समिति में दोनों सदनों से कुल 22 सदस्य लिए जाते हैं, जिनमें 15 सदस्य लोक सभा से और 7 सदस्य राज्य सभा से होते हैं। समिति का कार्यकाल 1 वर्ष होता है। सरकारी उपक्रम समिति में 22 सदस्य जिनमें 15 लोक सभा एवं 7 राज्य सभा से होते हैं। समिति का कार्यकाल 1 वर्ष होता है। याचिका समिति के सदस्यों की संख्या 25 होती है जिनमें 15 सदस्य लोक सभा एवं 10 सदस्य राज्य सभा से होते हैं। इसके सदस्य अध्यक्ष या सभापति द्वारा नाम-निर्देशित होते हैं। इसका कार्यकाल नियत नहीं है। पुनर्गठन किए जाने तक यह समिति बनी रहती है। इस समिति का कार्य लोक सभा या राज्य सभा को प्रस्तुत की गई याचिकाओं पर विचार करना और प्रतिवेदन प्रस्तुत करना है।","explanation_en":"Given options in Estimates Committee Parliament of most large Committee is. this Committee in Members of number 30 occurs. its Member only Lok Sabha from only for go are. its tenure 1 year occurs. Estimates Committee this Batati is that Prakkalanon in Nihit policy of Anurup what Mitavyayita Barati be can is and Organization, function Kushalata and Administration in what-what reform done be can are, whereas Public Accounts Committee in both Houses from total 22 Member for go are, among which 15 Member Lok Sabha from and 7 Member Rajya Sabha from occur. Committee of tenure 1 year occurs. government Upakram Committee in 22 Member among which 15 Lok Sabha and 7 Rajya Sabha from occur. Committee of tenure 1 year occurs. Petition Committee of Members of number 25 occurs among which 15 Member Lok Sabha and 10 Member Rajya Sabha from occur. its Member Chairman or Chairman by name-Nirdeshit occur. its tenure Niyat not is. reorganization done going up to this Committee became remains is. this Committee of function Lok Sabha or Rajya Sabha to presented was done Yachikaon at consideration to do and report presented to do is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":24},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संविधान के कौन-से अनुच्छेद नागरिकता से संबंधित हैं?","question_en":"Indian Constitution of which-from Article Citizenship from related are?","options":[{"hi":"अनुच्छेद 3 से 10","en":"Article 3 from 10"},{"hi":"अनुच्छेद 4 से 11","en":"Article 4 from 11"},{"hi":"अनुच्छेद 5 से 11","en":"Article 5 from 11"},{"hi":"अनुच्छेद 6 से 11","en":"Article 6 from 11"}],"answer":2,"answer_note":"","explanation_hi":"भारत के संविधान के भाग II के अंतर्गत अनुच्छेद 5 से 11 तक में नागरिकता से संबंधित प्रावधान उल्लिखित हैं।","explanation_en":"India of Constitution of part II under Article 5 from 11 up to in Citizenship from related provision mentioned are.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":25},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"राज्यों में मुख्यमंत्री सहित मंत्रिपरिषद में मंत्रियों की न्यूनतम संख्या क्या हो सकती है?","question_en":"States in Chief Minister including Council of Ministers in Ministers of minimum number what be can is?","options":[{"hi":"10","en":"10"},{"hi":"12","en":"12"},{"hi":"13","en":"13"},{"hi":"14","en":"14"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान का अनुच्छेद 164 (1) (क) में विधानसभा सदस्यों की संख्या के बारे में उपबंध है। इसके अनुसार, किसी राज्य की मंत्रिपरिषद में मुख्यमंत्री सहित मंत्रियों की कुल संख्या उस राज्य की विधानसभा के सदस्यों की कुल संख्या के पंद्रह प्रतिशत (15%) से अधिक नहीं होगी, परंतु किसी राज्य में मुख्यमंत्री सहित मंत्रियों की संख्या बारह (12) से कम नहीं होगी।","explanation_en":"Indian Constitution of Article 164 (1) (A) in Legislative Assembly Members of number of about in provision is. its according to, any State of Council of Ministers in Chief Minister including Ministers of total number that State of Legislative Assembly of Members of total number of Pandrah percent (%) (15%) from more not will be, but any State in Chief Minister including Ministers of number Barah (12) from less not will be.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":26},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत के सर्वोच्च न्यायालय ने ‘संविधान के आधारभूत ढांचे’ के सिद्धांत को स्पष्ट किया","question_en":"India of Supreme Court ‘Constitution of basic Dhanche’ of principle to clear done","options":[{"hi":"गोलकनाथ वाद 1967 में","en":"Golakanath case 1967 in"},{"hi":"केशवानंद भारती वाद 1973 में","en":"Keshavanand Bharati case 1973 in"},{"hi":"शंकरी प्रसाद वाद 1951 में","en":"Shankari Prasad case 1951 in"},{"hi":"सज्जन सिंह वाद 1965 में","en":"Sajjan lion case 1965 in"}],"answer":1,"answer_note":"","explanation_hi":"केशवानंद भारती बनाम केरल राज्य (1973) के मामले में सर्वोच्च न्यायालय ने प्रस्तावना (उद्देशिका) को भारतीय संविधान की मौलिक संरचना का 182 भाग स्वीकार किया। सर्वोच्च न्यायालय के शब्दों में ‘‘हमारे संविधान का प्रासाद उद्देशिका में वर्णित बुनियादी तत्वों पर खड़ा है। यदि इनमें से किसी भी तत्व को हटा दिया जाए, तो सारा ढांचा ही ढह जाएगा अर्थात संविधान वही नहीं रह जाएगा, अर्थात अपना व्यक्तित्व व पहचान खो देगा।’’","explanation_en":"Keshavanand Bharati vs. Kerala State (1973) of matters in Supreme Court Preamble (Uddeshika) to Indian Constitution of Maulik structure of 182 part accepted done. Supreme Court of terms in ‘‘Hamare Constitution of Prasad Uddeshika in described basic elements at Khara is. if among these from any also element to Hata given be, then Sara framework only Dhah will be i.e. Constitution Vahi not remain will be, i.e. its own Vyaktitva and identification Kho Dega. ’’","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":27},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से कौन-सा एक सही सुमेलित नहीं है?","question_en":"Which of the following is NOT one correct matched?","options":[{"hi":"अनुच्छेद 39A - समान न्याय एवं नि:शुल्क विधिक सहायता","en":"Article 39A - similar Justice and Ni:Shulka Legal assistance"},{"hi":"अनुच्छेद 40 - ग्राम पंचायतों का संगठन","en":"Article 40 - Gram Panchayats of Organization"},{"hi":"अनुच्छेद 44 - समान नागरिक संहिता","en":"Article 44 - Uniform Civil Code"},{"hi":"अनुच्छेद 48 - न्यायपालिका का कार्यपालिका से पृथक्करण","en":"Article 48 - Judiciary of Executive from Prithakkaran"}],"answer":3,"answer_note":"","explanation_hi":"सही सुमेलन है - अनुच्छेद 39A - समान न्याय एवं नि:शुल्क विधिक सहायता अनुच्छेद 40 - ग्राम पंचायतों का संगठन अनुच्छेद 44 - समान नागरिक संहिता अनुच्छेद 48 - कृषि और पशुपालन का संगठन","explanation_en":"Correct matching is - Article 39A - similar Justice and Ni:Shulka Legal assistance Article 40 - Gram Panchayats of Organization Article 44 - Uniform Civil Code Article 48 - agriculture and animal husbandry of Organization","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":28},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत के महान्यायवादी के संदर्भ में निम्नलिखित कथनों पर विचार कीजिए– 1. राष्ट्रपति किसी ऐसे व्यक्ति की नियुक्ति करेगा, जो उच्चतम न्यायालय के न्यायाधीश के रूप में नियुक्ति के लिए अर्ह होगा। 2. महान्यायवादी इतना पारिश्रमिक प्राप्त करेगा, जो संसद अवधारित करे। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"With reference to India of Attorney General, consider the following statements– 1. President any such person of Appointment will do, which Supreme Court of Judge as Appointment for Arha will be. 2. Attorney General Itana Parishramik obtained will do, which Parliament Avadharit Kare. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1 सही है","en":"Only 1"},{"hi":"केवल 2 सही है","en":"Only 2"},{"hi":"1 और 2 दोनों सही हैं","en":"Both 1 and 2 are correct"},{"hi":"न तो 1 न ही 2 सही है","en":"Neither 1 nor 2 is correct"}],"answer":0,"answer_note":"","explanation_hi":"महान्यायवादी देश का सर्वोच्च विधि अधिकारी होता है। अनुच्छेद 76(1) के अनुसार, राष्ट्रपति, उच्चतम न्यायालय का न्यायाधीश नियुक्त होने के लिए अर्हित किसी व्यक्ति को भारत का महान्यायवादी नियुक्त करेगा। अनुच्छेद 76(4) के अनुसार, महान्यायवादी, राष्ट्रपति के प्रसादपर्यंत पद धारण करेगा और ऐसा पारिश्रमिक प्राप्त करेगा, जो राष्ट्रपति अवधारित करे।","explanation_en":"Attorney General country of supreme method Officer occurs. Article 76(1) according to, President, Supreme Court of Judge appointed being for Arhit any person to Attorney General of India appointed will do. Article 76(4) according to, Attorney General, President of Prasadaparyant office Dharan will do and such Parishramik obtained will do, which President Avadharit Kare.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":29},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) और दूसरे को कारण (R) कहा गया है - कथन (A) : भारतीय संघात्मक व्यवस्था को ‘अर्ध-संघात्मक’ कहा जाता है। कारण (R) : भारत में एक स्वतंत्र न्यायपालिका है, जिसे न्यायिक पुनर्निरीक्षण का अधिकार है। नीचे दिए गए कूट में से सही उत्तर चुनिए। कूट","question_en":"Below two statement are given, among which one to statement (A) and second to Reason (R) is called - statement (A): Indian Federal system to ‘Ardha-Federal’ is called. Reason (R): India in one independent Judiciary is, which Judicial Punarnirikshan of Right is. Select the correct answer from the code given below. Code","options":[{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) सत्य है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":1,"answer_note":"","explanation_hi":"भारत के संविधान का वर्णन विभिन्न प्रकार से किया गया है। इसे अर्ध- परिसंघीय कहा गया है। इसे परिसंघीय, किंतु प्रबल एकात्मक अथवा केंद्र समर्थक भी कहा गया है। संरचना में परिसंघीय, किंतु भावना में एकात्मक, सामान्य स्थिति में परिसंघीय, किंतु आपात स्थिति आदि के दौरान पूर्णतया एकात्मक रूप में परिवर्तित हो जाने के इसके गुण के कारण ही इसे अर्ध-संघात्मक कहा जाता है। भारतीय संविधान में स्वतंत्र न्यायपालिका का प्रावधान है। भारत में सर्वोच्च न्यायालय को न्यायिक पुनर्निरीक्षण की शक्ति प्राप्त है। इसके तहत वह केंद्र व राज्य दोनों स्तरों पर विधियों और कार्यपालिका आदेशों की सांविधानिकता की जांच की जा सकती है। सर्वोच्च न्यायालय द्वारा अधिकारातीत पाए जाने पर इन्हें असंवैधानिक और अवैध तथा उस स्तर तक शून्य घोषित किया जा सकता है, जिस स्तर तक वह संविधान का उल्लंघन करता हो। संविधान के विभिन्न अनुच्छेदों यथा अनुच्छेद 13, 32, 131, 136, 141, 143, 226, 227, 245, 246, 372 आदि के उपबंध प्रत्यक्ष या अप्रत्यक्ष रूप से न्यायिक पुनर्निरीक्षण की शक्ति प्रदान करते हैं। प्रश्न में कथन एवं कारण दोनों सही हैं, किंतु कारण कथन की सही व्याख्या नहीं करता।","explanation_en":"India of Constitution of description various type from was done is. it Ardha- Parisanghiy is called. it Parisanghiy, but Prabal Ekatmak or centre Samarthak also is called. structure in Parisanghiy, but Bhavana in Ekatmak, general status in Parisanghiy, but Apat status etc. during Purnataya Ekatmak form in changed be going of its property due to only it Ardha-Federal is called. Indian Constitution in independent Judiciary of provision is. India in Supreme Court to Judicial Punarnirikshan of power obtained is. its under that centre and State both levels at methods and Executive Adeshon of Sanvidhanikata of Janch can be done. Supreme Court by Adhikaratit Pae going at them Asanvaidhanik and illegal and that level up to zero declared can be done, Jis level up to that Constitution of Ullanghan does be. Constitution of various Articles such as Article 13, 32, 131, 136, 141, 143, 226, 227, 245, 246, 372 etc. of provision direct or indirect form from Judicial Punarnirikshan of power provided did are. Question in statement and Reason both correct are, but Reason statement of correct Explanation not does.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":30},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से किस पर गतिरोध दूर करने हेतु लोक सभा और राज्य सभा की संयुक्त बैठक हो सकती है?","question_en":"Following in from which at Gatirodh far doing for Lok Sabha and Rajya Sabha of joint Meeting be can is?","options":[{"hi":"सामान्य विधेयक","en":"General Bill"},{"hi":"धन विधेयक","en":"Money Bill"},{"hi":"संवैधानिक संशोधन विधेयक","en":"Constitutional Amendment Bill"},{"hi":"विनियोग विधेयक","en":"Viniyog Bill"}],"answer":0,"answer_note":"","explanation_hi":"भारत में संसद के दोनों सदनों की संयुक्त बैठक का प्रावधान अनुच्छेद 108 में वर्णित है। संविधान के अनुच्छेद 108 के अनुसार, दोनों सदनों का संयुक्त अधिवेशन तब आयोजित होता है, जब किसी सामान्य विधेयक पर विचार करने और उसे पारित करने में दोनों सदनों में मतभेद हो।","explanation_en":"India in Parliament of both Houses of joint Meeting of provision Article 108 in described is. Constitution of Article 108 according to, both Houses of joint Session then held occurs, when any general Bill at consideration doing and it passed doing in both Houses in Matabhed be.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":31},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए - सूची - I सूची - II (अनुच्छेद) (प्रावधान) A. अनुच्छेद 61 1. राज्य सभा के उप-सभापति को हटाना B. अनुच्छेद 67 (ख) 2. राष्ट्रपति पर महाभियोग C. अनुच्छेद 94 3. उपराष्ट्रपति को हटाना D. अनुच्छेद 90 4. स्पीकर को हटाना कूट : A B C D","question_en":"List - I to List - II from matched do and lists of Select the correct answer from the code given below - List - I List - II (Article) (provision) A. Article 61 1. Rajya Sabha of sub--Chairman to removal B. Article 67 (B) 2. President at Mahabhiyog C. Article 94 3. Vice-President to removal D. Article 90 4. Speaker to removal Code: A B C D","options":[{"hi":"2 4 3 1","en":"2 4 3 1"},{"hi":"3 2 4 1","en":"3 2 4 1"},{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"4 1 3 2","en":"4 1 3 2"}],"answer":2,"answer_note":"","explanation_hi":"सही सुमेलन है - सूची - I सूची - II (अनुच्छेद) (प्रावधान) अनुच्छेद 61 राष्ट्रपति पर महाभियोग अनुच्छेद 67 (ख) उपराष्ट्रपति को हटाना अनुच्छेद 94 स्पीकर को हटाना अनुच्छेद 90 राज्य सभा के उप-सभापति को हटाना","explanation_en":"Correct matching is - List - I List - II (Article) (provision) Article 61 President at Mahabhiyog Article 67 (B) Vice-President to removal Article 94 Speaker to removal Article 90 Rajya Sabha of sub--Chairman to removal","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":32},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत की संविधान सभा ने निम्नलिखित में से किस तिथि को राष्ट्रीय ध्वज को अपनाया?","question_en":"India of Constituent Assembly following in from which date to National Dhvaj to Apanaya?","options":[{"hi":"22 जनवरी, 1950","en":"22 January, 1950"},{"hi":"24 जनवरी, 1950","en":"24 January, 1950"},{"hi":"22 जुलाई, 1947","en":"22 July, 1947"},{"hi":"22 जुलाई, 1948","en":"22 July, 1948"}],"answer":2,"answer_note":"","explanation_hi":"भारत की संविधान सभा ने अपने चौथे अधिवेशन (14 जुलाई, 1947 से 31 जुलाई, 1947 तक) में 22 जुलाई, 1947 को भारत का राष्ट्रीय ध्वज स्वीकार किया। राष्ट्रीय ध्वज के बीच चक्र में 24 तीलियां हैं तथा राष्ट्रीय ध्वज की चौड़ाई-लंबाई का अनुपात 2 : 3 है।","explanation_en":"India of Constituent Assembly its own fourth Session (14 July, 1947 from 31 July, 1947 up to) in 22 July, 1947 to India of National Dhvaj accepted done. National Dhvaj between Chakra in 24 Tiliyan are and National Dhvaj of Chauraee-length of ratio 2: 3 is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":33},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"पंचायतों के संदर्भ में निम्न में से कौन-सा कथन सही है/हैं? 1. पचास प्रतिशत सीटें अनुसूचित जाति/अनुसूचित जनजाति की महिलाओं के लिए आरक्षित होगी। 2. ग्राम सभा एक निकाय है, जिसमें गांव के रहने वाले सभी लोग होते हैं। 3. मध्यवर्ती स्तर पर एक पंचायत होगी। नीचे दिए गए कूट का प्रयोग करते हुए सही उत्तर चुनिए - कूट","question_en":"Panchayats with reference to low in from which-which statement is correct/are? 1. Pachas percent (%) seats Scheduled caste/Scheduled tribe of women for reserved will be. 2. Gram Sabha one Body is, in which village of remaining having all Log occur. 3. Madhyavarti level at one Panchayat will be. below given Code of use did occurred select the correct answer - Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"2 तथा 3","en":"2 and 3"},{"hi":"1 तथा 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 3","en":"Only 3"}],"answer":3,"answer_note":"","explanation_hi":"संविधान के अनुच्छेद 243 (b) के अनुसार, ‘ग्राम सभा’ में ग्राम स्तर पर पंचायत के क्षेत्र में भीतर समाविष्ट किसी ग्राम से संबंधित निर्वाचक नामावली में पंजीकृत व्यक्तियों से मिलकर बना निकाय अभिप्रेत है। स्पष्टत: इसमें केवल गांव के वयस्क लोग ही शामिल होते हैं। अनुच्छेद 243B के खंड (1) के अनुसार, प्रत्येक राज्य में ग्राम, मध्यवर्ती और जिला स्तर पर पंचायतों का गठन किया जाएगा। हालांकि खंड (2) के अनुसार, मध्यवर्ती स्तर पर पंचायत का उस राज्य में गठन नहीं किया जा सकेगा, जिसकी जनसंख्या 20 लाख से अनधिक है। अनुच्छेद 243-D के खंड (1) के अनुसार, प्रत्येक पंचायत में अनुसूचित जातियों और अनुसूचित जनजातियों के लिए, उनकी उस पंचायत क्षेत्र में जनसंख्या के अनुपात में स्थान आरक्षित रहेंगे तथा खंड (2) के अनुसार, उपर्युक्त आरक्षित स्थानों में से कम-से-कम एक-तिहाई स्थान यथास्थिति, अनुसूचित जातियों और अनुसूचित जनजातियों की महिलाओं के लिए आरक्षित रहेंगे।","explanation_en":"Constitution of Article 243 (b) according to, ‘ Gram Sabha ’ in gram level at Panchayat of region in within Samavishta any gram from related electoral Namavali in registered persons from together became Body Abhipret is. Spashtat: in this only village of adult Log only included occur. Article 243B of section (1) according to, each State in gram, Madhyavarti and district level at Panchayats of formation done will be. however section (2) according to, Madhyavarti level at Panchayat of that State in formation not done be Sakega, whose population 20 lakh from Anadhik is. Article 243-D of section (1) according to, each Panchayat in Scheduled Jatiyon and Scheduled tribes for, their that Panchayat region in population of ratio in place reserved Rahenge and section (2) according to, above reserved places in from less-from-less one-one-third place Yathasthiti, Scheduled Jatiyon and Scheduled tribes of women for reserved Rahenge.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":34},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"किसने कहा, ‘भारत एक अर्ध-संघात्मक राज्य है’?","question_en":"Who said, ‘India one Ardha-Federal State is’?","options":[{"hi":"लॉर्ड ब्राइस","en":"Lord Brais"},{"hi":"आइवर जैनिग्ज","en":"Aivar Jainigja"},{"hi":"एच.जे. लास्की","en":"H.J. Laski"},{"hi":"के.सी. व्हीयर","en":"Of.C. Vhiyar"}],"answer":3,"answer_note":"","explanation_hi":"ऑस्ट्रेलियाई संविधानविद् के.सी. व्हीयर ने कहा था कि ‘‘भारत एक अर्ध-संघात्मक राज्य (Quasi-Federal State) है।’’","explanation_en":"Ostreliyaee Sanvidhanavid of.C. Vhiyar said was that ‘‘India one Ardha-Federal State (Quasi-Federal State) is. ’’","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":35},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : केंद्रीय कानूनों का सांविधानिक वैधता के संबंध में भारत के सर्वोच्च न्यायालय की अनन्य अधिकारिता है। कारण (R) : सर्वोच्च न्यायालय भारतीय संविधान का संरक्षक है। नीचे दिए गए कूटों में से सही उत्तर चुनिए– कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): Central Laws of Constitutional Vaidhata in relation to India of Supreme Court of Ananya jurisdiction is. Reason (R): Supreme Court Indian Constitution of Sanrakshak is. Select the correct answer from the codes given below – Code","options":[{"hi":"(A) तथा (R) दोनों सही हैं तथा (R) कथन (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R) statement (A) of correct Explanation is."},{"hi":"(A) तथा (R) दोनों सही हैं, परंतु (R) कथन (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R) statement (A) of correct Explanation not is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":3,"answer_note":"","explanation_hi":"भारत का सर्वोच्च न्यायालय भारतीय संविधान का प्रहरी और संरक्षक है। तथापि केंद्रीय कानूनों की सांविधानिक वैधता के संदर्भ में सर्वोच्च न्यायालय के साथ-साथ उच्च न्यायालयों को भी अधिकारिता प्राप्त है। सर्वोच्च न्यायालय की तरह उच्च न्यायालय भी संसद अथवा राज्य विधानमंडल द्वारा अधिनियमित किसी कानून की वैधता का परीक्षण कर सकते हैं तथा संविधान के उपबंधों के अनुसार न होने पर उसे असंवैधानिक घोषित कर सकते हैं। हालांकि उच्च न्यायालय के निर्णय के विरुद्ध सर्वोच्च न्यायालय में अपील की जा सकती है। उल्लेखनीय है कि 42वें संविधान संशोधन, 1976 द्वारा संविधान में अनुच्छेद 131-A के तहत केंद्रीय कानूनों की सांविधानिक वैधता से संबंधित प्रश्नों के बारे में सर्वोच्च न्यायालय की अनन्य अधिकारिता संबंधी उपबंध तथा अनुच्छेद 226-A के तहत अनुच्छेद 226 के अधीन (उच्च न्यायालय की) कार्यवाहियों में केंद्रीय विधियों की वैधता पर विचार न किए जाने संबंधी उपबंध किए गए थे, तथापि 43वें सांविधानिक संशोधन, 1977 द्वारा इन्हेंे निरसित कर दिया गया।","explanation_en":"India of Supreme Court Indian Constitution of Prahari and Sanrakshak is. however Central Laws of Constitutional Vaidhata with reference to Supreme Court with-with High Courts to also jurisdiction obtained is. Supreme Court of manner High Court also Parliament or State Legislature by enacted any Law of Vaidhata of test tax can are and Constitution of provisions according to not being at it Asanvaidhanik declared tax can are. however High Court of decision of against Supreme Court in Apil can be done. notable is that 42nd Constitutional Amendment, 1976 by Constitution in Article 131-A under Central Laws of Constitutional Vaidhata from related Questions of about in Supreme Court of Ananya jurisdiction related to provision and Article 226-A under Article 226 of under (High Court of) Karyavahiyon in Central methods of Vaidhata at consideration not done going related to provision were done were, however 43rd Constitutional Amendment, 1977 by Inhene Nirasit tax given was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":36},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत में राष्ट्रीय पंचायती राज दिवस मनाया जाता है","question_en":"India in National Panchayati Raj Day is celebrated","options":[{"hi":"26 जनवरी को","en":"26 January to"},{"hi":"2 अक्टूबर को","en":"2 October to"},{"hi":"21 अप्रैल को","en":"21 April to"},{"hi":"24 अप्रैल को","en":"24 April to"}],"answer":3,"answer_note":"","explanation_hi":"भारत में राष्ट्रीय पंचायती राज दिवस प्रतिवर्ष 24 अप्रैल को मनाया जाता है। इस दिवस को वर्ष 2010 में सर्वप्रथम मनाया गया था।","explanation_en":"India in National Panchayati Raj Day annually 24 April to is celebrated. this Day to year 2010 in first of all celebrated was was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":37},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"42 वें संविधान संशोधन द्वारा किस अनुच्छेद के माध्यम से श्रमिकों की प्रबंधन में भागीदारी सुनिश्चित की गई?","question_en":"42 Ven Constitutional Amendment by which Article through workers of management in participation ensured was done?","options":[{"hi":"अनुच्छेद 38","en":"Article 38"},{"hi":"अनुच्छेद 39A","en":"Article 39A"},{"hi":"अनुच्छेद 45","en":"Article 45"},{"hi":"अनुच्छेद 43A","en":"Article 43A"}],"answer":3,"answer_note":"","explanation_hi":"42वें सांविधानिक संशोधन, 1976 द्वारा संविधान के भाग 4 में राज्य के नीति निदेशक तत्वों के तहत अनुच्छेद 43क अंत:स्थापित करके यह प्रावधानित किया गया कि राज्य किसी उद्योग में लगे हुए उपक्रमों, स्थापनों या अन्य संगठनों के प्रबंध में कर्मकारों का भाग लेना सुनिश्चित करने के लिए उपयुक्त विधान द्वारा या किसी अन्य रीति से कदम उठाएगा।","explanation_en":"42nd Constitutional Amendment, 1976 by Constitution of part 4 in Directive Principles of State Policy (DPSP)s under Article 43K end:established by doing this Pravadhanit was done that State any industry in Lage occurred Upakramon, establishments or other Organizations of management in Karmakaron of part Lena ensured doing for Upayukta Vidhan by or any other Riti from Kadam Uthaega.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":38},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"संविधान की प्रस्तावना का विधिक स्वरूप क्या है?","question_en":"Constitution of Preamble of Legal nature what is?","options":[{"hi":"यह लागू किया जा सकता है।","en":"This implemented can be done."},{"hi":"यह लागू नहीं किया जा सकता है।","en":"This implemented not can be done."},{"hi":"विशेष परिस्थितियों में लागू किया जा सकता है।","en":"Special Paristhitiyon in implemented can be done."},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"भारत के सर्वोच्च न्यायालय ने बेरूबारी मामले (1960) में संविधान की प्रस्तावना को संविधान का अभिन्न अंग नहीं माना था। परंतु केशवानंद भारती वाद (1973) में सर्वोच्च न्यायालय ने अपने पूर्व-निर्णयों को पलटते हुए प्रस्तावना को संविधान का अभिन्न अंग माना तथा यह निर्णय दिया कि संविधान के अस्पष्ट क्षेत्रों की व्याख्या के लिए प्रस्तावना की सहायता ली जा सकती है। इस प्रकार यद्यपि प्रस्तावना या उसके किसी भाग को विधिक रूप से न्यायालय में प्रवर्तित नहीं किया जा सकता है तथापि संविधान के अस्पष्ट क्षेत्रों की व्याख्या हेतु प्रस्तावना की सहायता न्यायालय द्वारा ली जा सकती है।","explanation_en":"India of Supreme Court Berubari matters (1960) in Constitution of Preamble to Constitution of Abhinna organ not considered was. but Keshavanand Bharati case (1973) in Supreme Court its own East-decisions to Palatate occurred Preamble to Constitution of Abhinna organ considered and this decision given that Constitution of Aspashta regions of Explanation for Preamble of assistance taken be can is. this type although Preamble or its any part to Legal form from Court in Pravartit not can be done however Constitution of Aspashta regions of Explanation for Preamble of assistance Court by taken be can is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":39},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संविधान के अनुच्छेद 162 के शीर्षक के संबंध में निम्न में कौन-सा सही है?","question_en":"Indian Constitution of Article 162 of title in relation to low in which-which is correct?","options":[{"hi":"राज्य की कार्यपालिका शक्ति","en":"State of Executive power"},{"hi":"राज्यपाल के कार्यालय के लिए शर्तें","en":"Governor of office for Sharten"},{"hi":"राज्यपाल की पदावधि","en":"Governor of Padavadhi"},{"hi":"राज्य की कार्यपालिका शक्ति का विस्तार","en":"State of Executive power of expansion"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान का अनुच्छेद 162 ‘राज्य की कार्यपालिका शक्ति के विस्तार’ संबंधी उपबंध करता है। इस अनुच्छेद के अनुसार, इस संविधान के उपबंधों के अधीन रहते हुए, किसी राज्य की कार्यपालिका शक्ति का विस्तार उन विषयों पर होगा, जिनके संबंध में उस राज्य के विधानमंडल की विधि बनाने की शक्ति है। नोट- उत्तर प्रदेश लोक सेवा आयोग द्वारा जारी अंतिम उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर कर दिया गया।","explanation_en":"Indian Constitution of Article 162 ‘State of Executive power of expansion’ related to provision does is. this Article according to, this Constitution of provisions of under remain occurred, any State of Executive power of expansion those subjects at will be, whose relation in that State of Legislature of method making of power is. Note- Uttar Pradesh Public Service Commission by released last answer key in this Question to evaluation from outside tax given was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":40},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"किस वर्ष में एकाउंटिंग को ऑडिटिंग (लेखा परीक्षा) से अलग किया गया तथा नियंत्रक एवं महालेखापरीक्षक का कार्य केवल सरकारी लेखा तक सीमित रह गया?","question_en":"Which year in Ekaunting to Oditing (accounts Pariksha) from separate was done and Comptroller and Auditor General (CAG) of function only government accounts up to Simit remain was?","options":[{"hi":"1975","en":"1975"},{"hi":"1977","en":"1977"},{"hi":"1976","en":"1976"},{"hi":"1981","en":"1981"}],"answer":2,"answer_note":"","explanation_hi":"वर्ष 1976 से पूर्व भारत के नियंत्रक एवं महालेखापरीक्षक (CAG) को लेखांकन (एकाउंटिंग) और लेखा परीक्षा (ऑडिटिंग) दोनों ही दायित्वों का निर्वहन करना होता था। वर्ष 1976 में सीएजी (कर्तव्य, शक्तियां और सेवा-शर्तें) अधिनियम, 1971 में संशोधन कर केंद्र सरकार के स्तर पर एकाउंटिंग को ऑडिटिंग से पृथक किया गया तथा सीएजी का कार्य केवल केंद्र सरकार के लेखा की लेखा परीक्षा (ऑडिटिंग) तक ही सीमित रह गया। वर्ष 1976 से केंद्र में लेखांकन (एकाउंटिंग) का कार्य विभिन्न केंद्रीय विभागों द्वारा स्वयं भारतीय नागरिक लेखा सेवा (इंडियन सिविल एकाउंट्स सर्विस) की सहायता से किया जाता है। हालांकि भारत का नियंत्रक एवं महालेखापरीक्षक अभी भी राज्यों के स्तर पर उपर्युक्त दोनों ही दायित्वों (एकाउंटिंग और ऑडिटिंग) का निर्वहन करता है।","explanation_en":"Year 1976 from East India of Comptroller and Auditor General (CAG) (CAG) to Lekhankan (Ekaunting) and accounts Pariksha (Oditing) both only Dayitvon of Nirvahan to do is was. year 1976 in Sieji (Duty, powers and Service-Sharten) Act, 1971 in Amendment tax centre Government of level at Ekaunting to Oditing from separate was done and Sieji of function only centre Government of accounts of accounts Pariksha (Oditing) up to only Simit remain was. year 1976 from centre in Lekhankan (Ekaunting) of function various Central Departments by itself Indian civil accounts Service (Indian Sivil Ekauntsa Sarvis) of assistance from is done. however India of Comptroller and Auditor General (CAG) Abhi also States of level at above both only Dayitvon (Ekaunting and Oditing) of Nirvahan does is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":41},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत में नियोजित विकास का विरोध किसने किया?","question_en":"India in Niyojit development of opposition who done?","options":[{"hi":"महात्मा गांधी","en":"Mahatma Gandhi"},{"hi":"जवाहरलाल नेहरू","en":"Jawaharlal Nehru"},{"hi":"इंदिरा गांधी","en":"Indira Gandhi"},{"hi":"राजीव गांधी","en":"Rajiv Gandhi"}],"answer":0,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों में भारत में नियोजित विकास का विरोध महात्मा गांधी ने किया था। गांधीजी वस्तुत: औद्योगीकरण और मशीनीकरण के विरोधी थे। उन्होंने कुटीर और ग्रामीण उद्योगों का समर्थन करने के साथ ग्राम को अर्थव्यवस्था की आधारभूत इकाई माना। उन्होंने मशीनों के प्रयोग के स्थान पर श्रमपरक उद्यमों को अधिक महत्व दिया ताकि अधिकाधिक लोगों को रोजगार मिल सके। उनकी ग्राम स्वराज की अवधारणा के तहत ग्राम ऐसी आर्थिक इकाई थे, जहां के निवासियों की सभी आवश्यकताएं वहीं के उत्पादों से पूरी हो सकें। नोट- उत्तर प्रदेश लोक सेवा आयोग द्वारा जारी अंतिम उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर कर दिया गया, जबकि अनंतिम उत्तर कुंजी में महात्मा गांधी को सही माना था।","explanation_en":"Given options in India in Niyojit development of opposition Mahatma Gandhi did. Gandhiji Vastut: Audyogikaran and Mashinikaran of anti- were. he Kutir and rural industries of support doing with gram to Economy of basic unit considered. he Mashinon of use of place at Shramaparak Udyamon to more importance given Taki Adhikadhik people to employment Mil Sake. their gram Svaraj of concept under gram such economic unit were, where of Nivasiyon of all requirements Vahin of products from entire be Saken. Note- Uttar Pradesh Public Service Commission by released last answer key in this Question to evaluation from outside tax given was, whereas Anantim answer key in Mahatma Gandhi to correct considered was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":42},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : भारतीय संविधान का अनुच्छेद 30 ‘अल्पसंख्यक वर्ग’ शब्द को परिभाषित नहीं करता है। कारण (R) : संविधान केवल भाषायी और धार्मिक अल्पसंख्यक वर्ग को मान्यता प्रदान करता है। नीचे दिए गए कूटों में से सही उत्तर चुनिए - कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): Indian Constitution of Article 30 ‘Minority class’ term to defined not does is. Reason (R): Constitution only linguistic and religious Minority class to recognition provided does is. Select the correct answer from the codes given below - Code","options":[{"hi":"(A) और (R) दोनों सही हैं और (R) कथन (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R) statement (A) of correct Explanation is."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R) कथन (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R) statement (A) of correct Explanation not is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 30(1) में कहा गया है कि धर्म या भाषा पर आधारित सभी अल्पसंख्यक वर्गों को अपनी रुचि की शिक्षा संस्थाओं की स्थापना और प्रशासन का अधिकार होगा। अनुच्छेद 30 (2) के अनुसार, शिक्षा संस्थाओं को सहायता देने में राज्य किसी शिक्षा संस्था के विरुद्ध इस आधार पर विभेद नहीं करेगा कि वह धर्म या भाषा पर आधारित किसी अल्पसंख्यक वर्ग के प्रबंध में है। स्पष्टत: अनु च्छेद 30 में अल्पसंख्यक वर्ग शब्द को परिभाषित नहीं किया गया है तथा इसमें भाषायी और धार्मिक अल्पसंख्यक वर्ग को मान्यता प्रदान की गई है। अत: प्रश्नगत कथन और कारण दोनों सही हैं, परंतु कारण, कथन की सही व्याख्या नहीं है।","explanation_en":"Indian Constitution of Article 30(1) in is called that religion or language at based all Minority classes to its own Ruchi of education Institutions of establishment and Administration of Right will be. Article 30 (2) according to, education Institutions to assistance giving in State any education Institution of against this basis at Vibhed not will do that that religion or language at based any Minority class of management in is. Spashtat: Anu Chchhed 30 in Minority class term to defined not was done is and in this linguistic and religious Minority class to recognition provided was done is. hence: given statement and Reason both correct are, but Reason, statement of correct Explanation not is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":43},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संघात्मक व्यवस्था के संदर्भ में निम्नलिखित में से कौन-सा कथन सही है/हैं? 1. भारतीय संविधान के अंतर्गत राज्यों को संघ से अलग होने का अधिकार नहीं है। 2. अलग होने की मात्र वकालत करने पर अभिव्यक्ति की स्वतंत्रता की सुरक्षा मिलेगी। नीचे दिए हुए कूटों में से सही उत्तर का चुनाव कीजिए","question_en":"Indian Federal system with reference to following in from which-which statement is correct/are? 1. Indian Constitution under States to Union from separate being of Right not is. 2. separate being of only Vakalat doing at Abhivyakti of Freedom of security Milegi. below given occurred codes in from correct answer of Election do","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1और न ही 2","en":"Not then 1Aur not only 2"}],"answer":0,"answer_note":"","explanation_hi":"भारतीय संविधान के तहत ‘राज्यों के संघ’ की स्थापना की गई है, जिसमें राज्यों को संघ से अलग होने का अधिकार नहीं है। संघीय संसद ही संघ में नए राज्यों का प्रवेश या उनकी स्थापना कर सकती है तथा राज्यों के क्षेत्र, सीमाओं या नाम में परिवर्तन कर सकती है, अथवा राज्य/ राज्यों के भागों को अलग कर/मिलाकर नए राज्य का निर्माण कर सकती है, परंतु संविधान के तहत किसी राज्य को संघ से पृथक हो सकने/कर सकने का अधिकार नहीं दिया गया है। इस प्रकार कथन 1 सही है। संविधान के अनुच्छेद 19(1)(क) के तहत सभी नागरिकों को वाक्- स्वातंत्र्य और अभिव्यक्ति-स्वातंत्र्य का मूल अधिकार प्राप्त है, परंतु इस अधिकार के प्रयोग पर भारत की प्रभुता और अखंडता, राज्य की सुरक्षा, विदेशी राज्यों के साथ मैत्रीपूर्ण संबंधों, लोक व्यवस्था, शिष्टाचार या सदाचार के हितों में अथवा न्यायालय-अवमान मानहानि या अपराध- उद्दीपन के संबंध में युक्तियुक्त निर्बंधन राज्य विधि द्वारा आरोपित कर सकता है। तदनुसार, भारत से अलग होने की मात्र वकालत करना भी संबंधित विधि के तहत अपराध माना जा सकता है।","explanation_en":"Indian Constitution under ‘States of Union’ of establishment was done is, in which States to Union from separate being of Right not is. Federal Parliament only Union in new States of entry or their establishment tax can is and States of region, borders or name in change tax can is, or State/ States of parts to separate tax/Milakar new State of construction tax can is, but Constitution under any State to Union from separate be Sakane/tax Sakane of Right not is given. this type statement 1 is correct. Constitution of Article 19(1)(A) under all Citizens to Vak- Svatantrya and Abhivyakti-Svatantrya of Fundamental Rights obtained is, but this Right of use at India of Prabhuta and Integrity, State of security, foreign States with Maitripurna relations, Public system, Shishtachar or Sadachar of Hiton in or Court-Avaman Manahani or Aparadh- Uddipan in relation to Yuktiyukta Nirbandhan State method by Aropit tax can is. Tadanusar, India from separate being of only Vakalat to do also related method under Aparadh can be considered.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":44},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से कौन-सा सही सुमेलित नहीं है?","question_en":"Which of the following is NOT correct matched?","options":[{"hi":"सार्वजनिक स्वास्थ्य एवं स्वच्छता राज्य सूची","en":"Public health and sanitation State List"},{"hi":"जनगणना संघ सूची","en":"Census Union List"},{"hi":"राज्य सभा में सीटों का बंटवारा द्वितीय अनुसूची","en":"Rajya Sabha in seats of Bantavara second Schedule"},{"hi":"दलबदल विरोध दसवीं अनुसूची","en":"Dalabadal opposition Dasavin Schedule"}],"answer":2,"answer_note":"","explanation_hi":"सार्वजनिक स्वास्थ्य एवं स्वच्छता –सातवीं अनुसूची में राज्य सूची में (प्रविष्टि 6) जनगणना–सातवीं अनुसूची में संघ सूची में (प्रविष्टि 69) राज्य सभा में सीटों का बंटवारा–चौथी अनुसूची दल-बदल विरोध–दसवीं अनुसूची अत: स्पष्ट है कि प्रश्नगत विकल्प (c) का युग्म सही सुमेलित नहीं है।","explanation_en":"Public health and sanitation –seventh Schedule in State List in (Pravishti 6) census–seventh Schedule in Union List in (Pravishti 69) Rajya Sabha in seats of Bantavara–Chauthi Schedule party-Badal opposition–Dasavin Schedule hence: clear is that given option (c) of pair correct matched not is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":45},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत के संविधान की 11वीं अनुसूची में कितने विषय हैं?","question_en":"India of Constitution of 11th Schedule in how many subject are?","options":[{"hi":"22","en":"22"},{"hi":"24","en":"24"},{"hi":"29","en":"29"},{"hi":"32","en":"32"}],"answer":2,"answer_note":"","explanation_hi":"73वें संविधान संशोधन द्वारा संविधान में जोड़ी गई 11वीं अनुसूची में कुल 29 विषय हैं, जिन्हें पंचायतों के कार्यक्षेत्र में सौंपा गया है।","explanation_en":"73rd Constitutional Amendment by Constitution in Jori was 11th Schedule in total 29 subject are, which Panchayats of Karyakshetra in Saumpa was is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":46},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"प्रधानमंत्री कार्यालय (पी.एम.ओ.) के संबंध में निम्नलिखित में से कौन- सा कथन सत्य है/हैं? 1. यह 1977 में अस्तित्व में आया। 2. इसका प्रधान कैबिनेट सचिव होता है। नीचे दिए गए कूट से सही उत्तर चुनिए - कूट","question_en":"Prime Minister office (P.M.O.) in relation to following in from which- which statement is true/are? 1. this 1977 in existence in came. 2. its Pradhan Kaibinet Secretary occurs. Select the correct answer from the code given below - Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":2,"answer_note":"","explanation_hi":"वर्ष 1947-1977 तक प्रधानमंत्री सचिवालय के रूप में जाने गए कार्यालय का वर्ष 1977 में नामकरण प्रधानमंत्री कार्यालय (PMO–Prime Minis- ter Office) के रूप में किया गया। प्रधानमंत्री कार्यालय का सर्वोच्च अधिकारी ‘प्रधान सचिव’ (Principal Secretary) होता है। वर्तमान में प्रधानमंत्री के प्रधान सचिव डॉ. पी.के. मिश्र तथा कैबिनेट सचिव ‘राजीव गौबा’ हैं।","explanation_en":"Year 1947-1977 up to Prime Minister Secretariat as going were office of year 1977 in Namakaran Prime Minister office (PMO–Prime Minis- ter Office) as was done. Prime Minister office of supreme Officer ‘Pradhan Secretary’ (Principal Secretary) occurs. present in Prime Minister of Pradhan Secretary Dr.. P.of. Mishra and Kaibinet Secretary ‘Rajiv Gauba’ are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":47},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संविधान की छठी अनुसूची के प्रावधान निम्नलिखित में से किस राज्य में लागू होते हैं?","question_en":"Indian Constitution of Chhathi Schedule of provision following in from which State in implemented occur?","options":[{"hi":"त्रिपुरा","en":"Tripura"},{"hi":"सिक्किम","en":"Sikkim"},{"hi":"नगालैंड","en":"Nagaland"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":0,"answer_note":"","explanation_hi":"असम, मेघालय, त्रिपुरा और मिजोरम के जनजातीय क्षेत्रों में प्रशासन हेतु छठी अनुसूची के प्रावधान लागू होते हैं। छठी अनुसूची इन राज्यों में स्वायत्त जिला परिषद (Autonomous District Council) की स्थापना की अनुमति प्रदान करती है। सिक्किम एवं नगालैंड इसमें नहीं शामिल हैं।","explanation_en":"Assam, Meghalaya, Tripura and Mizoram of tribal regions in Administration for Chhathi Schedule of provision implemented occur. Chhathi Schedule these States in Svayatta district Council (Autonomous District Council) of establishment of permission provided did is. Sikkim and Nagaland in this not included are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":48},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नांकित में से कौन-सा सही सुमेलित नहीं है?","question_en":"Following in from which-which correct matched not is?","options":[{"hi":"बंदी प्रत्यक्षीकरण ‘टू हैव दि बॉडी ऑफ’","en":"Bandi Pratyakshikaran ‘to Haiv Di Bodi of’"},{"hi":"परमादेश ‘वी कमाण्ड","en":"Paramadesh ‘V Kamanda"},{"hi":"प्रतिषेध ‘टू बी सर्टिफाइड’","en":"Pratishedh ‘to B Sartiphaid’"},{"hi":"अधिकार पृच्छा ‘बाई व्हाट अथॉरिटी’","en":"Right Prichchha ‘Baee Vhat Athoriti’"}],"answer":2,"answer_note":"","explanation_hi":"टू बी सर्टिफाइड उत्प्रेषण रिट के लिए प्रयुक्त शब्दार्थ है, न कि प्रतिषेध रिट के लिए। शेष युग्म सही हैं।","explanation_en":"To B Sartiphaid Utpreshan Writ for used Shabdartha is, not that Pratishedh Writ for. remaining pair correct are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":49},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"धन विधेयक भारत के संविधान के किस अनुच्छेद में परिभाषित किया गया है?","question_en":"Money Bill India of Constitution of which Article in defined was done is?","options":[{"hi":"अनुच्छेद 109","en":"Article 109"},{"hi":"अनुच्छेद 110","en":"Article 110"},{"hi":"अनुच्छेद 111","en":"Article 111"},{"hi":"अनुच्छेद 112","en":"Article 112"}],"answer":1,"answer_note":"","explanation_hi":"धन विधेयक संविधान के अनुच्छेद 110 (1) में परिभाषित है। धन विधेयक (Money Bill) राष्ट्रपति की सिफारिश से लोक सभा में ही प्रस्तुत हो सकता है, राज्य सभा में नहीं। लोक सभा का अध्यक्ष अपना हस्ताक्षर करके इसे धन विधेयक घोषित करता है। लोक सभा द्वारा पारित होने पर धन विधेयक राज्य सभा में विचारार्थ भेजा जाता है। यदि राज्य सभा विधेयक प्राप्त करने के 14 दिनों के भीतर अपनी सिफारिशों के साथ लोक सभा के पास उस विधेयक को वापस कर दे तो लोक सभा उसकी सिफारिशों पर विचार करेगी, लेकिन लोक सभा को पूर्ण अधिकार है कि वह उन सिफारिशों को स्वीकृत करे या अस्वीकृत।","explanation_en":"Money Bill Constitution of Article 110 (1) in defined is. Money Bill (Money Bill) President of recommendation from Lok Sabha in only presented be can is, Rajya Sabha in not. Lok Sabha of Chairman its own signature by doing it Money Bill declared does is. Lok Sabha by passed being at Money Bill Rajya Sabha in Vicharartha Bheja goes is. if Rajya Sabha Bill obtained doing of 14 days of within its own recommendations with Lok Sabha of near that Bill to Vapas tax De then Lok Sabha its recommendations at consideration Karegi, but Lok Sabha to complete Right is that that those recommendations to approved Kare or Asvikrit.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":50},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय भाषाओं का केंद्रीय संस्थान निम्नलिखित में से किस स्थान पर अवस्थित है?","question_en":"Indian languages of Central Institute following in from which place at is situated?","options":[{"hi":"वाराणसी","en":"Varanasi"},{"hi":"मैसूर","en":"Mysore"},{"hi":"नई दिल्ली","en":"New Delhi"},{"hi":"शिमला","en":"Shimla"}],"answer":1,"answer_note":"","explanation_hi":"केंद्रीय भारतीय भाषा संस्थान (Central Institute of Indian Lan- guages) मैसूर में स्थित है। वर्ष 2019 में इस संस्थान ने अपनी स्वर्ण जयंती (1969-2019) मनाई।","explanation_en":"Central Indian language Institute (Central Institute of Indian Lan- guages) Mysore in is located. year 2019 in this Institute its own gold birth anniversary (1969-2019) Manaee.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":51},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत के संविधान की प्रस्तावना में कितने प्रकार का न्याय, स्वतंत्रता, समानता एवं भ्रातृत्व का उसी क्रम में उल्लेख किया गया है?","question_en":"India of Constitution of Preamble in how many type of Justice, Freedom, Equality and Bhratritva of that very order in mention was done is?","options":[{"hi":"3, 5, 2, 1","en":"3, 5, 2, 1"},{"hi":"1, 3, 5, 2","en":"1, 3, 5, 2"},{"hi":"2, 5, 3, 1","en":"2, 5, 3, 1"},{"hi":"5, 2, 1, 3","en":"5, 2, 1, 3"}],"answer":0,"answer_note":"","explanation_hi":"भारत के संविधान की प्रस्तावना में 3 प्रकार के न्याय (सामाजिक, आर्थिक और राजनैतिक), 5 प्रकार की स्वतंत्रता (विचार, अभिव्यक्ति, विश्वास, धर्म और उपासना), 2 प्रकार की समानता (प्रतिष्ठा और अवसर) तथा 1 प्रकार की बंधुता (भ्रातृत्व) का उल्लेख किया गया है।","explanation_en":"India of Constitution of Preamble in 3 type of Justice (social, economic and political), 5 type of Freedom (consideration, Abhivyakti, Vishvas, religion and Upasana), 2 type of Equality (Pratishtha and opportunity) and 1 type of Bandhuta (Bhratritva) of mention was done is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":52},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"2017 के राष्ट्रपति चुनाव में यू.पी.ए. का उम्मीदवार कौन था?","question_en":"2017 of President Election in U.P.A. of Ummidavar which was?","options":[{"hi":"सुश्री मीरा कुमार","en":"Sushri Mira Kumar"},{"hi":"श्री गोपाल कृष्ण गांधी","en":"Shri Gopal Krishna Gandhi"},{"hi":"डॉ. करन सिंह","en":"Dr.. Karan lion"},{"hi":"उपर्युक्त में कोई नहीं","en":"Above in any not"}],"answer":0,"answer_note":"","explanation_hi":"वर्ष 2017 के भारत के राष्ट्रपति के चुनाव में NDA समर्थित उम्मीदवार राम नाथ कोविंद थे, जबकि UPA समर्थित उम्मीदवार मीरा कुमार थीं। इस चुनाव में राम नाथ कोविंद विजयी रहे। उल्लेखनीय है कि राम नाथ कोविंद वर्ष 2015-2017 तक बिहार के राज्यपाल भी रह चुके हैं। वर्तमान में भारत की राष्ट्रपति द्रौपदी मुर्मु हैं।","explanation_en":"Year 2017 of India of President of Election in NDA Samarthit Ummidavar Ram Nath Kovind were, whereas UPA Samarthit Ummidavar Mira Kumar were. this Election in Ram Nath Kovind Vijayi remained. notable is that Ram Nath Kovind year 2015-2017 up to Bihar of Governor also remain Chuke are. present in India of President Draupadi Murmu are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":53},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"नीति आयोग का प्रथम उपाध्यक्ष (उपसभापति) कौन था?","question_en":"NITI Aayog of first Vice-Chairman (Upasabhapati) which was?","options":[{"hi":"अरविंद पनगड़िया","en":"Aravind Panagariya"},{"hi":"रघुराम राजन","en":"Raghuram Rajan"},{"hi":"चंद्रशेखर सुब्रह्मण्यम","en":"Chandrashekhar Subrahmanyam"},{"hi":"राजीव कुमार","en":"Rajiv Kumar"}],"answer":0,"answer_note":"","explanation_hi":"केंद्र सरकार ने योजना आयोग के स्थान पर एक नए संस्थान के रूप में नीति आयोग का गठन (1 जनवरी, 2015) किया है। भारत का प्रधानमंत्री इसका पदेन अध्यक्ष होता है। वर्तमान में नीति आयोग के उपाध्यक्ष सुमन बेरी हैं। उल्लेखनीय है कि नीति आयोग के प्रथम उपाध्यक्ष अरविंद पनगड़िया थे।","explanation_en":"Centre Government Planning Commission of place at one new Institute as NITI Aayog of formation (1 January, 2015) done is. India of Prime Minister its ex-officio Chairman occurs. present in NITI Aayog of Vice-Chairman Suman Beri are. notable is that NITI Aayog of first Vice-Chairman Aravind Panagariya were.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":54},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में कौन-सा भारत में भाषा के आधार पर बना पहला राज्य था?","question_en":"Following in which-which India in language on the basis of became first State was?","options":[{"hi":"केरल","en":"Kerala"},{"hi":"मध्य प्रदेश","en":"Madhya Pradesh"},{"hi":"आंध्र प्रदेश","en":"Andhra Pradesh"},{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"}],"answer":2,"answer_note":"","explanation_hi":"भारत में भाषा के आधार पर सर्वप्रथम आंध्र प्रदेश का पृथक राज्य के रूप में सृजन वर्ष 1953 में हुआ। राज्य पुनर्गठन अधिनियम, 1956 द्वारा भाषायी आधार पर राज्यों का पुनर्गठन वर्ष 1956 में किया गया था।","explanation_en":"India in language on the basis of first of all Andhra Pradesh of separate State as generation year 1953 in occurred. State reorganization Act, 1956 by linguistic basis at States of reorganization year 1956 in was done was.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":55},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में कौन एक संविधानेत्तर संस्था है?","question_en":"Following in which one Sanvidhanettar Institution is?","options":[{"hi":"संघ लोक सेवा आयोग","en":"Union Public Service Commission (UPSC)"},{"hi":"वित्त आयोग","en":"Finance Commission"},{"hi":"निर्वाचन आयोग","en":"Election Commission"},{"hi":"नीति आयोग","en":"NITI Aayog"}],"answer":3,"answer_note":"","explanation_hi":"प्रश्नानुसार, दिए गए विकल्पों में से नीति आयोग एक संविधानेत्तर संस्था है। इसका उल्लेख संविधान में नहीं है। इसकी स्थापना 1 जनवरी, 2015 को केंद्रीय मंत्रिमंडल के एक संकल्प द्वारा की गई थी, जबकि संघ लोक सेवा आयोग (अनु. 315), वित्त आयोग (अनु. 280) तथा निर्वाचन आयोग (अनु. 324) संवैधानिक संस्थाएं हैं।","explanation_en":"Prashnanusar, given options in from NITI Aayog one Sanvidhanettar Institution is. its mention Constitution in not is. its establishment 1 January, 2015 to Central Cabinet of one Sankalpa by was done was, whereas Union Public Service Commission (UPSC) (Anu. 315), Finance Commission (Anu. 280) and Election Commission (Anu. 324) Constitutional Institutions are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":56},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"सरकारिया आयोग की संस्तुतियां निम्नलिखित में किससे संबंधित हैं?","question_en":"Sarakariya Commission of Sanstutiyan following in Kisase related are?","options":[{"hi":"राजस्व का वितरण","en":"Revenue of distribution"},{"hi":"राष्ट्रपति की शक्तियां एवं कार्य","en":"President of powers and function"},{"hi":"संसद की सदस्यता","en":"Parliament of Sadasyata"},{"hi":"केंद्र-राज्य संबंध","en":"Centre-State relation"}],"answer":3,"answer_note":"","explanation_hi":"केंद्र-राज्य संबंधों पर विचार करने तथा उनको सुदृढ़ करने हेतु सुझाव देने के लिए न्यायमूर्ति आर.एस. सरकारिया की अध्यक्षता में जून, 1983 में एक आयोग का गठन किया गया था। बी. शिवरामन तथा एस.आर.सेन इसके अन्य दो सदस्य थे। इस आयोग ने जनवरी, 1988 में अपनी रिपोर्ट सौंपी।","explanation_en":"Centre-State relations at consideration doing and Unako Sudrirh doing for Sujhav giving for Nyayamurti R.S. Sarakariya under the chairmanship of June, 1983 in one Commission of formation was done was. B. Shivaraman and S.R.Sen its other two Member were. this Commission January, 1988 in its own report Saumpi.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":57},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"सर्वप्रथम संसदात्मक सरकार किस देश में आरंभ की गई?","question_en":"First of all Sansadatmak Government which country in started was done?","options":[{"hi":"ग्रेट ब्रिटेन में (यू.के. में)","en":"Great Britain in (U.of. in)"},{"hi":"बेल्ज्यिम में","en":"Beljyim in"},{"hi":"फ्रांस में","en":"France in"},{"hi":"स्विट्जरलैंड में","en":"Svitjaralaind in"}],"answer":0,"answer_note":"","explanation_hi":"वर्तमान में संसदात्मक शासन का स्वरूप जो कि अधिकांश देशों में प्रचलित है, सर्वप्रथम ग्रेट ब्रिटेन (यू.के.) में परिलक्षित हुआ था। पुष्पेश पंत ने भी अपनी पुस्तक ‘विश्व का इतिहास’ में स्पष्ट लिखा है कि - ‘ब्रिटेन में संसदीय प्रणाली का आविर्भाव संसार के किसी भी देश से पहले हो गया था।","explanation_en":"Present in Sansadatmak Rule of nature which that most countries in Prachalit is, first of all Great Britain (U.of.) in Parilakshit took place. Pushpesh Pant also its own book ‘World of History’ in clear Likha is that - ‘Britain in Parliamentary system of Avirbhav Sansar of any also country from before be was was.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":58},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में से किसके संबंध में राज्य सभा का अनन्य अधिकार है?","question_en":"Following in from by whom relation in Rajya Sabha of Ananya Right is?","options":[{"hi":"राष्ट्रपति को अपदस्थ करने हेतु कार्यवाही प्रारंभ करना","en":"President to Apadastha doing for Karyavahi started to do"},{"hi":"सर्वोच्च न्यायालय के न्यायाधीशों को अपदस्थ करने हेतु कार्यवाही करना","en":"Supreme Court of Judges to Apadastha doing for Karyavahi to do"},{"hi":"एक नई अखिल भारतीय सेवा के सृजन हेतु संस्तुति करना","en":"One new All Indian Service of generation for Sanstuti to do"},{"hi":"उपर्युक्त कोई नहीं","en":"Above any not"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 312 के तहत एक नई अखिल भारतीय सेवा के सृजन हेतु संस्तुति करना राज्य सभा का अनन्य अधिकार है। इस अनुच्छेद के अनुसार, राज्य सभा अखिल भारतीय सेवाओं (जिसमें न्यायिक सेवा भी शामिल है) के लिए यदि उपस्थित और मत देने वाले दो-तिहाई सदस्यों से संकल्प पारित कर दे, तो संसद ऐसी सेवा या सेवाओं की स्थापना कर सकेगी। जबकि राष्ट्रपति को अपदस्थ करने हेतु कार्यवाही प्रारंभ करना तथा सर्वोच्च न्यायालय के न्यायाधीशों को अपदस्थ करने हेतु कार्यवाही करना राज्य सभा का अनन्य अधिकार नहीं है।","explanation_en":"Indian Constitution of Article 312 under one new All Indian Service of generation for Sanstuti to do Rajya Sabha of Ananya Right is. this Article according to, Rajya Sabha All Indian Services (in which Judicial Service also included is) for if present and Mat giving having two-one-third Members from Sankalpa passed tax De, then Parliament such Service or Services of establishment tax Sakegi. whereas President to Apadastha doing for Karyavahi started to do and Supreme Court of Judges to Apadastha doing for Karyavahi to do Rajya Sabha of Ananya Right not is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":59},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत के संविधान के किस भाग में हम नागरिकता से संबंधित प्रावधानों को पाते हैं?","question_en":"India of Constitution of which part in Ham Citizenship from related provisions to Pate are?","options":[{"hi":"भाग I","en":"Part I"},{"hi":"भाग II","en":"Part II"},{"hi":"भाग VII","en":"Part VII"},{"hi":"भाग IX","en":"Part IX"}],"answer":1,"answer_note":"","explanation_hi":"भारत के संविधान के भाग II के अंतर्गत अनुच्छेद 5 से 11 तक नागरिकता से संबंधित प्रावधान उल्लिखित हैं।","explanation_en":"India of Constitution of part II under Article 5 from 11 up to Citizenship from related provision mentioned are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":60},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय संविधान में भारत की आधिकारिक भाषा में जुड़े प्रावधानों में संसद संशोधन कर सकती है","question_en":"Indian Constitution in India of official language in Jure provisions in Parliament Amendment tax can is","options":[{"hi":"अपने सदस्यों के साधारण बहुमत द्वारा","en":"Its own Members of simple Majority by"},{"hi":"2/3 बहुमत द्वारा","en":"2/3 Majority by"},{"hi":"3/4 बहुमत द्वारा","en":"3/4 Majority by"},{"hi":"अपने 1/3 सदस्यों के समर्थन द्वारा","en":"Its own 1/3 Members of support by"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] उपर्युक्त प्रश्न के हिंदी और अंग्रेजी रूपों (versions) में तात्किक अंतर है। हिंदी रूप में यह प्रश्न पूछा गया प्रतीत हो रहा है कि भारतीय संविधान में संघ की राजभाषा से संबंधित प्राकधानों (Provisions) में, संसद अपने सदस्यों के किस बहुमत द्वारा संशोधन करने के लिए सशक्त है। उल्लेखनीय है कि संविधान के भाग 17 के अंतर्गत अनुच्छेद 343, 344, 346 एकं 348 (1) (ख) के तहत संघ की राजभाषा के किषय से संबंधित प्राकधान दिए हुए हैं। दूसरी ओर, प्रश्न के अंग्रेजी रूप से यह प्रश्न पूछा गया प्रतीत हो रहा है कि संविधान के अंतर्गत संसद, अपने किस बहुमत द्वारा, संघ की राजभाषा संबंधी प्राकधान (Provision) का संशोधन करने के लिए अधिकृत है। प्रश्न के हिंदी रूप एकं अंग्रेजी रूप में, क्रमश: ‘‘भारत की आधिकारिक भाषा’’ एकं ‘Official Language of India’ नामक पदाकलियों का प्रयोग किया गया है, जो तकनीकी रूप से सही नहीं है। भारतीय संविधान में ‘‘भारत की राजभाषा’’ पदाकली का प्रयोग नहीं हुआ है। उसमें ‘‘संघ की राजभाषा’’ एकं ‘The Official Language of Union’ तथा ‘‘राज्य की राजभाषा या भाषाएं’’ और ‘Official Language or Languages of a State’ पदाकलियों (terms) का प्रयोग हुआ है। अतएक, प्रश्न में ‘Official Language of India’ या ‘‘भारत की आधिकारिक भाषा’’ पदाकलियों के प्रयोग से भ्रम पैदा हो रहा है। इस दृष्टि से प्रश्न यदि गलत नहीं, तो अस्पष्ट (Vague) तो है ही। यदि हम उपर्युक्त ‘गलती’ या ‘अस्पष्टता’ को प्रश्नोत्तर के लिए नजरअंदाज करें तो यह प्रतीत होता है कि प्रश्न, ‘‘संघ की राजभाषा’’ से संबंधित है। जैसा कि इस क्याख्या के प्रथम पैराग्राफ में उल्लिखित है, प्रश्न के हिंदी एकं अंग्रेजी रूपों में अंतर होने के कारण, उत्तर भी अलग-अलग होगा। हिंदी रूप के अनुसार, किकल्प (b) सही है। अनुच्छेद 343, 344, 346 और 348(1) (ख) में संशोधन, संसद द्वारा अनुच्छेद 368(2) में अधिकथित प्रक्रिया के अनुसार ही संभक है, अन्यथा नहीं। ये अनुच्छेद, अर्थात अनुच्छेद 343, 344, 346 एकं 348 (1) (ख), अनुच्छेद 368(2) के परंतुक (proviso) से शासित (govern) नहीं हैं, इसलिए इनमें संशोधन के लिए कम-से-कम आधे राज्य-किधान मंडलों का अनुसमर्थन (ratification) नहीं चाहिए। दूसरी ओर, यदि प्रश्न के अंग्रेजी रूप को स्कीकार किया जाए तो किकल्प (a) सही उत्तर होगा। संसद को अनुच्छेद 343(3) के अनुसार, अनुच्छेद 343(1) का अपकाद सृजित करते हुए, संघ की राजभाषा ‘हिंदी’ के स्थान पर या हिंदी के अतिरिक्त ‘अंग्रेजी’ को, संघ शासकीय प्रयोजनों के लिए जारी रखने के लिए कानून बनाने की शक्ति है। अनुच्छेद 100(1) के कारण ऐसा कानून संसद द्वारा अपने साधारण बहुमत से बनाया जाएगा। संसद ने अपनी इस शक्ति का प्रयोग करते हुए राजभाषा अधिनियम, 1963 अधिनियमित किया है। इस अधिनियम की धारा तीन के अनुसार, हिंदी के अतिरिक्त, अंग्रेजी भी संघ की राजभाषा के रूप में, 26 जनकरी, 1965 से प्रयुक्त होती रहेगी। संघ के कतिपय शासकीय प्रयोजनों के लिए तो अंग्रेजी, इस अधिनियम के अनुसार अनिकार्य है। स्पष्टतः उक्त अधिनियम में कोई भी संशोधन, संसद द्वारा अपने साधारण बहुमत से किया जा सकता है और तद्नुसार, संघ की राजभाषा में संविधान के अनुरूप संशोधन किया जा सकता है। प्रश्न के अंग्रेजी रूप में प्रयुक्त ‘Provision’ शब्द और ‘Under The Constitution’ शब्दों से अनुच्छेद 343 (3) में संसद को प्राप्त शक्ति का एकं शक्ति के प्रयोग में अधिनियमित राजभाषा अधिनियम का संदर्भ स्पष्ट हो रहा है। उत्तर प्रदेश लोक सेवा आयोग ने इस प्रश्न का उत्तर विकल्प (a) माना है।","explanation_en":"[Note: original Question in answer (*) marked is] above Question of Hindi and English forms (versions) in Tatkik difference is. Hindi form in this Question Puchha was Pratit be remained is that Indian Constitution in Union of Official Language from related Prakadhanon (Provisions) in, Parliament its own Members of which Majority by Amendment doing for Sashakta is. notable is that Constitution of part 17 under Article 343, 344, 346 Ekan 348 (1) (B) under Union of Official Language of Kishay from related Prakadhan given occurred are. second towards, Question of English form from this Question Puchha was Pratit be remained is that Constitution under Parliament, its own which Majority by, Union of Official Language related to Prakadhan (Provision) of Amendment doing for Adhikrit is. Question of Hindi form Ekan English form in, respectively: ‘‘India of official language’’ Ekan ‘Official Language of India’ named Padakaliyon of use was done is, which technical form from is not correct. Indian Constitution in ‘‘India of Official Language’’ Padakali of use not occurred is. Usamen ‘‘Union of Official Language’’ Ekan ‘The Official Language of Union’ and ‘‘State of Official Language or languages’’ and ‘Official Language or Languages of a State’ Padakaliyon (terms) of use occurred is. Ataek, Question in ‘Official Language of India’ or ‘‘India of official language’’ Padakaliyon of use from Bhram Paida be remained is. this vision from Question if incorrect not, then Aspashta (Vague) then is only. if Ham above ‘Galati’ or ‘Aspashtata’ to Prashnottar for Najaraandaj do then this Pratit occurs that Question, ‘‘Union of Official Language’’ from is related. Jaisa that this Kyakhya of first Pairagraph in mentioned is, Question of Hindi Ekan English forms in difference being due to, answer also separate-separate will be. Hindi form according to, Kikalpa (b) is correct. Article 343, 344, 346 and 348(1) (B) in Amendment, Parliament by Article 368(2) in Adhikathit process according to only Sambhak is, Anyatha not. these Article, i.e. Article 343, 344, 346 Ekan 348 (1) (B), Article 368(2) of proviso (proviso) from Shasit (govern) not are, therefore among these Amendment for less-from-less Adhe State-Kidhan Mandalon of Anusamarthan (ratification) not should. second towards, if Question of English form to Skikar done be then Kikalpa (a) correct answer will be. Parliament to Article 343(3) according to, Article 343(1) of Apakad Srijit did occurred, Union of Official Language ‘Hindi’ of place at or Hindi of apart from ‘English’ to, Union Shasakiy Prayojanon for released keeping for Law making of power is. Article 100(1) due to such Law Parliament by its own simple Majority from made will be. Parliament its own this power of use did occurred Official Language Act, 1963 enacted done is. this Act of Section three according to, Hindi of apart from, English also Union of Official Language as, 26 Janakari, 1965 from used is Rahegi. Union of certain Shasakiy Prayojanon for then English, this Act according to Anikarya is. Spashtatah Ukta Act in any also Amendment, Parliament by its own simple Majority from can be done and Tadnusar, Union of Official Language in Constitution of Anurup Amendment can be done. Question of English form in used ‘Provision’ term and ‘Under The Constitution’ terms from Article 343 (3) in Parliament to obtained power of Ekan power of use in enacted Official Language Act of reference clear be remained is. Uttar Pradesh Public Service Commission this Question of answer option (a) considered is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":61},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"बिना अनुमति के कितने दिन संसद से अनुपस्थित रहने पर किसी सांसद को अयोग्य घोषित किया जा सकता है?","question_en":"Without permission of how many day Parliament from Anupasthit remaining at any Sansad to Ayogya declared can be done?","options":[{"hi":"30 दिन","en":"30 day"},{"hi":"60 दिन","en":"60 day"},{"hi":"90 दिन","en":"90 day"},{"hi":"120 दिन","en":"120 day"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 101(4) के अनुसार, संसद के किसी सदस्य की सदस्यता तब समाप्त समझी जाती है, जब वह 60 दिन की अवधि तक सदन की अनुज्ञा के बिना उसके सभी अधिवेशनों से अनुपस्थित रहता है। परंतु 60 दिन की उक्त अवधि की गणना करने में किसी ऐसी अवधि को हिसाब में नहीं लिया जाएगा, जिसके दौरान सदन सत्रावसित या निरंतर चार से अधिक दिनों के लिए स्थगित रहता है।","explanation_en":"Indian Constitution of Article 101(4) according to, Parliament of any Member of Sadasyata then abolished Samajhi goes is, when that 60 day of period up to House of Anugya of without its all Sessions from Anupasthit remains is. but 60 day of Ukta period of Ganana doing in any such period to Hisab in not taken will be, whose during House Satravasit or Nirantar four from more days for Sthagit remains is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":62},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"समलैंगिकता संबंधी सर्वोच्च न्यायालय का निर्णय निम्नलिखित में किससे संबंधित है?","question_en":"Samalaingikata related to Supreme Court of decision following in Kisase is related?","options":[{"hi":"भा.द.सं. की धारा 377","en":"Bha.the.No.. of Section 377"},{"hi":"भारतीय संविधान का अनुच्छेद 377","en":"Indian Constitution of Article 377"},{"hi":"भारतीय संविधान का अनुच्छेद 277","en":"Indian Constitution of Article 277"},{"hi":"उपर्युक्त में कोई नहीं","en":"Above in any not"}],"answer":0,"answer_note":"","explanation_hi":"6 सितंबर, 2018 को सर्वोच्च न्यायालय की पांच सदस्यीय संवैधानिक पीठ ने विभिन्न याचिकाओं पर सुनवाई करते हुए IPC की धारा 377 को आंशिक रूप से असंवैधानिक घोषित किया। ज्ञातव्य है कि IPC की धारा 377 अप्राकृतिक यौन अपराधों से संबंधित है।","explanation_en":"6 September, 2018 to Supreme Court of five member Constitutional Pith various Yachikaon at Sunavaee did occurred IPC of Section 377 to Anshik form from Asanvaidhanik declared done. notably is that IPC of Section 377 Aprakritik Yaun Aparadhon from is related.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":63},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"राज्य के नीति निदेशक तत्व सहज अध्ययन के लिए निम्न में से कौन- से भागों में विभाजित किए जा सकते हैं?","question_en":"Directive Principles of State Policy (DPSP) Sahaj study for low in from which- from parts in divided done be can are?","options":[{"hi":"समाजवादी","en":"Socialist"},{"hi":"उदार बौद्धिकतावादी","en":"Udar Bauddhikatavadi"},{"hi":"गांधीवादी","en":"Gandhivadi"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान के अंतर्गत राज्य के नीति निदेशक तत्वों का उल्लेख भाग 4 के अनुच्छेद 36 से 51 के तहत किया गया है। इसे आयरलैंड के संविधान से लिया गया है। राज्य के नीति निदेशक तत्वों को सहज अध्ययन के लिए समाजवादी, उदार बौद्धिकतावादी, गांधीवादी आदि भागों में विभाजित किया जा सकता है। राज्य के नीति निदेशक तत्व की प्रवृत्ति सकारात्मक है तथा यह गैर-न्यायोचित है।","explanation_en":"Indian Constitution under Directive Principles of State Policy (DPSP)s of mention part 4 of Article 36 from 51 under was done is. it Ayaralaind of Constitution from taken was is. Directive Principles of State Policy (DPSP)s to Sahaj study for Socialist, Udar Bauddhikatavadi, Gandhivadi etc. parts in divided can be done. Directive Principles of State Policy (DPSP) of trend Sakaratmak is and this non--Nyayochit is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":64},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में किसे अशोक चंद्रा द्वारा भारत में ‘आर्थिक मंत्रिपरिषद’ कहा गया?","question_en":"Following in which Ashoka Chandra by India in ‘economic Council of Ministers ’ said was?","options":[{"hi":"योजना आयोग","en":"Planning Commission"},{"hi":"वित्त आयोग","en":"Finance Commission"},{"hi":"केंद्रीय मंत्रिपरिषद","en":"Central Council of Ministers"},{"hi":"प्रशासनिक सुधार आयोग","en":"Administrative reform Commission"}],"answer":0,"answer_note":"","explanation_hi":"अशोक चंद्रा द्वारा टिप्पणी के रूप में ‘योजना आयोग’ (अब समाप्त करके नीति आयोग प्रतिस्थापित) को ‘आर्थिक मंत्रिपरिषद’ (Economic Cabinet) कहा गया था।","explanation_en":"Ashoka Chandra by Tippani as ‘ Planning Commission ’ (Ab abolished by doing NITI Aayog Pratisthapit) to ‘economic Council of Ministers ’ (Economic Cabinet) said was was.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":65},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारतीय न्यायिक व्यवस्था में जब जनहित याचिका को शामिल किया गया, उस समय भारत के मुख्य न्यायाधीश कौन थे?","question_en":"Indian Judicial system in when Public Interest Litigation (PIL) to included was done, that time India of main Judge which were?","options":[{"hi":"एम. हिदायतुल्ला","en":"M. Hidayatulla"},{"hi":"ए.एम. अहमदी","en":"A.M. Ahamadi"},{"hi":"पी.एन. भगवती","en":"P.N. Bhagavati"},{"hi":"ए.एस. आनंद","en":"A.S. Anand"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] भारतीय न्यायिक क्यकस्था में सर्वोच्च न्यायालय की पहल पर जनहित याचिकाओं (Public Interest Litigation) की शुरुआत हुई। इसके तहत नागरिक समाज का कोई क्यक्ति या समूह जनहित के मामलों में न्यायिक उपचार प्राप्त करने हेतु न्यायालय की शरण ले सकता है। सर्कप्रथम सर्वोच्च न्यायालय के न्यायाधीश पी.एन. भगकती द्वारा कर्ष 1979 में हुसैनारा खातून बनाम बिहार राज्य वाद में जनहित याचिका स्कीकार की गई थी। इस याचिका को पुष्पा कपिला हिंगोरानी (Pushpa Kapila Hingorani) ने दाखिल किया था। इन्हें ‘जनहित याचिका की माता’ (Mother of PIL) के नाम से भी जाना जाता है।उल्लेखनीय है कि जिस समय पी.एन. भगकती ने यह याचिका स्कीकार की थी, उस समय के सर्वोच्च न्यायालय के न्यायाधीश थे, न कि मुख्य न्यायाधीश। सर्वोच्च न्यायालय में न्यायाधीश के रूप में इनकी नियुक्ति 17 जुलाई, 1973 को हुई, जबकि मुख्य न्यायाधीश के रूप में इनका कार्यकाल 12 जुलाई, 1985 से 20 दिसंबर, 1986 तक था। जबकि पहली जनहित याचिका स्कीकार करने के समय काई.की. चंद्रचूड़ (22 फरकरी, 1978 से 11 जुलाई, 1985 तक) सर्वोच्च न्यायालय के मुख्य न्यायाधीश थे। उत्तर प्रदेश लोक सेवा आयोग ने इस प्रश्न का उत्तर विकल्प (c) माना है, जो कि त्रुटिपूर्ण है।","explanation_en":"[Note: original Question in answer (*) marked is] Indian Judicial Kyakastha in Supreme Court of initiative at Janahit Yachikaon (Public Interest Litigation) of beginning occurred. its under civil society of any Kyakti or group Janahit of Mamalon in Judicial treatment obtained doing for Court of Sharan Le can is. Sarkapratham Supreme Court of Judge P.N. Bhagakati by Karsha 1979 in Husainara Khatun vs. Bihar State case in Public Interest Litigation (PIL) Skikar was done was. this Petition to Pushpa Kapila Hingorani (Pushpa Kapila Hingorani) Dakhil did. them ‘ Public Interest Litigation (PIL) of Mata’ (Mother of PIL) of name from also is known. notable is that Jis time P.N. Bhagakati this Petition Skikar did, that time of Supreme Court of Judge were, not that main Judge. Supreme Court in Judge as Inaki Appointment 17 July, 1973 to occurred, whereas main Judge as Inaka tenure 12 July, 1985 from 20 December, 1986 up to was. whereas first Public Interest Litigation (PIL) Skikar doing of time Kaee.of. Chandrachur (22 Pharakari, 1978 from 11 July, 1985 up to) Supreme Court of main Judge were. Uttar Pradesh Public Service Commission this Question of answer option (c) considered is, which that erroneous is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":66},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत की संविधान सभा की अंतिम बैठक की सही तिथि को बताइए","question_en":"India of Constituent Assembly of last Meeting of correct date to Bataie","options":[{"hi":"26 नवंबर, 1949","en":"26 November, 1949"},{"hi":"5 दिसंबर, 1949","en":"5 December, 1949"},{"hi":"24 जनवरी, 1950","en":"24 January, 1950"},{"hi":"25 जनवरी, 1950","en":"25 January, 1950"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय संविधान के निर्माण के दौरान संविधान सभा के 11 अधिवेशन हुए थे। 11वें अधिवेशन के अंतिम दिन 26 नवंबर, 1949 को संविधान को अंगीकृत किया गया था। इन 11 अधिवेशनों के अतिरिक्त संविधान सभा पुन: 24 जनवरी, 1950 को समवेत हुई थी, जब सदस्यों द्वारा भारत के संविधान पर हस्ताक्षर किए गए थे।","explanation_en":"Indian Constitution of construction during Constituent Assembly of 11 Session took place. 11th Session of last day 26 November, 1949 to Constitution to Angikrit was done was. these 11 Sessions of apart from Constituent Assembly re-: 24 January, 1950 to Samavet took place, when Members by India of Constitution at signature were done were.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":67},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"निम्नलिखित में किसे भंग नहीं किया जा सकता पर समाप्त किया जा सकता है?","question_en":"Following in which dissolved not done be can at abolished can be done?","options":[{"hi":"लोक सभा","en":"Lok Sabha"},{"hi":"राज्य सभा","en":"Rajya Sabha"},{"hi":"विधानसभा","en":"Legislative Assembly"},{"hi":"विधानपरिषद","en":"Vidhanaparishad"}],"answer":3,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 169 के अनुसार, संसद विधि द्वारा किसी राज्य में विधान परिषद के उत्सादन या सृजन के लिए उपबंध कर सकेगी, यदि उस राज्य की विधानसभा ने इस आशय का संकल्प विधानसभा की कुल सदस्य संख्या के बहुमत द्वारा तथा उपस्थित और मत देने वाले सदस्यों की संख्या के कम-से-कम दो-तिहाई द्वारा पारित कर दिया है। विधान परिषद एक स्थायी सदन है। यह भंग नहीं की जा सकती। हालांकि इसके सदस्यों का कार्यकाल 6 वर्ष होता है। अत: स्पष्ट है कि विधान परिषद को भंग नहीं किया जा सकता, लेकिन इसे समाप्त या उत्सादन किया जा सकता है। इसके अतिरिक्त लोक सभा तथा विधानसभा दोनों अस्थायी सदन हैं, ये भंग की जा सकती हैं। वहीं राज्य सभा एक स्थायी सदन है। इसे भी विधानपरिषद की भांति भंग नहीं किया जा सकता है। लेकिन इसको समाप्त किए जाने का प्रावधान संविधान में उल्लिखित नहीं है।","explanation_en":"Indian Constitution of Article 169 according to, Parliament method by any State in Legislative Council of Utsadan or generation for provision tax Sakegi, if that State of Legislative Assembly this meaning of Sankalpa Legislative Assembly of total Member number of Majority by and present and Mat giving having Members of number of less-from-less two-one-third by passed tax given is. Legislative Council one Sthayi House is. this dissolved not of be can. however its Members of tenure 6 year occurs. hence: clear is that Legislative Council to dissolved not done be can, but it abolished or Utsadan can be done. its apart from Lok Sabha and Legislative Assembly both Asthayi House are, these dissolved of be can are. Vahin Rajya Sabha one Sthayi House is. it also Vidhanaparishad of Bhanti dissolved not can be done. but Isako abolished done going of provision Constitution in mentioned not is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":68},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"भारत सरकार द्वारा ‘महिला एवं बाल विकास’ के लिए स्वतंत्र मंत्रालय कब स्थापित किया गया?","question_en":"India Government by ‘women and child development’ for independent Ministry when established was done?","options":[{"hi":"1985","en":"1985"},{"hi":"1986","en":"1986"},{"hi":"1987","en":"1987"},{"hi":"1988","en":"1988"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] महिला एवं बाल विकास विभाग वर्ष 1985 से जनवरी, 2006 तक भारत सरकार के मानव संसाधन विकास मंत्रालय के अधीन एक विभाग था। 30 जनवरी, 2006 से यह विभाग महिला एवं बाल विकास मंत्रालय नामक एक पृथक मंत्रालय के रूप में गठित हुआ। उत्तर प्रदेश लोक सेवा आयोग ने इस प्रश्न को मूल्यांकन से बाहर कर दिया है।","explanation_en":"[Note: original Question in answer (*) marked is] women and child development Department year 1985 from January, 2006 up to India Government of human resource development Ministry of under one Department was. 30 January, 2006 from this Department women and child development Ministry named one separate Ministry as constituted occurred. Uttar Pradesh Public Service Commission this Question to evaluation from outside tax given is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":69},{"topic_hi":"भारतीय राजव्यवस्था","topic_en":"Indian Polity","question_hi":"लोक सभा में केंद्रशासित क्षेत्रों का सर्वाधिक प्रतिनिधित्व कितना हो सकता है?","question_en":"Lok Sabha in Kendrashasit regions of highest representation Kitana be can is?","options":[{"hi":"15","en":"15"},{"hi":"20","en":"20"},{"hi":"25","en":"25"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"भारतीय संविधान के अनुच्छेद 81 में लोक सभा की संरचना का प्रावधान किया गया है। लोक सभा के सदस्यों की अधिकतम संख्या 552 हो सकती थी। इसमें से 530 सदस्यों का राज्यों से तथा 20 संघ शासित प्रदेशों से निर्वाचित होना निर्धारित है। वर्तमान में 543 सदस्यों में से 524 सदस्य राज्यों से, जबकि 19 सदस्य केंद्रशासित प्रदेशों से निर्वाचित होते हैं। 104वें संविधान संशोधन अधिनियम, 2019 के तहत अनुच्छेद 334 में संशोधन द्वारा लोक सभा एवं राज्य विधानसभाओं में आंग्ल-भारतीय समुदाय के सदस्यों को नाम-निर्देशित करने की व्यवस्था को समाप्त कर दिया गया है।","explanation_en":"Indian Constitution of Article 81 in Lok Sabha of structure of provision was done is. Lok Sabha of Members of maximum number 552 be can was. in this from 530 Members of States from and 20 Union Shasit States from elected to be prescribed is. present in 543 Members in from 524 Member States from, whereas 19 Member Union Territorys from elected occur. 104th Constitutional Amendment Act, 2019 under Article 334 in Amendment by Lok Sabha and State Vidhanasabhaon in Angla-Indian community of Members to name-Nirdeshit doing of system to abolished tax is given.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":70}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
+function _genPoints(t){
+  t = String(t);
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
+  return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

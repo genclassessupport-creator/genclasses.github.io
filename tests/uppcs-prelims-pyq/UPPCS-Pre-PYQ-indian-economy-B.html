@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — UPPCS Prelims PYQ — Indian Economy (Part B)</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    /* soft sage / mint-grey — eye-comfortable reading */
+    --ink0:#E6EEE9; --ink1:#F6F9F7; --ink2:#EEF3F0;
+    --glass:rgba(30,58,138,.06);
+    --line:rgba(201,214,207,.95); --line-2:rgba(30,58,138,.28);
+    --gold:#1E3A8A; --gold-hi:#172E5C; --gold-deep:#1E40AF;
+    --cream:#1F2A2E; --mist:#3D4A4F;
+    --blue:#1E40AF; --green:#1E3A8A; --rose:#C2314B;
+    --teal:#1E3A8A; --teal-hi:#1D3B6F;
+    --shadow:0 14px 36px rgba(23,46,92,.12);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(30,58,138,.07), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,59,111,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .btn.primary{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 22px rgba(30,58,138,.28)}
+  html[data-theme="light"] .btn.primary:hover{filter:brightness(1.05)}
+  html[data-theme="light"] .lang-b.on{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+  html[data-theme="light"] .option{background:#EEF3F0;border-color:#C9D6CF}
+  html[data-theme="light"] .option:hover{background:#E4EDE8;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;border-color:transparent}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#F6F9F7,#F2F6F4);border-color:#C9D6CF}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#F6F9F7,#EEF3F0)}
+  html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
+  html[data-theme="light"] .dot{background:rgba(31,42,46,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(30,58,138,.16);color:#1E3A8A}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;color:#1E3A8A}
+  html[data-theme="light"] .badge.ok{background:rgba(30,58,138,.14);color:#1E3A8A}
+  html[data-theme="light"] .badge.skip{background:rgba(31,42,46,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--teal) 0deg,var(--teal) var(--scoreDeg),rgba(31,42,46,.08) var(--scoreDeg),rgba(31,42,46,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(30,58,138,.1),0 15px 38px rgba(23,46,92,.16)}
+  html[data-theme="light"] .timer{background:rgba(30,58,138,.1);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .qno{color:#1E3A8A}
+  html[data-theme="light"] .pill{color:#1E3A8A;border-color:rgba(30,58,138,.35);background:#E3EAF6}
+  html[data-theme="light"] .btn.secondary{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
+  html[data-theme="light"] .stmt-item{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .stmt-item .tag{color:#1E3A8A}
+  html[data-theme="light"] .ar-block{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .ar-block .ar-lab{background:rgba(30,58,138,.12);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .match-col{background:#F6F9F7;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col h4{background:rgba(30,58,138,.1);color:#1E3A8A;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col .mi .mk{color:#1E3A8A}
+  html[data-theme="light"] .code-line{color:#1E3A8A}
+  html[data-theme="light"] .code-map .cm{background:rgba(30,58,138,.08);border-color:#C9D6CF}
+  html[data-theme="light"] .code-map .cm b{color:#1E3A8A}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,#E3EAF6,rgba(30,58,138,.08));color:#172E5C;border-color:rgba(30,58,138,.35)}
+
+  html[data-theme="light"] .topbar{
+    background:linear-gradient(180deg,#1E3A8A 0%,#1D3B6F 100%);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 6px 18px rgba(23,46,92,.2);
+  }
+  html[data-theme="light"] .topbar .logo,
+  html[data-theme="light"] .topbar .brand,
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .topbar .brand h1,
+  html[data-theme="light"] .topbar h1{color:#F6F9F7 !important}
+  html[data-theme="light"] .topbar .brand p{color:#B8CDF7 !important}
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6 !important;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#E3EAF6;border-color:rgba(255,255,255,.35)}
+
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"uppcs-pre-pyq-indian-economy-B","title":"UPPCS Prelims PYQ — Indian Economy (Part B)","shortTitle":"Indian Economy (Part B)","subtitle":"UPPCS Prelims · 2018–2025 · भारतीय अर्थव्यवस्था (भाग B)","tag":"UPPCS Pre PYQ","description":"UPPCS Prelims PYQs (2018–2025) — Indian Economy (Part B). Each question shows the exam/year badge. Items with official (*) key are left unscored.","durationMinutes":50,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में गरीबी के अनुमान हेतु निम्नलिखित में से कौन-सा/से विधियों का प्रयोग किया जा रहा है/हैं? 1. सिर गणना विधि 2. कैलोरी ग्रहण 3. पारिवारिक उपभोग व्यय 4. प्रति व्यक्ति आय नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"India in poverty of estimate for Which of the following is/are methods of use done be remained? 1. Sir Ganana method 2. calorie acceptance 3. Parivarik consumption expenditure 4. Per Capita Income Select the correct answer from the code given below. Code","options":[{"hi":"2 और 3","en":"2 and 3"},{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"केवल 3","en":"Only 3"},{"hi":"1, 2, 3 और 4","en":"1, 2, 3 and 4"}],"answer":1,"answer_note":"","explanation_hi":"भारत में गरीबी के अनुमान हेतु सिर गणना विधि (Head Count Ratio), कैलोरी ग्रहण (Calorie Intake) तथा पारिवारिक उपभोग व्यय (House- hold Consumption Expenditure) विधियों का प्रयोग किया जाता है।","explanation_en":"India in poverty of estimate for Sir Ganana method (Head Count Ratio), calorie acceptance (Calorie Intake) and Parivarik consumption expenditure (House- hold Consumption Expenditure) methods of use is done.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":1},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"‘आयुष्मान भारत योजना’ के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सत्य है/हैं? 1. यह योजना प्रति व्यक्ति पांच लाख रुपये का मुफ्त स्वास्थ्य बीमा प्रदान करती है। 2. इस योजना में होने वाले व्यय में केंद्र और राज्यों की भागीदारी 60 : 40 के अनुपात में होती है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"‘Ayushman India scheme’ with reference to Which of the following is/are statement true? 1. this scheme towards person five lakh rupees of Muphta health insurance provided did is. 2. this scheme in being having expenditure in centre and States of participation 60: 40 of ratio in occurs. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":1,"answer_note":"","explanation_hi":"आयुष्मान भारत योजना प्रधानमंत्री जन आरोग्य योजना (AB-PMJAY) के तहत प्रति परिवार 5 लाख रुपये तक का स्वास्थ्य बीमा कवरेज प्रदान किए जाने का प्रावधान है। इस योजना में केंद्र एवं राज्यों का योगदान क्रमश: 60 : 40 होगा। इस योजना के तहत, हिमालयी तथा पूर्वोत्तर के राज्यों में यह अनुपात 90 :10 का है।","explanation_en":"Ayushman India scheme Prime Minister public health scheme (AB-PMJAY) under towards family 5 lakh rupees up to of health insurance Kavarej provided done going of provision is. this scheme in centre and States of contribution respectively: 60: 40 will be. this scheme under, Himalayi and North-East of States in this ratio 90:10 of is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":2},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत 5 ट्रिलियन डॉलर अर्थव्यवस्था का लक्ष्य कब तक प्राप्त कर लेने का लक्ष्य रखा है?","question_en":"India 5 Triliyan dollar Economy of target when up to obtained tax Lene of target kept is?","options":[{"hi":"2022","en":"2022"},{"hi":"2024","en":"2024"},{"hi":"2026","en":"2026"},{"hi":"2030","en":"2030"}],"answer":1,"answer_note":"","explanation_hi":"वर्ष 2019 में पहली बार केंद्र सरकार द्वारा भारत की अर्थव्यवस्था को वर्ष 2024 तक 5 ट्रिलियन अमेरिकी डॉलर इकोनॉमी बनाने का महात्वाकांक्षी लक्ष्य निर्धारित किया गया था। आर्थिक समीक्षा 2019-20 खंड-1 (पृष्ठ सं. 231) के अनुसार, वर्ष 2025 तक 5 ट्रिलियन अमेरिकी डॉलर की अर्थव्यवस्था प्राप्त करने का भारत सरकार द्वारा लक्ष्य रखा गया था। भारत सरकार के वेबसाइटों पर वर्ष 2024 तथा 2025 दोनों से संबंधित आंकड़े प्राप्त हो रहे हैं, आयोग द्वारा विकल्प (b) को सही उत्तर माना गया है।","explanation_en":"Year 2019 in first time centre Government by India of Economy to year 2024 up to 5 Triliyan American dollar Ikonomi making of Mahatvakankshi target prescribed was done was. economic Samiksha 2019-20 section-1 (Prishtha No.. 231) according to, year 2025 up to 5 Triliyan American dollar of Economy obtained doing of India Government by target kept was was. India Government of Vebasaiton at year 2024 and 2025 both from related data obtained be remained are, Commission by option (b) to correct answer considered was is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":3},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"मानव गरीबी सूचकांक (एच.पी.आई.) की अवधारणा मानव विकास रिपोर्ट 1997 में प्रस्तुत की गई, लेकिन मानव विकास रिपोर्ट ने इसे बहुआयामी गरीबी सूचकांक (एम.पी.आई.) द्वारा निम्नलिखित में से किस वर्ष में प्रतिस्थापित कर दिया?","question_en":"Human poverty index (H.P.I.) of concept human development report 1997 in presented was done, but human development report it Multidimensional Poverty Index (MPI) (M.P.I.) by following in from which year in Pratisthapit tax given?","options":[{"hi":"1999","en":"1999"},{"hi":"2005","en":"2005"},{"hi":"2010","en":"2010"},{"hi":"2015","en":"2015"}],"answer":2,"answer_note":"","explanation_hi":"UNDP के अनुसार, केवल व्यक्ति की आय के मापन मात्र से उसकी निर्धनता का समग्र अनुमान नहीं लगाया जा सकता है। निर्धनता के समग्र मापन हेतु शिक्षा, स्वास्थ्य एवं जीवन स्तर के अन्य पहलुओं का मापन भी आवश्यक है। इस तथ्य को ध्यान में रखते हुए मानव विकास रिपोर्ट में वर्ष 1997 से जारी ‘मानव निर्धनता सूचकांक’ (Human Poverty Index) के स्थान पर वर्ष 2010 से ‘बहुआयामी निर्धनता सूचकांक’ (Multidimen- sional Poverty Index) प्रस्तुत किया जाने लगा। UNDP के सहयोग से ‘ऑक्सफोर्ड निर्धनता एवं मानव पहल’ (OPHI) द्वारा विकसित यह सूचकांक HDI के तीनों आयामों (शिक्षा, स्वास्थ्य एवं जीवन स्तर) के संदर्भ में 10 वंचनों पर आधारित है।","explanation_en":"UNDP according to, only person of income of measurement only from its poverty of Samagra estimate not Lagaya be can is. poverty of Samagra measurement for education, health and life level of other Pahaluon of measurement also necessary is. this fact to attention in Rakhate occurred human development report in year 1997 from released ‘human poverty index’ (Human Poverty Index) of place at year 2010 from ‘Bahuayami poverty index’ (Multidimen- sional Poverty Index) presented done going Laga. UNDP of cooperation from ‘Oksaphorda poverty and human initiative’ (OPHI) by developed this index HDI of threes Ayamon (education, health and life level) with reference to 10 Vanchanon at based is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":4},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"नीचे दो कथन दिए गए हैं, जिसमें से एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है - कथन (A) : ‘राष्ट्रीय ढांचागत पाइपलाइन’ (एन.आई.पी.) सरकार द्वारा वर्ष 2020-30 की अवधि के लिए आरंभ किया गया है। कारण (R) : एन.आई.पी. का उद्देश्य सभी को समान ढांचागत सुविधा प्राप्त कराना है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"Below two statement are given, in which from one to statement (A) and second to Reason (R) is called - statement (A): ‘National Dhanchagat pipeline’ (N.I.P.) Government by year 2020-30 of period for started was done is. Reason (R): N.I.P. of objective all to similar Dhanchagat Suvidha obtained Karana is. Select the correct answer from the code given below. Code","options":[{"hi":"(A) तथा (R) दोनों सत्य हैं और (R), (A) की सही व्याख्या करता है।","en":"Both (A) and (R) are true and (R) is the correct explanation of (A)."},{"hi":"(A) तथा (R) दोनों सत्य हैं, परंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":3,"answer_note":"","explanation_hi":"राष्ट्रीय अवसंरचना पाइपलाइन (NIP) पर गठित कार्यदल द्वारा अपनी अंतिम रिपोर्ट प्रस्तुत करने के बाद वित्तमंत्री निर्मला सीतारमण द्वारा 29 अप्रैल, 2020 को यह रिपोर्ट जारी की गई। राष्ट्रीय अवसंरचना पाइपलाइन का उद्देश्य सभी नागरिकों के जीवन की गुणवत्ता में सुधार लाना तथा देश में विश्वस्तरीय अवसंरचना उपलब्ध कराना है। कार्यदल द्वारा पेश अंतिम रिपोर्ट के अनुसार, वित्त वर्ष 2020-25 तक की अवधि के दौरान देश में अवसंरचना क्षेत्र (Infrastructure Sector) में कुल निवेश 111 लाख करोड़ रुपये रहने का अनुमान है। वित्त वर्ष 2020-25 की अवधि में अवसंरचना पर होने वाले अनुमानित पूंजीगत व्यय की लगभग 71 प्रतिशत पूंजी विभिन्न क्षेत्रों जैसे कि ऊर्जा (24%), सड़कों (18%), शहरी (17%) तथा रेलवे (12%) में निवेश की जाएगी। उपर्युक्त व्याख्या के आधार पर स्पष्ट है कि कथन (A) गलत, किंतु कारण (R) सत्य है।","explanation_en":"National infrastructure pipeline (NIP) at constituted Karyadal by its own last report presented doing after Vittamantri Nirmala Sitaraman by 29 April, 2020 to this report released was done. National infrastructure pipeline of objective all Citizens of life of quality in reform Lana and country in Vishvastariy infrastructure available Karana is. Karyadal by Pesh last report according to, finance year 2020-25 up to of period during country in infrastructure region (Infrastructure Sector) in total investment 111 lakh crore rupees remaining of estimate is. finance year 2020-25 of period in infrastructure at being having estimated Punjigat expenditure of approximately 71 percent (%) capital various regions such as that energy (24%), roads (18%), urban (17%) and railway (12%) in investment of Jaegi. above Explanation on the basis of clear is that statement (A) incorrect, but Reason (R) is true.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":5},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"विश्व बैंक की ईज ऑफ डूइंग बिजनेस रिपोर्ट के संदर्भ में निम्नलिखित कथनों में से कौन-सा/से कथन सही है/हैं? 1. ईज ऑफ डूइंग बिजनेस रिपोर्ट, 2020 में भारत का 63वां स्थान है। 2. वर्ष 2019 में ईज ऑफ डूइंग बिजनेस रिपोर्ट में भारत का 77वां स्थान था। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"World Bank of Eej of Duing Bijanes report with reference to following statements in from which-which/from statement is correct/are? 1. Eej of Duing Bijanes report, 2020 in India of 63rd place is. 2. year 2019 in Eej of Duing Bijanes report in India of 77th place was. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":2,"answer_note":"","explanation_hi":"विश्व बैंक द्वारा जारी ईज ऑफ डूइंग बिजनेस रिपोर्ट, 2020 में न्यूजीलैंड शीर्ष पर था, जबकि भारत 63वें स्थान पर था। उल्लेखनीय है कि ईज ऑफ डूइंग बिजनेस रिपोर्ट, 2019 में भारत को 77वां स्थान प्राप्त हुआ था। सितंबर, 2021 में विश्व बैंक द्वारा ईज ऑफ डूइंग बिजनेस रिपोर्ट को कुछ अनियमितता के कारण बंद करने की घोषणा की गई है।","explanation_en":"World Bank by released Eej of Duing Bijanes report, 2020 in Nyujilaind top at was, whereas India 63rd place at was. notable is that Eej of Duing Bijanes report, 2019 in India to 77th place obtained took place. September, 2021 in World Bank by Eej of Duing Bijanes report to some Aniyamitata due to Band doing of declaration was done is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":6},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"केंद्रीय बजट 2020-21 के द्वारा उत्कृष्ट कॉर्पोरेट बॉण्ड में विदेशी पोर्टफोलियो निवेश की सीमा बढ़ा दी गई है","question_en":"Central budget 2020-21 by Utkrishta Korporet Bonda in foreign Portapholiyo investment of border Barha is given","options":[{"hi":"9% तक","en":"9% up to"},{"hi":"10% तक","en":"10% up to"},{"hi":"12% तक","en":"12% up to"},{"hi":"15% तक","en":"15% up to"}],"answer":3,"answer_note":"","explanation_hi":"केंद्रीय बजट 2020-21 के अनुसार, उत्कृष्ट कॉर्पोरेट बॉण्ड में विदेशी पोर्टफोलियो निवेश की सीमा 9 प्रतिशत से बढ़ाकर 15 प्रतिशत कर दी गई थी।","explanation_en":"Central budget 2020-21 according to, Utkrishta Korporet Bonda in foreign Portapholiyo investment of border 9 percent (%) from Barhakar 15 percent (%) tax given was was.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":7},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए - सूची - I सूची - II (योजना) (प्रारंभ वर्ष) A. पी.एम. जन आरोग्य अभियान 1. 2015 B. पी.एम. वय वंदन योजना 2. 2018 C. पी.एम. रोजगार प्रोत्साहन योजना 3. 2017 D. स्वच्छ भारत अभियान 4. 2014 कूट : A B C D","question_en":"List - I to List - II from matched do and lists of Select the correct answer from the code given below - List - I List - II (scheme) (started year) A. P.M. public health campaign 1. 2015 B. P.M. Vay Vandan scheme 2. 2018 C. P.M. employment incentive scheme 3. 2017 D. clean India campaign 4. 2014 Code: A B C D","options":[{"hi":"2 3 1 4","en":"2 3 1 4"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"2 4 3 1","en":"2 4 3 1"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] सही सुमेलन है - सूची - I सूची - II (योजना) (प्रारंभ वर्ष) पी.एम. जन आरोग्य अभियान 2018 पी.एम. वय वंदन योजना 2017 पी.एम. रोजगार प्रोत्साहन योजना 2016* स्वच्छ भारत अभियान 2014 प्रधानमंत्री रोजगार प्रोत्साहन योजना 2016 में लांच की गई थी, न कि 2015 में। नोट- उत्तर प्रदेश लोक सेवा आयोग द्वारा जारी अंतिम उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर कर दिया गया। 186","explanation_en":"[Note: original Question in answer (*) marked is] correct matching is - List - I List - II (scheme) (started year) P.M. public health campaign 2018 P.M. Vay Vandan scheme 2017 P.M. employment incentive scheme 2016* clean India campaign 2014 Prime Minister employment incentive scheme 2016 in launched was done was, not that 2015 in. Note- Uttar Pradesh Public Service Commission by released last answer key in this Question to evaluation from outside tax given was. 186","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":8},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"विकास, अनुवीक्षण और मूल्यांकन कार्यालय जो दीर्घकालिक नीति का अनुवीक्षण करता है, निम्नलिखित में से किस कार्यालय के अंतर्गत आता है?","question_en":"Development, Anuvikshan and evaluation office which Dirghakalik policy of Anuvikshan does is, following in from which office under comes is?","options":[{"hi":"प्रधानमंत्री कार्यालय","en":"Prime Minister office"},{"hi":"गृह मंत्रालय","en":"Home Ministry"},{"hi":"मंत्रिमंडल सचिवालय","en":"Cabinet Secretariat"},{"hi":"नीति आयोग","en":"NITI Aayog"}],"answer":3,"answer_note":"","explanation_hi":"विकास, अनुवीक्षण और मूल्यांकन कार्यालय (DMEO) की स्थापना सितंबर, 2015 में पूर्ववर्ती कार्यक्रम मूल्यांकन कार्यालय (PEO) और स्वतंत्र मूल्यांकन कार्यालय (IEO) का विलय कर की गई थी। यह नीति आयोग का एक संबद्ध कार्यालय है, जिसका उद्देश्य संगठन के अनुवीक्षण एवं मूल्यांकन अधिदेश को पूरा करना और भारत में अनुवीक्षण और मूल्यांकन पारितंत्र का निर्माण करना है।","explanation_en":"Development, Anuvikshan and evaluation office (DMEO) of establishment September, 2015 in Purvavarti programme evaluation office (PEO) and independent evaluation office (IEO) of Vilay tax was done was. this NITI Aayog of one associated office is, whose objective Organization of Anuvikshan and evaluation Adhidesh to complete to do and India in Anuvikshan and evaluation Paritantra of construction to do is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":9},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित में से कौन-सा कथन खुदरा व्यापारियों/दुकानदारों और स्वरोजगार वाले व्यक्तियों के लिए राष्ट्रीय पेंशन योजना के बारे में सही नहीं है?","question_en":"Which of the following is NOT statement Khudara Vyapariyon/Dukanadaron and self-employment having persons for National pension scheme of about in correct?","options":[{"hi":"18 से 40 वर्ष आयु वर्ग के लोग इसके पात्र हैं।","en":"18 from 40 year age class of Log its Patra are."},{"hi":"उनका वार्षिक लेन-देन (टर्नओवर) रुपया 1.5 करोड़ से अधिक न हो।","en":"Their annual Len-Den (Tarnaovar) rupee 1.5 crore from more not be."},{"hi":"राष्ट्रीय पेंशन योजना के सदस्य इसके पात्र हैं।","en":"National pension scheme of Member its Patra are."},{"hi":"इसके अंतर्गत रुपया 3000.00 का मासिक पेंशन सुनिश्चित है।","en":"Its under rupee 3000.00 of Masik pension ensured is."}],"answer":2,"answer_note":"","explanation_hi":"ऐसे खुदरा व्यापारी/दुकानदार/स्वनियोजित व्यक्ति जिनका वार्षिक लेन- देन 1.5 करोड़ रुपये से अधिक नहीं है, वे राष्ट्रीय पेंशन योजना के पात्र हैं। पात्रता हेतु निर्धारित आयु सीमा 18-40 वर्ष है। यह एक ऐच्छिक एवं अंशदायी पेंशन योजना है, जिसके तहत 60 वर्ष की आयु प्राप्त करने पर न्यूनतम 3000 रुपये प्रति माह की सुनिश्चित पेंशन प्रदान की जाती है।","explanation_en":"Such Khudara Vyapari/Dukanadar/Svaniyojit person whose annual Len- Den 1.5 crore rupees from more not is, they National pension scheme of Patra are. Patrata for prescribed age border 18-40 year is. this one Aichchhik and Anshadayi pension scheme is, whose under 60 year of age obtained doing at minimum 3000 rupees towards month of ensured pension provided is done.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":10},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"‘‘निधि’’ कार्यक्रम के संदर्भ में निम्न में से कौन-सा/से कथन सही है/ हैं? 1. ‘‘निधि’’ कार्यक्रम छात्रों के लिए स्टार्टअप हेतु प्रारंभ किया गया है। 2. इसका उद्देश्य 20 छात्रों के स्टार्टअप हेतु प्रतिवर्ष वित्तीय सहायता करना है। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"‘‘Nidhi’’ programme with reference to low in from which-which/from statement is correct/ are? 1. ‘‘Nidhi’’ programme students for Startaap for started was done is. 2. its objective 20 students of Startaap for annually financial assistance to do is. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":2,"answer_note":"","explanation_hi":"विज्ञान एवं प्रौद्योगिकी विभाग ने विचारों एवं नवाचारों को सफल स्टार्टअप के रूप में रूपांतरित करने के लिए निधि (NIDHI : National Initia- tive for Developing & Harnessing Innovations) प्रारंभ किया है। इसका उद्देश्य प्रति वर्ष 20 छात्रों के स्टार्टअप्स को वित्तीय रूप से सहयोग प्रदान करना है।","explanation_en":"Science and technology Department considerations and innovations to successful Startaap as Rupantarit doing for Nidhi (NIDHI: National Initia- tive for Developing & Harnessing Innovations) started done is. its objective towards year 20 students of Startaapsa to financial form from cooperation provided to do is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":11},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है - कथन (A) : केंद्रीय बजट 2020-21 में कृषि की आय दोगुनी करने के उद्देश्य के साथ ग्रामीण विकास पर ध्यान केंद्रित किया गया है। कारण (R) : बजट में घोषित 16 सूत्रीय कार्यक्रम कृषि, सिंचाई तथा ग्रामीण विकास के चतुर्दिक केंद्रित है। नीचे दिए गए कूट में से सही उत्तर का चयन कीजिए। कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R) - statement (A): Central budget 2020-21 in agriculture of income Doguni doing of objective with rural development at attention centred was done is. Reason (R): budget in declared 16 Sutriy programme agriculture, irrigation and rural development of Chaturdik centred is. Select the correct answer from the code given below. Code","options":[{"hi":"(A) तथा (R) दोनों सत्य हैं तथा (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both true are and (R), (A) of correct Explanation does is."},{"hi":"(A) तथा (R) दोनों सत्य हैं, परंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"Both (A) and (R) are true, but (R) is not the correct explanation of (A)."},{"hi":"(A) सत्य है, परंतु (R) गलत है।","en":"(A) is true, but (R) is false."},{"hi":"(A) गलत है, परंतु (R) सत्य है।","en":"(A) is false, but (R) is true."}],"answer":0,"answer_note":"","explanation_hi":"केंद्रीय बजट 2020-21 के तीन प्रमुख घटकों ‘महत्वाकांक्षी भारत, सभी के लिए आर्थिक विकास तथा जिम्मेदार समाज’ को ध्यान में रखकर तैयार किया गया था। महत्वाकांक्षी भारत के तहत कृषि, सिंचाई और ग्रामीण विकास पहला मद था। बजट अनुमान 2020-21 में कृषि, सिंचाई एवं संबद्ध गतिविधियों तथा ग्रामीण विकास एवं पंचायती राज हेतु कुल 2.83 लाख करोड़ रुपये आवंटित था। बजट के अनुसार, सरकार का उद्देश्य वर्ष 2022 तक किसानों की आय दोगुना करने के साथ-साथ ग्रामीण विकास पर ध्यान केंद्रित करना था, जिसके लिए सरकार द्वारा 16 सूत्रीय कार्यक्रम की घोषणा की गई थी। उपर्युक्त व्याख्या के आधार पर स्पष्ट है कि कथन (A) एवं कारण (R) दोनों ही सत्य हैं तथा कारण (R), कथन (A) की सही व्याख्या भी करता है।","explanation_en":"Central budget 2020-21 of three major components ‘Mahatvakankshi India, all for economic development and Jimmedar society’ to attention in Rakhakar prepared was done was. Mahatvakankshi India under agriculture, irrigation and rural development first Mad was. budget estimate 2020-21 in agriculture, irrigation and associated activities and rural development and Panchayati Raj for total 2.83 lakh crore rupees Avantit was. budget according to, Government of objective year 2022 up to farmers of income Doguna doing with-with rural development at attention centred to do was, whose for Government by 16 Sutriy programme of declaration was done was. above Explanation on the basis of clear is that statement (A) and Reason (R) both only true are and Reason (R), statement (A) of correct Explanation also does is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":12},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"ट्रैवल एंड टूरिज्म प्रतियोगितात्मक सूचकांक (टी.टी.सी.आई.) जारी किया जाता है","question_en":"Traival and Turijma Pratiyogitatmak index (T.T.C.I.) released is done","options":[{"hi":"विश्व बैंक द्वारा","en":"World Bank by"},{"hi":"अंतरराष्ट्रीय मुद्रा कोष द्वारा","en":"International Monetary Fund (IMF) by"},{"hi":"विश्व आर्थिक मंच द्वारा","en":"World economic platform by"},{"hi":"संयुक्त राष्ट्र विकास कार्यक्रम द्वारा","en":"United Nations Development Programme (UNDP) by"}],"answer":2,"answer_note":"","explanation_hi":"यात्रा एवं पर्यटन प्रतियोगात्मकता सूचकांक (TTCI) सर्वप्रथम वर्ष 2007 में तैयार किया गया था। इस सूचकांक के तहत उन घटकों एवं नीतियों का मापन किया जाता है, जो यात्रा एवं पर्यटन क्षेत्र के सतत विकास को सुनिश्चित करते हैं। यह सूचकांक यात्रा एवं पर्यटन प्रतियोगितात्मकता रिपोर्ट के अंतर्गत जारी किया जाता है, जो विश्व आर्थिक मंच का एक प्रमुख उत्पाद है।","explanation_en":"Journey and tourism Pratiyogatmakata index (TTCI) first of all year 2007 in prepared was done was. this index under those components and Nitiyon of measurement is done, which journey and tourism region of Sustainable Development to ensured did are. this index journey and tourism Pratiyogitatmakata report under released is done, which World economic platform of one major product is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":13},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए और उन्हें कालक्रमानुसार व्यवस्थित कीजिए - 1. नाबार्ड की स्थापना 2. स्वयं सहायता समूह का बैंक लिंकेज कार्यक्रम 3. किसान क्रेडिट कार्ड योजना 4. क्षेत्रीय ग्रामीण बैंक की स्थापना नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"Consider the following events and them arrange them in chronological order - 1. Nabarda of establishment 2. itself assistance group of Bank Linkej programme 3. farmer credit Karda scheme 4. regional rural Bank of establishment Select the correct answer from the code given below. Code","options":[{"hi":"4, 1, 2, 3","en":"4, 1, 2, 3"},{"hi":"4, 2, 3, 1","en":"4, 2, 3, 1"},{"hi":"1, 2, 3, 4","en":"1, 2, 3, 4"},{"hi":"4, 3, 2, 1","en":"4, 3, 2, 1"}],"answer":0,"answer_note":"","explanation_hi":"संस्थाएं स्थापना वर्ष नाबार्ड 1982 स्वयं सहायता समूह का बैंक लिंकेज कार्यक्रम 1992-93 किसान क्रेडिट कार्ड योजना 1998 क्षेत्रीय ग्रामीण बैंक 1975 अत: विकल्प (a) सही कालक्रम होगा।","explanation_en":"Institutions establishment year Nabarda 1982 itself assistance group of Bank Linkej programme 1992-93 farmer credit Karda scheme 1998 regional rural Bank 1975 hence: option (a) correct chronology will be.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":14},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"कौशल भारत अभियान के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. कौशल भारत अभियान की शुरुआत प्रधानमंत्री ने जुलाई, 2015 में की थी। 2. इस अभियान का मुख्य उद्देश्य भारत के युवाओं को सूचना तकनीक में प्रशिक्षित करना था। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"With reference to skill India campaign, which of the following statements is/are correct? 1. skill India campaign of beginning Prime Minister July, 2015 in did. 2. this campaign of main objective India of youth to information Takanik in Prashikshit to do was. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":0,"answer_note":"","explanation_hi":"प्रधानमंत्री द्वारा कौशल भारत अभियान जुलाई, 2015 में लांच किया गया था। इस अभियान के तहत कौशल विकास एवं उद्यमिता मंत्रालय का उद्देश्य दीर्घावधि एवं अल्पावधि प्रशिक्षण के माध्यम से युवाओं को नियोजनीय कौशल से संपन्न करना है।","explanation_en":"Prime Minister by skill India campaign July, 2015 in launched was done was. this campaign under skill development and entrepreneurship Ministry of objective Dirghavadhi and Alpavadhi training through youth to Niyojaniy skill from held to do is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":15},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"बहुआयामी निर्धनता सूचकांक में सम्मिलित होता है - i. स्वास्थ्य ii. शिक्षा iii. जीवन-स्तर नीचे दिए हुए कूटों में से सही उत्तर चुनिए","question_en":"Bahuayami poverty index in included occurs - i. health ii. education iii. life-level below given occurred codes in from select the correct answer","options":[{"hi":"केवल i सही है।","en":"Only i is correct."},{"hi":"केवल ii और iii सही हैं।","en":"Only ii and iii correct are."},{"hi":"केवल i और ii सही हैं।","en":"Only i and ii correct are."},{"hi":"i, ii और iii सही हैं।","en":"I, ii and iii correct are."}],"answer":3,"answer_note":"","explanation_hi":"वैश्विक बहुआयामी गरीबी सूचकांक 100 से अधिक विकासशील देशों में चरम बहुआयामी गरीबी का एक अंतरराष्ट्रीय मापक है। यह शिक्षा, स्वास्थ्य एवं जीवन-स्तर के संदर्भ में चरम निर्धनता (Acute poverty) का मापन करता है।","explanation_en":"Global Multidimensional Poverty Index (MPI) 100 from more developing countries in Charam Bahuayami poverty of one International Mapak is. this education, health and life-level with reference to Charam poverty (Acute poverty) of measurement does is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":16},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित में से किस प्रत्यक्ष लाभ योजना को ‘गिनीज बुक ऑफ वर्ल्ड रिकॉर्ड’ द्वारा विश्व की सबसे बड़ी प्रत्यक्ष लाभ योजना माना गया है?","question_en":"Following in from which direct benefit scheme to ‘Ginij Buk of World Rikorda’ by World of most large direct benefit scheme considered was is?","options":[{"hi":"मनरेगा (MGNREGA)","en":"Manarega (MGNREGA)"},{"hi":"पहल (PAHAL)","en":"Initiative (PAHAL)"},{"hi":"एन.एस.ए.पी. (NSAP)","en":"N.S.A.P. (NSAP)"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"वर्ष 2015 में केंद्रीय पेट्रोलियम और प्राकृतिक गैस मंत्रालय को उसकी ‘पहल’ (PAHAL) योजना हेतु गिनीज बुक ऑफ वर्ल्ड रिकॉर्ड्स (वर्तमान नाम- गिनीज वर्ल्ड रिकॉर्ड्स) द्वारा विश्व की सबसे बड़ी प्रत्यक्ष लाभ (नकद हस्तांतरण) योजना के रिकॉर्ड का प्रमाण-पत्र दिया गया था। ‘पहल’ योजना का पूरा नाम ‘प्रत्यक्ष हस्तांतरित लाभ’ (Pratayaksh Hastaantarit Labh) है। केंद्रीय पेट्रोलियम और प्राकृतिक गैस मंत्रालय द्वारा यह योजना देश के 54 जिलों में 15 नवंबर, 2014 को प्रारंभ की गई थी तथा 1 जनवरी, 2015 से इसे देश के शेष जिलों में भी लागू किया गया। इस योजना के तहत शामिल एलपीजी उपभोक्ताओं को एलपीजी सिलेंडर बाजार मूल्य पर प्राप्त होता है तथा उस पर दी जाने वाली एलपीजी सब्सिडी सीधे उनके बैंक खातों में हस्तांतरित की जाती है।","explanation_en":"Year 2015 in Central petroleum and natural gas Ministry to its ‘initiative’ (PAHAL) scheme for Ginij Buk of World Rikordsa (present name- Ginij World Rikordsa) by World of most large direct benefit (Nakad Hastantaran) scheme of Rikorda of evidence-letter given was was. ‘initiative’ scheme of complete name ‘direct Hastantarit benefit’ (Pratayaksh Hastaantarit Labh) is. Central petroleum and natural gas Ministry by this scheme country of 54 districts in 15 November, 2014 to started was done was and 1 January, 2015 from it country of remaining districts in also implemented was done. this scheme under included Elapiji consumers to Elapiji Silendar market price at obtained occurs and that at given going having Elapiji subsidy directly their Bank Khaton in Hastantarit is done.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":17},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"राष्ट्रीय खाद्य सुरक्षा अधिनियम के संदर्भ में, निम्नलिखित कथनों में कौन सही है/हैं? I. यह 75 प्रतिशत ग्रामीण और 50 प्रतिशत शहरी जनसंख्या को आच्छादित करेगी। II. महिलाओं और बच्चों को पोषण संबंधी सहायता पर विशेष ध्यान देना। III. 18 वर्ष आयु से अधिक की सबसे बड़ी महिला परिवार की मुखिया होगी। नीचे दिए हुए कूटों में से सही उत्तर चुनिए","question_en":"National Food Security Act with reference to, following statements in which is correct/are? I. this 75 percent (%) rural and 50 percent (%) urban population to Achchhadit Karegi. II. women and children to nutrition related to assistance at special attention to give. III. 18 year age from more of most large women family of Mukhiya will be. below given occurred codes in from select the correct answer","options":[{"hi":"I और II सही हैं।","en":"I and II correct are."},{"hi":"II और III सही हैं।","en":"II and III correct are."},{"hi":"I, II और III सही हैं।","en":"I, II and III correct are."},{"hi":"इनमें से कोई नहीं","en":"Among these from any not"}],"answer":2,"answer_note":"","explanation_hi":"देश की जनता को खाद्य एवं पोषण सुरक्षा उपलब्ध कराने के उद्देश्य से 10 सितंबर, 2013 को ‘राष्ट्रीय खाद्य सुरक्षा अधिनियम’ अधिसूचित किया गया था। इस अधिनियम के प्रमुख प्रावधान इस प्रकार हैं– • देश की 75 प्रतिशत ग्रामीण जनसंख्या और 50 प्रतिशत शहरी जनसंख्या अर्थात देश की कुल जनसंख्या के लगभग दो-तिहाई (67 प्रतिशत) को आच्छादित करना। • पात्र परिवारों को 3 रु., 2 रु. तथा 1 रु. की सब्सिडीकृत कीमत पर क्रमश: चावल, गेहूं तथा मोटे अनाज की 5 किग्रा. मात्रा प्रति व्यक्ति प्रतिमाह उपलब्ध कराना। • ‘अंत्योदय अन्न योजना’ (AAY) के अति निर्धन परिवारों को प्रति परिवार प्रतिमाह 35 किग्रा. खाद्यान्न रियायती दर पर प्रदान किया जाता रहेगा। • 18 वर्ष या इससे अधिक आयु की सबसे बड़ी महिला का नाम परिवार के मुखिया के तौर पर नामित करने और उन्हीं के नाम राशन कार्ड जारी करने का प्रावधान। • महिलाओं और बच्चों को पोषण संबंधी सहायता प्रदान करने संबंधी विशेष प्रावधान।","explanation_en":"Country of Janata to food and nutrition security available Karane of objective from 10 September, 2013 to ‘ National Food Security Act ’ notified was done was. this Act of major provision this type are– • country of 75 percent (%) rural population and 50 percent (%) urban population i.e. country of total population of approximately two-one-third (67 percent (%)) to Achchhadit to do. • Patra families to 3 Rs.., 2 Rs.. and 1 Rs.. of Sabsidikrit price at respectively: rice, wheat and Mote foodgrains of 5 kg. quantity towards person per month available Karana. • ‘Antyoday Anna scheme’ (AAY) of Ati poor families to towards family per month 35 kg. Khadyanna Riyayati rate at provided done goes Rahega. • 18 year or from this more age of most large women of name family of Mukhiya of manner at Namit doing and Unhin of name Rashan Karda released doing of provision. • women and children to nutrition related to assistance provided doing related to special provision.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":18},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में पट्टेदारी सुधार के उपायों के संदर्भ में, कौन-सा कथन सही है/हैं? 1. लगान का विनियमन 2. अवधि की सुरक्षा 3. पट्टेदारी पर स्वामित्व की घोषणा नीचे दिए हुए कूटों में से सही उत्तर चुनिए","question_en":"India in Pattedari reform of measures with reference to, which-which statement is correct/are? 1. land revenue of Viniyaman 2. period of security 3. Pattedari at Svamitva of declaration below given occurred codes in from select the correct answer","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 1 और 2","en":"Only 1 and 2"},{"hi":"केवल 2 और 3","en":"Only 2 and 3"},{"hi":"1 , 2 और 3","en":"1, 2 and 3"}],"answer":3,"answer_note":"","explanation_hi":"सामान्य रूप से भूमि सुधारों (Land Reforms) तथा विशेष रूप से पट्टेदारी सुधारों (Tenancy Reforms) का उद्देश्य सामाजिक न्याय के दृष्टिकोण से पट्टों या जोतों के स्वामित्व का पुनर्वितरण तथा भूमि के अनुकूलतम उपयोग की दृष्टि से प्रचालनात्मक जोतों को पुनर्संगठित करना है। भूमि सुधारों के तहत मध्यवर्तियों का उन्मूलन और पट्टेदारी सुधार जिसके तहत लगान का विनियमन, पट्टेदारों हेतु पट्टा अवधि की सुरक्षा तथा उन्हें पट्टेदारी का स्वामित्व प्रदान करना शामिल हैं। इस पूरी अवधारणा का उद्देश्य वास्तविक कृषकों को अधिकार प्रदान कर उन्हें राज्य के प्रत्यक्ष संपर्क में लाना है। पट्टेदारी की सुरक्षा और लगान के विनियमन के साथ वास्तविक कृषकों को पट्टेदारी पर स्वामित्व प्रदान करना कृषकों को उनके श्रम का समुचित प्रतिफल उपलब्ध कराने हेतु आवश्यक है।","explanation_en":"General form from land reforms (Land Reforms) and special form from Pattedari reforms (Tenancy Reforms) of objective social Justice of perspective from Patton or Joton of Svamitva of Punarvitaran and land of Anukulatam use in terms of Prachalanatmak Joton to Punarsangathit to do is. land reforms under Madhyavartiyon of eradication and Pattedari reform whose under land revenue of Viniyaman, Pattedaron for Patta period of security and them Pattedari of Svamitva provided to do included are. this entire concept of objective real farmers to Right provided tax them State of direct Samparka in Lana is. Pattedari of security and land revenue of Viniyaman with real farmers to Pattedari at Svamitva provided to do farmers to their labour of Samuchit Pratiphal available Karane for necessary is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":19},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में सार्वजनिक क्षेत्र के कार्यों के संदर्भ में, निम्नलिखित में से कौन-सा कथन सही है/हैं? I. सार्वजनिक उपयोगिता संसाधन प्रदान करना II. सामाजिक और आर्थिक उपरि पूंजी का निर्माण III.संतुलित क्षेत्रीय और क्षेत्रकीय विकास सुनिश्चित करना IV .समतावादी लक्ष्यों को आगे बढ़ाना नीचे दिए कूटों में से सही उत्तर चुनिए","question_en":"India in public region of functions with reference to, following in from which-which statement is correct/are? I. public Upayogita resource provided to do II. social and economic Upari capital of construction III.Santulit regional and Kshetrakiy development ensured to do IV.Samatavadi targets to ahead Barhana below given codes in from select the correct answer","options":[{"hi":"I, II और III सही हैं।","en":"I, II and III correct are."},{"hi":"II, III और IV सही हैं।","en":"II, III and IV correct are."},{"hi":"I, II, III और IV सही हैं।","en":"I, II, III and IV correct are."},{"hi":"I, III और IV सही हैं।","en":"I, III and IV correct are."}],"answer":2,"answer_note":"","explanation_hi":"भारत में सार्वजनिक क्षेत्र के कार्यों और उद्देश्यों में सार्वजनिक उपयोगिता संसाधन प्रदान करना, सामाजिक और आर्थिक उपरि पूंजी का निर्माण करना, संतुलित क्षेत्रीय और क्षेत्रकीय विकास सुनिश्चित करना तथा आय और संपत्ति के पुनर्वितरण को बढ़ावा देने के माध्यम से समतावादी लक्ष्यों को आगे बढ़ाना शामिल है।","explanation_en":"India in public region of functions and objectives in public Upayogita resource provided to do, social and economic Upari capital of construction to do, Santulit regional and Kshetrakiy development ensured to do and income and property of Punarvitaran to promotion giving through Samatavadi targets to ahead Barhana included is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":20},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"राष्ट्रीय सामाजिक सहायता कार्यक्रम में ‘गरीबी रेखा से नीचे’ के लिए निम्न कार्यक्रम सम्मिलित नहीं है","question_en":"National social assistance programme in ‘ Poverty Line from below’ for low programme included not is","options":[{"hi":"राष्ट्रीय परिवार लाभ कार्यक्रम","en":"National family benefit programme"},{"hi":"अन्नपूर्णा","en":"Annapurna"},{"hi":"महिला किसान सशक्तीकरण परियोजना","en":"Women farmer empowerment project"},{"hi":"उपर्युक्त सभी","en":"All of the above"}],"answer":2,"answer_note":"","explanation_hi":"राष्ट्रीय सामाजिक सहायता कार्यक्रम (NSAP) ‘गरीबी रेखा से नीचे’ (BPL) के परिवारों के लिए एक केंद्र प्रायोजित योजना है, जिसके तहत निम्नलिखित 5 उप-योजनाएं/कार्यक्रम शामिल हैं– 1. इंदिरा गांधी राष्ट्रीय वृद्धावस्था पेंशन योजना 2. इंदिरा गांधी राष्ट्रीय विधवा पेंशन योजना 3. इंदिरा गांधी राष्ट्रीय नि:शक्तता पेंशन योजना 4. राष्ट्रीय परिवार लाभ कार्यक्रम 5. अन्नपूर्णा योजना महिला किसान सशक्तीकरण परियोजना राष्ट्रीय ग्रामीण आजीविका मिशन (NRLM) का एक उप-घटक है।","explanation_en":"National social assistance programme (NSAP) ‘ Poverty Line from below’ (BPL) of families for one centre Prayojit scheme is, whose under following 5 sub--schemes/programme included are– 1. Indira Gandhi National Vriddhavastha pension scheme 2. Indira Gandhi National Vidhava pension scheme 3. Indira Gandhi National Ni:Shaktata pension scheme 4. National family benefit programme 5. Annapurna scheme women farmer empowerment project National rural Ajivika mission (NRLM) of one sub--component is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":21},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"लघु उद्योगों के लिए बनी निम्न समितियों को कालानुक्रम में व्यवस्थित कीजिए और नीचे दिए हुए कूटों में सही उत्तर चुनिए - I. नायक समिति II. आबिद हुसैन समिति III.एस.एस. कोहली समिति IV .कार्वे समिति कूट","question_en":"Small industries for became low Committees to arrange them in chronological order and below given occurred codes in select the correct answer - I. Nayak Committee II. Abid Husain Committee III.S.S. Kohali Committee IV.Karve Committee Code","options":[{"hi":"I, II, IV , III","en":"I, II, IV , III"},{"hi":"III, II, I, IV","en":"III, II, I, IV"},{"hi":"IV , II, I, III","en":"IV , II, I, III"},{"hi":"I, II, III, IV","en":"I, II, III, IV"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] समिति गठन (वर्ष) नायक समिति 1991 आबिद हुसैन समिति 1995 एस.एस. कोहली समिति 2000 कार्वे समिति 1955 दिए गए विकल्पों में से कोई भी विकल्प सही नहीं है। इस प्रश्न के लिए ‘उत्तर प्रदेश लोक सेवा आयोग’ ने अपने अनंतिम उत्तर कुंजी में सही उत्तर विकल्प (c) दिया था, जो कि गलत था। अगर प्रश्न में यह पूछा जाता कि सबसे अंत से प्रारंभ करते हुए सबसे पहले गठित होने वाली समिति के आधार पर क्रम निर्धारित करें, तब विकल्प (b) सही हो सकता था।","explanation_en":"[Note: original Question in answer (*) marked is] Committee formation (year) Nayak Committee 1991 Abid Husain Committee 1995 S.S. Kohali Committee 2000 Karve Committee 1955 given options in from any also option is not correct. this Question for ‘ Uttar Pradesh Public Service Commission ’ its own Anantim answer key in correct answer option (c) given was, which that incorrect was. Agar Question in this Puchha goes that most end from started did occurred most before constituted being having Committee on the basis of order prescribed do, then option (b) correct be can was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":22},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूटों से सही उत्तर चुनिए - सूची - I सूची - II (कार्यक्रम) (प्रारंभ वर्ष) A. अंधत्व नियंत्रण हेतु राष्ट्रीय 1. 1975 कार्यक्रम B. समन्वित बाल विकास योजना 2. 1976 C. राष्ट्रीय कुष्ठ निवारण कार्यक्रम 3. 2005 D. राष्ट्रीय ग्रामीण स्वास्थ्य मिशन 4. 1983 कूट : A B C D","question_en":"List - I to List - II from matched do and lists of below given codes from select the correct answer - List - I List - II (programme) (started year) A. Andhatva control for National 1. 1975 programme B. integrated child development scheme 2. 1976 C. National Kushtha Nivaran programme 3. 2005 D. National rural health mission 4. 1983 Code: A B C D","options":[{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"2 4 1 3","en":"2 4 1 3"},{"hi":"2 1 4 3","en":"2 1 4 3"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":2,"answer_note":"","explanation_hi":"सूची-I सूची-II (कार्यक्रम) (प्रारंभ वर्ष) अंधत्व नियंत्रण हेतु राष्ट्रीय कार्यक्रम 1976 समन्वित बाल विकास योजना 1975 राष्ट्रीय कुष्ठ निवारण कार्यक्रम 1983 राष्ट्रीय ग्रामीण स्वास्थ्य मिशन 2005","explanation_en":"List-I List-II (programme) (started year) Andhatva control for National programme 1976 integrated child development scheme 1975 National Kushtha Nivaran programme 1983 National rural health mission 2005","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":23},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : हाल के वर्षों में भारत में महिलाओं के लिए श्रम की भागीदारी की दर में तेजी से गिरावट आई है। कारण (R) : पारिवारिक आय में सुधार एवं शिक्षा में वृद्धि के कारण से इस श्रम की भागीदारी दर में गिरावट आई है। नीचे दिए कूटों में से सही उत्तर का चयन कीजिए - कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): recent of years in India in women for labour of participation of rate in Teji from Giravat I is. Reason (R): Parivarik income in reform and education in growth due to from this labour of participation rate in Giravat I is. Select the correct answer from the codes given below - Code","options":[{"hi":"(A) तथा (R) दोनों सही हैं एवं (R) कथन (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R) statement (A) of correct Explanation is."},{"hi":"(A) तथा (R) दोनों सही हैं, परंतु (R) कथन (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R) statement (A) of correct Explanation not is."},{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."}],"answer":0,"answer_note":"","explanation_hi":"अंतरराष्ट्रीय श्रम संगठन द्वारा जारी एक रिपोर्ट के अनुसार, हाल के वर्षों में भारत में महिलाओं के लिए श्रम की भागीदारी दर में तेजी से गिरावट आई है। यह वर्ष 1999-2000 के 34.1 प्रतिशत से घटकर वर्ष 2011-12 तक 27.2 प्रतिशत हो गई है और भागीदारी दर में व्यापक लैंगिक अंतराल बना हुआ है। ‘आवधिक श्रम बल सर्वेक्षण’ (PLFS) की वार्षिक रिपोर्ट (जुलाई, 2021- जून, 2022) के अनुसार, सामान्य स्थिति (US) पर पुरुष तथा महिला की भागीदारी दर में वृद्धि प्रदर्शित की गई है। इसके अलावा शहरी और ग्रामीण क्षेत्रों के मध्य काफी भिन्नताएं हैं। वर्ष 2009-10 में ग्रामीण महिलाओं की भागीदारी दर 26.5 प्रतिशत से घटकर वर्ष 2011-12 में (सामान्य स्थिति परिभाषा) में 25.3 प्रतिशत हो गई, जबकि इसी अवधि में शहरी महिलाओं की दर 14.6 प्रतिशत से बढ़कर 15.5 प्रतिशत हो गई। महिलाओं के लिए श्रम बल में भाग लेने का निर्णय विभिन्न आर्थिक और सामाजिक कारकों का परिणाम है, जो घरेलू एवं समष्टि (Macro) दोनों स्तरों पर लागू है। वैश्विक प्रमाणों के आधार पर कुछ सबसे महत्वपूर्ण कारकों में शिक्षा प्राप्ति, प्रजनन दर, विवाह की आयु, आर्थिक विकास/चक्रीय प्रवाह और शहरीकरण शामिल है। इन कारकों के अलावा, सार्वजनिक क्षेत्र में महिलाओं की भूमिका को निर्धारित करने वाले सामाजिक मानदंड भी परिणामों को प्रभावित करते हैं। भारत में महिलाओं के लिए श्रम बल में भागीदारी दर में गिरावट के प्रमुख कारण निम्न हैं- • युवा महिलाओं के शैक्षिक नामांकन में वृद्धि, • रोजगार के अवसरों में कमी तथा घरेलू आय में वृद्धि आदि।","explanation_en":"International labour Organization by released one report according to, recent of years in India in women for labour of participation rate in Teji from Giravat I is. this year 1999-2000 of 34.1 percent (%) from Ghatakar year 2011-12 up to 27.2 percent (%) be was is and participation rate in comprehensive Laingik Antaral became occurred is. ‘Avadhik labour force survey’ (PLFS) of annual report (July, 2021- June, 2022) according to, general status (US) at male and women of participation rate in growth Pradarshit was done is. its besides urban and rural regions between substantial Bhinnataen are. year 2009-10 in rural women of participation rate 26.5 percent (%) from Ghatakar year 2011-12 in (general status definition) in 25.3 percent (%) be was, whereas this very period in urban women of rate 14.6 percent (%) from Barhakar 15.5 percent (%) be was. women for labour force in part Lene of decision various economic and social factors of Parinam is, which domestic and Samashti (Macro) both levels at implemented is. Global evidences on the basis of some most important factors in education attainment, reproduction rate, marriage of age, economic development/Chakriy flow and urbanization included is. these factors of besides, public region in women of role to prescribed doing having social Manadand also Parinamon to affected did are. India in women for labour force in participation rate in Giravat of major Reason low are- • youth women of Shaikshik Namankan in growth, • employment of opportunitys in deficiency and domestic income in growth etc..","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":24},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में निर्भरता अनुपात (Dependency Ratio) घट रहा है क्योंकि","question_en":"India in Nirbharata ratio (Dependency Ratio) Ghat remained is because","options":[{"hi":"0-14 वर्ष की जनसंख्या सापेक्षतया अधिक है।","en":"0-14 year of population Sapekshataya more is."},{"hi":"60 वर्ष और अधिक की जनसंख्या सापेक्षतया अधिक है।","en":"60 year and more of population Sapekshataya more is."},{"hi":"15-59 वर्ष की जनसंख्या सापेक्षतया अधिक है।","en":"15-59 year of population Sapekshataya more is."},{"hi":"0-14 वर्ष और 60 वर्ष व अधिक की जनसंख्या सापेक्षतया अधिक है।","en":"0-14 year and 60 year and more of population Sapekshataya more is."}],"answer":2,"answer_note":"","explanation_hi":"निर्भरता अनुपात (Dependency Ratio) वह अनुपात है, जो 0-14 तथा 65 + आयु वाली जनसंख्या के योग तथा 15-64 वर्ष की आयु वाली जनसंख्या के बीच के अनुपात के योग के बराबर होता है। वर्तमान में भारत वैश्विक स्तर पर सर्वाधिक युवा आबादी (15-64 वर्ष आयु) वाला देश है। यूनाइटेड नेशन पॉपुलेशन फंड (UNFPA) द्वारा जारी आंकड़ों के अनुसार, भारत में कामकाजी लोगों की जनसंख्या के अनुपात में उन पर निर्भर लोगों की संख्या में कमी आई है। 14 वर्ष एवं उससे कम और 65 वर्ष या उससे अधिक आयु के लोगों को निर्भर माना गया है, जिनकी संख्या में कमी हुई है। इस निर्भरता अनुपात में वर्ष 2025 तक कमी होगी। तत्पश्चात वर्ष 2040 तक यह स्थिर रहेगा और पुन: उसमें वृद्धि हो सकती है। वर्ष 1975 से वर्ष 2021 के मध्य भारत में निर्भरता अनुपात 79 प्रतिशत से घटकर 48 प्रतिशत के स्तर पर आ गया।","explanation_en":"Nirbharata ratio (Dependency Ratio) that ratio is, which 0-14 and 65 + age having population of Yoga and 15-64 year of age having population between of ratio of Yoga equal to occurs. present in India Global level at highest youth population (15-64 year age) having country is. United Neshan Populeshan Phand (UNFPA) by released data according to, India in Kamakaji people of population of ratio in those at dependent people of number in deficiency I is. 14 year and from that less and 65 year or from that more age of people to dependent considered was is, whose number in deficiency occurred is. this Nirbharata ratio in year 2025 up to deficiency will be. thereafter year 2040 up to this stable Rahega and re-: Usamen growth be can is. year 1975 from year 2021 between India in Nirbharata ratio 79 percent (%) from Ghatakar 48 percent (%) of level at A was.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":25},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"वर्ष के अधिकांश हिस्से में बेरोजगार रहने वाले व्यक्तियों की संख्या को कहा जाता है","question_en":"Year of most parts in unemployed remaining having persons of number to is called","options":[{"hi":"सामान्य स्थिति बेरोजगारी","en":"General status unemployment"},{"hi":"दैनिक स्थिति बेरोजगारी","en":"Dainik status unemployment"},{"hi":"साप्ताहिक स्थिति बेरोजगारी","en":"Saptahik status unemployment"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":0,"answer_note":"","explanation_hi":"सामान्य स्थिति बेरोजगारी (Usual Status Unemployment)–यह समीक्षा वर्ष के पूर्व के 365 दिनों में किसी व्यक्ति के कार्य की स्थिति को प्रदर्शित करता है। यदि कोई व्यक्ति वर्ष में अधिकांश दिनों (183 दिनों) तक कार्य नहीं करता है, तो उसे ‘सामान्य स्थिति बेरोजगारी’ कहते हैं। ‘सामान्य बेरोजगारी दर’ क्रॉनिक बेरोजगारी को प्रदर्शित करती है, क्योंकि वे सभी लोग जो सामान्य रूप से बेरोजगार हैं, उन्हें बेरोजगारी की श्रेणी में रखा जाता है।","explanation_en":"General status unemployment (Usual Status Unemployment)–this Samiksha year before of 365 days in any person of function of status to Pradarshit does is. if any person year in most days (183 days) up to function not does is, then it ‘general status unemployment’ call are. ‘general unemployment rate’ Kronik unemployment to Pradarshit did is, because they all Log which general form from unemployed are, them unemployment of range in kept goes is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":26},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"कॉर्पोरेट सामाजिक उत्तरदायित्व (CSR) के संदर्भ में निम्न में से कौन-सा कथन सही है/हैं? 1. कंपनी एक्ट 2014 ने सी.एस.आर. को अनिवार्य बना दिया। 2. इसके अंतर्गत आने वाली कंपनियों को अपने वार्षिक शुद्ध लाभ का एक प्रतिशत सी.एस.आर. गतिविधियों में व्यय करना होगा। नीचे दिए कूटों में से सही उत्तर का चयन कीजिए","question_en":"Korporet social responsibility (CSR) with reference to low in from which-which statement is correct/are? 1. Company Act 2014 C.S.R. to mandatory became given. 2. its under coming having Companies to its own annual Shuddha benefit of one percent (%) C.S.R. activities in expenditure to do will be. Select the correct answer from the codes given below","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 एवं 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":3,"answer_note":"","explanation_hi":"सैद्धांतिक तौर पर कॉर्पोरेट सामाजिक उत्तरदायित्व (Corporate Social Responsibility : CSR) का अर्थ है, सामाजिक जिम्मेदारियों को निभाते हुए कारोबार करना, न कि समाज पर उपकार करना। कॉर्पोरेट सामाजिक उत्तरदायित्व कॉर्पोरेट शासन का वह प्रारूप है, जिसमें प्रक्रियाओं व प्रणालियों का ऐसा समूह स्वीकार किया जाता है, जिसके तहत किसी उपक्रम या कंपनी का संचालन कंपनी के शेयर धारकों, कर्मचारियों या कंपनी के उपभोक्ताओं के हित में निहित हो। कंपनी अधिनियम, 2013 भारत में कॉर्पोरेट शासन का आधार देता है। सी.आर.आर. गतिविधियों पर कंपनी द्वारा पिछले तीन वर्ष के औसत शुद्ध लाभ (Average Net Profit) का 2 प्रतिशत खर्च करने की बात की गई है। कंपनी अधिनियम की धारा 135, कंपनियों द्वारा कॉर्पोरेट सामाजिक उत्तरदायित्व की दिशा में गतिविधियों से संबंधित है।","explanation_en":"Saiddhantik manner at Korporet social responsibility (Corporate Social Responsibility: CSR) of meaning is, social Jimmedariyon to Nibhate occurred Karobar to do, not that society at Upakar to do. Korporet social responsibility Korporet Rule of that Prarup is, in which Prakriyaon and Pranaliyon of such group accepted is done, whose under any Upakram or Company of operation Company of Sheyar Dharakon, officials or Company of consumers of Hit in Nihit be. Company Act, 2013 India in Korporet Rule of basis gives. C.R.R. activities at Company by Pichhale three year of average Shuddha benefit (Average Net Profit) of 2 percent (%) expenditure doing of Bat was done is. Company Act of Section 135, Companies by Korporet social responsibility of direction in activities from is related.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":27},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"जीवन की भौतिक गुणवत्ता सूचकांक (पी.क्यू.एल.आई.) किसके द्वारा विकसित किया गया है?","question_en":"Life of physical quality index (P.Q.L.I.) by whom by developed was done is?","options":[{"hi":"मौरिस डी. मौरिस","en":"Mauris D. Mauris"},{"hi":"यू.एन.डी.पी.","en":"U.N.D.P."},{"hi":"महबूब-उल-हक","en":"Mahabub-Ul-Hak"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":0,"answer_note":"","explanation_hi":"जीवन की भौतिक गुणवत्ता सूचकांक (PQLI) मौरिस डी. मौरिस द्वारा विकसित किया गया था। इन्होंने जीवन प्रत्याशा, शिशु मृत्यु दर तथा साक्षरता तीनों को मिलाकर जीवन भौतिक गुणवत्ता सूचकांक का निर्माण किया। PQLI का अधिकतम मूल्य 100 तथा न्यूनतम मूल्य 1 होगा। 100 की ओर बढ़ना उत्तम स्थिति माना जाता है, जबकि 1 की ओर जाना खराब स्थिति का परिचायक होगा।","explanation_en":"Life of physical quality index (PQLI) Mauris D. Mauris by developed was done was. he life Pratyasha, infant death rate and literacy threes to Milakar life physical quality index of construction done. PQLI of maximum price 100 and minimum price 1 will be. 100 of towards Barhana Uttam status is considered, whereas 1 of towards to go Kharab status of Parichayak will be.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":28},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"4 जुलाई, 2018 से धान का प्रति कुंतल न्यूनतम समर्थित मूल्य (एम.एस.पी.) 2018-19 के दौरान है","question_en":"4 July, 2018 from paddy of towards Kuntal minimum Samarthit price (M.S.P.) 2018-19 during is","options":[{"hi":"रु. 1550","en":"Rs.. 1550"},{"hi":"रु. 1650","en":"Rs.. 1650"},{"hi":"रु. 1750","en":"Rs.. 1750"},{"hi":"रु. 1950","en":"Rs.. 1950"}],"answer":2,"answer_note":"","explanation_hi":"4 जुलाई, 2018 को केंद्र सरकार द्वारा वर्ष 2018-19 की खरीफ फसलों के लिए न्यूनतम समर्थन मूल्य (MSP) घोषित किया गया। धान (सामान्य) का न्यूनतम समर्थन मूल्य 1750 रु. प्रति कुंतल निर्धारित किया गया था। जबकि 19 जून, 2024 को जारी न्यूनतम समर्थन मूल्य 2024-25 हेतु धान (सामान्य) तथा धान (ग्रेड A) का मूल्य क्रमश: 2300 रुपये तथा 2320 रुपये घोषित किया गया है।","explanation_en":"4 July, 2018 to centre Government by year 2018-19 of Kharif crops for minimum support price (MSP) declared was done. paddy (general) of minimum support price 1750 Rs.. towards Kuntal prescribed was done was. whereas 19 June, 2024 to released minimum support price 2024-25 for paddy (general) and paddy (Gred A) of price respectively: 2300 rupees and 2320 rupees declared was done is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":29},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"जनसंख्या की प्राकृतिक वृद्धि निम्न में से किसका परिणाम है? A. अशोधित जन्म दर B. अशोधित मृत्यु दर C. प्रव्रजन D. विवाह दिए गए कूट से सही उत्तर का चयन कीजिए कूट","question_en":"Population of natural growth low in from whose Parinam is? A. Ashodhit birth rate B. Ashodhit death rate C. Pravrajan D. marriage given Code from select the correct answer Code","options":[{"hi":"केवल A","en":"Only A"},{"hi":"केवल C","en":"Only C"},{"hi":"B और D","en":"B and D"},{"hi":"A और B","en":"A and B"}],"answer":3,"answer_note":"","explanation_hi":"जनसंख्या वृद्धि अथवा जनसंख्या परिवर्तन का अभिप्राय किसी क्षेत्र में समय की किसी निश्चित अवधि के दौरान बसे हुए लोगों की संख्या में परिवर्तन से है। यह परिवर्तन धनात्मक/ऋणात्मक दोनों हो सकता है। इसे निरपेक्ष संख्या अथवा प्रतिशत के रूप में अभिव्यक्त किया जा सकता है। जनसंख्या परिवर्तन किसी क्षेत्र की आर्थिक प्रगति, सामाजिक उत्थान, ऐतिहासिक और सांस्कृतिक पृष्ठभूमि का महत्वपूर्ण सूचक होता है। जनसंख्या की प्राकृतिक वृद्धि किसी क्षेत्र विशेष में दो समय अंतरालों में जन्म और मृत्यु के अंतर से बढ़ने वाली जनसंख्या को उस क्षेत्र की प्राकृतिक वृद्धि कहते हैं। जनसंख्या की प्राकृतिक वृद्धि = जन्म – मृत्यु इस प्रकार जनसंख्या की प्राकृतिक वृद्धि अशोधित जन्म दर तथा अशोधित मृत्यु दर का परिणाम है।","explanation_en":"Population growth or population change of Abhipray any region in time of any Nishchit period during Base occurred people of number in change from is. this change Dhanatmak/Rinatmak both be can is. it Nirapeksha number or percent (%) as Abhivyakta can be done. population change any region of economic progress, social Utthan, Historical and Cultural Prishthabhumi of important indicator occurs. population of natural growth any region special in two time Antaralon in birth and death of difference from Barhane having population to that region of natural growth call are. population of natural growth = birth – death this type population of natural growth Ashodhit birth rate and Ashodhit death rate of Parinam is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":30},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्न में से किसके द्वारा मानव विकास सूचकांक (HDI) सर्वप्रथम विकसित किया गया?","question_en":"Low in from by whom by Human Development Index (HDI) (HDI) first of all developed was done?","options":[{"hi":"यू.एन.डी.पी. द्वारा","en":"U.N.D.P. by"},{"hi":"आई.एम.एफ. द्वारा","en":"I.M.F. by"},{"hi":"यूनिसेफ द्वारा","en":"Yuniseph by"},{"hi":"अंकटाड द्वारा","en":"Ankatad by"}],"answer":0,"answer_note":"","explanation_hi":"संयुक्त राष्ट्र विकास कार्यक्रम (UNDP) द्वारा वर्ष 1990 से ही वार्षिक आधार पर मानव विकास सूचकांक प्रकाशित किया जा रहा है। मार्च, 2024 में जारी मानव विकास रिपोर्ट, 2023-24 में ‘मानव विकास सूचकांक’ में स्विट्जरलैंड शीर्ष स्थान पर है। इस सूचकांक में भारत की स्थिति मध्यम मानव विकास वाले देश की है। इसमें भारत 134 वें स्थान पर है।","explanation_en":"United Nations Development Programme (UNDP) (UNDP) by year 1990 from only annual basis at Human Development Index (HDI) published done be remained is. March, 2024 in released human development report, 2023-24 in ‘ Human Development Index (HDI) ’ in Svitjaralaind top place at is. this index in India of status medium human development having country of is. in this India 134 Ven place at is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":31},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित में कौन भारत में ग्रामीण रोजगार का सबसे बड़ा कार्यक्रम है?","question_en":"Following in which India in rural employment of most large programme is?","options":[{"hi":"मनरेगा","en":"Manarega"},{"hi":"ट्राइसेम","en":"Traisem"},{"hi":"काम के बदले अनाज","en":"Kam of Badale foodgrains"},{"hi":"कौशल विकास कार्यक्रम","en":"Skill development programme"}],"answer":0,"answer_note":"","explanation_hi":"राष्ट्रीय ग्रामीण रोजगार गारंटी (नरेगा) योजना का शुभारंभ आंध्र प्रदेश के अनंतपुर जिले से 2 फरवरी, 2006 को देश के 200 चुनिंदा जिलों में किया गया था, जिसे राष्ट्रपति द्वारा स्वीकृति 5 सितंबर, 2005 को प्रदान की गई थी। वर्ष 2007-08 में इसे 130 अतिरिक्त जिलों में विस्तारित किया गया। 1 अप्रैल, 2008 से इसका विस्तार करते हुए देश के सभी जिलों में कर दिया गया। 2 अक्टूबर, 2009 को ‘नरेगा’ का नाम परिवर्तित कर ‘महात्मा गांधी राष्ट्रीय ग्रामीण रोजगार गारंटी योजना’ (मनरेगा) कर दिया गया। मनरेगा एक वित्तीय वर्ष में 100 दिन के रोजगार की वैधानिक गारंटी प्रदान करता है, जो अन्य योजनाओं की तुलना में इसे विशेष बना देता है। बजट अनुमान 2025-26 में इस योजना हेतु 86000 करोड़ रुपये आवंटित किया गया है, जबकि वर्ष 2024-25 में भी 86000 करोड़ रुपये खर्च किए गए थे।","explanation_en":"National rural employment Garanti (Narega) scheme of launch Andhra Pradesh of Anantapur district from 2 February, 2006 to country of 200 Chuninda districts in was done was, which President by approval 5 September, 2005 to provided was done was. year 2007-08 in it 130 apart from districts in extended was done. 1 April, 2008 from its expansion did occurred country of all districts in tax given was. 2 October, 2009 to ‘Narega’ of name changed tax ‘Mahatma Gandhi National rural employment Garanti scheme’ (Manarega) tax given was. Manarega one financial year in 100 day of employment of Vaidhanik Garanti provided does is, which other schemes compared to it special became gives. budget estimate 2025-26 in this scheme for 86000 crore rupees Avantit was done is, whereas year 2024-25 in also 86000 crore rupees expenditure were done were.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":32},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित में कौन लॉरेन्ज वक्र द्वारा मापा जाता है?","question_en":"Following in which Lorenz Curve by Mapa goes is?","options":[{"hi":"अशिक्षा","en":"Ashiksha"},{"hi":"बेरोजगारी","en":"Unemployment"},{"hi":"जनसंख्या वृद्धि दर","en":"Population growth rate"},{"hi":"आय की विषमता","en":"Income of Vishamata"}],"answer":3,"answer_note":"","explanation_hi":"लॉरेन्ज वक्र (Lorenz Curve) का प्रतिपादन अमेरिकी अर्थशास्त्री डॉ. मैक्स ओ. लॉरेन्ज (Dr. Max O' Lorenz) ने धन और आय की विषमता का अध्ययन करने के लिए किया था। उनके नाम पर ही इसे ‘लॉरेन्ज वक्र’ कहते हैं। इस वक्र का प्रयोग आय, धन, मजदूरी, लाभ, पूंजी तथा उत्पादन आदि के वितरण का अध्ययन करने के लिए भी किया जाता है। ‘लॉरेन्ज वक्र’ समान वितरण रेखा से वास्तविक वितरण के विचलन का बिंदु रेखीय माप है। यह समान वितरण रेखा (Line of Equal Distribution) के जितना पास होगा, उस श्रेणी में अपकिरण की मात्रा (या आय की विषमता) उतनी ही कम होगी अर्थात वितरण में उतनी ही कम असमानताएं पाई जाएंगी। इसके विपरीत लॉरेन्ज वक्र समान वितरण रेखा से जितना दूर होगा, श्रेणी में अपकिरण की मात्रा उतनी ही अधिक होगी। यदि लॉरेन्ज वक्र समान वितरण रेखा पर पड़ता है, तो श्रेणी में अपकिरण बिल्कुल नहीं माना जाएगा। ा 100 ात् ाश् ति् प्र ी ा ाय् ांच् स् ा A क पूर्ण समता रेखा य ा लॉरेन्ज वक्र अ ा ुल् 0 क आय प्राप्तकर्ताओं का संचयी प्रतिशत 100 0","explanation_en":"Lorenz Curve (Lorenz Curve) of Pratipadan American economist Dr.. Maiksa O. Lorenja (Dr. Max O' Lorenz) wealth and income of Vishamata of study doing for did. their name at only it ‘ Lorenz Curve ’ call are. this Vakra of use income, wealth, wage, benefit, capital and production etc. of distribution of study doing for also is done. ‘ Lorenz Curve ’ similar distribution line from real distribution of Vichalan of point Rekhiy measurement is. this similar distribution line (Line of Equal Distribution) of Jitana near will be, that range in Apakiran of quantity (or income of Vishamata) Utani only less will be i.e. distribution in Utani only less Asamanataen Paee Jaengi. its Viparit Lorenz Curve similar distribution line from Jitana far will be, range in Apakiran of quantity Utani only more will be. if Lorenz Curve similar distribution line at Parata is, then range in Apakiran Bilkul not considered will be. A 100 At Ash Ti U. I A Ay Anch S A A A complete Samata line Y A Lorenz Curve A A Ul 0 A income Praptakartaon of Sanchayi percent (%) 100 0","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":33},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित करों में कौन-सा कर ग्राम पंचायतों द्वारा लगाया जाता है?","question_en":"Following taxes in which-which tax Gram Panchayats by Lagaya goes is?","options":[{"hi":"बिक्री कर","en":"Bikri tax"},{"hi":"भू-राजस्व कर","en":"Land-revenue tax"},{"hi":"स्थानीय मेलों पर कर","en":"Local fairs at tax"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"स्थानीय मेलों पर कर ग्राम पंचायतों द्वारा लगाया एवं वसूला जाता है, जबकि शेष दोनों (a और b) करों को राज्य सरकार द्वारा वसूला जाता है।","explanation_en":"Local fairs at tax Gram Panchayats by Lagaya and Vasula goes is, whereas remaining both (a and b) taxes to State Government by Vasula goes is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":34},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में निम्नलिखित पांच वर्षीय योजनाओं में किसका मुख्य ध्येय ‘संपोषणीय वृद्धि’ था?","question_en":"India in following five Varshiy schemes in whose main Dhyey ‘Samposhaniy growth’ was?","options":[{"hi":"9वीं","en":"9th"},{"hi":"10वीं","en":"10th"},{"hi":"11वीं","en":"11th"},{"hi":"12वीं","en":"12th"}],"answer":3,"answer_note":"","explanation_hi":"‘तीव्रतर, धारणीय एवं अधिक समावेशी विकास’ (Faster, Sustainable and More Inclusive Growth) शीर्षक के साथ बारहवीं पंचवर्षीय योजना का कार्यकाल वर्ष 2012-17 था। 12वीं पंचवर्षीय योजना के प्रमुख निर्धारित लक्ष्य इस प्रकार थे- - सकल घरेलू उत्पाद में 8 प्रतिशत की वास्तविक दर से वृद्धि। - 4 प्रतिशत की दर से कृषि संवृद्धि। - 10 प्रतिशत की दर से विनिर्माण संवृद्धि। - प्रत्येक राज्य द्वारा ग्यारहवीं योजना की तुलना में बारहवीं योजना में अधिकांशत: उच्चतर औसत संवृद्धि। → 11वीं योजना का कार्यकाल वर्ष 2007-12 था, जिसका प्रमुख लक्ष्य ‘तीव्रतर आर्थिक विकास के साथ समावेशी विकास’ था।","explanation_en":"‘Tivratar, Dharaniy and more Samaveshi development’ (Faster, Sustainable and More Inclusive Growth) title with Barahavin Panchavarshiy scheme of tenure year 2012-17 was. 12th Panchavarshiy scheme of major prescribed target this type were- - Gross Domestic Product (GDP) in 8 percent (%) of real rate from growth. - 4 percent (%) of rate from agriculture growth. - 10 percent (%) of rate from Vinirman growth. - each State by Gyarahavin scheme compared to Barahavin scheme in Adhikanshat: Uchchatar average growth. → 11th scheme of tenure year 2007-12 was, whose major target ‘Tivratar economic development with Samaveshi development’ was.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":35},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"उत्तर प्रदेश के निम्नलिखित नगरों में से किसे स्मार्ट सिटी विकास कार्यक्रम में विकास के लिए केंद्रीय सरकार द्वारा नहीं चुना गया है?","question_en":"Uttar Pradesh of following cities in from which Smart Siti development programme in development for Central Government by not elected was is?","options":[{"hi":"लखनऊ","en":"Lucknow"},{"hi":"इलाहाबाद","en":"Allahabad"},{"hi":"गाजियाबाद","en":"Gajiyabad"},{"hi":"कानपुर","en":"Kanpur"}],"answer":2,"answer_note":"","explanation_hi":"जून, 2015 में भारत सरकार द्वारा स्मार्ट सिटी मिशन का शुभारंभ किया गया था। इस मिशन के तहत 100 स्मार्ट शहरों का विकास किया जाना है। उत्तर प्रदेश का गाजियाबाद स्मार्ट सिटी विकास कार्यक्रम में विकास के लिए केंद्र सरकार द्वारा नहीं चुना गया है, जबकि विकल्प में दिए गए शेष तीनों शहर इसमें शामिल हैं। उत्तर प्रदेश के कुल 13 शहर स्मार्ट सिटी विकास कार्यक्रम में शामिल हैं।","explanation_en":"June, 2015 in India Government by Smart Siti mission of launch was done was. this mission under 100 Smart cities of development done to go is. Uttar Pradesh of Gajiyabad Smart Siti development programme in development for centre Government by not elected was is, whereas option in given remaining threes city in this included are. Uttar Pradesh of total 13 city Smart Siti development programme in included are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":36},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में नगरीय क्षेत्रों में बी.पी.एल. परिवारों की पहचान के लिए निम्नलिखित में से कौन-सी समिति गठित की गई थी?","question_en":"India in urban regions in B.P.L. families of identification for following in from which-C Committee constituted was done was?","options":[{"hi":"तेंदुलकर समिति","en":"Tendulakar Committee"},{"hi":"सक्सेना समिति","en":"Saksena Committee"},{"hi":"लकड़वाला समिति","en":"Lakaravala Committee"},{"hi":"हाशिम समिति","en":"Hashim Committee"}],"answer":3,"answer_note":"","explanation_hi":"शहरी क्षेत्रों में रहने वाले गरीबों के पहचान हेतु विशेषज्ञ समिति का गठन प्रो. एस.आर. हाशिम की अध्यक्षता में किया गया था, जिसने अपनी रिपोर्ट दिसंबर, 2012 में प्रस्तुत की। समिति के अनुसार, शहरी गरीबों की पहचान तीन प्रकार की कमजोरियों (Vulnerabilities) के आधार पर की जा सकती है, जो निम्न हैं- (1) आवासीय कमजोरी, (2) सामाजिक कमजोरी तथा (3) पेशाजनक कमजोरी।","explanation_en":"Urban regions in remaining having poors of identification for Visheshagya Committee of formation Prof.. S.R. Hashim under the chairmanship of was done was, who its own report December, 2012 in presented of. Committee according to, urban poors of identification three type of Kamajoriyon (Vulnerabilities) on the basis of can be done, which low are- (1) Avasiy Kamajori, (2) social Kamajori and (3) Peshajanak Kamajori.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":37},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"‘वैश्विक गांव’ की संकल्पना का विकास आधारित है","question_en":"‘Global village’ of concept of development based is","options":[{"hi":"सामाजिक विकास","en":"Social development"},{"hi":"राजनैतिक विकास","en":"Political development"},{"hi":"परिवहन एवं संचार का विकास","en":"Transport and Sanchar of development"},{"hi":"अंतरराष्ट्रीय संगठन","en":"International Organization"}],"answer":2,"answer_note":"","explanation_hi":"वैश्विक गांव (Global Village) की संकल्पना का विकास परिवहन एवं संचार के विकास पर आधारित है। मार्शल मैक्लुहान ने वैश्विक गांव की भविष्यवाणी की थी, जो इलेक्ट्रॉनिक तंत्रिका तंत्र द्वारा एक-दूसरे से जुड़े हुए हैं। वैश्विक गांव शब्द इलेक्ट्रॉनिक मीडिया के उपयोग के माध्यम से पूरी दुनिया का सरलीकरण कर एक गांव के रूप में प्रदर्शित करता है।","explanation_en":"Global village (Global Village) of concept of development transport and Sanchar of development at based is. Marshal Maikluhan Global village of Bhavishyavani did, which Ilektronik Tantrika system by one-second from Jure occurred are. Global village term Ilektronik Midiya of use through entire world of Saralikaran tax one village as Pradarshit does is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":38},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नांकित में कौन भारत में गरीबी रेखा का निर्धारण करता है?","question_en":"Following in which India in Poverty Line of determination does is?","options":[{"hi":"केंद्रीय मंत्रिमंडल","en":"Central Cabinet"},{"hi":"लोक सभा","en":"Lok Sabha"},{"hi":"राज्य सभा","en":"Rajya Sabha"},{"hi":"योजना आयोग (अब नीति आयोग)","en":"Planning Commission (Ab NITI Aayog)"}],"answer":3,"answer_note":"","explanation_hi":"भारत में योजना आयोग राष्ट्रीय एवं राज्य स्तर पर निर्धनता रेखा के निर्धारण हेतु नोडल एजेंसी थी। लेकिन वर्तमान में (1 जनवरी, 2015 से) योजना आयोग का स्थान नीति आयोग ने ले लिया है।","explanation_en":"India in Planning Commission National and State level at poverty line of determination for Nodal Ejensi was. but present in (1 January, 2015 from) Planning Commission of place NITI Aayog Le taken is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":39},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"निम्नलिखित राज्यों में कौन सड़कों की लंबाई में भारत में प्रथम पायदान पर है?","question_en":"Following States in which roads of length in India in first Payadan at is?","options":[{"hi":"महाराष्ट्र","en":"Maharashtra"},{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"मध्य प्रदेश","en":"Madhya Pradesh"},{"hi":"राजस्थान","en":"Rajasthan"}],"answer":0,"answer_note":"","explanation_hi":"सड़क सांख्यिकी 2015-16 के अनुसार, विकल्प में दिए गए राज्यों में कुल सड़कों की लंबाई इस प्रकार है- राज्य सड़कों की लंबाई (किमी. में) महाराष्ट्र 613418 उत्तर प्रदेश 422412 राजस्थान 254279 मध्य प्रदेश 289940 31 मार्च, 2019 तक भारत में कुल सड़क लंबाई [जवाहर रोजगार योजना (JRY) सड़कों को छोड़कर] वाले शीर्ष 5 राज्य क्रमश: हैं– महाराष्ट्र (636887 किमी.), उत्तर प्रदेश (442907 किमी.), मध्य प्रदेश (365045 किमी.), कर्नाटक (358300 किमी.) तथा असम (399122 किमी.)। अत: स्पष्ट है कि सड़कों की कुल लंबाई की दृष्टि से महाराष्ट्र का प्रथम स्थान है।","explanation_en":"Sarak Sankhyiki 2015-16 according to, option in given States in total roads of length this type is- State roads of length (km. in) Maharashtra 613418 Uttar Pradesh 422412 Rajasthan 254279 Madhya Pradesh 289940 31 March, 2019 up to India in total Sarak length [Javahar employment scheme (JRY) roads to except] having top 5 State respectively: are– Maharashtra (636887 km.), Uttar Pradesh (442907 km.), Madhya Pradesh (365045 km.), Karnataka (358300 km.) and Assam (399122 km.). hence: clear is that roads of total length in terms of Maharashtra of first place is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":40},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत में प्रत्यक्ष कर कोड निम्नलिखित में किससे संबंधित है?","question_en":"India in direct tax Kod following in Kisase is related?","options":[{"hi":"बिक्री कर","en":"Bikri tax"},{"hi":"आयकर","en":"Ayakar"},{"hi":"उत्पाद कर","en":"Product tax"},{"hi":"सेवा कर","en":"Service tax"}],"answer":1,"answer_note":"","explanation_hi":"भारत में प्रत्यक्ष कर कोड (Direct Tax Code - DTC) आयकर (प्रत्यक्ष करों) से संबंधित है। यह प्रत्यक्ष कर कानूनों को सरल बनाने के लिए भारत सरकार का एक प्रयास है। इस कोड के माध्यम से प्रत्यक्ष कर कानूनों की संरचना को एक ही कानून के दायरे में संशोधित, समेकित करते हुए सरलीकृत किए जाने का प्रावधान है। यह कोड लागू होने पर आयकर अधिनियम, 1961 तथा अन्य कर कानूनों जैसे- संपत्ति कर अधिनियम, 1957 आदि को प्रतिस्थापित करेगा।","explanation_en":"India in direct tax Kod (Direct Tax Code - DTC) Ayakar (direct taxes) from is related. this direct tax Laws to Saral making for India Government of one effort is. this Kod through direct tax Laws of structure to one only Law of Dayare in amended, Samekit did occurred Saralikrit done going of provision is. this Kod implemented being at Ayakar Act, 1961 and other tax Laws such as- property tax Act, 1957 etc. to Pratisthapit will do.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":41},{"topic_hi":"भारतीय अर्थव्यवस्था","topic_en":"Indian Economy","question_hi":"भारत सरकार द्वारा घोषित ‘ए बी सी’ इंडेक्स निम्नलिखित में किससे संबंधित है?","question_en":"India Government by declared ‘A B C’ Indeksa following in Kisase is related?","options":[{"hi":"कृषि","en":"Agriculture"},{"hi":"संचार","en":"Sanchar"},{"hi":"स्वास्थ्य","en":"Health"},{"hi":"शिक्षा","en":"Education"}],"answer":2,"answer_note":"","explanation_hi":"ABC इंडेक्स का पूर्णरूप है- अचीवमेंट्स ऑफ बेबीज एंड चिल्ड्रेन इंडेक्स। यह सूचकांक बाल स्वास्थ्य से संबंधित चार संकेतकों पर आधारित है। ये चार संकेतक हैं- पोषण (Nutrition), उत्तरजीविता (Survival), शिक्षा (Schooling) तथा टीकाकरण (Immunization)।","explanation_en":"ABC Indeksa of Purnarup is- Achivamentsa of Bebij and Children Indeksa. this index child health from related four indicators at based is. these four indicator are- nutrition (Nutrition), Uttarajivita (Survival), education (Schooling) and vaccination (Immunization).","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":42}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
+function _genPoints(t){
+  t = String(t);
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
+  return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>

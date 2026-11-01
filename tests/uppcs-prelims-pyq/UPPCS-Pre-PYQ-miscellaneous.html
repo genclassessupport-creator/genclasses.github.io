@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GenClasses — UPPCS Prelims PYQ — Miscellaneous</title>
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<style>
+  :root{
+    --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+    --glass:rgba(255,255,255,.035);
+    --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34);
+    --gold:#D9AE5F; --gold-hi:#F2CD88; --gold-deep:#8F6B26;
+    --cream:#F2EBDA; --mist:#98A6BE;
+    --blue:#7FB4FF; --green:#7FD6A4; --rose:#FF8FA0;
+    --shadow:0 18px 48px rgba(0,0,0,.45);
+    --radius:20px;
+  }
+  /* ---------- Light theme (default; टॉगल से dark) ---------- */
+  html[data-theme="light"]{
+    /* soft sage / mint-grey — eye-comfortable reading */
+    --ink0:#E6EEE9; --ink1:#F6F9F7; --ink2:#EEF3F0;
+    --glass:rgba(30,58,138,.06);
+    --line:rgba(201,214,207,.95); --line-2:rgba(30,58,138,.28);
+    --gold:#1E3A8A; --gold-hi:#172E5C; --gold-deep:#1E40AF;
+    --cream:#1F2A2E; --mist:#3D4A4F;
+    --blue:#1E40AF; --green:#1E3A8A; --rose:#C2314B;
+    --teal:#1E3A8A; --teal-hi:#1D3B6F;
+    --shadow:0 14px 36px rgba(23,46,92,.12);
+  }
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(30,58,138,.07), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,59,111,.05), transparent 60%)}
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .btn.primary{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 22px rgba(30,58,138,.28)}
+  html[data-theme="light"] .btn.primary:hover{filter:brightness(1.05)}
+  html[data-theme="light"] .lang-b.on{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+  html[data-theme="light"] .option{background:#EEF3F0;border-color:#C9D6CF}
+  html[data-theme="light"] .option:hover{background:#E4EDE8;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#F6F9F7;border-color:transparent}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#F6F9F7,#F2F6F4);border-color:#C9D6CF}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#F6F9F7,#EEF3F0)}
+  html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
+  html[data-theme="light"] .dot{background:rgba(31,42,46,.05)}
+  html[data-theme="light"] .dot.answered{background:rgba(30,58,138,.16);color:#1E3A8A}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;color:#1E3A8A}
+  html[data-theme="light"] .badge.ok{background:rgba(30,58,138,.14);color:#1E3A8A}
+  html[data-theme="light"] .badge.skip{background:rgba(31,42,46,.06)}
+  html[data-theme="light"] .score-circle{background:conic-gradient(var(--teal) 0deg,var(--teal) var(--scoreDeg),rgba(31,42,46,.08) var(--scoreDeg),rgba(31,42,46,.08) 360deg);box-shadow:inset 0 0 0 9px rgba(30,58,138,.1),0 15px 38px rgba(23,46,92,.16)}
+  html[data-theme="light"] .timer{background:rgba(30,58,138,.1);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .qno{color:#1E3A8A}
+  html[data-theme="light"] .pill{color:#1E3A8A;border-color:rgba(30,58,138,.35);background:#E3EAF6}
+  html[data-theme="light"] .btn.secondary{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
+  html[data-theme="light"] .stmt-item{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .stmt-item .tag{color:#1E3A8A}
+  html[data-theme="light"] .ar-block{background:#EEF3F0;border-color:#C9D6CF;color:#1F2A2E}
+  html[data-theme="light"] .ar-block .ar-lab{background:rgba(30,58,138,.12);border-color:rgba(30,58,138,.28);color:#1E3A8A}
+  html[data-theme="light"] .match-col{background:#F6F9F7;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col h4{background:rgba(30,58,138,.1);color:#1E3A8A;border-color:#C9D6CF}
+  html[data-theme="light"] .match-col .mi .mk{color:#1E3A8A}
+  html[data-theme="light"] .code-line{color:#1E3A8A}
+  html[data-theme="light"] .code-map .cm{background:rgba(30,58,138,.08);border-color:#C9D6CF}
+  html[data-theme="light"] .code-map .cm b{color:#1E3A8A}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,#E3EAF6,rgba(30,58,138,.08));color:#172E5C;border-color:rgba(30,58,138,.35)}
+
+  html[data-theme="light"] .topbar{
+    background:linear-gradient(180deg,#1E3A8A 0%,#1D3B6F 100%);
+    border-bottom:1px solid rgba(255,255,255,.14);
+    box-shadow:0 6px 18px rgba(23,46,92,.2);
+  }
+  html[data-theme="light"] .topbar .logo,
+  html[data-theme="light"] .topbar .brand,
+  html[data-theme="light"] .logo{color:#F6F9F7}
+  html[data-theme="light"] .topbar .brand h1,
+  html[data-theme="light"] .topbar h1{color:#F6F9F7 !important}
+  html[data-theme="light"] .topbar .brand p{color:#B8CDF7 !important}
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6 !important;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.12)}
+
+  html[data-theme="light"] .topbar .pill{color:#E3EAF6;border-color:rgba(255,255,255,.35);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#E3EAF6;border-color:rgba(255,255,255,.35)}
+
+  .theme-btn{background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);width:40px;height:40px;border-radius:50%;cursor:pointer;font-size:17px;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;transition:transform .25s,border-color .25s}
+  .theme-btn:hover{transform:rotate(18deg) scale(1.08);border-color:var(--gold)}
+  html[data-theme="light"] input{background:rgba(255,253,245,.92);color:#20180A}
+  html[data-theme="light"] input::placeholder{color:#9A8F76}
+  html[data-theme="light"] .qtext{color:#20180A}
+  html[data-theme="light"] .op-hi{color:#2A2113}
+  html[data-theme="light"] .review-content{color:#2A2113}
+  *{box-sizing:border-box}
+  body{
+    margin:0; padding:18px;
+    font-family:'Mukta',"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    font-size:16px; color:var(--mist); background:var(--ink0);
+    min-height:100vh; -webkit-font-smoothing:antialiased;
+    background-image:
+      radial-gradient(900px 500px at 12% -8%, rgba(217,174,95,.07), transparent 60%),
+      radial-gradient(760px 460px at 100% 0%, rgba(127,180,255,.05), transparent 60%);
+    background-attachment:fixed;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:8px}
+  /* ---------- टॉपबार ---------- */
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:8px 0 20px;color:var(--cream)}
+  .brand{display:flex;align-items:center;gap:13px}
+  .logo-link{display:block;flex:0 0 auto;line-height:0}
+  .logo{width:52px;height:52px;border-radius:50%;display:block;object-fit:cover;
+    background:#fff;border:1px solid var(--line-2);
+    box-shadow:0 10px 26px rgba(217,174,95,.18)}
+  .brand picture{display:block;width:52px;height:52px}
+  .brand h1{margin:0;font-family:'Rozha One',serif;font-weight:400;letter-spacing:.6px;
+    font-size:clamp(22px,3.4vw,34px);line-height:1.1;color:var(--cream)}
+  .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
+    background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
+  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  /* ---------- कार्ड ---------- */
+  .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
+  @media(max-width:900px){.hero{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--ink1),rgba(14,27,51,.72));
+    border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+  .intro{padding:clamp(20px,3.4vw,34px);position:relative}
+  .tag{display:inline-block;background:rgba(217,174,95,.12);color:var(--gold-hi);
+    border:1px solid var(--line-2);padding:6px 13px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:1px}
+  .intro h2{margin:15px 0 10px;font-family:'Rozha One',serif;font-weight:400;color:var(--cream);
+    font-size:clamp(26px,4.4vw,44px);line-height:1.15;letter-spacing:.2px}
+  .intro h2 span{color:var(--gold);display:inline-block}
+  .intro .sub{font-size:15.5px;line-height:1.75;color:var(--mist);margin:12px 0 20px}
+  .info-grid{display:grid;grid-template-columns:repeat(4,minmax(108px,1fr));gap:10px;margin:22px 0}
+  @media(max-width:700px){.info-grid{grid-template-columns:repeat(2,1fr)}}
+  .info{border-radius:14px;padding:13px;background:var(--glass);border:1px solid var(--line)}
+  .info b{display:block;color:var(--gold-hi);font-size:19px;margin-bottom:3px;font-weight:700}
+  .info span{color:var(--mist);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase}
+  /* ---------- बटन ---------- */
+  .btns{display:flex;flex-wrap:wrap;gap:10px}
+  button{border:0;cursor:pointer;font-family:inherit}
+  .btn{padding:12px 18px;border-radius:13px;font-weight:600;font-size:14.5px;transition:.2s ease;
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none}
+  .btn.primary{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;
+    box-shadow:0 10px 24px rgba(217,174,95,.22)}
+  .btn.secondary{background:var(--glass);color:var(--gold);border:1px solid var(--line-2)}
+  .btn.light{background:rgba(255,255,255,.05);color:var(--cream);border:1px solid var(--line)}
+  .btn.green{background:linear-gradient(160deg,#8fe3b6,var(--green));color:#062617}
+  .btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+  /* ---------- निर्देश ---------- */
+  .rules{padding:22px;background:linear-gradient(160deg,rgba(14,27,51,.95),rgba(10,20,38,.9));color:var(--cream);min-height:100%}
+  .rules h3{margin:0 0 12px;font-family:'Rozha One',serif;font-weight:400;font-size:24px;color:var(--gold)}
+  .rule{display:grid;grid-template-columns:32px 1fr;gap:11px;padding:11px 0;border-bottom:1px dashed var(--line)}
+  .rule:last-child{border-bottom:0}
+  .rule .num{width:32px;height:32px;border-radius:10px;background:rgba(217,174,95,.14);color:var(--gold);
+    display:grid;place-items:center;font-weight:700;font-size:14px}
+  .rule p{margin:0;line-height:1.6;color:var(--mist);font-size:14.5px}
+  /* ---------- नाम बॉक्स ---------- */
+  .name-box{margin-top:18px;padding:18px;background:var(--glass);border:1px solid var(--line);border-radius:16px}
+  .name-box h3{margin:0 0 7px;color:var(--gold-hi);font-size:18px;font-weight:700}
+  .name-box p{margin:0 0 12px;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:620px){.field-grid{grid-template-columns:1fr}}
+  input{width:100%;font-family:inherit;font-weight:500;font-size:15px;border:1px solid var(--line-2);
+    border-radius:12px;padding:13px 14px;outline:none;background:rgba(6,11,22,.6);color:var(--cream)}
+  input::placeholder{color:#5d6b83}
+  input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.14)}
+  .error-line{color:var(--rose);min-height:18px;margin-top:8px;font-size:13px;font-weight:600}
+  /* ---------- परीक्षा ---------- */
+  .test-screen,.result-screen{display:none}
+  .exam-shell{display:grid;grid-template-columns:minmax(0,1fr) 292px;gap:16px;align-items:start}
+  @media(max-width:950px){.exam-shell{grid-template-columns:1fr}}
+  .exam-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;
+    background:linear-gradient(135deg,rgba(14,27,51,.96),rgba(10,20,38,.9));border-bottom:1px solid var(--line);color:var(--cream)}
+  .exam-header h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:19px;letter-spacing:.3px}
+  .timer{background:rgba(217,174,95,.12);border:1px solid var(--line-2);border-radius:12px;padding:8px 13px;
+    font-weight:700;letter-spacing:.4px;color:var(--gold-hi)}
+  .progress{height:6px;background:rgba(255,255,255,.05);overflow:hidden}
+  .progress>div{height:100%;background:linear-gradient(90deg,var(--gold-deep),var(--gold),var(--gold-hi));width:0%;transition:.25s ease}
+  .question-card{padding:clamp(18px,3vw,26px)}
+  .qmeta{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+  .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
+  .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
+    border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
+  /* ---------- प्रश्न ---------- */
+  .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
+  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+    margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
+  .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
+  /* ---------- भाषा टॉगल ---------- */
+  .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
+  .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
+    border:0;border-radius:8px;padding:5px 13px;cursor:pointer;transition:.15s}
+  .lang-b.on{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626}
+  .lang-choose{display:flex;align-items:center;gap:10px;margin:14px 0 0;flex-wrap:wrap}
+  .lc-label{font-size:13px;color:var(--mist)}
+  /* ---------- विकल्प ---------- */
+  .options{display:grid;gap:10px;margin-top:20px}
+  .option{display:grid;grid-template-columns:40px 1fr;gap:12px;align-items:start;border:1px solid var(--line);
+    background:var(--glass);border-radius:14px;padding:13px;text-align:left;transition:.18s ease;width:100%}
+  .option:hover{border-color:var(--line-2);background:rgba(217,174,95,.05);transform:translateX(2px)}
+  .option.selected{border-color:var(--gold);background:linear-gradient(180deg,rgba(217,174,95,.15),rgba(217,174,95,.06))}
+  .option .letter{width:34px;height:34px;border-radius:10px;background:rgba(255,255,255,.05);display:grid;
+    place-items:center;font-weight:700;color:var(--gold);border:1px solid var(--line)}
+  .option.selected .letter{background:linear-gradient(160deg,var(--gold-hi),var(--gold));color:#0d1626;border-color:transparent}
+  .op-hi{font-weight:600;color:#E9EEF8;line-height:1.5;font-size:15.5px}
+  .op-en{color:var(--mist);line-height:1.4;font-size:13px;margin-top:4px;font-weight:400}
+  .nav-row{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:20px}
+  /* ---------- साइड पैनल ---------- */
+  .side{position:sticky;top:14px}
+  @media(max-width:950px){.side{position:static}}
+  .side-card{padding:18px}
+  .side-title{margin:0 0 12px;color:var(--gold);font-size:17px;font-weight:700}
+  .stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:13px}
+  .mini{background:var(--glass);border:1px solid var(--line);border-radius:12px;padding:10px}
+  .mini b{display:block;color:var(--gold-hi);font-size:19px}
+  .mini span{color:var(--mist);font-size:11.5px;font-weight:600}
+  .palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .dot{height:38px;border-radius:10px;font-weight:700;background:rgba(255,255,255,.045);color:var(--mist);
+    border:1px solid var(--line);transition:.15s}
+  .dot.current{border-color:var(--gold);color:var(--gold-hi);box-shadow:0 0 0 3px rgba(217,174,95,.12)}
+  .dot.answered{background:rgba(127,214,164,.16);color:#9DE9C0;border-color:transparent}
+  .dot.review{background:rgba(217,174,95,.2);color:var(--gold-hi);border-color:transparent}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin:13px 0 0;color:var(--mist);font-size:11.5px;font-weight:600}
+  .legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:4px;margin-right:5px;
+    vertical-align:-1px;background:rgba(255,255,255,.08)}
+  .legend .l-ans::before{background:rgba(127,214,164,.5)}
+  .legend .l-rev::before{background:rgba(217,174,95,.55)}
+  .legend .l-cur::before{background:var(--gold)}
+  /* ---------- परिणाम ---------- */
+  .result-hero{padding:30px 22px;text-align:center;color:var(--cream);
+    background:radial-gradient(700px 320px at 50% -10%,rgba(217,174,95,.14),transparent 62%),
+      linear-gradient(160deg,rgba(14,27,51,.96),rgba(10,20,38,.92));border-bottom:1px solid var(--line)}
+  .result-hero h2{margin:0;font-family:'Rozha One',serif;font-weight:400;font-size:clamp(26px,4.6vw,42px);color:var(--gold)}
+  .result-hero p{margin:10px auto 0;max-width:760px;line-height:1.7;color:var(--mist);font-size:15px}
+  .student-strip{margin:16px auto 0;max-width:760px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  .student-strip span{background:var(--glass);border:1px solid var(--line);padding:7px 12px;border-radius:999px;
+    font-weight:600;color:var(--mist);font-size:13px}
+  .score-circle{width:168px;height:168px;border-radius:50%;margin:22px auto 6px;display:grid;place-items:center;
+    background:conic-gradient(var(--gold) 0deg,var(--gold) var(--scoreDeg),rgba(255,255,255,.07) var(--scoreDeg),rgba(255,255,255,.07) 360deg);
+    box-shadow:inset 0 0 0 9px rgba(217,174,95,.08),0 15px 38px rgba(0,0,0,.45)}
+  .score-circle .inner{width:128px;height:128px;border-radius:50%;background:var(--ink1);color:var(--gold-hi);
+    display:grid;place-items:center;font-weight:700;font-size:32px;line-height:1;border:1px solid var(--line)}
+  .score-circle small{display:block;font-size:12px;color:var(--mist);margin-top:5px;font-weight:400}
+  .result-body{padding:22px}
+  .result-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  @media(max-width:950px){.result-grid{grid-template-columns:repeat(2,1fr)}}
+  .rbox{border-radius:14px;padding:14px;background:var(--glass);border:1px solid var(--line);text-align:center}
+  .rbox b{display:block;color:var(--gold-hi);font-size:23px}
+  .rbox span{color:var(--mist);font-size:12px;font-weight:600}
+  /* ---------- रैंक ---------- */
+  .rank-board{margin-top:18px;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px}
+  @media(max-width:850px){.rank-board{grid-template-columns:1fr}}
+  .rank-card{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .rank-card h3{margin:0 0 6px;color:var(--gold);font-size:18px;font-weight:700}
+  .rank-card p{margin:0;color:var(--mist);font-weight:400;line-height:1.6;font-size:14px}
+  .rank-big{font-size:38px;color:var(--gold-hi);font-weight:700;margin:8px 0}
+  .leader-list{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:8px;max-height:340px;overflow:auto}
+  .leader-list li{display:grid;grid-template-columns:42px 1fr auto;align-items:center;gap:9px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:10px;font-weight:600;color:var(--cream)}
+  .leader-list .lr{width:32px;height:32px;border-radius:50%;background:rgba(217,174,95,.16);display:grid;
+    place-items:center;color:var(--gold);font-weight:700}
+  .leader-list .score{color:var(--green);font-weight:700}
+  /* ---------- समीक्षा ---------- */
+  .review-list{margin-top:20px;display:grid;gap:12px}
+  .review-item{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--glass)}
+  .review-head{padding:13px 15px;display:flex;justify-content:space-between;gap:10px;align-items:center;
+    background:rgba(255,255,255,.03);border-bottom:1px solid var(--line);color:var(--gold);font-weight:700;font-size:14px}
+  .badge{padding:5px 11px;border-radius:999px;font-weight:600;font-size:12px;white-space:nowrap}
+  .badge.ok{background:rgba(127,214,164,.16);color:#9DE9C0}
+  .badge.bad{background:rgba(255,143,160,.14);color:var(--rose)}
+  .badge.skip{background:rgba(255,255,255,.06);color:var(--mist)}
+  .review-content{padding:15px;line-height:1.7;color:#E4EAF5;font-size:15px}
+  .answer-line{margin-top:10px;padding:11px 13px;background:rgba(217,174,95,.07);border-left:3px solid var(--gold);
+    border-radius:10px;color:var(--cream);font-size:14.5px}
+  .explain{margin-top:10px;color:var(--mist);font-size:14.5px;line-height:1.7}
+  /* ---------- फुटर ---------- */
+  .footer-note{color:var(--mist);text-align:center;margin:20px auto 10px;max-width:920px;padding:11px 16px;
+    font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
+  @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
+  .hidden{display:none!important}
+  /* ---------- प्रिंट ---------- */
+  @media print{
+    body{background:#fff!important;padding:0;color:#111}
+    #gen-wm,.topbar,.btns,.side,.exam-header,.progress,.rank-board,.lang-choose,.footer-note{display:none!important}
+    .card{box-shadow:none;border:1px solid #ccc;background:#fff!important}
+    .result-screen{display:block!important}
+    .result-hero{background:#fff!important;color:#111!important;border-bottom:1px solid #ccc}
+    .result-hero h2,.rank-card h3,.review-head{color:#111!important}
+    .result-hero p,.explain,.rbox span,.student-strip span{color:#444!important}
+    .rbox,.review-item,.review-content{background:#fff!important;border-color:#ccc!important;color:#111!important}
+    .rbox b{color:#111!important}
+    .review-item{break-inside:avoid}
+    .answer-line{background:#f4f0e4!important;color:#111!important;border-left-color:#8a6400!important}
+    .badge.ok{background:#d9f7e6!important;color:#065f37!important}
+    .badge.bad{background:#fde2e5!important;color:#8a1020!important}
+    .badge.skip{background:#eee!important;color:#444!important}
+    .match-tbl th{color:#333!important;background:#eee!important}
+    .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
+    @page{margin:12mm}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <a class="logo-link" href="/" aria-label="GenClasses मुखपृष्ठ">
+          <picture>
+            <source srcset="/assets/gen-logo-96.webp" type="image/webp">
+            <img class="logo" src="/assets/gen-logo-96.png" width="52" height="52" alt="GenClasses" decoding="async" fetchpriority="high">
+          </picture>
+        </a>
+        <div><h1>GenClasses</h1><p id="topSub">UPSC · UPPCS</p></div>
+      </div>
+      <div class="pill" id="pillText">🏆 Daily Rank Ready</div><button class="theme-btn" id="themeBtn" type="button" title="थीम बदलें">🌙</button>
+    </header>
+    <main id="homeScreen" class="home-screen">
+      <section class="hero">
+        <div class="card intro">
+          <span class="tag" id="tagText">UPPCS Prelims 2026 / RO-ARO</span>
+          <h2 id="homeTitle">GenClasses <span>परीक्षा</span></h2>
+          <p class="sub" id="homeSub">नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।</p>
+          <div class="info-grid">
+            <div class="info"><b id="qCountBox">0</b><span>प्रश्न</span></div>
+            <div class="info"><b id="timeBox">25 Min</b><span>समय</span></div>
+            <div class="info"><b id="marksBox">+2</b><span>सही पर</span></div>
+            <div class="info"><b id="negBox">-0.66</b><span>गलत पर</span></div>
+          </div>
+          <div class="name-box">
+            <h3>शुरू करने से पहले अपना नाम लिखें</h3>
+            <p>यही नाम आपके परिणाम में दिखेगा।</p>
+            <div class="field-grid" style="grid-template-columns:1fr">
+              <input id="studentName" maxlength="60" placeholder="अपना पूरा नाम लिखें" autocomplete="name" />
+            </div>
+            <div class="lang-choose"><span class="lc-label">पढ़ने की भाषा:</span><div class="lang-seg" id="coverLang"></div></div><div class="error-line" id="nameErr"></div>
+            <div class="btns"><button class="btn primary" onclick="startTest()">परीक्षा शुरू करें →</button></div>
+          </div>
+        </div>
+        <div class="card rules">
+          <h3>परीक्षा निर्देश</h3>
+          <div class="rule"><div class="num">1</div><p>प्रत्येक प्रश्न में चार विकल्प हैं। केवल एक विकल्प सही है।</p></div>
+          <div class="rule"><div class="num">2</div><p>सही उत्तर पर निर्धारित अंक और गलत उत्तर पर निर्धारित ऋणात्मक अंक मिलेंगे। बिना उत्तर वाले प्रश्न पर 0 अंक।</p></div>
+          <div class="rule"><div class="num">3</div><p>किसी प्रश्न को "समीक्षा हेतु चिह्नित" कर सकते हैं और प्रश्न-सूची से किसी भी प्रश्न पर सीधे जा सकते हैं।</p></div>
+          <div class="rule"><div class="num">4</div><p>परीक्षा समाप्त करने पर अंक, शुद्धता, सही/गलत और हर प्रश्न की विस्तृत व्याख्या दिखेगी।</p></div>
+          <div class="rule"><div class="num">5</div><p>ऊपर "पढ़ने की भाषा" से हिंदी, English या दोनों चुन सकते हैं — यह किसी भी समय बदला जा सकता है।</p></div>
+        </div>
+      </section>
+    </main>
+    <main id="testScreen" class="test-screen">
+      <section class="exam-shell">
+        <div class="card">
+          <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
+          <div class="progress"><div id="progressBar"></div></div>
+          <div class="question-card" id="questionCard">
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
+            <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
+          </div>
+        </div>
+        <aside class="side"><div class="card side-card"><h3 class="side-title">प्रश्न सूची</h3><div class="stats-mini"><div class="mini"><b id="attemptedCount">0</b><span>उत्तरित</span></div><div class="mini"><b id="reviewCount">0</b><span>चिह्नित</span></div></div><div class="palette" id="palette"></div><div class="legend"><span class="l-cur">वर्तमान</span><span class="l-ans">उत्तरित</span><span class="l-rev">चिह्नित</span></div><div style="height:12px"></div><button class="btn primary" style="width:100%" onclick="submitTest()">परीक्षा समाप्त करें</button></div></aside>
+      </section>
+    </main>
+    <main id="resultScreen" class="result-screen">
+      <section class="card">
+        <div class="result-hero"><h2>परिणाम विश्लेषण</h2><p id="resultMessage">आपकी परिणाम-रिपोर्ट तैयार है।</p><div class="student-strip" id="studentStrip"></div><div class="score-circle" id="scoreCircle" style="--scoreDeg: 0deg"><div class="inner"><div><span id="scorePercent">0%</span><small>शुद्धता</small></div></div></div><div class="btns" style="justify-content:center; margin-top:18px"><button class="btn primary" onclick="restartTest()">↻ पुनः प्रयास करें</button><button class="btn light" onclick="window.print()">🖨 प्रिंट / PDF सेव करें</button><a class="btn secondary" href="/">🏠 मुखपृष्ठ पर जाएँ</a></div></div>
+        <div class="result-body">
+          <div class="result-grid"><div class="rbox"><b id="finalMarks">0</b><span>अंक</span></div><div class="rbox"><b id="finalAttempted">0</b><span>उत्तरित</span></div><div class="rbox"><b id="finalCorrect">0</b><span>सही पर</span></div><div class="rbox"><b id="finalWrong">0</b><span>गलत पर</span></div><div class="rbox"><b id="finalAccuracy">0%</b><span>शुद्धता</span></div><div class="rbox"><b id="finalTime">0:00</b><span>लगा समय</span></div></div>
+          <div class="rank-board" id="rankBoard"><div class="rank-card"><h3>आपकी Daily Rank</h3><div class="rank-big" id="ownRank">—</div><p id="rankStatus">आपकी rank यहाँ दिखेगी।</p></div><div class="rank-card"><h3>Top 20 Leaderboard</h3><p id="leaderHint">हर test की leaderboard अलग रहेगी।</p><ol class="leader-list" id="leaderList"></ol></div></div>
+          <div class="review-list" id="reviewList"></div>
+        </div>
+      </section>
+    </main>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+  </div>
+<script>
+const TEST = {"testId":"uppcs-pre-pyq-miscellaneous","title":"UPPCS Prelims PYQ — Miscellaneous","shortTitle":"Miscellaneous","subtitle":"UPPCS Prelims · 2018–2025 · विविध","tag":"UPPCS Pre PYQ","description":"UPPCS Prelims PYQs (2018–2025) — Miscellaneous. Each question shows the exam/year badge. Items with official (*) key are left unscored.","durationMinutes":88,"marksPerQuestion":2.0,"negativeMarks":0.66,"questions":[{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित युग्मों में कौन-सा/से सही सुमेलित नहीं है/हैं ? (दिवस) (तारीख) 1. अंतरराष्ट्रीय ओजोन दिवस – 16 सितंबर 2. विश्व पर्यावरण दिवस – 5 जून 3. विश्व वन्यजीव दिवस – 22 मार्च नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Following pairs in which-which/from correct matched not is/are? (Day) (date) 1. International ozone Day – 16 September 2. World environment Day – 5 June 3. World Vanyajiv Day – 22 March Select the correct answer from the code given below: Code","options":[{"hi":"1 और 3","en":"1 and 3"},{"hi":"केवल 3","en":"Only 3"},{"hi":"2 और 3","en":"2 and 3"},{"hi":"केवल 1","en":"Only 1"}],"answer":1,"answer_note":"","explanation_hi":"अंतरराष्ट्रीय ओजोन दिवस (अंतरराष्ट्रीय ओजोन परत संरक्षण दिवस/विश्व ओजोन दिवस) 16 सितंबर को मनाया जाता है। विश्व पर्यावरण दिवस 5 जून को मनाया जाता है। विश्व वन्यजीव दिवस 3 मार्च को मनाया जाता है, जबकि 22 मार्च को विश्व जल दिवस मनाया जाता है। अत: युग्म (1) तथा (2) सही सुमेलित है, जबकि युग्म (3) गलत सुमेलित है।","explanation_en":"International ozone Day (International Ozone Layer conservation Day/World ozone Day) 16 September to is celebrated. World environment Day 5 June to is celebrated. World Vanyajiv Day 3 March to is celebrated, whereas 22 March to World water Day is celebrated. hence: pair (1) and (2) correct matched is, whereas pair (3) incorrect matched is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":1},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘अंतरराष्ट्रीय सौर गठबंधन’ के संदर्भ में निम्नलिखित में से कौन-सा/ से कथन सही है/हैं ? 1. यह पहला संधि आधारित अंतर-सरकारी संगठन है, जिसका मुख्यालय भारत में है और इसमें 38 सदस्य देश हैं। 2. विश्व सौर बैंक और वन सन वन वर्ल्ड वन ग्रिड की पहल इसके अंतर्गत की गई है। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"‘International solar Gathabandhan’ with reference to following in from which-which/ from statement is correct/are? 1. this first Treaty based difference-government Organization is, whose headquarters India in is and in this 38 Member country are. 2. World solar Bank and forest San forest World forest Grid of initiative its under was done is. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":0,"answer_note":"","explanation_hi":"अंतरराष्ट्रीय सौर गठबंधन (ISA) भारत स्थित मुख्यालय वाला पहला संधि आधारित अंतर-सरकारी संगठन है तथा वर्तमान में (जनवरी, 2026 तक की स्थिति के अनुसार) इसके पूर्ण सदस्यों की संख्या 112 है। ISA के अंतर्गत ‘विश्व सौर बैंक’ तथा ‘वन सन वन वर्ल्ड वन ग्रिड’ (OSOWOG) जैसी पहलें प्रवर्तित हैं/रही हैं। अत: इस प्रकार कथन 1 गलत है, जबकि कथन 2 सही है।","explanation_en":"International solar Gathabandhan (ISA) India located headquarters having first Treaty based difference-government Organization is and present in (January, 2026 up to of status according to) its complete Members of number 112 is. ISA under ‘World solar Bank’ and ‘forest San forest World forest Grid’ (OSOWOG) like Pahalen Pravartit are/remained are. hence: this type statement 1 is incorrect, whereas statement 2 is correct.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":2},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सा/से रामसर आर्द्रभूमि स्थल उत्तर प्रदेश में स्थित नहीं है/हैं? 1. सरसई नावर झील 2. समसपुर पक्षी अभयारण्य 3. रुद्रसागर झील 4. सुल्तानपुर राष्ट्रीय उद्यान नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Which of the following is/are NOT Ramasar Wetland site Uttar Pradesh in located? 1. Sarasaee Navar lake 2. Samasapur Bird Sanctuary 3. Rudrasagar lake 4. Sultanapur National Park Select the correct answer from the code given below: Code","options":[{"hi":"1 और 3","en":"1 and 3"},{"hi":"3 और 4","en":"3 and 4"},{"hi":"2 और 3","en":"2 and 3"},{"hi":"1 और 2","en":"1 and 2"}],"answer":1,"answer_note":"","explanation_hi":"प्रश्न में दिए गए रामसर स्थलों की स्थिति इस प्रकार है : 1. सरसई नावर झील – इटावा, उत्तर प्रदेश 2. समसपुर पक्षी अभयारण्य – रायबरेली, उत्तर प्रदेश 3. रुद्रसागर झील – त्रिपुरा राज्य में स्थित 4. सुल्तानपुर राष्ट्रीय उद्यान – हरियाणा राज्य में स्थित अत: विकल्प (b) सही उत्तर है।","explanation_en":"Question in given Ramsar Sites of status this type is: 1. Sarasaee Navar lake – Itava, Uttar Pradesh 2. Samasapur Bird Sanctuary – Rayabareli, Uttar Pradesh 3. Rudrasagar lake – Tripura State in located 4. Sultanapur National Park – Haryana State in located hence: option (b) correct answer is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":3},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘ऑपरेशन ओलिविया’ के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. यह ओडिशा के तट पर ओलिव रिडले कछुओं की सुरक्षा के लिए भारतीय तट रक्षकों की एक पहल है। 2. ऑपरेशन ओलिविया अगस्त के महीने के दौरान चलाया जाता है, जो ओलिव रिडले कछुओं के घोंसले बनाने का समय होता है। नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"With reference to ‘Operation Oliviya’, which of the following statements is/are correct? 1. this Odisha of coast at Oliv Ridale turtles of security for Indian coast Rakshakon of one initiative is. 2. Operation Oliviya August of month during Chalaya goes is, which Oliv Ridale turtles of Ghonsale making of time occurs. Select the correct answer from the code given below: Code","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":3,"answer_note":"","explanation_hi":"ऑपरेशन ‘ओलिविया’ भारतीय तटरक्षक बल की वार्षिक पहल है, जिसका उद्देश्य ओडिशा तट (विशेषकर गहिरमाथा व आस-पास के तटीय क्षेत्र) में ओलिव रिडले कछुओं के लिए प्रजनन की सुरक्षित जगह सुनिश्चित करना है। ऑपरेशन ‘ओलिविया’ अगस्त में नहीं चलाया जाता है; यह नवंबर से लेकर मई के बीच संचालित होता है।","explanation_en":"Operation ‘Oliviya’ Indian Tatarakshak force of annual initiative is, whose objective Odisha coast (especially Gahiramatha and As-near of coastal region) in Oliv Ridale turtles for reproduction of protected Jagah ensured to do is. Operation ‘Oliviya’ August in not Chalaya goes is; this November from taking May between conducted occurs.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":4},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सा/से खाद्य सुरक्षा का आयाम नहीं है/हैं? 1. उपलब्धता 2. पहुंच 3. सामर्थ्य 4. जवाबदेही नीचे दिए गए कूट से सही उत्तर चुनिए : कूट","question_en":"Which of the following is/are NOT food security of Ayam? 1. availability 2. access 3. Samarthya 4. Javabadehi Select the correct answer from the code given below: Code","options":[{"hi":"1 और 2","en":"1 and 2"},{"hi":"केवल 4","en":"Only 4"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"केवल 1","en":"Only 1"}],"answer":1,"answer_note":"","explanation_hi":"आयोग की आधिकारिक उत्तर-कुंजी के अनुसार सही विकल्प (B) है।","explanation_en":"Commission of official answer-key according to correct option (B) is.","source":"UPPCS (Pre) 2025","source_missing":false,"exam":"uppcs-pre","year":"2025","id":5},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए— सूची-I सूची-II (शहर का नाम) (योजना बनाए जाने की अवधि) A. कांचीपुरम 1. स्वातंत्र्योत्तर काल B. जैसलमेर 2. औपनिवेशिक काल C. कोडाईकनाल 3. मध्यकाल D. भिलाई 4. प्राचीन काल कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the lists — List-I List-II (city of name) (scheme made going of period) A. Kanchipuram 1. Svatantryottar period B. Jaisalamer 2. Aupaniveshik period C. Kodaeekanal 3. Medieval period D. Bhilaee 4. Ancient period Code: A B C D","options":[{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"4 3 2 1","en":"4 3 2 1"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"3 4 1 2","en":"3 4 1 2"}],"answer":1,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है - सूची-I सूची-II (शहर का नाम) (योजना बनाए जाने की अवधि) कांचीपुरम प्राचीन काल (Ancient Period) जैसलमेर मध्यकाल (Medieval Period) कोडाईकनाल औपनिवेशिक काल (Colonial Period) भिलाई स्वातंत्र्योत्तर काल (Post Independence)","explanation_en":"The correct matching is as follows - List-I List-II (city of name) (scheme made going of period) Kanchipuram Ancient period (Ancient Period) Jaisalamer Medieval period (Medieval Period) Kodaeekanal Aupaniveshik period (Colonial Period) Bhilaee Svatantryottar period (Post Independence)","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":6},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची-I को सूची-II में सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए— सूची-I सूची-II (निबंधकार) (निबंध) A. देवण भट्ट 1. दान सागर B. हेमाद्रि 2. पराशर माधव C. माधवाचार्य 3. चतुर्वर्ग चिंतामणि D. बल्लाल सेन 4. स्मृति चंद्रिका कूट : A B C D","question_en":"List-I to List-II in matched do and lists of Select the correct answer using the code given below — List-I List-II (Nibandhakar) (Nibandh) A. Devan Bhatta 1. Dan sea B. Hemadri 2. Parashar Madhav C. Madhavacharya 3. Chaturvarga Chintamani D. Ballal Sen 4. memory Chandrika Code: A B C D","options":[{"hi":"2 4 1 3","en":"2 4 1 3"},{"hi":"1 4 2 3","en":"1 4 2 3"},{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"4 3 2 1","en":"4 3 2 1"}],"answer":3,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है— देवण भट्ट — स्मृति चंद्रिका हेमाद्रि — चतुर्वर्ग चिंतामणि माधवाचार्य — पराशर माधव बल्लाल सेन — दान सागर","explanation_en":"The correct matching is as follows — Devan Bhatta — memory Chandrika Hemadri — Chaturvarga Chintamani Madhavacharya — Parashar Madhav Ballal Sen — Dan sea","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":7},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित घटनाओं पर विचार कीजिए तथा उनको कालक्रमानुसार व्यवस्थित कीजिए— 1. विश्व विरासत दिवस 2. विश्व थायरॉइड दिवस 3. विश्व तंबाकू निषेध दिवस 4. अंतरराष्ट्रीय प्रकाश दिवस नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following events and Unako arrange them in chronological order — 1. World heritage Day 2. World Thayaroid Day 3. World Tambaku prohibition Day 4. International light Day Select the correct answer from the code given below","options":[{"hi":"3, 1, 2, 4","en":"3, 1, 2, 4"},{"hi":"1, 4, 2, 3","en":"1, 4, 2, 3"},{"hi":"2, 3, 1, 4","en":"2, 3, 1, 4"},{"hi":"4, 2, 3, 1","en":"4, 2, 3, 1"}],"answer":1,"answer_note":"","explanation_hi":"(घटनाएं) (तिथि) विश्व विरासत दिवस — 18 अप्रैल अंतरराष्ट्रीय प्रकाश दिवस — 16 मई विश्व थायरॉइड दिवस — 25 मई विश्व तंबाकू निषेध दिवस — 31 मई इस प्रकार 1, 4, 2, 3 सही क्रम है।","explanation_en":"(events) (date) World heritage Day — 18 April International light Day — 16 May World Thayaroid Day — 25 May World Tambaku prohibition Day — 31 May this type 1, 4, 2, 3 correct order is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":8},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची- I को सूची- II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए— सूची-I सूची-II (व्यक्ति) (कारण) A. गोपी थोटाकुरा 1. एशियाई चैंपियनशिप में स्वर्ण जीतने वाली पहली भारतीय जिमनास्ट B. दीपा करमाकर 2. भारत में जन्मे NASA वैज्ञानिक जिन्होंने आयन-मंडल पर सौर कांतिवृत्त के प्रभाव का अध्ययन करने वाली टीम का नेतृत्व किया C. अरोह बड़जात्या 3. पहले भारतीय अंतरिक्ष पर्यटक D. देव पटेल 4. ब्रिटिश अभिनेता जिन्होंने थ्रिलर ‘मंकी मैन’ के साथ निर्देशन की शुरुआत की कूट : A B C D","question_en":"List- I to List- II from matched do and lists of Select the correct answer using the code given below — List-I List-II (person) (Reason) A. Gopi Thotakura 1. Eshiyaee championship in gold Jitane having first Indian Jimanasta B. Dipa Karamakar 2. India in Janme NASA scientist who Ayan-Mandal at solar Kantivritta of impact of study doing having Tim of leadership done C. Aroh Barajatya 3. before Indian space Paryatak D. Dev Patel 4. British Abhineta who Thrilar ‘Manki Main’ with Nirdeshan of beginning of Code: A B C D","options":[{"hi":"4 1 2 3","en":"4 1 2 3"},{"hi":"3 1 2 4","en":"3 1 2 4"},{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"2 1 3 4","en":"2 1 3 4"}],"answer":1,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है— व्यक्ति कारण गोपी थोटाकुरा — पहले भारतीय अंतरिक्ष पर्यटक दीपा करमाकर — एशियाई चैंपियनशिप में स्वर्ण जीतने वाली पहली भारतीय जिमनास्ट अरोह बड़जात्या — भारत में जन्मे NASA वैज्ञानिक जिन्होंने आयन मंडल पर सौर कांतिवृत्त के प्रभाव का अध्ययन करने वाली टीम का नेतृत्व किया देव पटेल — ब्रिटिश अभिनेता जिन्होंने थ्रिलर ‘मंकी मैन’ के साथ निर्देशन की शुरुआत की","explanation_en":"The correct matching is as follows — person Reason Gopi Thotakura — before Indian space Paryatak Dipa Karamakar — Eshiyaee championship in gold Jitane having first Indian Jimanasta Aroh Barajatya — India in Janme NASA scientist who Ayan Mandal at solar Kantivritta of impact of study doing having Tim of leadership done Dev Patel — British Abhineta who Thrilar ‘Manki Main’ with Nirdeshan of beginning of","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":9},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"R21/मैट्रिक्स-MTM क्या है?","question_en":"R21/Maitriksa-MTM what is?","options":[{"hi":"सीरम इंस्टीट्यूट ऑफ इंडिया द्वारा विकसित मलेरिया के खिलाफ टीका","en":"Siram Instityut of India by developed malaria of against vaccine"},{"hi":"भारत बायोटेक इंटरनेशनल द्वारा विकसित मलेरिया के खिलाफ टीका","en":"India Bayotek International by developed malaria of against vaccine"},{"hi":"सीरम इंस्टीट्यूट ऑफ इंडिया द्वारा विकसित एड्स के खिलाफ टीका","en":"Siram Instityut of India by developed Edsa of against vaccine"},{"hi":"भारत बायोटेक इंटरनेशनल द्वारा विकसित एड्स के खिलाफ टीका","en":"India Bayotek International by developed Edsa of against vaccine"}],"answer":0,"answer_note":"","explanation_hi":"R21/मैट्रिक्स-MTM मलेरिया का दूसरा ऐसा टीका है, जिसके प्रयोग की सिफारिश WHO द्वारा की गई है। इस टीके को ऑक्सफोर्ड विश्वविद्यालय (यू.के.) के जेनर इंस्टीट्यूट और सीरम इंस्टीट्यूट ऑफ इंडिया द्वारा विकसित किया गया है। इससे पूर्व WHO द्वारा मलेरिया के पहले टीके के रूप में RTS, S/AS 01 (MosquirixTM) वैक्सीन को स्वीकृति दी गई थी।","explanation_en":"R21/Maitriksa-MTM malaria of second such vaccine is, whose use of recommendation WHO by was done is. this Tike to Oksaphorda university (U.of.) of Jenar Instityut and Siram Instityut of India by developed was done is. from this East WHO by malaria of before Tike as RTS, S/AS 01 (MosquirixTM) vaccine to approval given was was.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":10},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"इसरो द्वारा विकसित ‘PraVaHa’ सॉफ्टवेयर के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. यह विक्रम साराभाई अंतरिक्ष केंद्र की अग्रणी उपलब्धि है। 2. अंतरिक्ष वाहनों के प्रारंभिक वायुगतिकीय डिजाइन के लिए बड़ी संख्या में विन्यास के मूल्यांकन की आवश्यकता होती है। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"With reference to Isaro by developed ‘PraVaHa’ Sophtaveyar, which of the following statements is/are correct? 1. this Vikram Sarabhaee space centre of leading Upalabdhi is. 2. space Vahanon of early Vayugatikiy Dijain for large number in Vinyas of evaluation of requirement occurs. Select the correct answer from the code given below","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"}],"answer":3,"answer_note":"","explanation_hi":"प्रवाह (PraVaHa), वायुगतिकीय डिजाइन और विश्लेषण के लिए इसरो (ISRO) द्वारा विकसित CFD (Computational Fluid Dynamics) सॉफ्टवेयर है। प्रवाह का पूर्ण रूप है : Parallel RANS Solver for Aerospace Vehicle Aero-thermo-dynamic Analysis (PraVaHa)। इसका विकास इसरो के विक्रम साराभाई अंतरिक्ष केंद्र (VSSC) द्वारा किया गया है। इसे प्रमोचन रॉकेटों, पंखों और गैर-पंखों वाले पुन:प्रवेश प्रमोचन रॉकेटों पर बाहरी और आंतरिक प्रवाह का अनुकरण (Simulate) करने के लिए विकसित किया गया है। अंतरिक्ष वाहनों या प्रमोचन रॉकेटों के लिए प्रारंभिक वायुगतिकीय डिजाइन अध्ययन हेतु ‘बड़ी संख्या में संरूपण/विन्यास’ (Large number of Configurations) के मूल्यांकन की आवश्यकता होती है।","explanation_en":"Flow (PraVaHa), Vayugatikiy Dijain and Vishleshan for Isaro (ISRO) by developed CFD (Computational Fluid Dynamics) Sophtaveyar is. flow of complete form is: Parallel RANS Solver for Aerospace Vehicle Aero-thermo-dynamic Analysis (PraVaHa). its development Isaro of Vikram Sarabhaee space centre (VSSC) by was done is. it Pramochan Roketon, Pankhon and non--Pankhon having re-:entry Pramochan Roketon at Bahari and Antarik flow of Anukaran (Simulate) doing for developed was done is. space Vahanon or Pramochan Roketon for early Vayugatikiy Dijain study for ‘large number in Sanrupan/Vinyas’ (Large number of Configurations) of evaluation of requirement occurs.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":11},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें से एक को अभिकथन (A) तथा दूसरे को कारण (R) कहा गया है। अभिकथन (A) : अप्रैल, 2024 में भारत ने फिलीपींस को ब्रह्मोस सुपरसोनिक क्रूज मिसाइल प्रदान की। कारण (R) : मिसाइल की मारक क्षमता 490 किलोमीटर है। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). Assertion (A): April, 2024 in India Philippines to Brahmos Suparasonik Kruj Misail provided of. Reason (R): Misail of Marak capacity 490 Kilomitar is. Select the correct answer from the code given below","options":[{"hi":"(A) तथा (R) दोनों सही हैं, किंतु (R), (A) की सही व्याख्या नहीं करता है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not does is."},{"hi":"(A) गलत है, किंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."},{"hi":"(A) और (R) दोनों सही हैं और (R), (A) की सही व्याख्या करता है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation does is."},{"hi":"(A) सही है, किंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."}],"answer":3,"answer_note":"","explanation_hi":"19 अप्रैल, 2024 को भारत ने फिलीपींस को ब्रह्मोस सुपरसोनिक क्रूज मिसाइल की पहली खेप सौंप दी। इस प्रकार फिलीपींस इस सुपरसोनिक क्रूज मिसाइल प्रणाली को प्राप्त करने वाला पहला विदेशी राष्ट्र बन गया। ज्ञातव्य है कि जनवरी, 2022 में फिलीपींस ने भारत के साथ ब्रह्मोस मिसाइल के तट-आधारित, एंटी-शिप वैरिएंट के लिए 375 मिलियन डॉलर का समझौता किया था। ब्रह्मोस मिसाइल 2.8 मैक या ध्वनि की गति से लगभग तीन गुनी गति से उड़ान भरने में सक्षम है। फिलीपींस को दी गई ब्रह्मोस मिसाइल की मारक क्षमता 290 किमी. है। इस प्रकार (A) सही है, किंतु (R) गलत है।","explanation_en":"19 April, 2024 to India Philippines to Brahmos Suparasonik Kruj Misail of first Khep Saump given. this type Philippines this Suparasonik Kruj Misail system to obtained doing having first foreign nation become was. notably is that January, 2022 in Philippines India with Brahmos Misail of coast-based, Enti-Ship Vairient for 375 million dollar of Pact did. Brahmos Misail 2.8 Maik or sound of speed from approximately three Guni speed from Uran Bharane in Saksham is. Philippines to given was Brahmos Misail of Marak capacity 290 km. is. this type (A) is correct, but (R) is incorrect.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":12},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘प्रतिभाशाली प्रारंभिक पेशेवरों के लिए गतिशीलता व्यवस्था योजना’ (MATES), के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. यह भारत और ऑस्ट्रेलिया के बीच एक द्विपक्षीय ढांचा है। 2. इस योजना में अध्ययन के विशिष्ट क्षेत्रों में ज्ञान और कौशल वाले भारतीय स्नातकों (18 से 30 वर्ष की आयु) को दो वर्ष तक ऑस्ट्रेलिया में रहने और काम करने की पेशकश की जाएगी। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"With reference to ‘Pratibhashali early Peshevaron for Gatishilata system scheme’ (MATES),, which of the following statements is/are correct? 1. this India and Australia between one Dvipakshiy framework is. 2. this scheme in study of specific regions in Gyan and skill having Indian Snatakon (18 from 30 year of age) to two year up to Australia in remaining and Kam doing of Peshakash of Jaegi. Select the correct answer from the code given below","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"}],"answer":3,"answer_note":"","explanation_hi":"23 मई, 2023 को ऑस्ट्रेलिया तथा भारत के मध्य ‘प्रवास और गतिशीलता साझेदारी व्यवस्था’ (MMPA) हेतु समझौता हुआ। MMPA एक द्विपक्षीय ढांचा है, जो दोनों देशों के मध्य दो-तरफा प्रवास और गतिशीलता का समर्थन तथा प्रचार करता है। साथ ही अवैध और अनियमित प्रवास से संबंधित मुद्दों का भी समाधान करता है। दिसंबर, 2024 से प्रारंभ ‘प्रतिभाशाली प्रारंभिक पेशेवरों के लिए गतिशीलता व्यवस्था योजना’ (MATES) को एमएमपीए (MMPA) के तहत स्थापित किया गया है। MATES का उद्देश्य ऑस्ट्रेलिया तथा भारत के मध्य पारस्परिक रूप से लाभकारी कौशल तथा ज्ञान हस्तांतरण को प्रोत्साहित करना है। यह योजना अध्ययन के विशिष्ट क्षेत्रों में ज्ञान और कौशल वाले भारतीय स्नातकों (18 से 30 वर्ष की आयु) को दो वर्ष तक ऑस्ट्रेलिया में रोजगार के साथ अपनी विशेषज्ञता के क्षेत्रों में मूल्यवान अनुभव प्राप्त करने का अवसर प्रदान करती है।","explanation_en":"23 May, 2023 to Australia and India between ‘Pravas and Gatishilata Sajhedari system’ (MMPA) for Pact occurred. MMPA one Dvipakshiy framework is, which both countries between two-Tarapha Pravas and Gatishilata of support and Prachar does is. with only illegal and Aniyamit Pravas from related issues of also solution does is. December, 2024 from started ‘Pratibhashali early Peshevaron for Gatishilata system scheme’ (MATES) to Emaemapie (MMPA) under established was done is. MATES of objective Australia and India between Parasparik form from Labhakari skill and Gyan Hastantaran to encouraged to do is. this scheme study of specific regions in Gyan and skill having Indian Snatakon (18 from 30 year of age) to two year up to Australia in employment with its own Visheshagyata of regions in Mulyavan Anubhav obtained doing of opportunity provided did is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":13},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित समूहों में से किसमें केवल आगत उपकरण (इनपुट डिवाइस) हैं?","question_en":"Following groups in from in which only Agat instrument (Inaput Divais) are?","options":[{"hi":"माउस, की-बोर्ड, प्रिंटर","en":"Maus, of-Board, Printar"},{"hi":"माउस, की-बोर्ड, प्रोजेक्टर","en":"Maus, of-Board, Projektar"},{"hi":"माउस, की-बोर्ड, मॉनीटर","en":"Maus, of-Board, Monitar"},{"hi":"माउस, की-बोर्ड, स्कैनर","en":"Maus, of-Board, Skainar"}],"answer":3,"answer_note":"","explanation_hi":"प्रमुख इनपुट एवं आउटपुट उपकरणों की सूची इस प्रकार है— इनपुट उपकरण आउटपुट उपकरण की-बोर्ड मॉनीटर माउस प्रिंटर जॉयस्टिक प्लॉटर स्कैनर प्रोजेक्टर लाइट पेन","explanation_en":"Major Inaput and Autaput instruments of List this type is— Inaput instrument Autaput instrument of-Board Monitar Maus Printar Joyastik Plotar Skainar Projektar Lait Pen","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":14},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"कंप्यूटर मेमोरी का वह कौन-सा भाग है, जो विद्युत आपूर्ति बाधित होने पर भी अपरिवर्तनशील रहता है?","question_en":"Kampyutar Memori of that which-which part is, which electric supply Badhit being at also Aparivartanashil remains is?","options":[{"hi":"REM","en":"REM"},{"hi":"RAM","en":"RAM"},{"hi":"ROM","en":"ROM"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":2,"answer_note":"","explanation_hi":"रोम (ROM- Read Only Memory ) कंप्यूटर मेमोरी का वह भाग है, जो विद्युत आपूर्ति बाधित होने पर भी परिवर्तित नहीं होता है। जैसा कि नाम से ही स्पष्ट है कि इस मेमोरी में संगृहीत सूचना को केवल पढ़ा जा सकता है, उसे परिवर्तित नहीं किया जा सकता। कंप्यूटर के बंद होने पर भी रोम में सूचनाएं संगृहीत रहती हैं, नष्ट नहीं होतीं।","explanation_en":"Rom (ROM- Read Only Memory) Kampyutar Memori of that part is, which electric supply Badhit being at also changed not occurs. Jaisa that name from only clear is that this Memori in Sangrihit information to only Parha be can is, it changed not done be can. Kampyutar of Band being at also Rom in informations Sangrihit remains are, Nashta not Hotin.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":15},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘FWD 200B’ के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. यह भारत का पहला स्वदेशी बमवर्षक ‘UA V’ विमान है। 2. इसकी पेलोड क्षमता 100 किलोग्राम है। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"With reference to ‘FWD 200B’, which of the following statements is/are correct? 1. this India of first Svadeshi Bamavarshak ‘UA V’ Viman is. 2. its Pelod capacity 100 Kilogram is. Select the correct answer from the code given below","options":[{"hi":"केवल 2","en":"Only 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"}],"answer":3,"answer_note":"","explanation_hi":"वर्ष 2024 में भारत के प्रथम स्वदेशी निर्मित लड़ाकू मानव रहित हवाई वाहन (UA V) FWD 200B को सफलतापूर्वक लॉन्च किया गया। विदित हो कि FWD 200B को मीडियम एल्टीट्यूड लॉन्ग एंड्योरेंस (MALE) मानव रहित लड़ाकू हवाई वाहन (UCA V) के रूप में वर्गीकृत किया गया है। UPPCS ने इसके दोनों कथनों को सही माना है, जबकि इसका कथन 2 असत्य है। इसकी पेलोड क्षमता 100 किग्रा. न होकर 30 किग्रा. है। इसका टेक-ऑफ के समय अधिकतम वजन 102 किग्रा. है।","explanation_en":"Year 2024 in India of first Svadeshi built Laraku human Rahit air Vahan (UA V) FWD 200B to successfully Loncha was done. Vidit be that FWD 200B to Midiyam Eltityud Longa Endyorens (MALE) human Rahit Laraku air Vahan (UCA V) as classified was done is. UPPCS its both statements to correct considered is, whereas its statement 2 is false. its Pelod capacity 100 kg. not having been 30 kg. is. its Tek-of of time maximum Vajan 102 kg. is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":16},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए- सूची-I सूची-II (लेखक) (पुस्तक) A. लल्लन जी. गोपाल 1. अ कंप्रिहेंसिव हिस्ट्री ऑफ इंडिया : द दिल्ली सल्तनत B. हबीब एवं निजामी 2. द इकोनॉमिक लाइफ ऑफ नॉर्दर्न इंडिया C. के.एस. लाल 3. अर्ली चौहान डाइनेस्टीज D. दशरथ शर्मा 4. हिस्ट्री ऑफ द खलजीज कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the lists - List-I List-II (author) (book) A. Lallan G. Gopal 1. A Kamprihensiv Histri of India: the Delhi Sultanate B. Habib and Nijami 2. the Economic Laiph of Nordarna India C. of.S. red 3. Arli Chauhan Dainestij D. Dasharath Sharma 4. Histri of the Khalajij Code: A B C D","options":[{"hi":"2 1 4 3","en":"2 1 4 3"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"4 3 2 1","en":"4 3 2 1"},{"hi":"3 4 1 2","en":"3 4 1 2"}],"answer":0,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है— सूची-I सूची-II (लेखक) (पुस्तक) लल्लन जी. गोपाल — द इकोनॉमिक लाइफ ऑफ नॉर्दर्न इंडिया हबीब एवं निजामी — अ कंप्रिहेंसिव हिस्ट्री ऑफ (मुहम्मद हबीब एवं खली इंडिया : द दिल्ली सल्तनत अहमद निजामी) के.एस. लाल — हिस्ट्री ऑफ द खलजीज दशरथ शर्मा — अर्ली चौहान डाइनेस्टीज","explanation_en":"The correct matching is as follows — List-I List-II (author) (book) Lallan G. Gopal — the Economic Laiph of Nordarna India Habib and Nijami — A Kamprihensiv Histri of (Muhammad Habib and Khali India: the Delhi Sultanate Ahamad Nijami) of.S. red — Histri of the Khalajij Dasharath Sharma — Arli Chauhan Dainestij","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":17},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए और सूचियों के नीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिए— सूची-I सूची-II (पुस्तक) (लेखक) A. हिंदू पॉलिटी 1. डी.डी. कोसाम्बी B. द वंडर दैट वाज इंडिया 2. ए.एल. बाशम C. ऐन इंट्रोडक्शन टू द 3. के.पी.जायसवाल स्टडी ऑफ इंडियन हिस्ट्री D. द अर्ली हिस्ट्री ऑफ इंडिया 4. विंसेंट आर्थर स्मिथ कूट : A B C D","question_en":"Match List-I with List-II and select the correct answer using the code given below the lists — List-I List-II (book) (author) A. Hindu Politi 1. D.D. Kosambi B. the Vandar Dait Vaj India 2. A.L. Basham C. Ain Introdakshan to the 3. of.P.Jayasaval Stadi of Indian Histri D. the Arli Histri of India 4. Vinsent Arthar Smith Code: A B C D","options":[{"hi":"3 2 4 1","en":"3 2 4 1"},{"hi":"1 2 4 3","en":"1 2 4 3"},{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"1 2 3 4","en":"1 2 3 4"}],"answer":2,"answer_note":"","explanation_hi":"सही सुमेलन इस प्रकार है— (पुस्तक) (लेखक) हिंदू पॉलिटी — के.पी.जायसवाल द वंडर दैट वाज इंडिया — ए.एल. बाशम ऐन इंट्रोडक्शन टू द — डी.डी. कोसाम्बी स्टडी ऑफ इंडियन हिस्ट्री द अर्ली हिस्ट्री ऑफ इंडिया — विंसेंट आर्थर स्मिथ अत: विकल्प (c) सही उत्तर है।","explanation_en":"The correct matching is as follows — (book) (author) Hindu Politi — of.P.Jayasaval the Vandar Dait Vaj India — A.L. Basham Ain Introdakshan to the — D.D. Kosambi Stadi of Indian Histri the Arli Histri of India — Vinsent Arthar Smith hence: option (c) correct answer is.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":18},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित कथनों पर विचार कीजिए : 1. वैज्ञानिक जांच व्यावहारिक आदर्शों के प्रति प्रतिबद्धता पर निर्भर करती है। 2. विज्ञान में ईमानदारी विशेष रूप से महत्वपूर्ण है। नीचे दिए गए कूट में से सही उत्तर चुनिए","question_en":"Consider the following statements: 1. scientist Janch Vyavaharik Adarshon of towards Pratibaddhata at dependent did is. 2. Science in Eemanadari special form from important is. Select the correct answer from the code given below","options":[{"hi":"दोनों कथन 1 और 2 सही हैं।","en":"Both statement 1 and 2 correct are."},{"hi":"दोनों कथन 1 और 2 गलत हैं।","en":"Both statement 1 and 2 incorrect are."},{"hi":"कथन 1 सही है, 2 सही नहीं है।","en":"Statement 1 is correct, 2 is not correct."},{"hi":"कथन 1 सही है, 2 अप्रत्याशित है।","en":"Statement 1 is correct, 2 Apratyashit is."}],"answer":0,"answer_note":"","explanation_hi":"वैज्ञानिक जांच सत्यता जैसे व्यावहारिक आदर्शों के प्रति प्रतिबद्धता और परिणामों को संप्रेषित करने के दायित्व पर निर्भर करती है। ये सिद्धांत विज्ञान की अखंडता, प्रगति और सहयोगात्मक प्रकृति के लिए अनिवार्य हैं। विज्ञान में ईमानदारी शोधकर्त्ताओं की अपने निष्कर्षों (Findings) को सच्चाई से रिपोर्ट करने, त्रुटियों को स्वीकार करने और मिथ्याकरण या साहित्यिक चोरी से बचने की प्रतिबद्धता को संदर्भित करती है। यही कारण है कि विज्ञान के क्षेत्र में ईमानदारी (Honesty) विशेष रूप से महत्वपूर्ण है। इस प्रकार प्रश्नगत दोनों ही कथन सही हैं।","explanation_en":"Scientist Janch Satyata such as Vyavaharik Adarshon of towards Pratibaddhata and Parinamon to Sampreshit doing of Dayitva at dependent did is. these principle Science of Integrity, progress and Sahayogatmak nature for mandatory are. Science in Eemanadari Shodhakarttaon of its own Nishkarshon (Findings) to Sachchaee from report doing, Trutiyon to accepted doing and Mithyakaran or Sahityik Chori from Bachane of Pratibaddhata to Sandarbhit did is. Yahi Reason is that Science of region in Eemanadari (Honesty) special form from important is. this type given both only statement correct are.","source":"UPPCS (Pre) 2024","source_missing":false,"exam":"uppcs-pre","year":"2024","id":19},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"डीकिन विश्वविद्यालय के सन्दर्भ में, निम्नलिखित कथनों में से कौन सा/से सही है/हैं? 1. यह एक स्वतंत्र परिसर के माध्यम से भारत में प्रवेश करने वाला पहला विदेशी विश्वविद्यालय है। 2. इसे महाराष्ट्र में स्थापित किया जा रहा है। नीचे दिये गये कूट का प्रयोग कर सही उत्तर चुनिये- कूट","question_en":"Dikin university of reference in, following statements in from which which/from is correct/are? 1. this one independent Parisar through India in entry doing having first foreign university is. 2. it Maharashtra in established done be remained is. below Diye Gaye Code of use tax correct answer Chuniye- Code","options":[{"hi":"न तो 1 ना ही 2","en":"Not then 1 neither only 2"},{"hi":"केवल 1","en":"Only 1"},{"hi":"दोनों 1 एवं 2","en":"Both 1 and 2"},{"hi":"केवल 2","en":"Only 2"}],"answer":1,"answer_note":"","explanation_hi":"3 मार्च, 2023 को ऑस्ट्रेलिया के डीकिन विश्वविद्यालय को भारत में अपनी अंतरराष्ट्रीय शाखा खोलने की मंजूरी प्राप्त हुई। यह पहला विदेशी विश्वविद्यालय है, जिसकी कोई शाखा भारत में स्थापित की जाएगी। डीकिन विश्वविद्यालय गांधीनगर, गुजरात में अपने अंतरराष्ट्रीय शाखा परिसर की स्थापना करेगा।","explanation_en":"3 March, 2023 to Australia of Dikin university to India in its own International Shakha Kholane of approval obtained occurred. this first foreign university is, whose any Shakha India in established of Jaegi. Dikin university Gandhinagar, Gujarat in its own International Shakha Parisar of establishment will do.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":20},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"दिसंबर, 2022 में जारी सामाजिक प्रगति सूचकांक के अनुसार टियर-1 में निम्नलिखित में से कौन अति उच्च सामाजिक प्रगति में शीर्ष तीन स्थानों पर है?","question_en":"December, 2022 in released social progress index according to Tiyar-1 in following in from which Ati high social progress in top three places at is?","options":[{"hi":"पांडिचेरी, लक्षद्वीप और गोवा","en":"Pandicheri, Lakshadweep and Goa"},{"hi":"मिजोरम, हिमाचल प्रदेश और लद्दाख","en":"Mizoram, Himachal Pradesh and Ladakh"},{"hi":"केरल, नगालैण्ड और मेघालय","en":"Kerala, Nagalainda and Meghalaya"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":0,"answer_note":"","explanation_hi":"20 दिसंबर, 2022 को ’प्रधानमंत्री की आर्थिक सलाहकार परिषद’ द्वारा ’सामाजिक प्रगति सूचकांक, 2022’ जारी किया गया। इस रिपोर्ट में कुल 6 स्तरों (6 Tiers) के तहत रैंक प्रदान की गई है। प्रथम स्तर अति उच्च सामाजिक प्रगति का है, जिसमें शीर्ष तीन राज्य/ केंद्रशासित प्रदेश क्रमश: पुदुचेरी, लक्षद्वीप तथा गोवा हैं।","explanation_en":"20 December, 2022 to ’ Prime Minister of economic Salahakar Council’ by ’social progress index, 2022’ released was done. this report in total 6 levels (6 Tiers) under rank provided was done is. first level Ati high social progress of is, in which top three State/ Union Territory respectively: Puducheri, Lakshadweep and Goa are.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":21},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘‘द चैलेंज ऑफ वर्ल्ड पॉवर्टी’’ पुस्तक किसने लिखी?","question_en":"‘‘the Chailenj of World Povarti’’ book who wrote?","options":[{"hi":"ज्यां द्रेज","en":"Jyan Drej"},{"hi":"एडम स्मिथ","en":"Edam Smith"},{"hi":"अर्मत्य सेन","en":"Armatya Sen"},{"hi":"गुन्नार मिर्डल","en":"Gunnar Mirdal"}],"answer":3,"answer_note":"","explanation_hi":"‘द चैलेंज ऑफ वर्ल्ड पॉवर्टी’ गुन्नार मिर्डल की रचना है। यह पुस्तक पहली बार जनवरी, 1970 में प्रकाशित हुई थी।","explanation_en":"‘the Chailenj of World Povarti’ Gunnar Mirdal of work is. this book first time January, 1970 in published took place.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":22},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"रेगिस्तान में आवास करने वाले जानवर कहलाते हैं","question_en":"Desert in housing doing having animal Kahalate are","options":[{"hi":"मरुद्भिद् जानवर","en":"Marudbhid animal"},{"hi":"वृक्षावासी जानवर","en":"Vrikshavasi animal"},{"hi":"बिल बनाने वाले जानवर","en":"Bil making having animal"},{"hi":"स्थलीय जानवर","en":"Sthaliy animal"}],"answer":0,"answer_note":"","explanation_hi":"जेरोकोल (Xerocole) या मरुद्भिद् रेगिस्तान में रहने के अनुकूल किसी पशु के संदर्भ में प्रयुक्त किया जाने वाला सामान्य शब्द है।","explanation_en":"Jerokol (Xerocole) or Marudbhid desert in remaining of favourable any animal with reference to used done going having general term is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":23},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"विश्व सामाजिक संरक्षण रिपोर्ट प्रकाशित की जाती है","question_en":"World social conservation report published is done","options":[{"hi":"अंतरराष्ट्रीय श्रम संगठन द्वारा","en":"International labour Organization by"},{"hi":"विश्व बैंक द्वारा","en":"World Bank by"},{"hi":"विश्व स्वास्थ्य संगठन द्वारा","en":"World Health Organization (WHO) by"},{"hi":"विश्व आर्थिक मंच द्वारा","en":"World economic platform by"}],"answer":0,"answer_note":"","explanation_hi":"’विश्व सामाजिक संरक्षण रिपोर्ट’ अंतरराष्ट्रीय श्रम संगठन द्वारा प्रकाशित की जाती है।","explanation_en":"’World social conservation report’ International labour Organization by published is done.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":24},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘‘फ्रॉम डिपेण्डेंस टू सेल्फ रिलायंस’’ पुस्तक के लेखक हैं","question_en":"‘‘Phrom Dipendens to Selpha Rilayans’’ book of author are","options":[{"hi":"वाई. वेणुगोपाल रेड्डी","en":"Y. Venugopal Reddi"},{"hi":"सी. रंगराजन","en":"C. Rangarajan"},{"hi":"बिमल जालान","en":"Bimal Jalan"},{"hi":"रघुराम राजन","en":"Raghuram Rajan"}],"answer":2,"answer_note":"","explanation_hi":"फ्रॉम डिपेण्डेंस टू सेल्फ रिलायंस पुस्तक के लेखक बिमल जालान हैं।","explanation_en":"Phrom Dipendens to Selpha Rilayans book of author Bimal Jalan are.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":25},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"कैप्टन हॉकिन्स के संदर्भ में, निम्नलिखित कथनों में से कौन सा सही है? (1) वह 1611 में जेम्स - I के दूत के रूप में भारत आया। (2) यह तुर्की भाषा का बहुत अच्छा ज्ञाता था। कूट","question_en":"Kaiptan Hokinsa with reference to, following statements in from which which is correct? (1) that 1611 in Jemsa - I of Dut as India came. (2) this Turkey language of very good Gyata was. Code","options":[{"hi":"दोनों (1) तथा (2)","en":"Both (1) and (2)"},{"hi":"केवल (1)","en":"Only (1)"},{"hi":"न तो (1) न ही (2)","en":"Neither (1) nor (2)"},{"hi":"केवल (2)","en":"Only (2)"}],"answer":3,"answer_note":"","explanation_hi":"विलियम हॉकिंस (1608-1611 ई.) जहांगीर के दरबार में ईस्ट इंडिया कंपनी द्वारा भेजा जाने वाला प्रथम अंग्रेज राजदूत था। इस प्रकार स्पष्ट है कि हॉकिंस 1608 ई. में भारत आया था तथा वह जेम्स-I का दूत नहीं था। अत: कथन (1) गलत है। उसे तुर्की भाषा का ज्ञान था। वह तुर्की बहुत अच्छा बोलता था। अत: कथन (2) सत्य है। उत्तर प्रदेश लोक सेवा आयोग ने अपने उत्तर कुंजी में विकल्प (c) को सही उत्तर माना है, जो कि त्रुटिपूर्ण है।","explanation_en":"William Hokins (1608-1611 AD.) Jahangir of court in East India Company by Bheja going having first Angrej ambassador was. this type clear is that Hokins 1608 AD. in India came was and that Jemsa-I of Dut not was. hence: statement (1) is incorrect. it Turkey language of Gyan was. that Turkey very good Bolata was. hence: statement (2) is true. Uttar Pradesh Public Service Commission its own answer key in option (c) to correct answer considered is, which that erroneous is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":26},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से किसने ’’स्पेयर’’ पुस्तक लिखी है?","question_en":"Following in from who ’’Speyar’’ book wrote is?","options":[{"hi":"किंग चार्ल्स","en":"King Charlsa"},{"hi":"प्रिंस हैरी","en":"Prins Hairi"},{"hi":"प्रिंस फिलिप","en":"Prins Philip"},{"hi":"प्रिंस विलियम्स","en":"Prins Viliyamsa"}],"answer":1,"answer_note":"","explanation_hi":"स्पेयर (Spare) पुस्तक की रचना प्रिंस हैरी द्वारा की गई है। इस किताब में उन्होंने अपने जीवन और शाही परिवार के बारे में बताया है।","explanation_en":"Speyar (Spare) book of work Prins Hairi by was done is. this Kitab in he its own life and Shahi family of about in Bataya is.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":27},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"पोप बेनेडिक्ट सोलहवें, जिनका हाल ही में निधन हुआ, के संदर्भ में निम्नलिखित कथनों में से कौन-सा/से सही है/हैं? 1. वह जर्मनी के मूल निवासी थे। 2. वह 600 वर्षों में इस्तीफा देने वाले पहले पोप थे। नीचे दिए गए कूट से सही उत्तर चुनिए - कूट","question_en":"Pop Benedikta Solahaven, whose recent only in Nidhan occurred, with reference to following statements in from which-which/from is correct/are? 1. that Germany of original inhabitants were. 2. that 600 years in resignation giving having before Pop were. Select the correct answer from the code given below - Code","options":[{"hi":"न तो 1 ना ही 2","en":"Not then 1 neither only 2"},{"hi":"केवल 2","en":"Only 2"},{"hi":"दोनों 1 एवं 2","en":"Both 1 and 2"},{"hi":"केवल 1","en":"Only 1"}],"answer":2,"answer_note":"","explanation_hi":"31 दिसंबर, 2022 को पोप बेनेडिक्ट सोलहवें की मृत्यु हुई। इनका जन्म 16 अप्रैल, 1927 को जर्मनी में हुआ था। 18 अप्रैल, 2005 को कार्डिनल जोसेफ रैत्जिगर को सेंट पीटर का 264वां उत्तराधिकारी चुना गया था तथा उन्हें बेनेडिक्ट XVI नाम दिया गया। 28 फरवरी, 2013 को पोप बेनेडिक्ट ने अपने इस्तीफे की घोषणा की। लगभग 600 वर्षों में पोप पद से त्याग-पत्र देने वाले पहले पोप बने।","explanation_en":"31 December, 2022 to Pop Benedikta Solahaven of death occurred. Inaka birth 16 April, 1927 to Germany in took place. 18 April, 2005 to Kardinal Joseph Raitjigar to Sent Pitar of 264th successor elected was was and them Benedikta XVI name given was. 28 February, 2013 to Pop Benedikta its own Istiphe of declaration of. approximately 600 years in Pop office from Tyag-letter giving having before Pop became.","source":"UPPCS (Pre) 2023","source_missing":false,"exam":"uppcs-pre","year":"2023","id":28},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘यूनाइटेड किंगडम का पार्टी गेट स्कैण्डल’ क्या है? यह","question_en":"‘United Kingadam of Party Get Skaindal’ what is? this","options":[{"hi":"ब्रिटिश प्रधानमंत्री कार्यालय द्वारा कोविड-19 मानदण्डों के उल्लंघन से संबंधित है","en":"British Prime Minister office by COVID-19 Manadandon of Ullanghan from is related"},{"hi":"कंजर्वेंटिव पार्टी द्वारा लोकतांत्रिक व्यवहार के मानदण्डों के उल्लंघन से संबंधित है","en":"Kanjarventiv Party by Lokatantrik conduct of Manadandon of Ullanghan from is related"},{"hi":"अमेरिका तथा इंग्लैंड में राजनैतिक दलों को गैर-कानूनी फंडिंग से संबंधित है","en":"America and England in political partys to non--Kanuni Phanding from is related"},{"hi":"लेबर पार्टी द्वारा संसदीय व्यवहार के मानदण्डों के उल्लंघन से संबंधित है","en":"Lebar Party by Parliamentary conduct of Manadandon of Ullanghan from is related"}],"answer":0,"answer_note":"","explanation_hi":"‘यूनाइटेड किंगडम का पार्टी गेट स्कैण्डल’ ब्रिटिश प्रधानमंत्री कार्यालय द्वारा कोविड-19 मानदण्डों के उल्लंघन से संबंधित है। बोरिस जॉनसन पर आरोप लगा कि कोरोना प्रसार को रोकने के लिए लगाए गए लॉकडाउन के बीच जून, 2020 में जॉनसन 56 वर्ष के हुए थे। इस दौरान उनकी पत्नी द्वारा एक पार्टी का आयोजन किया गया था, जिसमें लगभग 30 लोग शामिल थे। उस वक्त सभी कार्यक्रमों में दो से अधिक लोगों के आयोजन में शामिल होने की अनुमति नहीं थी। इस पूरे विवाद को पार्टी गेट घोटाला नाम दिया गया। इसके चलते बोरिस जॉनसन को अविश्वास प्रस्ताव का भी सामना करना पड़ा था। हालांकि, बोरिस ने विश्वास मत जीत लिया है।","explanation_en":"‘United Kingadam of Party Get Skaindal’ British Prime Minister office by COVID-19 Manadandon of Ullanghan from is related. Boris Jonasan at Arop Laga that Korona Prasar to Rokane for Lagae were Lokadaun between June, 2020 in Jonasan 56 year of took place. this during their Patni by one Party was organized, in which approximately 30 Log included were. that Vakta all programmes in two from more people of organization in included being of permission not was. this Pure Vivad to Party Get Ghotala name given was. its Chalate Boris Jonasan to Avishvas resolution of also Samana to do Para was. however, Boris Vishvas Mat Jit taken is.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":29},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘निर्धनता को एक सामाजिक समस्या माना गया है’ जो कि लंदन में निर्धनता पर किए गए एक शोध सर्वेक्षण का परिणाम है। इस शोध के शोधार्थी कौन थे?","question_en":"‘poverty to one social problem considered was is’ which that London in poverty at were done one Shodh survey of Parinam is. this Shodh of Shodharthi which were?","options":[{"hi":"हेनरी जार्ज","en":"Henari Jarja"},{"hi":"चार्ल्स बूथ","en":"Charlsa Buth"},{"hi":"सर हेनरी मेन","en":"Sir Henari Men"},{"hi":"किंग्सले डेविस","en":"Kingsale Devis"}],"answer":1,"answer_note":"","explanation_hi":"‘निर्धनता को एक सामाजिक समस्या माना गया है’ जो कि लंदन में निर्धनता पर किए गए एक शोध सर्वेक्षण का परिणाम है। इस शोध के शोधार्थी चार्ल्स बूथ थे। इनकी पुस्तक ‘लाइफ एंड लेबर ऑफ द पीपल इन लंदन’ लंदन में गरीबी के बारे में उनके द्वारा एकत्र किए गए आंकड़ों पर केंद्रित है।","explanation_en":"‘poverty to one social problem considered was is’ which that London in poverty at were done one Shodh survey of Parinam is. this Shodh of Shodharthi Charlsa Buth were. Inaki book ‘Laiph and Lebar of the Pipal these London’ London in poverty of about in their by Ekatra were done data at centred is.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":30},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित समाजशास्त्रियों में से किसने ‘ग्राम्यनगरीकरण’ (रुरबेनाइजेशन) के विचार को विस्तार से बताया है?","question_en":"Following Samajashastriyon in from who ‘Gramyanagarikaran’ (Rurabenaijeshan) of consideration to expansion from Bataya is?","options":[{"hi":"योगेंद्र सिंह","en":"Yogendra lion"},{"hi":"एच. स्पेंसर","en":"H. Spensar"},{"hi":"एम. एन. श्रीनिवास","en":"M. N. Shrinivas"},{"hi":"जी. एस. घुर्ये","en":"G. S. Ghurye"}],"answer":3,"answer_note":"","explanation_hi":"गोविंद सदाशिव घुर्ये ने ग्राम्यनगरीकरण (Rurbanization or Rural Urbanization) के विचार को विस्तार से बताया है।","explanation_en":"Govinda Sadashiv Ghurye Gramyanagarikaran (Rurbanization or Rural Urbanization) of consideration to expansion from Bataya is.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":31},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची- I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए। सूची-I सूची-II (ग्रन्थ) (रचनाकार) A. रागमाला 1. सोमनाथ B. रसकौमुदी 2. वैंकटरमण C. रागविवोध 3. पुंडरीक विट्ठल D. चतुर्दंडी प्रकाशिका 4. श्रीकंठ कूट : A B C D","question_en":"List- I to List-II from matched do and lists of Select the correct answer from the code given below. List-I List-II (Grantha) (author) A. Ragamala 1. Somanath B. Rasakaumudi 2. Vainkataraman C. Ragavivodh 3. Pundarik Vitthal D. Chaturdandi Prakashika 4. Shrikanth Code: A B C D","options":[{"hi":"2 4 3 1","en":"2 4 3 1"},{"hi":"3 4 1 2","en":"3 4 1 2"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"4 2 1 3","en":"4 2 1 3"}],"answer":null,"answer_note":"Official key marked (*) — left unscored","explanation_hi":"[नोट: मूल प्रश्न में उत्तर (*) अंकित है] सही सुमेलन निम्नवत है - सूची-I सूची-II (ग्रन्थ) (रचनाकार) रागमाला पुंडरीक विट्ठल रसकौमुदी श्रीकंठ रागविवोध सोमनाथ चतुर्दंडी प्रकाशिका वेंकटमखिन चूंकि प्रश्न में रचनाकार का नाम वैंकटरमण दिया गया है जबकि लेखक का सही नाम वेंकटमखिम (Vankatamakhim) है। अत: यह प्रश्न मूल्यांकन से बाहर करने योग्य है।","explanation_en":"[Note: original Question in answer (*) marked is] The correct matching is as follows - List-I List-II (Grantha) (author) Ragamala Pundarik Vitthal Rasakaumudi Shrikanth Ragavivodh Somanath Chaturdandi Prakashika Venkatamakhin since Question in author of name Vainkataraman is given whereas author of correct name Venkatamakhim (Vankatamakhim) is. hence: this Question evaluation from outside doing eligible is.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":32},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सी वाटरशेड विकास परियोजना भारत की केंद्र सरकार द्वारा प्रायोजित है, जिसका उद्देश्य ग्रामीण आबादी को पानी के संरक्षण के लिए सक्षम बनाना है?","question_en":"Which of the following is Vatarashed development project India of centre Government by Prayojit is, whose objective rural population to water of conservation for Saksham to make?","options":[{"hi":"पानी संसद","en":"Water Parliament"},{"hi":"हरियाली","en":"Hariyali"},{"hi":"जल क्रांति","en":"Water Revolution"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"वर्ष 2003 में वाटरशेड विकास परियोजना के तहत हरियाली योजना शुरू की गई थी। इसके तहत, ग्रामीण क्षेत्र में पेयजल, सिंचाई, मत्स्यपालन और वनीकरण हेतु जल संरक्षण का कार्य शामिल है। इस योजना को पंचायती राज संस्थाओं द्वारा लोगों के योगदान से लागू किया गया।","explanation_en":"Year 2003 in Vatarashed development project under Hariyali scheme started was done was. its under, rural region in drinking water, irrigation, Matsyapalan and Vanikaran for water conservation of function included is. this scheme to Panchayati Raj Institutions by people of contribution from implemented was done.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":33},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"अंतरराष्ट्रीय अंतरिक्ष स्टेशन पर किसी ‘नासा’ के अंतरिक्ष यात्री द्वारा सर्वाधिक लंबी अंतरिक्ष यात्रा का रिकॉर्ड किसका है?","question_en":"International space Station at any ‘Nasa’ of space traveller by highest long space journey of Rikorda whose is?","options":[{"hi":"यॉटर डुब्रोव","en":"Yotar Dubrov"},{"hi":"मार्क वेण्ड हे","en":"Marka Venda He"},{"hi":"एंटन शैप्लेरोव","en":"Entan Shaiplerov"},{"hi":"उपर्युक्त में से कोई नहीं","en":"None of the above"}],"answer":1,"answer_note":"","explanation_hi":"प्रश्नकाल के दौरान नासा के अंतरिक्ष यात्री मार्क वेण्ड हे ने अंतरराष्ट्रीय अंतरिक्ष स्टेशन पर 355 दिवसीय एकल उड़ान मिशन (Single Space Flight Mission) पूरा किया। प्रश्नकाल के दौरान यह इतिहास में किसी अंतरिक्ष यात्री द्वारा सबसे लंबी एकल अंतरिक्षीय उड़ान का विश्व रिकॉर्ड है। सितंबर, 2023 में नासा के अंतरिक्षयात्री फ्रैंक रूबियो ने अंतरराष्ट्रीय अंतरिक्ष स्टेशन से 371 दिवसीय एकल उड़ान पूर्ण करके मार्क वेण्ड हे का रिकॉर्ड तोड़ दिया।","explanation_en":"Question Hour during Nasa of space traveller Marka Venda He International space Station at 355 day single Uran mission (Single Space Flight Mission) complete done. Question Hour during this History in any space traveller by most long single Antarikshiy Uran of World Rikorda is. September, 2023 in Nasa of Antarikshayatri Phraink Rubiyo International space Station from 371 day single Uran complete by doing Marka Venda He of Rikorda Tor given.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":34},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची- I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए। सूची-I सूची-II (देवता) (पहचान) A. शिव 1. चक्र B. विष्णु 2. त्रिशूल C. गणेश 3. वीणा D. सरस्वती 4. रस्सी या फंदा कूट : A B C D","question_en":"List- I to List-II from matched do and lists of Select the correct answer from the code given below. List-I List-II (Devata) (identification) A. Shiv 1. Chakra B. Vishnu 2. Trishul C. Ganesh 3. Vina D. Sarasvati 4. Rassi or Phanda Code: A B C D","options":[{"hi":"4 3 1 2","en":"4 3 1 2"},{"hi":"2 1 4 3","en":"2 1 4 3"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"3 2 1 4","en":"3 2 1 4"}],"answer":1,"answer_note":"","explanation_hi":"सही सुमेलन निम्नवत है— सूची-I सूची-II देवता पहचान शिव — त्रिशूल विष्णु — चक्र गणेश — रस्सी या फंदा सरस्वती — वीणा","explanation_en":"The correct matching is as follows — List-I List-II Devata identification Shiv — Trishul Vishnu — Chakra Ganesh — Rassi or Phanda Sarasvati — Vina","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":35},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"नीचे दो कथन दिए गए हैं, एक को अभिकथन (A) तथा दूसरे को कारण (R) कहा गया है। अभिकथन (A) : बीसवीं शताब्दी में निर्धनता एवं निर्धन व्यक्ति हमारी चिंता एवं कर्तव्य के विषय बने। कारण (R) : रणनीतिक रूप से यहां लक्ष्य भेदन क्रियाओं का अभाव था, जिसके फलस्वरूप इस मुद्दे को गति मिली। नीचे दिए गए कूट से सही उत्तर का चयन कीजिए— कूट","question_en":"Below two statement are given, one to Assertion (A) and second to Reason (R) is called. Assertion (A): Bisavin century in poverty and poor person Hamari Chinta and Duty of subject became. Reason (R): Rananitik form from here target Bhedan Kriyaon of lack was, whose Phalasvarup this Mudde to speed Mili. Select the correct answer from the code given below — Code","options":[{"hi":"(A) सही है, परंतु (R) गलत है।","en":"(A) is correct, but (R) is incorrect."},{"hi":"(A) तथा (R) दोनों सही हैं तथा (R), (A) की सही व्याख्या है।","en":"(A) and (R) both correct are and (R), (A) of correct Explanation is."},{"hi":"(A) गलत है, परंतु (R) सही है।","en":"(A) is incorrect, but (R) is correct."},{"hi":"(A) और (R) दोनों सही हैं, परंतु (R), (A) की सही व्याख्या नहीं है।","en":"(A) and (R) both correct are, but (R), (A) of correct Explanation not is."}],"answer":3,"answer_note":"","explanation_hi":"20वीं शताब्दी में निर्धनता एवं निर्धन व्यक्ति हमारी चिंता एवं कर्तव्य के विषय बने, क्योंकि बीसवीं शताब्दी में वैश्विक स्तर पर हुए विविध परिवर्तनों के कारण इस मुद्दे पर बहुत ध्यान नहीं दिया जा सका। रणनीतिक रूप से यहां लक्ष्य भेदन क्रियाओं का अभाव था, इसलिए इस मुद्दे को गति मिली। दिए गए दोनों कथन सही हैं, परंतु अभिकथन, कारण की सही व्याख्या नहीं है। अत: विकल्प (d) अभीष्ट उत्तर होगा।","explanation_en":"20th century in poverty and poor person Hamari Chinta and Duty of subject became, because Bisavin century in Global level at occurred Miscellaneous changes due to this Mudde at very attention not given be Saka. Rananitik form from here target Bhedan Kriyaon of lack was, therefore this Mudde to speed Mili. given both statement correct are, but Assertion, Reason of correct Explanation not is. hence: option (d) required answer will be.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":36},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची- I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए। सूची-I सूची-II (समाचार-पत्र/पत्रिका) (प्रकाशन का स्थान) A. स्वदेश 1. आगरा B. भारत बंधु 2. अल्मोड़ा C. सत्यवादी 3. हाथरस D. शक्ति 4. गोरखपुर कूट : A B C D","question_en":"List- I to List-II from matched do and lists of Select the correct answer from the code given below. List-I List-II (Samachar-letter/Patrika) (publication of place) A. Svadesh 1. Agra B. India Bandhu 2. Almora C. Satyavadi 3. Hatharas D. power 4. Gorakhpur Code: A B C D","options":[{"hi":"4 3 1 2","en":"4 3 1 2"},{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"3 2 1 4","en":"3 2 1 4"},{"hi":"2 3 4 1","en":"2 3 4 1"}],"answer":0,"answer_note":"","explanation_hi":"सही सुमेलन निम्नवत है सूची-I सूची-II समाचार-पत्र/पत्रिका प्रकाशन का स्थान स्वदेश — गोरखपुर भारत बंधु — हाथरस सत्यवादी — आगरा शक्ति — अल्मोड़ा अत: विकल्प (a) अभीष्ट उत्तर होगा।","explanation_en":"The correct matching is as follows List-I List-II Samachar-letter/Patrika publication of place Svadesh — Gorakhpur India Bandhu — Hatharas Satyavadi — Agra power — Almora hence: option (a) required answer will be.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":37},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"नई दिल्ली की किस प्रसिद्ध इमारत को प्रधानमंत्री संग्रहालय में परिवर्तित किया गया है?","question_en":"New Delhi of which famous Imarat to Prime Minister Sangrahalay in changed was done is?","options":[{"hi":"इंडिया हैबिटाट सेंटर","en":"India Haibitat Sentar"},{"hi":"तालकटोरा स्टेडियम","en":"Talakatora Stediyam"},{"hi":"विज्ञान भवन","en":"Science building"},{"hi":"तीन मूर्ति भवन","en":"Three Murti building"}],"answer":3,"answer_note":"","explanation_hi":"14 अप्रैल, 2022 को अंबेडकर जयंती के अवसर पर प्रधानमंत्री नरेंद्र मोदी ने नई दिल्ली में प्रधानमंत्री संग्रहालय का उद्घाटन किया। यह संग्रहालय तीन मूर्ति भवन परिसर में बनकर तैयार हुआ है। उल्लेखनीय है, तीन मूर्ति भवन भारत के प्रथम प्रधानमंत्री जवाहरलाल नेहरू का निवास स्थान था।","explanation_en":"14 April, 2022 to Ambedkar birth anniversary of opportunity at Prime Minister Narendra Modi new Delhi in Prime Minister Sangrahalay of inauguration done. this Sangrahalay three Murti building Parisar in Banakar prepared occurred is. notable is, three Murti building India of first Prime Minister Jawaharlal Nehru of Nivas place was.","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":38},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन एक सही सुमेलित है?","question_en":"Which one of the following is correctly matched?","options":[{"hi":"भारत धर्म महामण्डल — दिल्ली","en":"India religion Mahamandal — Delhi"},{"hi":"देव समाज — बनारस","en":"Dev society — Banaras"},{"hi":"राधास्वामी सत्संग — लाहौर","en":"Radhasvami Satsang — Lahore"},{"hi":"सनातन धर्म रक्षिणी सभा — कलकत्ता","en":"Sanatan religion Rakshini Assembly — Calcutta"}],"answer":3,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों का सही सुमेलन है— भारत धर्म महामण्डल — हरिद्वार देव समाज — लाहौर राधास्वामी सत्संग — आगरा सनातन धर्म रक्षिणी सभा — कलकत्ता","explanation_en":"Given options of correct matching is— India religion Mahamandal — Haridvar Dev society — Lahore Radhasvami Satsang — Agra Sanatan religion Rakshini Assembly — Calcutta","source":"UPPCS (Pre) 2022","source_missing":false,"exam":"uppcs-pre","year":"2022","id":39},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्न में किस स्थान पर भारत में प्रथम नगर निगम स्थापित किया गया था?","question_en":"Low in which place at India in first city Corporation established was done was?","options":[{"hi":"कलकत्ता","en":"Calcutta"},{"hi":"मद्रास","en":"Madras"},{"hi":"बॉम्बे","en":"Bombe"},{"hi":"दिल्ली","en":"Delhi"}],"answer":1,"answer_note":"","explanation_hi":"भारत में पहला नगर निगम 1688 ई. में मद्रास के पूर्व प्रेसीडेंसी शहर में स्थापित किया गया था। इसके बाद 1826 ई. में कलकत्ता एवं बॉम्बे में नगर निगम की स्थापना की गई।","explanation_en":"India in first city Corporation 1688 AD. in Madras before Presidensi city in established was done was. its after 1826 AD. in Calcutta and Bombe in city Corporation of establishment was done.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":40},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘पावर्टी एंड अनब्रिटिश रूल इन इंडिया’ नामक पुस्तक किस वर्ष प्रकाशित हुई?","question_en":"‘Pavarti and Anabritish Rul these India’ named book which year published occurred?","options":[{"hi":"1900 ई.","en":"1900 AD."},{"hi":"1901 ई.","en":"1901 AD."},{"hi":"1902 ई.","en":"1902 AD."},{"hi":"1903 ई.","en":"1903 AD."}],"answer":1,"answer_note":"","explanation_hi":"‘पावर्टी एंड अन-ब्रिटिश रूल इन इंडिया’ के लेखक दादाभाई नौरोजी हैं। यह पुस्तक वर्ष 1901 में लंदन के एस. सोनेश्चेन प्रकाशक द्वारा प्रकाशित की गई थी।","explanation_en":"‘Pavarti and An-British Rul these India’ of author Dadabhaee Nauroji are. this book year 1901 in London of S. Soneshchen Prakashak by published was done was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":41},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित शहरों में से किस एक में देश का प्रथम भारतीय कौशल संस्थान स्थापित किया गया?","question_en":"Following cities in from which one in country of first Indian skill Institute established was done?","options":[{"hi":"अहमदाबाद","en":"Ahamadabad"},{"hi":"मुंबई","en":"Mumbai"},{"hi":"रोहतक","en":"Rohatak"},{"hi":"कानपुर","en":"Kanpur"}],"answer":3,"answer_note":"","explanation_hi":"19 दिसंबर, 2016 को कानपुर, उत्तर प्रदेश में प्रधानमंत्री नरेंद्र मोदी ने देश के प्रथम भारतीय कौशल संस्थान (IIS) की नींव रखी थी। यह संस्थान कौशल विकास और उद्यमशीलता मंत्रालय एवं इंस्टीट्यूट ऑफ टेक्निकल एजुकेशन, सिंगापुर के संयुक्त प्रयास से खोला जा रहा है।","explanation_en":"19 December, 2016 to Kanpur, Uttar Pradesh in Prime Minister Narendra Modi country of first Indian skill Institute (IIS) of Ninv Rakhi was. this Institute skill development and entrepreneurship Ministry and Instityut of Teknikal Ejukeshan, Singapur of joint effort from Khola be remained is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":42},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘स्टेच्यू ऑफ पीस’ भारत के किस राज्य में अवस्थित है?","question_en":"‘Stechyu of Pis’ India of which State in is situated?","options":[{"hi":"मध्य प्रदेश","en":"Madhya Pradesh"},{"hi":"राजस्थान","en":"Rajasthan"},{"hi":"गुजरात","en":"Gujarat"},{"hi":"हिमाचल प्रदेश","en":"Himachal Pradesh"}],"answer":1,"answer_note":"","explanation_hi":"‘स्टेच्यू ऑफ पीस’ (शांति की प्रतिमा) जैन आचार्य श्री विजय वल्लभ सुरिश्वर जी महाराज की प्रतिमा है। इसका अनावरण प्रधानमंत्री नरेंद्र मोदी ने 16 नवंबर, 2020 को जैन आचार्य की 151वीं जयंती के अवसर पर किया था। अष्टधातु से निर्मित यह प्रतिमा 151 इंच ऊंची है। यह प्रतिमा राजस्थान के पाली में जैतपुरा स्थित विजय वल्लभ साधना केंद्र में स्थापित की गई है।","explanation_en":"‘Stechyu of Pis’ (peace of Pratima) Jain Acharya Shri victory Vallabh Surishvar G Maharaj of Pratima is. its Anavaran Prime Minister Narendra Modi 16 November, 2020 to Jain Acharya of 151st birth anniversary of opportunity at did. Ashtadhatu from built this Pratima 151 Inch high is. this Pratima Rajasthan of Pali in Jaitapura located victory Vallabh Sadhana centre in established was done is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":43},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सुगम्य भारत अभियान संबंधित है","question_en":"Sugamya India campaign is related","options":[{"hi":"दिव्यांग व्यक्तियों से","en":"Divyang persons from"},{"hi":"बाल स्वास्थ्य से","en":"Child health from"},{"hi":"महिला सशक्तीकरण से","en":"Women empowerment from"},{"hi":"वंचित लोगों से","en":"Vanchit people from"}],"answer":0,"answer_note":"","explanation_hi":"सुगम्य भारत अभियान दिव्यांग व्यक्तियों के लिए सार्वभौमिक पहुंच प्रदान करने के लिए सामाजिक न्याय एवं अधिकारिता मंत्रालय के दिव्यांगजन सशक्तीकरण विभाग द्वारा 3 दिसंबर, 2015 को शुरू किया गया एक देशव्यापी अभियान है। यह अभियान दिव्यांग लोगों के लिए भौतिक वातावरण, परिवहन, सूचना एवं संचार परिस्थितिकीय-तंत्र विकसित करने पर केंद्रित है।","explanation_en":"Sugamya India campaign Divyang persons for Sarvabhaumik access provided doing for social Justice and jurisdiction Ministry of Divyangajan empowerment Department by 3 December, 2015 to started was done one Deshavyapi campaign is. this campaign Divyang people for physical environment, transport, information and Sanchar Paristhitikiy-system developed doing at centred is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":44},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सा युग्म सही सुमेलित नहीं है? (संस्थान) (अवस्थिति)","question_en":"Which of the following is NOT pair correct matched? (Institute) (location)","options":[{"hi":"अंतरराष्ट्रीय शस्य-वानिकी — नैरोबी अनुसंधान केंद्र","en":"International Shasya-Vaniki — Nairobi research centre"},{"hi":"भारतीय वन प्रबंध संस्थान — भोपाल","en":"Indian forest management Institute — Bhopal"},{"hi":"केंद्रीय शस्य-वानिकी — बांदा अनुसंधान संस्थान","en":"Central Shasya-Vaniki — Banda research Institute"},{"hi":"टाटा ऊर्जा अनुसंधान संस्थान — नई दिल्ली","en":"Tata energy research Institute — new Delhi"}],"answer":2,"answer_note":"","explanation_hi":"केंद्रीय शस्य-वानिकी अनुसंधान संस्थान झांसी में स्थित है, न कि बांदा में।","explanation_en":"Central Shasya-Vaniki research Institute Jhansi in is located, not that Banda in.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":45},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"विश्व का पहला हृदय प्रत्यारोपण निम्न में से किसने किया था?","question_en":"World of first heart Pratyaropan low in from who did?","options":[{"hi":"डॉ. वेणुगोपाल","en":"Dr.. Venugopal"},{"hi":"विलियम हार्वे","en":"William Harve"},{"hi":"क्रिश्चियन बर्नार्ड","en":"Krishchiyan Barnarda"},{"hi":"विलियम बैट्रिक","en":"William Baitrik"}],"answer":2,"answer_note":"","explanation_hi":"3 दिसंबर, 1967 को विश्व का प्रथम मानव-से-मानव हृदय प्रत्यारोपण केपटाउन स्थित ग्रूटे शूर अस्पताल में डॉ. क्रिश्चियन बर्नार्ड द्वारा संपादित किया गया था।","explanation_en":"3 December, 1967 to World of first human-from-human heart Pratyaropan Kepataun located Grute Shur Aspatal in Dr.. Krishchiyan Barnarda by Sampadit was done was.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":46},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सा ग्रामीण समुदाय का तत्व नहीं है?","question_en":"Which of the following is NOT rural community of element?","options":[{"hi":"हम की भावना","en":"Ham of Bhavana"},{"hi":"सांस्कृतिक विविधता","en":"Cultural diversity"},{"hi":"क्षेत्र","en":"Region"},{"hi":"आत्मनिर्भरता","en":"Atmanirbharata"}],"answer":1,"answer_note":"","explanation_hi":"समाजशास्त्र के अनुसार ग्रामीण समुदाय की विशेषता में सांस्कृतिक विविधता शामिल नहीं है। सांस्कृतिक विविधता शहरों/महानगरों की विशेषता है।","explanation_en":"Samajashastra according to rural community of characteristic in Cultural diversity included not is. Cultural diversity cities/Mahanagaron of characteristic is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":47},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘फवायदुल फवाद’ नामक पुस्तक शेख निजामुद्दीन औलिया की बातचीत का विवरण है, इसका संकलन किया था","question_en":"‘Phavayadul Phavad’ named book Shekh Nijamuddin Auliya of Batachit of details is, its Sankalan did","options":[{"hi":"अमीर हसन सिजजी ने","en":"Amir Hasan Sijaji"},{"hi":"अमीर खुसरो ने","en":"Amir Khusaro"},{"hi":"जियाउद्दीन बरनी ने","en":"Jiyauddin Barani"},{"hi":"हसन निजामी ने","en":"Hasan Nijami"}],"answer":0,"answer_note":"","explanation_hi":"ख्वाजा अमीर हसन अल सिजजी ‘फवायद-उल-फवाद’ नामक पुस्तक के लेखक हैं।","explanation_en":"Khvaja Amir Hasan Al Sijaji ‘Phavayad-Ul-Phavad’ named book of author are.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":48},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सा अंटार्कटिका में भारत का स्थायी और उसके द्वारा परिचालित अनुसंधान स्टेशन है?","question_en":"Which of the following is Antarkatika in India of Sthayi and its by Parichalit research Station?","options":[{"hi":"भारती और आर्य","en":"Bharati and Arya"},{"hi":"भारती और दक्षिण गंगोत्री","en":"Bharati and South Gangotri"},{"hi":"भारती और मैत्री","en":"Bharati and Maitri"},{"hi":"दक्षिण गंगोत्री और मैत्री","en":"South Gangotri and Maitri"}],"answer":2,"answer_note":"","explanation_hi":"भारतीय अंटार्कटिक कार्यक्रम के तहत अंटार्कटिका में तीन स्थायी अनुसंधान स्टेशनों की स्थापना की गई, जिनका नाम दक्षिण गंगोत्री व मैत्री तथा भारती है। वर्तमान में अंटार्कटिका में भारत के दो परिचालित अनुसंधान स्टेशन हैं—(i) मैत्री और (ii) भारती।","explanation_en":"Indian Antarkatik programme under Antarkatika in three Sthayi research Stations of establishment was done, whose name South Gangotri and Maitri and Bharati is. present in Antarkatika in India of two Parichalit research Station are—(i) Maitri and (ii) Bharati.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":49},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची-I को सूची-II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर का चयन कीजिए। सूची-I सूची-II (ग्रंथ) (रचयिता) A. रागमाला 1. सोमनाथ B. रस कौमुदी 2. वेंकटरमन C. राग विबोध 3. पुंडरीक विट्ठल D. चतुर्दंडी प्रकाशिका 4. श्री कंठ कूट : A B C D","question_en":"Match List-I with List-II and lists of Select the correct answer from the code given below. List-I List-II (text) (author) A. Ragamala 1. Somanath B. Ras Kaumudi 2. Venkataraman C. Rag Vibodh 3. Pundarik Vitthal D. Chaturdandi Prakashika 4. Shri Kanth Code: A B C D","options":[{"hi":"3 4 1 2","en":"3 4 1 2"},{"hi":"4 2 1 3","en":"4 2 1 3"},{"hi":"2 3 4 1","en":"2 3 4 1"},{"hi":"1 2 3 4","en":"1 2 3 4"}],"answer":0,"answer_note":"","explanation_hi":"सूची-I तथा सूची-II का सही सुमेलन निम्नवत है— ग्रंथ रचयिता रागमाला पुंडरीक विट्ठल रस कौमुदी श्री कंठ राग विबोध सोमनाथ चतुर्दंडी प्रकाशिका वेंकटरमन","explanation_en":"List-I and List-II of The correct matching is as follows — text author Ragamala Pundarik Vitthal Ras Kaumudi Shri Kanth Rag Vibodh Somanath Chaturdandi Prakashika Venkataraman","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":50},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन अन्य तीनों की तुलना में ज्यादा सूर्य की रोशनी परावर्तित करता है?","question_en":"Following in from which other threes compared to more Sun of light reflected does is?","options":[{"hi":"रेत का रेगिस्तान","en":"Ret of desert"},{"hi":"धान की खेती की भूमि","en":"Paddy of cultivation of land"},{"hi":"ताजा बर्फ से ढकी भूमि","en":"Taja ice from Dhaki land"},{"hi":"प्रेअरी भूमि (समशीतोष्ण)","en":"Preari land (Temperate)"}],"answer":2,"answer_note":"","explanation_hi":"प्रश्नगत विकल्पों में ताजा बर्फ से ढकी भूमि सूर्य की रोशनी को सर्वाधिक मात्रा में परावर्तित करती है। उसके बाद क्रमश: रेत का रेगिस्तान, प्रेअरी भूमि एवं धान के खेत का क्रम आता है।","explanation_en":"Given options in Taja ice from Dhaki land Sun of light to highest quantity in reflected did is. its after respectively: Ret of desert, Preari land and paddy of Khet of order comes is.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":51},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सोकोत्रा द्वीप के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. यह ओमान का एक द्वीप है, जो अरब सागर में स्थित है। 2. इसे 2008 में यूनेस्को द्वारा विश्व प्राकृतिक विरासत स्थल के रूप में नामित किया गया था। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"With reference to Sokotra island, which of the following statements is/are correct? 1. this Oman of one island is, which Arabian Sea in is located. 2. it 2008 in Yunesko by World natural heritage site as Namit was done was. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":1,"answer_note":"","explanation_hi":"सोकोत्रा द्वीप हिंद महासागर के अरब सागर से लगे अदन की खाड़ी में अवस्थित है। यह यमन शासित प्रदेश है तथा वर्ष 2008 में इसे यूनेस्को द्वारा विश्व प्राकृतिक विरासत स्थल के रूप में नामित किया गया था। सोकोत्रा द्वीप अपनी प्राकृतिक विविधता एवं जैव-विविधता के कारण विश्व में सार्वभौमिक महत्व का स्थल है। यहां पाई जाने वाली 37 प्रतिशत पौधे की प्रजाति, 90 प्रतिशत रेंगने वाले जीव तथा 95 प्रतिशत घोंघा (Snail) विश्व में अन्यत्र कहीं नहीं पाए जाते।","explanation_en":"Sokotra island Indian Ocean of Arabian Sea from Lage Adan of bay in is situated. this Yaman Shasit Pradesh is and year 2008 in it Yunesko by World natural heritage site as Namit was done was. Sokotra island its own natural diversity and bio-diversity due to World in Sarvabhaumik importance of site is. here Paee going having 37 percent (%) plants of species, 90 percent (%) Rengane having organism and 95 percent (%) Ghongha (Snail) World in Anyatra Kahin not Pae go.","source":"UPPCS (Pre) 2021","source_missing":false,"exam":"uppcs-pre","year":"2021","id":52},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सूची - I को सूची - II से सुमेलित कीजिए तथा सूचियों के नीचे दिए गए कूट से सही उत्तर चुनिए : सूची - I सूची - II A. जजमानी 1. उत्तर भारत B. बारा बलूट 2. कर्नाटक C. मिरासि 3. महाराष्ट्र D. अडाडे 4. तमिलनाडु कूट : A B C D","question_en":"List - I to List - II from matched do and lists of Select the correct answer from the code given below: List - I List - II A. Jajamani 1. North India B. Bara Balut 2. Karnataka C. Mirasi 3. Maharashtra D. Adade 4. Tamil Nadu Code: A B C D","options":[{"hi":"1 2 3 4","en":"1 2 3 4"},{"hi":"1 3 2 4","en":"1 3 2 4"},{"hi":"1 4 2 3","en":"1 4 2 3"},{"hi":"1 3 4 2","en":"1 3 4 2"}],"answer":3,"answer_note":"","explanation_hi":"सूची - I और सूची - II का सही सुमेलन है- सूची - I सूची - II जजमानी उत्तर भारत बारा बलूट महाराष्ट्र मिरासि तमिलनाडु अडाडे कर्नाटक UPPSC द्वारा जारी उत्तर कुंजी में इस प्रश्न का उत्तर विकल्प (b) दिया गया है जो कि गलत है।","explanation_en":"List - I and List - II of correct matching is- List - I List - II Jajamani North India Bara Balut Maharashtra Mirasi Tamil Nadu Adade Karnataka UPPSC by released answer key in this Question of answer option (b) is given which that is incorrect.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":53},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सर्वप्रथम ‘सीमांत व्यक्ति’ (मार्जिनल मैन) की संकल्पना का प्रतिपादन किया गया","question_en":"First of all ‘frontier person’ (Marjinal Main) of concept of Pratipadan was done","options":[{"hi":"रॉबर्ट ई. पार्क","en":"Robarta AD. Parka"},{"hi":"रॉबर्ट रेडफील्ड","en":"Robarta Redaphilda"},{"hi":"लुई वर्थ","en":"Luee Vartha"},{"hi":"लुई डुमाण्ट","en":"Luee Dumanta"}],"answer":0,"answer_note":"","explanation_hi":"सर्वप्रथम रॉबर्ट ई. पार्क ने ‘सीमांत आदमी’ (Marginal Man) की संकल्पना का प्रतिपादन अपने लेख ‘मानव का स्थान-परिवर्तन और सीमांत आदमी’ (Human Migration and the Marginal Man) में किया। हालांकि इस संकल्पना को लोकप्रिय ई.वी. स्टोन क्विस्ट (E.V . Stone quist) ने किया। रॉबर्ट ई. पार्क ने इस बात की ओर संकेत किया है कि विभिन्न प्रजातियों के बीच आपसी संबंध के बीच जो नई प्रजाति अथवा पीढ़ी विकसित होती है, वह संक्रमण के दौर से गुजरती है तथा धीरे-धीरे अपने समाज में हाशिए पर चली जाती है। इस कारण वे इस बात की स्थापना करते हैं कि - ‘‘सीमांत आदमी मिश्रित खून का आदमी होता है।’’ क्योंकि वह एक साथ ऐसे दो विश्व में रहता है, जिसमें वह कम या अधिक अपने आपको अजनबी महसूस करता है। इसके साथ ही धीरे-धीरे उसके अंदर कुछ ऐसी प्रवृत्तियां पनपने लगती हैं, जिसके कारण वह अपने आपको बेचैन, रुग्ण और क्लांत अनुभव करने लगता है तथा उसके अंदर अस्थायीपन भाव झलकने लगता है। बहुत सारी प्रजातियां अपनी शारीरिक आकृति के कारण ही हाशिए पर चली जाती हैं,जैसे कि दक्षिण अफ्रीका और संयुक्त राज्य अमेरिका के अश्वेत समाज के साथ हुआ।","explanation_en":"First of all Robarta AD. Parka ‘frontier Adami’ (Marginal Man) of concept of Pratipadan its own inscription ‘human of place-change and frontier Adami’ (Human Migration and the Marginal Man) in done. however this concept to popular AD.V. Ston Kvista (E.V. Stone quist) done. Robarta AD. Parka this Bat of towards Sanket done is that various species between Apasi relation between which new species or Pirhi developed occurs, that infection of Daur from Gujarati is and Dhire-Dhire its own society in Hashie at Chali goes is. this Reason they this Bat of establishment did are that - ‘‘frontier Adami mixed Khun of Adami occurs. ’’ because that one with such two World in remains is, in which that less or more its own Apako Ajanabi Mahasus does is. its with only Dhire-Dhire its inside some such Pravrittiyan Panapane Lagati are, whose Reason that its own Apako Bechain, Rugna and Klant Anubhav doing Lagata is and its inside Asthayipan Bhav Jhalakane Lagata is. very Sari species its own physical Akriti due to only Hashie at Chali goes are,such as that South Africa and United States of America (USA) of Ashvet society with occurred.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":54},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"भारत के निम्नलिखित राज्यों में से किसमें कोविड- 19 अवधि में पहली बार ई-लोक अदालत प्रारंभ हुई?","question_en":"India of following States in from in which COVID- 19 period in first time AD-Public Court started occurred?","options":[{"hi":"उत्तर प्रदेश","en":"Uttar Pradesh"},{"hi":"महाराष्ट्र","en":"Maharashtra"},{"hi":"छत्तीसगढ़","en":"Chhattisgarh"},{"hi":"बिहार","en":"Bihar"}],"answer":2,"answer_note":"","explanation_hi":"कोविड-19 प्रकोप के कारण न्यायिक गतिविधियों के प्रभावित होने के चलते देश में पहली बार ई-लोक अदालत का आयोजन 11 जुलाई, 2020 को छत्तीसगढ़ उच्च न्यायालय एवं राज्य विधिक सेवा प्राधिकरण द्वारा किया गया।","explanation_en":"COVID-19 Prakop due to Judicial activities of affected being of Chalate country in first time AD-Public Court of organization 11 July, 2020 to Chhattisgarh High Court and State Legal Service Authority by was done.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":55},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"भारत में मिट्टी बचाओ आंदोलन कहां से प्रारंभ हुआ?","question_en":"India in soil Bachao Movement where from started occurred?","options":[{"hi":"थाने, महाराष्ट्र","en":"Thane, Maharashtra"},{"hi":"मैसूर, कर्नाटक","en":"Mysore, Karnataka"},{"hi":"दरभंगा, बिहार","en":"Darabhanga, Bihar"},{"hi":"होशंगाबाद, मध्य प्रदेश","en":"Hoshangabad, Madhya Pradesh"}],"answer":3,"answer_note":"","explanation_hi":"भारत में मिट्टी बचाओ आंदोलन मध्य प्रदेश के होशंगाबाद (वर्तमान नाम नर्मदापुरम) जिले से प्रारंभ हुआ। उत्तर प्रदेश लोक सेवा आयोग द्वारा इस प्रश्न का उत्तर अनंतिम उत्तर कुंजी में विकल्प (c) माना गया था, जबकि आयोग द्वारा जारी अंतिम उत्तर कुंजी में विकल्प (d) को सही माना गया है।","explanation_en":"India in soil Bachao Movement Madhya Pradesh of Hoshangabad (present name Narmadapuram) district from started occurred. Uttar Pradesh Public Service Commission by this Question of answer Anantim answer key in option (c) considered was was, whereas Commission by released last answer key in option (d) to correct considered was is.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":56},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"राष्ट्रीय महिला आयोग के निम्नलिखित अध्यक्षों पर विचार कीजिए - 1. जयंती पटनायक 2. ममता शर्मा 3. डॉ. गिरिजा व्यास 4. डॉ. पूर्णिमा अडवानी इनके नियुक्ति का सही कालानुक्रम नीचे दिए गए कूट से चुनिए। कूट","question_en":"National women Commission of Consider the following Chairmans - 1. birth anniversary Patanayak 2. Mamata Sharma 3. Dr.. Girija Vyas 4. Dr.. Purnima Adavani their Appointment of correct chronological order below given Code from select. Code","options":[{"hi":"2, 1, 3 और 4","en":"2, 1, 3 and 4"},{"hi":"2, 3, 1 और 4","en":"2, 3, 1 and 4"},{"hi":"1, 3, 4 और 2","en":"1, 3, 4 and 2"},{"hi":"1, 4, 3 और 2","en":"1, 4, 3 and 2"}],"answer":3,"answer_note":"","explanation_hi":"महिला आयोग की अध्यक्ष नियुक्ति की तिथि जयंती पटनायक 3.2.1992 ममता शर्मा 2.8.2011 डॉ. गिरिजा व्यास 16.2.2005 डॉ. पूर्णिमा अडवानी 25.1.2002","explanation_en":"Women Commission of Chairman Appointment of date birth anniversary Patanayak 3.2.1992 Mamata Sharma 2.8.2011 Dr.. Girija Vyas 16.2.2005 Dr.. Purnima Adavani 25.1.2002","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":57},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘हौसला - 2018’ के संदर्भ में निम्नलिखित में से कौन-सा/से कथन सही है/हैं? 1. ‘हौसला - 2018’ का आयोजन महिला एवं बाल विकास मंत्रालय, भारत सरकार द्वारा नई दिल्ली में किया गया था। 2. यह बच्चों की देख-रेख करने वाली संस्थाओं के बच्चों का राष्ट्रीय उत्सव था। नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"With reference to ‘Hausala - 2018’, which of the following statements is/are correct? 1. ‘Hausala - 2018’ of organization women and child development Ministry, India Government by new Delhi in was done was. 2. this children of Dekh-Rekh doing having Institutions of children of National festival was. Select the correct answer from the code given below. Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 न ही 2","en":"Neither 1 nor 2"}],"answer":2,"answer_note":"","explanation_hi":"नवंबर, 2018 में नई दिल्ली में महिला एवं बाल विकास मंत्रालय द्वारा ‘हौसला-2018’ का आयोजन किया गया। यह बाल देखभाल संस्थानों के बच्चों हेतु आयोजित एक राष्ट्रीय महोत्सव था।","explanation_en":"November, 2018 in new Delhi in women and child development Ministry by ‘Hausala-2018’ of organization was done. this child Dekhabhal Institutes of children for held one National festival was.","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":58},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘लॉकडाउन’ के दौरान भारत सरकार के द्वारा प्रयुक्त असाधारण शक्तियों को विधिक आधार निम्नलिखित में से किन कानूनों से प्राप्त हुआ? 1. मेंटल हेल्थ केयर एक्ट, 2017 2. डिजास्टर मैनेजमेंट एक्ट, 2005 3. शत्रु-संपत्ति या एनिमी प्रापर्टी एक्ट, 1968 4. एपिडेमिक डिजीजेज एक्ट, 1897 नीचे दिए गए कूट से सही उत्तर चुनिए। कूट","question_en":"‘Lokadaun’ during India Government by used Asadharan powers to Legal basis following in from which Laws from obtained occurred? 1. Mental Heltha Keyar Act, 2017 2. Dijastar Mainejament Act, 2005 3. Shatru-property or Enimi Praparti Act, 1968 4. Epidemik Dijijej Act, 1897 Select the correct answer from the code given below. Code","options":[{"hi":"1, 2 और 3","en":"1, 2 and 3"},{"hi":"2, 3 और 4","en":"2, 3 and 4"},{"hi":"2 और 4","en":"2 and 4"},{"hi":"1, 3 और 4","en":"1, 3 and 4"}],"answer":2,"answer_note":"","explanation_hi":"लॉकडाउन के दौरान भारत सरकार के द्वारा प्रयुक्त असाधारण शक्तियों को विधिक आधार ‘डिजास्टर मैनेजमेंट एक्ट, 2005’ तथा ‘एपिडेमिक डिजीजेज एक्ट, 1897’ से प्राप्त हुआ। कोविड-19 को विश्व स्वास्थ्य संगठन द्वारा महामारी घोषित किए जाने के बाद देश में इसके बढ़ते संक्रमण को रोकने हेतु केंद्र सरकार ने मार्च, 2020 में ‘महामारी अधिनियम, 1897’ (Epidemic Diseases Act, 1897) को लागू करने का निर्णय लिया। 192","explanation_en":"Lokadaun during India Government by used Asadharan powers to Legal basis ‘Dijastar Mainejament Act, 2005’ and ‘Epidemik Dijijej Act, 1897’ from obtained occurred. COVID-19 to World Health Organization (WHO) by pandemic declared done going after country in its Barhate infection to Rokane for centre Government March, 2020 in ‘pandemic Act, 1897’ (Epidemic Diseases Act, 1897) to implemented doing of decision taken. 192","source":"UPPCS (Pre) 2020","source_missing":false,"exam":"uppcs-pre","year":"2020","id":59},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"मजदूर किसान शक्ति संगठन (MKSS) नामक सामाजिक आंदोलन, भारत में निम्न में से किससे संबंधित है?","question_en":"Labourer farmer power Organization (MKSS) named social Movement, India in low in from Kisase is related?","options":[{"hi":"आर.टी.ई. अधिनियम","en":"R.T.AD. Act"},{"hi":"आर.टी.आई. अधिनियम","en":"R.T.I. Act"},{"hi":"मनरेगा (MGNREGA)","en":"Manarega (MGNREGA)"},{"hi":"राष्ट्रीय स्वास्थ्य मिशन (NHM)","en":"National health mission (NHM)"}],"answer":1,"answer_note":"","explanation_hi":"मजदूर किसान शक्ति संगठन (MKSS) को विशेष रूप से सूचना के अधिकार हेतु संघर्ष एवं जनांदोलन के लिए जाना जाता है। वस्तुत : भारत में सूचना के अधिकार हेतु जनांदोलनों की शुरुआत वर्ष 1990 से मानी जाती है, जब एमकेएसएस ने राजस्थान सरकार से अकाल राहत कार्यों और दी जाने वाली मजदूरी के आंकड़ों को सार्वजनिक करने की मांग को लेकर सफल संघर्ष किया था। सूचना के अधिकार अधिनियम को लाने में भी इस संगठन की महत्वपूर्ण भूमिका रही।","explanation_en":"Labourer farmer power Organization (MKSS) to special form from information of Right for struggle and Janandolan for is known. Vastut: India in information of Right for Janandolanon of beginning year 1990 from Mani goes is, when Emakeesaes Rajasthan Government from Akal Rahat functions and given going having wage of data to public doing of demand to taking successful struggle did. information of Right Act to Lane in also this Organization of important role remained.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":60},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"चित्राचार्य उपेंद्र महारथी की पुस्तक ‘वेणुशिल्प’ का संबंध निम्नलिखित में से किस कला से है?","question_en":"Chitracharya Upendra Maharathi of book ‘Venushilpa’ of relation following in from which art from is?","options":[{"hi":"आभूषण","en":"Abhushan"},{"hi":"चित्रकारी","en":"Chitrakari"},{"hi":"बांस कला","en":"Bans art"},{"hi":"संगमरमर की नक्काशी","en":"Sangamaramar of Nakkashi"}],"answer":2,"answer_note":"","explanation_hi":"चित्राचार्य उपेंद्र महारथी की पुस्तक ‘वेणुशिल्प’ का संबंध बांस कला (Bamboo Art) से है। इनके द्वारा रचित कुछ अन्य महत्वपूर्ण रचनाओं में ‘वैशाली के लिच्छवी’ (The Lichhvi dynasty of Vaishali), ‘बौद्ध धर्म का अभ्युत्थान’ (The Rise of Buddhism) एवं ‘इंद्रगुप्त’ शामिल हैं।","explanation_en":"Chitracharya Upendra Maharathi of book ‘Venushilpa’ of relation Bans art (Bamboo Art) from is. their by Rachit some other important Rachanaon in ‘ Vaishali of Lichchhavi’ (The Lichhvi dynasty of Vaishali), ‘Buddhist religion of Abhyutthan’ (The Rise of Buddhism) and ‘Indragupta’ included are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":61},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"बिब्लियोमेट्री है","question_en":"Bibliyometri is","options":[{"hi":"पुस्तकालय नेटवर्क का कार्य","en":"Pustakalay Netavarka of function"},{"hi":"सूचना प्रबंधन सेवा","en":"Information management Service"},{"hi":"सूचना प्रबंधन उपकरण","en":"Information management instrument"},{"hi":"पुस्तकालय सेवा","en":"Pustakalay Service"}],"answer":2,"answer_note":"","explanation_hi":"बिब्लियोमेट्री एक सूचना प्रबंधन उपकरण है।","explanation_en":"Bibliyometri one information management instrument is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":62},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में से कौन-सा ‘एलबीडो’ से संबंधित है?","question_en":"Which of the following is ‘Elabido’ from related?","options":[{"hi":"संचार शक्ति","en":"Sanchar power"},{"hi":"अवशोषित शक्ति","en":"Absorbed power"},{"hi":"उत्सर्जक शक्ति","en":"Utsarjak power"},{"hi":"वापसी की शक्ति","en":"Vapasi of power"}],"answer":3,"answer_note":"","explanation_hi":"वायुमंडल से गुजरते समय सूर्य की ऊर्जा का कुछ अंश परावर्तित हो जाता है। सौर विकिरण की इस परावर्तित मात्रा को पृथ्वी का एलबीडो कहते हैं।","explanation_en":"Atmosphere from Gujarate time Sun of energy of some part reflected be goes is. solar radiation of this reflected quantity to Earth of Elabido call are.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":63},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"गहरी कार्बन वेधशाला (डी.सी.ओ.) के संबंध में निम्न कथनों में से कौन-सा सही है/हैं? 1. यह वैश्विक अनुसंधान कार्यक्रम पृथ्वी पर कार्बन की भूमिका को आगे बढ़ाने के लिए है। 2. यह गहरी माइक्रोबियल पारिस्थितिकी तंत्र के क्षेत्रीय अवलोकन के लिए है। नीचे दिए गए कूट से सही उत्तर चुनिए - कूट","question_en":"Deep carbon Vedhashala (D.C.O.) in relation to low statements in from which-which is correct/are? 1. this Global research programme Earth at carbon of role to ahead Barhane for is. 2. this deep Maikrobiyal Ecosystem of regional Avalokan for is. Select the correct answer from the code given below - Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":2,"answer_note":"","explanation_hi":"गहरी कार्बन वेधशाला (DCO) 1000 से अधिक वैज्ञानिकों का एक वैश्विक समूह है, जो पृथ्वी पर कार्बन की मात्रा, गतिविधि, रूप एवं उद्गम को समझने की दिशा में एक 10 वर्षीय अभियान पर कार्यरत है। इस अभियान के तहत गहरी माइक्रोबियल पारिस्थितिकी तंत्र के क्षेत्रीय अवलोकन का कार्य संचालित किया जाता है।","explanation_en":"Deep carbon Vedhashala (DCO) 1000 from more scientists of one Global group is, which Earth at carbon of quantity, activity, form and origin to Samajhane of direction in one 10 Varshiy campaign at Karyarat is. this campaign under deep Maikrobiyal Ecosystem of regional Avalokan of function conducted is done.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":64},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"नीचे दो कथन दिए गए हैं, जिनमें एक को कथन (A) तथा दूसरे को कारण (R) कहा गया है। कथन (A) : हिंद महासागर कई बड़ी शक्तियों का सैन्य अड्डा बन गया है। कारण (R) : हिंद महासागर से निकटवर्ती देशों को बहुत भौगोलिक- राजनीतिक लाभ हैं। नीचे दिए कूटों में से सही उत्तर का चयन कीजिए : कूट","question_en":"Given below are two statements, one is labelled as Assertion (A) and the other as Reason (R). statement (A): Indian Ocean many large powers of military Adda become was is. Reason (R): Indian Ocean from Nikatavarti countries to very Geographical- political benefit are. Select the correct answer from the codes given below: Code","options":[{"hi":"कथन (A) तथा कारण (R) दोनों सही हैं तथा कारण (R) कथन (A) की सही व्याख्या करता है।","en":"Statement (A) and Reason (R) both correct are and Reason (R) statement (A) of correct Explanation does is."},{"hi":"कथन (A) तथा कारण (R) दोनों सही हैं, परंतु कारण (R) कथन (A) की सही व्याख्या नहीं है।","en":"Statement (A) and Reason (R) both correct are, but Reason (R) statement (A) of correct Explanation not is."},{"hi":"कथन (A) सही है, किंतु कारण (R) गलत है।","en":"Statement (A) is correct, but Reason (R) is incorrect."},{"hi":"कथन (A) गलत है, किंतु कारण (R) सही है।","en":"Statement (A) is incorrect, but Reason (R) is correct."}],"answer":0,"answer_note":"","explanation_hi":"हिंद महासागर आर्थिक, राजनीतिक तथा सामरिक दृष्टि से महत्वपूर्ण होने के कारण ही विश्व के प्रमुख देशों (विशेषकर यूनाइटेड किंगडम, संयुक्त राज्य अमेरिका, रूस, चीन, भारत आदि) के लिए हमेशा से ही रुचि का विषय रहा है। हिंद महासागर समुद्री मार्गों का जंक्शन है। क्षेत्र की भूसामरिक स्थिति और वहां सामरिक महत्व के संसाधनों की विद्यमानता के परिणामस्वरूप प्रौद्योगिकी हस्तांतरण और विदेशी पूंजी निवेश के द्वारा प्राप्त होने वाले विकास के सुअवसर उस क्षेत्र की ओर महाशक्तियों का ध्यान आकृष्ट करने हेतु लाभप्रद प्रबोधक है। क्षेत्रीय शक्तियों और महाशक्तियों के मध्य बढ़ती हुई अन्योन्यक्रिया के क्रम से पारस्परिक अनुकूल और प्रतिकूल घटनाओं के घटित होने की संभावनाएं रहती हैं। फलत: इस प्रकरण में घटित भू-राजनीतिक घटनाओं का क्षेत्रीय और विश्व की सुरक्षा और शांति व्यवस्था पर प्रभाव पड़ता है। हिंद महासागर क्षेत्र की रूस और चीन के साथ भौगोलिक समीपता है। डियागो गर्शिया द्वीप पर अमेरिकी आधिपत्य होने के कारण, अमेरिका हिंद महासागर के साथ भौगोलिक सन्निहितता का दावा पेश करता है। फ्रांस जिसके इस क्षेत्र में कई आश्रित द्वीप हैं, भी इसी आधार पर दावा पेश करता है। सामरिक महत्व के खनिज पदार्थों द्वारा धातुओं, विशेषकर खनिज तेल और प्राकृतिक गैस जैसे वाणिज्यिक ऊर्जा स्रोतों की हिंद महासागर क्षेत्र में विद्यमानता तथा संयुक्त राज्य अमेरिका और जापान सहित पश्चिमी यूरोपीय देशों के लिए उनकी उपयोगिता के संदर्भ में इस क्षेत्र की सामरिक महत्ता बढ़ गई है। हिंद महासागर के क्षेत्र में सामरिक रूप से स्थित संचार जलमार्गों, स्लॉक्स, जिनके द्वारा विश्व व्यापार का अधिकांश और खाड़ी देशों से खनिज तेल और प्राकृतिक गैस विश्व के अन्य भागों में जाता है, विद्यमानता ने मुख्य रूप से क्षेत्र की सामरिक महत्ता को बढ़ा दिया है। हाल के वर्षों में भारत ने भी इसी दृष्टिकोण से सेशेल्स द्वीप के साथ अपने संबंधों का विस्तार किया है, जिसके तहत भारतीय प्रधानमंत्री द्वारा सेशेल्स द्वीप का दौरा किया गया है। उपर्युक्त व्याख्या से स्पष्ट है कि कथन एवं कारण दोनों ही सत्य हैं तथा कारण (R) कथन (A) की व्याख्या कर रहा है। नोट- उत्तर प्रदेश लोक सेवा आयोग द्वारा जारी अंतिम उत्तर कुंजी में इस प्रश्न को मूल्यांकन से बाहर कर दिया गया है।","explanation_en":"Indian Ocean economic, political and Samarik vision from important being due to only World of major countries (especially United Kingadam, United States of America (USA), Russia, China, India etc.) for Hamesha from only Ruchi of subject remained is. Indian Ocean marine routes of Jankshan is. region of Bhusamarik status and there Samarik importance of resources of Vidyamanata as a result of technology Hastantaran and foreign capital investment by obtained being having development of Suavasar that region of towards Mahashaktiyon of attention Akrishta doing for Labhaprad Prabodhak is. regional powers and Mahashaktiyon between increasing occurred Anyonyakriya of order from Parasparik favourable and Pratikul events of Ghatit being of Sambhavanaen remains are. Phalat: this Prakaran in Ghatit land-political events of regional and World of security and peace system at impact Parata is. Indian Ocean region of Russia and China with Geographical Samipata is. Diyago Garshiya island at American Adhipatya being due to, America Indian Ocean with Geographical Sannihitata of Dava Pesh does is. France whose this region in many Ashrit island are, also this very basis at Dava Pesh does is. Samarik importance of mineral substances by Dhatuon, especially mineral oil and natural gas such as commercial energy sources of Indian Ocean region in Vidyamanata and United States of America (USA) and Japan including Western Yuropiy countries for their Upayogita with reference to this region of Samarik Mahatta increase was is. Indian Ocean of region in Samarik form from located Sanchar Jalamargon, Sloksa, whose by World trade of most and bay countries from mineral oil and natural gas World of other parts in goes is, Vidyamanata main form from region of Samarik Mahatta to Barha given is. recent of years in India also this very perspective from Seshelsa island with its own relations of expansion done is, whose under Indian Prime Minister by Seshelsa island of Daura was done is. above Explanation from clear is that statement and Reason both only true are and Reason (R) statement (A) of Explanation tax remained is. Note- Uttar Pradesh Public Service Commission by released last answer key in this Question to evaluation from outside tax is given.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":65},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"हठ योग के संदर्भ में निम्नलिखित में से कौन-सा कथन सही है/हैं? 1. हठ योग नाथपंथियों द्वारा अपनाया जाता था। 2. हठ योग क्रिया को सूफी संतों ने भी अपनाया था। नीचे दिए हुए कूट में से सही उत्तर चुनिए - कूट","question_en":"Hath Yoga with reference to following in from which-which statement is correct/are? 1. Hath Yoga Nathapanthiyon by Apanaya goes was. 2. Hath Yoga action to Sufi saints also Apanaya was. below given occurred Code in from select the correct answer - Code","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":2,"answer_note":"","explanation_hi":"भारत में हठ योग को नाथ संप्रदाय के योगियों द्वारा अपनाया जाता था। नाथ संप्रदाय के संस्थापक माने जाने वाले गुरु मत्स्येंद्रनाथ और उनके शिष्य गुरु गोरखनाथ ने हठ योग परंपरा की नींव डाली थी। हठ योग की क्रियाओं को सूफी संतों द्वारा भी अपनाया गया था। शत्तारी सिलसिले के सूफी संत मुहम्मद गौस ग्वालियरी की फारसी पुस्तक ‘बहर अल-हयात’ में हठ योग संबंधी क्रियाओं का चित्रण मिलता है।","explanation_en":"India in Hath Yoga to Nath Sampraday of Yogiyon by Apanaya goes was. Nath Sampraday of founder Mane going having Guru Matsyendranath and their disciple Guru Gorakhanath Hath Yoga tradition of Ninv Dali was. Hath Yoga of Kriyaon to Sufi saints by also Apanaya was was. Shattari Silasile of Sufi saint Muhammad Gaus Gvaliyari of Persian book ‘Bahar Al-Hayat’ in Hath Yoga related to Kriyaon of Chitran is found.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":66},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"राष्ट्रीय पंचांग के संबंध में कौन-सा/से कथन सही है/हैं? 1. भारतीय राष्ट्रीय पंचांग विक्रम संवत् पर आधारित है। 2. राष्ट्रीय पंचांग को जनवरी 26, 1950 से अपनाया गया है। नीचे दिए गए कूट की सहायता से सही उत्तर चुनिए","question_en":"National Panchang in relation to which-which/from statement is correct/are? 1. Indian National Panchang Vikram Sanvat at based is. 2. National Panchang to January 26, 1950 from Apanaya was is. below given Code of assistance from select the correct answer","options":[{"hi":"केवल 1","en":"Only 1"},{"hi":"केवल 2","en":"Only 2"},{"hi":"1 और 2 दोनों","en":"Both 1 and 2"},{"hi":"न तो 1 और न ही 2","en":"Not then 1 and not only 2"}],"answer":3,"answer_note":"","explanation_hi":"ग्रेगोरियन कैलेंडर के साथ-साथ देशभर के लिए शक संवत् पर आधारित राष्ट्रीय पंचांग, जिसका पहला महीना चैत्र है, और सामान्य वर्ष 365 दिन का होता है, 22 मार्च, 1957 को अपनाया गया था। चैत्र का पहला दिन सामान्यत: 22 मार्च को और अधिवर्ष में 21 मार्च को पड़ता है।","explanation_en":"Gregoriyan Kailendar with-with Deshabhar for Shak Sanvat at based National Panchang, whose first Mahina Chaitra is, and general year 365 day of occurs, 22 March, 1957 to Apanaya was was. Chaitra of first day generally: 22 March to and Adhivarsha in 21 March to Parata is.","source":"UPPCS (Pre) 2019","source_missing":false,"exam":"uppcs-pre","year":"2019","id":67},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"नार्मन बोरलॉग को किस क्षेत्र में नोबेल पुरस्कार प्रदान किया गया?","question_en":"Narman Boralog to which region in Nobel award provided was done?","options":[{"hi":"कृषि","en":"Agriculture"},{"hi":"अर्थशास्त्र","en":"Arthashastra"},{"hi":"औषधि","en":"Medicine"},{"hi":"शांति","en":"Peace"}],"answer":3,"answer_note":"","explanation_hi":"अंतरराष्ट्रीय स्तर पर हरित क्रांति के जन्मदाता (जनक) नार्मन ई. बोरलॉग को वर्ष 1970 में ‘नोबेल शांति पुरस्कार’ से सम्मानित किया गया था। नार्मन ई. बोरलॉग ने उन्नत कृषि द्वारा भुखमरी के विरुद्ध लड़ाई हेतु ‘विश्व खाद्य पुरस्कार’ (The World Food Prize) शुरू किया था।","explanation_en":"International level at Green Revolution of Janmadata (Janak) Narman AD. Boralog to year 1970 in ‘Nobel peace award’ from awarded was done was. Narman AD. Boralog Unnat agriculture by hunger of against Battle for ‘World food award’ (The World Food Prize) started did.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":68},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"निम्नलिखित में किसे जे.वी. नार्लीकर के अनुसार, अभी तक विज्ञान नहीं माना जाता है?","question_en":"Following in which J.V. Narlikar according to, Abhi up to Science not is considered?","options":[{"hi":"ज्योतिष","en":"Jyotish"},{"hi":"खगोलिकी","en":"Khagoliki"},{"hi":"ब्रह्मांडिकी","en":"Brahmandiki"},{"hi":"नैनोप्रौद्योगिकी","en":"Nainopraudyogiki"}],"answer":0,"answer_note":"","explanation_hi":"जे.वी. नार्लीकर के अनुसार, ज्योतिष (Astrology) को अभी तक विज्ञान नहीं माना जाता है।","explanation_en":"J.V. Narlikar according to, Jyotish (Astrology) to Abhi up to Science not is considered.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":69},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"ढींग एक्सप्रेस क्या है?","question_en":"Dhing Express what is?","options":[{"hi":"ढींग तथा कोलकाता के मध्य रेलगाड़ी","en":"Dhing and Kolkata between Relagari"},{"hi":"हिमा दास का मुंहबोला नाम","en":"Hima Das of Munhabola name"},{"hi":"पलवल तथा कुंडली के बीच एक्सप्रेस-वे","en":"Palaval and Kundali between Express-they"},{"hi":"लोकप्रिय पत्रिका","en":"Popular Patrika"}],"answer":1,"answer_note":"","explanation_hi":"हिमा दास का उपनाम ढींग एक्सप्रेस है। इन्होंने वर्ष 2018 के एशियाई खेलों में महिलाओं की 400 मीटर दौड़ में रजत पदक जीता था। हिमा दास उस भारतीय महिला दल का हिस्सा भी थीं, जिसने एशियाई खेल, 2018 में महिलाओं की 4×400 मीटर रिले स्पर्धा का स्वर्ण पदक जीता था। उल्लेखनीय है कि हिमा दास का जन्म असम के नागांव जिले के एक छोटे से कस्बे ढींग में हुआ था।","explanation_en":"Hima Das of Upanam Dhing Express is. he year 2018 of Eshiyaee games in women of 400 metre Daur in silver medal won was. Hima Das that Indian women party of part also were, who Eshiyaee sports, 2018 in women of 4×400 metre Rile event of gold medal won was. notable is that Hima Das of birth Assam of Naganv district of one small from Kasbe Dhing in took place.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":70},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"सुपरसोनिक क्रूज मिसाइल ब्रह्मोस निम्न में से किसका एक संयुक्त उपक्रम है?","question_en":"Suparasonik Kruj Misail Brahmos low in from whose one joint Upakram is?","options":[{"hi":"भारत तथा रूस का","en":"India and Russia of"},{"hi":"भारत तथा चीन का","en":"India and China of"},{"hi":"भारत तथा इस्राइल का","en":"India and Israil of"},{"hi":"उपर्युक्त में कोई नहीं","en":"Above in any not"}],"answer":0,"answer_note":"","explanation_hi":"ब्रह्मोस भारत के DRDO और रूस के ‘एनपीओ मशीनोस्त्रोयेनिया’ के संयुक्त उपक्रम में विकसित एक सुपरसोनिक क्रूज मिसाइल है। ब्रह्मोस नाम भारत की ब्रह्मपुत्र और रूस की मस्कवा नदी के नाम पर रखा गया है।","explanation_en":"Brahmos India of DRDO and Russia of ‘Enapio Mashinostroyeniya’ of joint Upakram in developed one Suparasonik Kruj Misail is. Brahmos name India of Brahmaputra and Russia of Maskava river of name at kept was is.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":71},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘ए ब्रीफ हिस्ट्री ऑफ टाइम’ नामक पुस्तक किसने लिखी है?","question_en":"‘A Briph Histri of Taim’ named book who wrote is?","options":[{"hi":"स्टीफन हॉकिंग द्वारा","en":"Stiphan Hoking by"},{"hi":"जे.वी. नार्लीकर द्वारा","en":"J.V. Narlikar by"},{"hi":"सी.वी. रमन द्वारा","en":"C.V. Raman by"},{"hi":"एस. बोस द्वारा","en":"S. Bose by"}],"answer":0,"answer_note":"","explanation_hi":"‘ए ब्रीफ हिस्ट्री ऑफ टाइम : फ्रॉम द बिग बैंग टू ब्लैक होल्स’ ब्रह्मांड विज्ञान (Cosmology) पर आधारित एक लोकप्रिय पुस्तक है, जिसके लेखक ब्रिटिश भौतिकविद् स्टीफन हॉकिंग थे। यह पुस्तक सर्वप्रथम वर्ष 1988 में प्रकाशित हुई थी।","explanation_en":"‘A Briph Histri of Taim: Phrom the Big Baing to Blaik Holsa’ Brahmand Science (Cosmology) at based one popular book is, whose author British Bhautikavid Stiphan Hoking were. this book first of all year 1988 in published took place.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":72},{"topic_hi":"विविध","topic_en":"Miscellaneous","question_hi":"‘द एक्सीडेंटल प्राइम मिनिस्टर’ पुस्तक के लेखक कौन हैं?","question_en":"‘the Eksidental Praim Ministar’ book of author which are?","options":[{"hi":"राजदीप सरदेसाई","en":"Rajadip Saradesaee"},{"hi":"करन थापर","en":"Karan Thapar"},{"hi":"कुलदीप नायर","en":"Kuladip Nair"},{"hi":"संजय बारू","en":"Sanjay Baru"}],"answer":3,"answer_note":"","explanation_hi":"‘द एक्सीडेंटल प्राइम मिनिस्टर : द मेकिंग एंड अनमेकिंग ऑफ मनमोहन सिंह’ वर्ष 2014 में प्रकाशित एक पुस्तक है, जिसके लेखक संजय बारू हैं। श्री बारू मई, 2004 से अगस्त, 2008 तक तत्कालीन प्रधानमंत्री मनमोहन सिंह के मीडिया सलाहकार रह चुके हैं।","explanation_en":"‘the Eksidental Praim Ministar: the Meking and Anameking of Manamohan lion’ year 2014 in published one book is, whose author Sanjay Baru are. Shri Baru May, 2004 from August, 2008 up to then Prime Minister Manamohan lion of Midiya Salahakar remain Chuke are.","source":"UPPCS (Pre) 2018","source_missing":false,"exam":"uppcs-pre","year":"2018","id":73}]};
+/* ===== Gen — भाषा टॉगल + प्रश्न-प्रकार फ़ॉर्मैटर ===== */
+var GEN_LANG = (function(){ try{ return localStorage.getItem("gen_lang")||"en"; }catch(e){ return "en"; } })();
+function langSegHTML(){
+  var L=GEN_LANG, o=function(v,t){ return '<button type="button" class="lang-b'+(L===v?" on":"")+'" data-lang="'+v+'">'+t+'</button>'; };
+  return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
+}
+function paintLang(){
+  ["qLang","coverLang"].forEach(function(id){
+    var box=document.getElementById(id); if(!box) return;
+    box.innerHTML=langSegHTML();
+    box.querySelectorAll(".lang-b").forEach(function(b){
+      b.addEventListener("click",function(){ setGenLang(b.getAttribute("data-lang")); });
+    });
+  });
+}
+function setGenLang(l){
+  GEN_LANG=l;
+  try{ localStorage.setItem("gen_lang",l); }catch(e){}
+  paintLang();
+  try{ if(typeof renderQuestion==="function" && document.getElementById("testScreen")
+        && document.getElementById("testScreen").style.display==="block"){ renderQuestion(); } }catch(e){}
+  try{ if(typeof renderReview==="function" && document.getElementById("resultScreen")
+        && document.getElementById("resultScreen").style.display==="block"){ renderReview(); } }catch(e){}
+}
+function genEsc(t){ return String(t==null?"":t)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
+function _genPoints(t){
+  t = String(t);
+  t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
+       .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
+       .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
+  return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
+}
+function genFmt(raw){
+  if(!raw) return "";
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
+  return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
+}
+
+const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
+const letters = ["A", "B", "C", "D"];
+const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
+const MARKS = Number(TEST.marksPerQuestion || 2);
+const NEG = Number(TEST.negativeMarks || 0);
+const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
+const FIREBASE_CONFIG = TEST.firebaseConfig || null;
+let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, timerId = null, startedAt = 0;
+let studentName = "", lastResult = null, testActive = false;
+const LEADER_TOP = 20;
+const TEST_KEY = String(TEST.testId || "gen-test");
+const PROG_KEY = "gen_prog_" + TEST_KEY;
+function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
+function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
+function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
+function saveProgress(){ if(!testActive) return; storeSet(PROG_KEY, {v:1, name:studentName, answers:answers, review:review, current:current, remaining:remaining, startedAt:startedAt, savedAt:Date.now()}); }
+async function tryResume(){
+  const p = storeGet(PROG_KEY);
+  if(!p || !p.name || !Array.isArray(p.answers) || p.answers.length !== QUESTIONS.length) return;
+  const ok = await askConfirm(p.name + " — इसी test का आपका अधूरा प्रयास मिला। क्या वहीं से जारी करें?\n(रद्द करने पर अधूरा प्रयास हटेगा और नया शुरू होगा।)", "वहीं से जारी करें", "नया शुरू करें");
+  if(!ok){ storeDel(PROG_KEY); return; }
+  studentName = String(p.name);
+  answers = p.answers.map(a => (a === null || a === undefined) ? null : Number(a));
+  review = (Array.isArray(p.review) && p.review.length === QUESTIONS.length) ? p.review.map(Boolean) : Array(QUESTIONS.length).fill(false);
+  current = Math.min(Math.max(0, Number(p.current) || 0), QUESTIONS.length - 1);
+  remaining = TOTAL_TIME_SECONDS ? Math.max(5, Math.min(TOTAL_TIME_SECONDS, Number(p.remaining) || TOTAL_TIME_SECONDS)) : 0;
+  startedAt = Number(p.startedAt) || Date.now();
+  testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); requestAnimationFrame(()=>scrollToQuestion("auto"));
+}
+function el(id){ return document.getElementById(id); }
+function askConfirm(message, okText, cancelText){
+  return new Promise(resolve=>{
+    var old = document.getElementById("jhConfirmOverlay");
+    if(old) old.remove();
+    var ov = document.createElement("div");
+    ov.id = "jhConfirmOverlay";
+    ov.style.cssText = "position:fixed;inset:0;z-index:99999;background:rgba(3,7,16,.72);display:flex;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px);";
+    var box = document.createElement("div");
+    box.style.cssText = "background:linear-gradient(180deg,#0A1426,#0E1B33);border:1px solid rgba(217,174,95,.34);max-width:420px;width:100%;border-radius:18px;padding:22px;box-shadow:0 22px 60px rgba(0,0,0,.55);font-family:'Mukta',Arial,sans-serif;";
+    var msg = document.createElement("p");
+    msg.style.cssText = "margin:0 0 18px;color:#F2EBDA;font-weight:500;line-height:1.7;font-size:15.5px;white-space:pre-line;";
+    msg.textContent = message;
+    var row = document.createElement("div");
+    row.style.cssText = "display:flex;gap:10px;flex-wrap:wrap;";
+    var okBtn = document.createElement("button");
+    okBtn.textContent = okText || "ठीक है";
+    okBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:linear-gradient(160deg,#F2CD88,#D9AE5F);color:#0d1626;";
+    var cancelBtn = document.createElement("button");
+    cancelBtn.textContent = cancelText || "रद्द करें";
+    cancelBtn.style.cssText = "flex:1;min-width:120px;border:0;cursor:pointer;padding:13px 16px;border-radius:13px;font-weight:900;font-size:15px;font-family:inherit;background:rgba(255,255,255,.06);color:#98A6BE;";
+    function done(val){ ov.remove(); resolve(val); }
+    okBtn.addEventListener("click", function(){ done(true); });
+    cancelBtn.addEventListener("click", function(){ done(false); });
+    row.appendChild(cancelBtn); row.appendChild(okBtn);
+    box.appendChild(msg); box.appendChild(row);
+    ov.appendChild(box); document.body.appendChild(ov);
+  });
+}
+function escapeHTML(s){ return String(s ?? "").replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#039;"}[m])); }
+function numClean(n){ return Number.isInteger(Number(n)) ? String(Number(n)) : String(Number(n).toFixed(2)).replace(/\.00$/,""); }
+function formatTime(sec){ sec=Math.max(0, Math.floor(sec||0)); const m=Math.floor(sec/60), s=sec%60; return `${m}:${String(s).padStart(2,"0")}`; }
+function splitTitle(title, hi){ if(!String(hi||"").trim()) return escapeHTML(String(title||"परीक्षा")); const t=String(title||"GenClasses परीक्षा"); const h=String(hi||"").trim(); if(h && t.toLowerCase().includes(h.toLowerCase())){ const i=t.toLowerCase().indexOf(h.toLowerCase()); return `${escapeHTML(t.slice(0,i))}<span>${escapeHTML(t.slice(i,i+h.length))}</span>${escapeHTML(t.slice(i+h.length))}`; } return `${escapeHTML(t)} <span>Test</span>`; }
+function initHome(){
+  document.title = `GenClasses — ${TEST.title || "परीक्षा"}`;
+  el("topSub").textContent = TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO Practice";
+  el("pillText").textContent = TEST.pill || "🏆 Daily Rank Ready";
+  el("tagText").textContent = TEST.tag || "UPPCS Prelims 2026 / RO-ARO";
+  el("homeTitle").innerHTML = splitTitle(TEST.title, TEST.highlight);
+  el("homeSub").textContent = TEST.description || "नाम डालकर टेस्ट शुरू करें। Submit के बाद score, analysis और rank section दिखेगा।";
+  el("qCountBox").textContent = QUESTIONS.length;
+  el("timeBox").textContent = TOTAL_TIME_SECONDS ? `${TEST.durationMinutes} मिनट` : "असीमित";
+  el("marksBox").textContent = `+${numClean(MARKS)}`;
+  el("negBox").textContent = NEG ? `-${numClean(NEG)}` : "0";
+  el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
+  if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
+    paintLang();
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+  answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
+  if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
+}
+function scrollToQuestion(behavior="smooth"){
+  const target = el("questionCard") || document.querySelector(".question-card");
+  if(target) target.scrollIntoView({behavior, block:"start"});
+}
+function renderWithoutJump(changeFn){
+  const y = window.scrollY;
+  changeFn();
+  requestAnimationFrame(()=>window.scrollTo({top:y, left:0, behavior:"auto"}));
+}
+function startTest(){
+  const n = el("studentName").value.trim().replace(/\s+/g," ");
+  if(!n){ el("nameErr").textContent = "कृपया अपना नाम लिखें।"; el("studentName").focus(); return; }
+  if(!QUESTIONS.length){ el("nameErr").textContent = "प्रश्न नहीं मिले।"; return; }
+  studentName = n; current = 0; answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false); remaining = TOTAL_TIME_SECONDS; startedAt = Date.now(); testActive = true;
+  el("homeScreen").style.display = "none"; el("resultScreen").style.display = "none"; el("testScreen").style.display = "block";
+  renderQuestion(); startTimer(); saveProgress(); requestAnimationFrame(()=>scrollToQuestion("smooth"));
+}
+function startTimer(){ if(timerId) clearInterval(timerId); el("timer").textContent = TOTAL_TIME_SECONDS ? formatTime(remaining) : "असीमित"; if(!TOTAL_TIME_SECONDS) return; timerId = setInterval(()=>{ remaining--; el("timer").textContent = formatTime(remaining); if(remaining % 5 === 0) saveProgress(); if(remaining <= 60) el("timer").style.background = "rgba(232,24,24,.75)"; if(remaining <= 0){ clearInterval(timerId); calculateResult(true); } },1000); }
+function renderQuestion(){
+  const q = QUESTIONS[current]; if(!q) return;
+  el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
+  el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
+  var _hi=q.question_hi||"", _en=q.question_en||"";
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en);
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+           else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
+    paintLang();
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
+  const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
+  renderPalette(); updateMiniStats();
+}
+function renderPalette(){ el("palette").innerHTML = QUESTIONS.map((_,i)=>`<button class="dot ${i===current?"current":""} ${answers[i]!==null?"answered":""} ${review[i]?"review":""}" onclick="goQ(${i})">${i+1}</button>`).join(""); }
+function updateMiniStats(){ el("attemptedCount").textContent = answers.filter(a=>a!==null).length; el("reviewCount").textContent = review.filter(Boolean).length; }
+function selectAnswer(i){ answers[current]=i; renderQuestion(); saveProgress(); }
+function clearAnswer(){ answers[current]=null; renderQuestion(); saveProgress(); }
+function toggleReview(){ review[current]=!review[current]; renderQuestion(); saveProgress(); }
+function nextQ(){ if(current < QUESTIONS.length-1){ renderWithoutJump(()=>{ current++; renderQuestion(); saveProgress(); }); } }
+function prevQ(){ if(current > 0){ renderWithoutJump(()=>{ current--; renderQuestion(); saveProgress(); }); } }
+function goQ(i){ renderWithoutJump(()=>{ current=i; renderQuestion(); saveProgress(); }); }
+async function submitTest(){ const left = answers.filter(a=>a===null).length; const msg = left ? `${left} प्रश्न अभी अनुत्तरित हैं। फिर भी परीक्षा समाप्त करनी है?` : "परीक्षा समाप्त करनी है?"; if(await askConfirm(msg, "हाँ, समाप्त करें", "अभी नहीं")) calculateResult(false); }
+function calculateResult(auto){
+  if(timerId) clearInterval(timerId);
+  testActive = false; storeDel(PROG_KEY);
+  const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
+  let correct=0, wrong=0, attempted=0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
+  if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
+  el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
+  el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
+  renderReview(); saveAttemptAndLoadRank(lastResult);
+  el("testScreen").style.display = "none"; el("resultScreen").style.display = "block"; window.scrollTo({top:0, behavior:"smooth"});
+}
+function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
+  const user = answers[i];
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const optTxt = function(o){ if(!o) return "";
+    var oh=o.hi||"", oe=o.en||"";
+    if(GEN_LANG==="en" && oe) return oe;
+    if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
+    return oh||oe; };
+  const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
+  var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
+  var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
+  var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
+  return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
+    + `<span class="badge ${status}">${statusText}</span></div>`
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
+    + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
+        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+    + `</div></div>`;
+}).join(""); }
+function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }
+let fbBundle = null;
+function normalizeKey(s){
+  return String(s||"").trim().toLowerCase().replace(/[^a-z0-9\u0900-\u097f]+/g,"-").replace(/^-+|-+$/g,"").slice(0,90) || "student";
+}
+function getLocalUid(){
+  const key = "gen_rank_local_uid";
+  try{
+    let uid = localStorage.getItem(key);
+    if(!uid){
+      uid = "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+      localStorage.setItem(key, uid);
+    }
+    return uid;
+  }catch(e){
+    return "local-" + Math.random().toString(36).slice(2) + "-" + Date.now().toString(36);
+  }
+}
+function makeRankSort(score,timeTaken,submittedMs){
+  const scorePart = String(100000000000 - Math.round(Number(score||0)*100)).padStart(12,"0");
+  const timePart = String(Math.max(0, Math.floor(Number(timeTaken||0)))).padStart(7,"0");
+  const datePart = String(Number(submittedMs||Date.now())).padStart(13,"0");
+  return `${scorePart}_${timePart}_${datePart}`;
+}
+function withTimeout(promise, ms, message){
+  let timer;
+  const timeout = new Promise((_, reject)=>{ timer = setTimeout(()=>reject(new Error(message || "Firebase timeout")), ms); });
+  return Promise.race([promise, timeout]).finally(()=>clearTimeout(timer));
+}
+function loadScript(src){
+  return new Promise((resolve, reject)=>{
+    var existing = document.querySelector('script[data-fb="1"][src="'+src+'"]');
+    if(existing){ resolve(); return; }
+    var s = document.createElement("script");
+    s.src = src; s.async = true; s.setAttribute("data-fb","1");
+    s.onload = ()=>resolve();
+    s.onerror = ()=>reject(new Error("Firebase SDK load नहीं हुआ। Internet ON रखें।"));
+    document.head.appendChild(s);
+  });
+}
+async function ensureFirebaseSdk(){
+  if(window.firebase && firebase.initializeApp && firebase.firestore) return;
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js");
+  await loadScript("https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js");
+}
+async function getFirebase(){
+  if(fbBundle) return fbBundle;
+  if(!FIREBASE_CONFIG || !FIREBASE_CONFIG.projectId) throw new Error("Firebase config missing");
+  await ensureFirebaseSdk();
+  if(!window.firebase || !firebase.initializeApp || !firebase.firestore){
+    throw new Error("Firebase SDK load नहीं हुआ। Internet ON रखें। अगर local file में दिक्कत हो तो HTML को hosting/link से खोलें।");
+  }
+  const app = firebase.apps && firebase.apps.length ? firebase.app() : firebase.initializeApp(FIREBASE_CONFIG);
+  const db = firebase.firestore(app);
+  const user = { uid: getLocalUid() };
+  const fs = {
+    doc: (dbRef, ...path)=>dbRef.doc(path.join("/")),
+    collection: (dbRef, ...path)=>dbRef.collection(path.join("/")),
+    setDoc: (ref, data, opts)=>withTimeout(ref.set(data, opts), 20000, "Firestore write timeout. Rules और Internet check करें."),
+    getDoc: (ref)=>withTimeout(ref.get(), 20000, "Firestore read timeout. Rules और Internet check करें."),
+    serverTimestamp: ()=>firebase.firestore.FieldValue.serverTimestamp(),
+    query: (base, ...ops)=>ops.reduce((q,op)=>op(q), base),
+    orderBy: (field, dir)=>q=>q.orderBy(field, dir),
+    limit: (n)=>q=>q.limit(n),
+    getDocs: (q)=>withTimeout(q.get(), 20000, "Firestore read timeout. Rules और Internet check करें.")
+  };
+  fbBundle = {db, user, fs};
+  return fbBundle;
+}
+function renderRankList(items){
+  const top = items.slice(0, LEADER_TOP);
+  if(!top.length){ el("leaderList").innerHTML = ""; el("leaderHint").textContent = "अभी इस test में कोई rank data नहीं है।"; return; }
+  el("leaderHint").textContent = `इसी test की live Top ${LEADER_TOP} list — पूरी rank list सर के dashboard से आएगी।`;
+  el("leaderList").innerHTML = top.map((x,i)=>`<li><span class="lr">${i+1}</span><div><b>${escapeHTML(x.name||"Student")}</b><br><small>${x.accuracy!=null?`Accuracy ${x.accuracy}%`:""} ${x.timeTaken!=null?`• Time ${formatTime(x.timeTaken)}`:""}</small></div><span class="score">${escapeHTML(x.score ?? 0)}</span></li>`).join("");
+}
+function todayDateStr(){ const d=new Date(); return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0"); }
+async function saveAttemptAndLoadRank(result){
+  el("ownRank").textContent = "—"; el("leaderList").innerHTML = "";
+  if(TEST.publishDateStr && TEST.publishDateStr !== todayDateStr()){
+    el("rankStatus").textContent = "यह टेस्ट अपनी launch वाली तारीख़ (" + TEST.publishDateStr + ") को ही live rank के लिए active था। अब यह सिर्फ़ practice के तौर पर काम करेगा — आपके marks और result पूरी तरह सुरक्षित हैं।";
+    el("leaderHint").textContent = "पुराने दिन के टेस्ट में अब live rank नहीं दिखेगी — नए दिन के टेस्ट में rank ज़रूर दिखेगी।";
+    return;
+  }
+  if(!RANKING_ENABLED || !FIREBASE_CONFIG){
+    el("rankStatus").textContent = "इस टेस्ट में live rank चालू नहीं है — यह सिर्फ़ practice के लिए है। आपके marks और result पूरी तरह दिखेंगे।";
+    el("leaderHint").textContent = "live rank चालू होने पर Top " + LEADER_TOP + " यहाँ अपने-आप दिखेगा।";
+    return;
+  }
+  el("rankStatus").textContent = "Rank निकाली जा रही है…";
+  el("leaderHint").textContent = "Leaderboard load हो रही है…";
+  try{
+    const testId = normalizeKey(result.testId || TEST.testId || "gen-test");
+    const nameKey = normalizeKey(result.name || "student");
+
+    const localDoneKey = "gen_done_" + testId + "_" + nameKey;
+    const localDone = storeGet(localDoneKey);
+    if(localDone && localDone.rankSort){
+      el("ownRank").textContent = "#" + (localDone.rank != null ? localDone.rank : "—");
+      el("rankStatus").textContent = "यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (" + numClean(localDone.score || 0) + " marks) से है: " + localDone.rank + " / " + localDone.total + ". (यह आपके phone में save है, extra internet/reads खर्च नहीं हुए।) Retake जितनी बार चाहें करें।";
+      renderRankList(Array.isArray(localDone.topList) ? localDone.topList : []);
+      return;
+    }
+
+    const {db,user,fs} = await withTimeout(getFirebase(), 20000, "Firebase connect timeout. Internet check करें.");
+    const submittedMs = Date.now();
+    const attemptId = "n-" + nameKey + "-" + user.uid;
+    const col = fs.collection(db,"tests",testId,"attempts");
+    const attemptRef = fs.doc(db,"tests",testId,"attempts",attemptId);
+
+    let firstData = null; let isRetake = false;
+    const snap = await fs.getDoc(attemptRef);
+    if(snap && snap.exists){ firstData = snap.data(); isRetake = true; }
+
+    if(!isRetake){
+      const rankSort = makeRankSort(result.score, result.timeTaken, submittedMs);
+      const payload = { ...result, testId, attemptId, uid: user.uid, studentKey: nameKey,
+        name: result.name || "Student", score: Number(result.score || 0),
+        timeTaken: Number(result.timeTaken || 0), accuracy: Number(result.accuracy || 0),
+        rankSort, submittedMs, submittedServerAt: fs.serverTimestamp() };
+      try{
+        await fs.setDoc(attemptRef, payload);
+        firstData = payload;
+      }catch(werr){
+        const again = await fs.getDoc(attemptRef);
+        if(again && again.exists){ firstData = again.data(); isRetake = true; }
+        else throw werr;
+      }
+      if(!isRetake){
+        await fs.setDoc(fs.doc(db,"tests",testId), {
+          testId,
+          title: result.testTitle || TEST.title || "GenClasses Test",
+          shortTitle: TEST.shortTitle || "",
+          subtitle: TEST.subtitle || "UPPCS Prelims 2026 / RO-ARO",
+          totalQuestions: result.totalQuestions || QUESTIONS.length,
+          maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
+          updatedAtMs: submittedMs,
+          updatedAt: fs.serverTimestamp(),
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+        }, {merge:true});
+      }
+    }
+
+    const myRankSort = String(firstData.rankSort || "");
+    let rank = null, total = null;
+    if(typeof col.count === "function"){
+      const belowSnap = await withTimeout(col.where("rankSort","<",myRankSort).count().get(), 20000, "Rank count timeout");
+      const totalSnap = await withTimeout(col.count().get(), 20000, "Total count timeout");
+      rank = Number(belowSnap.data().count) + 1;
+      total = Number(totalSnap.data().count);
+    } else {
+      const listSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(1000)));
+      const ids = listSnap.docs.map(d=>d.id);
+      const pos = ids.indexOf(attemptId);
+      rank = pos >= 0 ? pos + 1 : null;
+      total = listSnap.size >= 1000 ? "1000+" : listSnap.size;
+    }
+
+    const topSnap = await fs.getDocs(fs.query(col, fs.orderBy("rankSort","asc"), fs.limit(LEADER_TOP)));
+    const topListData = topSnap.docs.map(d=>d.data());
+    renderRankList(topListData);
+    try{ storeSet(localDoneKey, { rankSort: myRankSort, rank: rank, total: total, score: (firstData && firstData.score != null ? firstData.score : 0), topList: topListData, ts: Date.now() }); }catch(e){}
+
+    if(rank != null){
+      el("ownRank").textContent = "#" + rank;
+      if(isRetake){
+        el("rankStatus").textContent = `यह Retake practice था — rank में नहीं गिना गया। आपकी असली rank पहले प्रयास (${numClean(firstData.score || 0)} marks) से है: ${rank} / ${total}. Retake जितनी बार चाहें करें।`;
+      } else {
+        el("rankStatus").textContent = `आपकी rank इस test में ${rank} / ${total} है (पहला प्रयास)। Tie में ज़्यादा marks, कम time, फिर पहले submit ऊपर रहता है।`;
+      }
+    } else {
+      el("ownRank").textContent = "—";
+      el("rankStatus").textContent = "Rank data sync में थोड़ी देर लग रही है — कुछ देर बाद Retake के submit पर फिर दिखेगी।";
+    }
+  }catch(err){
+    console.error(err);
+    const errText = String(err && err.message ? err.message : err || "");
+    const errCode = String(err && err.code ? err.code : "");
+    const isQuotaIssue = errCode.indexOf("resource-exhausted") !== -1 || /quota|resource.exhausted|exceeded|429/i.test(errText);
+    el("ownRank").textContent = "—";
+    if(isQuotaIssue){
+      el("rankStatus").textContent = "आज रैंक लिस्ट अभी बहुत व्यस्त चल रही है — आपके marks और result पूरी तरह सुरक्षित हैं। Rank कुछ देर बाद या कल अपने आप दिखने लगेगी।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर Top 20 list फिर दिख जाएगी।";
+    } else {
+      el("rankStatus").textContent = "अभी rank list नहीं आ पाई — कोई चिंता की बात नहीं, आपके marks और result पूरी तरह सुरक्षित हैं।";
+      el("leaderHint").textContent = "थोड़ी देर बाद Retake करके submit करने पर rank दिख जाएगी।";
+    }
+  }
+}
+window.addEventListener("beforeunload", (e)=>{ if(testActive){ e.preventDefault(); e.returnValue = ""; } });
+window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ console.error(e); } try{ tryResume(); }catch(e){ console.error(e); } });
+</script>
+<script>
+(function(){
+  var btn=document.getElementById("themeBtn"); if(!btn) return;
+  function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  apply(cur);
+  btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
+})();
+</script>
+<script defer src="/assets/gen-watermark.js"></script>
+</body>
+</html>
