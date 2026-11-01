@@ -49,6 +49,27 @@
         + 'background-image:url("'+uri+'");background-repeat:repeat;background-position:0 0;';
       document.body.appendChild(d);
     };
-    if (document.body) mk(); else document.addEventListener('DOMContentLoaded', mk);
+
+    var addFab = function(){
+      try{
+        if (document.getElementById('waFab')) return;
+        var css = document.createElement('style');
+        css.textContent = '.wa-fab{position:fixed;z-index:90;left:16px;bottom:16px;right:auto;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;text-decoration:none;background:#25D366;color:#fff;box-shadow:0 10px 28px rgba(18,140,126,.45);border:2px solid rgba(255,255,255,.55)}.wa-fab:hover{transform:translateY(-2px) scale(1.04)}.wa-fab svg{width:26px;height:26px;fill:currentColor}html[data-theme="light"] .wa-fab{background:#128C7E}@media(max-width:760px){.wa-fab{left:12px;bottom:12px;width:48px;height:48px}}';
+        document.head.appendChild(css);
+        var a = document.createElement('a');
+        a.id = 'waFab';
+        a.className = 'wa-fab';
+        a.href = 'https://wa.me/919506321415';
+        a.target = '_blank';
+        a.rel = 'noopener';
+        a.setAttribute('aria-label', 'WhatsApp Support 9506321415');
+        a.title = 'WhatsApp Support';
+        a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>';
+        document.body.appendChild(a);
+      }catch(e){}
+    };
+    var boot = function(){ mk(); addFab(); };
+    if (document.body) boot(); else document.addEventListener('DOMContentLoaded', boot);
   }catch(e){}
 })();
+

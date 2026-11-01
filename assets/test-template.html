@@ -406,7 +406,7 @@
         </div>
       </section>
     </main>
-    <div class="footer-note" id="footerNote">© GenClasses · Your goal our support · genclassessupport@gmail.com</div>
+    <div class="footer-note" id="footerNote">© GenClasses · Your goal Our support · genclassessupport@gmail.com</div>
   </div>
 <script>
 const TEST = __TEST_JSON__;
@@ -778,7 +778,7 @@ function initHome(){
   el("examTitle").textContent = `GenClasses · ${TEST.shortTitle || TEST.title || "परीक्षा"}`;
   if(!TEST.rankingEnabled){ var _rb=el("rankBoard"); if(_rb) _rb.style.display="none"; }
     paintLang();
-    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com";
+    el("footerNote").textContent = TEST.footerCredit || "© GenClasses · Your goal Our support · genclassessupport@gmail.com";
   answers = Array(QUESTIONS.length).fill(null); review = Array(QUESTIONS.length).fill(false);
   if(!QUESTIONS.length){ el("nameErr").textContent = "इस परीक्षा में प्रश्न नहीं मिले।"; }
 }
@@ -1006,7 +1006,7 @@ async function saveAttemptAndLoadRank(result){
           maxMarks: result.maxMarks || QUESTIONS.length*MARKS,
           updatedAtMs: submittedMs,
           updatedAt: fs.serverTimestamp(),
-          footerCredit: TEST.footerCredit || "© GenClasses · Your goal our support · genclassessupport@gmail.com"
+          footerCredit: TEST.footerCredit || "© GenClasses · Your goal Our support · genclassessupport@gmail.com"
         }, {merge:true});
       }
     }

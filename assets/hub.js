@@ -31,6 +31,32 @@
   function $(sel,root){return (root||document).querySelector(sel);}
   function $all(sel,root){return Array.prototype.slice.call((root||document).querySelectorAll(sel));}
 
+
+  /* —— WhatsApp FAB + compact contact bar on hubs —— */
+  function initWaFab(){
+    if(document.getElementById('waFab')) return;
+    var a=document.createElement('a');
+    a.id='waFab'; a.className='wa-fab';
+    a.href='https://wa.me/919506321415'; a.target='_blank'; a.rel='noopener';
+    a.setAttribute('aria-label','WhatsApp Support 9506321415');
+    a.title='WhatsApp Support';
+    a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>';
+    document.body.appendChild(a);
+    var foot=document.querySelector('footer')||document.querySelector('.hub-foot')||document.querySelector('main');
+    if(foot && !document.querySelector('.hub-contact-bar')){
+      var bar=document.createElement('div');
+      bar.className='hub-contact-bar';
+      bar.setAttribute('aria-label','Contact');
+      bar.innerHTML=
+        '<a class="wa" href="https://wa.me/919506321415" target="_blank" rel="noopener">WhatsApp · 9506321415</a>'+
+        '<a class="ig" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener">Instagram · @genclasses</a>'+
+        '<a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a>'+
+        '<a href="mailto:genclassessupport@gmail.com">Gmail</a>';
+      if(foot.tagName && foot.tagName.toLowerCase()==='main'){ foot.appendChild(bar); }
+      else { foot.parentNode.insertBefore(bar, foot); }
+    }
+  }
+
   /* —— countdown to UPPCS Prelims 2026-12-06 (official calendar) —— */
   function initCountdown(){
     var el=document.getElementById('prelimsCountdown');
@@ -226,6 +252,7 @@
       }
       inp.addEventListener('input',function(){render(inp.value);});
     }
+    initWaFab();
     initCountdown();
     initProgress();
     initDaily();

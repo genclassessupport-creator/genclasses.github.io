@@ -683,6 +683,131 @@ html[data-theme="light"] #join.join{
 }
 .plat small{display:block;font-weight:300;font-size:12.5px;color:var(--mist)}
 
+
+/* ═══════════ PYQ showcase (hero → What's on) ═══════════ */
+#pyq-showcase{position:relative;z-index:3;padding:6px 18px 10px}
+.pyq-show{
+  max-width:var(--maxw);margin:0 auto;border-radius:22px;overflow:hidden;position:relative;
+  border:1px solid var(--line-2);
+  background:
+    radial-gradient(900px 220px at 8% -20%, rgba(127,180,255,.18), transparent 55%),
+    radial-gradient(700px 200px at 92% 0%, rgba(217,174,95,.16), transparent 50%),
+    linear-gradient(145deg, rgba(14,27,51,.92), rgba(10,20,38,.88));
+  box-shadow:0 18px 48px rgba(0,0,0,.28);
+  padding:16px 16px 14px;
+}
+html[data-theme="light"] .pyq-show{
+  background:
+    radial-gradient(900px 220px at 8% -20%, rgba(30,58,138,.14), transparent 55%),
+    radial-gradient(700px 200px at 92% 0%, rgba(197,221,214,.55), transparent 50%),
+    linear-gradient(145deg,#EEF3F8,#F6F9F7 55%,#E8F0EA);
+  box-shadow:0 14px 36px rgba(23,46,92,.12);
+  border-color:rgba(30,58,138,.22);
+}
+.pyq-show-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.pyq-pill{
+  flex:0 0 auto;align-self:center;font-size:11px;font-weight:800;letter-spacing:1.4px;
+  padding:5px 10px;border-radius:999px;color:#0A1426;
+  background:linear-gradient(135deg,var(--gold-hi),var(--gold));
+}
+html[data-theme="light"] .pyq-pill{color:#F6F9F7;background:linear-gradient(135deg,#1D3B6F,#1E3A8A)}
+.pyq-show-head h2{margin:0;font-family:'Rozha One',serif;font-size:clamp(20px,2.6vw,28px);color:var(--cream);line-height:1.15}
+.pyq-show-head p{margin:4px 0 0;font-size:13.5px;color:var(--mist);font-weight:500;max-width:62ch;line-height:1.45}
+.pyq-total{
+  margin-left:auto;display:flex;align-items:baseline;gap:6px;padding:8px 12px;border-radius:14px;
+  background:rgba(255,255,255,.04);border:1px solid var(--line);
+}
+html[data-theme="light"] .pyq-total{background:rgba(30,58,138,.06)}
+.pyq-total b{font-family:'Rozha One',serif;font-size:26px;color:var(--gold-hi);line-height:1}
+.pyq-total span{font-size:11.5px;font-weight:700;color:var(--mist);letter-spacing:.3px}
+.pyq-track{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pyq-card{
+  position:relative;display:grid;grid-template-columns:auto 1fr auto;gap:12px 14px;align-items:center;
+  text-decoration:none;color:inherit;border-radius:18px;padding:16px 16px 14px;
+  border:1px solid var(--line-2);min-height:118px;overflow:hidden;
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  background:rgba(255,255,255,.03);
+}
+.pyq-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.9;
+  background:linear-gradient(135deg,rgba(127,180,255,.12),transparent 42%,rgba(217,174,95,.1));
+}
+html[data-theme="light"] .pyq-card{background:rgba(255,255,255,.72)}
+html[data-theme="light"] .pyq-card::before{
+  background:linear-gradient(135deg,rgba(30,58,138,.1),transparent 45%,rgba(176,138,62,.08));
+}
+.pyq-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 14px 34px rgba(0,0,0,.22)}
+html[data-theme="light"] .pyq-card:hover{box-shadow:0 14px 34px rgba(23,46,92,.16)}
+.pyq-card.on{border-color:var(--gold);box-shadow:0 0 0 1px rgba(217,174,95,.35),0 12px 30px rgba(0,0,0,.18)}
+html[data-theme="light"] .pyq-card.on{box-shadow:0 0 0 1px rgba(30,58,138,.28),0 12px 28px rgba(23,46,92,.12)}
+.pyq-card .num{position:relative;font-family:'Rozha One',serif;font-size:clamp(34px,4vw,46px);color:var(--gold-hi);line-height:1;letter-spacing:-1px}
+.pyq-card .body{position:relative;min-width:0}
+.pyq-card .body .tag{display:inline-block;font-size:10.5px;font-weight:800;letter-spacing:1.2px;color:var(--gold);margin-bottom:4px}
+.pyq-card .body strong{display:block;font-size:14.5px;font-weight:800;color:var(--cream);line-height:1.3}
+.pyq-card .body em{display:block;margin-top:4px;font-style:normal;font-size:12px;color:var(--mist);font-weight:500;line-height:1.4}
+.pyq-card .cta{
+  position:relative;align-self:center;white-space:nowrap;font-size:12.5px;font-weight:800;
+  padding:9px 12px;border-radius:999px;border:1px solid var(--line-2);
+  background:rgba(255,255,255,.06);color:var(--gold-hi);
+}
+html[data-theme="light"] .pyq-card .cta{background:rgba(30,58,138,.08);color:#172E5C}
+.pyq-card:hover .cta{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#0A1426;border-color:transparent}
+html[data-theme="light"] .pyq-card:hover .cta{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
+.pyq-dots{display:none;justify-content:center;gap:7px;margin-top:10px}
+.pyq-dots button{
+  width:7px;height:7px;border-radius:999px;border:0;padding:0;cursor:pointer;
+  background:rgba(152,166,190,.45);
+}
+.pyq-dots button[aria-current="true"]{width:18px;background:var(--gold-hi)}
+@media(max-width:760px){
+  #pyq-showcase{padding:4px 12px 8px}
+  .pyq-show{padding:14px 12px 12px;border-radius:18px}
+  .pyq-show-head{margin-bottom:10px}
+  .pyq-total{margin-left:0;width:100%;justify-content:flex-start}
+  .pyq-track{
+    display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;
+  }
+  .pyq-track::-webkit-scrollbar{display:none}
+  .pyq-card{flex:0 0 92%;scroll-snap-align:center;grid-template-columns:auto 1fr;min-height:112px}
+  .pyq-card .cta{grid-column:1/-1;justify-self:start;margin-top:2px}
+  .pyq-dots{display:flex}
+}
+
+/* WhatsApp / Instagram pills + floating WA */
+.cd-pill.cd-wa{background:#25D366;color:#fff;border-color:rgba(255,255,255,.35)}
+.cd-pill.cd-ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);color:#fff;border-color:rgba(255,255,255,.35)}
+html[data-theme="light"] .cd-pill.cd-wa{background:#128C7E;color:#fff}
+html[data-theme="light"] .cd-pill.cd-ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);color:#fff}
+.wa-fab{
+  position:fixed;z-index:90;right:18px;bottom:18px;width:56px;height:56px;border-radius:50%;
+  display:grid;place-items:center;text-decoration:none;
+  background:#25D366;color:#fff;box-shadow:0 10px 28px rgba(18,140,126,.45);
+  transition:transform .18s, box-shadow .18s;border:2px solid rgba(255,255,255,.55);
+}
+.wa-fab:hover{transform:translateY(-2px) scale(1.04);box-shadow:0 14px 32px rgba(18,140,126,.55)}
+.wa-fab svg{width:28px;height:28px;fill:currentColor}
+html[data-theme="light"] .wa-fab{background:#128C7E;box-shadow:0 10px 28px rgba(18,140,126,.35)}
+@media(max-width:760px){.wa-fab{right:14px;bottom:14px;width:52px;height:52px}}
+.foot-social{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:14px 0 4px}
+.foot-social a{
+  display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:999px;
+  border:1px solid var(--line-2);background:var(--glass);color:var(--cream);text-decoration:none;
+  font-size:12.5px;font-weight:700;
+}
+.foot-social a:hover{border-color:var(--gold);color:var(--gold-hi)}
+.foot-social a.wa{color:#fff;background:#25D366;border-color:transparent}
+.foot-social a.ig{color:#fff;background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);border-color:transparent}
+.plat .pic.wa{background:#25D366;color:#fff;border-color:transparent}
+.plat .pic.ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);color:#fff;border-color:transparent}
+
+.cd-pill.cd-wa,.cd-pill.cd-ig{display:inline-flex;align-items:center;gap:6px}
+.cd-pill.cd-wa svg,.cd-pill.cd-ig svg{flex:0 0 auto}
+.plat .pic.wa,.plat .pic.ig{display:grid;place-items:center}
+.plat .pic.wa svg,.plat .pic.ig svg{width:22px;height:22px}
+.foot-social a.wa,.foot-social a.ig{gap:8px}
+
+
 /* ═══════════ पाद ═══════════ */
 footer{position:relative;z-index:3;border-top:1px solid var(--line);padding:46px 26px;text-align:center;color:var(--mist);font-size:14px;background:rgba(6,11,22,.6)}
 footer .fb{font-family:'Rozha One',serif;font-size:23px;color:var(--cream)}
@@ -814,7 +939,7 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
           <img src="/assets/gen-logo-96.png" width="56" height="56" alt="GenClasses" decoding="async" fetchpriority="high">
         </picture>
       </span>
-      <span class="brand-name">GenClasses<small>Your goal our support</small></span>
+      <span class="brand-name">GenClasses<small>Your goal Our support</small></span>
     </a>
     <div class="nav-links" id="navLinks">
       <a href="#special-notes"><span data-hi>विशेष नोट्स</span><span data-en>Special Notes</span></a>
@@ -836,7 +961,7 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
 
 <div class="ticker-wrap ticker-fixed-bar" role="navigation" aria-label="Site highlights">
   <div class="ticker-track">
-    <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
+    <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a> <a class="cd-pill cd-wa" href="https://wa.me/919506321415" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" style="display:block"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg> WhatsApp</a> <a class="cd-pill cd-ig" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" style="display:block"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5z"/></svg> Instagram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
     <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/uppcs-prelims-pyq/"><span class="pill-new">NEW</span> <span data-hi>📝 1200 प्रश्न · UPPCS प्रारंभिक 2018–2025 के सभी प्रश्न</span><span data-en>📝 1200 Questions · UPPCS Prelims 2018–2025 — All Questions</span></a>
@@ -847,7 +972,7 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
     <a href="/syllabus/"><span data-hi>सिलेबस हब</span><span data-en>Syllabus Hub</span></a>
     <a href="/csat/">CSAT Hub</a>
     <a href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
-    <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
+    <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a> <a class="cd-pill cd-wa" href="https://wa.me/919506321415" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" style="display:block"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg> WhatsApp</a> <a class="cd-pill cd-ig" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" style="display:block"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5z"/></svg> Instagram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
     <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/uppcs-prelims-pyq/"><span class="pill-new">NEW</span> <span data-hi>📝 1200 प्रश्न · UPPCS प्रारंभिक 2018–2025 के सभी प्रश्न</span><span data-en>📝 1200 Questions · UPPCS Prelims 2018–2025 — All Questions</span></a>
@@ -901,6 +1026,45 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
 </header>
 
 
+
+<!-- ================= PYQ showcase ================= -->
+<section id="pyq-showcase" aria-roledescription="carousel" aria-label="UPPCS PYQ collections">
+  <div class="pyq-show rv">
+    <div class="pyq-show-head">
+      <span class="pyq-pill">NEW</span>
+      <div>
+        <h2><span data-hi>पूरा पेपर कवर — PYQ संग्रह</span><span data-en>Complete paper coverage — PYQ collections</span></h2>
+        <p><span data-hi>आज अपलोड: UPPCS प्रारंभिक के सभी प्रश्न + राजव्यवस्था PYQ — कुल <b style="color:var(--gold-hi)">2160+</b> प्रश्न, परीक्षा-स्तरीय अभ्यास।</span><span data-en>Just uploaded: full UPPCS Prelims set + Polity PYQs — <b style="color:var(--gold-hi)">2160+</b> questions for exam-level practice.</span></p>
+      </div>
+      <div class="pyq-total" aria-hidden="true"><b>2160+</b><span data-hi>कुल प्रश्न</span><span data-en>total Qs</span></div>
+    </div>
+    <div class="pyq-track" id="pyqTrack">
+      <a class="pyq-card pyq-card-a on" href="/uppcs-prelims-pyq/" data-slide="0">
+        <div class="num">1200</div>
+        <div class="body">
+          <span class="tag">UPPCS PRE · 2018–2025</span>
+          <strong><span data-hi>UPPCS प्रारंभिक 2018–2025 — सभी 1200 प्रश्न</span><span data-en>UPPCS Prelims 2018–2025 — All 1200 Questions</span></strong>
+          <em><span data-hi>विषयवार टेस्ट · प्रत्येक प्रश्न पर वर्ष बैज · पूरा पेपर कवर</span><span data-en>Subject-wise tests · year badge on every Q · full paper coverage</span></em>
+        </div>
+        <span class="cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span>
+      </a>
+      <a class="pyq-card pyq-card-b" href="/polity/" data-slide="1">
+        <div class="num">960</div>
+        <div class="body">
+          <span class="tag">POLITY PYQ · 30+ YRS</span>
+          <strong><span data-hi>UPPCS राजव्यवस्था PYQ — सभी 960 प्रश्न (30+ वर्ष)</span><span data-en>UPPCS Polity PYQs — All 960 Questions (30+ years)</span></strong>
+          <em><span data-hi>विषयवार 21 टेस्ट · दशकों के PYQ · पूरा कवरेज</span><span data-en>21 topic-wise tests · decades of PYQs · full coverage</span></em>
+        </div>
+        <span class="cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span>
+      </a>
+    </div>
+    <div class="pyq-dots" id="pyqDots" role="tablist" aria-label="showcase slides">
+      <button type="button" aria-label="Slide 1" aria-current="true" data-i="0"></button>
+      <button type="button" aria-label="Slide 2" data-i="1"></button>
+    </div>
+  </div>
+</section>
+
 <section id="whats-on" style="padding:28px 0 8px">
   <div class="section-in">
     <div class="sec-head rv">
@@ -945,6 +1109,8 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
       <div class="sn-banner-contacts" aria-label="Contact for custom notes">
         <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes"><span aria-hidden="true">✉</span> <span data-hi>Gmail</span><span data-en>Gmail</span></a>
         <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span aria-hidden="true">✈</span> <span data-hi>Telegram</span><span data-en>Telegram</span></a>
+        <a class="cd-pill cd-wa" href="https://wa.me/919506321415" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" style="display:block"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg> <span data-hi>WhatsApp</span><span data-en>WhatsApp</span></a>
+        <a class="cd-pill cd-ig" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" style="display:block"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5z"/></svg> Instagram</a>
       </div>
     </div>
     <div class="sec-head rv">
@@ -1028,16 +1194,19 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
     <div class="sn-cta rv">
       <h3 data-hi>नोट्स के लिए आज ही हमसे संपर्क करें!</h3>
       <h3 data-en>Contact us today for notes!</h3>
-      <p class="hint" data-hi>Website · Telegram · Email — एक क्लिक में</p>
-      <p class="hint" data-en>Website · Telegram · Email — one click away</p>
+      <p class="hint" data-hi>Website · Telegram · WhatsApp · Instagram · Email — एक क्लिक में</p>
+      <p class="hint" data-en>Website · Telegram · WhatsApp · Instagram · Email — one click away</p>
       <div class="sn-btns">
         <a class="btn btn-gold" href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span data-hi>Telegram पर माँगें</span><span data-en>Request on Telegram</span></a>
+        <a class="btn btn-ghost" href="https://wa.me/919506321415" target="_blank" rel="noopener"><span data-hi>WhatsApp सपोर्ट</span><span data-en>WhatsApp Support</span></a>
         <a class="btn btn-ghost" href="mailto:genclassessupport@gmail.com?subject=Notes%20request"><span data-hi>ईमेल भेजें</span><span data-en>Send email</span></a>
         <a class="btn btn-ghost" href="#notes"><span data-hi>अध्ययन-सामग्री देखें</span><span data-en>View study material</span></a>
       </div>
       <p class="sn-meta">
         <a href="https://genclasses.com">genclasses.com</a>
         · <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">t.me/genclassesofficial</a>
+        · <a href="https://wa.me/919506321415" target="_blank" rel="noopener">WhatsApp 9506321415</a>
+        · <a href="https://www.instagram.com/genclasses" target="_blank" rel="noopener">@genclasses</a>
         · <a href="mailto:genclassessupport@gmail.com">genclassessupport@gmail.com</a>
       </p>
     </div>
@@ -1145,8 +1314,8 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
     <span class="eyebrow"><span data-hi>निःशुल्क जुड़ें</span><span data-en>Join free</span></span>
     <h2 data-hi>तैयारी का अगला अध्याय, यहीं से</h2>
     <h2 data-en>The next chapter of prep starts here</h2>
-    <p data-hi>Telegram पर नए टेस्ट व सामग्री की सूचना — और ईमेल पर संपर्क।</p>
-    <p data-en>New tests and material alerts on Telegram — and reach us by email.</p>
+    <p data-hi>Telegram · WhatsApp · Instagram · ईमेल — जहाँ सुविधा हो, वहीं हमसे जुड़ें।</p>
+    <p data-en>Telegram · WhatsApp · Instagram · Email — reach us wherever suits you.</p>
     <div class="plats">
       <a class="plat" href="https://t.me/genclassesofficial" target="_blank" rel="noopener" aria-label="Telegram official">
         <span class="pic">✈</span>
@@ -1155,6 +1324,14 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
       <a class="plat" href="https://t.me/genclasses" target="_blank" rel="noopener" aria-label="Telegram channel">
         <span class="pic">✈</span>
         <span>Telegram Channel<small>t.me/genclasses</small></span>
+      </a>
+      <a class="plat" href="https://wa.me/919506321415" target="_blank" rel="noopener" aria-label="WhatsApp Support">
+        <span class="pic wa"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg></span>
+        <span>WhatsApp Support<small>9506321415</small></span>
+      </a>
+      <a class="plat" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener" aria-label="Instagram @genclasses">
+        <span class="pic ig"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5z"/></svg></span>
+        <span>Instagram<small>@genclasses</small></span>
       </a>
       <a class="plat" href="mailto:genclassessupport@gmail.com" aria-label="Support email">
         <span class="pic">✉</span>
@@ -1263,7 +1440,13 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
     <img class="foot-logo" src="/assets/gen-logo.png" width="78" height="78" alt="GenClasses" loading="lazy" decoding="async">
   </picture>
   <div class="fb">GenClasses</div>
-  <div class="sh">Your goal our support</div>
+  <div class="sh">Your goal Our support</div>
+  <div class="foot-social" aria-label="Social links">
+    <a class="wa" href="https://wa.me/919506321415" target="_blank" rel="noopener">WhatsApp · 9506321415</a>
+    <a class="ig" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener">Instagram · @genclasses</a>
+    <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a>
+    <a href="mailto:genclassessupport@gmail.com">Gmail</a>
+  </div>
   <div data-hi>UPSC · UPPCS · एक निरंतर चलता प्रयास</div>
   <div data-en>UPSC · UPPCS · an ongoing effort</div>
   <div style="margin-top:9px;font-size:13px;opacity:.75">© <span id="yr">2026</span> GenClasses</div>
@@ -1967,6 +2150,53 @@ if (yr) yr.textContent = new Date().getFullYear();
   });
 })();
 </script>
+
+
+<script>
+/* PYQ showcase: mobile auto-rotate + desktop pulse */
+(function(){
+  var track = document.getElementById('pyqTrack');
+  var dots = document.getElementById('pyqDots');
+  if(!track || !dots) return;
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.pyq-card'));
+  var btns = Array.prototype.slice.call(dots.querySelectorAll('button'));
+  var i = 0, timer = null, reduced = false;
+  try{ reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  function isMobile(){ return window.matchMedia('(max-width:760px)').matches; }
+  function setActive(n){
+    i = (n + cards.length) % cards.length;
+    cards.forEach(function(c,k){ c.classList.toggle('on', k===i); });
+    btns.forEach(function(b,k){ b.setAttribute('aria-current', k===i ? 'true' : 'false'); });
+    if(isMobile()){
+      var card = cards[i];
+      if(card) try{ card.scrollIntoView({behavior: reduced ? 'auto' : 'smooth', inline:'center', block:'nearest'}); }catch(e){}
+    }
+  }
+  function next(){ setActive(i+1); }
+  function start(){
+    if(timer || reduced) return;
+    timer = setInterval(function(){ if(document.hidden) return; next(); }, 4500);
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  btns.forEach(function(b){ b.addEventListener('click', function(){ setActive(+b.getAttribute('data-i')||0); stop(); start(); }); });
+  track.addEventListener('pointerenter', stop);
+  track.addEventListener('pointerleave', start);
+  track.addEventListener('scroll', function(){
+    if(!isMobile()) return;
+    var mid = track.scrollLeft + track.clientWidth/2;
+    var best=0, bd=1e9;
+    cards.forEach(function(c,k){ var d=Math.abs((c.offsetLeft+c.offsetWidth/2)-mid); if(d<bd){bd=d;best=k;} });
+    if(best!==i){ i=best; cards.forEach(function(c,k){ c.classList.toggle('on', k===i); }); btns.forEach(function(b,k){ b.setAttribute('aria-current', k===i?'true':'false'); }); }
+  }, {passive:true});
+  window.addEventListener('resize', function(){ setActive(i); });
+  setActive(0); start();
+})();
+</script>
+
+
+<a class="wa-fab" href="https://wa.me/919506321415" target="_blank" rel="noopener" aria-label="WhatsApp Support 9506321415" title="WhatsApp Support">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+</a>
 
 </body>
 </html>

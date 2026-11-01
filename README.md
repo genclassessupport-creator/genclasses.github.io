@@ -24,7 +24,7 @@
 
 1. Telegram: https://t.me/genclassesofficial (मुख्य) और https://t.me/genclasses
 2. ईमेल: genclassessupport@gmail.com · genclassesinfo@gmail.com
-3. टैगलाइन: Your goal our support
+3. टैगलाइन: Your goal Our support
 4. CONFIG: genclassessupport-creator / genclasses.github.io — repo नाम बदलें तो CONFIG भी बदलें।
 5. लोगो: assets/gen-logo.png (192×192), gen-logo-96.webp/png, favicon*, apple-touch-icon, gen-logo-og.jpg
 
