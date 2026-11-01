@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indian Polity PYQ — GenClasses</title>
-<meta name="description" content="960 Indian Polity & Governance previous year questions from Purvavlokan GS 2026, with exam/year badges (UPPCS, RO/ARO, Lower, etc.).">
+<title>UPPCS Polity PYQs (1990–2026) — GenClasses</title>
+<meta name="description" content="UPPCS Polity PYQs — All Questions Asked in the Last 30+ Years (1990–2026). 960 questions · 21 topic tests · UPPCS, RO/ARO, Lower & more.">
 <meta name="theme-color" content="#F6F1E4">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -33,6 +33,15 @@ html[data-theme="light"] .card .badge{background:rgba(30,100,160,.12);color:#1a5
 .card .tags span{font-size:11px;padding:2px 8px;border-radius:999px;border:1px solid var(--line);color:var(--mist)}
 .card .go{margin-top:auto;font-size:13px;font-weight:800;color:var(--gold-hi)}
 .note{font-size:13px;color:var(--mist);margin:6px 0 0;line-height:1.5}
+.count-hero{display:inline-flex;flex-wrap:wrap;align-items:center;gap:10px 14px;margin:14px 0 6px;padding:12px 16px;border-radius:16px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(80,170,230,.12));border:1px solid rgba(217,174,95,.45);box-shadow:0 6px 22px rgba(80,50,20,.08)}
+.count-hero .big{font-family:'Rozha One',serif;font-size:34px;line-height:1;color:var(--gold-hi);font-weight:400}
+.count-hero .sub{font-size:13.5px;font-weight:800;color:var(--cream);letter-spacing:.2px}
+.count-hero .pill{font-size:11.5px;font-weight:800;padding:4px 10px;border-radius:999px;background:rgba(217,174,95,.2);border:1px solid rgba(217,174,95,.4);color:var(--gold-hi)}
+html[data-theme="light"] .count-hero{background:linear-gradient(135deg,rgba(154,114,35,.14),rgba(30,100,160,.08));border-color:rgba(154,114,35,.4)}
+html[data-theme="light"] .count-hero .big{color:#9a3412}
+html[data-theme="light"] .count-hero .sub{color:#3d2a12}
+.card .qcount{align-self:flex-start;font-size:12px;font-weight:800;padding:3px 10px;border-radius:999px;background:linear-gradient(135deg,rgba(217,174,95,.25),rgba(196,70,30,.12));border:1px solid rgba(217,174,95,.45);color:var(--gold-hi)}
+
 </style>
 </head>
 <body>
@@ -51,13 +60,18 @@ html[data-theme="light"] .card .badge{background:rgba(30,100,160,.12);color:#1a5
 <main class="wrap">
 <div class="breadcrumb" style="padding-top:18px"><a href="/">Home</a> · Polity PYQ</div>
 <section class="hero-mini">
-  <span class="eyebrow">PURVAVLOKAN · GS 2026</span>
-  <h1><span data-hi>भारतीय राजव्यवस्था PYQ</span><span data-en>Indian Polity PYQ</span></h1>
-  <p data-hi>Purvavlokan General Studies 2026 (English) से निकाले गए Indian Polity &amp; Governance के पिछले वर्षों के प्रश्न। जहाँ पुस्तक में परीक्षा/वर्ष टैग मिला, वह प्रत्येक प्रश्न पर बैज के रूप में दिखता है।</p>
-  <p data-en>Previous-year Indian Polity &amp; Governance questions extracted from Purvavlokan General Studies 2026 (English). Where the book gives an exam/year tag, it appears as a badge on every question.</p>
+  <span class="eyebrow">UPPCS · POLITY PYQ · 1990–2026</span>
+  <h1><span data-hi>UPPCS में पिछले 30+ वर्षों (1990–2026) में पूछे गए राजव्यवस्था के सभी प्रश्न</span><span data-en>UPPCS Polity PYQs — All Questions Asked in the Last 30+ Years (1990–2026)</span></h1>
+  <div class="count-hero" aria-label="960 questions">
+    <span class="big">960</span>
+    <span class="sub"><span data-hi>प्रश्न · 21 टेस्ट<br>UPPCS व सभी UP परीक्षाओं के</span><span data-en>Questions · 21 Tests<br>UPPCS &amp; all UP exams</span></span>
+    <span class="pill">1990–2026</span>
+  </div>
+  <p data-hi>UPPCS (Pre/Mains), RO/ARO, Lower व अन्य UP परीक्षाओं में आए राजव्यवस्था के PYQ — विषयवार टेस्ट। जहाँ परीक्षा/वर्ष टैग उपलब्ध है, वह प्रत्येक प्रश्न पर बैज के रूप में दिखता है।</p>
+  <p data-en>Polity PYQs from UPPCS (Pre/Mains), RO/ARO, Lower and other UP exams — topic-wise tests. Where an exam/year tag is available, it appears as a badge on every question.</p>
   <div class="stats" id="stats"></div>
-  <p class="note" data-hi>नोट: MD एक्सट्रैक्ट में कई प्रश्नों का मूल परीक्षा-टैग नहीं बचा — उन पर “Source N/A” दिखेगा। उत्तर नहीं गढ़े गए; पुस्तक में (*) वाले प्रश्न unscored हैं।</p>
-  <p class="note" data-en>Note: many primary exam tags were missing in the MD extract — those show “Source N/A”. Answers were not invented; book (*) items are unscored.</p>
+  <p class="note" data-hi>नोट: जिन प्रश्नों का परीक्षा-टैग उपलब्ध नहीं, उन पर “Source N/A” दिखेगा। जहाँ कुंजी (*) थी, वे unscored रखे गए — उत्तर नहीं गढ़े गए।</p>
+  <p class="note" data-en>Note: questions without an exam tag show “Source N/A”. Items marked (*) in the key are left unscored — answers were not invented.</p>
 </section>
 
 <section>
@@ -132,8 +146,9 @@ html[data-theme="light"] .card .badge{background:rgba(30,100,160,.12);color:#1a5
       if (ex.indexOf("unknown")>=0) tags += '<span>Source N/A × '+(t.exam_counts.unknown||0)+'</span>';
       a.innerHTML =
         '<span class="badge">POLITY PYQ</span>' +
-        '<h3>'+t.title_en+'</h3>' +
-        '<div class="meta">'+t.count+' Qs'+(t.missing_answers?(' · '+t.missing_answers+' unscored'):'')+'</div>' +
+        '<span class="qcount">'+t.count+' Qs</span>' +
+        '<h3>'+(document.documentElement.getAttribute('data-lang')==='hi' ? (t.title_hi||t.title_en) : t.title_en)+'</h3>' +
+        '<div class="meta">'+t.count+' '+L('प्रश्न','Questions')+(t.missing_answers?(' · '+t.missing_answers+' '+L('बिना कुंजी','unscored')):'')+'</div>' +
         '<div class="tags">'+tags+'</div>' +
         '<span class="go">'+L("टेस्ट शुरू करें →","Start test →")+'</span>';
       grid.appendChild(a);

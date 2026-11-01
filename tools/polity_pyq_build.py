@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build GenClasses Polity PYQ tests from Purvavlokan GS 2026 English MD extract."""
+"""Build GenClasses Polity PYQ tests from bilingual GS Polity MD extract."""
 from __future__ import annotations
 
 import json
@@ -468,11 +468,11 @@ def write_test(questions: list, pack: tuple) -> dict:
         "testId": test_id,
         "title": f"Polity PYQ — {title_en}",
         "shortTitle": title_en,
-        "subtitle": f"Purvavlokan GS · Indian Polity · {title_hi}",
+        "subtitle": f"UPPCS Polity PYQ · 1990–2026 · {title_hi}",
         "tag": "Polity PYQ",
         "description": (
-            f"Indian Polity & Governance previous year questions — {title_en}. "
-            "Exam/year badge from Purvavlokan General Studies 2026 (English) when present in the extract."
+            f"UPPCS Polity PYQs — All Questions Asked in the Last 30+ Years (1990–2026). "
+            f"Topic: {title_en}. Exam/year badge shown when available."
         ),
         "durationMinutes": duration_for(len(clean_qs)),
         "marksPerQuestion": 2.0,

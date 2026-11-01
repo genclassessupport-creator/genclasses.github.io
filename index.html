@@ -342,6 +342,12 @@ section{position:relative;z-index:3;padding:104px 26px}
 .exam-filters button{border:1px solid var(--line);background:var(--glass);color:var(--mist);padding:6px 12px;border-radius:999px;font-size:12px;font-weight:700;cursor:pointer;font-family:'Mukta',sans-serif}
 .exam-filters button.on{border-color:var(--gold);color:var(--gold-hi);background:rgba(217,174,95,.14)}
 .exam-filters button .n{opacity:.7;margin-left:4px;font-weight:600}
+.tcard .qchip{display:inline-flex;align-items:center;gap:4px;margin-top:2px;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(80,170,230,.12));border:1px solid rgba(217,174,95,.4);color:var(--gold-hi);width:fit-content}
+.polity-hero-strip{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin:2px 0 10px;padding:12px 16px;border-radius:14px;background:linear-gradient(135deg,rgba(217,174,95,.2),rgba(80,170,230,.1));border:1px solid rgba(217,174,95,.4)}
+.polity-hero-strip .big{font-family:'Rozha One',serif;font-size:28px;color:var(--gold-hi);line-height:1}
+.polity-hero-strip .txt{font-size:13px;font-weight:800;color:var(--cream)}
+html[data-theme="light"] .polity-hero-strip .txt{color:#3d2a12}
+
 .tfoot{margin-top:30px;text-align:center;font-size:14.5px;color:var(--mist)}
 .tfoot a{color:var(--gold-hi);font-weight:700;border-bottom:1px solid var(--gold-deep);transition:border-color .2s}
 .tfoot a:hover{border-color:var(--gold-hi)}
@@ -783,7 +789,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
   <div class="ticker-track">
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
-    <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 Polity PYQ — 960 प्रश्न · परीक्षा टैग</span><span data-en>📜 Polity PYQ — 960 Qs · exam tags</span></a>
+    <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
     <a href="/flashcards/"><span class="pill-new">NEW</span> <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
     <a href="/ro-aro/drafting/"><span class="pill-new">NEW</span> <span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></a>
@@ -793,7 +799,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
     <a href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
-    <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 Polity PYQ — 960 प्रश्न · परीक्षा टैग</span><span data-en>📜 Polity PYQ — 960 Qs · exam tags</span></a>
+    <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
     <a href="/flashcards/"><span class="pill-new">NEW</span> <span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
     <a href="/ro-aro/drafting/"><span class="pill-new">NEW</span> <span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></a>
@@ -870,7 +876,7 @@ html[lang="en"] em[data-hi],html:not([lang="en"]) em[data-en]{display:none!impor
       <a href="#tests"><span class="ic">◎</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span data-hi>परीक्षा-स्तरीय</span><span data-en>Exam-level</span></a>
       <a href="#special-notes"><span class="ic">★</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span data-hi>कस्टम डिमांड</span><span data-en>Custom demand</span></a>
       <a href="/ncert/"><span class="ic">📗</span><strong>NCERT</strong><span data-hi>पाठ्यपुस्तक · अभ्यास</span><span data-en>Textbooks · practice</span></a>
-      <a href="/polity/"><span class="ic">📜</span><strong>Polity PYQ</strong><span data-hi>960 प्रश्न · परीक्षा टैग</span><span data-en>960 Qs · exam tags</span></a>
+      <a href="/polity/"><span class="ic">📜</span><strong>Polity PYQ</strong><span data-hi>960 प्रश्न · 21 टेस्ट · UPPCS</span><span data-en>960 Qs · 21 Tests · UPPCS</span></a>
     </div>
   </div>
 </section>
@@ -1246,10 +1252,10 @@ var CONFIG = { user: "genclassessupport-creator", repo: "genclasses.github.io" }
 
 function isEn(){ return (document.documentElement.getAttribute("lang") || "hi") === "en"; }
 function L(hi, en){ return isEn() ? en : hi; }
-var SEC_NAME_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_NAME_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_HEAD_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "भारतीय राजव्यवस्था PYQ", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_HEAD_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Indian Polity PYQ", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_NAME_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ · 960", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_NAME_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ · 960", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_HEAD_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ · 960 प्रश्न", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_HEAD_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ · 960 Questions", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
 var SEC_UNIT_HI = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", polity: "टेस्ट", upsssc: "अध्याय", upspecial: "टेस्ट" };
 var SEC_UNIT_EN = { uppcs2026: "Tests", ca: "Tests", gs: "Tests", csat: "", ncert: "Tests", polity: "Tests", upsssc: "Chapters", upspecial: "Tests" };
 function SEC_NAME(sec){ return (isEn()?SEC_NAME_EN:SEC_NAME_HI)[sec] || sec; }
@@ -1407,10 +1413,17 @@ function testCard(sec, path, idx){
   b.textContent = SEC_NAME(sec);
   var h = document.createElement("h3");
   h.textContent = titleOf(path);
+  a.appendChild(b); a.appendChild(h);
+  if (sec === "polity" && POLITY_META && POLITY_META[path] && POLITY_META[path].count) {
+    var qc = document.createElement("span");
+    qc.className = "qchip";
+    qc.textContent = POLITY_META[path].count + " " + L("प्रश्न","Qs");
+    a.appendChild(qc);
+  }
   var g = document.createElement("span");
   g.className = "tgo";
   g.textContent = CHAPTERS[path] ? L("अध्याय खोलें →","Open chapter →") : L("टेस्ट प्रारंभ करें →","Start test →");
-  a.appendChild(b); a.appendChild(h); a.appendChild(g);
+  a.appendChild(g);
   glowTrack(a);
   return a;
 }
@@ -1539,14 +1552,22 @@ function addPolityFilters(){
     });
     wrap.appendChild(btn);
   });
+  var hero = document.createElement("div");
+  hero.className = "polity-hero-strip tacc-item";
+  hero.setAttribute("data-secitem", "polity");
+  hero.innerHTML = '<span class="big">960</span><span class="txt">' + L(
+    "प्रश्न · 21 टेस्ट · UPPCS व सभी UP परीक्षाओं के · 1990–2026",
+    "Questions · 21 Tests · UPPCS & all UP exams · 1990–2026"
+  ) + '</span><a href="/polity/" style="margin-left:auto;font-weight:800;color:var(--gold-hi);font-size:13px">' + L("हब खोलें →","Open hub →") + '</a>';
   var note = document.createElement("div");
   note.className = "tacc-item";
   note.setAttribute("data-secitem", "polity");
   note.style.cssText = "grid-column:1/-1;font-size:12.5px;color:var(--mist);margin:-4px 0 8px";
   note.innerHTML = L(
-    "फ़िल्टर उन टेस्टों को दिखाता है जिनमें उस परीक्षा के टैग वाले प्रश्न हैं। प्रत्येक प्रश्न पर परीक्षा/वर्ष बैज दिखता है। <a href='/polity/' style='color:var(--gold-hi)'>Polity हब →</a>",
-    "Filter shows tests that contain questions tagged for that exam. Each question shows an exam/year badge. <a href='/polity/' style='color:var(--gold-hi)'>Polity hub →</a>"
+    "फ़िल्टर: उस परीक्षा के टैग वाले टेस्ट। प्रत्येक प्रश्न पर परीक्षा/वर्ष बैज।",
+    "Filter: tests with that exam’s tags. Each question shows an exam/year badge."
   );
+  grid.appendChild(hero);
   grid.appendChild(wrap);
   grid.appendChild(note);
 }
