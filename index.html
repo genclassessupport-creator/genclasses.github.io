@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GenClasses — UPSC / UPPCS</title>
 <meta name="description" content="GenClasses — UPSC एवं UPPCS की व्यवस्थित तैयारी। विषयवार टेस्ट सीरीज़ (करेंट अफेयर्स, सामान्य अध्ययन, CSAT) एवं प्रामाणिक अध्ययन-सामग्री।">
-<meta name="theme-color" content="#E4D7C3">
+<meta name="theme-color" content="#E6EEE9">
 <meta property="og:title" content="GenClasses — UPSC / UPPCS">
 <meta property="og:description" content="अवधारणा की स्पष्टता, अभ्यास की निरंतरता — विषयवार टेस्ट सीरीज़ एवं अध्ययन-सामग्री।">
 <meta property="og:type" content="website">
@@ -45,34 +45,37 @@
 }
 /* ═══════════ Light theme (टॉगल से) ═══════════ */
 html[data-theme="light"]{
-  --ink0:#E4D7C3;
-  --ink1:#F3EADF;
-  --ink2:#EBE0D0;
-  --glass:rgba(90,60,20,.06);
-  --line:rgba(120,85,30,.32);
-  --line-2:rgba(120,85,30,.52);
-  --gold:#8B6520;
-  --gold-hi:#6E4E14;
-  --gold-deep:#A67C2E;
-  --cream:#1C150C;
-  --mist:#4A4336;
+  --ink0:#E6EEE9;
+  --ink1:#F6F9F7;
+  --ink2:#EEF3F0;
+  --glass:rgba(31,111,102,.06);
+  --line:rgba(201,214,207,.95);
+  --line-2:rgba(31,111,102,.28);
+  --gold:#9A7223;
+  --gold-hi:#7A5A18;
+  --gold-deep:#B08A3E;
+  --cream:#1F2A2E;
+  --mist:#3D4A4F;
   --blue:#1D4ED8;
-  --green:#187A50;
+  --green:#1F6F66;
 }
-html[data-theme="light"] ::selection{background:rgba(154,114,35,.3);color:#20180A}
+html[data-theme="light"] ::selection{background:rgba(31,111,102,.22);color:#1F2A2E}
 html[data-theme="light"] .aurora{opacity:.55}
-html[data-theme="light"] .aur-1{background:radial-gradient(circle,#C9DBF4 0%,transparent 62%)}
-html[data-theme="light"] .aur-2{background:radial-gradient(circle,#EBD8A9 0%,transparent 65%)}
+html[data-theme="light"] .aur-1{background:radial-gradient(circle,#C5DDD6 0%,transparent 62%)}
+html[data-theme="light"] .aur-2{background:radial-gradient(circle,#E2D4A8 0%,transparent 65%)}
 html[data-theme="light"] #embers{opacity:.65;filter:brightness(.45) saturate(1.6)}
 html[data-theme="light"] .grain{opacity:.035}
-html[data-theme="light"] .wm{-webkit-text-stroke:1.3px rgba(143,107,38,.17)}
-html[data-theme="light"] .ring{stroke:rgba(122,90,24,.62)}
+html[data-theme="light"] .wm{-webkit-text-stroke:1.3px rgba(31,111,102,.14)}
+html[data-theme="light"] .ring{stroke:rgba(31,111,102,.45)}
 html[data-theme="light"] .ring-b{stroke:rgba(122,90,24,.4)}
 html[data-theme="light"] .emblem::before{background:radial-gradient(circle,rgba(176,138,62,.24) 0%,transparent 62%)}
 html[data-theme="light"] .leaf{filter:drop-shadow(0 0 7px rgba(154,114,35,.45))}
 html[data-theme="light"] .vein{stroke:rgba(122,90,24,.62)}
 html[data-theme="light"] .flame{filter:drop-shadow(0 0 12px rgba(176,138,62,.85))}
-html[data-theme="light"] .btn-gold{color:#FFFDF5;box-shadow:0 12px 34px rgba(154,114,35,.32)}
+html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#17857A,#1F6F66);color:#F6F9F7;box-shadow:0 12px 28px rgba(31,111,102,.28)}
+html[data-theme="light"] .ttab.active{border-color:#1F6F66;background:linear-gradient(135deg,rgba(31,111,102,.14),rgba(154,114,35,.08))}
+html[data-theme="light"] .tacc-cnt{background:linear-gradient(135deg,#17857A,#1F6F66);color:#F6F9F7}
+html[data-theme="light"] .pill-chip{border-color:rgba(31,111,102,.28)}
 html[data-theme="light"] .ttab.active{color:#FFFDF5}
 html[data-theme="light"] .marq{background:rgba(154,114,35,.05)}
 html[data-theme="light"] .scroll-cue{opacity:.9}
@@ -434,7 +437,7 @@ html[data-theme="light"] #special-notes{
   background:
     radial-gradient(ellipse 70% 50% at 10% 0%, rgba(232,162,58,.16), transparent 55%),
     radial-gradient(ellipse 55% 40% at 90% 100%, rgba(196,122,24,.10), transparent 50%),
-    linear-gradient(180deg, #E4D7C3 0%, #D9CDB8 55%, #D4C7B0 100%);
+    linear-gradient(180deg, #E6EEE9 0%, #DDE8E3 55%, #D5E2DC 100%);
   border-top:1px solid rgba(196,122,24,.18);
   border-bottom:1px solid rgba(196,122,24,.18);
 }
@@ -1814,7 +1817,7 @@ navLinks.querySelectorAll("a").forEach(function(a){
     btn.textContent = (t === "light") ? "🌙" : "☀️";
     btn.setAttribute("aria-label", (t === "light") ? "डार्क थीम पर जाएँ" : "लाइट थीम पर जाएँ");
     var m = document.querySelector('meta[name="theme-color"]');
-    if (m) m.setAttribute("content", (t === "light") ? "#E4D7C3" : "#060B16");
+    if (m) m.setAttribute("content", (t === "light") ? "#E6EEE9" : "#060B16");
     try { localStorage.setItem("gen_theme", t); } catch(e){}
   }
   var cur = "light";
