@@ -8,11 +8,11 @@
   --maxw:1080px;--orange:#e8a23a;--navy:#0c2a52;
 }
 html[data-theme="light"]{
-  --ink0:#F6F1E4;--ink1:#FFFCF3;--ink2:#FFF7E8;
-  --glass:rgba(111,78,20,.05);
-  --line:rgba(143,107,38,.28);--line-2:rgba(143,107,38,.5);
-  --gold:#9A7223;--gold-hi:#7A5A18;--gold-deep:#B08A3E;
-  --cream:#20180A;--mist:#5A5343;--blue:#1D4ED8;--green:#187A50;
+  --ink0:#E4D7C3;--ink1:#F3EADF;--ink2:#EBE0D0;
+  --glass:rgba(90,60,20,.06);
+  --line:rgba(120,85,30,.32);--line-2:rgba(120,85,30,.52);
+  --gold:#8B6520;--gold-hi:#6E4E14;--gold-deep:#A67C2E;
+  --cream:#1C150C;--mist:#4A4336;--blue:#1D4ED8;--green:#187A50;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:88px}

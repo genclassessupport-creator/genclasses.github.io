@@ -9,6 +9,7 @@
 <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
+<meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
 <style>
@@ -24,21 +25,22 @@
   }
   /* ---------- Light theme (default; टॉगल से dark) ---------- */
   html[data-theme="light"]{
-    --ink0:#F6F1E4; --ink1:#FFFCF3; --ink2:#FFF7E8;
-    --glass:rgba(111,78,20,.05);
-    --line:rgba(143,107,38,.3); --line-2:rgba(143,107,38,.52);
-    --gold:#9A7223; --gold-hi:#7A5A18; --gold-deep:#B08A3E;
-    --cream:#20180A; --mist:#5A5343;
+    /* mid warm sand/taupe — between pale cream and dark */
+    --ink0:#E4D7C3; --ink1:#F3EADF; --ink2:#EBE0D0;
+    --glass:rgba(90,60,20,.06);
+    --line:rgba(120,85,30,.32); --line-2:rgba(120,85,30,.52);
+    --gold:#8B6520; --gold-hi:#6E4E14; --gold-deep:#A67C2E;
+    --cream:#1C150C; --mist:#4A4336;
     --blue:#1D4ED8; --green:#187A50; --rose:#C2314B;
-    --shadow:0 18px 48px rgba(120,90,30,.16);
+    --shadow:0 16px 40px rgba(80,55,20,.18);
   }
-  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.09), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(29,78,216,.05), transparent 60%)}
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(154,114,35,.14), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(70,110,120,.07), transparent 60%)}
   html[data-theme="light"] .logo{color:#FFFDF5}
   html[data-theme="light"] .btn.primary{color:#FFFDF5}
   html[data-theme="light"] .lang-b.on{color:#FFFDF5}
   html[data-theme="light"] .option.selected .letter{color:#FFFDF5}
-  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(255,247,232,.85))}
-  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(255,247,232,.97),rgba(246,241,228,.92))}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,var(--ink1),rgba(243,234,223,.92))}
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,rgba(243,234,223,.98),rgba(228,215,195,.95))}
   html[data-theme="light"] .progress{background:rgba(32,24,10,.08)}
   html[data-theme="light"] .dot{background:rgba(32,24,10,.05)}
   html[data-theme="light"] .dot.answered{background:rgba(24,122,80,.16);color:#0F6A44}
@@ -142,14 +144,45 @@
   .qno{font-weight:700;color:var(--gold);font-size:16px;letter-spacing:.4px}
   .topic{background:var(--glass);color:var(--mist);border:1px solid var(--line);padding:6px 11px;
     border-radius:999px;font-weight:600;font-size:12px}
+  .exam-src{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,rgba(217,174,95,.22),rgba(196,70,30,.14));color:var(--gold-hi);border:1px solid rgba(217,174,95,.45);padding:6px 12px;border-radius:999px;font-weight:700;font-size:12px;letter-spacing:.2px;white-space:nowrap}
+  html[data-theme="light"] .exam-src{background:linear-gradient(135deg,rgba(154,114,35,.16),rgba(184,69,26,.1));color:#9a3412;border-color:rgba(154,52,18,.35)}
+  .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
   /* ---------- प्रश्न ---------- */
   .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
   .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
     margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
-  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 4px}
-  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:8px 11px;text-align:left;vertical-align:top;font-size:.93em}
-  .match-tbl th{color:var(--gold);font-weight:700;font-size:.8em;letter-spacing:.6px;background:rgba(217,174,95,.06)}
+  .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
+  .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
+  .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
   .qtext-en .match-tbl th{color:var(--mist)}
+  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
+  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
+  .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
+  .match-col .mi:first-of-type{border-top:0}
+  .match-col .mi .mk{font-weight:800;color:var(--gold);font-size:13px}
+  html[data-theme="light"] .match-col .mi{color:var(--cream)}
+  .q-stem{margin:0 0 8px;line-height:1.7}
+  .stmt-list{display:grid;gap:8px;margin:8px 0}
+  .stmt-item{display:grid;grid-template-columns:42px 1fr;gap:8px;align-items:start;padding:9px 11px;border-radius:12px;background:rgba(217,174,95,.07);border:1px solid var(--line);line-height:1.55;font-weight:600}
+  .stmt-item .tag{font-weight:800;color:var(--gold-hi);font-size:13px;padding-top:1px}
+  html[data-theme="light"] .stmt-item{background:rgba(120,85,30,.07);color:var(--cream)}
+  .ar-block{margin:8px 0;padding:11px 13px;border-radius:12px;border:1px solid var(--line);background:rgba(217,174,95,.07)}
+  .ar-block .ar-lab{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--gold-hi);margin-bottom:4px;padding:2px 8px;border-radius:999px;background:rgba(217,174,95,.14);border:1px solid var(--line)}
+  .ar-block .ar-body{line-height:1.6;font-weight:600}
+  html[data-theme="light"] .ar-block{background:rgba(120,85,30,.07);color:var(--cream)}
+  .code-line{margin-top:10px;font-weight:800;color:var(--gold-hi);font-size:14.5px}
+  .code-map{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+  .code-map .cm{display:inline-flex;align-items:center;gap:3px;padding:3px 9px;border-radius:999px;background:rgba(217,174,95,.12);border:1px solid var(--line);font-weight:800;font-size:13.5px;color:inherit}
+  .code-map .cm b{color:var(--gold-hi)}
+  .code-grid{display:inline-grid;grid-template-columns:repeat(4,minmax(36px,auto));gap:4px 10px;align-items:center;text-align:center;font-weight:800}
+  .code-grid .ch{font-size:11px;color:var(--gold-hi);letter-spacing:.3px}
+  .code-grid .cv{font-size:15px;padding:2px 6px;border-radius:8px;background:rgba(217,174,95,.1);border:1px solid var(--line)}
+  @media(max-width:380px){
+    .match-pair{gap:6px}
+    .match-col .mi{font-size:13.5px;padding:7px 8px}
+    .stmt-item{grid-template-columns:36px 1fr;padding:8px 9px;font-size:.95em}
+  }
   /* ---------- भाषा टॉगल ---------- */
   .lang-seg{display:inline-flex;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:10px;padding:3px;gap:2px}
   .lang-b{font-family:inherit;font-size:12.5px;font-weight:600;color:var(--mist);background:transparent;
@@ -316,7 +349,7 @@
           <div class="exam-header"><h2 id="examTitle">GenClasses</h2><div class="timer" id="timer">25:00</div></div>
           <div class="progress"><div id="progressBar"></div></div>
           <div class="question-card" id="questionCard">
-            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="lang-seg" id="qLang"></div></div></div>
+            <div class="qmeta"><div class="qno" id="qno">प्रश्न 1 / 0</div><div style="display:flex;gap:9px;align-items:center;flex-wrap:wrap"><div class="topic" id="topic">Topic</div><div class="exam-src" id="examSrc" hidden></div><div class="lang-seg" id="qLang"></div></div></div>
             <div class="qtext" id="qtext"></div><div class="qtext-en" id="qtextEn"></div><div class="options" id="options"></div>
             <div class="nav-row"><button class="btn light" onclick="prevQ()">← पिछला</button><button class="btn secondary" onclick="toggleReview()" id="reviewBtn">☆ समीक्षा हेतु चिह्नित करें</button><button class="btn light" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="btn primary" onclick="nextQ()">सहेजें और अगला →</button></div>
           </div>
@@ -364,43 +397,268 @@ function setGenLang(l){
 }
 function genEsc(t){ return String(t==null?"":t)
   .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function _genSplitItems(seg, kind){
+  /* kind: 'letter' => A./(A) ; 'num' => 1./(1)/(i) */
+  seg = String(seg||"").replace(/^[\s:：\-–—]+/,"").replace(/[;।.\s]+$/,"");
+  var re = kind==="letter"
+    ? /(?:^|[;।,\s\/]+)(?=\(?[A-Da-d]\)?[\.\):]|\([A-Da-d]\))/
+    : /(?:^|[;।,\s\/]+)(?=\(?\d+\)?[\.\):]|\(\d+\)|\([ivxIVX]+\)|\(?[ivxIVX]+\)?[\.\)])/;
+  var parts = seg.split(re).map(function(x){ return x.trim().replace(/^[;।,\s\/]+/,"").replace(/[;।]\s*$/,""); }).filter(Boolean);
+  return parts;
+}
+function _normItem(it, kind){
+  it=String(it||"").trim();
+  if(kind==="letter"){
+    var m=it.match(/^\(?([A-Da-d])\)?[\.\):]?\s*(.*)$/);
+    if(m && m[1]) return {mk:m[1].toUpperCase(), body:(m[2]||"").trim()};
+  } else {
+    var m2=it.match(/^\(?(\d+)\)?[\.\):]?\s*(.*)$/);
+    if(m2 && m2[1] && /^\d+$/.test(m2[1])) return {mk:m2[1], body:(m2[2]||"").trim()};
+    var m3=it.match(/^\(?([ivxIVX]+)\)?[\.\):]?\s*(.*)$/);
+    if(m3 && m3[1]) return {mk:m3[1].toLowerCase(), body:(m3[2]||"").trim()};
+  }
+  return {mk:"", body:it};
+}
+function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, outro){
+  if(!leftItems || leftItems.length<2 || !rightItems || rightItems.length<2) return null;
+  var L="", R="", i;
+  for(i=0;i<leftItems.length;i++){
+    var a=_normItem(leftItems[i],"letter");
+    L+='<div class="mi"><span class="mk">'+genEsc(a.mk || String.fromCharCode(65+i))+'</span><span>'+genEsc(a.body||leftItems[i])+'</span></div>';
+  }
+  for(i=0;i<rightItems.length;i++){
+    var b=_normItem(rightItems[i],"num");
+    R+='<div class="mi"><span class="mk">'+genEsc(b.mk || String(i+1))+'</span><span>'+genEsc(b.body||rightItems[i])+'</span></div>';
+  }
+  var html=(intro?'<div class="q-stem">'+genEsc(intro)+'</div>':'')
+    + '<div class="match-pair"><div class="match-col"><h4>'+genEsc(leftLabel)+'</h4>'+L+'</div>'
+    + '<div class="match-col"><h4>'+genEsc(rightLabel)+'</h4>'+R+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genMatchTable(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
+  var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
+
+  /* Strategy A: explicit सूची-I: / List-I: blocks with colon */
+  var reI=/(सूची|List)\s*[\-–—]?\s*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
+  var reII=/(सूची|List)\s*[\-–—]?\s*II\s*(?:\([^)]*\))?\s*[:：]/i;
+  var mI=t.match(reI), mII=t.match(reII);
+  if(mI && mII && mII.index>mI.index){
+    var intro=t.slice(0,mI.index).trim();
+    var segI=t.slice(mI.index+mI[0].length, mII.index).trim();
+    var rest=t.slice(mII.index+mII[0].length);
+    var mo=rest.match(/\s*((?:कूट|Code|कोड)\s*[:：].*$|(?:नीचे दिए|दिए गए कूट|Select the correct|Choose the correct|सही उत्तर).*$)/i);
+    var segII, outro="";
+    if(mo){ segII=rest.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+    else segII=rest.trim();
+    var A=_genSplitItems(segI,"letter"), B=_genSplitItems(segII,"num");
+    var built=_genMatchPairHTML(leftLab, rightLab, A, B, intro, outro);
+    if(built) return built;
+  }
+
+  /* Normalize slashes/newlines for compact forms */
+  var flat=t.replace(/\n+/g,"\n").replace(/\s*\/\s*/g," / ").replace(/[ \t]+/g," ");
+
+  /* Strategy B: two blocks List-I … List-II … without requiring colon */
+  var headI=/(?:^|\n)\s*((?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?[A-D]|\s*[A-D]\.)/i;
+  var headII=/(?:^|\n|\/)\s*((?:सूची|List)\s*[\-–—]?\s*II\b[^\n]*?)(?=\s*\/|\s*\n|\s*\(?\d|\s*\d\.)/i;
+  /* Find content start: first A. or (A) that looks like a list item */
+  var itemStart=flat.search(/(?:^|[\s\/\n])(\(?[A-D]\)?[.\)]\s|\([A-D]\)\s)/);
+  if(itemStart<0) itemStart=flat.search(/\bA\.\s/);
+  if(itemStart>=0){
+    /* prefer stem = text before first list header OR before first item if header is only inside "Match List-I with" */
+    /* Keep full instruction (incl. "Match List-I with List-II…"); drop only trailing column headers */
+    var introB=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+    introB=introB.replace(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    introB=introB.replace(/\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b[\s\S]*?(?:सूची|List)\s*[\-–—]?\s*II\b[\s\S]*$/i,"").trim();
+    /* if strip ate the useful Match…with… sentence keep original slice before headers-only line */
+    if(introB.length<12){
+      var keep=flat.slice(0, Math.max(itemStart,0)).trim().replace(/\s*\/\s*$/,"");
+      var cutHdr=keep.search(/(?:\n|\/)\s*(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b/i);
+      introB=(cutHdr>0?keep.slice(0,cutHdr):keep).trim();
+    }
+    var body=flat.slice(itemStart).replace(/^[\s\/\n]+/,"");
+    var outroB="";
+    var cm=body.match(/\s*((?:कूट|Code|कोड)\s*[:：][\s\S]*)$/i);
+    if(cm){ outroB=cm[1].replace(/^[\s\/]+/,"").trim(); body=body.slice(0,cm.index).trim(); }
+
+    /* B1: interleaved A. text N. text */
+    var left=[], right=[], pairRe=/(?:\(?([A-D])\)?[.\)]|\(([A-D])\))\s*(.+?)\s+(?:\(?(\d+|[ivxIVX]+)\)?[.\)]|\((\d+|[ivxIVX]+)\))\s*(.+?)(?=\s*\/\s*(?:\(?[A-D]|\([A-D])|\s*$)/gi;
+    var pm, seen=false;
+    while((pm=pairRe.exec(body))){
+      seen=true;
+      var Lmk=pm[1]||pm[2], Rmk=pm[4]||pm[5];
+      left.push(Lmk+". "+pm[3].replace(/\s*\/\s*$/,"").trim());
+      right.push(Rmk+". "+pm[6].replace(/\s*\/\s*$/,"").trim());
+    }
+    if(seen){
+      var builtB=_genMatchPairHTML(leftLab, rightLab, left, right, introB, outroB);
+      if(builtB) return builtB;
+    }
+
+    /* B2: separate List-I items then List-II items */
+    var iiPos=body.search(/(?:सूची|List)\s*[\-–—]?\s*II\b/i);
+    var segLeft=iiPos>=0?body.slice(0,iiPos):body;
+    var segRight=iiPos>=0?body.slice(iiPos).replace(/^(?:सूची|List)\s*[\-–—]?\s*II\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""):"";
+    /* If no List-II marker, try split after D. item before 1. */
+    if(!segRight){
+      var dEnd=body.search(/(?:\(?D\)?[.\)]|\(D\))[\s\S]*?(?=\s*(?:\(?1\)?[.\)]|\(1\)))/i);
+      if(dEnd>=0){
+        var onePos=body.indexOf("1.", dEnd);
+        if(onePos<0) onePos=body.search(/\(?1\)/, dEnd);
+        if(onePos>0){ segLeft=body.slice(0,onePos); segRight=body.slice(onePos); }
+      }
+    }
+    var Litems=_genSplitItems(segLeft.replace(/^(?:सूची|List)\s*[\-–—]?\s*I(?!I)\b\s*(?:\([^)]*\))?\s*[:：]?\s*/i,""),"letter");
+    var Ritems=_genSplitItems(segRight,"num");
+    if(Litems.length>=2 && Ritems.length>=2){
+      var builtC=_genMatchPairHTML(leftLab, rightLab, Litems, Ritems, introB, outroB);
+      if(builtC) return builtC;
+    }
+
+    /* B3: letter items that embed numbers: "(A) Formation of new 1. Part-2 ..." */
+    if(Litems.length>=2){
+      var L2=[], R2=[], ok=true;
+      for(var li=0;li<Litems.length;li++){
+        var mm=Litems[li].match(/^\(?([A-D])\)?[.\)]\s*(.+?)\s+\(?(\d+|[ivxIVX]+)\)?[.\)]\s*(.+)$/i)
+             || Litems[li].match(/^\(([A-D])\)\s*(.+?)\s+\((\d+|[ivxIVX]+)\)\s*(.+)$/i);
+        if(mm){ L2.push(mm[1]+". "+mm[2].trim()); R2.push(mm[3]+". "+mm[4].trim()); }
+        else { ok=false; break; }
+      }
+      if(ok && L2.length>=2){
+        var builtD=_genMatchPairHTML(leftLab, rightLab, L2, R2, introB, outroB);
+        if(builtD) return builtD;
+      }
+    }
+  }
+  return null;
+}
+function _genAR(raw){
+  var t=String(raw).replace(/\u00a0/g," ").trim();
+  var aRe=/((?:अभिकथन|कथन|Assertion|Statement)\s*\(\s*A\s*\))\s*[:：]?\s*/gi;
+  var rRe=/((?:कारण|Reason)\s*\(\s*R\s*\))\s*[:：]?\s*/gi;
+  var aMarks=[], rMarks=[], m;
+  while((m=aRe.exec(t))) aMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  while((m=rRe.exec(t))) rMarks.push({lab:m[1], index:m.index, end:m.index+m[0].length});
+  if(!aMarks.length || !rMarks.length) return null;
+  /* Prefer last A/R when preamble also names Assertion (A) / Reason (R) */
+  var aMark=aMarks[aMarks.length-1];
+  var rMark=null;
+  for(var i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  if(!rMark){
+    /* A after R in odd OCR — try first A before first R */
+    aMark=aMarks[0];
+    for(i=0;i<rMarks.length;i++){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+  }
+  if(!rMark) return null;
+  var stem=t.slice(0,aMark.index).trim().replace(/[–—:\-]\s*$/,"").trim();
+  /* drop dangling "labelled as" / "one is labelled as" without content */
+  stem=stem.replace(/\s*,?\s*(?:one is labelled as|labelled as|जिनमें से एक को|एक को)\s*$/i,"").trim();
+  var aBody=t.slice(aMark.end, rMark.index).trim()
+    .replace(/^(?:and the other as|और दूसरे को)\s*(?:Reason\s*\(\s*R\s*\)|कारण\s*\(\s*R\s*\))?\s*[\.:：]?\s*/i,"").trim();
+  /* if body empty because we picked preamble A, bump to previous logic using second A */
+  if(aBody.length<8 && aMarks.length>=2){
+    aMark=aMarks[aMarks.length-1];
+    rMark=null;
+    for(i=rMarks.length-1;i>=0;i--){ if(rMarks[i].index>aMark.end){ rMark=rMarks[i]; break; } }
+    if(!rMark) return null;
+    stem=t.slice(0,aMark.index).trim();
+    aBody=t.slice(aMark.end, rMark.index).trim();
+  }
+  var afterR=t.slice(rMark.end);
+  var outro="", rBody=afterR;
+  var mo=afterR.match(/\s*((?:उपर्युक्त|उपरोक्त|नीचे दिए|दिए गए कूट|In relation|In the context|Which of the following|Which one is|Select the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(mo){ rBody=afterR.slice(0,mo.index).trim(); outro=mo[1].trim(); }
+  rBody=rBody.replace(/^\.\s*/,"").trim();
+  if(aBody.length<3 || rBody.length<3) return null;
+  var html=(stem?'<div class="q-stem">'+genEsc(stem)+'</div>':'')
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(aMark.lab)+'</div><div class="ar-body">'+genEsc(aBody)+'</div></div>'
+    + '<div class="ar-block"><div class="ar-lab">'+genEsc(rMark.lab)+'</div><div class="ar-body">'+genEsc(rBody)+'</div></div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+  return html;
+}
+function _genStatements(raw){
+  var t=String(raw).replace(/\u00a0/g," ").replace(/[ \t]+/g," ").trim();
+  /* Roman (I)–(X) or (1)–(9) or (a)–(d) list markers */
+  var markerRe=/\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)/g;
+  var marks=[], mm;
+  while((mm=markerRe.exec(t))){
+    /* avoid matching inside words — already paren form */
+    marks.push({i:mm.index, m:mm[0]});
+  }
+  if(marks.length<2){
+    /* numbered 1. 2. 3. after a stem (consider / निम्नलिखित) */
+    if(!/(निम्नलिखित|consider the following|which of the following|arrange|कालक्रम|statements?)/i.test(t)) return null;
+    var nMarks=[], nre=/(?:^|[\s:：।])(\d{1,2}\.\s)/g, nm;
+    while((nm=nre.exec(t))){ nMarks.push({i:nm.index+(nm[0].length-nm[1].length), m:nm[1].trim()}); }
+    if(nMarks.length<2) return null;
+    marks=nMarks;
+  }
+  var stem=t.slice(0, marks[0].i).trim().replace(/[:：]\s*$/,"");
+  var chunks=[];
+  for(var i=0;i<marks.length;i++){
+    var start=marks[i].i;
+    var end=(i+1<marks.length)?marks[i+1].i:t.length;
+    chunks.push(t.slice(start,end).trim());
+  }
+  /* peel trailing instruction / code from last chunk */
+  var last=chunks[chunks.length-1];
+  var outro="";
+  var om=last.match(/\s*((?:नीचे दिए गए कूट|दिए गए कूट|Select the correct|Choose the correct|कूट\s*[:：]|Code\s*[:：])[\s\S]*)$/i);
+  if(om){ chunks[chunks.length-1]=last.slice(0,om.index).trim(); outro=om[1].trim(); }
+  else {
+    var om2=last.match(/\s*((?:कूट|Code)\s*[:：]\s*)$/i);
+    if(om2){ chunks[chunks.length-1]=last.slice(0,om2.index).trim(); outro=om2[1].trim(); }
+  }
+  if(chunks.filter(Boolean).length<2) return null;
+  var items="";
+  for(var j=0;j<chunks.length;j++){
+    var c=chunks[j]; if(!c) continue;
+    var tag=(c.match(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)|^\d{1,2}\./)||["•"])[0];
+    var body=c.replace(/^\((?:I{1,3}|IV|VI{0,3}|IX|X|[1-9]|[a-dA-D])\)\s*|^\d{1,2}\.\s*/,"").replace(/[;।]\s*$/,"").trim();
+    items+='<div class="stmt-item"><span class="tag">'+genEsc(tag)+'</span><span>'+genEsc(body)+'</span></div>';
+  }
+  return (stem?'<div class="q-stem">'+genEsc(stem)+( /[:：]$/.test(stem)?"":":" )+'</div>':'')
+    + '<div class="stmt-list">'+items+'</div>'
+    + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
+}
 function _genPoints(t){
-  /* कथन 1/2, Statement 1/2, तथा "1. … 2. …" बिंदुओं को नई पंक्ति में तोड़ो */
+  t = String(t);
   t = t.replace(/\s*(कथन\s*\d+\s*[:：])/g,"\n$1")
        .replace(/\s*(Statement\s*\d+\s*[:：])/gi,"\n$1")
        .replace(/([।;?])\s*(\d+\.\s)/g,"$1\n$2")
        .replace(/(\?|\:)\s*(\d+\.\s)/g,"$1\n$2")
-       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2");
+       .replace(/([।;,])\s*(\d+\.\s)/g,"$1\n$2")
+       .replace(/\s*(\((?:I{1,3}|IV|VI{0,3}|IX|X)\))\s*/g,"\n$1 ")
+       .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
   return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
-}
-function _genMatchTable(raw){
-  var t=String(raw);
-  var reI=/(सूची|List)[\s\-–—]*I(?!I)\s*(?:\([^)]*\))?\s*[:：]/i;
-  var reII=/(सूची|List)[\s\-–—]*II\s*(?:\([^)]*\))?\s*[:：]/i;
-  var mI=t.match(reI), mII=t.match(reII);
-  if(!mI||!mII||mII.index<=mI.index) return null;
-  var intro=t.slice(0,mI.index).trim();
-  var segI=t.slice(mI.index+mI[0].length,mII.index).trim().replace(/[;।,]\s*$/,"");
-  var rest=t.slice(mII.index+mII[0].length);
-  var mo=rest.match(/(सही\s*मिलान|नीचे\s*दिए|सुमेलित|Choose|Select|Match|कूट)/i);
-  var segII, outro="";
-  if(mo){ segII=rest.slice(0,mo.index).trim(); outro=rest.slice(mo.index).trim(); }
-  else segII=rest.trim();
-  segII=segII.replace(/[;।,]\s*$/,"");
-  var sp=function(seg,re){ return seg.split(re).map(function(x){return x.trim();}).filter(Boolean); };
-  var A=sp(segI,/\s*,\s*(?=[A-Z]\.)/), B=sp(segII,/\s*,\s*(?=\d+\.)/);
-  if(A.length<2||B.length<2) return null;
-  var n=Math.max(A.length,B.length), rows="";
-  for(var k=0;k<n;k++) rows+="<tr><td>"+genEsc(A[k]||"")+"</td><td>"+genEsc(B[k]||"")+"</td></tr>";
-  return (intro?genEsc(intro)+"\n":"")
-       + '<table class="match-tbl"><tr><th>'+genEsc(mI[1])+'-I</th><th>'+genEsc(mII[1])+'-II</th></tr>'+rows+'</table>'
-       + (outro?genEsc(outro):"");
 }
 function genFmt(raw){
   if(!raw) return "";
-  var mt=_genMatchTable(raw);
-  if(mt) return mt;
+  try{
+    var mt=_genMatchTable(raw);
+    if(mt) return mt;
+    var ar=_genAR(raw);
+    if(ar) return ar;
+    var st=_genStatements(raw);
+    if(st) return st;
+  }catch(e){}
   return genEsc(_genPoints(String(raw)));
+}
+function genFmtOpt(raw){
+  var s=String(raw==null?"":raw).trim();
+  /* codes like "2 1 3 4" / "2,1,3,4" / "2-1-3-4" */
+  var m=s.match(/^(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*[,|\s\-–—]+\s*(\d+)\s*$/);
+  if(m){
+    var labs=["A","B","C","D"];
+    var chips="", heads="", vals="", i;
+    for(i=0;i<4;i++){ chips+='<span class="cm"><b>'+labs[i]+'</b>–'+m[i+1]+'</span>'; heads+='<span class="ch">'+labs[i]+'</span>'; vals+='<span class="cv">'+m[i+1]+'</span>'; }
+    return '<span class="code-map">'+chips+'</span>';
+  }
+  /* already "A B C D" header alone — leave */
+  return genEsc(s);
 }
 
 const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
@@ -507,13 +765,17 @@ function renderQuestion(){
   const q = QUESTIONS[current]; if(!q) return;
   el("qno").textContent = `प्रश्न ${current+1} / ${QUESTIONS.length}`;
   el("topic").textContent = [q.topic_hi, q.topic_en].filter(Boolean).join(" / ") || "General Studies";
+  (function(){ var es=el("examSrc"); if(!es) return; var src=(q.source||"").trim();
+    if(src){ es.hidden=false; es.classList.remove("missing"); es.textContent=src; }
+    else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
+    else { es.hidden=true; es.textContent=""; } })();
   var _hi=q.question_hi||"", _en=q.question_en||"";
     if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
     else { el("qtext").innerHTML = genFmt(_hi||_en);
            if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
            else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
     paintLang();
-  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genEsc(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genEsc(oh)}</div><div class="op-en">${genEsc(oe)}</div>` : `<div class="op-hi">${genEsc(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
+  el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
   el("reviewBtn").textContent = review[current] ? "★ समीक्षा हेतु चिह्नित" : "☆ समीक्षा हेतु चिह्नित करें";
   const done = answers.filter(a=>a!==null).length; el("progressBar").style.width = `${(done/QUESTIONS.length)*100}%`;
   renderPalette(); updateMiniStats();
@@ -532,7 +794,7 @@ function calculateResult(auto){
   testActive = false; storeDel(PROG_KEY);
   const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
   let correct=0, wrong=0, attempted=0;
-  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ attempted++; if(answers[i]===q.answer) correct++; else wrong++; } });
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
   const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
   let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
   if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
@@ -545,15 +807,16 @@ function calculateResult(auto){
 }
 function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
   const user = answers[i];
-  const status = user===null ? "skip" : (user===q.answer ? "ok" : "bad");
-  const statusText = user===null ? "अनुत्तरित" : (user===q.answer ? "सही" : "गलत");
+  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
+  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
   const optTxt = function(o){ if(!o) return "";
     var oh=o.hi||"", oe=o.en||"";
     if(GEN_LANG==="en" && oe) return oe;
     if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
     return oh||oe; };
   const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
-  const correctText = `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
   var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
   var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
   var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
