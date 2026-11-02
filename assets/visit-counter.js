@@ -94,7 +94,9 @@
       '#gcVisitCounter .gc-vc-val{font-weight:800;font-variant-numeric:tabular-nums;font-size:17px}',
       '#gcVisitCounter .gc-vc-tip{margin-top:7px;font-size:11px;opacity:.55;line-height:1.3}',
       '#gcVisitCounter.collapsed .gc-vc-body{display:none}',
-      '#gcVisitCounter.collapsed .gc-vc-card{min-width:0;padding:10px 12px}',
+      '#gcVisitCounter.collapsed .gc-vc-card{min-width:0;padding:7px 11px;border-radius:999px;cursor:pointer}',
+      '#gcVisitCounter.collapsed .gc-vc-head{margin:0;gap:6px}',
+      '#gcVisitCounter.collapsed .gc-vc-toggle{display:none}',
       '#gcVisitCounter .gc-vc-mini{display:none;align-items:center;gap:7px;font-size:13px;font-weight:800}',
       '#gcVisitCounter.collapsed .gc-vc-mini{display:flex}',
       '#gcVisitCounter.collapsed .gc-vc-title{display:none}',
@@ -135,7 +137,7 @@
     el.querySelector('[data-k=online]').textContent = typeof online === 'number' ? fmt(online) : online;
     el.querySelector('[data-k=today]').textContent = typeof today === 'number' ? fmt(today) : today;
     el.querySelector('[data-k=total]').textContent = typeof total === 'number' ? fmt(total) : total;
-    el.querySelector('[data-k=mini]').textContent = (typeof online === 'number' ? fmt(online) : '·') + ' online';
+    el.querySelector('[data-k=mini]').textContent = '👁 ' + (typeof online === 'number' ? fmt(online) + ' online' : 'Visitors');
   }
 
   function build() {
@@ -143,16 +145,13 @@
     var wrap = document.createElement('aside');
     wrap.id = 'gcVisitCounter';
     wrap.setAttribute('aria-label', 'Visitor stats');
-    try {
-      if (localStorage.getItem(COLLAPSE_KEY) === '1' || (window.matchMedia && window.matchMedia('(max-width:760px)').matches && localStorage.getItem(COLLAPSE_KEY) !== '0')) {
-        wrap.classList.add('collapsed');
-      }
-    } catch (e) {}
+    /* हमेशा छोटा (बंद) खुलता है; click करने पर ही पूरा विवरण दिखता है */
+    wrap.classList.add('collapsed');
     wrap.innerHTML =
       '<div class="gc-vc-card">' +
       '<div class="gc-vc-head">' +
       '<span class="gc-vc-title" data-k="title"><span class="gc-vc-title-ico" aria-hidden="true">👁</span><span data-k="title-text">Visitors</span></span>' +
-      '<span class="gc-vc-mini" data-k="mini">·</span>' +
+      '<span class="gc-vc-mini" data-k="mini">👁 Visitors</span>' +
       '<button type="button" class="gc-vc-toggle" aria-label="Toggle visitor stats" title="Toggle">▴</button>' +
       '</div>' +
       '<div class="gc-vc-body">' +
@@ -178,11 +177,15 @@
       btn.textContent = wrap.classList.contains('collapsed') ? '▾' : '▴';
     }
     syncToggle();
-    btn.addEventListener('click', function () {
+    btn.addEventListener('click', function (ev) {
+      ev.stopPropagation();
       wrap.classList.toggle('collapsed');
-      try {
-        localStorage.setItem(COLLAPSE_KEY, wrap.classList.contains('collapsed') ? '1' : '0');
-      } catch (e) {}
+      syncToggle();
+    });
+    /* छोटी गोली पर कहीं भी click करने से खुल जाए */
+    wrap.querySelector('.gc-vc-card').addEventListener('click', function () {
+      if (!wrap.classList.contains('collapsed')) return;
+      wrap.classList.remove('collapsed');
       syncToggle();
     });
     return wrap;

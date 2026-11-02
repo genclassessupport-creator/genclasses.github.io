@@ -60,6 +60,22 @@
       '.dca-list .dca-text{font-size:16px}',
       '.dca-empty{color:var(--mist);margin:0}',
       '@media (max-width:560px){.dca{padding:16px 14px}.dca-title b{font-size:18px}.dca-text{font-size:16px}.dca-stage{min-height:150px}}',
+      /* मुखपृष्ठ की पतली पट्टी */
+      '.dca-slim{display:flex;align-items:center;gap:14px;padding:8px 10px 9px 14px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.08)}',
+      '.dca-slim .dca-lbl{flex:none;display:flex;align-items:center;gap:8px;padding-right:14px;border-right:1px solid var(--line-2);color:var(--cream);font-weight:800;font-size:14.5px;line-height:1.15;white-space:nowrap}',
+      '.dca-slim .dca-lbl small{display:block;font-size:11.5px;font-weight:700;color:var(--gold-hi)}',
+      '.dca-slim .dca-stage{flex:1;min-width:0;min-height:0}',
+      '.dca-slim .dca-slide{transform:translateY(5px);color:inherit}',
+      '.dca-slim .dca-slide.on{transform:none}',
+      '.dca-slim .dca-text{font-size:15px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}',
+      '.dca-slim .dca-tag{display:inline-block;font-size:11.5px;font-weight:800;line-height:1.5;padding:0 8px;margin-right:7px;vertical-align:1px}',
+      '.dca-slim .dca-ctrl{flex:none;display:flex;align-items:center;gap:4px}',
+      '.dca-slim .dca-btn{width:28px;height:28px;font-size:15px}',
+      '.dca-slim .dca-count{font-size:12px;min-width:34px}',
+      '.dca-slim .dca-all{font-size:13px;margin-left:6px}',
+      '.dca-slim .dca-bar{position:absolute;left:0;right:0;bottom:0;height:2px;border-radius:0;background:transparent}',
+      '.dca-slim .dca-bar i{border-radius:0;opacity:.7}',
+      '@media (max-width:640px){.dca-slim{flex-wrap:wrap;gap:6px 10px;padding:8px 10px 10px 12px}.dca-slim .dca-lbl{flex:1;border-right:0;padding-right:0}.dca-slim .dca-lbl small{display:inline;margin-left:6px}.dca-slim .dca-stage{order:3;flex-basis:100%}.dca-slim .dca-text{font-size:14.5px;-webkit-line-clamp:3}.dca-slim .dca-all{display:none}}',
       '@media (prefers-reduced-motion:reduce){.dca-slide{transition:none}.dca-live{animation:none}}'
     ].join('\n');
     document.head.appendChild(s);
@@ -85,24 +101,22 @@
     var day = days[0], pts = day.points, i = 0, timer = null, paused = false, DUR = 6500, t0 = 0, raf = 0;
 
     function paint() {
+      /* पतली पट्टी: बायाँ लेबल · बीच में बिंदु (2 पंक्ति तक) · दायाँ ‹ n/10 › सभी */
       root.innerHTML =
-        '<div class="dca" aria-live="polite">' +
-          '<div class="dca-head">' +
-            '<div class="dca-title"><span class="dca-live" aria-hidden="true"></span><b>' + (en() ? "Today's Current Affairs" : 'आज का करंट') + '</b>' +
-            '<span class="dca-date">' + esc(dayLabel(day)) + '</span></div>' +
-            '<a class="dca-all" href="/up-ca/#aaj">' + (en() ? 'All ' + pts.length + ' points →' : 'सभी ' + pts.length + ' बिंदु →') + '</a>' +
-          '</div>' +
+        '<div class="dca dca-slim" aria-live="polite">' +
+          '<a class="dca-lbl" href="/up-ca/#aaj"><span class="dca-live" aria-hidden="true"></span>' +
+            '<span>' + (en() ? 'Current Affairs' : 'आज का करंट') + '<small>' + esc(fmtDate(day.date)) + '</small></span></a>' +
           '<div class="dca-stage">' + pts.map(function (p, k) {
-            return '<div class="dca-slide' + (k === i ? ' on' : '') + '" aria-hidden="' + (k === i ? 'false' : 'true') + '">' +
-              '<div class="dca-meta"><span class="dca-num">' + (k + 1) + '/' + pts.length + '</span>' + (tag(p) ? '<span class="dca-tag">' + esc(tag(p)) + '</span>' : '') + '</div>' +
-              '<p class="dca-text">' + esc(txt(p)) + '</p></div>';
+            return '<a class="dca-slide' + (k === i ? ' on' : '') + '" href="/up-ca/#aaj" tabindex="' + (k === i ? '0' : '-1') + '" aria-hidden="' + (k === i ? 'false' : 'true') + '">' +
+              '<p class="dca-text">' + (tag(p) ? '<span class="dca-tag">' + esc(tag(p)) + '</span>' : '') + esc(txt(p)) + '</p></a>';
           }).join('') + '</div>' +
-          '<div class="dca-foot">' +
+          '<div class="dca-ctrl">' +
             '<button type="button" class="dca-btn" data-d="-1" aria-label="' + (en() ? 'Previous' : 'पिछला') + '">‹</button>' +
-            '<div class="dca-bar"><i></i></div>' +
-            '<span class="dca-count">' + (i + 1) + ' / ' + pts.length + '</span>' +
+            '<span class="dca-count">' + (i + 1) + '/' + pts.length + '</span>' +
             '<button type="button" class="dca-btn" data-d="1" aria-label="' + (en() ? 'Next' : 'अगला') + '">›</button>' +
+            '<a class="dca-all" href="/up-ca/#aaj">' + (en() ? 'All →' : 'सभी →') + '</a>' +
           '</div>' +
+          '<div class="dca-bar" aria-hidden="true"><i></i></div>' +
         '</div>';
       root.querySelectorAll('.dca-btn').forEach(function (b) {
         b.onclick = function () { go(i + Number(b.getAttribute('data-d'))); };
@@ -119,8 +133,8 @@
     function go(n) {
       i = (n + pts.length) % pts.length;
       var slides = root.querySelectorAll('.dca-slide');
-      slides.forEach(function (s, k) { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); });
-      var c = root.querySelector('.dca-count'); if (c) c.textContent = (i + 1) + ' / ' + pts.length;
+      slides.forEach(function (s, k) { s.classList.toggle('on', k === i); s.setAttribute('aria-hidden', k === i ? 'false' : 'true'); s.setAttribute('tabindex', k === i ? '0' : '-1'); });
+      var c = root.querySelector('.dca-count'); if (c) c.textContent = (i + 1) + '/' + pts.length;
       start();
     }
     function start() {
