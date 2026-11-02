@@ -45,23 +45,17 @@
     }
   }
 
-  function isHi() {
-    return document.documentElement.getAttribute('lang') !== 'en';
-  }
-
   function fmt(n) {
     n = Number(n) || 0;
     try {
-      return n.toLocaleString(isHi() ? 'hi-IN' : 'en-IN');
+      return n.toLocaleString('en-IN');
     } catch (e) {
       return String(n);
     }
   }
 
+  /* हिंदी मोड में भी काउंटर English में ही रहता है */
   function labels() {
-    if (isHi()) {
-      return { title: 'आगंतुक', online: 'अभी ऑनलाइन', today: 'आज के आगंतुक', total: 'कुल विज़िट', tip: 'अनुमानित · बिना निजी डेटा' };
-    }
     return { title: 'Visitors', online: 'Online now', today: 'Today', total: 'Total visits', tip: 'Approx · no personal data' };
   }
 
