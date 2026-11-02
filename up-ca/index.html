@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>UP Current Affairs Weekly — GenClasses</title>
-<meta name="description" content="UP weekly CA digest tagged GS V/VI with citations">
+<title>करंट अफेयर्स — रोज़ के बिंदु व UP साप्ताहिक | GenClasses</title>
+<meta name="description" content="रोज़ के 10 करंट अफेयर्स बिंदु और उत्तर प्रदेश का साप्ताहिक सार — UPPCS / UPSC">
 <meta name="theme-color" content="#E6EEE9">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -33,14 +33,20 @@
 </div></nav>
 <main class="wrap">
 
-<div class="breadcrumb"><a href="/">होम</a> · <span data-hi>UP करंट अफेयर्स</span><span data-en>UP Current Affairs</span></div>
+<div class="breadcrumb"><a href="/">होम</a> · <span data-hi>करंट अफेयर्स</span><span data-en>Current Affairs</span></div>
 <section class="hero-mini">
-  <span class="eyebrow">UP CURRENT AFFAIRS · GS V / VI</span>
-  <h1 data-hi>साप्ताहिक डाइजेस्ट</h1>
-  <h1 data-en>Weekly Digest</h1>
-  <p data-hi>उत्तर प्रदेश केंद्रित करंट अफेयर्स — प्रत्येक बिंदु स्रोत सहित। नए सप्ताह <code>weeks.json</code> में जोड़े जा सकते हैं। कोई काल्पनिक तथ्य नहीं।</p>
-  <p data-en>Uttar Pradesh–focused current affairs — every item cited. New weeks can be appended in <code>weeks.json</code>. No invented facts.</p>
+  <span class="eyebrow">CURRENT AFFAIRS · UPPCS / UPSC</span>
+  <h1 data-hi>करंट अफेयर्स</h1>
+  <h1 data-en>Current Affairs</h1>
+  <p data-hi>रोज़ के 10 परीक्षा-उपयोगी बिंदु और उत्तर प्रदेश का साप्ताहिक सार (GS V / VI) — हर बिंदु के साथ स्रोत।</p>
+  <p data-en>10 exam-ready points every day plus a weekly Uttar Pradesh digest (GS V / VI) — every point with its source.</p>
 </section>
+
+<h2 id="aaj" style="font-size:22px;margin:18px 0 10px;scroll-margin-top:90px"><span data-hi>आज के बिंदु</span><span data-en>Today's points</span></h2>
+<div data-daily-ca="full"></div>
+<script src="/assets/daily-ca.js?v=1" defer></script>
+
+<h2 style="font-size:22px;margin:34px 0 4px"><span data-hi>उत्तर प्रदेश · साप्ताहिक सार</span><span data-en>Uttar Pradesh · weekly digest</span></h2>
 <div id="caRoot"><p data-hi>लोड हो रहा है…</p><p data-en>Loading…</p></div>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
@@ -55,15 +61,15 @@ document.addEventListener('DOMContentLoaded',function(){
           '<div class="tags">'+tags+'</div><p style="margin:0;color:var(--mist);font-size:14px">'+(en?it.summary_en:it.summary_hi)+'</p>'+
           '<p class="cite">📎 <a href="'+it.cite_url+'" target="_blank" rel="noopener">'+it.cite_name+'</a></p></article>';
       }).join('');
-      return '<h2 style="font-size:20px;margin:18px 0 8px">'+lab+'</h2>'+items;
+      return '<h3 style="font-size:18px;margin:18px 0 8px;color:var(--gold-hi)">'+lab+'</h3>'+items;
     }).join('');
   }
   fetch('/up-ca/weeks.json').then(function(r){return r.json();}).then(function(d){
     paint(d); document.addEventListener('gen-lang',function(){paint(d);});
-  }).catch(function(){root.innerHTML='<p>Could not load weeks.json</p>';});
+  }).catch(function(){root.innerHTML='<p class="note">'+(document.documentElement.getAttribute('lang')==='en'?'Could not load the digest. Please refresh the page.':'सार लोड नहीं हो सका, पेज दोबारा खोलें।')+'</p>';});
 });
 </script>
-<p class="note"><span data-hi><strong>स्रोत नीति:</strong> केवल DIPR / invest.up.gov.in / PIB आदि सत्यापित लिंक। 2025–26 की अनौपचारिक अफवाहें नहीं जोड़ी गईं।</span><span data-en><strong>Source policy:</strong> Only verified DIPR / invest.up.gov.in / PIB links. No unverified rumours.</span></p>
+<p class="note"><span data-hi><strong>नोट:</strong> हर बिंदु के साथ स्रोत का लिंक है। परीक्षा से पहले आधिकारिक विज्ञप्ति से मिलान ज़रूर करें।</span><span data-en><strong>Note:</strong> Every point links to its source. Match with the official release before the exam.</span></p>
 
 </main>
 <footer class="hub-foot">

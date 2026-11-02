@@ -1,59 +1,98 @@
 [
   {
-    "id": "2026-w43",
-    "label_hi": "सप्ताह 43 · 21–28 अक्टूबर 2026",
-    "label_en": "Week 43 · 21–28 Oct 2026",
-    "published": "2026-10-28",
+    "id": "2026-w44",
+    "label_hi": "अक्टूबर 2026 · अंतिम सप्ताह",
+    "label_en": "October 2026 · last week",
+    "published": "2026-11-02",
     "items": [
       {
-        "title_hi": "मुख्यमंत्री द्वारा जनपद-स्तरीय विकास / जनहित कार्यक्रमों की समीक्षा व निर्देश (अक्टूबर 2026)",
-        "title_en": "CM review and directions on district-level development / public-interest programmes (Oct 2026)",
-        "summary_hi": "उत्तर प्रदेश सूचना विभाग (DIPR) द्वारा जारी प्रेस सामग्री में मुख्यमंत्री द्वारा प्रशासनिक समीक्षा व जनहित प्राथमिकताओं का उल्लेख। विवरण के लिए आधिकारिक विज्ञप्ति पढ़ें।",
-        "summary_en": "UP Information Department (DIPR) press material notes CM-led administrative reviews and public-interest priorities. Read the official release for details.",
-        "tags": [
-          "GS V",
-          "GS VI",
-          "Governance"
-        ],
-        "cite_name": "information.up.gov.in (UP DIPR)",
-        "cite_url": "https://information.up.gov.in/"
+        "title_hi": "UP कैबिनेट (27 अक्टूबर 2026): चार लिंक एक्सप्रेसवे",
+        "title_en": "UP Cabinet (27 Oct 2026): four link expressways",
+        "summary_hi": "चार लिंक एक्सप्रेसवे के विकासकर्ताओं के चयन को मंज़ूरी मिली: फ़र्रुख़ाबाद लिंक, झाँसी लिंक, जेवर लिंक, और आगरा-लखनऊ एक्सप्रेसवे को पूर्वांचल एक्सप्रेसवे से जोड़ने वाला लिंक एक्सप्रेसवे।",
+        "summary_en": "Developers approved for four link expressways: Farrukhabad link, Jhansi link, Jewar link, and the link joining the Agra–Lucknow Expressway with the Purvanchal Expressway.",
+        "tags": ["GS VI", "इन्फ्रास्ट्रक्चर"],
+        "cite_name": "आज तक · 27 अक्टूबर 2026",
+        "cite_url": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
       },
       {
-        "title_hi": "UPSIDA — औद्योगिक निवेश / परियोजना प्रेस अपडेट (8 अक्टूबर 2026)",
-        "title_en": "UPSIDA — industrial investment / project press update (8 Oct 2026)",
-        "summary_hi": "उत्तर प्रदेश राज्य औद्योगिक विकास प्राधिकरण (invest.up.gov.in) पर 8 अक्टूबर 2026 की प्रेस सामग्री में औद्योगिक/निवेश संबंधी अद्यतन। अंक केवल सत्यापित आधिकारिक सार पर आधारित।",
-        "summary_en": "Uttar Pradesh State Industrial Development Authority press note dated 8 Oct 2026 on invest.up.gov.in covers industrial/investment updates. Based only on the verified official summary.",
-        "tags": [
-          "GS V",
-          "Economy",
-          "UP Industry"
-        ],
-        "cite_name": "invest.up.gov.in — UPSIDA press (8 Oct 2026)",
-        "cite_url": "https://invest.up.gov.in/"
+        "title_hi": "PM मित्र मेगा टेक्सटाइल पार्क, साइबर सुरक्षा केंद्र और PRAGATI रोबोटिक्स पार्क",
+        "title_en": "PM MITRA Mega Textile Park, Cyber Security Operations Centre and PRAGATI Robotics Park",
+        "summary_hi": "लखनऊ-हरदोई में 1,000 एकड़ के PM मित्र मेगा टेक्सटाइल पार्क के मास्टर डेवलपर के चयन को मंज़ूरी मिली। प्रदेश में साइबर सुरक्षा ऑपरेशंस सेंटर और PRAGATI रोबोटिक्स पार्क की स्थापना भी स्वीकृत हुई।",
+        "summary_en": "Master developer approved for the 1,000-acre PM MITRA Mega Textile Park in Lucknow–Hardoi. A state Cyber Security Operations Centre and the PRAGATI Robotics Park were also approved.",
+        "tags": ["GS VI", "उद्योग"],
+        "cite_name": "आज तक · 27 अक्टूबर 2026",
+        "cite_url": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
       },
       {
-        "title_hi": "वायु प्रदूषण नियंत्रण — केन्द्रीय/संबंधित PIB विज्ञप्ति (23 अक्टूबर 2026, PRID 2327571)",
-        "title_en": "Air pollution control — related PIB release (23 Oct 2026, PRID 2327571)",
-        "summary_hi": "प्रेस सूचना ब्यूरो (PIB) विज्ञप्ति PRID 2327571 (23 Oct 2026) वायु प्रदूषण संबंधी उपायों/अद्यतन पर। UP सहित मैदानी राज्यों के लिए GS पर्यावरण व शासन से जुड़ा।",
-        "summary_en": "PIB release PRID 2327571 (23 Oct 2026) on air-pollution measures/updates. Relevant to GS environment & governance for plains states including UP.",
-        "tags": [
-          "GS VI",
-          "Environment"
-        ],
-        "cite_name": "PIB PRID 2327571",
-        "cite_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2327571"
+        "title_hi": "स्टेट लाइवस्टॉक मिशन: गाय ख़रीद पर अनुदान",
+        "title_en": "State Livestock Mission: subsidy on buying cows",
+        "summary_hi": "उन्नत नस्ल की एक गाय ख़रीदने पर ₹40,000 और दो गायों पर ₹80,000 का अनुदान मिलेगा। बकरी, मुर्गी, सुअर और भेड़ पालन को भी बढ़ावा दिया जाएगा, और गरीब परिवारों को 100 मुर्गी के चूज़े मुफ़्त मिलेंगे।",
+        "summary_en": "Subsidy of ₹40,000 for one improved-breed cow and ₹80,000 for two. Goat, poultry, pig and sheep rearing will be promoted; poor families get 100 chicks free.",
+        "tags": ["GS VI", "कृषि-पशुपालन"],
+        "cite_name": "आज तक · 27 अक्टूबर 2026",
+        "cite_url": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
       },
       {
-        "title_hi": "PMAY-G संबंधित कार्यक्रम — लखनऊ संदर्भ (PIB, 27–28 अक्टूबर 2026, PRID 2329156)",
-        "title_en": "PMAY-G related programme — Lucknow context (PIB, 27–28 Oct 2026, PRID 2329156)",
-        "summary_hi": "PIB PRID 2329156 में PMAY-Gramin से जुड़े अद्यतन; लखनऊ/UP संदर्भ परीक्षा के GS V (शासन/कल्याण योजना) हेतु उपयोगी। पूर्ण पाठ आधिकारिक लिंक पर देखें।",
-        "summary_en": "PIB PRID 2329156 covers PMAY-G updates; Lucknow/UP angle useful for GS V (governance/welfare schemes). Read the full official text.",
-        "tags": [
-          "GS V",
-          "Schemes"
-        ],
-        "cite_name": "PIB PRID 2329156",
-        "cite_url": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2329156"
+        "title_hi": "सैनिक स्कूल मैनपुरी, कैशलेस इलाज और जलयान नियमावली",
+        "title_en": "Sainik School Mainpuri, cashless treatment and inland vessel rules",
+        "summary_hi": "सैनिक स्कूल मैनपुरी को 9.524 हेक्टेयर भूमि निःशुल्क दी गई। माध्यमिक और संस्कृत विद्यालयों के शिक्षणेत्तर कर्मचारियों को कैशलेस इलाज मिलेगा। उत्तर प्रदेश अंतर्देशीय जलयान नियमावली-2026 के प्रख्यापन को भी मंज़ूरी मिली।",
+        "summary_en": "Sainik School Mainpuri gets 9.524 ha of land free of cost. Non-teaching staff of secondary and Sanskrit schools get cashless treatment. The UP Inland Vessels Rules-2026 were approved for notification.",
+        "tags": ["GS V", "शासन"],
+        "cite_name": "आज तक · 27 अक्टूबर 2026",
+        "cite_url": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
+      }
+    ]
+  },
+  {
+    "id": "2026-w41",
+    "label_hi": "अक्टूबर 2026 · दूसरा सप्ताह",
+    "label_en": "October 2026 · second week",
+    "published": "2026-10-10",
+    "items": [
+      {
+        "title_hi": "भदोही ज़िले का नया नाम: संत रविदास नगर भदोही",
+        "title_en": "Bhadohi district renamed 'Sant Ravidas Nagar Bhadohi'",
+        "summary_hi": "UP कैबिनेट (9 अक्टूबर 2026, लोक भवन लखनऊ) ने भदोही ज़िले का नाम 'संत रविदास नगर भदोही' करने को मंज़ूरी दी।",
+        "summary_en": "The UP Cabinet (9 Oct 2026, Lok Bhawan, Lucknow) approved renaming Bhadohi district as 'Sant Ravidas Nagar Bhadohi'.",
+        "tags": ["GS VI", "UP विशेष"],
+        "cite_name": "ind24 · 9 अक्टूबर 2026",
+        "cite_url": "https://www.ind24.tv/uttar-pradesh/up-cabinet-meeting-2026-yogi-cabinet-decisions-free-lpg-ai-mission"
+      },
+      {
+        "title_hi": "UP आर्टिफ़िशियल इंटेलिजेंस मिशन (UP-AIM) और स्टार्टअप ख़रीद योजना-2026",
+        "title_en": "UP Artificial Intelligence Mission (UP-AIM) and Startup Procurement Scheme-2026",
+        "summary_hi": "AI तकनीक और स्टार्टअप तंत्र बढ़ाने के लिए UP-AIM की स्थापना को मंज़ूरी मिली। सरकारी ख़रीद में स्टार्टअप को अवसर देने के लिए UP स्टार्टअप प्रोक्योरमेंट स्कीम-2026 भी स्वीकृत हुई।",
+        "summary_en": "UP-AIM approved to grow AI technology and the startup ecosystem. The UP Startup Procurement Scheme-2026 gives startups more room in government purchase.",
+        "tags": ["GS VI", "विज्ञान-तकनीक"],
+        "cite_name": "ind24 · 9 अक्टूबर 2026",
+        "cite_url": "https://www.ind24.tv/uttar-pradesh/up-cabinet-meeting-2026-yogi-cabinet-decisions-free-lpg-ai-mission"
+      },
+      {
+        "title_hi": "18 शहरों में वातानुकूलित इलेक्ट्रिक बसें",
+        "title_en": "AC electric buses in 18 cities",
+        "summary_hi": "ग्रॉस कॉस्ट कॉन्ट्रैक्ट (GCC) मॉडल पर 18 शहरों में AC इलेक्ट्रिक बसें चलेंगी। अगले चार वित्त वर्षों में लगभग 6,650 अतिरिक्त बसों की योजना है।",
+        "summary_en": "AC electric buses for 18 cities on the Gross Cost Contract (GCC) model; about 6,650 additional buses planned over the next four financial years.",
+        "tags": ["GS VI", "परिवहन"],
+        "cite_name": "ind24 · 9 अक्टूबर 2026",
+        "cite_url": "https://www.ind24.tv/uttar-pradesh/up-cabinet-meeting-2026-yogi-cabinet-decisions-free-lpg-ai-mission"
+      },
+      {
+        "title_hi": "सस्टेनेबल एविएशन फ़्यूल (SAF) विनिर्माण प्रोत्साहन नीति-2026",
+        "title_en": "Sustainable Aviation Fuel (SAF) Manufacturing Promotion Policy-2026",
+        "summary_hi": "पर्यावरण-अनुकूल विमान ईंधन के उत्पादन और निवेश को बढ़ावा देने वाली नीति। SAF इकाइयों को प्रोत्साहन देने के लिए UPNEDA नोडल एजेंसी है।",
+        "summary_en": "Policy to promote production of and investment in eco-friendly aviation fuel. UPNEDA is the nodal agency for incentives to SAF units.",
+        "tags": ["GS VI", "ऊर्जा-पर्यावरण"],
+        "cite_name": "Free Press Journal",
+        "cite_url": "https://www.freepressjournal.in/uttar-pradesh/uttar-pradesh-yogi-adityanath-cabinet-approves-saf-policy-2026-to-attract-investments-and-create-green-jobs"
+      },
+      {
+        "title_hi": "ब्याज माफ़ी योजना-2026 और उज्ज्वला लाभार्थियों को मुफ़्त LPG रिफ़िल",
+        "title_en": "Interest Waiver Scheme-2026 and free LPG refills for Ujjwala beneficiaries",
+        "summary_hi": "पुराने कर-बकाया पर ब्याज और दंड माफ़ करने वाली ब्याज माफ़ी योजना-2026 तीन महीने तक लागू रहेगी। दिवाली पर उज्ज्वला लाभार्थियों के लिए मुफ़्त LPG रिफ़िल को भी मंज़ूरी मिली।",
+        "summary_en": "The Interest Waiver Scheme-2026 waives interest and penalties on old tax dues for three months. Free Diwali LPG refills approved for Ujjwala beneficiaries.",
+        "tags": ["GS VI", "अर्थव्यवस्था"],
+        "cite_name": "Free Press Journal",
+        "cite_url": "https://www.freepressjournal.in/uttar-pradesh/uttar-pradesh-yogi-adityanath-cabinet-approves-interest-waiver-scheme-2026-for-old-tax-dues"
       }
     ]
   }

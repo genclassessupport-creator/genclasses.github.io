@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RO/ARO हिंदी आलेखन — GenClasses</title>
-<meta name="description" content="Hindi drafting practice: letter, memo, notification, circular for RO/ARO">
+<meta name="description" content="RO/ARO हिंदी आलेखन: शासकीय पत्र, कार्यालय-ज्ञाप, अधिसूचना और परिपत्र — उत्तर प्रदेश शासन के प्रारूप में नमूना उत्तर">
 <meta name="theme-color" content="#E6EEE9">
 <link rel="icon" href="/assets/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
@@ -14,7 +14,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/hub.css">
 <script src="/assets/hub.js"></script>
-
+<style>
+/* नमूना-पत्र: काग़ज़ जैसा रूप, दोनों theme में एक-सा पढ़ने में साफ़ */
+.paper{margin:14px 0 6px;padding:22px 24px;border-radius:12px;background:#FFFDF6;color:#1d2327;border:1px solid #d9d2bd;box-shadow:0 8px 22px rgba(0,0,0,.12);font-family:Mukta,sans-serif;font-size:15px;line-height:1.75;overflow-x:auto}
+.paper p{margin:0;color:#1d2327}
+.paper .c{text-align:center}
+.paper .r{text-align:right}
+.paper .b{font-weight:700}
+.paper .ttl{text-align:center;font-weight:800;letter-spacing:.5px;text-decoration:underline;text-underline-offset:4px;margin:8px 0}
+.paper .ind{padding-left:2.2em}
+.paper .para{text-indent:2.2em;margin:6px 0}
+.paper .gap{height:10px}
+.paper .sign{margin-left:auto;width:max-content;max-width:100%;text-align:center;margin-top:14px}
+.paper .sub{font-weight:700}
+.paper .hl{background:#FFF0C2;border-radius:3px;padding:0 3px}
+.mistakes{margin:10px 0 0;padding-left:20px}
+.mistakes li{margin:3px 0}
+@media (max-width:560px){.paper{padding:16px 14px;font-size:14px}.paper .ind{padding-left:1.4em}.paper .para{text-indent:1.4em}}
+</style>
 </head>
 <body>
 <nav class="hub-nav"><div class="hub-nav-in wrap">
@@ -38,118 +55,146 @@
   <span class="eyebrow">RO / ARO · आलेखन</span>
   <h1 data-hi>हिंदी आलेखन अभ्यास</h1>
   <h1 data-en>Hindi Drafting Practice</h1>
-  <p data-hi>पत्र, ज्ञापन, अधिसूचना और परिपत्र — प्रारूप आरेख + नमूना उत्तर। नवीनतम RO/ARO Advt A-4/E-1/2026 (26 Oct 2026) सिलेबस के अनुरूप अभ्यास।</p>
-  <p data-en>Letter, memorandum, notification and circular — format diagram + sample answers. Aligned to latest RO/ARO Advt A-4/E-1/2026 (26 Oct 2026) syllabus practice.</p>
+  <p data-hi>शासकीय पत्र, कार्यालय-ज्ञाप, अधिसूचना और परिपत्र — उत्तर प्रदेश शासन के प्रारूप में क्रम + नमूना उत्तर। RO/ARO विज्ञापन A-4/E-1/2026 की तैयारी हेतु।</p>
+  <p data-en>Official letter, office memorandum, notification and circular — the Uttar Pradesh Government format, step order and model answers. For RO/ARO Advt A-4/E-1/2026 preparation.</p>
   <div class="source-chip"><a href="https://uppsc.up.nic.in/" target="_blank" rel="noopener">uppsc.up.nic.in</a><a href="/syllabus/ro-aro.html">RO/ARO Syllabus</a></div>
 </section>
 
-<details class="acc" open><summary><span data-hi>1. सरकारी पत्र (Official Letter)</span><span data-en>1. Official Letter</span></summary>
+<!-- ============ 1. शासकीय पत्र ============ -->
+<details class="acc" open><summary><span data-hi>1. शासकीय पत्र (Official Letter)</span><span data-en>1. Official Letter</span></summary>
 <div class="body">
 <div class="draft-flow">
-  <div class="step"><b>1. प्रेषक / From</b> — कार्यालय का नाम व पता</div>
-  <div class="step"><b>2. संख्या / दिनांक</b> — Letter No. & Date</div>
-  <div class="step"><b>3. प्राप्तकर्ता / To</b> — पदनाम व पता</div>
-  <div class="step"><b>4. विषय</b> — Subject (संक्षिप्त, स्पष्ट)</div>
-  <div class="step"><b>5. संबोधन</b> — महोदय / Sir</div>
-  <div class="step"><b>6. मुख्य भाग</b> — उद्देश्य → तथ्य → अनुरोध/निर्देश</div>
-  <div class="step"><b>7. समापन</b> — भवदीय / Yours faithfully + हस्ताक्षर, नाम, पद</div>
+  <div class="step"><b>1. पत्र संख्या</b> — सबसे ऊपर (संख्या—……/……/2026)</div>
+  <div class="step"><b>2. प्रेषक</b> — भेजने वाले का नाम, पदनाम, कार्यालय</div>
+  <div class="step"><b>3. सेवा में</b> — पाने वाले का पदनाम व पता</div>
+  <div class="step"><b>4. स्थान : दिनांक</b> — दाईं ओर</div>
+  <div class="step"><b>5. विषय—</b> एक पंक्ति में, "……के संबंध में।"</div>
+  <div class="step"><b>6. संदर्भ</b> — पिछला पत्र हो तो उसकी संख्या व दिनांक</div>
+  <div class="step"><b>7. संबोधन</b> — महोदय / महोदया,</div>
+  <div class="step"><b>8. मुख्य भाग</b> — पहला अनुच्छेद बिना अंक, फिर 2-, 3- अंक से</div>
+  <div class="step"><b>9. स्वनिर्देश व हस्ताक्षर</b> — दाईं ओर: भवदीय, (नाम), पदनाम</div>
+  <div class="step"><b>10. संलग्नक / प्रतिलिपि</b> — बाईं ओर नीचे (यदि हो)</div>
 </div>
-<p data-hi><strong>नमूना विषय:</strong> कलेक्टर कार्यालय को बाढ़ राहत सामग्री आपूर्ति हेतु पत्र।</p>
-<p data-en><strong>Sample topic:</strong> Letter to Collector’s office seeking supply of flood-relief material.</p>
-<pre style="white-space:pre-wrap;font-family:Mukta,sans-serif;font-size:13.5px;padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(18,48,90,.5);color:#F2EBDA;line-height:1.55">संख्या: /आर.ओ./2026
-दिनांक: ……
-
-सेवा में,
-जिलाधिकारी महोदय,
-…… जनपद।
-
-विषय: बाढ़ प्रभावित क्षेत्रों हेतु राहत सामग्री की आपूर्ति के संबंध में।
-
-महोदय,
-सादर निवेदन है कि जनपद के …… तहसील में अतिवृष्टि से उत्पन्न बाढ़ से कई ग्राम प्रभावित हैं। राहत शिविरों में खाद्यान्न, पेयजल व दवाइयों की तत्काल आवश्यकता है।
-अतः अनुरोध है कि आवश्यक सामग्री शीघ्र उपलब्ध कराने का कष्ट करें।
-
-भवदीय,
-(हस्ताक्षर)
-नाम / पदनाम</pre>
+<p data-hi><strong>नमूना प्रश्न:</strong> उपजिलाधिकारी की ओर से जिलाधिकारी को बाढ़-प्रभावित ग्रामों हेतु राहत सामग्री माँगने का पत्र लिखिए।</p>
+<p data-en><strong>Sample question:</strong> As Sub-Divisional Magistrate, write to the District Magistrate seeking relief material for flood-affected villages.</p>
+<div class="paper" lang="hi">
+  <p class="c b">संख्या—412/बाढ़ राहत/2026</p>
+  <div class="gap"></div>
+  <p class="b">प्रेषक,</p>
+  <p class="ind">क.ख.ग.,<br>उपजिलाधिकारी,<br>तहसील ……, जनपद ……।</p>
+  <div class="gap"></div>
+  <p class="b">सेवा में,</p>
+  <p class="ind">जिलाधिकारी,<br>जनपद ……।</p>
+  <p class="r">……, दिनांक: 02 नवंबर, 2026</p>
+  <div class="gap"></div>
+  <p><span class="sub">विषय—</span>तहसील …… के बाढ़-प्रभावित ग्रामों हेतु राहत सामग्री की आपूर्ति के संबंध में।</p>
+  <div class="gap"></div>
+  <p>महोदय,</p>
+  <p class="para">उपर्युक्त विषयक अवगत कराना है कि तहसील …… में लगातार अतिवृष्टि के कारण नदी का जलस्तर बढ़ने से 14 ग्राम बाढ़ से प्रभावित हैं। इन ग्रामों के लगभग 2,300 परिवार राहत शिविरों में ठहराए गए हैं।</p>
+  <p class="para">2- राहत शिविरों में खाद्यान्न, पेयजल, तिरपाल तथा आवश्यक दवाइयों की तत्काल आवश्यकता है। आवश्यक सामग्री की सूची संलग्न है।</p>
+  <p class="para">3- अतः अनुरोध है कि संलग्न सूची के अनुसार राहत सामग्री शीघ्र उपलब्ध कराने का कष्ट करें।</p>
+  <div class="sign"><p>भवदीय,</p><p>(क.ख.ग.)</p><p>उपजिलाधिकारी</p></div>
+  <p><span class="b">संलग्नक:</span> यथोक्त।</p>
+</div>
 </div></details>
 
-<details class="acc"><summary><span data-hi>2. ज्ञापन (Office Memorandum / Note)</span><span data-en>2. Memorandum / Office Note</span></summary>
+<!-- ============ 2. कार्यालय-ज्ञाप ============ -->
+<details class="acc"><summary><span data-hi>2. कार्यालय-ज्ञाप (Office Memorandum)</span><span data-en>2. Office Memorandum</span></summary>
 <div class="body">
 <div class="draft-flow">
-  <div class="step"><b>शीर्षक</b> — कार्यालय ज्ञापन / Office Memorandum</div>
-  <div class="step"><b>संख्या · दिनांक · फ़ाइल</b></div>
-  <div class="step"><b>विषय</b></div>
-  <div class="step"><b>संदर्भ</b> (यदि हो)</div>
-  <div class="step"><b>मुख्य निर्देश / सूचना</b> — बिंदुवार</div>
-  <div class="step"><b>अधोहस्ताक्षरी</b> — सक्षम अधिकारी</div>
+  <div class="step"><b>1. शासन / विभाग / अनुभाग</b> — बीच में</div>
+  <div class="step"><b>2. संख्या</b> — फिर दाईं ओर स्थान : दिनांक</div>
+  <div class="step"><b>3. "कार्यालय-ज्ञाप"</b> — बीच में शीर्षक</div>
+  <div class="step"><b>4. मुख्य भाग</b> — अन्य पुरुष में ("शासन के संज्ञान में आया है…"); कोई संबोधन नहीं</div>
+  <div class="step"><b>5. हस्ताक्षर</b> — दाईं ओर (नाम), पदनाम; "भवदीय" नहीं लिखते</div>
+  <div class="step"><b>6. पृष्ठांकन</b> — संख्या (1), तद्दिनांक; प्रतिलिपि किसे भेजी</div>
 </div>
-<p data-hi><strong>नमूना:</strong> कर्मचारियों को निर्धारित समय पर उपस्थिति हेतु ज्ञापन।</p>
-<p data-en><strong>Sample:</strong> Memo directing staff to ensure punctual attendance.</p>
-<pre style="white-space:pre-wrap;font-family:Mukta,sans-serif;font-size:13.5px;padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(18,48,90,.5);color:#F2EBDA;line-height:1.55">कार्यालय ज्ञापन
-संख्या: …… दिनांक: ……
-
-विषय: कार्यालय समय पर नियमित उपस्थिति सुनिश्चित करने के संबंध में।
-
-सभी अनुभागों को सूचित किया जाता है कि कार्यालय समय प्रातः …… से सायं …… तक निर्धारित है। विलम्ब से उपस्थिति पर विभागीय नियमों के अंतर्गत कार्रवाई की जा सकती है। सभी पर्यवेक्षक उपस्थिति पंजी का नियमित अनुश्रवण करें।
-
-(हस्ताक्षर)
-सक्षम अधिकारी</pre>
+<p data-hi><strong>नमूना प्रश्न:</strong> कार्यालय में समय से उपस्थिति सुनिश्चित करने हेतु कार्यालय-ज्ञाप जारी कीजिए।</p>
+<p data-en><strong>Sample question:</strong> Issue an office memorandum to ensure punctual attendance.</p>
+<div class="paper" lang="hi">
+  <p class="c b">उत्तर प्रदेश शासन<br>सामान्य प्रशासन अनुभाग-2</p>
+  <p class="c">संख्या—……/ई-2/2026</p>
+  <p class="r">लखनऊ : दिनांक 02 नवंबर, 2026</p>
+  <p class="ttl">कार्यालय-ज्ञाप</p>
+  <p class="para">शासन के संज्ञान में आया है कि कतिपय अनुभागों में कार्मिक निर्धारित समय प्रातः 9:30 बजे तक उपस्थित नहीं हो रहे हैं, जिससे शासकीय कार्य प्रभावित हो रहा है।</p>
+  <p class="para">2- अतः सभी अनुभाग अधिकारियों को निर्देशित किया जाता है कि उपस्थिति पंजिका प्रातः 9:45 बजे बंद कर अनुपस्थित/विलंब से आने वाले कार्मिकों की सूची उसी दिन प्रस्तुत करें।</p>
+  <p class="para">3- इन निर्देशों का उल्लंघन करने वाले कार्मिकों के विरुद्ध नियमानुसार कार्यवाही की जाएगी।</p>
+  <div class="sign"><p>(क.ख.ग.)</p><p>अनु सचिव</p></div>
+  <div class="gap"></div>
+  <p><span class="b">संख्या—……(1)/ई-2/2026, तद्दिनांक</span></p>
+  <p>प्रतिलिपि निम्नलिखित को सूचनार्थ एवं आवश्यक कार्यवाही हेतु प्रेषित:—</p>
+  <p class="ind">1- समस्त अनुभाग अधिकारी, सामान्य प्रशासन विभाग।<br>2- गार्ड फ़ाइल।</p>
+  <div class="sign"><p>आज्ञा से,</p><p>(क.ख.ग.)</p><p>अनु सचिव</p></div>
+</div>
 </div></details>
 
+<!-- ============ 3. अधिसूचना ============ -->
 <details class="acc"><summary><span data-hi>3. अधिसूचना (Notification)</span><span data-en>3. Notification</span></summary>
 <div class="body">
 <div class="draft-flow">
-  <div class="step"><b>सरकार / विभाग का नाम</b></div>
-  <div class="step"><b>“अधिसूचना”</b> शीर्षक</div>
-  <div class="step"><b>संख्या · दिनांक · स्थान</b></div>
-  <div class="step"><b>विधायी/प्रशासनिक आधार</b> — “अधिनियम/नियम के अधीन…”</div>
-  <div class="step"><b>विषय-वस्तु</b> — नियुक्ति, नियम, तिथि प्रभाव</div>
-  <div class="step"><b>आज्ञा से / By order</b> — सचिव/अधिकारी</div>
+  <div class="step"><b>1. शासन / विभाग / अनुभाग</b> — बीच में</div>
+  <div class="step"><b>2. संख्या</b> — फिर दाईं ओर स्थान : दिनांक</div>
+  <div class="step"><b>3. "अधिसूचना"</b> — बीच में (नियुक्ति/स्थानांतरण में नीचे "प्रकीर्ण")</div>
+  <div class="step"><b>4. विधिक आधार + विषय-वस्तु</b> — "राज्यपाल … करते हैं"; प्रभावी तिथि स्पष्ट</div>
+  <div class="step"><b>5. आज्ञा से</b> — दाईं ओर (नाम), पदनाम</div>
+  <div class="step"><b>6. गज़ट</b> — अधिसूचना राजपत्र (गज़ट) में छपती है</div>
 </div>
-<p data-hi><strong>अभ्यास संकेत:</strong> परीक्षा में संक्षिप्त, औपचारिक भाषा; तिथि व प्राधिकार स्पष्ट रखें।</p>
-<p data-en><strong>Practice tip:</strong> Keep language formal and concise; state date and authority clearly.</p>
-<pre style="white-space:pre-wrap;font-family:Mukta,sans-serif;font-size:13.5px;padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(18,48,90,.5);color:#F2EBDA;line-height:1.55">उत्तर प्रदेश शासन
-…… विभाग
-अधिसूचना
-संख्या: …… लखनऊ, दिनांक ……
-
-…… अधिनियम / नियमों के अधीन प्रदत्त शक्तियों का प्रयोग करते हुए राज्यपाल महोदय …… को …… पद पर नियुक्त / निम्नलिखित व्यवस्था तत्काल प्रभाव से लागू करते हैं—
-
-1. ……
-2. ……
-
-आज्ञा से,
-(हस्ताक्षर)
-सचिव</pre>
+<p data-hi><strong>नमूना प्रश्न:</strong> एक अधिकारी की संयुक्त सचिव के पद पर नियुक्ति की अधिसूचना तैयार कीजिए।</p>
+<p data-en><strong>Sample question:</strong> Draft a notification appointing an officer as Joint Secretary.</p>
+<div class="paper" lang="hi">
+  <p class="c b">उत्तर प्रदेश शासन<br>नियुक्ति अनुभाग-1</p>
+  <p class="c">संख्या—……/दो-1-2026</p>
+  <p class="r">लखनऊ : दिनांक 02 नवंबर, 2026</p>
+  <p class="ttl">अधिसूचना</p>
+  <p class="c b">प्रकीर्ण</p>
+  <p class="para">श्री राज्यपाल, श्री क.ख.ग., उप सचिव, …… विभाग, उत्तर प्रदेश शासन को तत्काल प्रभाव से संयुक्त सचिव, …… विभाग, उत्तर प्रदेश शासन के पद पर नियुक्त करते हैं।</p>
+  <div class="sign"><p>आज्ञा से,</p><p>(च.छ.ज.)</p><p>प्रमुख सचिव</p></div>
+</div>
 </div></details>
 
+<!-- ============ 4. परिपत्र ============ -->
 <details class="acc"><summary><span data-hi>4. परिपत्र (Circular)</span><span data-en>4. Circular</span></summary>
 <div class="body">
 <div class="draft-flow">
-  <div class="step"><b>परिपत्र संख्या · दिनांक</b></div>
-  <div class="step"><b>प्रेषित:</b> सभी संबंधित कार्यालय / अधिकारियों को</div>
-  <div class="step"><b>विषय</b></div>
-  <div class="step"><b>पृष्ठभूमि + निर्देश</b> (बिंदुवार)</div>
-  <div class="step"><b>अनुपालन तिथि / रिपोर्टिंग</b></div>
-  <div class="step"><b>हस्ताक्षरकर्ता</b></div>
+  <div class="step"><b>1. संख्या</b> — सबसे ऊपर</div>
+  <div class="step"><b>2. प्रेषक</b> — शासन का अधिकारी</div>
+  <div class="step"><b>3. सेवा में</b> — कई प्राप्तकर्ता, 1-, 2-, 3- अंक से ("समस्त…")</div>
+  <div class="step"><b>4. अनुभाग + स्थान : दिनांक</b></div>
+  <div class="step"><b>5. विषय—</b></div>
+  <div class="step"><b>6. मुख्य भाग</b> — "मुझे यह कहने का निदेश हुआ है कि…" + बिंदुवार निर्देश</div>
+  <div class="step"><b>7. अनुपालन / रिपोर्ट की समय-सीमा</b></div>
+  <div class="step"><b>8. स्वनिर्देश व हस्ताक्षर</b> — भवदीय, (नाम), पदनाम</div>
 </div>
-<p data-hi><strong>नमूना विषय:</strong> ई-गवर्नेंस पोर्टल पर शिकायत निस्तारण समय-सीमा।</p>
-<p data-en><strong>Sample topic:</strong> Timeline for grievance redressal on the e-governance portal.</p>
-<pre style="white-space:pre-wrap;font-family:Mukta,sans-serif;font-size:13.5px;padding:14px;border-radius:12px;border:1px solid var(--line);background:rgba(18,48,90,.5);color:#F2EBDA;line-height:1.55">परिपत्र
-संख्या: …… दिनांक: ……
-
-प्रेषित: समस्त जिलाधिकारी / विभागाध्यक्ष, उत्तर प्रदेश।
-
-विषय: ऑनलाइन शिकायत पोर्टल पर निस्तारण की समय-सीमा के संबंध में।
-
-निर्देशित किया जाता है कि पोर्टल पर दर्ज शिकायतों का निस्तारण निर्धारित …… दिवस में सुनिश्चित किया जाए तथा लंबित मामलों की साप्ताहिक रिपोर्ट प्रेषित की जाए।
-
-(हस्ताक्षर)
-अपर सचिव</pre>
+<p data-hi><strong>नमूना प्रश्न:</strong> जनशिकायत पोर्टल पर शिकायतों के समयबद्ध निस्तारण हेतु सभी जिलाधिकारियों को परिपत्र।</p>
+<p data-en><strong>Sample question:</strong> Circular to all District Magistrates on time-bound disposal of grievances on the public grievance portal.</p>
+<div class="paper" lang="hi">
+  <p class="c b">संख्या—……/जनशिकायत/2026</p>
+  <div class="gap"></div>
+  <p class="b">प्रेषक,</p>
+  <p class="ind">क.ख.ग.,<br>सचिव,<br>उत्तर प्रदेश शासन।</p>
+  <div class="gap"></div>
+  <p class="b">सेवा में,</p>
+  <p class="ind">1- समस्त मंडलायुक्त, उत्तर प्रदेश।<br>2- समस्त जिलाधिकारी, उत्तर प्रदेश।<br>3- समस्त विभागाध्यक्ष, उत्तर प्रदेश।</p>
+  <p>जनशिकायत अनुभाग <span style="float:right">लखनऊ : दिनांक 02 नवंबर, 2026</span></p>
+  <div class="gap"></div>
+  <p><span class="sub">विषय—</span>जनशिकायत पोर्टल पर प्राप्त शिकायतों के समयबद्ध निस्तारण के संबंध में।</p>
+  <div class="gap"></div>
+  <p>महोदय,</p>
+  <p class="para">उपर्युक्त विषयक मुझे यह कहने का निदेश हुआ है कि जनशिकायत पोर्टल पर प्राप्त अनेक शिकायतें निर्धारित समय-सीमा के बाद भी लंबित हैं।</p>
+  <p class="para">2- अतः निर्देशित किया जाता है कि प्रत्येक शिकायत का गुणवत्तापूर्ण निस्तारण अधिकतम 30 दिवस में सुनिश्चित किया जाए तथा शिकायतकर्ता को परिणाम से अवगत कराया जाए।</p>
+  <p class="para">3- लंबित शिकायतों की साप्ताहिक रिपोर्ट प्रत्येक सोमवार तक शासन को उपलब्ध कराई जाए।</p>
+  <div class="sign"><p>भवदीय,</p><p>(क.ख.ग.)</p><p>सचिव</p></div>
+</div>
 </div></details>
 
-<div class="note"><span data-hi><strong>परीक्षा टिप:</strong> प्रारूप याद रखें — संख्या, दिनांक, विषय, संबोधन, स्पष्ट अनुच्छेद, हस्ताक्षर। भाषा सरल औपचारिक हिंदी। आधिकारिक शब्द/प्रारूप के लिए नवीनतम अधिसूचना देखें।</span><span data-en><strong>Exam tip:</strong> Memorise structure — number, date, subject, salutation, clear paragraphs, signature. Use simple formal Hindi. Check the latest notification for official wording.</span></div>
+<div class="note"><div data-hi><strong>परीक्षा में अंक कहाँ कटते हैं:</strong>
+<ul class="mistakes">
+<li>"प्रेषक" या "सेवा में" छोड़ देना, या दोनों का क्रम उलटना।</li>
+<li>पत्र संख्या व दिनांक न लिखना; दिनांक बाईं ओर लिखना।</li>
+<li>कार्यालय-ज्ञाप और अधिसूचना में "महोदय" या "भवदीय" लिख देना — इनमें संबोधन/स्वनिर्देश नहीं होता।</li>
+<li>हस्ताक्षर में असली नाम लिखना — परीक्षा में (क.ख.ग.) जैसे संकेत ही लिखें।</li>
+<li>पहले अनुच्छेद पर अंक लगाना — अंक दूसरे अनुच्छेद (2-) से लगते हैं।</li>
+</ul></div><div data-en><strong>Where marks are lost:</strong> skipping "Preshak"/"Seva mein" or reversing them; missing letter number/date or putting the date on the left; writing "Mahoday"/"Bhavdiya" in an office memorandum or notification (they have no salutation or closing); writing a real name instead of (क.ख.ग.); numbering the first paragraph — numbering starts from the second (2-).</div></div>
 
 </main>
 <footer class="hub-foot">

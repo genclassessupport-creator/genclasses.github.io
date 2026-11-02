@@ -174,7 +174,8 @@
     function showStats(){
       if(!stats) return;
       var k=Object.keys(known).length, u=Object.keys(unknown).length;
-      stats.textContent='ज्ञात: '+k+' · अज्ञात: '+u+' · कार्ड: '+(idx+1)+'/'+(deck.length||0);
+      var e=(document.documentElement.getAttribute('lang')==='en');
+      stats.textContent=(e?'Known: ':'ज्ञात: ')+k+(e?' · Unknown: ':' · अज्ञात: ')+u+(e?' · Card: ':' · कार्ड: ')+(idx+1)+'/'+(deck.length||0);
     }
     function render(){
       if(!deck.length){cardEl.innerHTML='<div class="front">इस डेक में कार्ड नहीं</div>';return;}
@@ -184,7 +185,9 @@
       var en=(document.documentElement.getAttribute('lang')==='en');
       var fr=en&&c.front_en?c.front_en:c.front;
       var bk=en&&c.back_en?c.back_en:c.back;
-      cardEl.innerHTML='<div class="deck">'+(c.deck||'')+'</div><div class="front">'+fr+'</div><div class="back">'+bk+'</div>';
+      var DN={'paryay-vilom':['पर्याय / विलोम','Synonyms / Antonyms'],'muhavare':['मुहावरे','Idioms'],'ethics':['नीतिशास्त्र विचारक','Ethics thinkers'],'polity':['संविधान अनुच्छेद','Constitution articles']};
+      var dn=DN[c.deck]?DN[c.deck][en?1:0]:(c.deck||'');
+      cardEl.innerHTML='<div class="deck">'+dn+'</div><div class="front">'+fr+'</div><div class="back">'+bk+'</div>';
       showStats();
     }
     function loadDeck(name){

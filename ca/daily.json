@@ -1,0 +1,70 @@
+{
+  "updated": "2026-11-02",
+  "days": [
+    {
+      "date": "2026-11-02",
+      "points": [
+        {
+          "tag_hi": "विज्ञान", "tag_en": "Science",
+          "hi": "ISRO ने 30 अक्टूबर 2026 को श्रीहरिकोटा से GSLV-F18 द्वारा नौवहन उपग्रह NVS-03 प्रक्षेपित किया। यह NavIC प्रणाली को मज़बूत करेगा और इसमें स्वदेशी परमाणु घड़ी लगी है। यह GSLV की 20वीं उड़ान थी।",
+          "en": "On 30 Oct 2026 ISRO launched navigation satellite NVS-03 on GSLV-F18 from Sriharikota. It strengthens NavIC and carries an indigenous atomic clock. It was GSLV's 20th flight.",
+          "src": "https://newsonair.gov.in/isro-to-launch-navigation-satellite-nvs-03-aboard-gslv-f18-rocket-from-sriharikota/"
+        },
+        {
+          "tag_hi": "रक्षा", "tag_en": "Defence",
+          "hi": "एयर चीफ मार्शल आशुतोष दीक्षित ने 31 अक्टूबर 2026 को भारतीय वायुसेना के 29वें प्रमुख का पदभार संभाला। उन्होंने एयर चीफ मार्शल अमर प्रीत सिंह का स्थान लिया।",
+          "en": "Air Chief Marshal Ashutosh Dixit took over as the 29th Chief of the Air Staff on 31 Oct 2026, succeeding Air Chief Marshal Amar Preet Singh.",
+          "src": "https://newsonair.gov.in/air-marshal-ashutosh-dixit-appointed-as-29th-chief-of-air-staff/"
+        },
+        {
+          "tag_hi": "उत्तर प्रदेश", "tag_en": "Uttar Pradesh",
+          "hi": "UP कैबिनेट (27 अक्टूबर 2026) ने लखनऊ-हरदोई में 1,000 एकड़ के PM मित्र मेगा टेक्सटाइल पार्क के मास्टर डेवलपर के चयन को मंज़ूरी दी। साथ ही साइबर सुरक्षा ऑपरेशंस सेंटर और PRAGATI रोबोटिक्स पार्क को भी मंज़ूरी मिली।",
+          "en": "The UP Cabinet (27 Oct 2026) approved the master developer for the 1,000-acre PM MITRA Mega Textile Park in Lucknow–Hardoi, along with a Cyber Security Operations Centre and the PRAGATI Robotics Park.",
+          "src": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
+        },
+        {
+          "tag_hi": "उत्तर प्रदेश", "tag_en": "Uttar Pradesh",
+          "hi": "UP कैबिनेट (27 अक्टूबर) ने चार लिंक एक्सप्रेसवे (फ़र्रुख़ाबाद, झाँसी, जेवर, और आगरा-लखनऊ को पूर्वांचल से जोड़ने वाला) के डेवलपर चयन को मंज़ूरी दी। सैनिक स्कूल मैनपुरी को 9.524 हेक्टेयर भूमि निःशुल्क दी गई।",
+          "en": "The UP Cabinet (27 Oct) approved developers for four link expressways (Farrukhabad, Jhansi, Jewar, and Agra–Lucknow to Purvanchal). Sainik School Mainpuri gets 9.524 ha of land free of cost.",
+          "src": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
+        },
+        {
+          "tag_hi": "अंतरराष्ट्रीय", "tag_en": "International",
+          "hi": "पहला BIMSTEC समुद्री सुरक्षा अभ्यास 30 अक्टूबर से 3 नवंबर 2026 तक हो रहा है। इसमें बंगाल की खाड़ी क्षेत्र के सभी 7 सदस्य देश भाग ले रहे हैं।",
+          "en": "The first BIMSTEC Maritime Security Exercise runs from 30 Oct to 3 Nov 2026, with all 7 member countries of the Bay of Bengal region.",
+          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+        },
+        {
+          "tag_hi": "समाज", "tag_en": "Society",
+          "hi": "जनजातीय कार्य मंत्रालय 1 से 15 नवंबर 2026 तक जनजातीय गौरव पखवाड़ा मना रहा है। 15 नवंबर को बिरसा मुंडा ('धरती आबा') की जयंती जनजातीय गौरव दिवस के रूप में मनाई जाती है।",
+          "en": "The Ministry of Tribal Affairs is observing Janjatiya Gaurav Pakhwada from 1 to 15 Nov 2026. 15 Nov, Birsa Munda's ('Dharti Aaba') birth anniversary, is Janjatiya Gaurav Divas.",
+          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+        },
+        {
+          "tag_hi": "अर्थव्यवस्था", "tag_en": "Economy",
+          "hi": "वस्त्र PLI योजना के चौथे चरण का पोर्टल 1 नवंबर से 31 दिसंबर 2026 तक खुला है। भाग-2 में न्यूनतम टर्नओवर ₹200 करोड़ से घटाकर ₹100 करोड़ किया गया। योजना MMF परिधान, MMF कपड़ा और तकनीकी वस्त्र के लिए है।",
+          "en": "Round 4 of the Textiles PLI portal is open from 1 Nov to 31 Dec 2026. Minimum turnover under Part 2 was cut from ₹200 crore to ₹100 crore. It covers MMF apparel, MMF fabrics and technical textiles.",
+          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+        },
+        {
+          "tag_hi": "संस्था", "tag_en": "Institution",
+          "hi": "कर्मचारी भविष्य निधि संगठन (EPFO) ने 1 नवंबर 2026 को अपना 74वाँ स्थापना दिवस मनाया। EPFO की स्थापना 1952 में हुई थी।",
+          "en": "The Employees' Provident Fund Organisation (EPFO) marked its 74th Foundation Day on 1 Nov 2026. EPFO was set up in 1952.",
+          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+        },
+        {
+          "tag_hi": "परिवहन", "tag_en": "Transport",
+          "hi": "अंतरराष्ट्रीय यात्रियों के लिए Digi Yatra का परीक्षण 7 हवाई अड्डों (दिल्ली, बेंगलुरु, हैदराबाद, कोचीन, मुंबई, चेन्नई, अमृतसर) पर शुरू हुआ। यह दो महीने, दिसंबर 2026 तक, ई-पासपोर्ट वाले भारतीयों के लिए है।",
+          "en": "Digi Yatra trials for international passengers began at 7 airports (Delhi, Bengaluru, Hyderabad, Cochin, Mumbai, Chennai, Amritsar), running for two months until Dec 2026 for Indians with e-passports.",
+          "src": "https://indianopinion.org/today-in-india-1-november-2026/"
+        },
+        {
+          "tag_hi": "स्थैतिक", "tag_en": "Static GK",
+          "hi": "1 नवंबर को इन राज्यों का स्थापना दिवस होता है: कर्नाटक, केरल, मध्य प्रदेश और आंध्र प्रदेश (1956), हरियाणा (1966), छत्तीसगढ़ (2000)।",
+          "en": "1 November is the formation day of Karnataka, Kerala, Madhya Pradesh and Andhra Pradesh (1956), Haryana (1966) and Chhattisgarh (2000).",
+          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+        }
+      ]
+    }
+  ]
+}
