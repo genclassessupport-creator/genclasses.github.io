@@ -70,39 +70,49 @@
     var css = document.createElement('style');
     css.id = 'gcVcCss';
     css.textContent = [
-      '#gcVisitCounter{position:fixed;z-index:85;left:14px;bottom:14px;font-family:inherit;pointer-events:auto}',
+      '#gcVisitCounter{position:fixed;z-index:85;left:16px;bottom:16px;font-family:inherit;pointer-events:auto}',
       '#gcVisitCounter *{box-sizing:border-box}',
       '#gcVisitCounter .gc-vc-card{',
-      '  min-width:148px;max-width:200px;padding:10px 12px 9px;',
-      '  border-radius:14px;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);',
-      '  border:1px solid rgba(255,255,255,.14);',
-      '  background:linear-gradient(145deg,rgba(18,28,48,.92),rgba(12,20,36,.88));',
-      '  color:#e8eef8;box-shadow:0 10px 28px rgba(0,0,0,.28);',
+      '  min-width:188px;max-width:240px;padding:14px 16px 12px;',
+      '  border-radius:18px;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);',
+      '  border:1px solid rgba(255,255,255,.16);',
+      '  background:linear-gradient(145deg,rgba(18,28,48,.94),rgba(12,20,36,.9));',
+      '  color:#e8eef8;box-shadow:0 14px 34px rgba(0,0,0,.32);',
       '  transition:transform .2s ease,opacity .2s ease}',
       'html[data-theme="light"] #gcVisitCounter .gc-vc-card{',
-      '  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(236,245,240,.94));',
-      '  color:#14302a;border-color:rgba(20,80,60,.12);box-shadow:0 10px 24px rgba(20,60,40,.14)}',
-      '#gcVisitCounter .gc-vc-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}',
-      '#gcVisitCounter .gc-vc-title{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;opacity:.78}',
-      '#gcVisitCounter .gc-vc-toggle{appearance:none;border:0;background:transparent;color:inherit;cursor:pointer;padding:2px 4px;font-size:14px;line-height:1;opacity:.7}',
+      '  background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(236,245,240,.96));',
+      '  color:#14302a;border-color:rgba(20,80,60,.14);box-shadow:0 14px 30px rgba(20,60,40,.16)}',
+      '#gcVisitCounter .gc-vc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}',
+      '#gcVisitCounter .gc-vc-title{font-size:13px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;opacity:.82;display:flex;align-items:center;gap:8px}',
+      '#gcVisitCounter .gc-vc-title-ico{width:22px;height:22px;display:inline-grid;place-items:center;border-radius:8px;background:linear-gradient(135deg,#22c55e,#16a34a);color:#fff;font-size:12px;line-height:1;box-shadow:0 4px 10px rgba(34,197,94,.35);flex:0 0 auto}',
+      '#gcVisitCounter .gc-vc-toggle{appearance:none;border:0;background:transparent;color:inherit;cursor:pointer;padding:4px 6px;font-size:16px;line-height:1;opacity:.75}',
       '#gcVisitCounter .gc-vc-toggle:hover{opacity:1}',
-      '#gcVisitCounter .gc-vc-row{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:12px;line-height:1.35;padding:2px 0}',
-      '#gcVisitCounter .gc-vc-label{opacity:.78;display:flex;align-items:center;gap:6px}',
-      '#gcVisitCounter .gc-vc-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.22);flex:0 0 auto}',
-      '#gcVisitCounter .gc-vc-val{font-weight:750;font-variant-numeric:tabular-nums;font-size:13px}',
-      '#gcVisitCounter .gc-vc-tip{margin-top:5px;font-size:10px;opacity:.55;line-height:1.3}',
+      '#gcVisitCounter .gc-vc-row{display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13.5px;line-height:1.4;padding:4px 0}',
+      '#gcVisitCounter .gc-vc-label{opacity:.82;display:flex;align-items:center;gap:8px;font-weight:600}',
+      '#gcVisitCounter .gc-vc-ico{width:22px;height:22px;border-radius:8px;display:inline-grid;place-items:center;font-size:12px;line-height:1;flex:0 0 auto}',
+      '#gcVisitCounter .gc-vc-ico.td{background:rgba(59,130,246,.18);color:#60a5fa}',
+      '#gcVisitCounter .gc-vc-ico.tot{background:rgba(217,174,95,.2);color:#e8c27a}',
+      'html[data-theme="light"] #gcVisitCounter .gc-vc-ico.td{background:rgba(30,58,138,.12);color:#1E3A8A}',
+      'html[data-theme="light"] #gcVisitCounter .gc-vc-ico.tot{background:rgba(30,58,138,.14);color:#172E5C}',
+      '#gcVisitCounter .gc-vc-dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.22);flex:0 0 auto;animation:gcVcPulse 1.8s ease-in-out infinite}',
+      '@keyframes gcVcPulse{0%,100%{box-shadow:0 0 0 3px rgba(34,197,94,.2)}50%{box-shadow:0 0 0 6px rgba(34,197,94,.08)}}',
+      '@media(prefers-reduced-motion:reduce){#gcVisitCounter .gc-vc-dot{animation:none}}',
+      '#gcVisitCounter .gc-vc-val{font-weight:800;font-variant-numeric:tabular-nums;font-size:17px}',
+      '#gcVisitCounter .gc-vc-tip{margin-top:7px;font-size:11px;opacity:.55;line-height:1.3}',
       '#gcVisitCounter.collapsed .gc-vc-body{display:none}',
-      '#gcVisitCounter.collapsed .gc-vc-card{min-width:0;padding:8px 10px}',
-      '#gcVisitCounter .gc-vc-mini{display:none;align-items:center;gap:6px;font-size:12px;font-weight:700}',
+      '#gcVisitCounter.collapsed .gc-vc-card{min-width:0;padding:10px 12px}',
+      '#gcVisitCounter .gc-vc-mini{display:none;align-items:center;gap:7px;font-size:13px;font-weight:800}',
       '#gcVisitCounter.collapsed .gc-vc-mini{display:flex}',
       '#gcVisitCounter.collapsed .gc-vc-title{display:none}',
       '@media(max-width:760px){',
       '  #gcVisitCounter{left:10px;bottom:10px}',
-      '  #gcVisitCounter .gc-vc-card{min-width:0;padding:8px 10px;border-radius:12px}',
-      '  #gcVisitCounter:not(.collapsed) .gc-vc-card{min-width:132px}',
+      '  #gcVisitCounter .gc-vc-card{min-width:0;padding:10px 12px;border-radius:14px}',
+      '  #gcVisitCounter:not(.collapsed) .gc-vc-card{min-width:156px;max-width:188px;padding:11px 12px}',
+      '  #gcVisitCounter .gc-vc-title{font-size:12px}',
+      '  #gcVisitCounter .gc-vc-val{font-size:15px}',
+      '  #gcVisitCounter .gc-vc-row{font-size:12.5px;padding:3px 0}',
       '  #gcVisitCounter .gc-vc-tip{display:none}',
       '}',
-      /* Keep clear of test-page WA FAB (bottom-left) when watermark sets left FAB */
       'body.gc-test-page #gcVisitCounter{left:auto;right:12px;bottom:72px}'
     ].join('');
     document.head.appendChild(css);
@@ -113,8 +123,18 @@
     var online = data && data.online != null ? data.online : '—';
     var today = data && data.today != null ? data.today : '—';
     var total = data && data.total != null ? data.total : '—';
-    el.querySelector('[data-k=title]').textContent = L.title;
-    el.querySelector('[data-k=online-l]').lastChild.textContent = L.online;
+    var titleTxt = el.querySelector('[data-k=title-text]');
+    if (titleTxt) titleTxt.textContent = L.title;
+    else {
+      var t = el.querySelector('[data-k=title]');
+      if (t) t.textContent = L.title;
+    }
+    var onTxt = el.querySelector('[data-k=online-text]');
+    if (onTxt) onTxt.textContent = L.online;
+    else {
+      var ol = el.querySelector('[data-k=online-l]');
+      if (ol && ol.lastChild) ol.lastChild.textContent = L.online;
+    }
     el.querySelector('[data-k=today-l]').textContent = L.today;
     el.querySelector('[data-k=total-l]').textContent = L.total;
     el.querySelector('[data-k=tip]').textContent = L.tip;
@@ -137,14 +157,14 @@
     wrap.innerHTML =
       '<div class="gc-vc-card">' +
       '<div class="gc-vc-head">' +
-      '<span class="gc-vc-title" data-k="title">Visitors</span>' +
+      '<span class="gc-vc-title" data-k="title"><span class="gc-vc-title-ico" aria-hidden="true">👁</span><span data-k="title-text">Visitors</span></span>' +
       '<span class="gc-vc-mini" data-k="mini">·</span>' +
       '<button type="button" class="gc-vc-toggle" aria-label="Toggle visitor stats" title="Toggle">▴</button>' +
       '</div>' +
       '<div class="gc-vc-body">' +
-      '<div class="gc-vc-row"><span class="gc-vc-label" data-k="online-l"><span class="gc-vc-dot" aria-hidden="true"></span>Online now</span><span class="gc-vc-val" data-k="online">—</span></div>' +
-      '<div class="gc-vc-row"><span class="gc-vc-label" data-k="today-l">Today</span><span class="gc-vc-val" data-k="today">—</span></div>' +
-      '<div class="gc-vc-row"><span class="gc-vc-label" data-k="total-l">Total visits</span><span class="gc-vc-val" data-k="total">—</span></div>' +
+      '<div class="gc-vc-row"><span class="gc-vc-label" data-k="online-l"><span class="gc-vc-dot" aria-hidden="true"></span><span data-k="online-text">Online now</span></span><span class="gc-vc-val" data-k="online">—</span></div>' +
+      '<div class="gc-vc-row"><span class="gc-vc-label"><span class="gc-vc-ico td" aria-hidden="true">📅</span><span data-k="today-l">Today</span></span><span class="gc-vc-val" data-k="today">—</span></div>' +
+      '<div class="gc-vc-row"><span class="gc-vc-label"><span class="gc-vc-ico tot" aria-hidden="true">∑</span><span data-k="total-l">Total visits</span></span><span class="gc-vc-val" data-k="total">—</span></div>' +
       '<div class="gc-vc-tip" data-k="tip">Approx · no personal data</div>' +
       '</div></div>';
     document.body.appendChild(wrap);
@@ -226,7 +246,6 @@
     document.addEventListener('gen-lang', function () {
       render(el, state);
     });
-    // Detect lang toggles that may not fire gen-lang on homepage
     var obs = new MutationObserver(function () {
       render(el, state);
     });

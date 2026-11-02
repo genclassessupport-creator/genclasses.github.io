@@ -869,12 +869,73 @@ html[data-theme="light"] .marq .grp i{color:#1E40AF}
 .ticker-track a{display:inline-flex;align-items:center;gap:8px;padding:10px 22px;white-space:nowrap;font-size:13px;font-weight:700;color:var(--cream);text-decoration:none;border-right:1px solid var(--line)}
 .ticker-track a:hover{color:var(--gold-hi)}
 .ticker-track .pill-new{font-size:10px;font-weight:800;letter-spacing:.6px;padding:2px 7px;border-radius:999px;background:linear-gradient(135deg,#1E3A8A,#172E5C);color:#fff}
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:8px 0 0}
-.feat-grid a{display:flex;flex-direction:column;gap:4px;padding:14px 12px;border-radius:14px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .18s,border-color .18s;min-height:84px}
-.feat-grid a:hover{transform:translateY(-2px);border-color:var(--line-2)}
-.feat-grid a .ic{font-size:18px;color:var(--gold-hi);font-weight:800}
-.feat-grid a strong{font-size:13.5px;color:var(--cream);font-weight:800}
-.feat-grid a span{font-size:11.5px;color:var(--mist);font-weight:500;line-height:1.35}
+/* ===== Study Materials grid + Our Products slider ===== */
+.sm-block{margin-top:18px}
+.sm-block .sm-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
+.sm-block .sm-head h3{margin:0;font-size:clamp(18px,2.6vw,22px);font-weight:900;color:var(--cream)}
+html[data-theme="light"] .sm-block .sm-head h3{color:#1F2A2E}
+.sm-block .sm-head p{margin:0;font-size:13px;color:var(--mist);font-weight:500}
+.sm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px}
+.sm-tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 14px 14px;border-radius:18px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;overflow:hidden;min-height:128px;isolation:isolate;transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .18s,box-shadow .22s}
+.sm-tile:hover{transform:translateY(-5px) rotate(-.4deg);border-color:var(--line-2);box-shadow:0 14px 28px rgba(0,0,0,.18)}
+html[data-theme="light"] .sm-tile:hover{box-shadow:0 14px 28px rgba(30,58,138,.12)}
+.sm-tile .blob{position:absolute;inset:auto -18% -28% auto;width:110px;height:110px;border-radius:50%;filter:blur(2px);opacity:.55;z-index:0;pointer-events:none}
+.sm-tile .ico{position:relative;z-index:1;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;box-shadow:0 8px 18px rgba(0,0,0,.18)}
+.sm-tile .ico svg{width:32px;height:32px;display:block}
+.sm-tile strong{position:relative;z-index:1;font-size:14px;color:var(--cream);font-weight:800;line-height:1.25}
+html[data-theme="light"] .sm-tile strong{color:#1F2A2E}
+.sm-tile .sub{position:relative;z-index:1;font-size:11.5px;color:var(--mist);font-weight:500;line-height:1.35}
+.sm-tile.t-syllabus .ico{background:linear-gradient(145deg,#60a5fa,#1d4ed8)}.sm-tile.t-syllabus .blob{background:radial-gradient(circle,#60a5fa,#1e3a8a00)}
+.sm-tile.t-csat .ico{background:linear-gradient(145deg,#a78bfa,#6d28d9)}.sm-tile.t-csat .blob{background:radial-gradient(circle,#a78bfa,#6d28d900)}
+.sm-tile.t-daily .ico{background:linear-gradient(145deg,#fbbf24,#d97706)}.sm-tile.t-daily .blob{background:radial-gradient(circle,#fbbf24,#d9770600)}
+.sm-tile.t-flash .ico{background:linear-gradient(145deg,#34d399,#059669)}.sm-tile.t-flash .blob{background:radial-gradient(circle,#34d399,#05966900)}
+.sm-tile.t-draft .ico{background:linear-gradient(145deg,#fb7185,#e11d48)}.sm-tile.t-draft .blob{background:radial-gradient(circle,#fb7185,#e11d4800)}
+.sm-tile.t-ca .ico{background:linear-gradient(145deg,#38bdf8,#0284c7)}.sm-tile.t-ca .blob{background:radial-gradient(circle,#38bdf8,#0284c700)}
+.sm-tile.t-tests .ico{background:linear-gradient(145deg,#f472b6,#be185d)}.sm-tile.t-tests .blob{background:radial-gradient(circle,#f472b6,#be185d00)}
+.sm-tile.t-notes .ico{background:linear-gradient(145deg,#fcd34d,#b45309)}.sm-tile.t-notes .blob{background:radial-gradient(circle,#fcd34d,#b4530900)}
+.sm-tile.t-ncert .ico{background:linear-gradient(145deg,#4ade80,#15803d)}.sm-tile.t-ncert .blob{background:radial-gradient(circle,#4ade80,#15803d00)}
+.sm-tile.t-polity .ico{background:linear-gradient(145deg,#818cf8,#3730a3)}.sm-tile.t-polity .blob{background:radial-gradient(circle,#818cf8,#3730a300)}
+.sm-tile.t-prelims .ico{background:linear-gradient(145deg,#2dd4bf,#0f766e)}.sm-tile.t-prelims .blob{background:radial-gradient(circle,#2dd4bf,#0f766e00)}
+.prod-block{margin-top:22px}
+.prod-block .sm-head{margin-bottom:12px}
+.prod-rail-wrap{position:relative}
+.prod-rail{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;-webkit-overflow-scrolling:touch;padding:4px 2px 14px;scrollbar-width:none}
+.prod-rail::-webkit-scrollbar{display:none}
+.prod-card{flex:0 0 min(78vw,280px);scroll-snap-align:start;position:relative;display:flex;flex-direction:column;gap:10px;padding:18px 16px 16px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.06),rgba(0,0,0,.08)),var(--glass);text-decoration:none;color:inherit;overflow:hidden;min-height:168px;transition:transform .22s,border-color .18s,box-shadow .22s}
+html[data-theme="light"] .prod-card{background:linear-gradient(160deg,#fff,#F0F6F2)}
+.prod-card:hover{transform:translateY(-4px);border-color:var(--line-2);box-shadow:0 16px 32px rgba(0,0,0,.2)}
+.prod-card .pc-art{width:64px;height:64px;border-radius:18px;display:grid;place-items:center;box-shadow:0 10px 22px rgba(0,0,0,.2)}
+.prod-card .pc-art svg{width:40px;height:40px}
+.prod-card .pc-tag{font-size:10px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;opacity:.75}
+.prod-card strong{font-size:16px;font-weight:900;color:var(--cream);line-height:1.25}
+html[data-theme="light"] .prod-card strong{color:#1F2A2E}
+.prod-card .pc-sub{font-size:12.5px;color:var(--mist);line-height:1.4;font-weight:500}
+.prod-card .pc-cta{margin-top:auto;font-size:12.5px;font-weight:800;color:var(--gold-hi)}
+html[data-theme="light"] .prod-card .pc-cta{color:#1E3A8A}
+.prod-card.p-tests .pc-art{background:linear-gradient(145deg,#f472b6,#9d174d)}
+.prod-card.p-polity .pc-art{background:linear-gradient(145deg,#818cf8,#312e81)}
+.prod-card.p-prelims .pc-art{background:linear-gradient(145deg,#2dd4bf,#115e59)}
+.prod-card.p-notes .pc-art{background:linear-gradient(145deg,#fbbf24,#b45309)}
+.prod-card.p-csat .pc-art{background:linear-gradient(145deg,#a78bfa,#5b21b6)}
+.prod-card.p-daily .pc-art{background:linear-gradient(145deg,#60a5fa,#1d4ed8)}
+.prod-nav{position:absolute;top:50%;transform:translateY(-70%);width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);background:rgba(12,20,36,.88);color:var(--cream);display:grid;place-items:center;cursor:pointer;z-index:2;box-shadow:0 8px 18px rgba(0,0,0,.25);font-size:18px;line-height:1}
+html[data-theme="light"] .prod-nav{background:#fff;color:#1E3A8A;border-color:rgba(30,58,138,.25)}
+.prod-nav:hover{filter:brightness(1.08)}
+.prod-nav.prev{left:-6px}
+.prod-nav.next{right:-6px}
+@media(max-width:720px){
+  .sm-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .sm-tile{min-height:118px;padding:14px 12px}
+  .sm-tile .ico{width:46px;height:46px;border-radius:14px}
+  .sm-tile .ico svg{width:28px;height:28px}
+  .prod-nav{display:none}
+  .prod-card{flex-basis:min(86vw,260px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .sm-tile,.prod-card{transition:none}
+  .sm-tile:hover,.prod-card:hover{transform:none}
+  .prod-rail{scroll-behavior:auto}
+}
 .lang-btn{border:1px solid var(--line-2);background:rgba(18,48,90,.85);color:#F2CD88;border-radius:999px;padding:6px 12px;font-weight:800;font-size:12px;cursor:pointer;font-family:inherit;margin-right:8px}
 html[data-theme="light"] .lang-btn{background:#fff;color:#1E3A8A;border-color:rgba(30,58,138,.35)}
 html[lang="en"] [data-hi],html:not([lang="en"]) [data-en]{display:none!important}
@@ -950,7 +1011,7 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
       <a href="/csat/">CSAT</a>
       <a href="/daily/"><span data-hi>डेली</span><span data-en>Daily</span></a>
       <a href="/flashcards/"><span data-hi>फ्लैश</span><span data-en>Flash</span></a>
-      <a href="/up-ca/">UP CA</a>
+      <a href="/up-ca/"><span data-hi>करेंट अफेयर्स</span><span data-en>Current Affairs</span></a>
       <a href="#join"><span data-hi>जुड़ें</span><span data-en>Join</span></a>
     </div>
     <a href="#tests" class="nav-cta"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
@@ -1083,18 +1144,49 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
       </div>
       <div class="cd-nums"></div>
     </div>
-    <div class="feat-grid rv">
-      <a href="/syllabus/"><span class="ic">§</span><strong data-hi>सिलेबस</strong><strong data-en>Syllabus</strong><span data-hi>UPPCS · UPSC · RO/ARO</span><span data-en>UPPCS · UPSC · RO/ARO</span></a>
-      <a href="/csat/"><span class="ic">✦</span><strong>CSAT</strong><span data-hi>12 टॉपिक अभ्यास</span><span data-en>12 topic drills</span></a>
-      <a href="/daily/"><span class="ic">5</span><strong data-hi>डेली क्विज़</strong><strong data-en>Daily Quiz</strong><span data-hi>हर दिन 5 प्रश्न</span><span data-en>5 questions a day</span></a>
-      <a href="/flashcards/"><span class="ic">▦</span><strong data-hi>फ्लैशकार्ड</strong><strong data-en>Flashcards</strong><span data-hi>स्वाइप से याद</span><span data-en>Swipe to revise</span></a>
-      <a href="/ro-aro/drafting/"><span class="ic">✍</span><strong data-hi>आलेखन</strong><strong data-en>Drafting</strong><span data-hi>पत्र · ज्ञापन · परिपत्र</span><span data-en>Letter · Memo · Circular</span></a>
-      <a href="/up-ca/"><span class="ic">📰</span><strong data-hi>UP करंट</strong><strong data-en>UP CA</strong><span data-hi>GS V/VI डाइजेस्ट</span><span data-en>GS V/VI digest</span></a>
-      <a href="#tests"><span class="ic">◎</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span data-hi>परीक्षा-स्तरीय</span><span data-en>Exam-level</span></a>
-      <a href="#special-notes"><span class="ic">★</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span data-hi>कस्टम डिमांड</span><span data-en>Custom demand</span></a>
-      <a href="/ncert/"><span class="ic">📗</span><strong>NCERT</strong><span data-hi>पाठ्यपुस्तक · अभ्यास</span><span data-en>Textbooks · practice</span></a>
-      <a href="/polity/"><span class="ic">📜</span><strong>Polity PYQ</strong><span data-hi>960 प्रश्न · 21 टेस्ट · UPPCS</span><span data-en>960 Qs · 21 Tests · UPPCS</span></a>
-      <a href="/uppcs-prelims-pyq/"><span class="ic">📝</span><strong data-hi>UPPCS Prelims PYQ</strong><strong data-en>UPPCS Prelims PYQ</strong><span data-hi>1200 प्रश्न · 2018–2025 सभी</span><span data-en>1200 Qs · 2018–2025 all</span></a>
+    <div class="sm-block rv">
+      <div class="sm-head">
+        <div>
+          <h3><span data-hi>अध्ययन सामग्री</span><span data-en>Study Materials</span></h3>
+          <p data-hi>रंग-बिरंगे शॉर्टकट — एक टैप में सही जगह</p>
+          <p data-en>Colourful shortcuts — one tap to the right place</p>
+        </div>
+      </div>
+      <div class="sm-grid">
+        <a class="sm-tile t-syllabus" href="/syllabus/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="10" y="12" width="34" height="42" rx="4" fill="#fff" fill-opacity=".95"/><path d="M14 18h26M14 26h22M14 34h24M14 42h18" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round"/><circle cx="46" cy="18" r="10" fill="#fbbf24"/><path d="M46 12v12M40 18h12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M42 40l6 4 10-12" stroke="#fde68a" stroke-width="0" /><circle cx="52" cy="48" r="3" fill="#fde68a"/><circle cx="44" cy="52" r="2" fill="#fef3c7"/></svg></span><strong data-hi>सिलेबस</strong><strong data-en>Syllabus</strong><span class="sub" data-hi>UPPCS · UPSC · RO/ARO</span><span class="sub" data-en>UPPCS · UPSC · RO/ARO</span></a>
+        <a class="sm-tile t-csat" href="/csat/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="14" width="48" height="36" rx="8" fill="#fff" fill-opacity=".95"/><path d="M18 28h10M18 36h16M36 28h10" stroke="#5b21b6" stroke-width="2.8" stroke-linecap="round"/><circle cx="48" cy="44" r="12" fill="#c4b5fd"/><path d="M43 44l3.5 3.5 7-8" stroke="#4c1d95" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>CSAT</strong><span class="sub" data-hi>12 टॉपिक अभ्यास</span><span class="sub" data-en>12 topic drills</span></a>
+        <a class="sm-tile t-daily" href="/daily/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="16" stroke="#b45309" stroke-width="3"/><path d="M32 18v15l10 6" stroke="#d97706" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="3" fill="#f59e0b"/><path d="M48 14l4 2M52 22l4-1" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/></svg></span><strong data-hi>डेली क्विज़</strong><strong data-en>Daily Quiz</strong><span class="sub" data-hi>हर दिन 5 प्रश्न</span><span class="sub" data-en>5 questions a day</span></a>
+        <a class="sm-tile t-flash" href="/flashcards/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="14" y="10" width="28" height="40" rx="5" fill="#fff" fill-opacity=".55" transform="rotate(-8 28 30)"/><rect x="20" y="14" width="28" height="40" rx="5" fill="#fff" fill-opacity=".95"/><path d="M28 26h12M28 34h10" stroke="#047857" stroke-width="2.6" stroke-linecap="round"/><circle cx="48" cy="48" r="9" fill="#6ee7b7"/><path d="M48 43v10M43 48h10" stroke="#065f46" stroke-width="2.4" stroke-linecap="round"/></svg></span><strong data-hi>फ्लैशकार्ड</strong><strong data-en>Flashcards</strong><span class="sub" data-hi>स्वाइप से याद</span><span class="sub" data-en>Swipe to revise</span></a>
+        <a class="sm-tile t-draft" href="/ro-aro/drafting/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M14 48c8-2 14-14 16-28 1 0 10 2 14 8-8 2-16 12-20 24z" fill="#fff" fill-opacity=".95"/><path d="M30 20c6 4 12 8 16 10" stroke="#be123c" stroke-width="2.4" stroke-linecap="round"/><path d="M18 50l28-28 6 6-28 28H18z" fill="#fda4af"/><path d="M42 26l6 6" stroke="#9f1239" stroke-width="2"/><circle cx="50" cy="14" r="4" fill="#fecdd3"/></svg></span><strong data-hi>आलेखन</strong><strong data-en>Drafting</strong><span class="sub" data-hi>पत्र · ज्ञापन · परिपत्र</span><span class="sub" data-en>Letter · Memo · Circular</span></a>
+        <a class="sm-tile t-ca" href="/up-ca/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="12" width="34" height="42" rx="4" fill="#fff" fill-opacity=".95"/><path d="M14 20h22M14 28h18M14 36h20M14 44h12" stroke="#0369a1" stroke-width="2.4" stroke-linecap="round"/><circle cx="46" cy="40" r="14" fill="#7dd3fc"/><path d="M46 28a12 12 0 0 1 0 24M46 28a12 12 0 0 0 0 24M34 40h24" stroke="#0c4a6e" stroke-width="2"/><path d="M40 34c4 2 8 2 12 0M40 46c4-2 8-2 12 0" stroke="#0c4a6e" stroke-width="1.6"/></svg></span><strong data-hi>करेंट अफेयर्स</strong><strong data-en>Current Affairs</strong><span class="sub" data-hi>GS V/VI डाइजेस्ट</span><span class="sub" data-en>GS V/VI digest</span></a>
+        <a class="sm-tile t-tests" href="#tests"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="14" stroke="#be185d" stroke-width="2.5" stroke-dasharray="4 3"/><circle cx="32" cy="32" r="4" fill="#db2777"/><path d="M32 12v6M32 46v6M12 32h6M46 32h6" stroke="#f9a8d4" stroke-width="2.4" stroke-linecap="round"/><path d="M42 18l4-6 3 5" fill="#fbcfe8" stroke="#be185d" stroke-width="1.5"/></svg></span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span class="sub" data-hi>परीक्षा-स्तरीय</span><span class="sub" data-en>Exam-level</span></a>
+        <a class="sm-tile t-notes" href="#special-notes"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M18 10h22l10 10v34a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="#fff" fill-opacity=".95"/><path d="M40 10v10h10" fill="#fde68a" stroke="#b45309" stroke-width="2"/><path d="M22 30h20M22 38h16M22 46h12" stroke="#92400e" stroke-width="2.4" stroke-linecap="round"/><path d="M48 20l6 2-2 8-6-2z" fill="#fbbf24"/></svg></span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span class="sub" data-hi>कस्टम डिमांड</span><span class="sub" data-en>Custom demand</span></a>
+        <a class="sm-tile t-ncert" href="/ncert/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 16c8 0 12-4 20-4s12 4 20 4v34c-8 0-12-4-20-4s-12 4-20 4V16z" fill="#fff" fill-opacity=".95"/><path d="M32 12v34" stroke="#166534" stroke-width="2.4"/><path d="M18 24h10M18 32h10M36 24h10M36 32h10" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"/><circle cx="50" cy="48" r="7" fill="#86efac"/><path d="M47 48l2.2 2.2 4.5-5" stroke="#14532d" stroke-width="2" stroke-linecap="round"/></svg></span><strong>NCERT</strong><span class="sub" data-hi>पाठ्यपुस्तक · अभ्यास</span><span class="sub" data-en>Textbooks · practice</span></a>
+        <a class="sm-tile t-polity" href="/polity/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 48h40M16 48V22l16-10 16 10v26" fill="#fff" fill-opacity=".95" stroke="#312e81" stroke-width="2.2"/><path d="M28 48v-14h8v14" fill="#c7d2fe" stroke="#3730a3" stroke-width="2"/><path d="M22 28h4M38 28h4M22 36h4M38 36h4" stroke="#4338ca" stroke-width="2" stroke-linecap="round"/><circle cx="48" cy="16" r="8" fill="#a5b4fc"/><path d="M48 11l1.4 3.2H53l-2.7 2 1 3.2L48 17.6 45.7 19.4l1-3.2-2.7-2h3.6z" fill="#312e81"/></svg></span><strong>Polity PYQ</strong><span class="sub" data-hi>960 प्रश्न · 21 टेस्ट</span><span class="sub" data-en>960 Qs · 21 Tests</span></a>
+        <a class="sm-tile t-prelims" href="/uppcs-prelims-pyq/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="10" width="40" height="46" rx="6" fill="#fff" fill-opacity=".95"/><path d="M22 22h20M22 30h20M22 38h14" stroke="#0f766e" stroke-width="2.6" stroke-linecap="round"/><circle cx="46" cy="46" r="12" fill="#5eead4"/><path d="M41 46l3.5 3.5 7-8" stroke="#115e59" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong data-hi>UPPCS Prelims PYQ</strong><strong data-en>UPPCS Prelims PYQ</strong><span class="sub" data-hi>1200 प्रश्न · 2018–2025</span><span class="sub" data-en>1200 Qs · 2018–2025</span></a>
+      </div>
+    </div>
+
+    <div class="prod-block rv">
+      <div class="sm-head">
+        <div>
+          <h3><span data-hi>हमारे प्रोडक्ट्स</span><span data-en>Our Products</span></h3>
+          <p data-hi>मुख्य ऑफ़रिंग — स्वाइप या तीर से देखें</p>
+          <p data-en>Flagship offerings — swipe or use arrows</p>
+        </div>
+      </div>
+      <div class="prod-rail-wrap">
+        <button type="button" class="prod-nav prev" id="prodPrev" aria-label="Previous products">‹</button>
+        <div class="prod-rail" id="prodRail" tabindex="0" aria-label="Products">
+          <a class="prod-card p-tests" href="#tests"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="14" stroke="#be185d" stroke-width="2.5" stroke-dasharray="4 3"/><circle cx="32" cy="32" r="4" fill="#db2777"/><path d="M32 12v6M32 46v6M12 32h6M46 32h6" stroke="#f9a8d4" stroke-width="2.4" stroke-linecap="round"/><path d="M42 18l4-6 3 5" fill="#fbcfe8" stroke="#be185d" stroke-width="1.5"/></svg></span><span class="pc-tag">SERIES</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span class="pc-sub" data-hi>परीक्षा-स्तरीय मॉक · विषयवार</span><span class="pc-sub" data-en>Exam-level mocks · subject-wise</span><span class="pc-cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
+          <a class="prod-card p-polity" href="/polity/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 48h40M16 48V22l16-10 16 10v26" fill="#fff" fill-opacity=".95" stroke="#312e81" stroke-width="2.2"/><path d="M28 48v-14h8v14" fill="#c7d2fe" stroke="#3730a3" stroke-width="2"/><path d="M22 28h4M38 28h4M22 36h4M38 36h4" stroke="#4338ca" stroke-width="2" stroke-linecap="round"/><circle cx="48" cy="16" r="8" fill="#a5b4fc"/><path d="M48 11l1.4 3.2H53l-2.7 2 1 3.2L48 17.6 45.7 19.4l1-3.2-2.7-2h3.6z" fill="#312e81"/></svg></span><span class="pc-tag">960 Qs</span><strong>Polity PYQ</strong><span class="pc-sub" data-hi>30+ वर्षों के UPPCS राजव्यवस्था प्रश्न</span><span class="pc-sub" data-en>30+ years of UPPCS Polity questions</span><span class="pc-cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span></a>
+          <a class="prod-card p-prelims" href="/uppcs-prelims-pyq/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="10" width="40" height="46" rx="6" fill="#fff" fill-opacity=".95"/><path d="M22 22h20M22 30h20M22 38h14" stroke="#0f766e" stroke-width="2.6" stroke-linecap="round"/><circle cx="46" cy="46" r="12" fill="#5eead4"/><path d="M41 46l3.5 3.5 7-8" stroke="#115e59" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="pc-tag">1200 Qs</span><strong data-hi>Prelims PYQ 2018–25</strong><strong data-en>Prelims PYQ 2018–25</strong><span class="pc-sub" data-hi>सभी विषयों के कुल प्रश्न</span><span class="pc-sub" data-en>All subjects · full paper cover</span><span class="pc-cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span></a>
+          <a class="prod-card p-notes" href="#special-notes"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M18 10h22l10 10v34a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="#fff" fill-opacity=".95"/><path d="M40 10v10h10" fill="#fde68a" stroke="#b45309" stroke-width="2"/><path d="M22 30h20M22 38h16M22 46h12" stroke="#92400e" stroke-width="2.4" stroke-linecap="round"/><path d="M48 20l6 2-2 8-6-2z" fill="#fbbf24"/></svg></span><span class="pc-tag">NOTES</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span class="pc-sub" data-hi>कस्टम डिमांड · सभी विषय</span><span class="pc-sub" data-en>Custom demand · all subjects</span><span class="pc-cta"><span data-hi>जानें →</span><span data-en>Explore →</span></span></a>
+          <a class="prod-card p-csat" href="/csat/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="14" width="48" height="36" rx="8" fill="#fff" fill-opacity=".95"/><path d="M18 28h10M18 36h16M36 28h10" stroke="#5b21b6" stroke-width="2.8" stroke-linecap="round"/><circle cx="48" cy="44" r="12" fill="#c4b5fd"/><path d="M43 44l3.5 3.5 7-8" stroke="#4c1d95" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="pc-tag">CSAT</span><strong>CSAT Practice</strong><span class="pc-sub" data-hi>12 टॉपिक ड्रिल · रीज़निंग · मैथ्स</span><span class="pc-sub" data-en>12 topic drills · reasoning · maths</span><span class="pc-cta"><span data-hi>अभ्यास →</span><span data-en>Practice →</span></span></a>
+          <a class="prod-card p-daily" href="/daily/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="16" stroke="#b45309" stroke-width="3"/><path d="M32 18v15l10 6" stroke="#d97706" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="3" fill="#f59e0b"/><path d="M48 14l4 2M52 22l4-1" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/></svg></span><span class="pc-tag">DAILY</span><strong data-hi>डेली क्विज़</strong><strong data-en>Daily Quiz</strong><span class="pc-sub" data-hi>हर दिन 5 नए प्रश्न</span><span class="pc-sub" data-en>5 fresh questions every day</span><span class="pc-cta"><span data-hi>आज का क्विज़ →</span><span data-en>Today's quiz →</span></span></a>
+        </div>
+        <button type="button" class="prod-nav next" id="prodNext" aria-label="Next products">›</button>
+      </div>
     </div>
   </div>
 </section>
@@ -1198,13 +1290,15 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
       <p class="hint" data-hi>Website · Telegram · WhatsApp · Instagram · Email — एक क्लिक में</p>
       <p class="hint" data-en>Website · Telegram · WhatsApp · Instagram · Email — one click away</p>
       <div class="sn-btns">
-        <a class="btn btn-gold" href="https://t.me/genclassesofficial" target="_blank" rel="noopener"><span data-hi>Telegram पर माँगें</span><span data-en>Request on Telegram</span></a>
+        <a class="btn btn-gold" href="https://t.me/genclassessupport" target="_blank" rel="noopener"><span data-hi>Telegram पर माँगें</span><span data-en>Request on Telegram</span></a>
+        <a class="btn btn-ghost" href="https://t.me/genclassessupport" target="_blank" rel="noopener"><span data-hi>Telegram सपोर्ट ग्रुप</span><span data-en>Telegram Support Group</span></a>
         <a class="btn btn-ghost" href="https://wa.me/919506321415" target="_blank" rel="noopener"><span data-hi>WhatsApp सपोर्ट</span><span data-en>WhatsApp Support</span></a>
         <a class="btn btn-ghost" href="mailto:genclassessupport@gmail.com?subject=Notes%20request"><span data-hi>ईमेल भेजें</span><span data-en>Send email</span></a>
         <a class="btn btn-ghost" href="#notes"><span data-hi>अध्ययन-सामग्री देखें</span><span data-en>View study material</span></a>
       </div>
       <p class="sn-meta">
         <a href="https://genclasses.com">genclasses.com</a>
+        · <a href="https://t.me/genclassessupport" target="_blank" rel="noopener">t.me/genclassessupport</a>
         · <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">t.me/genclassesofficial</a>
         · <a href="https://wa.me/919506321415" target="_blank" rel="noopener">WhatsApp 9506321415</a>
         · <a href="https://www.instagram.com/genclasses" target="_blank" rel="noopener">@genclasses</a>
@@ -1264,7 +1358,7 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
       <h2 data-hi>पाठ्यक्रम से अभ्यास तक — <em>यहीं</em></h2>
       <h2 data-en>From syllabus to practice — <em>here</em></h2>
       <p data-hi>सिलेबस, CSAT, डेली क्विज़, फ्लैशकार्ड, आलेखन व UP करंट — बिना भारी PDF के।</p>
-      <p data-en>Syllabus, CSAT, daily quiz, flashcards, drafting & UP CA — without heavy PDFs.</p>
+      <p data-en>Syllabus, CSAT, daily quiz, flashcards, drafting & Current Affairs — without heavy PDFs.</p>
     </div>
     <div class="rv" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:8px">
       <a href="/syllabus/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
@@ -1318,6 +1412,10 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
     <p data-hi>Telegram · WhatsApp · Instagram · ईमेल — जहाँ सुविधा हो, वहीं हमसे जुड़ें।</p>
     <p data-en>Telegram · WhatsApp · Instagram · Email — reach us wherever suits you.</p>
     <div class="plats">
+      <a class="plat" href="https://t.me/genclassessupport" target="_blank" rel="noopener" aria-label="Telegram Support Group">
+        <span class="pic">✈</span>
+        <span>Telegram Support Group<small>t.me/genclassessupport</small></span>
+      </a>
       <a class="plat" href="https://t.me/genclassesofficial" target="_blank" rel="noopener" aria-label="Telegram official">
         <span class="pic">✈</span>
         <span>Telegram Official<small>t.me/genclassesofficial</small></span>
@@ -1445,6 +1543,7 @@ html[data-theme="light"] .marq .grp i{color:#172E5C}
   <div class="foot-social" aria-label="Social links">
     <a class="wa" href="https://wa.me/919506321415" target="_blank" rel="noopener">WhatsApp · 9506321415</a>
     <a class="ig" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener">Instagram · @genclasses</a>
+    <a href="https://t.me/genclassessupport" target="_blank" rel="noopener">Telegram Support</a>
     <a href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a>
     <a href="mailto:genclassessupport@gmail.com">Gmail</a>
   </div>
@@ -2251,5 +2350,26 @@ if (yr) yr.textContent = new Date().getFullYear();
 </a>
 
 <script src="/assets/visit-counter.js" defer data-gc-visit-counter="1"></script>
+
+<script>
+(function(){
+  var rail = document.getElementById('prodRail');
+  if(!rail) return;
+  var prev = document.getElementById('prodPrev');
+  var next = document.getElementById('prodNext');
+  function step(){
+    var card = rail.querySelector('.prod-card');
+    if(!card) return Math.min(280, rail.clientWidth * 0.8);
+    var gap = 14;
+    return card.getBoundingClientRect().width + gap;
+  }
+  function go(dir){
+    rail.scrollBy({ left: dir * step(), behavior: 'smooth' });
+  }
+  if(prev) prev.addEventListener('click', function(e){ e.preventDefault(); go(-1); });
+  if(next) next.addEventListener('click', function(e){ e.preventDefault(); go(1); });
+})();
+</script>
+
 </body>
 </html>
