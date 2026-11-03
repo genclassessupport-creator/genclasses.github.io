@@ -1,6 +1,81 @@
 {
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "days": [
+    {
+      "date": "2026-11-03",
+      "points": [
+        {
+          "tag_hi": "रक्षा",
+          "tag_en": "Defence",
+          "hi": "रक्षा मंत्रालय ने 2 नवंबर 2026 को नौसेना के 8 नेक्स्ट जनरेशन कॉर्वेट के लिए ₹53,866.50 करोड़ के अनुबंध किए। 5 पोत GRSE (कोलकाता) और 3 गोवा शिपयार्ड बनाएगा। ये पनडुब्बी-रोधी और सतह-युद्ध क्षमता बढ़ाएँगे।",
+          "en": "On 2 Nov 2026 the Defence Ministry signed contracts worth ₹53,866.50 crore for 8 Next Generation Corvettes for the Navy. GRSE (Kolkata) will build 5 and Goa Shipyard 3. They will boost anti-submarine and anti-surface warfare capability.",
+          "src": "https://www.business-standard.com/amp/external-affairs-defence-security/news/defence-ministry-rs-53866-crore-contracts-eight-next-generation-corvettes-126110200531_1.html"
+        },
+        {
+          "tag_hi": "ऊर्जा",
+          "tag_en": "Energy",
+          "hi": "प्रधानमंत्री ने 2 नवंबर को भारत मंडपम, नई दिल्ली में 'भारत नवीकरणीय ऊर्जा शिखर सम्मेलन एवं एक्सपो 2026' (2–5 नवंबर) का उद्घाटन किया। आयोजक MNRE है; साथ में अंतरराष्ट्रीय सौर गठबंधन (ISA) सभा का 9वाँ सत्र और ग्रीन हाइड्रोजन पर चौथा अंतरराष्ट्रीय सम्मेलन हो रहा है।",
+          "en": "On 2 Nov the PM inaugurated the Bharat Renewable Energy Summit & Expo 2026 (2–5 Nov) at Bharat Mandapam, New Delhi. Organised by MNRE, it runs alongside the 9th session of the International Solar Alliance (ISA) Assembly and the 4th International Conference on Green Hydrogen.",
+          "src": "https://isa.int/bharat-re-summit"
+        },
+        {
+          "tag_hi": "रक्षा",
+          "tag_en": "Defence",
+          "hi": "रक्षा मंत्री राजनाथ सिंह की अध्यक्षता वाली रक्षा अधिग्रहण परिषद (DAC) ने नौसेना के अगली पीढ़ी के स्टेल्थ विध्वंसक 'प्रोजेक्ट-18A' को सैद्धांतिक मंज़ूरी दी। अनुमानित लागत ₹75,000 करोड़ से अधिक है। यह विशाखापत्तनम श्रेणी के बाद की श्रेणी होगी।",
+          "en": "The Defence Acquisition Council (DAC), chaired by Defence Minister Rajnath Singh, gave in-principle approval to Project-18A, the Navy's next-generation stealth destroyers. Estimated cost is over ₹75,000 crore. It will follow the Visakhapatnam class.",
+          "src": "https://www.newsbytesapp.com/news/india/indias-project-18a-gets-in-principle-approval-over-rs75000-cr/tldr"
+        },
+        {
+          "tag_hi": "खेल",
+          "tag_en": "Sports",
+          "hi": "मनीषा भानवाला सीनियर विश्व कुश्ती चैंपियनशिप (अस्ताना, कज़ाख़स्तान) में स्वर्ण जीतने वाली पहली भारतीय महिला बनीं। 59 किग्रा फ़ाइनल में उन्होंने अमेरिका की एबिगेल नेट को 8-6 से हराया। सुशील कुमार (2010) के बाद वे दूसरी भारतीय विश्व चैंपियन हैं।",
+          "en": "Manisha Bhanwala became the first Indian woman to win gold at the Senior World Wrestling Championships (Astana, Kazakhstan). She beat Abigail Nette of the USA 8-6 in the 59 kg final. She is India's second world champion after Sushil Kumar (2010).",
+          "src": "https://www.theweek.in/wire-updates/sports/2026/10/30/manisha-scripts-history-becomes-india-s-first-woman-wrestling-world-champion.amp.html"
+        },
+        {
+          "tag_hi": "अर्थव्यवस्था",
+          "tag_en": "Economy",
+          "hi": "केंद्र ने 31 अक्टूबर को राज्यों को कर-हस्तांतरण की दूसरी अतिरिक्त किस्त ₹1,09,019 करोड़ जारी की। सबसे अधिक ₹19,208 करोड़ उत्तर प्रदेश को और ₹10,845 करोड़ बिहार को मिले। उद्देश्य राज्यों का पूँजीगत व्यय तेज़ करना है।",
+          "en": "On 31 Oct the Centre released a second additional instalment of tax devolution of ₹1,09,019 crore to states. Uttar Pradesh got the most, ₹19,208 crore, and Bihar ₹10,845 crore. The aim is to speed up states' capital spending.",
+          "src": "https://newsonair.gov.in/centre-releases-additional-instalment-of-tax-devolution-to-state-governments/"
+        },
+        {
+          "tag_hi": "उत्तर प्रदेश",
+          "tag_en": "Uttar Pradesh",
+          "hi": "मुख्यमंत्री योगी आदित्यनाथ ने 31 अक्टूबर को लोक भवन, लखनऊ में ₹1,725 करोड़ की 'सरदार वल्लभभाई पटेल कौशल प्रशिक्षण एवं रोज़गार क्षेत्र विकास योजना' शुरू की। पहले चरण में लखनऊ, गोरखपुर, कानपुर, झाँसी और गौतमबुद्ध नगर में केंद्र बनेंगे।",
+          "en": "On 31 Oct CM Yogi Adityanath launched the ₹1,725 crore 'Sardar Vallabhbhai Patel Skill Training and Employment Zone Development Scheme' at Lok Bhavan, Lucknow. In phase one, centres will come up in Lucknow, Gorakhpur, Kanpur, Jhansi and Gautam Buddh Nagar.",
+          "src": "https://www.aajtak.in/uttar-pradesh/story/cm-yogi-adityanath-sardar-patel-skill-employment-scheme-up-1725-crore-utrat-lcln-rpti-2684568-2026-10-30"
+        },
+        {
+          "tag_hi": "उत्तर प्रदेश",
+          "tag_en": "Uttar Pradesh",
+          "hi": "उत्तर प्रदेश के बिजली उपभोक्ताओं को नवंबर 2026 के बिल में ईंधन एवं विद्युत क्रय समायोजन अधिभार (FPPAS) के तहत 9.17% की छूट मिलेगी, जो अब तक की सबसे अधिक है। यह लगातार पाँचवाँ महीना है जब बिल घटा है।",
+          "en": "Uttar Pradesh power consumers will get a 9.17% cut in their November 2026 bills under the Fuel and Power Purchase Adjustment Surcharge (FPPAS), the highest so far. It is the fifth straight month of such relief.",
+          "src": "https://www.republicbharat.com/india/uttar-pradesh/up-power-consumers-to-get-highest-ever-917-relief-in-nov-bills-to-save-rs-645-cr-2026-10-29-132355"
+        },
+        {
+          "tag_hi": "नियुक्ति",
+          "tag_en": "Appointment",
+          "hi": "एयर मार्शल मेहताब सिंह देसवाल ने 1 नवंबर 2026 को वायुसेना की पूर्वी वायु कमान के कमांडर-इन-चीफ (AOC-in-C) का पद संभाला। उन्होंने इंद्रपाल सिंह वालिया का स्थान लिया, जो वायुसेना उप-प्रमुख बने। पूर्वी वायु कमान का मुख्यालय शिलांग (मेघालय) में है।",
+          "en": "Air Marshal Mehtab Singh Deswal took over as AOC-in-C of the IAF's Eastern Air Command on 1 Nov 2026. He succeeded Inderpal Singh Walia, who became Vice Chief of the Air Staff. Eastern Air Command is headquartered in Shillong, Meghalaya.",
+          "src": "https://en.wikipedia.org/wiki/Eastern_Air_Command_(India)"
+        },
+        {
+          "tag_hi": "स्वास्थ्य",
+          "tag_en": "Health",
+          "hi": "असम सरकार गुवाहाटी मेडिकल कॉलेज (GMCH) में ₹600 करोड़ का प्रोटॉन बीम थेरेपी केंद्र बनाएगी, जो सार्वजनिक क्षेत्र में देश का पहला होगा। ₹315 करोड़ विश्व बैंक ऋण से और ₹285 करोड़ राज्य देगा। इसके लिए बेल्जियम की कंपनी IBA से समझौता हुआ।",
+          "en": "Assam will set up a ₹600 crore Proton Beam Therapy Centre at Gauhati Medical College (GMCH), India's first in the public sector. ₹315 crore comes from a World Bank loan and ₹285 crore from the state. An agreement was signed with Belgium's IBA.",
+          "src": "https://www.sentinelassam.com/breakingnews/assam-cabinet-approves-rs-600-crore-proton-beam-therapy-unit-at-gmch"
+        },
+        {
+          "tag_hi": "स्थैतिक",
+          "tag_en": "Static GK",
+          "hi": "2 नवंबर को 'पत्रकारों के विरुद्ध अपराधों में दंड-मुक्ति समाप्त करने का अंतरराष्ट्रीय दिवस' मनाया जाता है। संयुक्त राष्ट्र महासभा ने इसे 2013 में घोषित किया; यह 2 नवंबर 2013 को माली में मारे गए दो फ़्रांसीसी पत्रकारों की याद में है।",
+          "en": "2 November is the International Day to End Impunity for Crimes against Journalists. The UN General Assembly proclaimed it in 2013, in memory of two French journalists killed in Mali on 2 Nov 2013.",
+          "src": "https://www.unesco.org/en/days/end-impunity"
+        }
+      ]
+    },
     {
       "date": "2026-11-02",
       "points": [
