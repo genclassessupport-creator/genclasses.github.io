@@ -1,5 +1,100 @@
 [
- {"id":"ca","file":"uppcs-2026-current-affairs-400-questions-genclasses","en":"Current Affairs 400 Q","hi":"करेंट अफ़ेयर्स 400 प्रश्न"},
- {"id":"b1","file":"uppcs-2026-infographic-booklet-part1-genclasses","en":"Infographics · Part 1","hi":"इन्फोग्राफ़िक · भाग 1"},
- {"id":"b2","file":"uppcs-2026-infographic-booklet-part2-genclasses","en":"Infographics · Part 2","hi":"इन्फोग्राफ़िक · भाग 2"}
+ {
+  "id": "hist-hi",
+  "file": "indian-history-quick-revision-hindi-genclasses",
+  "section": "booklets",
+  "hi": "इतिहास (हिंदी)",
+  "en": "History (HI)"
+ },
+ {
+  "id": "hist-en",
+  "file": "indian-history-quick-revision-english-genclasses",
+  "section": "booklets",
+  "hi": "History (EN)",
+  "en": "History (EN)"
+ },
+ {
+  "id": "geo-hi",
+  "file": "geography-quick-revision-hindi-genclasses",
+  "section": "booklets",
+  "hi": "भूगोल (हिंदी)",
+  "en": "Geography (HI)"
+ },
+ {
+  "id": "geo-en",
+  "file": "geography-quick-revision-english-genclasses",
+  "section": "booklets",
+  "hi": "Geography (EN)",
+  "en": "Geography (EN)"
+ },
+ {
+  "id": "eco-hi",
+  "file": "indian-economy-quick-revision-hindi-genclasses",
+  "section": "booklets",
+  "hi": "अर्थव्यवस्था (हिंदी)",
+  "en": "Economy (HI)"
+ },
+ {
+  "id": "eco-en",
+  "file": "indian-economy-quick-revision-english-genclasses",
+  "section": "booklets",
+  "hi": "Economy (EN)",
+  "en": "Economy (EN)"
+ },
+ {
+  "id": "megh-hi",
+  "file": "meghastra-current-affairs-2025-26-hindi-genclasses",
+  "section": "ca",
+  "hi": "मेघास्त्र CA (हिंदी)",
+  "en": "Meghastra CA (HI)"
+ },
+ {
+  "id": "megh-en",
+  "file": "meghastra-current-affairs-2025-26-english-genclasses",
+  "section": "ca",
+  "hi": "Meghastra CA (EN)",
+  "en": "Meghastra CA (EN)"
+ },
+ {
+  "id": "ca",
+  "file": "uppcs-2026-current-affairs-400-questions-genclasses",
+  "section": "ca",
+  "hi": "करेंट अफ़ेयर्स 400 प्रश्न",
+  "en": "Current Affairs 400 Q"
+ },
+ {
+  "id": "ol-hi",
+  "file": "current-affairs-one-liners-p1-hindi-genclasses",
+  "section": "ca",
+  "hi": "CA वन-लाइनर (हिंदी)",
+  "en": "CA One-liners (HI)"
+ },
+ {
+  "id": "ol-en",
+  "file": "current-affairs-one-liners-p1-english-genclasses",
+  "section": "ca",
+  "hi": "CA One-liners (EN)",
+  "en": "CA One-liners (EN)"
+ },
+ {
+  "id": "pib",
+  "file": "pib-short-notes-jan-oct-2026-hindi-genclasses",
+  "section": "ca",
+  "hi": "PIB नोट्स (हिंदी)",
+  "en": "PIB Notes (HI)"
+ },
+ {
+  "id": "b1",
+  "file": "uppcs-2026-infographic-booklet-part1-genclasses",
+  "section": "info",
+  "hi": "इन्फोग्राफ़िक · भाग 1",
+  "en": "Infographics · Part 1"
+ },
+ {
+  "id": "b2",
+  "file": "uppcs-2026-infographic-booklet-part2-genclasses",
+  "section": "info",
+  "hi": "इन्फोग्राफ़िक · भाग 2",
+  "en": "Infographics · Part 2"
+ }
 ]
