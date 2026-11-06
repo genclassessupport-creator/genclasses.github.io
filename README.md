@@ -1,6 +1,23 @@
 # GenClasses वेबसाइट
 
-यह एक तैयार वेबसाइट है। मुखपृष्ठ, टेस्ट-इंजन, लाइट/डार्क थीम, हिंदी-English भाषा-टॉगल, वॉटरमार्क और PDF वाले परिणाम, सब चालू हैं। सामग्री (टेस्ट और नोट्स) इसमें नहीं है; केवल एक नमूना टेस्ट है।
+GenClasses में विषयवार टेस्ट, PDF पुस्तकें, विज़ुअल नोट्स, फ्लैशकार्ड और सिलेबस रोडमैप उपलब्ध हैं। नए learning pages में Hindi/English, light/dark theme और इसी ब्राउज़र में सहेजी गई प्रगति समर्थित है।
+
+## Visual learning, flashcards and syllabus
+
+- `/learn/`: 12 illustrated foundation lessons; source content is in `content/foundations.mjs`.
+- `/flashcards/`: 68 cards, explicit reveal, remembered/review modes, shuffle, undo and round summaries. Existing `gen_flash` progress is retained.
+- `/syllabus/`: five exam pathways, topic search and checklists. Existing `gen_syll_prog` exam keys are retained. Detailed syllabus text is maintained in `content/syllabus-source.json`; confirm commission notifications before updating exam rules.
+- Six untimed, bilingual foundation sets (10 questions each) are generated from `content/practice.mjs`. These are original practice, not official PYQs or full mock papers. Some questions also appear in foundation lessons for revision.
+- Theme and language preferences use the existing `gen_theme` and `gen_lang` keys. Progress stays in the current browser; no account or server sync is implied.
+
+Regenerate the static pages after editing content:
+
+```sh
+node tools/build-studios.mjs
+node tools/check-learning.mjs
+```
+
+The second command refreshes `files.json` and validates generated content, internal links, IDs and JavaScript syntax. Hosting remains static GitHub Pages; no dependency installation is required. The homepage is edited directly rather than regenerated.
 
 ## फ़ोल्डर
 

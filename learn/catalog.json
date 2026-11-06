@@ -1,0 +1,158 @@
+[
+  {
+    "id": "polity",
+    "name": [
+      "राजव्यवस्था",
+      "Polity"
+    ],
+    "title": [
+      "संविधान की तीन आधारशिलाएँ",
+      "Three pillars of the Constitution"
+    ],
+    "color": "indigo",
+    "path": "notes/polity.html"
+  },
+  {
+    "id": "history",
+    "name": [
+      "इतिहास",
+      "History"
+    ],
+    "title": [
+      "राष्ट्रीय आंदोलन: समय से संबंध तक",
+      "The national movement, connected"
+    ],
+    "color": "amber",
+    "path": "notes/history.html"
+  },
+  {
+    "id": "geography",
+    "name": [
+      "भूगोल",
+      "Geography"
+    ],
+    "title": [
+      "पृथ्वी का पता: अक्षांश और देशांतर",
+      "Earth’s address: latitude & longitude"
+    ],
+    "color": "teal",
+    "path": "notes/geography.html"
+  },
+  {
+    "id": "economy",
+    "name": [
+      "अर्थव्यवस्था",
+      "Economy"
+    ],
+    "title": [
+      "कीमत, महँगाई और आपकी क्रयशक्ति",
+      "Prices, inflation & purchasing power"
+    ],
+    "color": "coral",
+    "path": "notes/economy.html"
+  },
+  {
+    "id": "environment",
+    "name": [
+      "पर्यावरण",
+      "Environment"
+    ],
+    "title": [
+      "खाद्य शृंखला में ऊर्जा की यात्रा",
+      "Follow energy through a food chain"
+    ],
+    "color": "green",
+    "path": "notes/environment.html"
+  },
+  {
+    "id": "science",
+    "name": [
+      "विज्ञान",
+      "Science"
+    ],
+    "title": [
+      "पदार्थ: वही कण, अलग व्यवस्था",
+      "Matter: same particles, new arrangements"
+    ],
+    "color": "violet",
+    "path": "notes/science.html"
+  },
+  {
+    "id": "culture",
+    "name": [
+      "कला एवं संस्कृति",
+      "Art & Culture"
+    ],
+    "title": [
+      "विरासत को पढ़ने के तीन नज़रिए",
+      "Three ways to read heritage"
+    ],
+    "color": "amber",
+    "path": "notes/culture.html"
+  },
+  {
+    "id": "ethics",
+    "name": [
+      "नीतिशास्त्र",
+      "Ethics"
+    ],
+    "title": [
+      "अच्छे निर्णय का चार-चरण फ्रेम",
+      "A four-step frame for ethical decisions"
+    ],
+    "color": "teal",
+    "path": "notes/ethics.html"
+  },
+  {
+    "id": "csat",
+    "name": [
+      "CSAT",
+      "CSAT"
+    ],
+    "title": [
+      "प्रतिशत: रटने से पहले समझें",
+      "Percentages that finally click"
+    ],
+    "color": "coral",
+    "path": "notes/csat.html"
+  },
+  {
+    "id": "up-special",
+    "name": [
+      "उत्तर प्रदेश",
+      "Uttar Pradesh"
+    ],
+    "title": [
+      "नदियों से समझें उत्तर प्रदेश",
+      "Read Uttar Pradesh through its rivers"
+    ],
+    "color": "indigo",
+    "path": "notes/up-special.html"
+  },
+  {
+    "id": "current-affairs",
+    "name": [
+      "करंट अफेयर्स",
+      "Current Affairs"
+    ],
+    "title": [
+      "एक खबर से परीक्षा योग्य नोट तक",
+      "Turn a headline into a useful note"
+    ],
+    "color": "green",
+    "path": "notes/current-affairs.html"
+  },
+  {
+    "id": "international-relations",
+    "name": [
+      "अंतरराष्ट्रीय संबंध",
+      "International Relations"
+    ],
+    "title": [
+      "संयुक्त राष्ट्र: कौन क्या करता है?",
+      "The UN: who does what?"
+    ],
+    "color": "violet",
+    "path": "notes/international-relations.html"
+  }
+]

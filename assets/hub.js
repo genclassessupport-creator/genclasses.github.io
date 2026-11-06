@@ -11,9 +11,9 @@
   }catch(e){document.documentElement.setAttribute('lang','en');}
   window.genToggleTheme=function(){
     var dark=!document.documentElement.getAttribute('data-theme');
-    if(dark){document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('gen_theme','dark');}catch(e){}}
-    else{document.documentElement.setAttribute('data-theme','light');try{localStorage.setItem('gen_theme','light');}catch(e){}}
-    var b=document.getElementById('themeBtn'); if(b) b.textContent=dark?'☀️':'🌙';
+    if(dark){document.documentElement.setAttribute('data-theme','light');try{localStorage.setItem('gen_theme','light');}catch(e){}}
+    else{document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('gen_theme','dark');}catch(e){}}
+    var b=document.getElementById('themeBtn'); if(b) b.textContent=dark?'🌙':'☀️';
   };
   window.genToggleLang=function(){
     var cur=document.documentElement.getAttribute('lang')||'en';

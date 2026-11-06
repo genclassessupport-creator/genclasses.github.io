@@ -1,0 +1,128 @@
+[
+  {
+    "id": "paryay-vilom",
+    "name": [
+      "पर्याय और विलोम",
+      "Hindi word pairs"
+    ],
+    "color": "amber",
+    "icon": "अ"
+  },
+  {
+    "id": "muhavare",
+    "name": [
+      "हिंदी मुहावरे",
+      "Hindi idioms"
+    ],
+    "color": "coral",
+    "icon": "क"
+  },
+  {
+    "id": "polity",
+    "name": [
+      "राजव्यवस्था",
+      "Polity"
+    ],
+    "color": "indigo",
+    "icon": "र"
+  },
+  {
+    "id": "history",
+    "name": [
+      "इतिहास",
+      "History"
+    ],
+    "color": "amber",
+    "icon": "इ"
+  },
+  {
+    "id": "geography",
+    "name": [
+      "भूगोल",
+      "Geography"
+    ],
+    "color": "teal",
+    "icon": "भ"
+  },
+  {
+    "id": "economy",
+    "name": [
+      "अर्थव्यवस्था",
+      "Economy"
+    ],
+    "color": "coral",
+    "icon": "अ"
+  },
+  {
+    "id": "environment",
+    "name": [
+      "पर्यावरण",
+      "Environment"
+    ],
+    "color": "green",
+    "icon": "प"
+  },
+  {
+    "id": "science",
+    "name": [
+      "विज्ञान",
+      "Science"
+    ],
+    "color": "violet",
+    "icon": "व"
+  },
+  {
+    "id": "culture",
+    "name": [
+      "कला एवं संस्कृति",
+      "Art & Culture"
+    ],
+    "color": "amber",
+    "icon": "क"
+  },
+  {
+    "id": "ethics",
+    "name": [
+      "नीतिशास्त्र",
+      "Ethics"
+    ],
+    "color": "teal",
+    "icon": "न"
+  },
+  {
+    "id": "csat",
+    "name": [
+      "CSAT",
+      "CSAT"
+    ],
+    "color": "coral",
+    "icon": "C"
+  },
+  {
+    "id": "up-special",
+    "name": [
+      "उत्तर प्रदेश",
+      "Uttar Pradesh"
+    ],
+    "color": "indigo",
+    "icon": "उ"
+  },
+  {
+    "id": "current-affairs",
+    "name": [
+      "करंट अफेयर्स",
+      "Current Affairs"
+    ],
+    "color": "green",
+    "icon": "क"
+  },
+  {
+    "id": "international-relations",
+    "name": [
+      "अंतरराष्ट्रीय संबंध",
+      "International Relations"
+    ],
+    "color": "violet",
+    "icon": "अ"
+  }
+]

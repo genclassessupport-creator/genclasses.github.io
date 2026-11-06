@@ -1,0 +1,427 @@
+[
+  {
+    "id": "uppcs-prelims",
+    "name": "UPPCS",
+    "stage": "Prelims",
+    "color": "indigo",
+    "description": [
+      "GS I + CSAT",
+      "GS I + CSAT"
+    ],
+    "official": "https://uppsc.up.nic.in/",
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "करंट अफेयर्स",
+          "Current events"
+        ],
+        "learn": "/notes/current-affairs.html",
+        "practice": "/up-ca/"
+      },
+      {
+        "id": "1",
+        "label": [
+          "इतिहास और राष्ट्रीय आंदोलन",
+          "History & National Movement"
+        ],
+        "learn": "/notes/history.html",
+        "practice": "/uppcs-prelims-pyq/"
+      },
+      {
+        "id": "2",
+        "label": [
+          "भूगोल",
+          "Geography"
+        ],
+        "learn": "/notes/geography.html",
+        "practice": "/downloads/#pdf-geo-hi"
+      },
+      {
+        "id": "3",
+        "label": [
+          "राजव्यवस्था और शासन",
+          "Polity & Governance"
+        ],
+        "learn": "/notes/polity.html",
+        "practice": "/polity/"
+      },
+      {
+        "id": "4",
+        "label": [
+          "अर्थव्यवस्था और सामाजिक विकास",
+          "Economy & Social Development"
+        ],
+        "learn": "/notes/economy.html",
+        "practice": "/downloads/#pdf-eco-hi"
+      },
+      {
+        "id": "5",
+        "label": [
+          "पर्यावरण और पारिस्थितिकी",
+          "Environment & Ecology"
+        ],
+        "learn": "/notes/environment.html",
+        "practice": "/uppcs-prelims-pyq/"
+      },
+      {
+        "id": "6",
+        "label": [
+          "सामान्य विज्ञान",
+          "General Science"
+        ],
+        "learn": "/notes/science.html",
+        "practice": "/tests/ncert/Science-Foundation-Practice.html"
+      },
+      {
+        "id": "7",
+        "label": [
+          "CSAT: गद्यांश",
+          "CSAT: Comprehension"
+        ],
+        "learn": "/notes/csat.html",
+        "practice": "/tests/csat/test/Quantitative-Foundation-Practice.html"
+      },
+      {
+        "id": "8",
+        "label": [
+          "CSAT: तर्क और निर्णय",
+          "CSAT: Reasoning & Decision"
+        ],
+        "learn": "/notes/csat.html",
+        "practice": "/tests/csat/test/Quantitative-Foundation-Practice.html"
+      },
+      {
+        "id": "9",
+        "label": [
+          "CSAT: गणित और आँकड़े",
+          "CSAT: Maths & DI"
+        ],
+        "learn": "/notes/csat.html",
+        "practice": "/tests/csat/test/Quantitative-Foundation-Practice.html"
+      }
+    ]
+  },
+  {
+    "id": "uppcs-mains",
+    "name": "UPPCS",
+    "stage": "Mains",
+    "color": "amber",
+    "description": [
+      "लिखें, जोड़ें, विश्लेषण करें",
+      "Write, connect, analyse"
+    ],
+    "official": "https://uppsc.up.nic.in/",
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "सामान्य हिंदी",
+          "General Hindi"
+        ],
+        "learn": "/csat/hindi-vakya-shuddhi.html",
+        "practice": "/csat/hindi-paryay-vilom.html"
+      },
+      {
+        "id": "1",
+        "label": [
+          "निबंध",
+          "Essay"
+        ],
+        "learn": "/notes/ethics.html",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "2",
+        "label": [
+          "GS I: इतिहास, समाज, भूगोल",
+          "GS I"
+        ],
+        "learn": "/notes/history.html",
+        "practice": "/uppcs-prelims-pyq/"
+      },
+      {
+        "id": "3",
+        "label": [
+          "GS II: संविधान और शासन",
+          "GS II"
+        ],
+        "learn": "/notes/polity.html",
+        "practice": "/polity/"
+      },
+      {
+        "id": "4",
+        "label": [
+          "GS III: अर्थव्यवस्था और विज्ञान",
+          "GS III"
+        ],
+        "learn": "/notes/economy.html",
+        "practice": "/downloads/#pdf-eco-hi"
+      },
+      {
+        "id": "5",
+        "label": [
+          "GS IV: नीतिशास्त्र",
+          "GS IV"
+        ],
+        "learn": "/notes/ethics.html",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "6",
+        "label": [
+          "GS V: उत्तर प्रदेश",
+          "GS V (UP)"
+        ],
+        "learn": "/notes/up-special.html",
+        "practice": "/tests/upspecial/UP-Geography-Foundation-Practice.html"
+      },
+      {
+        "id": "7",
+        "label": [
+          "GS VI: उत्तर प्रदेश",
+          "GS VI (UP)"
+        ],
+        "learn": "/notes/up-special.html",
+        "practice": "/tests/upspecial/UP-Geography-Foundation-Practice.html"
+      }
+    ]
+  },
+  {
+    "id": "upsc-prelims",
+    "name": "UPSC CSE",
+    "stage": "Prelims",
+    "color": "teal",
+    "description": [
+      "GS I + CSAT",
+      "GS I + CSAT"
+    ],
+    "official": "https://upsc.gov.in/",
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "इतिहास",
+          "History"
+        ],
+        "learn": "/notes/history.html",
+        "practice": "/uppcs-prelims-pyq/"
+      },
+      {
+        "id": "1",
+        "label": [
+          "भूगोल",
+          "Geography"
+        ],
+        "learn": "/notes/geography.html",
+        "practice": "/downloads/#pdf-geo-hi"
+      },
+      {
+        "id": "2",
+        "label": [
+          "राजव्यवस्था",
+          "Polity"
+        ],
+        "learn": "/notes/polity.html",
+        "practice": "/polity/"
+      },
+      {
+        "id": "3",
+        "label": [
+          "अर्थव्यवस्था",
+          "Economy"
+        ],
+        "learn": "/notes/economy.html",
+        "practice": "/downloads/#pdf-eco-hi"
+      },
+      {
+        "id": "4",
+        "label": [
+          "पर्यावरण",
+          "Environment"
+        ],
+        "learn": "/notes/environment.html",
+        "practice": "/uppcs-prelims-pyq/"
+      },
+      {
+        "id": "5",
+        "label": [
+          "विज्ञान और तकनीक",
+          "Science & Tech"
+        ],
+        "learn": "/notes/science.html",
+        "practice": "/tests/ncert/Science-Foundation-Practice.html"
+      },
+      {
+        "id": "6",
+        "label": [
+          "करंट अफेयर्स",
+          "Current Affairs"
+        ],
+        "learn": "/notes/current-affairs.html",
+        "practice": "/up-ca/"
+      },
+      {
+        "id": "7",
+        "label": [
+          "CSAT",
+          "CSAT"
+        ],
+        "learn": "/notes/csat.html",
+        "practice": "/tests/csat/test/Quantitative-Foundation-Practice.html"
+      }
+    ]
+  },
+  {
+    "id": "upsc-mains",
+    "name": "UPSC CSE",
+    "stage": "Mains",
+    "color": "violet",
+    "description": [
+      "निबंध, GS, वैकल्पिक और भाषा",
+      "Essay, GS, optional & language"
+    ],
+    "official": "https://upsc.gov.in/",
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "निबंध",
+          "Essay"
+        ],
+        "learn": "/notes/ethics.html",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "1",
+        "label": [
+          "GS I: संस्कृति और समाज",
+          "GS I"
+        ],
+        "learn": "/notes/history.html",
+        "practice": "/uppcs-prelims-pyq/"
+      },
+      {
+        "id": "2",
+        "label": [
+          "GS II: शासन और संविधान",
+          "GS II"
+        ],
+        "learn": "/notes/polity.html",
+        "practice": "/polity/"
+      },
+      {
+        "id": "3",
+        "label": [
+          "GS III: अर्थव्यवस्था और सुरक्षा",
+          "GS III"
+        ],
+        "learn": "/notes/economy.html",
+        "practice": "/downloads/#pdf-eco-hi"
+      },
+      {
+        "id": "4",
+        "label": [
+          "GS IV: नीतिशास्त्र",
+          "GS IV"
+        ],
+        "learn": "/notes/ethics.html",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "5",
+        "label": [
+          "वैकल्पिक विषय I",
+          "Optional I"
+        ],
+        "learn": null,
+        "practice": null
+      },
+      {
+        "id": "6",
+        "label": [
+          "वैकल्पिक विषय II",
+          "Optional II"
+        ],
+        "learn": null,
+        "practice": null
+      },
+      {
+        "id": "7",
+        "label": [
+          "भाषा के प्रश्नपत्र",
+          "Language papers"
+        ],
+        "learn": null,
+        "practice": null
+      }
+    ]
+  },
+  {
+    "id": "ro-aro",
+    "name": "UPPSC RO/ARO",
+    "stage": "Pre + Mains",
+    "color": "coral",
+    "description": [
+      "सामान्य अध्ययन, हिंदी और आलेखन",
+      "General studies, Hindi & drafting"
+    ],
+    "official": "https://uppsc.up.nic.in/",
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "सामान्य अध्ययन",
+          "General Studies"
+        ],
+        "learn": "/notes/polity.html",
+        "practice": "/polity/"
+      },
+      {
+        "id": "1",
+        "label": [
+          "सामान्य हिंदी",
+          "General Hindi"
+        ],
+        "learn": "/csat/hindi-vakya-shuddhi.html",
+        "practice": "/csat/hindi-paryay-vilom.html"
+      },
+      {
+        "id": "2",
+        "label": [
+          "आलेखन: पत्र",
+          "Drafting: Letter"
+        ],
+        "learn": "/ro-aro/drafting/",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "3",
+        "label": [
+          "आलेखन: ज्ञापन",
+          "Drafting: Memo"
+        ],
+        "learn": "/ro-aro/drafting/",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "4",
+        "label": [
+          "अधिसूचना",
+          "Notification"
+        ],
+        "learn": "/ro-aro/drafting/",
+        "practice": "/ro-aro/drafting/"
+      },
+      {
+        "id": "5",
+        "label": [
+          "परिपत्र",
+          "Circular"
+        ],
+        "learn": "/ro-aro/drafting/",
+        "practice": "/ro-aro/drafting/"
+      }
+    ]
+  }
+]

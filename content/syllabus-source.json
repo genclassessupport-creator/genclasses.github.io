@@ -1,0 +1,367 @@
+{
+  "uppcs-prelims": {
+    "details": [
+      "<details class=\"acc\"><summary>1. Current events (राष्ट्रीय व अंतर्राष्ट्रीय)</summary><div class=\"body\"><ul><li>National & international current affairs</li><li>Government schemes, reports, summits (as asked in paper)</li></ul></div></details>",
+      "<details class=\"acc\"><summary>2. History of India & Indian National Movement</summary><div class=\"body\"><ul><li>Broad social, economic, political aspects of Indian History</li><li>Freedom movement — nature, nationalism, Independence</li></ul></div></details>",
+      "<details class=\"acc\"><summary>3. India & World Geography</summary><div class=\"body\"><ul><li>Physical, Social, Economic Geography of India</li><li>World Geography — general understanding</li></ul></div></details>",
+      "<details class=\"acc\"><summary>4. Indian Polity & Governance</summary><div class=\"body\"><ul><li>Constitution, Political System, Panchayati Raj</li><li>Public Policy, Rights Issues</li></ul></div></details>",
+      "<details class=\"acc\"><summary>5. Economic & Social Development</summary><div class=\"body\"><ul><li>Sustainable Development, Poverty, Inclusion</li><li>Demographics, Social Sector Initiatives</li></ul></div></details>",
+      "<details class=\"acc\"><summary>6. Environment, Ecology, Biodiversity & Climate Change</summary><div class=\"body\"><ul><li>General issues — no subject specialisation required</li></ul></div></details>",
+      "<details class=\"acc\"><summary>7. General Science</summary><div class=\"body\"><ul><li>Everyday science & basic concepts (non-technical level as in Prelims)</li></ul></div></details>",
+      "<details class=\"acc\"><summary>Comprehension & Communication</summary><div class=\"body\"><ul><li>Comprehension</li><li>Interpersonal skills including communication skills</li><li>General English (Class X level)</li><li>General Hindi (Class X level)</li></ul></div></details>",
+      "<details class=\"acc\"><summary>Reasoning & Decision Making</summary><div class=\"body\"><ul><li>Analytical ability & logical reasoning</li><li>Problem solving & decision making</li><li>General mental ability</li></ul></div></details>",
+      "<details class=\"acc\"><summary>Maths & Data</summary><div class=\"body\"><ul><li>Elementary Mathematics (Class X) — Arithmetic, Algebra, Geometry, Statistics</li><li>Basic numeracy & data interpretation (charts/tables)</li></ul></div></details>"
+    ],
+    "tables": [
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Paper</th><th>Subject</th><th>Questions</th><th>Marks</th><th>Duration</th><th>Nature</th></tr></thead><tbody><tr><td>Paper I</td><td>General Studies I</td><td>150</td><td>200</td><td>2 hours</td><td>Merit (cut-off)</td></tr><tr><td>Paper II</td><td>CSAT / GS II</td><td>100</td><td>200</td><td>2 hours</td><td>Qualifying · 33%</td></tr></tbody></table></div>",
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Year</th><th>UR</th><th>OBC</th><th>EWS</th><th>SC</th><th>ST</th></tr></thead>\r\n<tbody>\r\n<tr><td>2024</td><td>101</td><td>102</td><td>100</td><td>85</td><td>70</td></tr>\r\n<tr><td>2023</td><td>125</td><td>128</td><td>129</td><td>112</td><td>109</td></tr>\r\n<tr><td>2022</td><td>111</td><td>114</td><td>114</td><td>99</td><td>91</td></tr>\r\n<tr><td>2021</td><td>115</td><td>113</td><td>117</td><td>96</td><td>82</td></tr>\r\n<tr><td>2020</td><td>110</td><td>110</td><td>112</td><td>95</td><td>77</td></tr>\r\n<tr><td>2019</td><td>117</td><td>116</td><td>117</td><td>99</td><td>77</td></tr>\r\n<tr><td>2018</td><td>126</td><td>126</td><td>—</td><td>112</td><td>90</td></tr>\r\n</tbody></table></div>"
+    ],
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "Current events",
+          "Current events"
+        ]
+      },
+      {
+        "id": "1",
+        "label": [
+          "History & National Movement",
+          "History & National Movement"
+        ]
+      },
+      {
+        "id": "2",
+        "label": [
+          "Geography",
+          "Geography"
+        ]
+      },
+      {
+        "id": "3",
+        "label": [
+          "Polity & Governance",
+          "Polity & Governance"
+        ]
+      },
+      {
+        "id": "4",
+        "label": [
+          "Economy & Social Development",
+          "Economy & Social Development"
+        ]
+      },
+      {
+        "id": "5",
+        "label": [
+          "Environment & Ecology",
+          "Environment & Ecology"
+        ]
+      },
+      {
+        "id": "6",
+        "label": [
+          "General Science",
+          "General Science"
+        ]
+      },
+      {
+        "id": "7",
+        "label": [
+          "CSAT: Comprehension",
+          "CSAT: Comprehension"
+        ]
+      },
+      {
+        "id": "8",
+        "label": [
+          "CSAT: Reasoning & Decision",
+          "CSAT: Reasoning & Decision"
+        ]
+      },
+      {
+        "id": "9",
+        "label": [
+          "CSAT: Maths & DI",
+          "CSAT: Maths & DI"
+        ]
+      }
+    ]
+  },
+  "uppcs-mains": {
+    "details": [
+      "<details class=\"acc\"><summary>General Hindi (Paper 1)</summary><div class=\"body\"><ul><li>व्याकरण, अपठित गद्यांश, संक्षेपण, पत्राचार/प्रारूप से जुड़े वर्णनात्मक प्रश्न (अधिसूचना अनुसार)</li><li>Qualifying प्रकृति — न्यूनतम अंक अनिवार्य</li></ul></div></details>",
+      "<details class=\"acc\"><summary>Essay (Paper 2)</summary><div class=\"body\"><ul><li>सामाजिक, राजनीतिक, आर्थिक, पर्यावरणीय व समसामयिक विषयों पर निबंध</li><li>स्पष्ट संरचना: भूमिका → तर्क/उदाहरण → निष्कर्ष</li></ul></div></details>",
+      "<details class=\"acc\"><summary>GS I — History, Culture, Society, Geography</summary><div class=\"body\"><ul><li>Indian culture — art forms, literature, architecture</li><li>Modern Indian history & freedom struggle</li><li>Post-independence consolidation (as in syllabus)</li><li>Indian society, women, urbanisation, globalisation effects</li><li>World & Indian physical/human/economic geography; UP geography overlap</li></ul></div></details>",
+      "<details class=\"acc\"><summary>GS II — Constitution, Governance, Social Justice, IR</summary><div class=\"body\"><ul><li>Indian Constitution — features, amendments, basic structure</li><li>Parliament, State legislatures, Executive, Judiciary</li><li>Federalism, local governance, statutory bodies</li><li>Welfare schemes, governance, transparency</li><li>India & neighbourhood / international institutions (as listed)</li></ul></div></details>",
+      "<details class=\"acc\"><summary>GS III — Economy, Agriculture, Environment, S&T, Security</summary><div class=\"body\"><ul><li>Indian economy, budgeting, growth, inclusive development</li><li>Agriculture, MSP, subsidies, food processing</li><li>Environment, biodiversity, disaster management</li><li>Science & technology applications; internal security basics</li></ul></div></details>",
+      "<details class=\"acc\"><summary>GS IV — Ethics, Integrity, Aptitude</summary><div class=\"body\"><ul><li>Ethics & human interface; attitude; emotional intelligence</li><li>Public service values — integrity, impartiality, objectivity</li><li>Probity in governance; case studies</li></ul></div></details>",
+      "<details class=\"acc\"><summary>GS V — Uttar Pradesh Special (History, Culture, Governance)</summary><div class=\"body\"><ul><li>UP history, art, culture, architecture</li><li>UP polity/governance, security, health, education</li><li>Current affairs of UP; NGOs, tourism, innovation (as per notification topics)</li></ul></div></details>",
+      "<details class=\"acc\"><summary>GS VI — Uttar Pradesh Special (Economy, Geography, Resources)</summary><div class=\"body\"><ul><li>UP economy, schemes, agriculture</li><li>UP geography, demography, natural resources</li><li>Transport, energy, PPP / development issues of UP</li></ul></div></details>"
+    ],
+    "tables": [
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Paper</th><th>Subject</th><th>Marks</th><th>Nature</th></tr></thead><tbody><tr><td>1</td><td>General Hindi</td><td>150</td><td>Qualifying (≈30% minimum)</td></tr><tr><td>2</td><td>Essay</td><td>150</td><td>Merit</td></tr><tr><td>3</td><td>General Studies I</td><td>200</td><td>Merit</td></tr><tr><td>4</td><td>General Studies II</td><td>200</td><td>Merit</td></tr><tr><td>5</td><td>General Studies III</td><td>200</td><td>Merit</td></tr><tr><td>6</td><td>General Studies IV (Ethics)</td><td>200</td><td>Merit</td></tr><tr><td>7</td><td>General Studies V (UP)</td><td>200</td><td>Merit</td></tr><tr><td>8</td><td>General Studies VI (UP)</td><td>200</td><td>Merit</td></tr></tbody></table></div>"
+    ],
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "सामान्य हिंदी",
+          "General Hindi"
+        ]
+      },
+      {
+        "id": "1",
+        "label": [
+          "निबंध",
+          "Essay"
+        ]
+      },
+      {
+        "id": "2",
+        "label": [
+          "GS I",
+          "GS I"
+        ]
+      },
+      {
+        "id": "3",
+        "label": [
+          "GS II",
+          "GS II"
+        ]
+      },
+      {
+        "id": "4",
+        "label": [
+          "GS III",
+          "GS III"
+        ]
+      },
+      {
+        "id": "5",
+        "label": [
+          "GS IV",
+          "GS IV"
+        ]
+      },
+      {
+        "id": "6",
+        "label": [
+          "GS V (UP)",
+          "GS V (UP)"
+        ]
+      },
+      {
+        "id": "7",
+        "label": [
+          "GS VI (UP)",
+          "GS VI (UP)"
+        ]
+      }
+    ]
+  },
+  "upsc-prelims": {
+    "details": [
+      "<details class=\"acc\"><summary>Current events of national and international importance</summary><div class=\"body\"><p>Ongoing national/international events as tested in Prelims.</p></div></details>",
+      "<details class=\"acc\"><summary>History of India and Indian National Movement</summary><div class=\"body\"><p>Broad understanding of Indian history and the freedom struggle.</p></div></details>",
+      "<details class=\"acc\"><summary>Indian and World Geography</summary><div class=\"body\"><p>Physical, Social, Economic Geography of India and the World.</p></div></details>",
+      "<details class=\"acc\"><summary>Indian Polity and Governance</summary><div class=\"body\"><p>Constitution, Political System, Panchayati Raj, Public Policy, Rights Issues, etc.</p></div></details>",
+      "<details class=\"acc\"><summary>Economic and Social Development</summary><div class=\"body\"><p>Sustainable Development, Poverty, Inclusion, Demographics, Social Sector Initiatives, etc.</p></div></details>",
+      "<details class=\"acc\"><summary>Environment, Biodiversity and Climate Change</summary><div class=\"body\"><p>General issues that do not require subject specialisation.</p></div></details>",
+      "<details class=\"acc\"><summary>General Science</summary><div class=\"body\"><p>Basic / everyday science level.</p></div></details>",
+      "<details class=\"acc\"><summary>Official CSAT heads</summary><div class=\"body\"><ul>\r\n<li>Comprehension</li>\r\n<li>Interpersonal skills including communication skills</li>\r\n<li>Logical reasoning and analytical ability</li>\r\n<li>Decision making and problem solving</li>\r\n<li>General mental ability</li>\r\n<li>Basic numeracy (Class X level)</li>\r\n<li>Data interpretation (charts, graphs, tables, data sufficiency) — Class X level</li>\r\n</ul></div></details>"
+    ],
+    "tables": [
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Paper</th><th>Questions</th><th>Marks</th><th>Duration</th><th>Nature</th></tr></thead><tbody><tr><td>GS Paper I</td><td>100</td><td>200</td><td>2 hours</td><td>Cut-off (not in final merit)</td></tr><tr><td>GS Paper II (CSAT)</td><td>80</td><td>200</td><td>2 hours</td><td>Qualifying 33% (66/200)</td></tr></tbody></table></div>"
+    ],
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "History",
+          "History"
+        ]
+      },
+      {
+        "id": "1",
+        "label": [
+          "Geography",
+          "Geography"
+        ]
+      },
+      {
+        "id": "2",
+        "label": [
+          "Polity",
+          "Polity"
+        ]
+      },
+      {
+        "id": "3",
+        "label": [
+          "Economy",
+          "Economy"
+        ]
+      },
+      {
+        "id": "4",
+        "label": [
+          "Environment",
+          "Environment"
+        ]
+      },
+      {
+        "id": "5",
+        "label": [
+          "Science & Tech",
+          "Science & Tech"
+        ]
+      },
+      {
+        "id": "6",
+        "label": [
+          "CA",
+          "Current Affairs"
+        ]
+      },
+      {
+        "id": "7",
+        "label": [
+          "CSAT",
+          "CSAT"
+        ]
+      }
+    ]
+  },
+  "upsc-mains": {
+    "details": [
+      "<details class=\"acc\"><summary>Essay</summary><div class=\"body\"><p>Multiple essays; topics from socio-economic, political, philosophical, contemporary themes as set by UPSC.</p></div></details>",
+      "<details class=\"acc\"><summary>GS I — Culture, History, Society, Geography</summary><div class=\"body\"><ul>\r\n<li>Indian culture — art forms, literature, architecture</li>\r\n<li>Modern Indian history; freedom struggle; post-independence consolidation</li>\r\n<li>History of the world (industrial revolution, world wars, colonisation, redrawal of boundaries, etc. as in syllabus)</li>\r\n<li>Indian society; diversity; women; poverty; urbanisation; globalisation</li>\r\n<li>World & Indian geography — physical, resources, industries, geophysical phenomena</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>GS II — Polity, Governance, Social Justice, IR</summary><div class=\"body\"><ul>\r\n<li>Constitution, Parliament, Judiciary, federalism, local bodies</li>\r\n<li>Statutory/regulatory/quasi-judicial bodies; governance; transparency; e-governance</li>\r\n<li>Welfare schemes; social justice; vulnerable sections</li>\r\n<li>International relations; bilateral/regional/global groupings; diaspora; international institutions</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>GS III — Economy, Agriculture, Environment, S&T, Security</summary><div class=\"body\"><ul>\r\n<li>Indian economy; budgeting; inclusive growth; infrastructure</li>\r\n<li>Agriculture; food security; land reforms; LPG effects</li>\r\n<li>Science & technology; awareness in IT, space, computers, robotics, nano, biotechnology</li>\r\n<li>Environment; biodiversity; disaster management</li>\r\n<li>Internal security; border management; cyber security; money laundering linkages</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>GS IV — Ethics, Integrity, Aptitude</summary><div class=\"body\"><ul>\r\n<li>Ethics and Human Interface; attitude; emotional intelligence</li>\r\n<li>Moral thinkers; public service values; civil service aptitude</li>\r\n<li>Probity in governance; RTI; citizen charters; corruption challenges</li>\r\n<li>Case studies on above issues</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>Optional subjects (choose one; two papers)</summary><div class=\"body\"><ul><li>Agriculture</li><li>Animal Husbandry & Veterinary Science</li><li>Anthropology</li><li>Botany</li><li>Chemistry</li><li>Civil Engineering</li><li>Commerce & Accountancy</li><li>Economics</li><li>Electrical Engineering</li><li>Geography</li><li>Geology</li><li>History</li><li>Law</li><li>Management</li><li>Mathematics</li><li>Mechanical Engineering</li><li>Medical Science</li><li>Philosophy</li><li>Physics</li><li>Political Science & International Relations</li><li>Psychology</li><li>Public Administration</li><li>Sociology</li><li>Statistics</li><li>Zoology</li><li>Literature of: Assamese, Bengali, Bodo, Dogri, Gujarati, Hindi, Kannada, Kashmiri, Konkani, Maithili, Malayalam, Manipuri, Marathi, Nepali, Odia, Punjabi, Sanskrit, Santhali, Sindhi, Tamil, Telugu, Urdu, English</li></ul></div></details>"
+    ],
+    "tables": [
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Paper</th><th>Subject</th><th>Marks</th><th>Nature</th></tr></thead><tbody><tr><td>A</td><td>Indian Language (compulsory)</td><td>300</td><td>Qualifying (~25%)</td></tr><tr><td>B</td><td>English (compulsory)</td><td>300</td><td>Qualifying (~25%)</td></tr><tr><td>1</td><td>Essay</td><td>250</td><td>Merit</td></tr><tr><td>2</td><td>General Studies I</td><td>250</td><td>Merit</td></tr><tr><td>3</td><td>General Studies II</td><td>250</td><td>Merit</td></tr><tr><td>4</td><td>General Studies III</td><td>250</td><td>Merit</td></tr><tr><td>5</td><td>General Studies IV</td><td>250</td><td>Merit</td></tr><tr><td>6</td><td>Optional Paper I</td><td>250</td><td>Merit</td></tr><tr><td>7</td><td>Optional Paper II</td><td>250</td><td>Merit</td></tr></tbody></table></div>"
+    ],
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "Essay",
+          "Essay"
+        ]
+      },
+      {
+        "id": "1",
+        "label": [
+          "GS I",
+          "GS I"
+        ]
+      },
+      {
+        "id": "2",
+        "label": [
+          "GS II",
+          "GS II"
+        ]
+      },
+      {
+        "id": "3",
+        "label": [
+          "GS III",
+          "GS III"
+        ]
+      },
+      {
+        "id": "4",
+        "label": [
+          "GS IV",
+          "GS IV"
+        ]
+      },
+      {
+        "id": "5",
+        "label": [
+          "Optional I",
+          "Optional I"
+        ]
+      },
+      {
+        "id": "6",
+        "label": [
+          "Optional II",
+          "Optional II"
+        ]
+      },
+      {
+        "id": "7",
+        "label": [
+          "Language papers",
+          "Language papers"
+        ]
+      }
+    ]
+  },
+  "ro-aro": {
+    "details": [
+      "<details class=\"acc\"><summary>Official GS heads (Appendix 2)</summary><div class=\"body\"><ol>\r\n<li>General Science</li>\r\n<li>History of India</li>\r\n<li>Indian National Movement</li>\r\n<li>Indian Polity, Economy and Culture</li>\r\n<li>Indian Agriculture, Commerce and Trade</li>\r\n<li>Population, Ecology and Urbanisation (Indian context)</li>\r\n<li>World Geography and Geography & Natural Resources of India</li>\r\n<li>Current National and International Important Events</li>\r\n<li>General Intelligence</li>\r\n<li>Special Knowledge of Uttar Pradesh — Education, Culture, Agriculture, Industry, Trade, Living & Social Traditions</li>\r\n</ol></div></details>",
+      "<details class=\"acc\"><summary>Six official areas</summary><div class=\"body\"><ul>\r\n<li>Opposites (विलोम)</li>\r\n<li>Sentences and Correction in Framing (वाक्य रचना/शुद्धि)</li>\r\n<li>One Word for Several Words (अनेक शब्दों के लिए एक शब्द)</li>\r\n<li>Same Uses and Same Nature Words</li>\r\n<li>Noun as defined by Adjective / Adjectives (विशेष्य–विशेषण)</li>\r\n<li>Synonymous Words (पर्यायवाची)</li>\r\n</ul><p>प्रत्येक क्षेत्र में अधिसूचना के अनुसार निश्चित शब्दों/वाक्यों का अभ्यास करें।</p></div></details>",
+      "<details class=\"acc\"><summary>Mains GS I — History, Society, Geography, Environment, S&T</summary><div class=\"body\"><ul>\r\n<li>Indian History, Art & Culture; Modern India 1757–1947; Freedom Struggle; post-independence to 1965</li>\r\n<li>Indian Society — women, population, urbanisation, LPG effects, social justice</li>\r\n<li>Geography of India (physical/economic/human) + Geography of Uttar Pradesh</li>\r\n<li>Environment & Disaster Management — cycles, pollution, NDMA/NDRF/SDRF, epidemics</li>\r\n<li>Science & Technology — space, IT, missiles, nano, AI/robotics, nuclear, biotech (as listed in advt.)</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>Mains GS II — Polity, Governance, Economy, Ethics, Current Affairs</summary><div class=\"body\"><ul>\r\n<li>Constitution, federalism, Parliament/State legislatures, judiciary, constitutional posts, NITI Aayog etc.</li>\r\n<li>Governance, PIL, policies, ICT in implementation</li>\r\n<li>Economy & Agriculture — SDGs, budget, subsidies, MSP, UP agriculture issues, tech missions</li>\r\n<li>Ethics & Integrity — Indian ethical thought, utilitarianism/deontology, EI, public service values</li>\r\n<li>Current Affairs — Global, South Asia/SAARC, India, Uttar Pradesh, Sports</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>Paper III — General Hindi and Drafting (mark-wise)</summary><div class=\"body\"><ul>\r\n<li>Unseen passage (title, explanation, précis) — 30</li>\r\n<li>Govt letter summary in tabular form — 10</li>\r\n<li>Correspondence (official/demi-official, memo, circular, noting, reports…) — 20</li>\r\n<li>Admin/commercial terminology H↔E — 20</li>\r\n<li>Idioms & proverbs — 30</li>\r\n<li>Grammar (noun, pronoun, adjective, case, verb) — 15; Punctuation — 5; Error correction — 10</li>\r\n<li>Varna Vichar — 10; Tatsam/Tadbhav/Deshaj/Videshi — 10; Sandhi/Samas/affixes — 10</li>\r\n<li>Vocabulary (synonyms, antonyms, one-word, etc.) — 20; Computer GK — 10</li>\r\n</ul></div></details>",
+      "<details class=\"acc\"><summary>Paper IV — Hindi Essay</summary><div class=\"body\"><p><strong>Section I (80 marks · ~800 words):</strong> Science/Environment/Technology; Economic field; Agriculture/Industry/Trade; Natural disasters.</p>\r\n<p><strong>Section II (120 marks · ~1200 words):</strong> Literature & Culture; Social & Political; National & International events; National development schemes/projects.</p>\r\n<p>प्रत्येक सेक्शन से एक अनिवार्य निबंध।</p></div></details>"
+    ],
+    "tables": [
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Subject</th><th>Questions</th><th>Marks</th><th>Duration</th></tr></thead><tbody><tr><td>General Studies</td><td>140</td><td>140</td><td>3 hours (combined paper)</td></tr><tr><td>General Hindi</td><td>60</td><td>60</td><td></td></tr><tr><td>Total</td><td>200</td><td>200</td><td>3 hours</td></tr></tbody></table></div>",
+      "<div class=\"table-wrap\"><table class=\"pat\"><thead><tr><th>Paper</th><th>Subject</th><th>Marks</th><th>Duration</th><th>Format</th></tr></thead><tbody><tr><td>I</td><td>General Studies I</td><td>200</td><td>3 hours</td><td>10 short (8×75w) + 10 long (12×125w)</td></tr><tr><td>II</td><td>General Studies II</td><td>200</td><td>3 hours</td><td>Same as Paper I</td></tr><tr><td>III</td><td>General Hindi and Drafting</td><td>200</td><td>3 hours</td><td>Conventional · 8 questions</td></tr><tr><td>IV</td><td>Hindi Essay</td><td>200</td><td>3 hours</td><td>2 essays (800 + 1200 words)</td></tr></tbody></table></div>"
+    ],
+    "topics": [
+      {
+        "id": "0",
+        "label": [
+          "General Studies",
+          "General Studies"
+        ]
+      },
+      {
+        "id": "1",
+        "label": [
+          "General Hindi",
+          "General Hindi"
+        ]
+      },
+      {
+        "id": "2",
+        "label": [
+          "आलेखन पत्र",
+          "Drafting: Letter"
+        ]
+      },
+      {
+        "id": "3",
+        "label": [
+          "आलेखन ज्ञापन",
+          "Drafting: Memo"
+        ]
+      },
+      {
+        "id": "4",
+        "label": [
+          "अधिसूचना",
+          "Notification"
+        ]
+      },
+      {
+        "id": "5",
+        "label": [
+          "परिपत्र",
+          "Circular"
+        ]
+      }
+    ]
+  }
+}
