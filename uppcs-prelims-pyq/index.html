@@ -177,7 +177,7 @@ html[data-theme="light"] .count-hero .sub{color:#1F2A2E}
       tests.forEach(function(t){
         var a = document.createElement("a");
         a.className = "card";
-        a.href = "/" + t.path;
+        a.href = "/" + t.path + "?v=20261107-matching-2";
         var ytags = yearsOf(t).sort().reverse().map(function(y){ return '<span>'+y+'</span>'; }).join("");
         var qShow = (YEAR === "all") ? t.count : (t.years[YEAR] || t.count);
         a.innerHTML =
