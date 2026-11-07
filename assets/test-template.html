@@ -740,6 +740,7 @@ function _genPoints(t){
 }
 function genFmt(raw){
   if(!raw) return "";
+  raw=String(raw).replace(/\s+(?:कूट|कोड|Codes?)\s*[:：]?\s*A\s+B\s+C\s+D\s*[।.:：–—-]*\s*$/i, "").trim();
   try{
     var mt=_genMatchTable(raw);
     if(mt) return mt;
