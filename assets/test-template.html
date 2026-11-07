@@ -10,7 +10,7 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
 <meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
 <script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
 <style>
   :root{
@@ -188,14 +188,19 @@
   .exam-src.missing{opacity:.75;border-style:dashed;font-weight:600}
   /* ---------- प्रश्न ---------- */
   .qtext{white-space:pre-line;line-height:1.75;font-size:18.5px;color:#EEF2FA;font-weight:600}
-  .qtext-en{white-space:pre-line;line-height:1.62;font-size:14.5px;color:var(--mist);
+  .qtext-en{white-space:pre-line;line-height:1.68;font-size:16px;color:var(--mist);font-family:'Inter',Arial,sans-serif;letter-spacing:0;
     margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-weight:400}
+  html[data-lang="en"] .qtext{font-family:'Inter',Arial,sans-serif;font-size:18px;line-height:1.68;letter-spacing:0}
+  html[data-lang="en"] .options .op-hi,
+  .options .op-en{font-family:'Inter',Arial,sans-serif;letter-spacing:0;line-height:1.55}
+  html[data-lang="en"] .options .op-hi{font-size:16px;font-weight:500}
+  .options .op-en{font-size:14.5px}
   .match-tbl{width:100%;border-collapse:collapse;margin:10px 0 6px;table-layout:fixed}
   .match-tbl th,.match-tbl td{border:1px solid var(--line);padding:9px 10px;text-align:left;vertical-align:top;font-size:.9em;word-break:break-word}
   .match-tbl th{color:var(--gold);font-weight:800;font-size:.78em;letter-spacing:.5px;background:rgba(217,174,95,.1)}
   .qtext-en .match-tbl th{color:var(--mist)}
-  .match-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0 6px}
-  .match-col{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
+  .match-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:10px 0 6px;align-items:stretch}
+  .match-col{min-width:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(217,174,95,.04)}
   .match-col h4{margin:0;padding:8px 10px;font-size:12px;font-weight:800;letter-spacing:.4px;color:var(--gold-hi);background:rgba(217,174,95,.12);border-bottom:1px solid var(--line)}
   .match-col .mi{display:grid;grid-template-columns:26px 1fr;gap:6px;align-items:start;padding:8px 10px;border-top:1px dashed var(--line);font-size:14.5px;line-height:1.45;font-weight:600;color:inherit}
   .match-col .mi:first-of-type{border-top:0}
@@ -417,6 +422,7 @@ function langSegHTML(){
   return o("hi","हिंदी")+o("en","English")+o("bi","दोनों");
 }
 function paintLang(){
+  document.documentElement.dataset.lang=GEN_LANG;
   ["qLang","coverLang"].forEach(function(id){
     var box=document.getElementById(id); if(!box) return;
     box.innerHTML=langSegHTML();
@@ -475,7 +481,65 @@ function _genMatchPairHTML(leftLabel, rightLabel, leftItems, rightItems, intro, 
     + (outro?'<div class="code-line">'+genEsc(outro)+'</div>':'');
   return html;
 }
+function _genStructuredMatch(raw){
+  var t=String(raw||"").replace(/\u00a0/g," ").trim();
+  if(!t) return null;
+  var reI=/(सूची|List)\s*[-–—]?\s*I(?!I)\b/gi;
+  var reII=/(सूची|List)\s*[-–—]?\s*II\b/gi;
+  var listI=[], listII=[], m;
+  while((m=reI.exec(t))) listI.push({at:m.index,end:m.index+m[0].length});
+  while((m=reII.exec(t))) listII.push({at:m.index,end:m.index+m[0].length});
+  if(!listI.length || !listII.length) return null;
+
+  var clean=t.replace(/\s*(?:कूट|कोड|Code)\s*[:：]?\s*(?:A\s*[-–—]?\s*B\s*[-–—]?\s*C\s*[-–—]?\s*D)?\s*$/i,"");
+  var listIIHeader=listII[listII.length-1];
+  var body=clean.slice(listIIHeader.end);
+  var markerRe=/\(([A-D])\)|\b([A-D])[.)](?=\s|[\u0900-\u097F])|\(([1-4])\)|\b([1-4])\s*[.)](?=\s|[\u0900-\u097F])|([A-Za-z])([1-4])\s*[.)](?=\s|[\u0900-\u097F])/gi;
+  var events=[];
+  while((m=markerRe.exec(body))){
+    var isLetter=!!(m[1]||m[2]);
+    var label=(m[1]||m[2]||m[3]||m[4]||m[6]||"").toUpperCase();
+    var markerAt=m[5]?m.index+1:m.index;
+    events.push({at:markerAt,end:m.index+m[0].length,type:isLetter?"L":"N",label:label});
+  }
+  var patterns=[
+    [{type:"L",label:"A"},{type:"N",label:"1"},{type:"L",label:"B"},{type:"N",label:"2"},{type:"L",label:"C"},{type:"N",label:"3"},{type:"L",label:"D"},{type:"N",label:"4"}],
+    [{type:"L",label:"A"},{type:"L",label:"B"},{type:"L",label:"C"},{type:"L",label:"D"},{type:"N",label:"1"},{type:"N",label:"2"},{type:"N",label:"3"},{type:"N",label:"4"}]
+  ];
+  var chosen=null;
+  for(var p=0;p<patterns.length && !chosen;p++){
+    for(var s=0;s<events.length && !chosen;s++){
+      if(events[s].type!=="L" || events[s].label!=="A") continue;
+      var positions=[s], cursor=s+1, valid=true;
+      for(var k=1;k<patterns[p].length;k++){
+        var found=-1;
+        for(var j=cursor;j<events.length;j++){
+          if(events[j].type===patterns[p][k].type && events[j].label===patterns[p][k].label){found=j;break;}
+        }
+        if(found<0){valid=false;break;}
+        positions.push(found); cursor=found+1;
+      }
+      if(valid) chosen={positions:positions,interleaved:patterns[p][1].type==="N"};
+    }
+  }
+  if(!chosen) return null;
+
+  var selected=chosen.positions.map(function(i){return events[i];});
+  var items=selected.map(function(e,i){
+    var next=selected[i+1];
+    return e.label+". "+body.slice(e.end,next?next.at:body.length).trim().replace(/[ ,;:–—-]+$/g,"");
+  });
+  var left=chosen.interleaved?[items[0],items[2],items[4],items[6]]:items.slice(0,4);
+  var right=chosen.interleaved?[items[1],items[3],items[5],items[7]]:items.slice(4,8);
+  var headerI=listI.filter(function(x){return x.at<listIIHeader.at;}).slice(-1)[0]||listI[0];
+  var intro=t.slice(0,headerI.at).trim().replace(/[ :：–—-]+$/g,"");
+  var isEN=/List/i.test(t) && !/सूची/.test(t);
+  return _genMatchPairHTML(isEN?"List-I":"सूची-I",isEN?"List-II":"सूची-II",left,right,intro,"");
+}
+
 function _genMatchTable(raw){
+  var structured=_genStructuredMatch(raw);
+  if(structured) return structured;
   var t=String(raw).replace(/\u00a0/g," ").trim();
   var isEN=/List\s*[\-–—]?\s*I/i.test(t) && !/सूची/.test(t);
   var leftLab=isEN?"List-I":"सूची-I", rightLab=isEN?"List-II":"सूची-II";
