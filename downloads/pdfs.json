@@ -1,5 +1,19 @@
 [
  {
+  "id": "env-hi",
+  "file": "environment-ecology-quick-revision-hindi-genclasses",
+  "section": "booklets",
+  "hi": "पर्यावरण (हिंदी)",
+  "en": "Environment (HI)"
+ },
+ {
+  "id": "env-en",
+  "file": "environment-ecology-quick-revision-english-genclasses",
+  "section": "booklets",
+  "hi": "पर्यावरण (English)",
+  "en": "Environment (EN)"
+ },
+ {
   "id": "hist-hi",
   "file": "indian-history-quick-revision-hindi-genclasses",
   "section": "booklets",
