@@ -339,6 +339,7 @@
     .match-tbl th,.match-tbl td{border-color:#bbb!important;color:#111!important}
     @page{margin:12mm}
   }
+html[data-lang="en"] .review-content, html[data-lang="en"] .review-content b, .explain-en {font-family:"Inter",Arial,sans-serif;letter-spacing:0;text-transform:none;line-height:1.65;}
 </style>
 </head>
 <body>
@@ -738,7 +739,11 @@ function _genPoints(t){
        .replace(/\s*((?:कूट|Code)\s*[:：])/gi,"\n$1");
   return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
 }
-function genFmt(raw){
+function genFmt(raw, matching){
+  if(matching && Array.isArray(matching.left) && matching.left.length===4 && Array.isArray(matching.right) && matching.right.length===4){
+    var en=/List/i.test(matching.intro||"") && !/सूची/.test(matching.intro||"");
+    return _genMatchPairHTML(en?"List-I":"सूची-I",en?"List-II":"सूची-II",matching.left.map(function(v,i){return String.fromCharCode(65+i)+". "+v;}),matching.right.map(function(v,i){return (i+1)+". "+v;}),matching.intro,"");
+  }
   if(!raw) return "";
   raw=String(raw).replace(/\s+(?:कूट|कोड|Codes?)\s*[:：]?\s*A\s+B\s+C\s+D\s*[।.:：–—-]*\s*$/i, "").trim();
   try{
@@ -769,6 +774,7 @@ const QUESTIONS = Array.isArray(TEST.questions) ? TEST.questions : [];
 const letters = ["A", "B", "C", "D"];
 const TOTAL_TIME_SECONDS = Math.max(0, Number(TEST.durationMinutes || 0) * 60);
 const MARKS = Number(TEST.marksPerQuestion || 2);
+function hasAnswerKey(q){ return Number.isInteger(q.answer) && q.answer >= 0 && q.answer < (q.options || []).length; }
 const NEG = Number(TEST.negativeMarks || 0);
 const RANKING_ENABLED = Boolean(TEST.rankingEnabled && TEST.firebaseConfig && TEST.firebaseConfig.projectId);
 const FIREBASE_CONFIG = TEST.firebaseConfig || null;
@@ -776,7 +782,7 @@ let current = 0, answers = [], review = [], remaining = TOTAL_TIME_SECONDS, time
 let studentName = "", lastResult = null, testActive = false;
 const LEADER_TOP = 20;
 const TEST_KEY = String(TEST.testId || "gen-test");
-const PROG_KEY = "gen_prog_" + TEST_KEY;
+const PROG_KEY = "gen_prog_" + TEST_KEY + (TEST.contentRevision ? "_" + TEST.contentRevision : "");
 function storeGet(k){ try{ const v = localStorage.getItem(k); return v ? JSON.parse(v) : null; }catch(e){ return null; } }
 function storeSet(k, obj){ try{ localStorage.setItem(k, JSON.stringify(obj)); }catch(e){} }
 function storeDel(k){ try{ localStorage.removeItem(k); }catch(e){} }
@@ -874,9 +880,9 @@ function renderQuestion(){
     else if(q.source_missing){ es.hidden=false; es.classList.add("missing"); es.textContent="Source N/A"; }
     else { es.hidden=true; es.textContent=""; } })();
   var _hi=q.question_hi||"", _en=q.question_en||"";
-    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en); el("qtextEn").classList.add("hidden"); }
-    else { el("qtext").innerHTML = genFmt(_hi||_en);
-           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en); el("qtextEn").classList.remove("hidden"); }
+    if(GEN_LANG==="en" && _en){ el("qtext").innerHTML = genFmt(_en, q.matching && q.matching.en); el("qtextEn").classList.add("hidden"); }
+    else { el("qtext").innerHTML = genFmt(_hi||_en, q.matching && (q.matching.hi || q.matching.en));
+           if(GEN_LANG==="bi" && _en && _hi){ el("qtextEn").innerHTML = genFmt(_en, q.matching && q.matching.en); el("qtextEn").classList.remove("hidden"); }
            else { el("qtextEn").innerHTML=""; el("qtextEn").classList.add("hidden"); } }
     paintLang();
   el("options").innerHTML = (q.options||[]).map((op,i)=>{var oh=(op&&op.hi)||"", oe=(op&&op.en)||"";var body = (GEN_LANG==="en"&&oe) ? `<div class="op-hi">${genFmtOpt(oe)}</div>` : (GEN_LANG==="bi"&&oe&&oe!==oh) ? `<div class="op-hi">${genFmtOpt(oh)}</div><div class="op-en">${genFmtOpt(oe)}</div>` : `<div class="op-hi">${genFmtOpt(oh||oe)}</div>`;return `<button class="option ${answers[current]===i?"selected":""}" onclick="selectAnswer(${i})"><div class="letter">${letters[i]}</div><div>${body}</div></button>`;}).join("");
@@ -898,11 +904,12 @@ function calculateResult(auto){
   testActive = false; storeDel(PROG_KEY);
   const timeTaken = startedAt ? Math.floor((Date.now()-startedAt)/1000) : (TOTAL_TIME_SECONDS - remaining);
   let correct=0, wrong=0, attempted=0;
-  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(q.answer===null||q.answer===undefined||q.answer<0){ /* unscored / no key */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
-  const skipped = QUESTIONS.length - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = QUESTIONS.length*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
+  QUESTIONS.forEach((q,i)=>{ if(answers[i]!==null){ if(!hasAnswerKey(q)){ /* excluded from scoring */ } else { attempted++; if(answers[i]===q.answer) correct++; else wrong++; } } });
+  const scoredQuestions = QUESTIONS.filter(hasAnswerKey).length; const excluded = QUESTIONS.length - scoredQuestions;
+  const skipped = scoredQuestions - attempted; const marks = correct*MARKS - wrong*NEG; const maxMarks = scoredQuestions*MARKS; const percent = maxMarks ? Math.max(0, Math.round((marks/maxMarks)*100)) : 0; const accuracy = attempted ? Math.round((correct/attempted)*100) : 0;
   let band = "अभ्यास जारी रखें — व्याख्या पढ़कर कमज़ोर हिस्से मज़बूत करें।";
   if(percent >= 80) band = "बहुत अच्छा प्रदर्शन! अब गति और पेचीदा कथनों पर पकड़ और मज़बूत करें।"; else if(percent >= 60) band = "अच्छा प्रयास। गलत प्रश्नों की व्याख्या से दोहराव कीजिए।"; else if(percent >= 40) band = "औसत प्रदर्शन। अवधारणाएँ और तथ्य क्रमबद्ध ढंग से पढ़ें।"; else band = "मूल दोहराव आवश्यक है। व्याख्या वाला भाग ध्यान से पढ़ें।";
-  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, submittedAt: new Date().toISOString() };
+  lastResult = { testId: TEST.testId || "gen-test", testTitle: TEST.title || "GenClasses Test", name: studentName, score: Number(marks.toFixed(2)), maxMarks: Number(maxMarks.toFixed(2)), percent, attempted, correct, wrong, skipped, accuracy, timeTaken, totalQuestions: QUESTIONS.length, scoredQuestions, excluded, submittedAt: new Date().toISOString() };
   el("resultMessage").textContent = auto ? `समय समाप्त! ${band}` : band;
   el("studentStrip").innerHTML = `<span>नाम: ${escapeHTML(studentName)}</span><span>लगा समय: ${formatTime(timeTaken)}</span><span>प्रश्न: ${QUESTIONS.length}</span>`;
   el("finalMarks").textContent = `${marks.toFixed(2)} / ${numClean(maxMarks)}`; el("finalAttempted").textContent = attempted; el("finalCorrect").textContent = correct; el("finalWrong").textContent = wrong; el("finalAccuracy").textContent = `${accuracy}%`; el("finalTime").textContent = formatTime(timeTaken); el("scorePercent").textContent = `${percent}%`; el("scoreCircle").style.setProperty("--scoreDeg", `${percent*3.6}deg`);
@@ -911,27 +918,27 @@ function calculateResult(auto){
 }
 function renderReview(){ el("reviewList").innerHTML = QUESTIONS.map((q,i)=>{
   const user = answers[i];
-  const noKey = (q.answer===null||q.answer===undefined||q.answer<0);
+  const noKey = !hasAnswerKey(q);
   const status = user===null ? "skip" : (noKey ? "skip" : (user===q.answer ? "ok" : "bad"));
-  const statusText = user===null ? "अनुत्तरित" : (noKey ? "कुंजी नहीं" : (user===q.answer ? "सही" : "गलत"));
+  const statusText = noKey ? (GEN_LANG==="en" ? "Not scored" : "अंक-गणना से बाहर") : (user===null ? "अनुत्तरित" : (user===q.answer ? "सही" : "गलत"));
   const optTxt = function(o){ if(!o) return "";
     var oh=o.hi||"", oe=o.en||"";
     if(GEN_LANG==="en" && oe) return oe;
     if(GEN_LANG==="bi" && oe && oe!==oh) return oh+" / "+oe;
     return oh||oe; };
   const utext = user===null ? "—" : `${letters[user]}. ${optTxt(q.options[user])}`;
-  const correctText = (q.answer===null||q.answer===undefined||q.answer<0) ? (q.answer_note || "—") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
+  const correctText = !hasAnswerKey(q) ? (GEN_LANG==="en" ? "Not scored — see explanation" : "अंक-गणना से बाहर — व्याख्या देखें") : `${letters[q.answer]}. ${optTxt(q.options[q.answer])}`;
   var qMain = (GEN_LANG==="en" && q.question_en) ? q.question_en : (q.question_hi||q.question_en||"");
   var qSub  = (GEN_LANG==="bi" && q.question_en && q.question_hi) ? q.question_en : "";
   var eMain = (GEN_LANG==="en" && q.explanation_en) ? q.explanation_en : (q.explanation_hi||q.explanation_en||"");
   var eSub  = (GEN_LANG==="bi" && q.explanation_en && q.explanation_hi) ? q.explanation_en : "";
   return `<div class="review-item"><div class="review-head"><strong>प्रश्न ${i+1}</strong>`
     + `<span class="badge ${status}">${statusText}</span></div>`
-    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain)}</b></div>`
-    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub)}</div>`:"")
+    + `<div class="review-content"><div style="white-space:pre-line"><b>${genFmt(qMain, q.matching && (GEN_LANG==="en" ? q.matching.en : q.matching.hi))}</b></div>`
+    + (qSub?`<div class="qtext-en" style="white-space:pre-line">${genFmt(qSub, q.matching && q.matching.en)}</div>`:"")
     + `<div class="answer-line"><b>आपका उत्तर:</b> ${escapeHTML(utext)}<br><b>सही उत्तर:</b> ${escapeHTML(correctText)}</div>`
     + (eMain?`<div class="explain"><b>व्याख्या:</b> ${escapeHTML(eMain)}`
-        + (eSub?`<br><span style="opacity:.75">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
+        + (eSub?`<br><span class="explain-en" style="opacity:.85">${escapeHTML(eSub)}</span>`:"") + `</div>`:"")
     + `</div></div>`;
 }).join(""); }
 function restartTest(){ current=0; answers=Array(QUESTIONS.length).fill(null); review=Array(QUESTIONS.length).fill(false); remaining=TOTAL_TIME_SECONDS; studentName=""; startedAt=0; testActive=false; storeDel(PROG_KEY); if(timerId) clearInterval(timerId); el("studentName").value=""; el("nameErr").textContent=""; el("timer").style.background="rgba(255,255,255,.15)"; el("resultScreen").style.display="none"; el("homeScreen").style.display="block"; setTimeout(()=>el("studentName").focus(),50); window.scrollTo({top:0, behavior:"smooth"}); }

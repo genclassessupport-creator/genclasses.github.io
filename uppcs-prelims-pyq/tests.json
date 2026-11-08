@@ -1,58 +1,58 @@
 {
-  "total": 1200,
-  "unscored": 28,
+  "total": 1103,
+  "unscored": 2,
   "years": {
-    "2018": 150,
-    "2019": 150,
-    "2020": 150,
-    "2021": 150,
-    "2022": 150,
-    "2023": 150,
-    "2024": 150,
-    "2025": 150
+    "2018": 138,
+    "2019": 136,
+    "2020": 137,
+    "2021": 141,
+    "2022": 130,
+    "2023": 140,
+    "2024": 138,
+    "2025": 143
   },
   "sections": [
     {
       "id": "history",
       "title_en": "History",
       "title_hi": "इतिहास",
-      "count": 167
+      "count": 136
     },
     {
       "id": "polity",
       "title_en": "Indian Polity",
       "title_hi": "भारतीय राजव्यवस्था",
-      "count": 170
+      "count": 152
     },
     {
       "id": "economy",
       "title_en": "Indian Economy",
       "title_hi": "भारतीय अर्थव्यवस्था",
-      "count": 142
+      "count": 128
     },
     {
       "id": "geography",
       "title_en": "Geography",
       "title_hi": "भूगोल",
-      "count": 183
+      "count": 172
     },
     {
       "id": "environment",
       "title_en": "Environment & Ecology",
       "title_hi": "पर्यावरण एवं पारिस्थितिकी",
-      "count": 141
+      "count": 131
     },
     {
       "id": "science",
       "title_en": "Science",
       "title_hi": "विज्ञान",
-      "count": 124
+      "count": 117
     },
     {
       "id": "population",
       "title_en": "Population & Urbanization",
       "title_hi": "जनसंख्या एवं नगरीकरण",
-      "count": 22
+      "count": 20
     },
     {
       "id": "current",
@@ -64,13 +64,13 @@
       "id": "up",
       "title_en": "Uttar Pradesh Special",
       "title_hi": "उत्तर प्रदेश राज्य विशेष",
-      "count": 32
+      "count": 31
     },
     {
       "id": "misc",
       "title_en": "Miscellaneous",
       "title_hi": "विविध",
-      "count": 73
+      "count": 70
     }
   ],
   "tests": [
@@ -80,19 +80,19 @@
       "section": "history",
       "title_en": "Ancient History",
       "title_hi": "प्राचीन इतिहास",
-      "count": 41,
+      "count": 31,
       "missing_answers": 0,
       "years": {
-        "2018": 9,
-        "2020": 8,
+        "2018": 7,
+        "2020": 5,
         "2021": 3,
-        "2022": 6,
+        "2022": 2,
         "2023": 9,
-        "2024": 2,
+        "2024": 1,
         "2025": 4
       },
       "exam_counts": {
-        "uppcs-pre": 41,
+        "uppcs-pre": 31,
         "unknown": 0
       }
     },
@@ -102,20 +102,20 @@
       "section": "science",
       "title_en": "Biology",
       "title_hi": "जीव विज्ञान",
-      "count": 59,
-      "missing_answers": 1,
+      "count": 53,
+      "missing_answers": 0,
       "years": {
         "2018": 2,
-        "2019": 10,
+        "2019": 9,
         "2020": 7,
-        "2021": 11,
-        "2022": 6,
+        "2021": 9,
+        "2022": 3,
         "2023": 7,
         "2024": 10,
         "2025": 6
       },
       "exam_counts": {
-        "uppcs-pre": 59,
+        "uppcs-pre": 53,
         "unknown": 0
       }
     },
@@ -125,7 +125,7 @@
       "section": "science",
       "title_en": "Chemistry",
       "title_hi": "रसायन विज्ञान",
-      "count": 42,
+      "count": 41,
       "missing_answers": 0,
       "years": {
         "2018": 2,
@@ -134,11 +134,11 @@
         "2021": 6,
         "2022": 5,
         "2023": 4,
-        "2024": 3,
+        "2024": 2,
         "2025": 9
       },
       "exam_counts": {
-        "uppcs-pre": 42,
+        "uppcs-pre": 41,
         "unknown": 0
       }
     },
@@ -187,19 +187,19 @@
       "section": "environment",
       "title_en": "Environment & Ecology (Part A)",
       "title_hi": "पर्यावरण एवं पारिस्थितिकी (भाग A)",
-      "count": 100,
-      "missing_answers": 2,
+      "count": 94,
+      "missing_answers": 0,
       "years": {
-        "2019": 13,
-        "2020": 19,
+        "2019": 12,
+        "2020": 17,
         "2021": 12,
-        "2022": 16,
+        "2022": 13,
         "2023": 21,
         "2024": 5,
         "2025": 14
       },
       "exam_counts": {
-        "uppcs-pre": 100,
+        "uppcs-pre": 94,
         "unknown": 0
       }
     },
@@ -209,14 +209,14 @@
       "section": "environment",
       "title_en": "Environment & Ecology (Part B)",
       "title_hi": "पर्यावरण एवं पारिस्थितिकी (भाग B)",
-      "count": 41,
-      "missing_answers": 2,
+      "count": 37,
+      "missing_answers": 0,
       "years": {
-        "2018": 31,
+        "2018": 27,
         "2019": 10
       },
       "exam_counts": {
-        "uppcs-pre": 41,
+        "uppcs-pre": 37,
         "unknown": 0
       }
     },
@@ -226,18 +226,18 @@
       "section": "economy",
       "title_en": "Indian Economy (Part A)",
       "title_hi": "भारतीय अर्थव्यवस्था (भाग A)",
-      "count": 100,
-      "missing_answers": 2,
+      "count": 88,
+      "missing_answers": 0,
       "years": {
-        "2020": 7,
-        "2021": 18,
-        "2022": 12,
-        "2023": 15,
-        "2024": 25,
-        "2025": 23
+        "2020": 6,
+        "2021": 15,
+        "2022": 10,
+        "2023": 13,
+        "2024": 23,
+        "2025": 21
       },
       "exam_counts": {
-        "uppcs-pre": 100,
+        "uppcs-pre": 88,
         "unknown": 0
       }
     },
@@ -247,15 +247,15 @@
       "section": "economy",
       "title_en": "Indian Economy (Part B)",
       "title_hi": "भारतीय अर्थव्यवस्था (भाग B)",
-      "count": 42,
-      "missing_answers": 2,
+      "count": 40,
+      "missing_answers": 0,
       "years": {
         "2018": 14,
-        "2019": 13,
-        "2020": 15
+        "2019": 12,
+        "2020": 14
       },
       "exam_counts": {
-        "uppcs-pre": 42,
+        "uppcs-pre": 40,
         "unknown": 0
       }
     },
@@ -265,20 +265,20 @@
       "section": "geography",
       "title_en": "Indian Geography",
       "title_hi": "भारत का भूगोल",
-      "count": 98,
-      "missing_answers": 2,
+      "count": 88,
+      "missing_answers": 0,
       "years": {
-        "2018": 12,
-        "2019": 10,
-        "2020": 10,
+        "2018": 9,
+        "2019": 8,
+        "2020": 9,
         "2021": 10,
-        "2022": 13,
+        "2022": 10,
         "2023": 11,
-        "2024": 17,
+        "2024": 16,
         "2025": 15
       },
       "exam_counts": {
-        "uppcs-pre": 98,
+        "uppcs-pre": 88,
         "unknown": 0
       }
     },
@@ -288,17 +288,17 @@
       "section": "polity",
       "title_en": "Indian Polity (Part A)",
       "title_hi": "भारतीय राजव्यवस्था (भाग A)",
-      "count": 100,
-      "missing_answers": 3,
+      "count": 88,
+      "missing_answers": 0,
       "years": {
-        "2021": 10,
-        "2022": 18,
-        "2023": 23,
-        "2024": 25,
-        "2025": 24
+        "2021": 9,
+        "2022": 16,
+        "2023": 21,
+        "2024": 20,
+        "2025": 22
       },
       "exam_counts": {
-        "uppcs-pre": 100,
+        "uppcs-pre": 88,
         "unknown": 0
       }
     },
@@ -308,16 +308,16 @@
       "section": "polity",
       "title_en": "Indian Polity (Part B)",
       "title_hi": "भारतीय राजव्यवस्था (भाग B)",
-      "count": 70,
-      "missing_answers": 4,
+      "count": 64,
+      "missing_answers": 0,
       "years": {
-        "2018": 19,
-        "2019": 18,
-        "2020": 21,
+        "2018": 16,
+        "2019": 16,
+        "2020": 20,
         "2021": 12
       },
       "exam_counts": {
-        "uppcs-pre": 70,
+        "uppcs-pre": 64,
         "unknown": 0
       }
     },
@@ -327,20 +327,20 @@
       "section": "history",
       "title_en": "Medieval History",
       "title_hi": "मध्यकालीन इतिहास",
-      "count": 57,
-      "missing_answers": 1,
+      "count": 48,
+      "missing_answers": 0,
       "years": {
         "2018": 8,
         "2019": 11,
-        "2020": 7,
-        "2021": 2,
-        "2022": 8,
-        "2023": 7,
-        "2024": 5,
-        "2025": 9
+        "2020": 5,
+        "2021": 1,
+        "2022": 7,
+        "2023": 5,
+        "2024": 4,
+        "2025": 7
       },
       "exam_counts": {
-        "uppcs-pre": 57,
+        "uppcs-pre": 48,
         "unknown": 0
       }
     },
@@ -350,20 +350,20 @@
       "section": "misc",
       "title_en": "Miscellaneous",
       "title_hi": "विविध",
-      "count": 73,
-      "missing_answers": 1,
+      "count": 70,
+      "missing_answers": 0,
       "years": {
         "2018": 6,
-        "2019": 8,
+        "2019": 7,
         "2020": 7,
-        "2021": 13,
-        "2022": 11,
+        "2021": 12,
+        "2022": 10,
         "2023": 9,
         "2024": 14,
         "2025": 5
       },
       "exam_counts": {
-        "uppcs-pre": 73,
+        "uppcs-pre": 70,
         "unknown": 0
       }
     },
@@ -373,20 +373,20 @@
       "section": "history",
       "title_en": "Modern History",
       "title_hi": "आधुनिक इतिहास",
-      "count": 69,
-      "missing_answers": 3,
+      "count": 57,
+      "missing_answers": 0,
       "years": {
         "2018": 6,
-        "2019": 12,
-        "2020": 6,
+        "2019": 7,
+        "2020": 4,
         "2021": 11,
-        "2022": 6,
-        "2023": 7,
-        "2024": 11,
-        "2025": 10
+        "2022": 5,
+        "2023": 5,
+        "2024": 10,
+        "2025": 9
       },
       "exam_counts": {
-        "uppcs-pre": 69,
+        "uppcs-pre": 57,
         "unknown": 0
       }
     },
@@ -418,18 +418,18 @@
       "section": "population",
       "title_en": "Population & Urbanization",
       "title_hi": "जनसंख्या एवं नगरीकरण",
-      "count": 22,
-      "missing_answers": 2,
+      "count": 20,
+      "missing_answers": 0,
       "years": {
         "2018": 6,
         "2020": 2,
-        "2021": 6,
+        "2021": 5,
         "2022": 2,
-        "2023": 4,
+        "2023": 3,
         "2024": 2
       },
       "exam_counts": {
-        "uppcs-pre": 22,
+        "uppcs-pre": 20,
         "unknown": 0
       }
     },
@@ -439,19 +439,19 @@
       "section": "up",
       "title_en": "Uttar Pradesh Special",
       "title_hi": "उत्तर प्रदेश राज्य विशेष",
-      "count": 32,
-      "missing_answers": 1,
+      "count": 31,
+      "missing_answers": 0,
       "years": {
         "2018": 3,
         "2019": 1,
         "2020": 7,
         "2021": 3,
         "2022": 7,
-        "2023": 5,
+        "2023": 4,
         "2025": 6
       },
       "exam_counts": {
-        "uppcs-pre": 32,
+        "uppcs-pre": 31,
         "unknown": 0
       }
     },
@@ -461,11 +461,11 @@
       "section": "geography",
       "title_en": "World Geography",
       "title_hi": "विश्व का भूगोल",
-      "count": 85,
+      "count": 84,
       "missing_answers": 0,
       "years": {
         "2018": 10,
-        "2019": 11,
+        "2019": 10,
         "2020": 11,
         "2021": 9,
         "2022": 11,
@@ -474,10 +474,17 @@
         "2025": 10
       },
       "exam_counts": {
-        "uppcs-pre": 85,
+        "uppcs-pre": 84,
         "unknown": 0
       }
     }
   ],
-  "note": "part-08.md skipped (combined duplicate of subject parts)"
+  "note": "part-08.md skipped (combined duplicate of subject parts)",
+  "original_bank_total": 1200,
+  "removed_questions": 97,
+  "audit_scope": {
+    "original_non_current": 1054,
+    "current_affairs_excluded": 146,
+    "all_primary_keys_verified": false
+  }
 }

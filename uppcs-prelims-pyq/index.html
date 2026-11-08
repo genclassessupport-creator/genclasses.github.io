@@ -74,8 +74,8 @@ html[data-theme="light"] .count-hero .sub{color:#1F2A2E}
     <span class="sub"><span data-hi>प्रश्न · विषयवार टेस्ट<br>UPPCS Prelims 2018–2025</span><span data-en>Questions · subject-wise tests<br>UPPCS Prelims 2018–2025</span></span>
     <span class="pill">2018–2025</span>
   </div>
-  <p data-hi>UPPCS Prelims (2018–2025) के सभी प्रश्न — विषयवार टेस्ट में। प्रत्येक प्रश्न पर परीक्षा/वर्ष बैज। जहाँ आधिकारिक कुंजी (*) थी, वे unscored रखे गए — उत्तर नहीं गढ़े गए।</p>
-  <p data-en>All UPPCS Prelims questions (2018–2025) — in subject-wise tests. Each question shows an exam/year badge. Items with official (*) key are left unscored — answers were not invented.</p>
+  <p data-hi>UPPCS Prelims (2018–2025) के मूल 1200-प्रश्न संग्रह से विषयवार अभ्यास। संदिग्ध प्रश्न हटाए गए हैं; नीचे उपलब्ध प्रश्नों की संख्या दी गई है। Current Affairs इस समीक्षा से बाहर है।</p>
+  <p data-en>Subject-wise practice from the original 1200-question collection (2018–2025). Doubtful items have been removed; available counts are shown below. Current Affairs is outside this review.</p>
   <div class="stats" id="stats"></div>
   <p class="note" data-hi>नोट: यह हब विषय के अनुसार समूहित है (राजव्यवस्था, इतिहास, भूगोल, अर्थव्यवस्था, विज्ञान आदि)। बड़े विषय ≤100 प्रश्नों के भागों में बाँटे गए हैं।</p>
   <p class="note" data-en>Note: This hub is grouped by subject (Polity, History, Geography, Economy, Science, etc.). Larger subjects are split into parts of ≤100 questions.</p>
@@ -131,7 +131,7 @@ html[data-theme="light"] .count-hero .sub{color:#1F2A2E}
       return '<div class="stat"><b>'+x[0]+'</b><span>'+x[1]+'</span></div>';
     }).join("");
     var big = document.querySelector("#countHero .big");
-    if (big) big.textContent = DATA.total;
+    if (big) big.textContent = DATA.original_bank_total || 1200;
   }
   function renderYearFilters(){
     var wrap = document.getElementById("yearFilters");
@@ -177,7 +177,7 @@ html[data-theme="light"] .count-hero .sub{color:#1F2A2E}
       tests.forEach(function(t){
         var a = document.createElement("a");
         a.className = "card";
-        a.href = "/" + t.path + "?v=20261107-matching-2";
+        a.href = "/" + t.path + "?v=20261108-audit-1";
         var ytags = yearsOf(t).sort().reverse().map(function(y){ return '<span>'+y+'</span>'; }).join("");
         var qShow = (YEAR === "all") ? t.count : (t.years[YEAR] || t.count);
         a.innerHTML =

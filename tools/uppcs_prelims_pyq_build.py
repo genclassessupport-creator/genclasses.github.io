@@ -15,6 +15,25 @@ SRC_DIR = Path("/workspace/uppcs-md")
 OUT_DIR = ROOT / "tests" / "uppcs-prelims-pyq"
 HUB_DIR = ROOT / "uppcs-prelims-pyq"
 MAX_Q = 100
+CORRECTIONS = json.loads((ROOT / "content" / "uppcs-prelims-pyq-corrections.json").read_text(encoding="utf-8"))
+EXCLUSIONS = json.loads((ROOT / "content" / "uppcs-prelims-pyq-exclusions.json").read_text(encoding="utf-8"))
+
+
+def apply_review(file_name: str, questions: list[dict]) -> list[dict]:
+    """Apply reviewed overrides against original per-part IDs, then drop exclusions."""
+    retained = []
+    for question in questions:
+        key = f"{file_name}:{question['id']}"
+        if key in EXCLUSIONS:
+            continue
+        for field, value in CORRECTIONS.get(key, {}).get("changes", {}).items():
+            if field in ("options_en", "options_hi"):
+                for option, text in zip(question["options"], value):
+                    option[field[-2:]] = text
+            else:
+                question[field] = value
+        retained.append(question)
+    return retained
 
 QHEAD = re.compile(r"^####\s+प्रश्न\s+(\d+)\s*:\s*(.*)$")
 TOPIC = re.compile(r"^विषय:\s*(.+?)\s*\|\s*(.+?)\s*$")
@@ -235,6 +254,8 @@ def write_test(test: dict, path: Path) -> None:
 
 
 def main() -> None:
+    if not list(SRC_DIR.glob("part-*.md")):
+        raise SystemExit(f"No source markdown found in {SRC_DIR}; existing tests were not changed.")
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     HUB_DIR.mkdir(parents=True, exist_ok=True)
     # clear old html in out
@@ -286,17 +307,18 @@ def main() -> None:
             part_label_hi = f" (भाग {letters[pi]})" if len(parts) > 1 else ""
             test_id = f"uppcs-pre-pyq-{slug}{suffix}"
             fname = f"UPPCS-Pre-PYQ-{slug}{suffix}.html"
-            missing = sum(1 for q in part_qs if q["answer"] is None)
-            unscored += missing
-            for q in part_qs:
-                if q.get("year"):
-                    years_all[q["year"]] += 1
             # renumber ids
             questions = []
             for i, q in enumerate(part_qs, 1):
                 qq = dict(q)
                 qq["id"] = i
                 questions.append(qq)
+            questions = apply_review(fname, questions)
+            missing = sum(1 for q in questions if not isinstance(q.get("answer"), int) or not 0 <= q["answer"] < len(q["options"]))
+            unscored += missing
+            for q in questions:
+                if q.get("year"):
+                    years_all[q["year"]] += 1
             test = {
                 "testId": test_id,
                 "title": f"UPPCS Prelims PYQ — {title_en}{part_label_en}",
@@ -312,6 +334,9 @@ def main() -> None:
                 "negativeMarks": 0.66,
                 "questions": questions,
             }
+            if "current-affairs" not in fname:
+                test["contentRevision"] = "20261108-audit-1"
+                test["description"] = "UPPCS Prelims PYQ practice (2018–2025). Wording and translations edited for clarity; doubtful or unresolved items removed. Counts show the retained practice questions."
             write_test(test, OUT_DIR / fname)
             yc = Counter(q["year"] for q in questions if q.get("year"))
             tests_meta.append(
@@ -334,6 +359,9 @@ def main() -> None:
 
     manifest = {
         "total": total,
+        "original_bank_total": 1200,
+        "removed_questions": len(EXCLUSIONS),
+        "audit_scope": {"original_non_current": 1054, "current_affairs_excluded": 146, "all_primary_keys_verified": False},
         "unscored": unscored,
         "years": dict(sorted(years_all.items())),
         "sections": [
