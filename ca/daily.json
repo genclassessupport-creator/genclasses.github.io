@@ -1,205 +1,591 @@
 {
-  "updated": "2026-11-08",
-  "days": [
-    {"date":"2026-11-08","points":[
-    {"tag_hi":"अर्थव्यवस्था","tag_en":"Economy","hi":"MoSPI ने वार्षिक उद्योग सर्वेक्षण (ASI) 2024-25 जारी किया। निगमित विनिर्माण के सकल मूल्य वर्धन (GVA) में 9.28% की वृद्धि हुई। महाराष्ट्र, गुजरात, तमिलनाडु, कर्नाटक और उत्तर प्रदेश मिलकर विनिर्माण GVA में 54% से अधिक योगदान देते हैं।","en":"MoSPI released the Annual Survey of Industries (ASI) 2024-25. Corporate manufacturing GVA rose 9.28%. Maharashtra, Gujarat, Tamil Nadu, Karnataka and Uttar Pradesh together contribute over 54% of manufacturing GVA.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"NITI आयोग ने भारत विज्ञान-प्रौद्योगिकी स्कोरबोर्ड जारी किया, जो सभी 36 राज्यों-केंद्रशासित प्रदेशों को AI, सेमीकंडक्टर, स्वच्छ ऊर्जा और अंतरिक्ष जैसे 11 प्राथमिकता क्षेत्रों में आँकता है। शोध गतिविधि तमिलनाडु, उत्तर प्रदेश, महाराष्ट्र, कर्नाटक और दिल्ली में केंद्रित है।","en":"NITI Aayog released the India S&T Scoreboard, which ranks all 36 States and UTs across 11 priority areas such as AI, semiconductors, clean energy and space. Research activity is concentrated in Tamil Nadu, Uttar Pradesh, Maharashtra, Karnataka and Delhi.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"नवीकरणीय ऊर्जा","tag_en":"Renewable Energy","hi":"रेल मंत्रालय ने PM सूर्य घर एक्सीलेंस अवार्ड 2026 जीता; केंद्रीय मंत्रालयों में रूफटॉप सौर में वह पहले स्थान पर है। 15,868 चिन्हित भवनों में से 12,495 पर सौर प्रणाली लगी और 351 MW क्षमता चालू हुई। लक्ष्य मार्च 2027 है।","en":"The Ministry of Railways won the PM Surya Ghar Excellence Award 2026 and ranks first among Central ministries in rooftop solar. Solar systems are installed on 12,495 of 15,868 identified buildings, with 351 MW commissioned. The target is March 2027.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"विज्ञान","tag_en":"Science","hi":"हैदराबाद के VSD टेक पार्क में Cosmoserve Space की 14,800 वर्ग फुट की सुविधा 'बेस 1' का आभासी उद्घाटन हुआ। यह सक्रिय मलबा हटाने और कक्षा में सेवा (In-Orbit Servicing) के लिए है, जो 2030 तक 'मलबा-मुक्त अंतरिक्ष' लक्ष्य से जुड़ी है।","en":"Cosmoserve Space's 14,800 sq ft facility 'Base 1' at VSD Tech Park, Hyderabad, was virtually inaugurated. It is for Active Debris Removal and In-Orbit Servicing, linked to the goal of a debris-free space by 2030.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"राष्ट्रीय","tag_en":"National","hi":"गृह मंत्रालय ने 'इमिग्रेशन एंड फ़ॉरेनर्स (छूट) (संशोधन) आदेश, 2026' अधिसूचित किया, जो भारत-नेपाल और भारत-भूटान यात्रा से जुड़ा है। नेपाली व भूटानी नागरिकों को चीन, मकाऊ, हाँगकाँग या पाकिस्तान से उड़ान भरने या वहाँ ट्रांज़िट पर वैध पासपोर्ट और भारतीय वीज़ा चाहिए।","en":"The Home Ministry notified the Immigration and Foreigners (Exemption) (Amendment) Order, 2026, relating to travel between India and Nepal/Bhutan. Nepali and Bhutanese nationals need a valid passport and Indian visa if they fly from or transit through China, Macau, Hong Kong or Pakistan.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"संस्कृति","tag_en":"Culture","hi":"UNESCO की एशिया-प्रशांत 'मेमोरी ऑफ़ द वर्ल्ड' क्षेत्रीय रजिस्टर में 11वें MOWCAP सत्र (जकार्ता) में तीन पांडुलिपियाँ जुड़ीं: कल्हण की राजतरंगिणी, महाभारत और कौटिल्य का अर्थशास्त्र।","en":"At the 11th MOWCAP session in Jakarta, three texts were inscribed on UNESCO's Asia-Pacific Memory of the World Regional Register: Kalhana's Rajatarangini, the Mahabharata and Kautilya's Arthashastra.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"पर्यावरण","tag_en":"Environment","hi":"NITI आयोग और जर्मनी की GIZ ने NDC-TIA चरण-II के कार्यान्वयन समझौते पर हस्ताक्षर किए। यह जर्मनी की अंतरराष्ट्रीय जलवायु पहल (IKI) से वित्त-पोषित है; भारत, चीन और वियतनाम इसके लक्ष्य देश हैं। चरण-II नवंबर 2024 से सितंबर 2028 तक है।","en":"NITI Aayog and GIZ of Germany signed the implementation agreement for Phase II of NDC-TIA. It is funded by Germany's International Climate Initiative (IKI) and targets India, China and Vietnam. Phase II runs from November 2024 to September 2028.","src":"https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"},
-    {"tag_hi":"शिक्षा","tag_en":"Education","hi":"CBSE की 2027 की बोर्ड परीक्षाएँ 16 फ़रवरी 2027 से शुरू होंगी। कक्षा 10 की परीक्षा 9 मार्च और कक्षा 12 की 9 अप्रैल को समाप्त होगी। लगभग 46 लाख छात्रों के बैठने की संभावना है।","en":"CBSE's 2027 board exams will begin on 16 Feb 2027. Class 10 exams end on 9 March and Class 12 exams on 9 April. Over 46 lakh students are expected to appear.","src":"https://www.indianopinion.org/today-in-india-6-november-2026/"},
-    {"tag_hi":"ऊर्जा","tag_en":"Energy","hi":"ONGC ने रूस की सखालिन-1 परियोजना में अपनी 20% हिस्सेदारी बचाने के लिए लगभग 800 मिलियन डॉलर के फँसे रूसी लाभांश का उपयोग किया। यह राशि परित्याग (abandonment) कोष की देनदारी चुकाने में लगी। कंपनी वेनेज़ुएला में ऑपरेटरशिप की भी तलाश में है।","en":"ONGC used about $800 million of stuck Russian dividends to meet abandonment-fund obligations in the Sakhalin-1 project, securing its 20% stake. The company is also seeking operatorship in Venezuela.","src":"https://www.indianopinion.org/today-in-india-6-november-2026/"},
-    {"tag_hi":"स्थैतिक GK","tag_en":"Static GK","hi":"8 नवंबर को विश्व रेडियोग्राफी दिवस मनाया जाता है। विल्हेम रॉन्टजेन ने 8 नवंबर 1895 को एक्स-किरणों की खोज की थी।","en":"8 November is World Radiography Day. Wilhelm Röntgen discovered X-rays on 8 November 1895.","src":"https://en.wikipedia.org/wiki/Wilhelm_Conrad_R%C3%B6ntgen"}
-    ]},
-    {"date":"2026-11-07","points":[
-    {"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"उत्तर प्रदेश सरकार ने प्राकृतिक आपदा में मृतकों के परिवारों को दी जाने वाली अनुग्रह राशि 4 लाख से बढ़ाकर 8 लाख रुपये कर दी है। फसल-नुकसान के मुआवज़े में भी 25 से 30 प्रतिशत की बढ़ोतरी की गई है।","en":"The Uttar Pradesh government has doubled the ex-gratia for families of those killed in natural disasters, from Rs 4 lakh to Rs 8 lakh. Crop-loss compensation has also been raised by 25 to 30 per cent.","src":"https://www.thestatesman.com/cities/lucknow/up-government-increases-compensation-for-natural-disasters-crop-losses-and-deaths-of-humans-and-livestock-1503659671.html"},
-    {"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"सर्वोच्च न्यायालय ने उत्तर प्रदेश सरकार से कहा है कि जिन विचाराधीन कैदियों को ज़मानत मिल चुकी है, पर वे शर्तें पूरी न कर पाने से जेल में हैं, उनकी रिहाई सुनिश्चित की जाए।","en":"The Supreme Court has asked the Uttar Pradesh government to ensure the release of under-trial prisoners who have been granted bail but remain in jail because they cannot meet the bail conditions.","src":"https://ommcomnews.com/india-news/sc-asks-up-to-ensure-release-of-under-trials-granted-bail-but-still-in-custody/"},
-    {"tag_hi":"रक्षा","tag_en":"Defence","hi":"DRDO ने 5 नवंबर 2026 को ओडिशा के डॉ. APJ अब्दुल कलाम द्वीप से क्वासी-बैलिस्टिक मिसाइल 'प्रलय' का उड़ान परीक्षण किया। इसकी मारक सीमा 150 से 500 किमी है। इसे RCI हैदराबाद ने विकसित किया है।","en":"DRDO flight-tested the quasi-ballistic missile 'Pralay' on 5 Nov 2026 from Dr APJ Abdul Kalam Island, off Odisha. Its range is 150 to 500 km. It was developed by RCI Hyderabad.","src":"https://striveedgeias.in/pib-snippets-november-6-2026/"},
-    {"tag_hi":"राष्ट्रीय","tag_en":"National","hi":"गृह मंत्री ने 5 नवंबर 2026 को हरियाणा के अंबाला कैंटोनमेंट में 1857 के शहीदों का स्मारक राष्ट्र को समर्पित किया। लगभग 594 करोड़ रुपये की लागत से बने इस स्मारक में 22 एकड़ क्षेत्र और 22 दीर्घाएँ हैं।","en":"The Home Minister inaugurated the 1857 Martyrs' Memorial at Ambala Cantonment, Haryana, on 5 Nov 2026. It cost about Rs 594 crore, spreads over 22 acres and has 22 galleries.","src":"https://striveedgeias.in/pib-snippets-november-6-2026/"},
-    {"tag_hi":"राष्ट्रीय","tag_en":"National","hi":"अमित शाह ने देहरादून में कहा कि भारत 31 दिसंबर 2029 तक नशा-मुक्त होगा। उन्होंने उत्तराखंड पुलिस को राष्ट्रपति का रंग (President's Colour) प्रदान किया, जो यह सम्मान पाने वाला 16वाँ पुलिस बल है।","en":"Amit Shah said India will be drug-free by 31 Dec 2029. At Dehradun he presented the President's Colour to Uttarakhand Police, the 16th police force to receive it.","src":"https://www.indianopinion.org/today-in-india-6-november-2026/"},
-    {"tag_hi":"अर्थव्यवस्था","tag_en":"Economy","hi":"केंद्रीय मंत्रिमंडल ने 4 नवंबर 2026 को महत्वपूर्ण खनिज प्रसंस्करण के लिए ₹2,814 करोड़ की CAPEX सहायता योजना को मंज़ूरी दी। इसमें चार संयंत्रों (दो लिथियम, दो निकेल) को 30% पूँजी सब्सिडी मिलेगी।","en":"The Union Cabinet on 4 Nov 2026 approved a Rs 2,814 crore CAPEX support scheme for critical mineral processing. Four plants (two lithium, two nickel) will get a 30% capital subsidy.","src":"https://vajiramandravi.com/current-affairs/capex-support-scheme-to-promote-critical-mineral-processing/"},
-    {"tag_hi":"ऊर्जा","tag_en":"Energy","hi":"सर्वोच्च न्यायालय ने भाखड़ा-ब्यास विद्युत विवाद में आदेश दिया कि पंजाब और हरियाणा 20 वर्षों तक हिमाचल प्रदेश को 11,973 मिलियन यूनिट बिजली देंगे। यह हिमाचल के 7.19% हिस्से पर आधारित है।","en":"The Supreme Court ordered Punjab and Haryana to supply Himachal Pradesh 11,973 million units of electricity over 20 years in the Bhakra-Beas power dispute. The share is based on Himachal's 7.19% entitlement.","src":"https://www.indianopinion.org/today-in-india-6-november-2026/"},
-    {"tag_hi":"पर्यावरण","tag_en":"Environment","hi":"सर्वोच्च न्यायालय ने दिल्ली-NCR के प्रदूषण में वाहनों के उत्सर्जन को बड़ा कारक बताया, जब AQI लगभग 400 के पास था। पीठ ने कहा कि बाहरी वाहनों पर उचित निगरानी नहीं है।","en":"The Supreme Court called vehicle emissions a major contributor to Delhi-NCR pollution as the AQI neared 400. It said outside vehicles enter Delhi without proper monitoring.","src":"https://www.indianopinion.org/today-in-india-6-november-2026/"},
-    {"tag_hi":"शिक्षा","tag_en":"Education","hi":"भारतीय बार काउंसिल ने सर्वोच्च न्यायालय को बताया कि उसने तीन और पाँच वर्षीय LLB पाठ्यक्रमों से ऊपरी आयु-सीमा हटा दी है। इससे संबंधित याचिका निष्प्रभावी होकर बंद कर दी गई।","en":"The Bar Council of India told the Supreme Court it has removed the upper age limit for three- and five-year LLB courses. The related petition was closed as infructuous.","src":"https://www.indianopinion.org/today-in-india-6-november-2026/"},
-    {"tag_hi":"स्थैतिक GK","tag_en":"Static GK","hi":"'वंदे मातरम' गीत बंकिमचंद्र चट्टोपाध्याय ने 7 नवंबर 1875 को लिखा था। 24 जनवरी 1950 को संविधान सभा ने इसे 'जन गण मन' के समकक्ष दर्जा दिया। इस वर्ष इसके 150 वर्ष पूरे हो रहे हैं।","en":"Bankim Chandra Chattopadhyay wrote 'Vande Mataram' on 7 Nov 1875. On 24 Jan 1950 the Constituent Assembly gave it equal status with 'Jana Gana Mana'. This year marks 150 years of the song.","src":"https://striveedgeias.in/pib-snippets-november-6-2026/"}
-    ]},
-    {"date":"2026-11-06","points":[
-    {"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"उत्तर प्रदेश सरकार ने 5 नवंबर को वित्त वर्ष 2025-26 के लिए अराजपत्रित राज्य कर्मचारियों को 30 दिन के तदर्थ बोनस का शासनादेश जारी किया। बोनस का 25% नकद मिलेगा और 75% भविष्य निधि (PF) खाते में जमा होगा।","en":"On 5 Nov the Uttar Pradesh government issued an order granting a 30-day ad-hoc bonus for FY 2025-26 to non-gazetted state employees. 25% will be paid in cash and 75% deposited in their provident fund (PF) accounts.","src":"https://hindi.theprint.in/india/uttar-pradesh-government-approves-30-day-bonus-for-employees/1055066/"},
-    {"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"IB Solar ने जर्मनी की RENA Technologies, Centrotherm और ISC Konstanz के साथ यमुना एक्सप्रेसवे औद्योगिक विकास प्राधिकरण (YEIDA) क्षेत्र में सौर प्रौद्योगिकी उत्कृष्टता केंद्र बनाने का MoU किया। इसे देश का पहला ऐसा केंद्र बताया गया है।","en":"IB Solar signed an MoU with Germany's RENA Technologies, Centrotherm and ISC Konstanz to set up a Centre of Excellence for Solar Technology in the YEIDA (Yamuna Expressway) region of UP, described as India's first such centre.","src":"https://www.tribuneindia.com/news/advanced-technologies/ib-solar-signs-mou-with-german-technology-leaders-to-establish-indias-first-centre-of-excellence-for-solar-technology-in-uttar-pradesh"},
-    {"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"काशी तमिल संगमम् 5.0 का आयोजन 28 नवंबर से 12 दिसंबर 2026 तक होगा। विषय 'तिरुक्कुरल पयिलवोम – तिरुक्कुरल अभ्यास करें' है। तमिलनाडु से लगभग 1,400 प्रतिभागी आएँगे; पंजीकरण पोर्टल IIT मद्रास का है, नोडल संस्थान BHU है।","en":"Kashi Tamil Sangamam 5.0 will be held from 28 Nov to 12 Dec 2026 on the theme 'Thirukkural Payilvom – Thirukkural Abhyas Karen'. About 1,400 participants will come from Tamil Nadu; IIT Madras hosts the registration portal and BHU is a nodal institution.","src":"https://newsonair.gov.in/5th-edition-of-kashi-tamil-sangamam-to-be-held-from-28th-november-to-12th-december-this-year/"},
-    {"tag_hi":"शासन","tag_en":"Governance","hi":"केंद्रीय मंत्रिमंडल ने विशेष POCSO न्यायालयों सहित फास्ट ट्रैक विशेष न्यायालय (FTSC) योजना को 1 अप्रैल 2026 से 31 मार्च 2031 तक जारी रखने की मंज़ूरी दी। कुल परिव्यय ₹3,788.04 करोड़ है; केंद्र का हिस्सा निर्भया फंड से आएगा।","en":"The Union Cabinet approved continuing the Fast Track Special Courts (FTSC) scheme, including exclusive POCSO courts, from 1 Apr 2026 to 31 Mar 2031. Total outlay is ₹3,788.04 crore; the Centre's share comes from the Nirbhaya Fund.","src":"https://striveedgeias.in/pib-snippets-november-5-2026/"},
-    {"tag_hi":"ऊर्जा","tag_en":"Energy","hi":"मंत्रिमंडल ने ग्रिड-स्तरीय ऊर्जा भंडारण के लिए ₹14,500 करोड़ की व्यवहार्यता अंतर वित्तपोषण (VGF) योजना को मंज़ूरी दी। 2026-27 से 2030-31 में 92 GWh क्षमता का लक्ष्य है: 60 GWh पंप्ड हाइड्रो, 30 GWh बैटरी (BESS) और 2 GWh वैकल्पिक तकनीक।","en":"The Cabinet approved a ₹14,500 crore Viability Gap Funding (VGF) scheme for grid-scale energy storage. It targets 92 GWh during 2026-27 to 2030-31: 60 GWh pumped hydro, 30 GWh battery (BESS) and 2 GWh alternative technologies.","src":"https://vajiramandravi.com/current-affairs/viability-gap-funding-scheme-for-grid-scale-energy-storage-systems/"},
-    {"tag_hi":"अंतरराष्ट्रीय","tag_en":"International","hi":"2026 में किम्बरली प्रक्रिया (KP) की अध्यक्षता भारत के पास है, तीसरी बार। इसका पूर्ण अधिवेशन (Plenary) 30 नवंबर से 4 दिसंबर 2026 तक नई दिल्ली में होगा। 2026 में घाना उपाध्यक्ष है और 2027 में अध्यक्ष बनेगा।","en":"India chairs the Kimberley Process (KP) in 2026, for the third time. Its Plenary will be held in New Delhi from 30 Nov to 4 Dec 2026. Ghana is vice-chair in 2026 and will be chair in 2027.","src":"https://cracktarget.com/current-affairs-5-november-2026/"},
-    {"tag_hi":"रक्षा","tag_en":"Defence","hi":"भारत, जापान, अमेरिका और ऑस्ट्रेलिया का नौसैनिक अभ्यास 'मालाबार 2026' 5 से 12 नवंबर तक जापान के होंशू द्वीप के कांतो क्षेत्र के दक्षिण में हो रहा है। भारत की ओर से युद्धपोत INS सह्याद्रि भाग ले रहा है।","en":"Naval exercise 'Malabar 2026' of India, Japan, the US and Australia is being held from 5 to 12 Nov south of the Kanto region of Honshu, Japan. India is represented by the frigate INS Sahyadri.","src":"https://news.usni.org/?p=126276"},
-    {"tag_hi":"विज्ञान","tag_en":"Science","hi":"गौहाटी विश्वविद्यालय और भारतीय खगोल भौतिकी संस्थान (IIA) के खगोलविदों ने Gaia DR3 आँकड़ों से पाया कि तारा-गुच्छ UBC 63 वास्तव में दो अलग गुच्छ हैं: UBC 63A (लगभग 2.1 करोड़ वर्ष पुराना) और UBC 63B (लगभग 56.2 करोड़ वर्ष पुराना)।","en":"Astronomers from Gauhati University and the Indian Institute of Astrophysics (IIA), using Gaia DR3 data, found that star cluster UBC 63 is actually two clusters: UBC 63A (about 21 million years old) and UBC 63B (about 562 million years old).","src":"https://arxiv.org/pdf/2607.18224"},
-    {"tag_hi":"खेल","tag_en":"Sports","hi":"प्रधानमंत्री ने 5 नवंबर को एशियाई पैरा खेल 2026 (आइची-नागोया, जापान) के भारतीय दल से भेंट की। भारत ने रिकॉर्ड 114 पदक (30 स्वर्ण, 35 रजत, 49 कांस्य) जीतकर चौथा स्थान पाया; 2023 हांगझोउ में 108 पदक थे।","en":"On 5 Nov the PM met India's contingent for the Asian Para Games 2026 (Aichi-Nagoya, Japan). India won a record 114 medals (30 gold, 35 silver, 49 bronze) and finished fourth; it had won 108 at Hangzhou 2023.","src":"https://newsonair.gov.in/india-shine-at-asian-para-games-2026-with-record-114-medal-haul/"},
-    {"tag_hi":"स्थैतिक","tag_en":"Static GK","hi":"6 नवंबर को 'युद्ध और सशस्त्र संघर्ष में पर्यावरण के शोषण की रोकथाम का अंतरराष्ट्रीय दिवस' मनाया जाता है। संयुक्त राष्ट्र महासभा ने इसे 5 नवंबर 2001 को प्रस्ताव 56/4 द्वारा घोषित किया था।","en":"6 November is the International Day for Preventing the Exploitation of the Environment in War and Armed Conflict. The UN General Assembly declared it on 5 Nov 2001 through resolution 56/4.","src":"https://www.un.org/en/observances/environment-in-war-protection-day"}
-    ]},
-    {"date":"2026-11-05","points":[
-{"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"मुख्यमंत्री योगी आदित्यनाथ ने प्राकृतिक कारणों से फसल-क्षति झेलने वाले किसानों के लिए जल्द विशेष राहत पैकेज की घोषणा की, जिससे लगभग 3 करोड़ किसान परिवार लाभान्वित होंगे। प्रमुख मंडियों और श्रमिक अड्डों पर सस्ते भोजन के लिए 'अन्नपूर्णा भोजनालय' खुलेंगे।","en":"CM Yogi Adityanath announced a special relief package soon for farmers hit by crop loss from natural causes, to benefit about 3 crore farmer families. 'Annapurna Bhojanalayas' offering cheap meals will open at major mandis and labour hubs (shramik addas).","src":"https://www.uptak.in/politics/story/yogi-government-farmers-women-workers-relief-package-ujjwala-subsidy-annapurna-canteen-3559379-2026-11-04"},
-{"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"2 नवंबर को मुख्यमंत्री योगी आदित्यनाथ ने गोंडा ज़िले के मनकापुर और गौरा विधानसभा क्षेत्रों में ₹520 करोड़ से अधिक की 69 विकास परियोजनाओं का लोकार्पण और शिलान्यास किया।","en":"On 2 Nov CM Yogi Adityanath inaugurated and laid foundation stones for 69 development projects worth over ₹520 crore in the Mankapur and Gaura assembly constituencies of Gonda district.","src":"https://www.aninews.in/news/national/general-news/up-cm-yogi-adityanath-to-inaugurate-lay-foundation-stones-for-69-projects-worth-over-rs-520-crore-in-gonda20261102090236/"},
-{"tag_hi":"अर्थव्यवस्था","tag_en":"Economy","hi":"4 नवंबर को केंद्रीय मंत्रिमंडल ने ₹4,371.10 करोड़ की 'VISTAR' (विकसित भारत इनिशिएटिव फ़ॉर स्टैटिस्टिकल ट्रांसफ़ॉर्मेशन, एनालिटिक्स एंड रिसर्च) योजना को मंज़ूरी दी। यह 2026-27 से 2030-31 तक की केंद्रीय क्षेत्र योजना है; इसमें 8वीं आर्थिक जनगणना भी शामिल है।","en":"On 4 Nov the Union Cabinet approved the ₹4,371.10 crore 'VISTAR' (Viksit Bharat Initiative for Statistical Transformation, Analytics & Research) scheme, a central sector scheme for 2026-27 to 2030-31. It includes the 8th Economic Census, run by MoSPI.","src":"https://www.thestatesman.com/india/cabinet-clears-rs-4371-crore-vistar-scheme-to-modernise-indias-statistical-system-expand-surveys-and-harness-ai-1503658798.html"},
-{"tag_hi":"रक्षा","tag_en":"Defence","hi":"3 नवंबर को DRDO ने ओडिशा के चांदीपुर स्थित एकीकृत परीक्षण रेंज (लॉन्च कॉम्प्लेक्स-3) से स्वदेशी अर्ध-बैलिस्टिक मिसाइल 'प्रलय' का परीक्षण किया। इसने लगभग 500 किमी दूर दो काल्पनिक लक्ष्यों को भेदा। इसकी मारक दूरी 150–500 किमी है।","en":"On 3 Nov DRDO test-fired the indigenous quasi-ballistic missile 'Pralay' from Launch Complex-3 of the Integrated Test Range, Chandipur (Odisha). It engaged two simulated targets about 500 km away. Its range is 150–500 km.","src":"https://odishabytes.com/quasi-ballistic-pralay-missile-tested-from-odishas-chandipur-2500-evacuated-before-launch/"},
-{"tag_hi":"रक्षा","tag_en":"Defence","hi":"भारत-अमेरिका त्रि-सेवा मानवीय सहायता एवं आपदा राहत (HADR) अभ्यास 'टाइगर ट्रायम्फ' का 5वाँ संस्करण 2 नवंबर से विशाखापत्तनम के मैरीटाइम वॉरफ़ेयर सेंटर में टेबलटॉप अभ्यास के रूप में शुरू हुआ। इसमें पहली बार NDRF भाग ले रहा है।","en":"The 5th edition of India–US tri-service HADR exercise 'Tiger Triumph' began on 2 Nov at the Maritime Warfare Centre, Visakhapatnam, as a tabletop exercise. The NDRF is taking part for the first time.","src":"https://www.legacyias.com/pib-summaries-04-november-2026/"},
-{"tag_hi":"पर्यावरण","tag_en":"Environment","hi":"कोयला मंत्रालय के कोयला नियंत्रक संगठन (CCO) ने 'SUVIKALP' डिजिटल प्लेटफ़ॉर्म विकसित किया है। यह बंद कोयला व लिग्नाइट खदानों की भूमि के सर्वोत्तम पुनः उपयोग (जैसे सौर पार्क, इको-पार्क, मत्स्य पालन) को TOPSIS पद्धति से अंक देकर क्रमबद्ध करता है।","en":"The Ministry of Coal's Coal Controller Organisation (CCO) has developed 'SUVIKALP', a digital platform that scores and ranks post-mining land uses (e.g. solar parks, eco-parks, fisheries) for closed coal and lignite mines using the TOPSIS method.","src":"https://www.legacyias.com/pib-summaries-04-november-2026/"},
-{"tag_hi":"रिपोर्ट","tag_en":"Report","hi":"QS एशिया यूनिवर्सिटी रैंकिंग 2027 (3 नवंबर) में हांगकांग विश्वविद्यालय शीर्ष पर रहा। भारत के 325 संस्थान शामिल हुए (चीन के बाद दूसरा स्थान)। IIT दिल्ली 66वें स्थान के साथ भारत में सर्वोच्च रहा (पिछले वर्ष 59वाँ)।","en":"In the QS Asia University Rankings 2027 (released 3 Nov), the University of Hong Kong ranked first. India has 325 institutions, second only to mainland China. IIT Delhi is India's best at 66th (59th last year).","src":"https://news.careers360.com/qs-asia-rankings-2027-india-adds-34-universities-leads-research-output-iit-delhi-66th-iisc-iit-bombay-jnu-du/amp"},
-{"tag_hi":"राष्ट्रीय","tag_en":"National","hi":"ग्रामीण विकास मंत्रालय ने VB-G RAM G अधिनियम, 2025 के अंतर्गत शिकायत निवारण नियम, 2026 अधिसूचित किए। इनमें ग्राम पंचायत, ब्लॉक और ज़िला स्तर की त्रि-स्तरीय व्यवस्था है; जाँच 7 कार्यदिवस में और अंतिम निपटारा 15 दिन में होगा।","en":"The Ministry of Rural Development notified the VB-G RAM G Grievance Redressal Rules, 2026 under the VB-G RAM G Act, 2025. They set up a three-tier system (Gram Panchayat, Block, District); inquiry within 7 working days and final resolution within 15 days.","src":"https://affairscloud.com/current-affairs-5-november-2026/"},
-{"tag_hi":"अर्थव्यवस्था","tag_en":"Economy","hi":"3 नवंबर को SEBI ने MeitY के डिजिटल इंडिया भाषिणी डिवीज़न (DIBD) के साथ समझौता ज्ञापन किया। इससे निवेशक-शिक्षा और SEBI की सेवाएँ भारतीय क्षेत्रीय भाषाओं में मिलेंगी; वाक्-पहचान, अनुवाद और OCR जैसे उपकरण उपयोग होंगे।","en":"On 3 Nov SEBI signed an MoU with the Digital India BHASHINI Division (DIBD) under MeitY to deliver investor education and SEBI services in Indian regional languages, using speech recognition, machine translation and OCR tools.","src":"https://affairscloud.com/current-affairs-5-november-2026/"},
-{"tag_hi":"स्थैतिक","tag_en":"Static GK","hi":"5 नवंबर को विश्व सुनामी जागरूकता दिवस मनाया जाता है। संयुक्त राष्ट्र महासभा ने जापान की पहल पर दिसंबर 2015 में इसे घोषित किया; पहली बार 2016 में मनाया गया। 2026 का विषय: 'Be Tsunami Ready: Resilience Starts With You'।","en":"5 November is World Tsunami Awareness Day. The UN General Assembly designated it in December 2015 at Japan's initiative; it was first observed in 2016. The 2026 theme is 'Be Tsunami Ready: Resilience Starts With You'.","src":"https://affairscloud.com/current-affairs-5-november-2026/"}
-    ]},
-    {"date":"2026-11-04","points":[
-{"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"3 नवंबर को मुख्यमंत्री योगी आदित्यनाथ ने लोकभवन, लखनऊ से प्रधानमंत्री उज्ज्वला योजना के 1.89 करोड़ से अधिक परिवारों को रसोई गैस रिफिल हेतु ₹1,500 करोड़ से अधिक की सब्सिडी DBT से भेजी। लाभार्थियों को दीपावली और होली पर एक-एक मुफ़्त सिलेंडर मिलेगा।","en":"On 3 Nov CM Yogi Adityanath released over ₹1,500 crore LPG refill subsidy via DBT from Lok Bhavan, Lucknow, to more than 1.89 crore families under the PM Ujjwala Yojana. Beneficiaries get one free cylinder each on Diwali and Holi.","src":"https://www.indiatvnews.com/uttar-pradesh/diwali-bonanza-for-up-women-cm-yogi-distributes-lpg-refill-subsidy-to-1-89-crore-ujjwala-beneficiaries-2026-11-03-1058611"},
-{"tag_hi":"उत्तर प्रदेश","tag_en":"Uttar Pradesh","hi":"उत्तर प्रदेश सरकार 12 ज़िलों में ऐतिहासिक महापुरुषों की प्रतिमाएँ लगाएगी (पर्यटन-संस्कृति मंत्री जयवीर सिंह, 3 नवंबर)। लखनऊ में पृथ्वीराज चौहान की 12.5 फुट अश्वारोही कांस्य प्रतिमा, आगरा में महाराजा सूरजमल और गोरखपुर हवाई अड्डे के पास गुरु गोरखनाथ की प्रतिमा लगेगी।","en":"The UP government will install statues of historical figures in 12 districts (Tourism & Culture Minister Jaiveer Singh, 3 Nov). Lucknow gets a 12.5-ft equestrian bronze statue of Prithviraj Chauhan, Agra one of Maharaja Surajmal, and Gorakhpur one of Guru Gorakhnath near the airport.","src":"https://theprint.in/india/up-govt-to-install-statues-of-prominent-figures-in-12-districts-minister/3089680/"},
-{"tag_hi":"विज्ञान","tag_en":"Science","hi":"3 नवंबर को इंडियाAI मिशन के तहत स्वदेशी AI फ़ाउंडेशन मॉडल जारी हुए: सोकेट लैब्स का EKA-1 (लगभग 26 अरब पैरामीटर, सभी 22 अनुसूचित भाषाएँ) और ज़ेंटीक्यू के Dhīr 2B व Dhīr 5B (ऑफ़लाइन चलने योग्य)।","en":"On 3 Nov indigenous AI foundation models were released under the IndiaAI Mission: Soket Labs' EKA-1 (about 26 billion parameters, all 22 scheduled languages) and ZenteiQ's Dhīr 2B and Dhīr 5B (can run offline).","src":"https://www.aninews.in/news/business/meity-unveils-indigenous-ai-models-eka-1-dh299r-2b-and-5b-under-indiaai-mission20261103210340/"},
-{"tag_hi":"राष्ट्रीय","tag_en":"National","hi":"3 नवंबर को प्रधानमंत्री ने लगभग ₹21,800 करोड़ की पुणे मेट्रो परियोजनाओं का उद्घाटन व शिलान्यास किया। 23.2 किमी लंबी लाइन-3 (पिंक लाइन) हिंजवडी (माण) को शिवाजीनगर से जोड़ती है; साथ में फेज़-II (लगभग 44 किमी, 4 कॉरिडोर) की नींव रखी गई।","en":"On 3 Nov the PM inaugurated and laid foundation stones for Pune Metro projects worth about ₹21,800 crore. The 23.2 km Line 3 (Pink Line) links Hinjewadi (Maan) with Shivajinagar; the foundation of Phase II (about 44 km, 4 corridors) was also laid.","src":"https://www.pmindia.gov.in/en/news_updates/pm-to-inaugurate-and-lay-foundation-stone-of-pune-metro-projects-worth-around-%E2%82%B921800-crore-on-3rd-november/"},
-{"tag_hi":"रक्षा","tag_en":"Defence","hi":"तीसरा दिल्ली डिफ़ेंस डायलॉग (3–4 नवंबर) MP-IDSA, नई दिल्ली में हुआ। रक्षा मंत्री ने बताया कि 2025-26 में रक्षा निर्यात ₹38,424 करोड़ (2013-14 में लगभग ₹686 करोड़) और रक्षा उत्पादन रिकॉर्ड ₹1.78 लाख करोड़ रहा।","en":"The 3rd Delhi Defence Dialogue (3–4 Nov) was held at MP-IDSA, New Delhi. The Defence Minister said defence exports reached ₹38,424 crore in 2025-26 (about ₹686 crore in 2013-14) and defence production hit a record ₹1.78 lakh crore.","src":"https://www.aninews.in/news/national/general-news/8220self-reliance-is-not-a-retreat-from-the-world-it-positions-india-better-for-global-collaborations8221-defence-minister-rajnath-singh20261104005602/"},
-{"tag_hi":"रक्षा","tag_en":"Defence","hi":"भारत–इंडोनेशिया संयुक्त विशेष बल अभ्यास 'गरुड़ शक्ति' का 11वाँ संस्करण 27 अक्टूबर से 6 नवंबर 2026 तक बान्युवांगी (पूर्वी जावा, इंडोनेशिया) में हो रहा है। भारत की ओर से पैराशूट रेजिमेंट (विशेष बल) भाग ले रही है।","en":"The 11th edition of India–Indonesia joint special forces exercise 'Garuda Shakti' is being held at Banyuwangi (East Java, Indonesia) from 27 Oct to 6 Nov 2026. India is represented by the Parachute Regiment (Special Forces).","src":"https://currentaffairs.adda247.com/exercise-garuda-shakti-2026-india-indonesia-joint-special-forces-exercise-begins/"},
-{"tag_hi":"राष्ट्रीय","tag_en":"National","hi":"नागर विमानन मंत्रालय ने 'भारतीय वायुयान नियम, 2026' अधिसूचित किए, जो 1 जनवरी 2027 से विमान नियम, 1937 की जगह लेंगे। ये भारतीय वायुयान अधिनियम, 2024 के तहत बने हैं (31 अक्टूबर को राजपत्र में प्रकाशित)।","en":"The Civil Aviation Ministry notified the 'Bharatiya Vayuyan Niyam, 2026', which will replace the Aircraft Rules, 1937 from 1 Jan 2027. They are framed under the Bharatiya Vayuyan Adhiniyam, 2024 (published in the Gazette on 31 Oct).","src":"https://www.business-standard.com/industry/aviation/new-aircraft-rules-to-replace-1937-framework-take-effect-from-january-1-126110100896_1.html"},
-{"tag_hi":"पर्यावरण","tag_en":"Environment","hi":"जैव विविधता अभिसमय (CBD) का COP17 येरेवान (आर्मेनिया) में 31 अक्टूबर को 'येरेवान पाथवे' अपनाकर समाप्त हुआ। COP18 वर्ष 2028 में इक्वाडोर (क्विटो) में होगा; मतदान में इक्वाडोर ने पनामा को हराया।","en":"COP17 of the Convention on Biological Diversity (CBD) ended in Yerevan, Armenia on 31 Oct with adoption of the 'Yerevan Pathway'. COP18 will be held in Ecuador (Quito) in 2028; Ecuador beat Panama in the vote.","src":"https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan"},
-{"tag_hi":"भूगोल","tag_en":"Geography","hi":"बंगाल की खाड़ी का गंभीर चक्रवाती तूफ़ान 'मुरासु' आंध्र प्रदेश तट (ओंगोल–प्रकाशम क्षेत्र) से टकराया। यह नाम भारत ने दिया है; 'मुरासु' तमिल का एक पारंपरिक युद्ध-ढोल है।","en":"Severe cyclonic storm 'Murasu' from the Bay of Bengal crossed the Andhra Pradesh coast (Ongole–Prakasam area). The name was given by India; 'Murasu' is a traditional Tamil war drum.","src":"https://en.wikipedia.org/wiki/Cyclone_Murasu"},
-{"tag_hi":"स्थैतिक","tag_en":"Static GK","hi":"3 नवंबर को यूनेस्को का अंतरराष्ट्रीय जैवमंडल आरक्षित क्षेत्र दिवस (5वाँ) मनाया गया। भारत में 18 अधिसूचित जैवमंडल आरक्षित क्षेत्र हैं, जिनमें 13 यूनेस्को के विश्व नेटवर्क (WNBR) में शामिल हैं।","en":"3 Nov was UNESCO's International Day for Biosphere Reserves (5th observance). India has 18 notified biosphere reserves, of which 13 are in UNESCO's World Network (WNBR).","src":"https://affairscloud.com/current-affairs-4-november-2026/"}
-]},
-    {
-      "date": "2026-11-03",
-      "points": [
-        {
-          "tag_hi": "रक्षा",
-          "tag_en": "Defence",
-          "hi": "रक्षा मंत्रालय ने 2 नवंबर 2026 को नौसेना के 8 नेक्स्ट जनरेशन कॉर्वेट के लिए ₹53,866.50 करोड़ के अनुबंध किए। 5 पोत GRSE (कोलकाता) और 3 गोवा शिपयार्ड बनाएगा। ये पनडुब्बी-रोधी और सतह-युद्ध क्षमता बढ़ाएँगे।",
-          "en": "On 2 Nov 2026 the Defence Ministry signed contracts worth ₹53,866.50 crore for 8 Next Generation Corvettes for the Navy. GRSE (Kolkata) will build 5 and Goa Shipyard 3. They will boost anti-submarine and anti-surface warfare capability.",
-          "src": "https://www.business-standard.com/amp/external-affairs-defence-security/news/defence-ministry-rs-53866-crore-contracts-eight-next-generation-corvettes-126110200531_1.html"
-        },
-        {
-          "tag_hi": "ऊर्जा",
-          "tag_en": "Energy",
-          "hi": "प्रधानमंत्री ने 2 नवंबर को भारत मंडपम, नई दिल्ली में 'भारत नवीकरणीय ऊर्जा शिखर सम्मेलन एवं एक्सपो 2026' (2–5 नवंबर) का उद्घाटन किया। आयोजक MNRE है; साथ में अंतरराष्ट्रीय सौर गठबंधन (ISA) सभा का 9वाँ सत्र और ग्रीन हाइड्रोजन पर चौथा अंतरराष्ट्रीय सम्मेलन हो रहा है।",
-          "en": "On 2 Nov the PM inaugurated the Bharat Renewable Energy Summit & Expo 2026 (2–5 Nov) at Bharat Mandapam, New Delhi. Organised by MNRE, it runs alongside the 9th session of the International Solar Alliance (ISA) Assembly and the 4th International Conference on Green Hydrogen.",
-          "src": "https://isa.int/bharat-re-summit"
-        },
-        {
-          "tag_hi": "रक्षा",
-          "tag_en": "Defence",
-          "hi": "रक्षा मंत्री राजनाथ सिंह की अध्यक्षता वाली रक्षा अधिग्रहण परिषद (DAC) ने नौसेना के अगली पीढ़ी के स्टेल्थ विध्वंसक 'प्रोजेक्ट-18A' को सैद्धांतिक मंज़ूरी दी। अनुमानित लागत ₹75,000 करोड़ से अधिक है। यह विशाखापत्तनम श्रेणी के बाद की श्रेणी होगी।",
-          "en": "The Defence Acquisition Council (DAC), chaired by Defence Minister Rajnath Singh, gave in-principle approval to Project-18A, the Navy's next-generation stealth destroyers. Estimated cost is over ₹75,000 crore. It will follow the Visakhapatnam class.",
-          "src": "https://www.newsbytesapp.com/news/india/indias-project-18a-gets-in-principle-approval-over-rs75000-cr/tldr"
-        },
-        {
-          "tag_hi": "खेल",
-          "tag_en": "Sports",
-          "hi": "मनीषा भानवाला सीनियर विश्व कुश्ती चैंपियनशिप (अस्ताना, कज़ाख़स्तान) में स्वर्ण जीतने वाली पहली भारतीय महिला बनीं। 59 किग्रा फ़ाइनल में उन्होंने अमेरिका की एबिगेल नेट को 8-6 से हराया। सुशील कुमार (2010) के बाद वे दूसरी भारतीय विश्व चैंपियन हैं।",
-          "en": "Manisha Bhanwala became the first Indian woman to win gold at the Senior World Wrestling Championships (Astana, Kazakhstan). She beat Abigail Nette of the USA 8-6 in the 59 kg final. She is India's second world champion after Sushil Kumar (2010).",
-          "src": "https://www.theweek.in/wire-updates/sports/2026/10/30/manisha-scripts-history-becomes-india-s-first-woman-wrestling-world-champion.amp.html"
-        },
-        {
-          "tag_hi": "अर्थव्यवस्था",
-          "tag_en": "Economy",
-          "hi": "केंद्र ने 31 अक्टूबर को राज्यों को कर-हस्तांतरण की दूसरी अतिरिक्त किस्त ₹1,09,019 करोड़ जारी की। सबसे अधिक ₹19,208 करोड़ उत्तर प्रदेश को और ₹10,845 करोड़ बिहार को मिले। उद्देश्य राज्यों का पूँजीगत व्यय तेज़ करना है।",
-          "en": "On 31 Oct the Centre released a second additional instalment of tax devolution of ₹1,09,019 crore to states. Uttar Pradesh got the most, ₹19,208 crore, and Bihar ₹10,845 crore. The aim is to speed up states' capital spending.",
-          "src": "https://newsonair.gov.in/centre-releases-additional-instalment-of-tax-devolution-to-state-governments/"
-        },
-        {
-          "tag_hi": "उत्तर प्रदेश",
-          "tag_en": "Uttar Pradesh",
-          "hi": "मुख्यमंत्री योगी आदित्यनाथ ने 31 अक्टूबर को लोक भवन, लखनऊ में ₹1,725 करोड़ की 'सरदार वल्लभभाई पटेल कौशल प्रशिक्षण एवं रोज़गार क्षेत्र विकास योजना' शुरू की। पहले चरण में लखनऊ, गोरखपुर, कानपुर, झाँसी और गौतमबुद्ध नगर में केंद्र बनेंगे।",
-          "en": "On 31 Oct CM Yogi Adityanath launched the ₹1,725 crore 'Sardar Vallabhbhai Patel Skill Training and Employment Zone Development Scheme' at Lok Bhavan, Lucknow. In phase one, centres will come up in Lucknow, Gorakhpur, Kanpur, Jhansi and Gautam Buddh Nagar.",
-          "src": "https://www.aajtak.in/uttar-pradesh/story/cm-yogi-adityanath-sardar-patel-skill-employment-scheme-up-1725-crore-utrat-lcln-rpti-2684568-2026-10-30"
-        },
-        {
-          "tag_hi": "उत्तर प्रदेश",
-          "tag_en": "Uttar Pradesh",
-          "hi": "उत्तर प्रदेश के बिजली उपभोक्ताओं को नवंबर 2026 के बिल में ईंधन एवं विद्युत क्रय समायोजन अधिभार (FPPAS) के तहत 9.17% की छूट मिलेगी, जो अब तक की सबसे अधिक है। यह लगातार पाँचवाँ महीना है जब बिल घटा है।",
-          "en": "Uttar Pradesh power consumers will get a 9.17% cut in their November 2026 bills under the Fuel and Power Purchase Adjustment Surcharge (FPPAS), the highest so far. It is the fifth straight month of such relief.",
-          "src": "https://www.republicbharat.com/india/uttar-pradesh/up-power-consumers-to-get-highest-ever-917-relief-in-nov-bills-to-save-rs-645-cr-2026-10-29-132355"
-        },
-        {
-          "tag_hi": "नियुक्ति",
-          "tag_en": "Appointment",
-          "hi": "एयर मार्शल मेहताब सिंह देसवाल ने 1 नवंबर 2026 को वायुसेना की पूर्वी वायु कमान के कमांडर-इन-चीफ (AOC-in-C) का पद संभाला। उन्होंने इंद्रपाल सिंह वालिया का स्थान लिया, जो वायुसेना उप-प्रमुख बने। पूर्वी वायु कमान का मुख्यालय शिलांग (मेघालय) में है।",
-          "en": "Air Marshal Mehtab Singh Deswal took over as AOC-in-C of the IAF's Eastern Air Command on 1 Nov 2026. He succeeded Inderpal Singh Walia, who became Vice Chief of the Air Staff. Eastern Air Command is headquartered in Shillong, Meghalaya.",
-          "src": "https://en.wikipedia.org/wiki/Eastern_Air_Command_(India)"
-        },
-        {
-          "tag_hi": "स्वास्थ्य",
-          "tag_en": "Health",
-          "hi": "असम सरकार गुवाहाटी मेडिकल कॉलेज (GMCH) में ₹600 करोड़ का प्रोटॉन बीम थेरेपी केंद्र बनाएगी, जो सार्वजनिक क्षेत्र में देश का पहला होगा। ₹315 करोड़ विश्व बैंक ऋण से और ₹285 करोड़ राज्य देगा। इसके लिए बेल्जियम की कंपनी IBA से समझौता हुआ।",
-          "en": "Assam will set up a ₹600 crore Proton Beam Therapy Centre at Gauhati Medical College (GMCH), India's first in the public sector. ₹315 crore comes from a World Bank loan and ₹285 crore from the state. An agreement was signed with Belgium's IBA.",
-          "src": "https://www.sentinelassam.com/breakingnews/assam-cabinet-approves-rs-600-crore-proton-beam-therapy-unit-at-gmch"
-        },
-        {
-          "tag_hi": "स्थैतिक",
-          "tag_en": "Static GK",
-          "hi": "2 नवंबर को 'पत्रकारों के विरुद्ध अपराधों में दंड-मुक्ति समाप्त करने का अंतरराष्ट्रीय दिवस' मनाया जाता है। संयुक्त राष्ट्र महासभा ने इसे 2013 में घोषित किया; यह 2 नवंबर 2013 को माली में मारे गए दो फ़्रांसीसी पत्रकारों की याद में है।",
-          "en": "2 November is the International Day to End Impunity for Crimes against Journalists. The UN General Assembly proclaimed it in 2013, in memory of two French journalists killed in Mali on 2 Nov 2013.",
-          "src": "https://www.unesco.org/en/days/end-impunity"
-        }
-      ]
-    },
-    {
-      "date": "2026-11-02",
-      "points": [
-        {
-          "tag_hi": "विज्ञान", "tag_en": "Science",
-          "hi": "ISRO ने 30 अक्टूबर 2026 को श्रीहरिकोटा से GSLV-F18 द्वारा नौवहन उपग्रह NVS-03 प्रक्षेपित किया। यह NavIC प्रणाली को मज़बूत करेगा और इसमें स्वदेशी परमाणु घड़ी लगी है। यह GSLV की 20वीं उड़ान थी।",
-          "en": "On 30 Oct 2026 ISRO launched navigation satellite NVS-03 on GSLV-F18 from Sriharikota. It strengthens NavIC and carries an indigenous atomic clock. It was GSLV's 20th flight.",
-          "src": "https://newsonair.gov.in/isro-to-launch-navigation-satellite-nvs-03-aboard-gslv-f18-rocket-from-sriharikota/"
-        },
-        {
-          "tag_hi": "रक्षा", "tag_en": "Defence",
-          "hi": "एयर चीफ मार्शल आशुतोष दीक्षित ने 31 अक्टूबर 2026 को भारतीय वायुसेना के 29वें प्रमुख का पदभार संभाला। उन्होंने एयर चीफ मार्शल अमर प्रीत सिंह का स्थान लिया।",
-          "en": "Air Chief Marshal Ashutosh Dixit took over as the 29th Chief of the Air Staff on 31 Oct 2026, succeeding Air Chief Marshal Amar Preet Singh.",
-          "src": "https://newsonair.gov.in/air-marshal-ashutosh-dixit-appointed-as-29th-chief-of-air-staff/"
-        },
-        {
-          "tag_hi": "उत्तर प्रदेश", "tag_en": "Uttar Pradesh",
-          "hi": "UP कैबिनेट (27 अक्टूबर 2026) ने लखनऊ-हरदोई में 1,000 एकड़ के PM मित्र मेगा टेक्सटाइल पार्क के मास्टर डेवलपर के चयन को मंज़ूरी दी। साथ ही साइबर सुरक्षा ऑपरेशंस सेंटर और PRAGATI रोबोटिक्स पार्क को भी मंज़ूरी मिली।",
-          "en": "The UP Cabinet (27 Oct 2026) approved the master developer for the 1,000-acre PM MITRA Mega Textile Park in Lucknow–Hardoi, along with a Cyber Security Operations Centre and the PRAGATI Robotics Park.",
-          "src": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
-        },
-        {
-          "tag_hi": "उत्तर प्रदेश", "tag_en": "Uttar Pradesh",
-          "hi": "UP कैबिनेट (27 अक्टूबर) ने चार लिंक एक्सप्रेसवे (फ़र्रुख़ाबाद, झाँसी, जेवर, और आगरा-लखनऊ को पूर्वांचल से जोड़ने वाला) के डेवलपर चयन को मंज़ूरी दी। सैनिक स्कूल मैनपुरी को 9.524 हेक्टेयर भूमि निःशुल्क दी गई।",
-          "en": "The UP Cabinet (27 Oct) approved developers for four link expressways (Farrukhabad, Jhansi, Jewar, and Agra–Lucknow to Purvanchal). Sainik School Mainpuri gets 9.524 ha of land free of cost.",
-          "src": "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
-        },
-        {
-          "tag_hi": "अंतरराष्ट्रीय", "tag_en": "International",
-          "hi": "पहला BIMSTEC समुद्री सुरक्षा अभ्यास 30 अक्टूबर से 3 नवंबर 2026 तक हो रहा है। इसमें बंगाल की खाड़ी क्षेत्र के सभी 7 सदस्य देश भाग ले रहे हैं।",
-          "en": "The first BIMSTEC Maritime Security Exercise runs from 30 Oct to 3 Nov 2026, with all 7 member countries of the Bay of Bengal region.",
-          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
-        },
-        {
-          "tag_hi": "समाज", "tag_en": "Society",
-          "hi": "जनजातीय कार्य मंत्रालय 1 से 15 नवंबर 2026 तक जनजातीय गौरव पखवाड़ा मना रहा है। 15 नवंबर को बिरसा मुंडा ('धरती आबा') की जयंती जनजातीय गौरव दिवस के रूप में मनाई जाती है।",
-          "en": "The Ministry of Tribal Affairs is observing Janjatiya Gaurav Pakhwada from 1 to 15 Nov 2026. 15 Nov, Birsa Munda's ('Dharti Aaba') birth anniversary, is Janjatiya Gaurav Divas.",
-          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
-        },
-        {
-          "tag_hi": "अर्थव्यवस्था", "tag_en": "Economy",
-          "hi": "वस्त्र PLI योजना के चौथे चरण का पोर्टल 1 नवंबर से 31 दिसंबर 2026 तक खुला है। भाग-2 में न्यूनतम टर्नओवर ₹200 करोड़ से घटाकर ₹100 करोड़ किया गया। योजना MMF परिधान, MMF कपड़ा और तकनीकी वस्त्र के लिए है।",
-          "en": "Round 4 of the Textiles PLI portal is open from 1 Nov to 31 Dec 2026. Minimum turnover under Part 2 was cut from ₹200 crore to ₹100 crore. It covers MMF apparel, MMF fabrics and technical textiles.",
-          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
-        },
-        {
-          "tag_hi": "संस्था", "tag_en": "Institution",
-          "hi": "कर्मचारी भविष्य निधि संगठन (EPFO) ने 1 नवंबर 2026 को अपना 74वाँ स्थापना दिवस मनाया। EPFO की स्थापना 1952 में हुई थी।",
-          "en": "The Employees' Provident Fund Organisation (EPFO) marked its 74th Foundation Day on 1 Nov 2026. EPFO was set up in 1952.",
-          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
-        },
-        {
-          "tag_hi": "परिवहन", "tag_en": "Transport",
-          "hi": "अंतरराष्ट्रीय यात्रियों के लिए Digi Yatra का परीक्षण 7 हवाई अड्डों (दिल्ली, बेंगलुरु, हैदराबाद, कोचीन, मुंबई, चेन्नई, अमृतसर) पर शुरू हुआ। यह दो महीने, दिसंबर 2026 तक, ई-पासपोर्ट वाले भारतीयों के लिए है।",
-          "en": "Digi Yatra trials for international passengers began at 7 airports (Delhi, Bengaluru, Hyderabad, Cochin, Mumbai, Chennai, Amritsar), running for two months until Dec 2026 for Indians with e-passports.",
-          "src": "https://indianopinion.org/today-in-india-1-november-2026/"
-        },
-        {
-          "tag_hi": "स्थैतिक", "tag_en": "Static GK",
-          "hi": "1 नवंबर को इन राज्यों का स्थापना दिवस होता है: कर्नाटक, केरल, मध्य प्रदेश और आंध्र प्रदेश (1956), हरियाणा (1966), छत्तीसगढ़ (2000)।",
-          "en": "1 November is the formation day of Karnataka, Kerala, Madhya Pradesh and Andhra Pradesh (1956), Haryana (1966) and Chhattisgarh (2000).",
-          "src": "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
-        }
-      ]
-    }
-  ]
+    "updated":  "2026-11-09",
+    "days":  [
+                 {
+                     "date":  "2026-11-09",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "अंतरराष्ट्रीय",
+                                        "tag_en":  "International",
+                                        "hi":  "भारत और यूरोपीय संघ ने भारत के Horizon Europe में सहयोगी (association) बनने की बातचीत पूरी कर ली है। इससे भारतीय शोधकर्ता और संस्थान 93.5 अरब यूरो के इस शोध कार्यक्रम की परियोजनाओं का नेतृत्व कर सकेंगे। औपचारिक समझौते पर हस्ताक्षर जनवरी में होने की संभावना है।",
+                                        "en":  "India and the EU have concluded negotiations on India\u0027s association with Horizon Europe, the EUR 93.5 billion EU research programme. Indian researchers and institutions could then lead projects and receive funding directly. The formal agreement is likely to be signed in January.",
+                                        "src":  "https://www.theweek.in/wire-updates/business/2026/11/06/india-eu-conclude-multi-billion-euro-global-innovation-programme.html"
+                                    },
+                                    {
+                                        "tag_hi":  "परिवहन",
+                                        "tag_en":  "Transport",
+                                        "hi":  "NHAI ने 6 नवंबर को बैरियर-रहित टोलिंग (MLFF) के लिए डिज़ाइन और ढाँचे के मानक दिशानिर्देश जारी किए। ये चार या अधिक लेन वाले राष्ट्रीय राजमार्गों पर लागू होंगे और इनमें टोल प्लाज़ा का लेआउट, गैन्ट्री, रोशनी और साइनेज तय हैं।",
+                                        "en":  "NHAI issued guidelines on 6 November for barrier-free (MLFF) tolling design and infrastructure. They apply to national highways with four or more lanes and cover plaza layout, gantries, lighting and signage.",
+                                        "src":  "https://www.theweek.in/wire-updates/business/2026/11/06/nhai-issues-guidelines-to-standardise-design-and-infrastructure-for-multi-lane-free-flow-tolling.html"
+                                    },
+                                    {
+                                        "tag_hi":  "खनिज",
+                                        "tag_en":  "Minerals",
+                                        "hi":  "खान मंत्रालय ने 5 नवंबर को गोवा में महत्वपूर्ण और सामरिक खनिजों की 9वीं नीलामी शुरू की। इसमें आंध्र प्रदेश, बिहार, छत्तीसगढ़, मध्य प्रदेश, महाराष्ट्र, राजस्थान, तेलंगाना और पश्चिम बंगाल के 20 ब्लॉक रखे गए हैं। नीलामी MSTC ई-नीलामी मंच पर होगी।",
+                                        "en":  "On 5 November the Ministry of Mines launched the 9th round of critical and strategic mineral auctions in Goa. It offers 20 blocks in Andhra Pradesh, Bihar, Chhattisgarh, Madhya Pradesh, Maharashtra, Rajasthan, Telangana and West Bengal. Bidding will be held on the MSTC e-auction platform.",
+                                        "src":  "https://www.freepressjournal.in/business/govt-launches-9th-critical-minerals-auction-with-20-blocks"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "केंद्रीय मंत्रिमंडल ने 4 नवंबर को अग्निवीरों के लिए दो वर्ष का अतिरिक्त कार्यकाल (Second Tour of Duty) मंज़ूर किया। इच्छुक अग्निवीर इसे चुन सकते हैं, जिससे कुल सेवा अधिकतम छह वर्ष हो सकती है। चयन के आधार पर नियमित सैनिक बनने का प्रावधान बना रहेगा।",
+                                        "en":  "On 4 November the Union Cabinet approved a two-year additional tenure, the Second Tour of Duty, for Agniveers. Willing Agniveers may opt for it, taking total service up to six years. Enrolment as regular soldiers based on selection remains in place.",
+                                        "src":  "https://www.freepressjournal.in/india/union-cabinet-clears-2-year-second-tour-of-duty-for-agniveers"
+                                    },
+                                    {
+                                        "tag_hi":  "विज्ञान",
+                                        "tag_en":  "Science",
+                                        "hi":  "इसरो का नेविगेशन उपग्रह NVS-03 30 अक्टूबर 2026 को GSLV-F18 से प्रक्षेपित हुआ। कक्षा उत्थापन पूरा होने के बाद उपग्रह को स्वस्थ बताया गया है। नेविगेशन पेलोड की इन-ऑर्बिट जाँच अभी बाकी है।",
+                                        "en":  "ISRO\u0027s navigation satellite NVS-03 was launched on GSLV-F18 on 30 October 2026. ISRO says it is healthy after completing orbit-raising manoeuvres. In-orbit testing of the navigation payload is still pending.",
+                                        "src":  "https://anantamias.com/current-affairs/nvs-03-strengthening-indias-navic-navigation-system/"
+                                    },
+                                    {
+                                        "tag_hi":  "स्वास्थ्य",
+                                        "tag_en":  "Health",
+                                        "hi":  "सरकार ने 137 नॉन-शेड्यूल्ड कैंसर दवाओं पर ट्रेड मार्जिन 30% तक सीमित किया है। संशोधित अधिकतम खुदरा मूल्य 9 नवंबर 2026 से लागू होंगे, जिससे कुछ दवाओं की कीमतें 70% तक घट सकती हैं।",
+                                        "en":  "The government capped trade margins at 30% for 137 non-scheduled anti-cancer drugs. Revised maximum retail prices take effect on 9 November 2026, and some drug prices could fall by up to 70%.",
+                                        "src":  "https://www.businesstoday.in/india/story/navratri-gift-govt-caps-margins-to-30-for-137-anti-cancer-drugs-revised-prices-from-nov-9-562270-2026-10-17"
+                                    },
+                                    {
+                                        "tag_hi":  "खाद्य",
+                                        "tag_en":  "Food",
+                                        "hi":  "केंद्र ने 6 नवंबर को चावल और धान के भंडार की हर शुक्रवार साप्ताहिक घोषणा अनिवार्य की। आंध्र प्रदेश, कर्नाटक, केरल, तमिलनाडु और तेलंगाना को 31 जनवरी तक भंडार सीमा लगाने की अनुमति मिली। खुले बाज़ार बिक्री योजना (OMSS-D) का चावल लक्ष्य 25 से बढ़ाकर 50 लाख टन किया गया।",
+                                        "en":  "On 6 November the Centre made weekly disclosure of rice and paddy stocks mandatory every Friday. Andhra Pradesh, Karnataka, Kerala, Tamil Nadu and Telangana can impose stock limits until 31 January. The OMSS-D rice sale target was raised from 25 to 50 lakh tonnes.",
+                                        "src":  "https://www.deccanherald.com/india/centre-orders-rice-stock-disclosure-clears-southern-states-to-curb-hoarding-4210433"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक GK",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "8 नवंबर 2016 को ₹500 और ₹1,000 के पुराने नोट चलन से बाहर करने की घोषणा हुई थी। 8 नवंबर 2026 को इस नोटबंदी की 10वीं वर्षगाँठ थी।",
+                                        "en":  "On 8 November 2016 the government announced the withdrawal of old Rs 500 and Rs 1,000 notes from circulation. 8 November 2026 marked the 10th anniversary of this demonetisation.",
+                                        "src":  "https://jkadworld.com/next-exam/daily-current-affairs-8th-nov-2026/"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-08",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "अर्थव्यवस्था",
+                                        "tag_en":  "Economy",
+                                        "hi":  "MoSPI ने वार्षिक उद्योग सर्वेक्षण (ASI) 2024-25 जारी किया। निगमित विनिर्माण के सकल मूल्य वर्धन (GVA) में 9.28% की वृद्धि हुई। महाराष्ट्र, गुजरात, तमिलनाडु, कर्नाटक और उत्तर प्रदेश मिलकर विनिर्माण GVA में 54% से अधिक योगदान देते हैं।",
+                                        "en":  "MoSPI released the Annual Survey of Industries (ASI) 2024-25. Corporate manufacturing GVA rose 9.28%. Maharashtra, Gujarat, Tamil Nadu, Karnataka and Uttar Pradesh together contribute over 54% of manufacturing GVA.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "NITI आयोग ने भारत विज्ञान-प्रौद्योगिकी स्कोरबोर्ड जारी किया, जो सभी 36 राज्यों-केंद्रशासित प्रदेशों को AI, सेमीकंडक्टर, स्वच्छ ऊर्जा और अंतरिक्ष जैसे 11 प्राथमिकता क्षेत्रों में आँकता है। शोध गतिविधि तमिलनाडु, उत्तर प्रदेश, महाराष्ट्र, कर्नाटक और दिल्ली में केंद्रित है।",
+                                        "en":  "NITI Aayog released the India S\u0026T Scoreboard, which ranks all 36 States and UTs across 11 priority areas such as AI, semiconductors, clean energy and space. Research activity is concentrated in Tamil Nadu, Uttar Pradesh, Maharashtra, Karnataka and Delhi.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "नवीकरणीय ऊर्जा",
+                                        "tag_en":  "Renewable Energy",
+                                        "hi":  "रेल मंत्रालय ने PM सूर्य घर एक्सीलेंस अवार्ड 2026 जीता; केंद्रीय मंत्रालयों में रूफटॉप सौर में वह पहले स्थान पर है। 15,868 चिन्हित भवनों में से 12,495 पर सौर प्रणाली लगी और 351 MW क्षमता चालू हुई। लक्ष्य मार्च 2027 है।",
+                                        "en":  "The Ministry of Railways won the PM Surya Ghar Excellence Award 2026 and ranks first among Central ministries in rooftop solar. Solar systems are installed on 12,495 of 15,868 identified buildings, with 351 MW commissioned. The target is March 2027.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "विज्ञान",
+                                        "tag_en":  "Science",
+                                        "hi":  "हैदराबाद के VSD टेक पार्क में Cosmoserve Space की 14,800 वर्ग फुट की सुविधा \u0027बेस 1\u0027 का आभासी उद्घाटन हुआ। यह सक्रिय मलबा हटाने और कक्षा में सेवा (In-Orbit Servicing) के लिए है, जो 2030 तक \u0027मलबा-मुक्त अंतरिक्ष\u0027 लक्ष्य से जुड़ी है।",
+                                        "en":  "Cosmoserve Space\u0027s 14,800 sq ft facility \u0027Base 1\u0027 at VSD Tech Park, Hyderabad, was virtually inaugurated. It is for Active Debris Removal and In-Orbit Servicing, linked to the goal of a debris-free space by 2030.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "राष्ट्रीय",
+                                        "tag_en":  "National",
+                                        "hi":  "गृह मंत्रालय ने \u0027इमिग्रेशन एंड फ़ॉरेनर्स (छूट) (संशोधन) आदेश, 2026\u0027 अधिसूचित किया, जो भारत-नेपाल और भारत-भूटान यात्रा से जुड़ा है। नेपाली व भूटानी नागरिकों को चीन, मकाऊ, हाँगकाँग या पाकिस्तान से उड़ान भरने या वहाँ ट्रांज़िट पर वैध पासपोर्ट और भारतीय वीज़ा चाहिए।",
+                                        "en":  "The Home Ministry notified the Immigration and Foreigners (Exemption) (Amendment) Order, 2026, relating to travel between India and Nepal/Bhutan. Nepali and Bhutanese nationals need a valid passport and Indian visa if they fly from or transit through China, Macau, Hong Kong or Pakistan.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "संस्कृति",
+                                        "tag_en":  "Culture",
+                                        "hi":  "UNESCO की एशिया-प्रशांत \u0027मेमोरी ऑफ़ द वर्ल्ड\u0027 क्षेत्रीय रजिस्टर में 11वें MOWCAP सत्र (जकार्ता) में तीन पांडुलिपियाँ जुड़ीं: कल्हण की राजतरंगिणी, महाभारत और कौटिल्य का अर्थशास्त्र।",
+                                        "en":  "At the 11th MOWCAP session in Jakarta, three texts were inscribed on UNESCO\u0027s Asia-Pacific Memory of the World Regional Register: Kalhana\u0027s Rajatarangini, the Mahabharata and Kautilya\u0027s Arthashastra.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "पर्यावरण",
+                                        "tag_en":  "Environment",
+                                        "hi":  "NITI आयोग और जर्मनी की GIZ ने NDC-TIA चरण-II के कार्यान्वयन समझौते पर हस्ताक्षर किए। यह जर्मनी की अंतरराष्ट्रीय जलवायु पहल (IKI) से वित्त-पोषित है; भारत, चीन और वियतनाम इसके लक्ष्य देश हैं। चरण-II नवंबर 2024 से सितंबर 2028 तक है।",
+                                        "en":  "NITI Aayog and GIZ of Germany signed the implementation agreement for Phase II of NDC-TIA. It is funded by Germany\u0027s International Climate Initiative (IKI) and targets India, China and Vietnam. Phase II runs from November 2024 to September 2028.",
+                                        "src":  "https://www.insightsonindia.com/2026/11/06/upsc-current-affairs-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "शिक्षा",
+                                        "tag_en":  "Education",
+                                        "hi":  "CBSE की 2027 की बोर्ड परीक्षाएँ 16 फ़रवरी 2027 से शुरू होंगी। कक्षा 10 की परीक्षा 9 मार्च और कक्षा 12 की 9 अप्रैल को समाप्त होगी। लगभग 46 लाख छात्रों के बैठने की संभावना है।",
+                                        "en":  "CBSE\u0027s 2027 board exams will begin on 16 Feb 2027. Class 10 exams end on 9 March and Class 12 exams on 9 April. Over 46 lakh students are expected to appear.",
+                                        "src":  "https://www.indianopinion.org/today-in-india-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "ऊर्जा",
+                                        "tag_en":  "Energy",
+                                        "hi":  "ONGC ने रूस की सखालिन-1 परियोजना में अपनी 20% हिस्सेदारी बचाने के लिए लगभग 800 मिलियन डॉलर के फँसे रूसी लाभांश का उपयोग किया। यह राशि परित्याग (abandonment) कोष की देनदारी चुकाने में लगी। कंपनी वेनेज़ुएला में ऑपरेटरशिप की भी तलाश में है।",
+                                        "en":  "ONGC used about $800 million of stuck Russian dividends to meet abandonment-fund obligations in the Sakhalin-1 project, securing its 20% stake. The company is also seeking operatorship in Venezuela.",
+                                        "src":  "https://www.indianopinion.org/today-in-india-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक GK",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "8 नवंबर को विश्व रेडियोग्राफी दिवस मनाया जाता है। विल्हेम रॉन्टजेन ने 8 नवंबर 1895 को एक्स-किरणों की खोज की थी।",
+                                        "en":  "8 November is World Radiography Day. Wilhelm Röntgen discovered X-rays on 8 November 1895.",
+                                        "src":  "https://en.wikipedia.org/wiki/Wilhelm_Conrad_R%C3%B6ntgen"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-07",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "उत्तर प्रदेश सरकार ने प्राकृतिक आपदा में मृतकों के परिवारों को दी जाने वाली अनुग्रह राशि 4 लाख से बढ़ाकर 8 लाख रुपये कर दी है। फसल-नुकसान के मुआवज़े में भी 25 से 30 प्रतिशत की बढ़ोतरी की गई है।",
+                                        "en":  "The Uttar Pradesh government has doubled the ex-gratia for families of those killed in natural disasters, from Rs 4 lakh to Rs 8 lakh. Crop-loss compensation has also been raised by 25 to 30 per cent.",
+                                        "src":  "https://www.thestatesman.com/cities/lucknow/up-government-increases-compensation-for-natural-disasters-crop-losses-and-deaths-of-humans-and-livestock-1503659671.html"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "सर्वोच्च न्यायालय ने उत्तर प्रदेश सरकार से कहा है कि जिन विचाराधीन कैदियों को ज़मानत मिल चुकी है, पर वे शर्तें पूरी न कर पाने से जेल में हैं, उनकी रिहाई सुनिश्चित की जाए।",
+                                        "en":  "The Supreme Court has asked the Uttar Pradesh government to ensure the release of under-trial prisoners who have been granted bail but remain in jail because they cannot meet the bail conditions.",
+                                        "src":  "https://ommcomnews.com/india-news/sc-asks-up-to-ensure-release-of-under-trials-granted-bail-but-still-in-custody/"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "DRDO ने 5 नवंबर 2026 को ओडिशा के डॉ. APJ अब्दुल कलाम द्वीप से क्वासी-बैलिस्टिक मिसाइल \u0027प्रलय\u0027 का उड़ान परीक्षण किया। इसकी मारक सीमा 150 से 500 किमी है। इसे RCI हैदराबाद ने विकसित किया है।",
+                                        "en":  "DRDO flight-tested the quasi-ballistic missile \u0027Pralay\u0027 on 5 Nov 2026 from Dr APJ Abdul Kalam Island, off Odisha. Its range is 150 to 500 km. It was developed by RCI Hyderabad.",
+                                        "src":  "https://striveedgeias.in/pib-snippets-november-6-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "राष्ट्रीय",
+                                        "tag_en":  "National",
+                                        "hi":  "गृह मंत्री ने 5 नवंबर 2026 को हरियाणा के अंबाला कैंटोनमेंट में 1857 के शहीदों का स्मारक राष्ट्र को समर्पित किया। लगभग 594 करोड़ रुपये की लागत से बने इस स्मारक में 22 एकड़ क्षेत्र और 22 दीर्घाएँ हैं।",
+                                        "en":  "The Home Minister inaugurated the 1857 Martyrs\u0027 Memorial at Ambala Cantonment, Haryana, on 5 Nov 2026. It cost about Rs 594 crore, spreads over 22 acres and has 22 galleries.",
+                                        "src":  "https://striveedgeias.in/pib-snippets-november-6-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "राष्ट्रीय",
+                                        "tag_en":  "National",
+                                        "hi":  "अमित शाह ने देहरादून में कहा कि भारत 31 दिसंबर 2029 तक नशा-मुक्त होगा। उन्होंने उत्तराखंड पुलिस को राष्ट्रपति का रंग (President\u0027s Colour) प्रदान किया, जो यह सम्मान पाने वाला 16वाँ पुलिस बल है।",
+                                        "en":  "Amit Shah said India will be drug-free by 31 Dec 2029. At Dehradun he presented the President\u0027s Colour to Uttarakhand Police, the 16th police force to receive it.",
+                                        "src":  "https://www.indianopinion.org/today-in-india-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "अर्थव्यवस्था",
+                                        "tag_en":  "Economy",
+                                        "hi":  "केंद्रीय मंत्रिमंडल ने 4 नवंबर 2026 को महत्वपूर्ण खनिज प्रसंस्करण के लिए ₹2,814 करोड़ की CAPEX सहायता योजना को मंज़ूरी दी। इसमें चार संयंत्रों (दो लिथियम, दो निकेल) को 30% पूँजी सब्सिडी मिलेगी।",
+                                        "en":  "The Union Cabinet on 4 Nov 2026 approved a Rs 2,814 crore CAPEX support scheme for critical mineral processing. Four plants (two lithium, two nickel) will get a 30% capital subsidy.",
+                                        "src":  "https://vajiramandravi.com/current-affairs/capex-support-scheme-to-promote-critical-mineral-processing/"
+                                    },
+                                    {
+                                        "tag_hi":  "ऊर्जा",
+                                        "tag_en":  "Energy",
+                                        "hi":  "सर्वोच्च न्यायालय ने भाखड़ा-ब्यास विद्युत विवाद में आदेश दिया कि पंजाब और हरियाणा 20 वर्षों तक हिमाचल प्रदेश को 11,973 मिलियन यूनिट बिजली देंगे। यह हिमाचल के 7.19% हिस्से पर आधारित है।",
+                                        "en":  "The Supreme Court ordered Punjab and Haryana to supply Himachal Pradesh 11,973 million units of electricity over 20 years in the Bhakra-Beas power dispute. The share is based on Himachal\u0027s 7.19% entitlement.",
+                                        "src":  "https://www.indianopinion.org/today-in-india-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "पर्यावरण",
+                                        "tag_en":  "Environment",
+                                        "hi":  "सर्वोच्च न्यायालय ने दिल्ली-NCR के प्रदूषण में वाहनों के उत्सर्जन को बड़ा कारक बताया, जब AQI लगभग 400 के पास था। पीठ ने कहा कि बाहरी वाहनों पर उचित निगरानी नहीं है।",
+                                        "en":  "The Supreme Court called vehicle emissions a major contributor to Delhi-NCR pollution as the AQI neared 400. It said outside vehicles enter Delhi without proper monitoring.",
+                                        "src":  "https://www.indianopinion.org/today-in-india-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "शिक्षा",
+                                        "tag_en":  "Education",
+                                        "hi":  "भारतीय बार काउंसिल ने सर्वोच्च न्यायालय को बताया कि उसने तीन और पाँच वर्षीय LLB पाठ्यक्रमों से ऊपरी आयु-सीमा हटा दी है। इससे संबंधित याचिका निष्प्रभावी होकर बंद कर दी गई।",
+                                        "en":  "The Bar Council of India told the Supreme Court it has removed the upper age limit for three- and five-year LLB courses. The related petition was closed as infructuous.",
+                                        "src":  "https://www.indianopinion.org/today-in-india-6-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक GK",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "\u0027वंदे मातरम\u0027 गीत बंकिमचंद्र चट्टोपाध्याय ने 7 नवंबर 1875 को लिखा था। 24 जनवरी 1950 को संविधान सभा ने इसे \u0027जन गण मन\u0027 के समकक्ष दर्जा दिया। इस वर्ष इसके 150 वर्ष पूरे हो रहे हैं।",
+                                        "en":  "Bankim Chandra Chattopadhyay wrote \u0027Vande Mataram\u0027 on 7 Nov 1875. On 24 Jan 1950 the Constituent Assembly gave it equal status with \u0027Jana Gana Mana\u0027. This year marks 150 years of the song.",
+                                        "src":  "https://striveedgeias.in/pib-snippets-november-6-2026/"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-06",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "उत्तर प्रदेश सरकार ने 5 नवंबर को वित्त वर्ष 2025-26 के लिए अराजपत्रित राज्य कर्मचारियों को 30 दिन के तदर्थ बोनस का शासनादेश जारी किया। बोनस का 25% नकद मिलेगा और 75% भविष्य निधि (PF) खाते में जमा होगा।",
+                                        "en":  "On 5 Nov the Uttar Pradesh government issued an order granting a 30-day ad-hoc bonus for FY 2025-26 to non-gazetted state employees. 25% will be paid in cash and 75% deposited in their provident fund (PF) accounts.",
+                                        "src":  "https://hindi.theprint.in/india/uttar-pradesh-government-approves-30-day-bonus-for-employees/1055066/"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "IB Solar ने जर्मनी की RENA Technologies, Centrotherm और ISC Konstanz के साथ यमुना एक्सप्रेसवे औद्योगिक विकास प्राधिकरण (YEIDA) क्षेत्र में सौर प्रौद्योगिकी उत्कृष्टता केंद्र बनाने का MoU किया। इसे देश का पहला ऐसा केंद्र बताया गया है।",
+                                        "en":  "IB Solar signed an MoU with Germany\u0027s RENA Technologies, Centrotherm and ISC Konstanz to set up a Centre of Excellence for Solar Technology in the YEIDA (Yamuna Expressway) region of UP, described as India\u0027s first such centre.",
+                                        "src":  "https://www.tribuneindia.com/news/advanced-technologies/ib-solar-signs-mou-with-german-technology-leaders-to-establish-indias-first-centre-of-excellence-for-solar-technology-in-uttar-pradesh"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "काशी तमिल संगमम् 5.0 का आयोजन 28 नवंबर से 12 दिसंबर 2026 तक होगा। विषय \u0027तिरुक्कुरल पयिलवोम – तिरुक्कुरल अभ्यास करें\u0027 है। तमिलनाडु से लगभग 1,400 प्रतिभागी आएँगे; पंजीकरण पोर्टल IIT मद्रास का है, नोडल संस्थान BHU है।",
+                                        "en":  "Kashi Tamil Sangamam 5.0 will be held from 28 Nov to 12 Dec 2026 on the theme \u0027Thirukkural Payilvom – Thirukkural Abhyas Karen\u0027. About 1,400 participants will come from Tamil Nadu; IIT Madras hosts the registration portal and BHU is a nodal institution.",
+                                        "src":  "https://newsonair.gov.in/5th-edition-of-kashi-tamil-sangamam-to-be-held-from-28th-november-to-12th-december-this-year/"
+                                    },
+                                    {
+                                        "tag_hi":  "शासन",
+                                        "tag_en":  "Governance",
+                                        "hi":  "केंद्रीय मंत्रिमंडल ने विशेष POCSO न्यायालयों सहित फास्ट ट्रैक विशेष न्यायालय (FTSC) योजना को 1 अप्रैल 2026 से 31 मार्च 2031 तक जारी रखने की मंज़ूरी दी। कुल परिव्यय ₹3,788.04 करोड़ है; केंद्र का हिस्सा निर्भया फंड से आएगा।",
+                                        "en":  "The Union Cabinet approved continuing the Fast Track Special Courts (FTSC) scheme, including exclusive POCSO courts, from 1 Apr 2026 to 31 Mar 2031. Total outlay is ₹3,788.04 crore; the Centre\u0027s share comes from the Nirbhaya Fund.",
+                                        "src":  "https://striveedgeias.in/pib-snippets-november-5-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "ऊर्जा",
+                                        "tag_en":  "Energy",
+                                        "hi":  "मंत्रिमंडल ने ग्रिड-स्तरीय ऊर्जा भंडारण के लिए ₹14,500 करोड़ की व्यवहार्यता अंतर वित्तपोषण (VGF) योजना को मंज़ूरी दी। 2026-27 से 2030-31 में 92 GWh क्षमता का लक्ष्य है: 60 GWh पंप्ड हाइड्रो, 30 GWh बैटरी (BESS) और 2 GWh वैकल्पिक तकनीक।",
+                                        "en":  "The Cabinet approved a ₹14,500 crore Viability Gap Funding (VGF) scheme for grid-scale energy storage. It targets 92 GWh during 2026-27 to 2030-31: 60 GWh pumped hydro, 30 GWh battery (BESS) and 2 GWh alternative technologies.",
+                                        "src":  "https://vajiramandravi.com/current-affairs/viability-gap-funding-scheme-for-grid-scale-energy-storage-systems/"
+                                    },
+                                    {
+                                        "tag_hi":  "अंतरराष्ट्रीय",
+                                        "tag_en":  "International",
+                                        "hi":  "2026 में किम्बरली प्रक्रिया (KP) की अध्यक्षता भारत के पास है, तीसरी बार। इसका पूर्ण अधिवेशन (Plenary) 30 नवंबर से 4 दिसंबर 2026 तक नई दिल्ली में होगा। 2026 में घाना उपाध्यक्ष है और 2027 में अध्यक्ष बनेगा।",
+                                        "en":  "India chairs the Kimberley Process (KP) in 2026, for the third time. Its Plenary will be held in New Delhi from 30 Nov to 4 Dec 2026. Ghana is vice-chair in 2026 and will be chair in 2027.",
+                                        "src":  "https://cracktarget.com/current-affairs-5-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "भारत, जापान, अमेरिका और ऑस्ट्रेलिया का नौसैनिक अभ्यास \u0027मालाबार 2026\u0027 5 से 12 नवंबर तक जापान के होंशू द्वीप के कांतो क्षेत्र के दक्षिण में हो रहा है। भारत की ओर से युद्धपोत INS सह्याद्रि भाग ले रहा है।",
+                                        "en":  "Naval exercise \u0027Malabar 2026\u0027 of India, Japan, the US and Australia is being held from 5 to 12 Nov south of the Kanto region of Honshu, Japan. India is represented by the frigate INS Sahyadri.",
+                                        "src":  "https://news.usni.org/?p=126276"
+                                    },
+                                    {
+                                        "tag_hi":  "विज्ञान",
+                                        "tag_en":  "Science",
+                                        "hi":  "गौहाटी विश्वविद्यालय और भारतीय खगोल भौतिकी संस्थान (IIA) के खगोलविदों ने Gaia DR3 आँकड़ों से पाया कि तारा-गुच्छ UBC 63 वास्तव में दो अलग गुच्छ हैं: UBC 63A (लगभग 2.1 करोड़ वर्ष पुराना) और UBC 63B (लगभग 56.2 करोड़ वर्ष पुराना)।",
+                                        "en":  "Astronomers from Gauhati University and the Indian Institute of Astrophysics (IIA), using Gaia DR3 data, found that star cluster UBC 63 is actually two clusters: UBC 63A (about 21 million years old) and UBC 63B (about 562 million years old).",
+                                        "src":  "https://arxiv.org/pdf/2607.18224"
+                                    },
+                                    {
+                                        "tag_hi":  "खेल",
+                                        "tag_en":  "Sports",
+                                        "hi":  "प्रधानमंत्री ने 5 नवंबर को एशियाई पैरा खेल 2026 (आइची-नागोया, जापान) के भारतीय दल से भेंट की। भारत ने रिकॉर्ड 114 पदक (30 स्वर्ण, 35 रजत, 49 कांस्य) जीतकर चौथा स्थान पाया; 2023 हांगझोउ में 108 पदक थे।",
+                                        "en":  "On 5 Nov the PM met India\u0027s contingent for the Asian Para Games 2026 (Aichi-Nagoya, Japan). India won a record 114 medals (30 gold, 35 silver, 49 bronze) and finished fourth; it had won 108 at Hangzhou 2023.",
+                                        "src":  "https://newsonair.gov.in/india-shine-at-asian-para-games-2026-with-record-114-medal-haul/"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "6 नवंबर को \u0027युद्ध और सशस्त्र संघर्ष में पर्यावरण के शोषण की रोकथाम का अंतरराष्ट्रीय दिवस\u0027 मनाया जाता है। संयुक्त राष्ट्र महासभा ने इसे 5 नवंबर 2001 को प्रस्ताव 56/4 द्वारा घोषित किया था।",
+                                        "en":  "6 November is the International Day for Preventing the Exploitation of the Environment in War and Armed Conflict. The UN General Assembly declared it on 5 Nov 2001 through resolution 56/4.",
+                                        "src":  "https://www.un.org/en/observances/environment-in-war-protection-day"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-05",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "मुख्यमंत्री योगी आदित्यनाथ ने प्राकृतिक कारणों से फसल-क्षति झेलने वाले किसानों के लिए जल्द विशेष राहत पैकेज की घोषणा की, जिससे लगभग 3 करोड़ किसान परिवार लाभान्वित होंगे। प्रमुख मंडियों और श्रमिक अड्डों पर सस्ते भोजन के लिए \u0027अन्नपूर्णा भोजनालय\u0027 खुलेंगे।",
+                                        "en":  "CM Yogi Adityanath announced a special relief package soon for farmers hit by crop loss from natural causes, to benefit about 3 crore farmer families. \u0027Annapurna Bhojanalayas\u0027 offering cheap meals will open at major mandis and labour hubs (shramik addas).",
+                                        "src":  "https://www.uptak.in/politics/story/yogi-government-farmers-women-workers-relief-package-ujjwala-subsidy-annapurna-canteen-3559379-2026-11-04"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "2 नवंबर को मुख्यमंत्री योगी आदित्यनाथ ने गोंडा ज़िले के मनकापुर और गौरा विधानसभा क्षेत्रों में ₹520 करोड़ से अधिक की 69 विकास परियोजनाओं का लोकार्पण और शिलान्यास किया।",
+                                        "en":  "On 2 Nov CM Yogi Adityanath inaugurated and laid foundation stones for 69 development projects worth over ₹520 crore in the Mankapur and Gaura assembly constituencies of Gonda district.",
+                                        "src":  "https://www.aninews.in/news/national/general-news/up-cm-yogi-adityanath-to-inaugurate-lay-foundation-stones-for-69-projects-worth-over-rs-520-crore-in-gonda20261102090236/"
+                                    },
+                                    {
+                                        "tag_hi":  "अर्थव्यवस्था",
+                                        "tag_en":  "Economy",
+                                        "hi":  "4 नवंबर को केंद्रीय मंत्रिमंडल ने ₹4,371.10 करोड़ की \u0027VISTAR\u0027 (विकसित भारत इनिशिएटिव फ़ॉर स्टैटिस्टिकल ट्रांसफ़ॉर्मेशन, एनालिटिक्स एंड रिसर्च) योजना को मंज़ूरी दी। यह 2026-27 से 2030-31 तक की केंद्रीय क्षेत्र योजना है; इसमें 8वीं आर्थिक जनगणना भी शामिल है।",
+                                        "en":  "On 4 Nov the Union Cabinet approved the ₹4,371.10 crore \u0027VISTAR\u0027 (Viksit Bharat Initiative for Statistical Transformation, Analytics \u0026 Research) scheme, a central sector scheme for 2026-27 to 2030-31. It includes the 8th Economic Census, run by MoSPI.",
+                                        "src":  "https://www.thestatesman.com/india/cabinet-clears-rs-4371-crore-vistar-scheme-to-modernise-indias-statistical-system-expand-surveys-and-harness-ai-1503658798.html"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "3 नवंबर को DRDO ने ओडिशा के चांदीपुर स्थित एकीकृत परीक्षण रेंज (लॉन्च कॉम्प्लेक्स-3) से स्वदेशी अर्ध-बैलिस्टिक मिसाइल \u0027प्रलय\u0027 का परीक्षण किया। इसने लगभग 500 किमी दूर दो काल्पनिक लक्ष्यों को भेदा। इसकी मारक दूरी 150–500 किमी है।",
+                                        "en":  "On 3 Nov DRDO test-fired the indigenous quasi-ballistic missile \u0027Pralay\u0027 from Launch Complex-3 of the Integrated Test Range, Chandipur (Odisha). It engaged two simulated targets about 500 km away. Its range is 150–500 km.",
+                                        "src":  "https://odishabytes.com/quasi-ballistic-pralay-missile-tested-from-odishas-chandipur-2500-evacuated-before-launch/"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "भारत-अमेरिका त्रि-सेवा मानवीय सहायता एवं आपदा राहत (HADR) अभ्यास \u0027टाइगर ट्रायम्फ\u0027 का 5वाँ संस्करण 2 नवंबर से विशाखापत्तनम के मैरीटाइम वॉरफ़ेयर सेंटर में टेबलटॉप अभ्यास के रूप में शुरू हुआ। इसमें पहली बार NDRF भाग ले रहा है।",
+                                        "en":  "The 5th edition of India–US tri-service HADR exercise \u0027Tiger Triumph\u0027 began on 2 Nov at the Maritime Warfare Centre, Visakhapatnam, as a tabletop exercise. The NDRF is taking part for the first time.",
+                                        "src":  "https://www.legacyias.com/pib-summaries-04-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "पर्यावरण",
+                                        "tag_en":  "Environment",
+                                        "hi":  "कोयला मंत्रालय के कोयला नियंत्रक संगठन (CCO) ने \u0027SUVIKALP\u0027 डिजिटल प्लेटफ़ॉर्म विकसित किया है। यह बंद कोयला व लिग्नाइट खदानों की भूमि के सर्वोत्तम पुनः उपयोग (जैसे सौर पार्क, इको-पार्क, मत्स्य पालन) को TOPSIS पद्धति से अंक देकर क्रमबद्ध करता है।",
+                                        "en":  "The Ministry of Coal\u0027s Coal Controller Organisation (CCO) has developed \u0027SUVIKALP\u0027, a digital platform that scores and ranks post-mining land uses (e.g. solar parks, eco-parks, fisheries) for closed coal and lignite mines using the TOPSIS method.",
+                                        "src":  "https://www.legacyias.com/pib-summaries-04-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "रिपोर्ट",
+                                        "tag_en":  "Report",
+                                        "hi":  "QS एशिया यूनिवर्सिटी रैंकिंग 2027 (3 नवंबर) में हांगकांग विश्वविद्यालय शीर्ष पर रहा। भारत के 325 संस्थान शामिल हुए (चीन के बाद दूसरा स्थान)। IIT दिल्ली 66वें स्थान के साथ भारत में सर्वोच्च रहा (पिछले वर्ष 59वाँ)।",
+                                        "en":  "In the QS Asia University Rankings 2027 (released 3 Nov), the University of Hong Kong ranked first. India has 325 institutions, second only to mainland China. IIT Delhi is India\u0027s best at 66th (59th last year).",
+                                        "src":  "https://news.careers360.com/qs-asia-rankings-2027-india-adds-34-universities-leads-research-output-iit-delhi-66th-iisc-iit-bombay-jnu-du/amp"
+                                    },
+                                    {
+                                        "tag_hi":  "राष्ट्रीय",
+                                        "tag_en":  "National",
+                                        "hi":  "ग्रामीण विकास मंत्रालय ने VB-G RAM G अधिनियम, 2025 के अंतर्गत शिकायत निवारण नियम, 2026 अधिसूचित किए। इनमें ग्राम पंचायत, ब्लॉक और ज़िला स्तर की त्रि-स्तरीय व्यवस्था है; जाँच 7 कार्यदिवस में और अंतिम निपटारा 15 दिन में होगा।",
+                                        "en":  "The Ministry of Rural Development notified the VB-G RAM G Grievance Redressal Rules, 2026 under the VB-G RAM G Act, 2025. They set up a three-tier system (Gram Panchayat, Block, District); inquiry within 7 working days and final resolution within 15 days.",
+                                        "src":  "https://affairscloud.com/current-affairs-5-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "अर्थव्यवस्था",
+                                        "tag_en":  "Economy",
+                                        "hi":  "3 नवंबर को SEBI ने MeitY के डिजिटल इंडिया भाषिणी डिवीज़न (DIBD) के साथ समझौता ज्ञापन किया। इससे निवेशक-शिक्षा और SEBI की सेवाएँ भारतीय क्षेत्रीय भाषाओं में मिलेंगी; वाक्-पहचान, अनुवाद और OCR जैसे उपकरण उपयोग होंगे।",
+                                        "en":  "On 3 Nov SEBI signed an MoU with the Digital India BHASHINI Division (DIBD) under MeitY to deliver investor education and SEBI services in Indian regional languages, using speech recognition, machine translation and OCR tools.",
+                                        "src":  "https://affairscloud.com/current-affairs-5-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "5 नवंबर को विश्व सुनामी जागरूकता दिवस मनाया जाता है। संयुक्त राष्ट्र महासभा ने जापान की पहल पर दिसंबर 2015 में इसे घोषित किया; पहली बार 2016 में मनाया गया। 2026 का विषय: \u0027Be Tsunami Ready: Resilience Starts With You\u0027।",
+                                        "en":  "5 November is World Tsunami Awareness Day. The UN General Assembly designated it in December 2015 at Japan\u0027s initiative; it was first observed in 2016. The 2026 theme is \u0027Be Tsunami Ready: Resilience Starts With You\u0027.",
+                                        "src":  "https://affairscloud.com/current-affairs-5-november-2026/"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-04",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "3 नवंबर को मुख्यमंत्री योगी आदित्यनाथ ने लोकभवन, लखनऊ से प्रधानमंत्री उज्ज्वला योजना के 1.89 करोड़ से अधिक परिवारों को रसोई गैस रिफिल हेतु ₹1,500 करोड़ से अधिक की सब्सिडी DBT से भेजी। लाभार्थियों को दीपावली और होली पर एक-एक मुफ़्त सिलेंडर मिलेगा।",
+                                        "en":  "On 3 Nov CM Yogi Adityanath released over ₹1,500 crore LPG refill subsidy via DBT from Lok Bhavan, Lucknow, to more than 1.89 crore families under the PM Ujjwala Yojana. Beneficiaries get one free cylinder each on Diwali and Holi.",
+                                        "src":  "https://www.indiatvnews.com/uttar-pradesh/diwali-bonanza-for-up-women-cm-yogi-distributes-lpg-refill-subsidy-to-1-89-crore-ujjwala-beneficiaries-2026-11-03-1058611"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "उत्तर प्रदेश सरकार 12 ज़िलों में ऐतिहासिक महापुरुषों की प्रतिमाएँ लगाएगी (पर्यटन-संस्कृति मंत्री जयवीर सिंह, 3 नवंबर)। लखनऊ में पृथ्वीराज चौहान की 12.5 फुट अश्वारोही कांस्य प्रतिमा, आगरा में महाराजा सूरजमल और गोरखपुर हवाई अड्डे के पास गुरु गोरखनाथ की प्रतिमा लगेगी।",
+                                        "en":  "The UP government will install statues of historical figures in 12 districts (Tourism \u0026 Culture Minister Jaiveer Singh, 3 Nov). Lucknow gets a 12.5-ft equestrian bronze statue of Prithviraj Chauhan, Agra one of Maharaja Surajmal, and Gorakhpur one of Guru Gorakhnath near the airport.",
+                                        "src":  "https://theprint.in/india/up-govt-to-install-statues-of-prominent-figures-in-12-districts-minister/3089680/"
+                                    },
+                                    {
+                                        "tag_hi":  "विज्ञान",
+                                        "tag_en":  "Science",
+                                        "hi":  "3 नवंबर को इंडियाAI मिशन के तहत स्वदेशी AI फ़ाउंडेशन मॉडल जारी हुए: सोकेट लैब्स का EKA-1 (लगभग 26 अरब पैरामीटर, सभी 22 अनुसूचित भाषाएँ) और ज़ेंटीक्यू के Dhīr 2B व Dhīr 5B (ऑफ़लाइन चलने योग्य)।",
+                                        "en":  "On 3 Nov indigenous AI foundation models were released under the IndiaAI Mission: Soket Labs\u0027 EKA-1 (about 26 billion parameters, all 22 scheduled languages) and ZenteiQ\u0027s Dhīr 2B and Dhīr 5B (can run offline).",
+                                        "src":  "https://www.aninews.in/news/business/meity-unveils-indigenous-ai-models-eka-1-dh299r-2b-and-5b-under-indiaai-mission20261103210340/"
+                                    },
+                                    {
+                                        "tag_hi":  "राष्ट्रीय",
+                                        "tag_en":  "National",
+                                        "hi":  "3 नवंबर को प्रधानमंत्री ने लगभग ₹21,800 करोड़ की पुणे मेट्रो परियोजनाओं का उद्घाटन व शिलान्यास किया। 23.2 किमी लंबी लाइन-3 (पिंक लाइन) हिंजवडी (माण) को शिवाजीनगर से जोड़ती है; साथ में फेज़-II (लगभग 44 किमी, 4 कॉरिडोर) की नींव रखी गई।",
+                                        "en":  "On 3 Nov the PM inaugurated and laid foundation stones for Pune Metro projects worth about ₹21,800 crore. The 23.2 km Line 3 (Pink Line) links Hinjewadi (Maan) with Shivajinagar; the foundation of Phase II (about 44 km, 4 corridors) was also laid.",
+                                        "src":  "https://www.pmindia.gov.in/en/news_updates/pm-to-inaugurate-and-lay-foundation-stone-of-pune-metro-projects-worth-around-%E2%82%B921800-crore-on-3rd-november/"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "तीसरा दिल्ली डिफ़ेंस डायलॉग (3–4 नवंबर) MP-IDSA, नई दिल्ली में हुआ। रक्षा मंत्री ने बताया कि 2025-26 में रक्षा निर्यात ₹38,424 करोड़ (2013-14 में लगभग ₹686 करोड़) और रक्षा उत्पादन रिकॉर्ड ₹1.78 लाख करोड़ रहा।",
+                                        "en":  "The 3rd Delhi Defence Dialogue (3–4 Nov) was held at MP-IDSA, New Delhi. The Defence Minister said defence exports reached ₹38,424 crore in 2025-26 (about ₹686 crore in 2013-14) and defence production hit a record ₹1.78 lakh crore.",
+                                        "src":  "https://www.aninews.in/news/national/general-news/8220self-reliance-is-not-a-retreat-from-the-world-it-positions-india-better-for-global-collaborations8221-defence-minister-rajnath-singh20261104005602/"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "भारत–इंडोनेशिया संयुक्त विशेष बल अभ्यास \u0027गरुड़ शक्ति\u0027 का 11वाँ संस्करण 27 अक्टूबर से 6 नवंबर 2026 तक बान्युवांगी (पूर्वी जावा, इंडोनेशिया) में हो रहा है। भारत की ओर से पैराशूट रेजिमेंट (विशेष बल) भाग ले रही है।",
+                                        "en":  "The 11th edition of India–Indonesia joint special forces exercise \u0027Garuda Shakti\u0027 is being held at Banyuwangi (East Java, Indonesia) from 27 Oct to 6 Nov 2026. India is represented by the Parachute Regiment (Special Forces).",
+                                        "src":  "https://currentaffairs.adda247.com/exercise-garuda-shakti-2026-india-indonesia-joint-special-forces-exercise-begins/"
+                                    },
+                                    {
+                                        "tag_hi":  "राष्ट्रीय",
+                                        "tag_en":  "National",
+                                        "hi":  "नागर विमानन मंत्रालय ने \u0027भारतीय वायुयान नियम, 2026\u0027 अधिसूचित किए, जो 1 जनवरी 2027 से विमान नियम, 1937 की जगह लेंगे। ये भारतीय वायुयान अधिनियम, 2024 के तहत बने हैं (31 अक्टूबर को राजपत्र में प्रकाशित)।",
+                                        "en":  "The Civil Aviation Ministry notified the \u0027Bharatiya Vayuyan Niyam, 2026\u0027, which will replace the Aircraft Rules, 1937 from 1 Jan 2027. They are framed under the Bharatiya Vayuyan Adhiniyam, 2024 (published in the Gazette on 31 Oct).",
+                                        "src":  "https://www.business-standard.com/industry/aviation/new-aircraft-rules-to-replace-1937-framework-take-effect-from-january-1-126110100896_1.html"
+                                    },
+                                    {
+                                        "tag_hi":  "पर्यावरण",
+                                        "tag_en":  "Environment",
+                                        "hi":  "जैव विविधता अभिसमय (CBD) का COP17 येरेवान (आर्मेनिया) में 31 अक्टूबर को \u0027येरेवान पाथवे\u0027 अपनाकर समाप्त हुआ। COP18 वर्ष 2028 में इक्वाडोर (क्विटो) में होगा; मतदान में इक्वाडोर ने पनामा को हराया।",
+                                        "en":  "COP17 of the Convention on Biological Diversity (CBD) ended in Yerevan, Armenia on 31 Oct with adoption of the \u0027Yerevan Pathway\u0027. COP18 will be held in Ecuador (Quito) in 2028; Ecuador beat Panama in the vote.",
+                                        "src":  "https://www.carbonbrief.org/cop17-key-outcomes-agreed-at-the-un-biodiversity-conference-in-yerevan"
+                                    },
+                                    {
+                                        "tag_hi":  "भूगोल",
+                                        "tag_en":  "Geography",
+                                        "hi":  "बंगाल की खाड़ी का गंभीर चक्रवाती तूफ़ान \u0027मुरासु\u0027 आंध्र प्रदेश तट (ओंगोल–प्रकाशम क्षेत्र) से टकराया। यह नाम भारत ने दिया है; \u0027मुरासु\u0027 तमिल का एक पारंपरिक युद्ध-ढोल है।",
+                                        "en":  "Severe cyclonic storm \u0027Murasu\u0027 from the Bay of Bengal crossed the Andhra Pradesh coast (Ongole–Prakasam area). The name was given by India; \u0027Murasu\u0027 is a traditional Tamil war drum.",
+                                        "src":  "https://en.wikipedia.org/wiki/Cyclone_Murasu"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "3 नवंबर को यूनेस्को का अंतरराष्ट्रीय जैवमंडल आरक्षित क्षेत्र दिवस (5वाँ) मनाया गया। भारत में 18 अधिसूचित जैवमंडल आरक्षित क्षेत्र हैं, जिनमें 13 यूनेस्को के विश्व नेटवर्क (WNBR) में शामिल हैं।",
+                                        "en":  "3 Nov was UNESCO\u0027s International Day for Biosphere Reserves (5th observance). India has 18 notified biosphere reserves, of which 13 are in UNESCO\u0027s World Network (WNBR).",
+                                        "src":  "https://affairscloud.com/current-affairs-4-november-2026/"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-03",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "रक्षा मंत्रालय ने 2 नवंबर 2026 को नौसेना के 8 नेक्स्ट जनरेशन कॉर्वेट के लिए ₹53,866.50 करोड़ के अनुबंध किए। 5 पोत GRSE (कोलकाता) और 3 गोवा शिपयार्ड बनाएगा। ये पनडुब्बी-रोधी और सतह-युद्ध क्षमता बढ़ाएँगे।",
+                                        "en":  "On 2 Nov 2026 the Defence Ministry signed contracts worth ₹53,866.50 crore for 8 Next Generation Corvettes for the Navy. GRSE (Kolkata) will build 5 and Goa Shipyard 3. They will boost anti-submarine and anti-surface warfare capability.",
+                                        "src":  "https://www.business-standard.com/amp/external-affairs-defence-security/news/defence-ministry-rs-53866-crore-contracts-eight-next-generation-corvettes-126110200531_1.html"
+                                    },
+                                    {
+                                        "tag_hi":  "ऊर्जा",
+                                        "tag_en":  "Energy",
+                                        "hi":  "प्रधानमंत्री ने 2 नवंबर को भारत मंडपम, नई दिल्ली में \u0027भारत नवीकरणीय ऊर्जा शिखर सम्मेलन एवं एक्सपो 2026\u0027 (2–5 नवंबर) का उद्घाटन किया। आयोजक MNRE है; साथ में अंतरराष्ट्रीय सौर गठबंधन (ISA) सभा का 9वाँ सत्र और ग्रीन हाइड्रोजन पर चौथा अंतरराष्ट्रीय सम्मेलन हो रहा है।",
+                                        "en":  "On 2 Nov the PM inaugurated the Bharat Renewable Energy Summit \u0026 Expo 2026 (2–5 Nov) at Bharat Mandapam, New Delhi. Organised by MNRE, it runs alongside the 9th session of the International Solar Alliance (ISA) Assembly and the 4th International Conference on Green Hydrogen.",
+                                        "src":  "https://isa.int/bharat-re-summit"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "रक्षा मंत्री राजनाथ सिंह की अध्यक्षता वाली रक्षा अधिग्रहण परिषद (DAC) ने नौसेना के अगली पीढ़ी के स्टेल्थ विध्वंसक \u0027प्रोजेक्ट-18A\u0027 को सैद्धांतिक मंज़ूरी दी। अनुमानित लागत ₹75,000 करोड़ से अधिक है। यह विशाखापत्तनम श्रेणी के बाद की श्रेणी होगी।",
+                                        "en":  "The Defence Acquisition Council (DAC), chaired by Defence Minister Rajnath Singh, gave in-principle approval to Project-18A, the Navy\u0027s next-generation stealth destroyers. Estimated cost is over ₹75,000 crore. It will follow the Visakhapatnam class.",
+                                        "src":  "https://www.newsbytesapp.com/news/india/indias-project-18a-gets-in-principle-approval-over-rs75000-cr/tldr"
+                                    },
+                                    {
+                                        "tag_hi":  "खेल",
+                                        "tag_en":  "Sports",
+                                        "hi":  "मनीषा भानवाला सीनियर विश्व कुश्ती चैंपियनशिप (अस्ताना, कज़ाख़स्तान) में स्वर्ण जीतने वाली पहली भारतीय महिला बनीं। 59 किग्रा फ़ाइनल में उन्होंने अमेरिका की एबिगेल नेट को 8-6 से हराया। सुशील कुमार (2010) के बाद वे दूसरी भारतीय विश्व चैंपियन हैं।",
+                                        "en":  "Manisha Bhanwala became the first Indian woman to win gold at the Senior World Wrestling Championships (Astana, Kazakhstan). She beat Abigail Nette of the USA 8-6 in the 59 kg final. She is India\u0027s second world champion after Sushil Kumar (2010).",
+                                        "src":  "https://www.theweek.in/wire-updates/sports/2026/10/30/manisha-scripts-history-becomes-india-s-first-woman-wrestling-world-champion.amp.html"
+                                    },
+                                    {
+                                        "tag_hi":  "अर्थव्यवस्था",
+                                        "tag_en":  "Economy",
+                                        "hi":  "केंद्र ने 31 अक्टूबर को राज्यों को कर-हस्तांतरण की दूसरी अतिरिक्त किस्त ₹1,09,019 करोड़ जारी की। सबसे अधिक ₹19,208 करोड़ उत्तर प्रदेश को और ₹10,845 करोड़ बिहार को मिले। उद्देश्य राज्यों का पूँजीगत व्यय तेज़ करना है।",
+                                        "en":  "On 31 Oct the Centre released a second additional instalment of tax devolution of ₹1,09,019 crore to states. Uttar Pradesh got the most, ₹19,208 crore, and Bihar ₹10,845 crore. The aim is to speed up states\u0027 capital spending.",
+                                        "src":  "https://newsonair.gov.in/centre-releases-additional-instalment-of-tax-devolution-to-state-governments/"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "मुख्यमंत्री योगी आदित्यनाथ ने 31 अक्टूबर को लोक भवन, लखनऊ में ₹1,725 करोड़ की \u0027सरदार वल्लभभाई पटेल कौशल प्रशिक्षण एवं रोज़गार क्षेत्र विकास योजना\u0027 शुरू की। पहले चरण में लखनऊ, गोरखपुर, कानपुर, झाँसी और गौतमबुद्ध नगर में केंद्र बनेंगे।",
+                                        "en":  "On 31 Oct CM Yogi Adityanath launched the ₹1,725 crore \u0027Sardar Vallabhbhai Patel Skill Training and Employment Zone Development Scheme\u0027 at Lok Bhavan, Lucknow. In phase one, centres will come up in Lucknow, Gorakhpur, Kanpur, Jhansi and Gautam Buddh Nagar.",
+                                        "src":  "https://www.aajtak.in/uttar-pradesh/story/cm-yogi-adityanath-sardar-patel-skill-employment-scheme-up-1725-crore-utrat-lcln-rpti-2684568-2026-10-30"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "उत्तर प्रदेश के बिजली उपभोक्ताओं को नवंबर 2026 के बिल में ईंधन एवं विद्युत क्रय समायोजन अधिभार (FPPAS) के तहत 9.17% की छूट मिलेगी, जो अब तक की सबसे अधिक है। यह लगातार पाँचवाँ महीना है जब बिल घटा है।",
+                                        "en":  "Uttar Pradesh power consumers will get a 9.17% cut in their November 2026 bills under the Fuel and Power Purchase Adjustment Surcharge (FPPAS), the highest so far. It is the fifth straight month of such relief.",
+                                        "src":  "https://www.republicbharat.com/india/uttar-pradesh/up-power-consumers-to-get-highest-ever-917-relief-in-nov-bills-to-save-rs-645-cr-2026-10-29-132355"
+                                    },
+                                    {
+                                        "tag_hi":  "नियुक्ति",
+                                        "tag_en":  "Appointment",
+                                        "hi":  "एयर मार्शल मेहताब सिंह देसवाल ने 1 नवंबर 2026 को वायुसेना की पूर्वी वायु कमान के कमांडर-इन-चीफ (AOC-in-C) का पद संभाला। उन्होंने इंद्रपाल सिंह वालिया का स्थान लिया, जो वायुसेना उप-प्रमुख बने। पूर्वी वायु कमान का मुख्यालय शिलांग (मेघालय) में है।",
+                                        "en":  "Air Marshal Mehtab Singh Deswal took over as AOC-in-C of the IAF\u0027s Eastern Air Command on 1 Nov 2026. He succeeded Inderpal Singh Walia, who became Vice Chief of the Air Staff. Eastern Air Command is headquartered in Shillong, Meghalaya.",
+                                        "src":  "https://en.wikipedia.org/wiki/Eastern_Air_Command_(India)"
+                                    },
+                                    {
+                                        "tag_hi":  "स्वास्थ्य",
+                                        "tag_en":  "Health",
+                                        "hi":  "असम सरकार गुवाहाटी मेडिकल कॉलेज (GMCH) में ₹600 करोड़ का प्रोटॉन बीम थेरेपी केंद्र बनाएगी, जो सार्वजनिक क्षेत्र में देश का पहला होगा। ₹315 करोड़ विश्व बैंक ऋण से और ₹285 करोड़ राज्य देगा। इसके लिए बेल्जियम की कंपनी IBA से समझौता हुआ।",
+                                        "en":  "Assam will set up a ₹600 crore Proton Beam Therapy Centre at Gauhati Medical College (GMCH), India\u0027s first in the public sector. ₹315 crore comes from a World Bank loan and ₹285 crore from the state. An agreement was signed with Belgium\u0027s IBA.",
+                                        "src":  "https://www.sentinelassam.com/breakingnews/assam-cabinet-approves-rs-600-crore-proton-beam-therapy-unit-at-gmch"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "2 नवंबर को \u0027पत्रकारों के विरुद्ध अपराधों में दंड-मुक्ति समाप्त करने का अंतरराष्ट्रीय दिवस\u0027 मनाया जाता है। संयुक्त राष्ट्र महासभा ने इसे 2013 में घोषित किया; यह 2 नवंबर 2013 को माली में मारे गए दो फ़्रांसीसी पत्रकारों की याद में है।",
+                                        "en":  "2 November is the International Day to End Impunity for Crimes against Journalists. The UN General Assembly proclaimed it in 2013, in memory of two French journalists killed in Mali on 2 Nov 2013.",
+                                        "src":  "https://www.unesco.org/en/days/end-impunity"
+                                    }
+                                ]
+                 },
+                 {
+                     "date":  "2026-11-02",
+                     "points":  [
+                                    {
+                                        "tag_hi":  "विज्ञान",
+                                        "tag_en":  "Science",
+                                        "hi":  "ISRO ने 30 अक्टूबर 2026 को श्रीहरिकोटा से GSLV-F18 द्वारा नौवहन उपग्रह NVS-03 प्रक्षेपित किया। यह NavIC प्रणाली को मज़बूत करेगा और इसमें स्वदेशी परमाणु घड़ी लगी है। यह GSLV की 20वीं उड़ान थी।",
+                                        "en":  "On 30 Oct 2026 ISRO launched navigation satellite NVS-03 on GSLV-F18 from Sriharikota. It strengthens NavIC and carries an indigenous atomic clock. It was GSLV\u0027s 20th flight.",
+                                        "src":  "https://newsonair.gov.in/isro-to-launch-navigation-satellite-nvs-03-aboard-gslv-f18-rocket-from-sriharikota/"
+                                    },
+                                    {
+                                        "tag_hi":  "रक्षा",
+                                        "tag_en":  "Defence",
+                                        "hi":  "एयर चीफ मार्शल आशुतोष दीक्षित ने 31 अक्टूबर 2026 को भारतीय वायुसेना के 29वें प्रमुख का पदभार संभाला। उन्होंने एयर चीफ मार्शल अमर प्रीत सिंह का स्थान लिया।",
+                                        "en":  "Air Chief Marshal Ashutosh Dixit took over as the 29th Chief of the Air Staff on 31 Oct 2026, succeeding Air Chief Marshal Amar Preet Singh.",
+                                        "src":  "https://newsonair.gov.in/air-marshal-ashutosh-dixit-appointed-as-29th-chief-of-air-staff/"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "UP कैबिनेट (27 अक्टूबर 2026) ने लखनऊ-हरदोई में 1,000 एकड़ के PM मित्र मेगा टेक्सटाइल पार्क के मास्टर डेवलपर के चयन को मंज़ूरी दी। साथ ही साइबर सुरक्षा ऑपरेशंस सेंटर और PRAGATI रोबोटिक्स पार्क को भी मंज़ूरी मिली।",
+                                        "en":  "The UP Cabinet (27 Oct 2026) approved the master developer for the 1,000-acre PM MITRA Mega Textile Park in Lucknow–Hardoi, along with a Cyber Security Operations Centre and the PRAGATI Robotics Park.",
+                                        "src":  "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
+                                    },
+                                    {
+                                        "tag_hi":  "उत्तर प्रदेश",
+                                        "tag_en":  "Uttar Pradesh",
+                                        "hi":  "UP कैबिनेट (27 अक्टूबर) ने चार लिंक एक्सप्रेसवे (फ़र्रुख़ाबाद, झाँसी, जेवर, और आगरा-लखनऊ को पूर्वांचल से जोड़ने वाला) के डेवलपर चयन को मंज़ूरी दी। सैनिक स्कूल मैनपुरी को 9.524 हेक्टेयर भूमि निःशुल्क दी गई।",
+                                        "en":  "The UP Cabinet (27 Oct) approved developers for four link expressways (Farrukhabad, Jhansi, Jewar, and Agra–Lucknow to Purvanchal). Sainik School Mainpuri gets 9.524 ha of land free of cost.",
+                                        "src":  "https://www.aajtak.in/uttar-pradesh/story/yogi-cabinet-decisions-uttar-pradesh-link-expressways-cashless-treatment-textile-park-robotics-park-ntc-aktw-rptc-2681322-2026-10-27"
+                                    },
+                                    {
+                                        "tag_hi":  "अंतरराष्ट्रीय",
+                                        "tag_en":  "International",
+                                        "hi":  "पहला BIMSTEC समुद्री सुरक्षा अभ्यास 30 अक्टूबर से 3 नवंबर 2026 तक हो रहा है। इसमें बंगाल की खाड़ी क्षेत्र के सभी 7 सदस्य देश भाग ले रहे हैं।",
+                                        "en":  "The first BIMSTEC Maritime Security Exercise runs from 30 Oct to 3 Nov 2026, with all 7 member countries of the Bay of Bengal region.",
+                                        "src":  "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "समाज",
+                                        "tag_en":  "Society",
+                                        "hi":  "जनजातीय कार्य मंत्रालय 1 से 15 नवंबर 2026 तक जनजातीय गौरव पखवाड़ा मना रहा है। 15 नवंबर को बिरसा मुंडा (\u0027धरती आबा\u0027) की जयंती जनजातीय गौरव दिवस के रूप में मनाई जाती है।",
+                                        "en":  "The Ministry of Tribal Affairs is observing Janjatiya Gaurav Pakhwada from 1 to 15 Nov 2026. 15 Nov, Birsa Munda\u0027s (\u0027Dharti Aaba\u0027) birth anniversary, is Janjatiya Gaurav Divas.",
+                                        "src":  "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "अर्थव्यवस्था",
+                                        "tag_en":  "Economy",
+                                        "hi":  "वस्त्र PLI योजना के चौथे चरण का पोर्टल 1 नवंबर से 31 दिसंबर 2026 तक खुला है। भाग-2 में न्यूनतम टर्नओवर ₹200 करोड़ से घटाकर ₹100 करोड़ किया गया। योजना MMF परिधान, MMF कपड़ा और तकनीकी वस्त्र के लिए है।",
+                                        "en":  "Round 4 of the Textiles PLI portal is open from 1 Nov to 31 Dec 2026. Minimum turnover under Part 2 was cut from ₹200 crore to ₹100 crore. It covers MMF apparel, MMF fabrics and technical textiles.",
+                                        "src":  "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "संस्था",
+                                        "tag_en":  "Institution",
+                                        "hi":  "कर्मचारी भविष्य निधि संगठन (EPFO) ने 1 नवंबर 2026 को अपना 74वाँ स्थापना दिवस मनाया। EPFO की स्थापना 1952 में हुई थी।",
+                                        "en":  "The Employees\u0027 Provident Fund Organisation (EPFO) marked its 74th Foundation Day on 1 Nov 2026. EPFO was set up in 1952.",
+                                        "src":  "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "परिवहन",
+                                        "tag_en":  "Transport",
+                                        "hi":  "अंतरराष्ट्रीय यात्रियों के लिए Digi Yatra का परीक्षण 7 हवाई अड्डों (दिल्ली, बेंगलुरु, हैदराबाद, कोचीन, मुंबई, चेन्नई, अमृतसर) पर शुरू हुआ। यह दो महीने, दिसंबर 2026 तक, ई-पासपोर्ट वाले भारतीयों के लिए है।",
+                                        "en":  "Digi Yatra trials for international passengers began at 7 airports (Delhi, Bengaluru, Hyderabad, Cochin, Mumbai, Chennai, Amritsar), running for two months until Dec 2026 for Indians with e-passports.",
+                                        "src":  "https://indianopinion.org/today-in-india-1-november-2026/"
+                                    },
+                                    {
+                                        "tag_hi":  "स्थैतिक",
+                                        "tag_en":  "Static GK",
+                                        "hi":  "1 नवंबर को इन राज्यों का स्थापना दिवस होता है: कर्नाटक, केरल, मध्य प्रदेश और आंध्र प्रदेश (1956), हरियाणा (1966), छत्तीसगढ़ (2000)।",
+                                        "en":  "1 November is the formation day of Karnataka, Kerala, Madhya Pradesh and Andhra Pradesh (1956), Haryana (1966) and Chhattisgarh (2000).",
+                                        "src":  "https://govtexamupdate.com/daily-current-affairs-update-01-november-2026/"
+                                    }
+                                ]
+                 }
+             ]
 }
