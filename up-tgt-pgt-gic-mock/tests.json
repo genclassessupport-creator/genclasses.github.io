@@ -1,0 +1,72 @@
+[
+  {
+    "no": 1,
+    "no_pad": "01",
+    "count": 50,
+    "href": "/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-01.html",
+    "topic_labels": [
+      "History 9",
+      "Polity 8",
+      "Geography 8",
+      "Economy 8",
+      "Science 9",
+      "ICT 8"
+    ]
+  },
+  {
+    "no": 2,
+    "no_pad": "02",
+    "count": 50,
+    "href": "/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-02.html",
+    "topic_labels": [
+      "History 9",
+      "Polity 8",
+      "Geography 8",
+      "Economy 8",
+      "Science 9",
+      "ICT 8"
+    ]
+  },
+  {
+    "no": 3,
+    "no_pad": "03",
+    "count": 50,
+    "href": "/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-03.html",
+    "topic_labels": [
+      "History 9",
+      "Polity 8",
+      "Geography 8",
+      "Economy 8",
+      "Science 9",
+      "ICT 8"
+    ]
+  },
+  {
+    "no": 4,
+    "no_pad": "04",
+    "count": 50,
+    "href": "/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-04.html",
+    "topic_labels": [
+      "History 9",
+      "Polity 8",
+      "Geography 8",
+      "Economy 8",
+      "Science 9",
+      "ICT 8"
+    ]
+  },
+  {
+    "no": 5,
+    "no_pad": "05",
+    "count": 50,
+    "href": "/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-05.html",
+    "topic_labels": [
+      "History 9",
+      "Polity 8",
+      "Geography 8",
+      "Economy 8",
+      "Science 9",
+      "ICT 8"
+    ]
+  }
+]

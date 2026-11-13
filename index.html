@@ -109,6 +109,7 @@ html[data-theme="light"] .b-polity{background:rgba(30,100,160,.12);color:#1a5f8a
 html[data-theme="light"] .b-upsssc{background:rgba(166,91,20,.12);color:#96520F}
 html[data-theme="light"] .b-upspecial{background:rgba(18,115,184,.12);color:#0F6AA8}
 html[data-theme="light"] .b-uppcs2026{background:rgba(196,70,30,.12);color:#B8451A}
+html[data-theme="light"] .b-tgtgic{background:rgba(194,65,12,.12);color:#9A3412}
 .theme-btn{
   background:var(--glass);border:1px solid var(--line-2);color:var(--gold-hi);
   width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:17px;
@@ -324,6 +325,7 @@ section{position:relative;z-index:3;padding:104px 26px}
 .b-upsssc{background:rgba(240,150,90,.15);color:#e8944e}
 .b-upspecial{background:rgba(90,180,240,.15);color:#5ab4f0}
 .b-uppcs2026{background:rgba(255,120,80,.18);color:#ff9a6b;border:1px solid rgba(255,120,80,.35)}
+.b-tgtgic{background:rgba(251,146,60,.18);color:#fb923c;border:1px solid rgba(251,146,60,.35)}
 .tcard h3{font-family:'Mukta',sans-serif;font-weight:700;font-size:18.5px;color:var(--cream);line-height:1.5}
 .tgo{margin-top:auto;padding-top:13px;border-top:1px dashed var(--line);color:var(--gold);font-weight:700;font-size:14.5px;transition:color .25s,letter-spacing .25s}
 .tcard:hover .tgo{color:var(--gold-hi);letter-spacing:.4px}
@@ -776,6 +778,65 @@ html[data-theme="light"] .pyq-card:hover .cta{background:linear-gradient(135deg,
   .pyq-dots{display:flex}
 }
 
+/* UP TGT/PGT & GIC GS mock showcase — separate from PYQ slider */
+#tgt-showcase{position:relative;z-index:3;padding:4px 18px 14px}
+.tgt-show{
+  max-width:var(--maxw);margin:0 auto;border-radius:22px;overflow:hidden;position:relative;
+  border:1px solid var(--line-2);
+  background:
+    radial-gradient(900px 220px at 6% -20%, rgba(251,146,60,.18), transparent 55%),
+    radial-gradient(700px 200px at 96% 0%, rgba(30,58,138,.16), transparent 50%),
+    linear-gradient(145deg, rgba(14,27,51,.92), rgba(10,20,38,.88));
+  box-shadow:0 18px 48px rgba(0,0,0,.28);
+  padding:16px 16px 14px;
+}
+html[data-theme="light"] .tgt-show{
+  background:
+    radial-gradient(900px 220px at 6% -20%, rgba(251,146,60,.16), transparent 55%),
+    radial-gradient(700px 200px at 96% 0%, rgba(30,58,138,.10), transparent 50%),
+    linear-gradient(145deg,#FFF7ED,#F6F9F7 58%,#EEF3F8);
+  box-shadow:0 14px 36px rgba(23,46,92,.12);
+  border-color:rgba(194,65,12,.22);
+}
+.tgt-show-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;flex-wrap:wrap}
+.tgt-show-head h2{margin:0;font-family:'Rozha One',serif;font-size:clamp(20px,2.6vw,28px);color:var(--cream);line-height:1.15}
+.tgt-show-head p{margin:4px 0 0;font-size:13.5px;color:var(--mist);font-weight:500;max-width:70ch;line-height:1.45}
+.tgt-track{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.tgt-card{
+  position:relative;display:flex;flex-direction:column;gap:6px;text-decoration:none;color:inherit;
+  border-radius:16px;padding:14px 12px 12px;border:1px solid var(--line-2);min-height:128px;overflow:hidden;
+  transition:transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+  background:rgba(255,255,255,.03);
+}
+.tgt-card::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(160deg,rgba(251,146,60,.14),transparent 50%,rgba(30,58,138,.08));
+}
+html[data-theme="light"] .tgt-card{background:rgba(255,255,255,.78)}
+html[data-theme="light"] .tgt-card::before{background:linear-gradient(160deg,rgba(251,146,60,.12),transparent 52%,rgba(30,58,138,.06))}
+.tgt-card:hover{transform:translateY(-3px);border-color:var(--gold);box-shadow:0 14px 34px rgba(0,0,0,.22)}
+html[data-theme="light"] .tgt-card:hover{box-shadow:0 14px 34px rgba(23,46,92,.14)}
+.tgt-card.on{border-color:var(--gold);box-shadow:0 0 0 1px rgba(251,146,60,.35),0 12px 30px rgba(0,0,0,.16)}
+html[data-theme="light"] .tgt-card.on{box-shadow:0 0 0 1px rgba(194,65,12,.28),0 12px 28px rgba(23,46,92,.10)}
+.tgt-card .num{position:relative;font-family:'Rozha One',serif;font-size:clamp(28px,3.2vw,36px);color:var(--gold-hi);line-height:1;letter-spacing:-1px}
+html[data-theme="light"] .tgt-card .num{color:#9A3412}
+.tgt-card .tag{position:relative;font-size:10px;font-weight:800;letter-spacing:1px;color:var(--gold)}
+.tgt-card strong{position:relative;font-size:13.5px;font-weight:800;color:var(--cream);line-height:1.3}
+.tgt-card em{position:relative;font-style:normal;font-size:11.5px;color:var(--mist);font-weight:600}
+.tgt-card .cta{position:relative;margin-top:auto;align-self:flex-start;white-space:nowrap;font-size:12px;font-weight:800;padding:7px 10px;border-radius:999px;border:1px solid var(--line-2);background:rgba(255,255,255,.06);color:var(--gold-hi)}
+html[data-theme="light"] .tgt-card .cta{background:rgba(194,65,12,.08);color:#9A3412}
+.tgt-card:hover .cta{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#0A1426;border-color:transparent}
+html[data-theme="light"] .tgt-card:hover .cta{background:linear-gradient(135deg,#c2410c,#9A3412);color:#FFF7ED}
+.tgt-foot{display:flex;justify-content:flex-end;margin-top:10px}
+.tgt-hub-cta{font-size:13px;font-weight:800;color:var(--gold-hi);text-decoration:none}
+.tgt-hub-cta:hover{text-decoration:underline}
+.tgt-dots{display:none;justify-content:center;gap:7px;margin-top:10px}
+.tgt-dots button{width:7px;height:7px;border-radius:999px;border:0;padding:0;cursor:pointer;background:rgba(152,166,190,.45)}
+.tgt-dots button[aria-current="true"]{width:18px;background:var(--gold-hi)}
+@media(max-width:760px){
+  #tgt-showcase{padding:4px 12px 12px}
+
+
 /* WhatsApp / Instagram pills + floating WA */
 .cd-pill.cd-wa{background:#25D366;color:#fff;border-color:rgba(255,255,255,.35)}
 .cd-pill.cd-ig{background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af);color:#fff;border-color:rgba(255,255,255,.35)}
@@ -896,6 +957,7 @@ html[data-theme="light"] .sm-tile strong{color:#1F2A2E}
 .sm-tile.t-ncert .ico{background:linear-gradient(145deg,#4ade80,#15803d)}.sm-tile.t-ncert .blob{background:radial-gradient(circle,#4ade80,#15803d00)}
 .sm-tile.t-polity .ico{background:linear-gradient(145deg,#818cf8,#3730a3)}.sm-tile.t-polity .blob{background:radial-gradient(circle,#818cf8,#3730a300)}
 .sm-tile.t-prelims .ico{background:linear-gradient(145deg,#2dd4bf,#0f766e)}.sm-tile.t-prelims .blob{background:radial-gradient(circle,#2dd4bf,#0f766e00)}
+.sm-tile.t-tgt .ico{background:linear-gradient(145deg,#fb923c,#c2410c)}.sm-tile.t-tgt .blob{background:radial-gradient(circle,#fb923c,#c2410c00)}
 .prod-block{margin-top:22px}
 .prod-block .sm-head{margin-bottom:12px}
 .prod-rail-wrap{position:relative}
@@ -915,6 +977,7 @@ html[data-theme="light"] .prod-card .pc-cta{color:#1E3A8A}
 .prod-card.p-tests .pc-art{background:linear-gradient(145deg,#f472b6,#9d174d)}
 .prod-card.p-polity .pc-art{background:linear-gradient(145deg,#818cf8,#312e81)}
 .prod-card.p-prelims .pc-art{background:linear-gradient(145deg,#2dd4bf,#115e59)}
+.prod-card.p-tgt .pc-art{background:linear-gradient(145deg,#fb923c,#9a3412)}
 .prod-card.p-notes .pc-art{background:linear-gradient(145deg,#fbbf24,#b45309)}
 .prod-card.p-csat .pc-art{background:linear-gradient(145deg,#a78bfa,#5b21b6)}
 .prod-card.p-daily .pc-art{background:linear-gradient(145deg,#60a5fa,#1d4ed8)}
@@ -1048,6 +1111,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
   <div class="ticker-track">
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
+    <a href="/up-tgt-pgt-gic-mock/"><span class="pill-new">NEW</span> <span data-hi>📝 5 मॉक टेस्ट · 250 प्रश्न · UP TGT/PGT & GIC (GS खण्ड)</span><span data-en>📝 5 Mock Tests · 250 Qs · UP TGT/PGT & GIC (GS Section)</span></a>
     <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/uppcs-prelims-pyq/"><span class="pill-new">NEW</span> <span data-hi>📝 1200 प्रश्न · UPPCS प्रारंभिक 2018–2025 के मूल संग्रह से अभ्यास</span><span data-en>📝 1200 Questions · UPPCS Prelims 2018–2025 — Original collection</span></a>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
@@ -1059,6 +1123,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
     <a href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
+    <a href="/up-tgt-pgt-gic-mock/"><span class="pill-new">NEW</span> <span data-hi>📝 5 मॉक टेस्ट · 250 प्रश्न · UP TGT/PGT & GIC (GS खण्ड)</span><span data-en>📝 5 Mock Tests · 250 Qs · UP TGT/PGT & GIC (GS Section)</span></a>
     <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/uppcs-prelims-pyq/"><span class="pill-new">NEW</span> <span data-hi>📝 1200 प्रश्न · UPPCS प्रारंभिक 2018–2025 के मूल संग्रह से अभ्यास</span><span data-en>📝 1200 Questions · UPPCS Prelims 2018–2025 — Original collection</span></a>
     <a href="/daily/"><span class="pill-new">NEW</span> <span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></a>
@@ -1170,6 +1235,34 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 <!-- ================= PYQ showcase ================= -->
 
 
+<section id="tgt-showcase" aria-label="UP TGT PGT GIC GS mock tests">
+  <div class="tgt-show rv">
+    <div class="tgt-show-head">
+      <span class="pyq-pill">NEW</span>
+      <div>
+        <h2><span data-hi>UP TGT/PGT &amp; GIC — GS खण्ड मॉक टेस्ट</span><span data-en>UP TGT/PGT &amp; GIC — GS Section Mock Tests</span></h2>
+        <p><span data-hi>पाँच अभ्यास टेस्ट, प्रत्येक में <b style="color:var(--gold-hi)">50</b> प्रश्न — इतिहास, राजव्यवस्था, भूगोल, अर्थव्यवस्था, विज्ञान एवं ICT।</span><span data-en>Five practice tests of <b style="color:var(--gold-hi)">50</b> questions each — History, Polity, Geography, Economy, Science &amp; ICT.</span></p>
+      </div>
+      <div class="pyq-total" aria-hidden="true"><b>250</b><span data-hi>कुल प्रश्न</span><span data-en>total Qs</span></div>
+    </div>
+    <div class="tgt-track" id="tgtTrack">
+      <a class="tgt-card on" href="/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-01.html" data-slide="0"><div class="num">01</div><span class="tag">50 Qs · 50 MIN</span><strong><span data-hi>मॉक टेस्ट 01</span><span data-en>Mock Test 01</span></strong><em><span data-hi>GS खण्ड अभ्यास</span><span data-en>GS section practice</span></em><span class="cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
+      <a class="tgt-card" href="/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-02.html" data-slide="1"><div class="num">02</div><span class="tag">50 Qs · 50 MIN</span><strong><span data-hi>मॉक टेस्ट 02</span><span data-en>Mock Test 02</span></strong><em><span data-hi>GS खण्ड अभ्यास</span><span data-en>GS section practice</span></em><span class="cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
+      <a class="tgt-card" href="/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-03.html" data-slide="2"><div class="num">03</div><span class="tag">50 Qs · 50 MIN</span><strong><span data-hi>मॉक टेस्ट 03</span><span data-en>Mock Test 03</span></strong><em><span data-hi>GS खण्ड अभ्यास</span><span data-en>GS section practice</span></em><span class="cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
+      <a class="tgt-card" href="/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-04.html" data-slide="3"><div class="num">04</div><span class="tag">50 Qs · 50 MIN</span><strong><span data-hi>मॉक टेस्ट 04</span><span data-en>Mock Test 04</span></strong><em><span data-hi>GS खण्ड अभ्यास</span><span data-en>GS section practice</span></em><span class="cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
+      <a class="tgt-card" href="/tests/up-tgt-pgt-gic/UP-TGT-PGT-GIC-GS-Mock-05.html" data-slide="4"><div class="num">05</div><span class="tag">50 Qs · 50 MIN</span><strong><span data-hi>मॉक टेस्ट 05</span><span data-en>Mock Test 05</span></strong><em><span data-hi>GS खण्ड अभ्यास</span><span data-en>GS section practice</span></em><span class="cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
+    </div>
+    <div class="tgt-dots" id="tgtDots" role="tablist" aria-label="mock test slides">
+      <button type="button" aria-label="Mock 01" aria-current="true" data-i="0"></button>
+      <button type="button" aria-label="Mock 02" data-i="1"></button>
+      <button type="button" aria-label="Mock 03" data-i="2"></button>
+      <button type="button" aria-label="Mock 04" data-i="3"></button>
+      <button type="button" aria-label="Mock 05" data-i="4"></button>
+    </div>
+    <div class="tgt-foot"><a class="tgt-hub-cta" href="/up-tgt-pgt-gic-mock/"><span data-hi>सभी मॉक टेस्ट देखें →</span><span data-en>See all mock tests →</span></a></div>
+  </div>
+</section>
+
 <section id="whats-on" style="padding:28px 0 8px">
   <div class="section-in">
     <div class="sec-head rv">
@@ -1206,6 +1299,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
         <a class="sm-tile t-ncert" href="/ncert/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 16c8 0 12-4 20-4s12 4 20 4v34c-8 0-12-4-20-4s-12 4-20 4V16z" fill="#fff" fill-opacity=".95"/><path d="M32 12v34" stroke="#166534" stroke-width="2.4"/><path d="M18 24h10M18 32h10M36 24h10M36 32h10" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"/><circle cx="50" cy="48" r="7" fill="#86efac"/><path d="M47 48l2.2 2.2 4.5-5" stroke="#14532d" stroke-width="2" stroke-linecap="round"/></svg></span><strong>NCERT</strong><span class="sub" data-hi>पाठ्यपुस्तक · अभ्यास</span><span class="sub" data-en>Textbooks · practice</span></a>
         <a class="sm-tile t-polity" href="/polity/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 48h40M16 48V22l16-10 16 10v26" fill="#fff" fill-opacity=".95" stroke="#312e81" stroke-width="2.2"/><path d="M28 48v-14h8v14" fill="#c7d2fe" stroke="#3730a3" stroke-width="2"/><path d="M22 28h4M38 28h4M22 36h4M38 36h4" stroke="#4338ca" stroke-width="2" stroke-linecap="round"/><circle cx="48" cy="16" r="8" fill="#a5b4fc"/><path d="M48 11l1.4 3.2H53l-2.7 2 1 3.2L48 17.6 45.7 19.4l1-3.2-2.7-2h3.6z" fill="#312e81"/></svg></span><strong>Polity PYQ</strong><span class="sub" data-hi>960 प्रश्न · 21 टेस्ट</span><span class="sub" data-en>960 Qs · 21 Tests</span></a>
         <a class="sm-tile t-prelims" href="/uppcs-prelims-pyq/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="10" width="40" height="46" rx="6" fill="#fff" fill-opacity=".95"/><path d="M22 22h20M22 30h20M22 38h14" stroke="#0f766e" stroke-width="2.6" stroke-linecap="round"/><circle cx="46" cy="46" r="12" fill="#5eead4"/><path d="M41 46l3.5 3.5 7-8" stroke="#115e59" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong data-hi>UPPCS Prelims PYQ</strong><strong data-en>UPPCS Prelims PYQ</strong><span class="sub" data-hi>1200 प्रश्न · 2018–2025</span><span class="sub" data-en>1200 Qs · 2018–2025</span></a>
+        <a class="sm-tile t-tgt" href="/up-tgt-pgt-gic-mock/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="14" y="12" width="28" height="38" rx="4" fill="#fff" fill-opacity=".95"/><path d="M20 22h16M20 30h14M20 38h10" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round"/><path d="M36 40l14-8 2 10-8 3z" fill="#fdba74" stroke="#9a3412" stroke-width="1.8" stroke-linejoin="round"/><circle cx="46" cy="20" r="9" fill="#fb923c"/><path d="M46 15l1.5 3.4 3.7.3-2.8 2.4.9 3.6L46 22.8l-3.3 2-0.9-3.6-2.8-2.4 3.7-.3z" fill="#fff7ed"/></svg></span><strong data-hi>TGT/PGT &amp; GIC</strong><strong data-en>TGT/PGT &amp; GIC</strong><span class="sub" data-hi>5 मॉक · 250 प्रश्न</span><span class="sub" data-en>5 mocks · 250 Qs</span></a>
       </div>
     </div>
 
@@ -1223,6 +1317,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
           <a class="prod-card p-tests" href="#tests"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="14" stroke="#be185d" stroke-width="2.5" stroke-dasharray="4 3"/><circle cx="32" cy="32" r="4" fill="#db2777"/><path d="M32 12v6M32 46v6M12 32h6M46 32h6" stroke="#f9a8d4" stroke-width="2.4" stroke-linecap="round"/><path d="M42 18l4-6 3 5" fill="#fbcfe8" stroke="#be185d" stroke-width="1.5"/></svg></span><span class="pc-tag">SERIES</span><strong data-hi>टेस्ट सीरीज़</strong><strong data-en>Test Series</strong><span class="pc-sub" data-hi>परीक्षा-स्तरीय मॉक · विषयवार</span><span class="pc-sub" data-en>Exam-level mocks · subject-wise</span><span class="pc-cta"><span data-hi>शुरू करें →</span><span data-en>Start →</span></span></a>
           <a class="prod-card p-polity" href="/polity/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M12 48h40M16 48V22l16-10 16 10v26" fill="#fff" fill-opacity=".95" stroke="#312e81" stroke-width="2.2"/><path d="M28 48v-14h8v14" fill="#c7d2fe" stroke="#3730a3" stroke-width="2"/><path d="M22 28h4M38 28h4M22 36h4M38 36h4" stroke="#4338ca" stroke-width="2" stroke-linecap="round"/><circle cx="48" cy="16" r="8" fill="#a5b4fc"/><path d="M48 11l1.4 3.2H53l-2.7 2 1 3.2L48 17.6 45.7 19.4l1-3.2-2.7-2h3.6z" fill="#312e81"/></svg></span><span class="pc-tag">960 Qs</span><strong>Polity PYQ</strong><span class="pc-sub" data-hi>30+ वर्षों के UPPCS राजव्यवस्था प्रश्न</span><span class="pc-sub" data-en>30+ years of UPPCS Polity questions</span><span class="pc-cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span></a>
           <a class="prod-card p-prelims" href="/uppcs-prelims-pyq/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="12" y="10" width="40" height="46" rx="6" fill="#fff" fill-opacity=".95"/><path d="M22 22h20M22 30h20M22 38h14" stroke="#0f766e" stroke-width="2.6" stroke-linecap="round"/><circle cx="46" cy="46" r="12" fill="#5eead4"/><path d="M41 46l3.5 3.5 7-8" stroke="#115e59" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="pc-tag">1200 Qs</span><strong data-hi>Prelims PYQ 2018–25</strong><strong data-en>Prelims PYQ 2018–25</strong><span class="pc-sub" data-hi>सभी विषयों के कुल प्रश्न</span><span class="pc-sub" data-en>All subjects · full paper cover</span><span class="pc-cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span></a>
+          <a class="prod-card p-tgt" href="/up-tgt-pgt-gic-mock/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="14" y="12" width="28" height="38" rx="4" fill="#fff" fill-opacity=".95"/><path d="M20 22h16M20 30h14M20 38h10" stroke="#c2410c" stroke-width="2.5" stroke-linecap="round"/><path d="M36 40l14-8 2 10-8 3z" fill="#fdba74" stroke="#9a3412" stroke-width="1.8" stroke-linejoin="round"/><circle cx="46" cy="20" r="9" fill="#fb923c"/><path d="M46 15l1.5 3.4 3.7.3-2.8 2.4.9 3.6L46 22.8l-3.3 2-0.9-3.6-2.8-2.4 3.7-.3z" fill="#fff7ed"/></svg></span><span class="pc-tag">250 Qs</span><strong data-hi>TGT/PGT &amp; GIC मॉक</strong><strong data-en>TGT/PGT &amp; GIC mocks</strong><span class="pc-sub" data-hi>5 अभ्यास टेस्ट · GS खण्ड</span><span class="pc-sub" data-en>5 practice tests · GS section</span><span class="pc-cta"><span data-hi>हब खोलें →</span><span data-en>Open hub →</span></span></a>
           <a class="prod-card p-notes" href="#special-notes"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M18 10h22l10 10v34a4 4 0 0 1-4 4H18a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="#fff" fill-opacity=".95"/><path d="M40 10v10h10" fill="#fde68a" stroke="#b45309" stroke-width="2"/><path d="M22 30h20M22 38h16M22 46h12" stroke="#92400e" stroke-width="2.4" stroke-linecap="round"/><path d="M48 20l6 2-2 8-6-2z" fill="#fbbf24"/></svg></span><span class="pc-tag">NOTES</span><strong data-hi>विशेष नोट्स</strong><strong data-en>Special Notes</strong><span class="pc-sub" data-hi>कस्टम डिमांड · सभी विषय</span><span class="pc-sub" data-en>Custom demand · all subjects</span><span class="pc-cta"><span data-hi>जानें →</span><span data-en>Explore →</span></span></a>
           <a class="prod-card p-csat" href="/csat/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="14" width="48" height="36" rx="8" fill="#fff" fill-opacity=".95"/><path d="M18 28h10M18 36h16M36 28h10" stroke="#5b21b6" stroke-width="2.8" stroke-linecap="round"/><circle cx="48" cy="44" r="12" fill="#c4b5fd"/><path d="M43 44l3.5 3.5 7-8" stroke="#4c1d95" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="pc-tag">CSAT</span><strong>CSAT Practice</strong><span class="pc-sub" data-hi>12 टॉपिक ड्रिल · रीज़निंग · मैथ्स</span><span class="pc-sub" data-en>12 topic drills · reasoning · maths</span><span class="pc-cta"><span data-hi>अभ्यास →</span><span data-en>Practice →</span></span></a>
           <a class="prod-card p-daily" href="/daily/"><span class="pc-art"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="16" stroke="#b45309" stroke-width="3"/><path d="M32 18v15l10 6" stroke="#d97706" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="3" fill="#f59e0b"/><path d="M48 14l4 2M52 22l4-1" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/></svg></span><span class="pc-tag">DAILY</span><strong data-hi>डेली क्विज़</strong><strong data-en>Daily Quiz</strong><span class="pc-sub" data-hi>हर दिन 5 नए प्रश्न</span><span class="pc-sub" data-en>5 fresh questions every day</span><span class="pc-cta"><span data-hi>आज का क्विज़ →</span><span data-en>Today's quiz →</span></span></a>
@@ -1558,6 +1653,7 @@ go(0);start();})();</script>
 
     <div class="ttabs rv" style="--d:.1s" role="tablist" aria-label="Test sections">
       <button class="ttab active" data-filter="all"><span data-hi>सभी</span><span data-en>All</span> <span class="cnt" data-cnt="all"></span></button>
+      <button class="ttab" data-filter="tgtgic">TGT/PGT &amp; GIC <span class="cnt" data-cnt="tgtgic"></span></button>
       <button class="ttab" data-filter="uppcs2026">UP PCS Prelims 2026 <span class="cnt" data-cnt="uppcs2026"></span></button>
       <button class="ttab" data-filter="ca"><span data-hi>करेंट अफेयर्स</span><span data-en>Current Affairs</span> <span class="cnt" data-cnt="ca"></span></button>
       <button class="ttab" data-filter="gs"><span data-hi>सामान्य अध्ययन</span><span data-en>General Studies</span> <span class="cnt" data-cnt="gs"></span></button>
@@ -1797,17 +1893,17 @@ var CONFIG = { user: "genclassessupport-creator", repo: "genclasses.github.io" }
 
 function isEn(){ return (document.documentElement.getAttribute("lang") || "hi") === "en"; }
 function L(hi, en){ return isEn() ? en : hi; }
-var SEC_NAME_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ · 960", uppcsprepyq: "UPPCS प्रारंभिक PYQ · 1200", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_NAME_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ · 960", uppcsprepyq: "UPPCS Prelims PYQ · 1200", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
-var SEC_HEAD_HI = { uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ · 960 प्रश्न", uppcsprepyq: "UPPCS प्रारंभिक 2018–2025 के मूल संग्रह से अभ्यास", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_HEAD_EN = { uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ · 960 Questions", uppcsprepyq: "UPPCS Prelims 2018–2025 — Original collection", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
-var SEC_UNIT_HI = { uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", polity: "टेस्ट", uppcsprepyq: "टेस्ट", upsssc: "टेस्ट", upspecial: "टेस्ट" };
-var SEC_UNIT_EN = { uppcs2026: "Tests", ca: "Tests", gs: "Tests", csat: "", ncert: "Tests", polity: "Tests", uppcsprepyq: "Tests", upsssc: "Tests", upspecial: "Tests" };
+var SEC_NAME_HI = { tgtgic: "TGT/PGT & GIC", uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ · 960", uppcsprepyq: "UPPCS प्रारंभिक PYQ · 1200", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_NAME_EN = { tgtgic: "TGT/PGT & GIC", uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ · 960", uppcsprepyq: "UPPCS Prelims PYQ · 1200", upsssc: "UPSSSC", upspecial: "UP SPECIAL" };
+var SEC_HEAD_HI = { tgtgic: "UP TGT/PGT & GIC (GS खण्ड) मॉक टेस्ट", uppcs2026: "UP PCS Prelims 2026", ca: "करेंट अफेयर्स", gs: "सामान्य अध्ययन", csat: "CSAT", ncert: "NCERT", polity: "राजव्यवस्था PYQ · 960 प्रश्न", uppcsprepyq: "UPPCS प्रारंभिक 2018–2025 के मूल संग्रह से अभ्यास", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_HEAD_EN = { tgtgic: "UP TGT/PGT & GIC (GS Section) Mock Tests", uppcs2026: "UP PCS Prelims 2026", ca: "Current Affairs", gs: "General Studies", csat: "CSAT", ncert: "NCERT", polity: "Polity PYQ · 960 Questions", uppcsprepyq: "UPPCS Prelims 2018–2025 — Original collection", upsssc: "UPSSSC SPECIAL CONTENT", upspecial: "UP SPECIAL" };
+var SEC_UNIT_HI = { tgtgic: "टेस्ट", uppcs2026: "टेस्ट", ca: "टेस्ट", gs: "टेस्ट", csat: "", ncert: "टेस्ट", polity: "टेस्ट", uppcsprepyq: "टेस्ट", upsssc: "टेस्ट", upspecial: "टेस्ट" };
+var SEC_UNIT_EN = { tgtgic: "Tests", uppcs2026: "Tests", ca: "Tests", gs: "Tests", csat: "", ncert: "Tests", polity: "Tests", uppcsprepyq: "Tests", upsssc: "Tests", upspecial: "Tests" };
 function SEC_NAME(sec){ return (isEn()?SEC_NAME_EN:SEC_NAME_HI)[sec] || sec; }
 function SEC_HEAD(sec){ return (isEn()?SEC_HEAD_EN:SEC_HEAD_HI)[sec] || SEC_NAME(sec); }
 function SEC_UNIT(sec){ var m=isEn()?SEC_UNIT_EN:SEC_UNIT_HI; return m.hasOwnProperty(sec)?m[sec]:L("टेस्ट","Tests"); }
 var OPEN_SEC = null;
-var DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], polity: [], uppcsprepyq: [], upsssc: [], upspecial: [], notes: [] };
+var DATA = { tgtgic: [], uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], polity: [], uppcsprepyq: [], upsssc: [], upspecial: [], notes: [] };
 /* अध्याय (टेस्ट नहीं) — इनके कार्ड पर "अध्याय खोलें" दिखेगा; बाक़ी पर "टेस्ट प्रारंभ करें"। */
 var CSAT_CHAPTER_PATHS = ["csat/data-interpretation.html","csat/decision-making.html","csat/english-communication.html","csat/english-comprehension.html","csat/english-grammar.html","csat/english-vocabulary.html","csat/hindi-muhavare.html","csat/hindi-paryay-vilom.html","csat/hindi-sandhi-samas.html","csat/hindi-vakya-shuddhi.html","csat/maths-numeracy.html","csat/reasoning.html"];
 var CHAPTERS = {};
@@ -1922,7 +2018,8 @@ function buildData(tree){
     else { if (it && it.type && it.type !== "blob") return; p = it && it.path; }  // GitHub tree ऑब्जेक्ट
     if (!p) return;
     var low = p.toLowerCase();
-    if (low.indexOf("tests/uppcs2026/") === 0 && /\.html?$/.test(low)) DATA.uppcs2026.push(p);
+    if (low.indexOf("tests/up-tgt-pgt-gic/") === 0 && /\.html?$/.test(low)) DATA.tgtgic.push(p);
+    else if (low.indexOf("tests/uppcs2026/") === 0 && /\.html?$/.test(low)) DATA.uppcs2026.push(p);
     else if (low.indexOf("tests/ca/") === 0 && /\.html?$/.test(low)) DATA.ca.push(p);
     else if (low.indexOf("tests/gs/") === 0 && /\.html?$/.test(low)) DATA.gs.push(p);
     else if (low.indexOf("tests/csat/") === 0 && /\.html?$/.test(low)) DATA.csat.push(p);
@@ -1934,7 +2031,7 @@ function buildData(tree){
     else if (low.indexOf("notes/") === 0 && /\.(html?|pdf)$/.test(low)) DATA.notes.push(p);
   });
   CSAT_CHAPTER_PATHS.forEach(function(p){ if(DATA.csat.indexOf(p)<0)DATA.csat.push(p); });
-  DATA.uppcs2026.sort(nsort).reverse(); DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.polity.sort(nsort); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
+  DATA.tgtgic.sort(nsort); DATA.uppcs2026.sort(nsort).reverse(); DATA.ca.sort(nsort).reverse(); DATA.gs.sort(nsort).reverse(); DATA.csat.sort(nsort).reverse(); DATA.ncert.sort(nsort).reverse(); DATA.polity.sort(nsort); DATA.upsssc.sort(nsort).reverse(); DATA.upspecial.sort(nsort).reverse(); DATA.notes.sort(nsort).reverse();
 }
 
 function stateEl(msg){
@@ -2123,6 +2220,17 @@ function addPolityFilters(){
 }
 
 
+function addTgtGicStrip(){
+  var hero = document.createElement("div");
+  hero.className = "polity-hero-strip tacc-item";
+  hero.setAttribute("data-secitem", "tgtgic");
+  hero.innerHTML = '<span class="big">250</span><span class="txt">' + L(
+    "प्रश्न · 5 मॉक टेस्ट · UP TGT/PGT एवं GIC (GS खण्ड) · प्रत्येक 50 प्रश्न",
+    "Questions · 5 mock tests · UP TGT/PGT & GIC (GS Section) · 50 Q each"
+  ) + '</span><a href="/up-tgt-pgt-gic-mock/" style="margin-left:auto;font-weight:800;color:var(--gold-hi);font-size:13px">' + L("हब खोलें →","Open hub →") + '</a>';
+  grid.appendChild(hero);
+}
+
 function addUppcsPrelimsPyqStrip(){
   var hero = document.createElement("div");
   hero.className = "polity-hero-strip tacc-item";
@@ -2167,9 +2275,18 @@ function renderTests(){
   if (STATE === "loading") { grid.appendChild(stateEl(L("टेस्ट-सूची तैयार हो रही है…","Preparing the test list…"))); return; }
   if (STATE === "offline") { grid.appendChild(stateEl(L("टेस्ट-सूची साइट के GitHub Pages पर प्रकाशित होते ही यहाँ स्वतः दिखाई देगी।","The test list will appear here automatically once published on GitHub Pages."))); return; }
   if (STATE === "error")   { grid.appendChild(stateEl(L("सूची इस समय लोड नहीं हो सकी — कृपया पृष्ठ पुनः खोलें।","Could not load the list right now — please reload the page."))); return; }
-  var secs = (FILTER === "all") ? ["uppcs2026", "ca", "gs", "csat", "ncert", "polity", "uppcsprepyq", "upsssc", "upspecial"] : [FILTER];
+  var secs = (FILTER === "all") ? ["tgtgic", "uppcs2026", "ca", "gs", "csat", "ncert", "polity", "uppcsprepyq", "upsssc", "upspecial"] : [FILTER];
   var any = false;
   secs.forEach(function(s){
+    if (s === "tgtgic") {
+      var tcount = DATA.tgtgic ? DATA.tgtgic.length : 0;
+      if (!tcount && FILTER !== "tgtgic") return;
+      any = true;
+      grid.appendChild(secHead(s, tcount || 5));
+      addTgtGicStrip();
+      addSecItems(s);
+      return;
+    }
     if (s === "uppcsprepyq") {
       any = true;
       grid.appendChild(secHead(s, DATA.uppcsprepyq.length));
@@ -2191,14 +2308,14 @@ function renderTests(){
 }
 
 function renderCounts(){
-  var total = DATA.uppcs2026.length + DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.polity.length + DATA.uppcsprepyq.length + DATA.upsssc.length + DATA.upspecial.length;
+  var total = (DATA.tgtgic?DATA.tgtgic.length:0) + DATA.uppcs2026.length + DATA.ca.length + DATA.gs.length + DATA.csat.length + DATA.ncert.length + DATA.polity.length + DATA.uppcsprepyq.length + DATA.upsssc.length + DATA.upspecial.length;
   var set = function(k, n){
     var el = document.querySelector('[data-cnt="' + k + '"]');
     if (!el) return;
     if (STATE === "ready" && n > 0) { el.textContent = n; el.style.display = "inline-flex"; }
     else { el.style.display = "none"; }
   };
-  set("all", total); set("uppcs2026", DATA.uppcs2026.length); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("polity", DATA.polity.length); set("uppcsprepyq", DATA.uppcsprepyq.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
+  set("all", total); set("tgtgic", DATA.tgtgic?DATA.tgtgic.length:0); set("uppcs2026", DATA.uppcs2026.length); set("ca", DATA.ca.length); set("gs", DATA.gs.length); set("csat", DATA.csat.length); set("ncert", DATA.ncert.length); set("polity", DATA.polity.length); set("uppcsprepyq", DATA.uppcsprepyq.length); set("upsssc", DATA.upsssc.length); set("upspecial", DATA.upspecial.length);
 }
 
 
@@ -2218,7 +2335,7 @@ function renderAll(){ renderTests(); renderCounts(); }
 document.addEventListener("gen-lang", function(){ renderAll(); });
 
 function rebuild(paths){
-  DATA = { uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], polity: [], uppcsprepyq: [], upsssc: [], upspecial: [], notes: [] };
+  DATA = { tgtgic: [], uppcs2026: [], ca: [], gs: [], csat: [], ncert: [], polity: [], uppcsprepyq: [], upsssc: [], upspecial: [], notes: [] };
   var seen = {}, uniq = [];
   paths.forEach(function(it){
     var key = (typeof it === "string") ? it : (it && it.path);
@@ -2532,6 +2649,97 @@ if (yr) yr.textContent = new Date().getFullYear();
   }
   window.addEventListener('resize', function(){
     /* reposition horizontally only; do not touch page scroll */
+    scrollToIndex(i, false);
+  });
+  setActive(0, false);
+  if(isMobile()) scrollToIndex(0, false);
+  start();
+})();
+</script>
+
+<script>
+/* TGT/PGT mock showcase: mobile auto-rotate — horizontal scrollLeft only (never scrollIntoView) */
+(function(){
+  var root = document.getElementById('tgt-showcase');
+  var track = document.getElementById('tgtTrack');
+  var dots = document.getElementById('tgtDots');
+  if(!root || !track || !dots) return;
+  var cards = Array.prototype.slice.call(track.querySelectorAll('.tgt-card'));
+  var btns = Array.prototype.slice.call(dots.querySelectorAll('button'));
+  var i = 0, timer = null, reduced = false, inView = true, userTouching = false, syncing = false;
+  try{ reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches; }catch(e){}
+  function isMobile(){ return window.matchMedia('(max-width:760px)').matches; }
+  function scrollToIndex(n, smooth){
+    if(!isMobile()) return;
+    var card = cards[n];
+    if(!card) return;
+    var left = card.offsetLeft - (track.clientWidth - card.offsetWidth) / 2;
+    left = Math.max(0, Math.min(left, track.scrollWidth - track.clientWidth));
+    syncing = true;
+    try{
+      if(smooth && !reduced && track.scrollTo){
+        track.scrollTo({left: left, behavior: 'smooth'});
+      } else {
+        track.scrollLeft = left;
+      }
+    }catch(e){ track.scrollLeft = left; }
+    setTimeout(function(){ syncing = false; }, smooth ? 450 : 50);
+  }
+  function setActive(n, doScroll){
+    i = (n + cards.length) % cards.length;
+    cards.forEach(function(c,k){ c.classList.toggle('on', k===i); });
+    btns.forEach(function(b,k){ b.setAttribute('aria-current', k===i ? 'true' : 'false'); });
+    if(doScroll !== false) scrollToIndex(i, true);
+  }
+  function next(){ setActive(i+1, true); }
+  function start(){
+    if(timer || reduced || !inView || userTouching) return;
+    timer = setInterval(function(){
+      if(document.hidden || !inView || userTouching) return;
+      next();
+    }, 4500);
+  }
+  function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){
+      setActive(+b.getAttribute('data-i')||0, true);
+      stop(); start();
+    });
+  });
+  track.addEventListener('pointerenter', function(){ stop(); });
+  track.addEventListener('pointerleave', function(){ if(!userTouching) start(); });
+  track.addEventListener('touchstart', function(){ userTouching = true; stop(); }, {passive:true});
+  track.addEventListener('touchend', function(){ userTouching = false; start(); }, {passive:true});
+  track.addEventListener('touchcancel', function(){ userTouching = false; start(); }, {passive:true});
+  var scrollTO = null;
+  track.addEventListener('scroll', function(){
+    if(!isMobile() || syncing) return;
+    clearTimeout(scrollTO);
+    scrollTO = setTimeout(function(){
+      var mid = track.scrollLeft + track.clientWidth/2;
+      var best=0, bd=1e9;
+      cards.forEach(function(c,k){
+        var center = c.offsetLeft + c.offsetWidth/2;
+        var d = Math.abs(center - mid);
+        if(d < bd){ bd = d; best = k; }
+      });
+      if(best !== i){
+        i = best;
+        cards.forEach(function(c,k){ c.classList.toggle('on', k===i); });
+        btns.forEach(function(b,k){ b.setAttribute('aria-current', k===i ? 'true' : 'false'); });
+      }
+    }, 80);
+  }, {passive:true});
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        inView = en.isIntersecting && en.intersectionRatio > 0.25;
+        if(inView) start(); else stop();
+      });
+    }, {threshold: [0, 0.25, 0.5]});
+    io.observe(root);
+  }
+  window.addEventListener('resize', function(){
     scrollToIndex(i, false);
   });
   setActive(0, false);
