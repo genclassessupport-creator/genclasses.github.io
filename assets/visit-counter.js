@@ -163,7 +163,7 @@
     document.body.appendChild(wrap);
     setTimeout(function(){
       try{
-        var fab=document.getElementById('waFab');
+        var fab=document.getElementById('gcFabs')||document.getElementById('waFab');
         if(!fab) return;
         var cs=getComputedStyle(fab);
         if(cs.left!=='auto' && parseFloat(cs.left)<80 && (cs.right==='auto'||cs.right===''||parseFloat(cs.right)>200)){
