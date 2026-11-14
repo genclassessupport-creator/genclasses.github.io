@@ -833,9 +833,21 @@ html[data-theme="light"] .tgt-card:hover .cta{background:linear-gradient(135deg,
 .tgt-dots{display:none;justify-content:center;gap:7px;margin-top:10px}
 .tgt-dots button{width:7px;height:7px;border-radius:999px;border:0;padding:0;cursor:pointer;background:rgba(152,166,190,.45)}
 .tgt-dots button[aria-current="true"]{width:18px;background:var(--gold-hi)}
+@media(max-width:1100px){
+  .tgt-track{grid-template-columns:repeat(3,1fr)}
+}
 @media(max-width:760px){
   #tgt-showcase{padding:4px 12px 12px}
-
+  .tgt-show{padding:14px 12px 12px;border-radius:18px}
+  .tgt-show-head{margin-bottom:10px}
+  .tgt-track{
+    display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:2px;
+  }
+  .tgt-track::-webkit-scrollbar{display:none}
+  .tgt-card{flex:0 0 78%;scroll-snap-align:center;min-height:120px}
+  .tgt-dots{display:flex}
+}
 
 /* WhatsApp / Instagram pills + floating WA */
 .cd-pill.cd-wa{background:#25D366;color:#fff;border-color:rgba(255,255,255,.35)}
@@ -912,6 +924,17 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   .nav-cta{display:none}
 }
 
+/* laptop-narrow / phone "desktop site" (~980px): full link row doesn't fit, use the menu */
+@media(min-width:961px) and (max-width:1120px){
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    background:rgba(6,11,22,.97);backdrop-filter:blur(14px);padding:22px 26px;gap:18px;border-bottom:1px solid var(--line)}
+  .nav-links.open{display:flex}
+  html[data-theme="light"] .nav-links{background:#E3EAF6}
+  .menu-btn{display:block}
+  .nav-in{justify-content:flex-start;gap:14px}
+  .nav-cta{margin-left:auto}
+}
+
 /* ticker + features + i18n (homepage) */
 .ticker-wrap.ticker-fixed-bar,.ticker-wrap{position:relative;z-index:90;margin-top:90px;overflow:hidden;min-height:40px;border-bottom:1px solid var(--line);background:rgba(18,48,90,.55)}
 html[data-theme="light"] .ticker-wrap{background:#E3EAF6;border-bottom-color:rgba(30,58,138,.22)}
@@ -936,7 +959,7 @@ html[data-theme="light"] .marq .grp i{color:#1E40AF}
 .sm-block .sm-head h3{margin:0;font-size:clamp(18px,2.6vw,22px);font-weight:900;color:var(--cream)}
 html[data-theme="light"] .sm-block .sm-head h3{color:#1F2A2E}
 .sm-block .sm-head p{margin:0;font-size:13px;color:var(--mist);font-weight:500}
-.sm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:12px}
+.sm-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
 .sm-tile{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:16px 14px 14px;border-radius:18px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;overflow:hidden;min-height:128px;isolation:isolate;transition:transform .22s cubic-bezier(.2,.8,.2,1),border-color .18s,box-shadow .22s}
 .sm-tile:hover{transform:translateY(-5px) rotate(-.4deg);border-color:var(--line-2);box-shadow:0 14px 28px rgba(0,0,0,.18)}
 html[data-theme="light"] .sm-tile:hover{box-shadow:0 14px 28px rgba(30,58,138,.12)}
@@ -984,8 +1007,9 @@ html[data-theme="light"] .prod-card .pc-cta{color:#1E3A8A}
 .prod-nav{position:absolute;top:50%;transform:translateY(-70%);width:38px;height:38px;border-radius:999px;border:1px solid var(--line-2);background:rgba(12,20,36,.88);color:var(--cream);display:grid;place-items:center;cursor:pointer;z-index:2;box-shadow:0 8px 18px rgba(0,0,0,.25);font-size:18px;line-height:1}
 html[data-theme="light"] .prod-nav{background:#fff;color:#1E3A8A;border-color:rgba(30,58,138,.25)}
 .prod-nav:hover{filter:brightness(1.08)}
-.prod-nav.prev{left:-6px}
-.prod-nav.next{right:-6px}
+.prod-nav.prev{left:-18px}
+.prod-nav.next{right:-18px}
+.prod-nav{width:34px;height:34px;font-size:17px}
 @media(max-width:720px){
   .sm-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .sm-tile{min-height:118px;padding:14px 12px}
@@ -1041,6 +1065,17 @@ html[data-theme="light"] .marq{background:#E3EAF6}
 html[data-theme="light"] .marq .grp{color:#1E3A8A}
 html[data-theme="light"] .marq .grp i{color:#172E5C}
 
+/* dropdown menu in light theme: navy panel so the light link text stays readable */
+@media(max-width:1120px){
+  html[data-theme="light"] .nav-links{background:rgba(30,58,138,.98);border-bottom-color:rgba(255,255,255,.14)}
+}
+/* section gutters so content never touches the screen edge below max width */
+#whats-on{padding:28px 18px 8px}
+#hubs{padding:36px 18px 28px}
+@media(max-width:760px){#whats-on{padding:24px 12px 8px}#hubs{padding:30px 12px 24px}}
+/* light theme: active test tab was white text on a pale fill (unreadable) — solid navy */
+html[data-theme="light"] .ttab.active{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);border-color:#1E3A8A;color:#F6F9F7}
+html[data-theme="light"] .ttab.active .cnt{background:#F6F9F7;color:#1E3A8A}
 </style>
 <script>
 (function(){try{var L=localStorage.getItem('gen_lang');if(L==='en'||L==='hi')document.documentElement.setAttribute('lang',L);}catch(e){}})();
@@ -1263,7 +1298,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
   </div>
 </section>
 
-<section id="whats-on" style="padding:28px 0 8px">
+<section id="whats-on">
   <div class="section-in">
     <div class="sec-head rv">
       <span class="eyebrow">WHAT'S ON</span>
@@ -1674,7 +1709,7 @@ go(0);start();})();</script>
 </section>
 
 <!-- ================= Syllabus & CSAT hubs ================= -->
-<section id="hubs" style="padding:36px 0 28px">
+<section id="hubs">
   <div class="section-in">
     <div class="sec-head rv">
       <span class="eyebrow">HUBS · TOOLS</span>

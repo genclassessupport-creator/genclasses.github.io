@@ -118,7 +118,8 @@
   .brand p{margin:3px 0 0;color:var(--gold);font-weight:600;font-size:12.5px;letter-spacing:2px;text-transform:uppercase}
   .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);color:var(--gold);
     background:var(--glass);padding:9px 14px;border-radius:999px;font-weight:600;font-size:13px;white-space:nowrap}
-  @media(max-width:900px){.topbar{align-items:flex-start;flex-direction:column;gap:10px}}
+  @media(max-width:900px){.topbar{align-items:center;flex-wrap:wrap;gap:10px}.topbar .brand{flex:1 1 100%}}
+  html[data-theme="light"] .topbar{padding-left:14px;padding-right:14px;padding-top:12px;border-radius:16px}
   /* ---------- कार्ड ---------- */
   .hero{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:stretch}
   @media(max-width:900px){.hero{grid-template-columns:1fr}}
