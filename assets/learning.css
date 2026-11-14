@@ -27,3 +27,4 @@ html[data-theme="light"] body:not(.visual-page){--ink0:#f6f5ef;--ink1:#fffef9;--
 
 
 .pdf-strip:focus-within .ps-anim{animation-play-state:paused}
+.lesson-layout>*{min-width:0}

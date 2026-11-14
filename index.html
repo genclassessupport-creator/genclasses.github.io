@@ -827,7 +827,7 @@ html[data-theme="light"] .tgt-card .num{color:#9A3412}
 html[data-theme="light"] .tgt-card .cta{background:rgba(194,65,12,.08);color:#9A3412}
 .tgt-card:hover .cta{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#0A1426;border-color:transparent}
 html[data-theme="light"] .tgt-card:hover .cta{background:linear-gradient(135deg,#c2410c,#9A3412);color:#FFF7ED}
-.tgt-foot{display:flex;justify-content:flex-end;margin-top:10px}
+.tgt-foot{display:flex;justify-content:flex-end;flex-wrap:wrap;gap:8px 20px;margin-top:10px}
 .tgt-hub-cta{font-size:13px;font-weight:800;color:var(--gold-hi);text-decoration:none}
 .tgt-hub-cta:hover{text-decoration:underline}
 .tgt-dots{display:none;justify-content:center;gap:7px;margin-top:10px}
@@ -1162,6 +1162,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
   <div class="ticker-track">
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
+    <a href="/syllabus/up-tgt-pgt/"><span class="pill-new">NEW</span> <span data-hi>📘 UP TGT/PGT सिलेबस (नवीनतम)</span><span data-en>📘 UP TGT/PGT Syllabus (latest)</span></a>
     <a href="/up-tgt-pgt-gic-mock/"><span class="pill-new">NEW</span> <span data-hi>📝 5 मॉक टेस्ट · 250 प्रश्न · UP TGT/PGT & GIC (GS खण्ड)</span><span data-en>📝 5 Mock Tests · 250 Qs · UP TGT/PGT & GIC (GS Section)</span></a>
     <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/uppcs-prelims-pyq/"><span class="pill-new">NEW</span> <span data-hi>📝 1200 प्रश्न · UPPCS प्रारंभिक 2018–2025 के मूल संग्रह से अभ्यास</span><span data-en>📝 1200 Questions · UPPCS Prelims 2018–2025 — Original collection</span></a>
@@ -1174,6 +1175,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
     <a href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
     <span class="ticker-cd"><span class="pill-new">★</span> <span data-hi>Custom Demand पर नोट्स उपलब्ध</span><span data-en>Custom Demand notes available</span> <a class="cd-pill cd-mail" href="mailto:genclassessupport@gmail.com?subject=Custom%20Demand%20Notes">Gmail</a> <a class="cd-pill cd-tg" href="https://t.me/genclassesofficial" target="_blank" rel="noopener">Telegram</a></span>
     <a class="ticker-cd" href="/ncert/"><span class="pill-new">★</span> <span data-hi>📚 NCERT किताबें (PDF) + टेस्ट</span><span data-en>📚 NCERT Books (PDF) + Tests</span></a>
+    <a href="/syllabus/up-tgt-pgt/"><span class="pill-new">NEW</span> <span data-hi>📘 UP TGT/PGT सिलेबस (नवीनतम)</span><span data-en>📘 UP TGT/PGT Syllabus (latest)</span></a>
     <a href="/up-tgt-pgt-gic-mock/"><span class="pill-new">NEW</span> <span data-hi>📝 5 मॉक टेस्ट · 250 प्रश्न · UP TGT/PGT & GIC (GS खण्ड)</span><span data-en>📝 5 Mock Tests · 250 Qs · UP TGT/PGT & GIC (GS Section)</span></a>
     <a href="/polity/"><span class="pill-new">NEW</span> <span data-hi>📜 960 प्रश्न · 21 टेस्ट · UPPCS राजव्यवस्था PYQ</span><span data-en>📜 960 Questions · 21 Tests · UPPCS Polity PYQ</span></a>
     <a href="/uppcs-prelims-pyq/"><span class="pill-new">NEW</span> <span data-hi>📝 1200 प्रश्न · UPPCS प्रारंभिक 2018–2025 के मूल संग्रह से अभ्यास</span><span data-en>📝 1200 Questions · UPPCS Prelims 2018–2025 — Original collection</span></a>
@@ -1310,7 +1312,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
       <button type="button" aria-label="Mock 04" data-i="3"></button>
       <button type="button" aria-label="Mock 05" data-i="4"></button>
     </div>
-    <div class="tgt-foot"><a class="tgt-hub-cta" href="/up-tgt-pgt-gic-mock/"><span data-hi>सभी मॉक टेस्ट देखें →</span><span data-en>See all mock tests →</span></a></div>
+    <div class="tgt-foot"><a class="tgt-hub-cta" href="/up-tgt-pgt-gic-mock/"><span data-hi>सभी मॉक टेस्ट देखें →</span><span data-en>See all mock tests →</span></a><a class="tgt-hub-cta" href="/syllabus/up-tgt-pgt/"><span data-hi>📘 नवीनतम TGT/PGT सिलेबस →</span><span data-en>📘 Latest TGT/PGT syllabus →</span></a></div>
   </div>
 </section>
 
@@ -1339,7 +1341,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
         </div>
       </div>
       <div class="sm-grid">
-        <a class="sm-tile t-syllabus" href="/syllabus/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="10" y="12" width="34" height="42" rx="4" fill="#fff" fill-opacity=".95"/><path d="M14 18h26M14 26h22M14 34h24M14 42h18" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round"/><circle cx="46" cy="18" r="10" fill="#fbbf24"/><path d="M46 12v12M40 18h12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M42 40l6 4 10-12" stroke="#fde68a" stroke-width="0" /><circle cx="52" cy="48" r="3" fill="#fde68a"/><circle cx="44" cy="52" r="2" fill="#fef3c7"/></svg></span><strong data-hi>सिलेबस</strong><strong data-en>Syllabus</strong><span class="sub" data-hi>UPPCS · UPSC · RO/ARO</span><span class="sub" data-en>UPPCS · UPSC · RO/ARO</span></a>
+        <a class="sm-tile t-syllabus" href="/syllabus/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="10" y="12" width="34" height="42" rx="4" fill="#fff" fill-opacity=".95"/><path d="M14 18h26M14 26h22M14 34h24M14 42h18" stroke="#1e3a8a" stroke-width="2.4" stroke-linecap="round"/><circle cx="46" cy="18" r="10" fill="#fbbf24"/><path d="M46 12v12M40 18h12" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/><path d="M42 40l6 4 10-12" stroke="#fde68a" stroke-width="0" /><circle cx="52" cy="48" r="3" fill="#fde68a"/><circle cx="44" cy="52" r="2" fill="#fef3c7"/></svg></span><strong data-hi>सिलेबस</strong><strong data-en>Syllabus</strong><span class="sub" data-hi>UPPCS · UPSC · RO/ARO · TGT/PGT</span><span class="sub" data-en>UPPCS · UPSC · RO/ARO · TGT/PGT</span></a>
         <a class="sm-tile t-csat" href="/csat/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="8" y="14" width="48" height="36" rx="8" fill="#fff" fill-opacity=".95"/><path d="M18 28h10M18 36h16M36 28h10" stroke="#5b21b6" stroke-width="2.8" stroke-linecap="round"/><circle cx="48" cy="44" r="12" fill="#c4b5fd"/><path d="M43 44l3.5 3.5 7-8" stroke="#4c1d95" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span><strong>CSAT</strong><span class="sub" data-hi>12 टॉपिक अभ्यास</span><span class="sub" data-en>12 topic drills</span></a>
         <a class="sm-tile t-daily" href="/daily/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><circle cx="32" cy="32" r="22" fill="#fff" fill-opacity=".95"/><circle cx="32" cy="32" r="16" stroke="#b45309" stroke-width="3"/><path d="M32 18v15l10 6" stroke="#d97706" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="32" cy="32" r="3" fill="#f59e0b"/><path d="M48 14l4 2M52 22l4-1" stroke="#fde68a" stroke-width="2" stroke-linecap="round"/></svg></span><strong data-hi>डेली क्विज़</strong><strong data-en>Daily Quiz</strong><span class="sub" data-hi>हर दिन 5 प्रश्न</span><span class="sub" data-en>5 questions a day</span></a>
         <a class="sm-tile t-flash" href="/flashcards/"><span class="blob" aria-hidden="true"></span><span class="ico"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><rect x="14" y="10" width="28" height="40" rx="5" fill="#fff" fill-opacity=".55" transform="rotate(-8 28 30)"/><rect x="20" y="14" width="28" height="40" rx="5" fill="#fff" fill-opacity=".95"/><path d="M28 26h12M28 34h10" stroke="#047857" stroke-width="2.6" stroke-linecap="round"/><circle cx="48" cy="48" r="9" fill="#6ee7b7"/><path d="M48 43v10M43 48h10" stroke="#065f46" stroke-width="2.4" stroke-linecap="round"/></svg></span><strong data-hi>फ्लैशकार्ड</strong><strong data-en>Flashcards</strong><span class="sub" data-hi>सोचें · पलटें · दोहराएँ</span><span class="sub" data-en>Recall · reveal · review</span></a>
@@ -1739,7 +1741,7 @@ go(0);start();})();</script>
       <a href="/syllabus/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
         <div style="width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#1E3A8A,#172E5C);color:#fff;font-weight:800;margin-bottom:10px">§</div>
         <h3 style="font-family:'Mukta',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin:0 0 6px"><span data-hi>सिलेबस हब</span><span data-en>Syllabus Hub</span></h3>
-        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>UPPCS · UPSC · RO/ARO — खोज व प्रगति</span><span data-en>UPPCS · UPSC · RO/ARO — search & progress</span></p>
+        <p style="margin:0;font-size:14px;color:var(--mist);font-weight:400"><span data-hi>UPPCS · UPSC · RO/ARO · TGT/PGT — खोज व प्रगति</span><span data-en>UPPCS · UPSC · RO/ARO · TGT/PGT — search & progress</span></p>
         <span style="display:inline-block;margin-top:12px;color:var(--gold-hi);font-weight:800;font-size:14px"><span data-hi>खोलें →</span><span data-en>Open →</span></span>
       </a>
       <a href="/csat/" style="display:block;padding:20px 18px;border-radius:16px;border:1px solid var(--line);background:var(--glass);text-decoration:none;color:inherit;transition:transform .2s,border-color .2s">
