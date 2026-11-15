@@ -741,8 +741,16 @@ function _genPoints(t){
   return t.replace(/^\n+/,"").replace(/\n[ \t]+/g,"\n");
 }
 function genFmt(raw, matching){
+  /* pre-parsed statements: {stem, items:[[tag, body]...], outro} */
+  if(matching && Array.isArray(matching.items) && matching.items.length>=2){
+    var sh="";
+    matching.items.forEach(function(x){ sh+='<div class="stmt-item"><span class="tag">'+genEsc(x[0])+'</span><span>'+genEsc(x[1])+'</span></div>'; });
+    return (matching.stem?'<div class="q-stem">'+genEsc(matching.stem)+'</div>':'')
+      + '<div class="stmt-list">'+sh+'</div>'
+      + (matching.outro?'<div class="q-stem q-outro" style="margin-top:12px">'+genEsc(matching.outro)+'</div>':'');
+  }
   if(matching && Array.isArray(matching.left) && matching.left.length===4 && Array.isArray(matching.right) && matching.right.length===4){
-    var en=/List/i.test(matching.intro||"") && !/सूची/.test(matching.intro||"");
+    var en=matching.lang ? matching.lang==="en" : (/List/i.test(matching.intro||"") && !/सूची/.test(matching.intro||""));
     return _genMatchPairHTML(en?"List-I":"सूची-I",en?"List-II":"सूची-II",matching.left.map(function(v,i){return String.fromCharCode(65+i)+". "+v;}),matching.right.map(function(v,i){return (i+1)+". "+v;}),matching.intro,"");
   }
   if(!raw) return "";

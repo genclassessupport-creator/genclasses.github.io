@@ -5,15 +5,8 @@
     "count": 150,
     "href": "/tests/uppcs2026/UPPCS-2026-Free-Mock-Test-01.html",
     "topics": {
-      "History & Culture": 30,
-      "Current Affairs": 35,
-      "General Studies": 6,
-      "Economy": 9,
-      "Science": 13,
-      "Polity": 17,
-      "Geography": 19,
-      "UP Special": 13,
-      "Environment": 8
+      "General Studies": 115,
+      "Current Affairs": 35
     }
   },
   {
@@ -22,14 +15,7 @@
     "count": 150,
     "href": "/tests/uppcs2026/UPPCS-2026-Free-Mock-Test-02.html",
     "topics": {
-      "General Studies": 6,
-      "Science": 13,
-      "History & Culture": 29,
-      "Geography": 18,
-      "Economy": 9,
-      "Polity": 17,
-      "Environment": 10,
-      "UP Special": 13,
+      "General Studies": 115,
       "Current Affairs": 35
     }
   },
@@ -39,15 +25,8 @@
     "count": 150,
     "href": "/tests/uppcs2026/UPPCS-2026-Free-Mock-Test-03.html",
     "topics": {
-      "Science": 13,
-      "Environment": 10,
-      "History & Culture": 29,
-      "Polity": 18,
-      "Current Affairs": 35,
-      "UP Special": 10,
-      "Economy": 9,
-      "Geography": 20,
-      "General Studies": 6
+      "General Studies": 115,
+      "Current Affairs": 35
     }
   },
   {
@@ -56,15 +35,8 @@
     "count": 150,
     "href": "/tests/uppcs2026/UPPCS-2026-Free-Mock-Test-04.html",
     "topics": {
-      "Economy": 9,
-      "General Studies": 6,
-      "Science": 14,
-      "Current Affairs": 35,
-      "Geography": 18,
-      "UP Special": 11,
-      "Polity": 16,
-      "History & Culture": 32,
-      "Environment": 9
+      "General Studies": 115,
+      "Current Affairs": 35
     }
   },
   {
@@ -74,14 +46,7 @@
     "href": "/tests/uppcs2026/UPPCS-2026-Free-Mock-Test-05.html",
     "topics": {
       "Current Affairs": 35,
-      "Environment": 12,
-      "Science": 12,
-      "Polity": 17,
-      "UP Special": 14,
-      "Geography": 19,
-      "History & Culture": 29,
-      "Economy": 9,
-      "General Studies": 3
+      "General Studies": 115
     }
   }
 ]

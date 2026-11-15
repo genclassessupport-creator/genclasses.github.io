@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from md_to_genclasses import parse_mcq, write_test_html  # noqa: E402
+from match_struct import parse as parse_match, parse_statements  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = ROOT / "tests" / "uppcs2026"
@@ -35,7 +36,7 @@ def topic(q: str) -> tuple[str, str]:
     return best
 
 
-HI = {"Current Affairs": "करेंट अफेयर्स", "History & Culture": "इतिहास एवं संस्कृति", "Geography": "भूगोल", "Polity": "राजव्यवस्था", "Economy": "अर्थव्यवस्था", "Science": "विज्ञान", "Environment": "पर्यावरण", "UP Special": "उत्तर प्रदेश विशेष", "General Studies": "सामान्य अध्ययन"}
+HI = {"Current Affairs": "करेंट अफेयर्स", "History & Culture": "इतिहास एवं संस्कृति", "Geography": "भूगोल", "Polity": "राजव्यवस्था", "Economy": "अर्थव्यवस्था", "Science": "विज्ञान", "Environment": "पर्यावरण", "UP Special": "उत्तर प्रदेश विशेष", "General Studies": "सामान्य अध्ययन"}  # per-question chip: only CA vs GS, like the real paper
 TOPICS = None
 
 
@@ -63,6 +64,18 @@ def main() -> None:
                 hi, en = topic(q["question_hi"])
             q["topic_hi"], q["topic_en"] = hi, en
             tc[en] += 1
+            mh, me = parse_match(q["question_hi"]), parse_match(q["question_en"])
+            if mh or me:
+                if not (mh and me):
+                    raise SystemExit(f"{f.name} Q{qi+1}: match list parsed in one language only")
+                mh["lang"], me["lang"] = "hi", "en"
+                q["matching"] = {"hi": mh, "en": me}
+            else:
+                sh, se = parse_statements(q["question_hi"]), parse_statements(q["question_en"])
+                if sh or se:
+                    if not (sh and se) or len(sh["items"]) != len(se["items"]):
+                        raise SystemExit(f"{f.name} Q{qi+1}: statement lists differ between Hindi and English")
+                    q["matching"] = {"hi": sh, "en": se}
         test = {
             "testId": f"uppcs-2026-free-mock-{i:02d}",
             "title": f"UPPCS 2026 मॉक टेस्ट {i:02d} (निःशुल्क)",
@@ -75,6 +88,7 @@ def main() -> None:
             "durationMinutes": 120,
             "marksPerQuestion": 1.33,
             "negativeMarks": 0.44,
+            "contentRevision": "r2",
             "questions": qs,
         }
         name = f"UPPCS-2026-Free-Mock-Test-{i:02d}.html"
