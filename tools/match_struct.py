@@ -77,7 +77,7 @@ def parse_statements(text):
     km = list(kre.finditer(t))
     marks = []
     if len(km) >= 2 and [int(m.group(2)) for m in km] == list(range(1, len(km) + 1)):
-        marks = [(m.start(), m.end(), f"{m.group(1)} {m.group(2)}") for m in km]
+        marks = [(m.start(), m.end(), f"{m.group(2)}.") for m in km]  # short tag: long "कथन 1" overflows the badge
     else:
         nre = re.compile(r"(?:(?<=^)|(?<=[\s:：।;,?(]))(\d{1,2})\.\s")
         pos, want = 0, 1
