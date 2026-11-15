@@ -1,17 +1,14 @@
 /* UPPCS 2026 free mock tests — gentle promo card (runs till 30 Nov 2026).
-   Shows once per visit after a short delay; "✕" hides it for 2 days, opening the tests hides it for good. */
+   Appears right after the page opens on every new visit; "✕" hides it for the rest of that visit. */
 (function () {
   var END = new Date("2026-11-30T23:59:59+05:30").getTime();
   var HUB = "/uppcs-2026-mock/";
   if (Date.now() > END) return;
   if (location.pathname.indexOf(HUB) === 0 || location.pathname.indexOf("/tests/") === 0) return;
-  var KEY = "gen_pcsmock_promo";
-  function get() { try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch (e) { return {}; } }
-  function put(o) { try { localStorage.setItem(KEY, JSON.stringify(o)); } catch (e) {} }
-  var st = get();
-  if (st.done) return;
-  if (st.snooze && Date.now() < st.snooze) return;
-  try { if (sessionStorage.getItem(KEY)) return; sessionStorage.setItem(KEY, "1"); } catch (e) {}
+  // shows on every new visit; ✕ or opening the tests hides it only for the rest of that visit
+  var KEY = "gen_pcsmock_promo2";
+  try { if (sessionStorage.getItem(KEY)) return; } catch (e) {}
+  function put() { try { sessionStorage.setItem(KEY, "1"); } catch (e) {} }
 
   function isEn() {
     var d = document.documentElement;
@@ -55,14 +52,14 @@
     requestAnimationFrame(function () { requestAnimationFrame(function () { w.classList.add("on"); }); });
     function hide() { w.classList.remove("on"); setTimeout(function () { w.remove(); }, 600); }
     w.querySelector("button").addEventListener("click", function () {
-      put({ snooze: Date.now() + 2 * 864e5 });
+      put();
       hide();
     });
-    w.querySelector("a").addEventListener("click", function () { put({ done: 1 }); });
+    w.querySelector("a").addEventListener("click", function () { put(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && w.isConnected) hide(); });
   }
 
-  function later() { setTimeout(show, 4000); }
-  if (document.readyState === "complete") later();
-  else window.addEventListener("load", later);
+  function later() { setTimeout(show, 700); }
+  if (document.readyState !== "loading") later();
+  else document.addEventListener("DOMContentLoaded", later);
 })();
