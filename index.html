@@ -1119,6 +1119,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 @media (max-width:640px){.pdf-strip{min-height:56px;padding:4px 10px;gap:8px}.ps-label{font-size:10.5px;max-width:84px}.ps-label small{display:none}.ps-item img{height:44px;width:34px}.ps-chip{font-size:11px}.ps-all{font-size:11px;padding:4px 9px}}
 </style>
 <link rel="stylesheet" href="/assets/learning.css">
+<link rel="stylesheet" href="/assets/showreel.css?v=1">
 </head>
 <body>
 
@@ -1219,6 +1220,15 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
       <p class="hero-line hr-el" style="animation-delay:1.05s"><span data-hi><b>PYQ-आधारित दृष्टिकोण</b><span class="dot">✦</span>विषयवार अभ्यास<span class="dot">✦</span>निःशुल्क उपलब्ध</span><span data-en><b>PYQ-based approach</b><span class="dot">✦</span>Topic-wise practice<span class="dot">✦</span>Free to use</span></p>
     </div>
     <div class="hero-art hr-el" style="animation-delay:.55s">
+     <div class="orbit" id="orbit">
+      <svg class="orbit-path" aria-hidden="true"><ellipse class="op-glow"/><ellipse class="op-line"/></svg>
+      <a class="orb-chip" href="#tests" style="--c:#e11d48" data-say-hi="यहाँ हैं <b>परीक्षा-स्तरीय टेस्ट</b> — टाइमर व व्याख्या सहित" data-say-en="Here: <b>exam-level tests</b> with timer &amp; explanations"><span class="oc-ico" aria-hidden="true">🎯</span><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+      <a class="orb-chip" href="/downloads/" style="--c:#2563eb" data-say-hi="यहाँ हैं <b>मुफ़्त PDF नोट्स</b> — एक टैप में डाउनलोड" data-say-en="Here: <b>free PDF notes</b> — one-tap download"><span class="oc-ico" aria-hidden="true">📄</span><span data-hi>मुफ़्त PDF</span><span data-en>Free PDFs</span></a>
+      <a class="orb-chip" href="/uppcs-prelims-pyq/" style="--c:#0d9488" data-say-hi="यहाँ हैं <b>1200+ PYQ</b> — 2018 से 2025 तक" data-say-en="Here: <b>1200+ PYQs</b> — 2018 to 2025"><span class="oc-ico" aria-hidden="true">📜</span><span data-hi>PYQ</span><span data-en>PYQ</span></a>
+      <a class="orb-chip" href="/daily/" style="--c:#d97706" data-say-hi="यहाँ है <b>डेली क्विज़</b> — हर दिन 5 नए प्रश्न" data-say-en="Here: <b>Daily Quiz</b> — 5 fresh questions a day"><span class="oc-ico" aria-hidden="true">⚡</span><span data-hi>डेली क्विज़</span><span data-en>Daily Quiz</span></a>
+      <a class="orb-chip" href="/flashcards/" style="--c:#059669" data-say-hi="यहाँ हैं <b>फ्लैशकार्ड</b> — सोचें, पलटें, दोहराएँ" data-say-en="Here: <b>flashcards</b> — recall, flip, review"><span class="oc-ico" aria-hidden="true">🃏</span><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></a>
+      <a class="orb-chip" href="/up-ca/" style="--c:#7c3aed" data-say-hi="यहाँ है <b>करेंट अफेयर्स</b> — GS V/VI डाइजेस्ट" data-say-en="Here: <b>current affairs</b> — GS V/VI digest"><span class="oc-ico" aria-hidden="true">📰</span><span data-hi>करेंट अफेयर्स</span><span data-en>Current Affairs</span></a>
+      <a class="orb-chip" href="/syllabus/" style="--c:#4f46e5" data-say-hi="यहाँ है <b>सिलेबस रोडमैप</b> — चेकलिस्ट के साथ" data-say-en="Here: <b>syllabus roadmap</b> — with checklists"><span class="oc-ico" aria-hidden="true">🗺️</span><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
       <div class="emblem">
         <svg viewBox="0 0 200 224" role="img" aria-label="ज्ञान की लौ">
           <circle class="ring ring-a" cx="100" cy="112" r="96"/>
@@ -1235,6 +1245,8 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
         </svg>
         <div class="emblem-cap">"जेन — जहाँ ज्ञान, विवेक बन जाए"</div>
       </div>
+     </div>
+     <div class="orbit-cap" id="orbitCap" aria-live="polite"></div>
     </div>
   </div>
   <div class="scroll-cue" aria-hidden="true"><span data-hi>नीचे</span><span data-en>Down</span><span></span></div>
@@ -1250,6 +1262,102 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 <section id="daily-ca" aria-label="आज का करंट" style="padding:12px 18px 10px">
   <div class="section-in"><div data-daily-ca="home"></div></div>
 </section>
+
+<!-- ================= लाइव झलक (assets/showreel.js) ================= -->
+<section id="showreel" aria-label="GenClasses live demo">
+  <div class="sr-wrap rv" id="srWrap">
+    <div class="sr-copy">
+      <span class="sr-live">LIVE DEMO</span>
+      <h2><span data-hi>एक झलक में <em>GenClasses</em></span><span data-en><em>GenClasses</em> at a glance</span></h2>
+      <p><span data-hi>देखिए यहाँ क्या-क्या मिलता है — झलक अपने-आप चलती है, किसी भी चरण पर टैप करके वहीं रुकिए।</span><span data-en>See what's inside — the demo plays by itself; tap any step to jump to it.</span></p>
+      <ol class="sr-steps">
+        <li><button type="button" class="sr-step" data-i="0" style="--c:#e11d48"><span class="ss-ico" aria-hidden="true">🎯</span><span><b><span data-hi>टेस्ट दें</span><span data-en>Take a test</span></b><small><span data-hi>परीक्षा जैसा टाइमर, तुरंत उत्तर व व्याख्या</span><span data-en>Exam-like timer, instant answer &amp; explanation</span></small></span><span class="ss-bar"><i></i></span></button></li>
+        <li><button type="button" class="sr-step" data-i="1" style="--c:#2563eb"><span class="ss-ico" aria-hidden="true">📄</span><span><b><span data-hi>PDF पढ़ें</span><span data-en>Read PDFs</span></b><small><span data-hi>विषयवार क्विक-रिवीज़न PDF, बिल्कुल मुफ़्त</span><span data-en>Subject-wise quick-revision PDFs, free</span></small></span><span class="ss-bar"><i></i></span></button></li>
+        <li><button type="button" class="sr-step" data-i="2" style="--c:#059669"><span class="ss-ico" aria-hidden="true">🃏</span><span><b><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></b><small><span data-hi>सोचें, पलटें, याद पक्का करें</span><span data-en>Recall, flip, lock it in</span></small></span><span class="ss-bar"><i></i></span></button></li>
+        <li><button type="button" class="sr-step" data-i="3" style="--c:#d97706"><span class="ss-ico" aria-hidden="true">⚡</span><span><b><span data-hi>रोज़ का करंट</span><span data-en>Daily current</span></b><small><span data-hi>आज की ख़बरें + हर दिन 5 प्रश्न का क्विज़</span><span data-en>Today's news + a 5-question daily quiz</span></small></span><span class="ss-bar"><i></i></span></button></li>
+      </ol>
+      <div class="sr-cta-row"><a class="btn btn-gold sr-cta" id="srCta" href="#tests"><span class="sr-cta-t"><span data-hi>टेस्ट शुरू करें →</span><span data-en>Start a test →</span></span></a></div>
+    </div>
+
+    <div class="sr-stage">
+      <div class="sr-badge b1" id="srB1"><span class="bi" style="--c:#dcfce7">✅</span><span class="bt"></span></div>
+      <div class="sr-badge b2" id="srB2"><span class="bi" style="--c:#dbeafe">✨</span><span class="bt"></span></div>
+      <div class="sr-phone" aria-hidden="true">
+        <div class="sr-notch"></div>
+        <div class="sr-screen" id="srScreen">
+          <div class="sr-sbar"><span id="srClock">9:41</span><span>▮▮▮ 🔋</span></div>
+
+          <!-- 1 टेस्ट -->
+          <div class="sr-scene s-test">
+            <div class="sc-head"><span class="sc-title"><span data-hi>UPPCS मॉक टेस्ट</span><span data-en>UPPCS Mock Test</span></span><span class="sc-pill">GS · Polity</span></div>
+            <div class="t-meta"><span><span data-hi>प्रश्न 12 / 150</span><span data-en>Q 12 / 150</span></span><span class="t-timer">⏱ <span class="tt">01:48:20</span></span></div>
+            <div class="t-prog"><i></i></div>
+            <div class="sc-card">
+              <div class="t-q"><span data-hi>मौलिक कर्तव्य संविधान में किस संशोधन द्वारा जोड़े गए?</span><span data-en>Fundamental Duties were added to the Constitution by which amendment?</span></div>
+              <div class="t-opts">
+                <div class="t-opt"><span class="k">A</span><span data-hi>24वाँ संशोधन</span><span data-en>24th Amendment</span><span class="tick">✓</span></div>
+                <div class="t-opt ok"><span class="k">B</span><span data-hi>42वाँ संशोधन</span><span data-en>42nd Amendment</span><span class="tick">✓</span></div>
+                <div class="t-opt"><span class="k">C</span><span data-hi>44वाँ संशोधन</span><span data-en>44th Amendment</span><span class="tick">✓</span></div>
+                <div class="t-opt"><span class="k">D</span><span data-hi>52वाँ संशोधन</span><span data-en>52nd Amendment</span><span class="tick">✓</span></div>
+              </div>
+            </div>
+            <div class="t-exp"><span data-hi><b>व्याख्या:</b> 42वाँ संशोधन (1976), स्वर्ण सिंह समिति की सिफ़ारिश पर भाग 4A, अनुच्छेद 51A जोड़ा गया।</span><span data-en><b>Explanation:</b> 42nd Amendment (1976), on the Swaran Singh Committee's advice, added Part IVA, Article 51A.</span></div>
+            <div class="t-plus"><span data-hi>✓ सही!</span><span data-en>✓ Correct!</span></div>
+          </div>
+
+          <!-- 2 PDF -->
+          <div class="sr-scene s-pdf">
+            <div class="sc-head"><span class="sc-title"><span data-hi>मुफ़्त PDF नोट्स</span><span data-en>Free PDF notes</span></span><span class="sc-pill">UPPCS 2026</span></div>
+            <div class="p-deck">
+              <div class="p-cv"><img src="/downloads/covers/environment-ecology-quick-revision-hindi-genclasses.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="p-cv"><img src="/downloads/covers/indian-history-quick-revision-hindi-genclasses.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="p-cv"><img src="/downloads/covers/geography-quick-revision-hindi-genclasses.webp" alt="" loading="lazy" decoding="async"></div>
+              <span class="p-free">FREE</span>
+            </div>
+            <div class="sc-card p-dl">
+              <div class="p-ring"><svg viewBox="0 0 42 42"><circle class="bg" cx="21" cy="21" r="18"/><circle class="fg" cx="21" cy="21" r="18"/></svg><span class="p-ico">⬇️</span></div>
+              <div class="p-txt"><b><span data-hi>भारतीय इतिहास — क्विक रिवीज़न</span><span data-en>Indian History — Quick Revision</span></b><small><span class="p-state-1"><span data-hi>टैप करें, डाउनलोड करें…</span><span data-en>Tap to download…</span></span><span class="p-state-2"><span data-hi>✓ डाउनलोड पूर्ण — पढ़ना शुरू करें</span><span data-en>✓ Downloaded — start reading</span></span></small></div>
+            </div>
+          </div>
+
+          <!-- 3 फ्लैशकार्ड -->
+          <div class="sr-scene s-flash">
+            <div class="sc-head"><span class="sc-title"><span data-hi>फ्लैशकार्ड · राजव्यवस्था</span><span data-en>Flashcards · Polity</span></span><span class="sc-pill">7 / 68</span></div>
+            <div class="f-meta"><span><span data-hi>दोहराना है: 4</span><span data-en>To review: 4</span></span><span class="f-ok"><span data-hi>याद है: </span><span data-en>Remembered: </span><span class="f-n">23</span></span></div>
+            <div class="f-zone">
+              <div class="f-next"></div>
+              <span class="f-stamp"><span data-hi>याद है ✓</span><span data-en>Got it ✓</span></span>
+              <div class="f-card">
+                <div class="f-face f-front"><small><span data-hi>प्रश्न</span><span data-en>QUESTION</span></small><strong><span data-hi>राष्ट्रपति शासन किस अनुच्छेद के अंतर्गत लगाया जाता है?</span><span data-en>President's Rule is imposed under which Article?</span></strong><em><span data-hi>सोचें, फिर पलटें</span><span data-en>Think, then flip</span></em></div>
+                <div class="f-face f-back"><small><span data-hi>उत्तर</span><span data-en>ANSWER</span></small><span class="big"><span data-hi>अनुच्छेद 356</span><span data-en>Article 356</span></span><em><span data-hi>राज्य में संवैधानिक तंत्र की विफलता</span><span data-en>Failure of constitutional machinery in a State</span></em></div>
+              </div>
+            </div>
+            <div class="f-hint"><span data-hi>टैप = पलटें · स्वाइप = याद है</span><span data-en>Tap = flip · Swipe = remembered</span></div>
+          </div>
+
+          <!-- 4 डेली -->
+          <div class="sr-scene s-daily">
+            <div class="d-date">
+              <div class="d-cal"><span class="m" id="srMon">NOV</span><span class="d" id="srDay">16</span></div>
+              <div><b><span data-hi>आज का करंट</span><span data-en>Today's current</span></b><small><span data-hi>रोज़ सुबह नया अपडेट</span><span data-en>Fresh every morning</span></small></div>
+            </div>
+            <div class="d-news">
+              <div class="sc-card d-item"><span class="tag" style="--tc:#0d9488"><span data-hi>अर्थव्यवस्था</span><span data-en>Economy</span></span><span class="ln"><i></i><i></i></span></div>
+              <div class="sc-card d-item"><span class="tag" style="--tc:#16a34a"><span data-hi>पर्यावरण</span><span data-en>Environment</span></span><span class="ln"><i></i><i></i></span></div>
+              <div class="sc-card d-item"><span class="tag" style="--tc:#4f46e5"><span data-hi>राजव्यवस्था</span><span data-en>Polity</span></span><span class="ln"><i></i><i></i></span></div>
+            </div>
+            <div class="d-quiz"><div><b><span data-hi>डेली क्विज़ शुरू करें</span><span data-en>Start the daily quiz</span></b><small><span data-hi>आज के 5 नए प्रश्न</span><span data-en>Today's 5 fresh questions</span></small></div><span>⚡</span></div>
+          </div>
+
+          <div class="sr-cursor" id="srCursor"><svg viewBox="0 0 32 32"><path d="M11 3.5c1.4 0 2.5 1.1 2.5 2.5v9.2l1.1-.2c1-.2 2 .3 2.4 1.2l.2.4 1-.2c1-.2 2 .3 2.4 1.2l.2.4.7-.1c1.3-.2 2.6.7 2.8 2l.7 4.6c.3 2.1-.4 4.2-1.9 5.6l-.6.6H12.4l-5.3-7.5c-.7-1-.5-2.4.5-3.1.9-.6 2.1-.5 2.9.3l.1.1V6c0-1.4 1.1-2.5 2.5-2.5z" fill="#fff" stroke="#1E3A8A" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sr-mob-cta"><a class="btn btn-gold sr-cta" id="srCtaM" href="#tests"><span class="sr-cta-t"><span data-hi>टेस्ट शुरू करें →</span><span data-en>Start a test →</span></span></a></div>
+  </div>
+</section>
+<script src="/assets/showreel.js?v=1" defer></script>
 
 <section id="pyq-showcase" aria-roledescription="carousel" aria-label="UPPCS PYQ collections">
   <div class="pyq-show rv">
