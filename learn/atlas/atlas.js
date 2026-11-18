@@ -9,6 +9,42 @@ const topics = [
  ['coast','तटीय अपरदन','Coastal erosion','लहरें चट्टानी तट के आधार पर बार-बार चोट करती हैं। नीचे से कटने पर ऊपरी चट्टान गिर सकती है और तट पीछे हटता है।','Waves repeatedly strike the foot of the cliff. Undercutting can cause the overhang to collapse and the cliff to retreat.','समुद्री भृगु','Sea cliff','लहरें','Waves'],
  ['ridge','महासागरीय कटक','Ocean ridge','जहाँ समुद्री प्लेटें अलग होती हैं, वहाँ मैग्मा ऊपर उठता है। ठंडा होने पर नई महासागरीय पर्पटी बनती है।','Where ocean plates diverge, magma rises at the ridge. Cooling magma forms new oceanic crust.','कटक अक्ष','Ridge axis','महासागरीय पर्पटी','Oceanic crust']
 ];
+// Each animated path represents the direction of motion or transfer in the model.
+const experiments=[
+ ['wave','अनुप्रस्थ तरंग','Transverse wave','तरंग दाईं तरफ जाती है। पीला कण अपनी जगह पर ऊपर-नीचे होता है।','The wave travels right while the gold particle oscillates vertically.'],
+ ['pendulum','सरल लोलक','Simple pendulum','गोला बीच से सबसे तेज गुजरता है और दोनों सिरों पर क्षण भर के लिए रुकता है।','The bob moves fastest through the centre and briefly stops at either end.'],
+ ['lens','उत्तल लेंस','Convex lens','मुख्य अक्ष के समानांतर आने वाली किरणें पतले उत्तल लेंस से गुजरकर फोकस पर मिलती हैं।','Parallel rays passing through a thin converging lens meet at its focal point.'],
+ ['projectile','प्रक्षेप्य गति','Projectile motion','वायु प्रतिरोध नगण्य हो तो क्षैतिज वेग स्थिर रहता है। गुरुत्व नीचे की ओर त्वरण देता है और पथ परवलय बनता है।','With negligible air resistance, horizontal velocity stays constant. Downward acceleration bends the path into a parabola.'],
+ ['diffusion','विसरण','Diffusion','कण अनियमित गति करते हैं। बहुत से कणों की संयुक्त गति से वे पूरे पात्र में फैलते हैं।','Particles move randomly. The combined effect of many such movements spreads them throughout the container.'],
+ ['food','खाद्य श्रृंखला','Food chain','तीर ऊर्जा के प्रवाह को दिखाते हैं। घास से ऊर्जा खरगोश और फिर लोमड़ी तक पहुँचती है।','Arrows show energy transfer from grass to a rabbit and then to a fox.'],
+ ['market','बाज़ार संतुलन','Market equilibrium','भाव बढ़ने पर सामान्यतः माँग घटती है और आपूर्ति बढ़ती है। प्रतिच्छेद पर माँगी और बेची जाने वाली मात्रा बराबर है।','Demand usually falls and supply rises as price rises. At the intersection, quantities demanded and supplied are equal.'],
+ ['interest','चक्रवृद्धि ब्याज','Compound interest','समान शुरुआती रकम और धनात्मक स्थिर दर पर चक्रवृद्धि में पहले का ब्याज भी आगे ब्याज कमाता है।','With equal principal and a fixed positive rate, accumulated interest also earns interest under compounding.'],
+ ['fraction','इकाई वृत्त','Unit circle','इकाई त्रिज्या वाले वृत्त पर बिंदु की ऊँचाई कोण की ज्या और क्षैतिज निर्देशांक उसकी कोज्या है।','On a circle of radius one, the vertical coordinate is the sine of the angle and the horizontal coordinate is its cosine.'],
+ ['echo','ध्वनि की प्रतिध्वनि','Sound echo','ध्वनि दीवार तक जाकर लौटती है। प्रतिध्वनि का समय आने और जाने दोनों की दूरी पर निर्भर है।','Sound travels to the wall and back. Echo delay depends on the total round-trip distance.']
+];
+topics.push(...experiments);
+function diagram(){
+ const c=ctx,t=time, gold='#ffd584', aqua='#7ae1d2', pale='#e3ede3';
+ c.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);c.fillStyle='#143139';c.fillRect(0,0,900,530);
+ function line(path,color=aqua,width=4){c.beginPath();path.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.strokeStyle=color;c.lineWidth=width;c.stroke()}
+ function dot(x,y,r,color=gold){c.beginPath();c.arc(x,y,r,0,2*Math.PI);c.fillStyle=color;c.fill()}
+ function label(x,y,h,e,color=pale){c.fillStyle=color;c.font='600 25px "Nirmala UI",sans-serif';c.textAlign='center';c.fillText(hi?h:e,x,y)}
+ function curve(fn,color){line(Array.from({length:101},(_,i)=>fn(i/100)),color)}
+ for(let x=50;x<900;x+=50)line([[x,80],[x,470]],'#20404a',1);
+ for(let y=100;y<480;y+=50)line([[45,y],[850,y]],'#20404a',1);
+ const phase=(t*.24)%1;let x,y;
+ switch(topics[n][0]){
+ case 'wave':{const f=x=>276+76*sin(x/72-t*2.3);line([[80,276],[820,276]],'#678183',2);curve(u=>[80+740*u,f(80+740*u)],aqua);dot(450,f(450),12);label(660,125,'तरंग की दिशा →','Wave direction →');break}
+ case 'pendulum':{const a=.65*cos(t*1.6);x=450+250*sin(a);y=115+250*cos(a);curve(u=>[450+250*sin(1.3*u-.65),115+250*cos(1.3*u-.65)],'#557479');line([[340,100],[560,100]],pale,9);line([[450,109],[x,y]],aqua);dot(x,y,25);label(450,440,'संतुलन स्थिति','Equilibrium position');break}
+ case 'lens':{line([[80,270],[830,270]],'#678183',2);c.beginPath();c.ellipse(430,270,26,115,0,0,Math.PI*2);c.fillStyle='#478b99';c.fill();for(const y of [190,230,310,350]){const path=[[90,y],[430,y],[650,270],[810,270+(270-y)*160/220]];line(path,gold,2);x=90+720*phase;dot(x,x<430?y:y+(270-y)*(x-430)/220,5)}label(650,335,'फोकस','Focus');break}
+ case 'projectile':{const f=u=>[110+670*u,405-1050*u*(1-u)];line([[80,408],[820,408]],pale);curve(f,aqua);dot(...f(phase),14);break}
+ case 'diffusion':{c.strokeStyle=aqua;c.lineWidth=3;c.strokeRect(90,135,720,250);const spread=Math.min(1,t/8);for(let i=0;i<210;i++){const u=(i*.6180339)%1,v=(i*.4142135)%1;dot(102+(u*(.24+.76*spread))*686+7*sin(t*3+i),150+215*v+7*cos(t*2+i),4,i%3?gold:aqua)}break}
+ case 'food':{for(let i=0;i<2;i++){const a=190+i*260;line([[a+45,250],[a+215,250]],aqua);line([[a+198,240],[a+215,250],[a+198,260]],aqua);dot(a+46+165*phase,250,7)}['🌿','🐇','🦊'].forEach((v,i)=>{c.font='74px "Segoe UI Emoji"';c.textAlign='center';c.fillText(v,190+i*260,270)});label(450,385,'ऊर्जा का प्रवाह →','Energy flow →');break}
+ case 'market':case 'interest':{line([[145,115],[145,405],[795,405]],pale,3);const market=topics[n][0]==='market';const f=u=>[165+580*u,market?150+210*u:365-195*u];const h=u=>[165+580*u,market?360-210*u:365-54*(Math.exp(1.65*u)-1)];curve(f,gold);curve(h,aqua);dot(...f(phase),7,gold);dot(...h(phase),7,aqua);if(market)dot(455,255,9,pale);label(295,96,market?'माँग':'साधारण ब्याज',market?'Demand':'Simple interest',gold);label(620,96,market?'आपूर्ति':'चक्रवृद्धि',market?'Supply':'Compound',aqua);label(450,455,market?'मात्रा →':'समय →',market?'Quantity →':'Time →');label(87,240,market?'भाव':'रकम',market?'Price':'Value');break}
+ case 'fraction':{const a=t*.7;curve(u=>[450+144*cos(6.283*u),268-144*sin(6.283*u)],aqua);line([[240,268],[670,268]],pale,2);line([[450,90],[450,445]],pale,2);x=450+144*cos(a);y=268-144*sin(a);line([[450,268],[x,y],[x,268]],gold);dot(x,y,9);label(706,160,'ऊँचाई = sin θ','Height = sin θ');break}
+ default:{line([[745,115],[745,390]],pale,10);dot(145,250,22);const out=phase<.5;x=out?145+1200*phase:745-1200*(phase-.5);for(let i=0;i<3;i++){c.beginPath();c.arc(x,250,20+i*16,out?-.7:2.44,out?.7:3.84);c.strokeStyle=out?aqua:gold;c.stroke()}label(745,430,'दीवार','Wall');label(170,430,'ध्वनि स्रोत','Sound source')}
+ }}
+
 const $=s=>document.querySelector(s), canvas=$('canvas'), ctx=canvas.getContext('2d'), terrain=document.createElement('canvas');
 const g=terrain.getContext('2d'), sin=Math.sin, cos=Math.cos, abs=Math.abs, exp=Math.exp;
 let n=0, hi=true, time=0, auto=true, running=!matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -41,7 +77,7 @@ function build(){
  if(i===0||j===63){const [u,v]=j===63?[D,C]:[A,D];polygon([u,v,[v[0],v[1]+19],[u[0],u[1]+19]],j===63?'#786b58':'#504f48')}
  }}
 const anchors=[[[-.43,-.2],[.63,.18]],[[.54,.39],[.32,.39]],[[0,0],[.07,.67]],[[.39,.38],[.64,.9]],[[0,-.77],[0,.74]],[[-.39,0],[.5,0]],[[-.14,.15],[.61,.55]],[[0,0],[.68,.42]]];
-function draw(){
+function draw(){if(n>=8){diagram();return}
  ctx.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);ctx.drawImage(terrain,0,0);
  if(n===0){
    for(let i=0;i<28;i++){
@@ -66,8 +102,8 @@ function draw(){
  const [px,py]=point(x,Y,h);ctx.fillStyle=color;ctx.globalAlpha=.76;ctx.beginPath();ctx.ellipse(px,py,n===0?1.3:3,n===0?5:1.7,0,0,Math.PI*2);ctx.fill()}
  ctx.globalAlpha=1;anchors[n].forEach(([x,y],i)=>{const [px,py]=point(x,y),tx=i?668:190,ty=i?355:100;const label=topics[n][(hi?5:6)+2*i];ctx.font='600 25px "Nirmala UI",sans-serif';const w=ctx.measureText(label).width+24;ctx.strokeStyle='#fff0ce';ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(tx,ty);ctx.stroke();ctx.fillStyle='#fff0ce';ctx.fillRect(px-3,py-3,6,6);ctx.fillStyle='#132e35';ctx.fillRect(tx-w/2,ty-21,w,39);ctx.textAlign='center';ctx.fillStyle='#fff5d8';ctx.fillText(label,tx,ty+7)});
 }
-function select(i){n=i;time=0;build();render()}
-function render(){const row=topics[n];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=(hi?'भूगोल':'GEOGRAPHY')+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
+function select(i){n=i;time=0;if(n<8)build();render()}
+function render(){const row=topics[n];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=(n<8?(hi?'भूगोल':'GEOGRAPHY'):n===13?(hi?'पर्यावरण':'ECOLOGY'):n===14||n===15?(hi?'अर्थशास्त्र':'ECONOMICS'):n===16?(hi?'गणित':'MATHS'):(hi?'विज्ञान':'SCIENCE'))+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
 $('#play').onclick=()=>{running=!running;render()};$('#lang').onclick=()=>{hi=!hi;try{localStorage.setItem('gen_lang',hi?'hi':'en')}catch{}render()};
 canvas.width=900;canvas.height=530;select(0);
 let last=0,visible=true;new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(canvas);
