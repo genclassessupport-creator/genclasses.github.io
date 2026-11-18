@@ -4,6 +4,7 @@ GenClasses में विषयवार टेस्ट, PDF पुस्त�
 
 ## Visual learning, flashcards and syllabus
 
+- `/learn/origins/`: ten bilingual chapters from pre-Big-Bang questions to Earth, with dependency-free WebGL scenes, keyboard/drag rotation, zoom, a readable fallback and a three-question quiz. Content and sources: `content/origins.mjs`; regenerate with `node tools/build-origins.mjs`. Motion is opt-in; illustrations and chapter spacing are explicitly schematic.
 - `/learn/`: 12 illustrated foundation lessons; source content is in `content/foundations.mjs`.
 - `/flashcards/`: 68 cards, explicit reveal, remembered/review modes, shuffle, undo and round summaries. Existing `gen_flash` progress is retained.
 - `/syllabus/`: five exam pathways, topic search and checklists. Existing `gen_syll_prog` exam keys are retained. Detailed syllabus text is maintained in `content/syllabus-source.json`; confirm commission notifications before updating exam rules.
