@@ -22,3 +22,5 @@ html[data-theme="light"] .dl-card{background:#F6F9F7}
 .dl-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:18px 0;padding:14px 16px;border:1px solid var(--line-2,var(--line));border-radius:16px;background:var(--glass,rgba(255,255,255,.035))}
 .dl-strip b{color:var(--cream);font-size:15px}.dl-strip span{color:var(--mist);font-size:13.5px;flex:1;min-width:200px}
 .dl-strip a{font-weight:800;font-size:13.5px;padding:8px 14px;border-radius:11px;text-decoration:none;border:1px solid var(--gold);color:var(--gold-hi)}
+
+.dl-hl{border:2px solid var(--gold);box-shadow:0 0 0 3px rgba(217,174,95,.18),0 14px 34px rgba(0,0,0,.18)}.dl-hl .dl-new{background:#e8590c}
