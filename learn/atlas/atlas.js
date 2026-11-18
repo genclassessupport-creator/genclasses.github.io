@@ -89,7 +89,7 @@ function build(){
  if(i===0||j===cells-1){const [u,v]=j===cells-1?[D,C]:[A,D];polygon([u,v,[v[0],v[1]+19],[u[0],u[1]+19]],j===cells-1?'#786b58':'#504f48');for(let k=1;k<=3;k++){const d=4*k+2*sin(x*9+y*7+k);g.strokeStyle=k%2?'#978267':'#645849';g.lineWidth=1.4;g.beginPath();g.moveTo(u[0],u[1]+d);g.lineTo(v[0],v[1]+d);g.stroke()}}
  }}
 const anchors=[[[-.43,-.2],[.63,.18]],[[.54,.39],[.32,.39]],[[0,0],[.07,.67]],[[.39,.38],[.64,.9]],[[0,-.77],[0,.74]],[[-.39,0],[.5,0]],[[-.14,.15],[.61,.55]],[[0,0],[.68,.42]]];
-function draw(){if(n>=8){diagram();return}
+function draw(){if(n>=18){geologyScene(topics[n][0]);return}if(n>=8){diagram();return}
  ctx.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);ctx.drawImage(terrain,0,0);
  if(n===0){
    for(let i=0;i<28;i++){
@@ -115,9 +115,9 @@ function draw(){if(n>=8){diagram();return}
  ctx.globalAlpha=1;anchors[n].forEach(([x,y],i)=>{const [px,py]=point(x,y),tx=i?668:190,ty=i?355:100;const label=topics[n][(hi?5:6)+2*i];ctx.font='600 25px "Nirmala UI",sans-serif';const w=ctx.measureText(label).width+24;ctx.lineWidth=1.8;ctx.strokeStyle='#fff0ce';ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(tx,ty);ctx.stroke();ctx.fillStyle='#fff0ce';ctx.fillRect(px-3,py-3,6,6);ctx.fillStyle='#132e35';ctx.fillRect(tx-w/2,ty-21,w,39);ctx.textAlign='center';ctx.fillStyle='#fff5d8';ctx.fillText(label,tx,ty+7)});
 }
 function select(i){n=i;time=0;if(n<8)build();render()}
-function render(){const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=(n<8?(hi?'भूगोल':'GEOGRAPHY'):n===13?(hi?'पर्यावरण':'ECOLOGY'):n===14||n===15?(hi?'अर्थशास्त्र':'ECONOMICS'):n===16?(hi?'गणित':'MATHS'):(hi?'विज्ञान':'SCIENCE'))+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
+function render(){refreshEditions();const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=((n<8||n>=18)?(hi?'भूगोल':'GEOGRAPHY'):n===13?(hi?'पर्यावरण':'ECOLOGY'):n===14||n===15?(hi?'अर्थशास्त्र':'ECONOMICS'):n===16?(hi?'गणित':'MATHS'):(hi?'विज्ञान':'SCIENCE'))+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
 $('#play').onclick=()=>{running=!running;render()};$('#lang').onclick=()=>{hi=!hi;try{localStorage.setItem('gen_lang',hi?'hi':'en')}catch{}render()};
-canvas.width=900;canvas.height=530;select(0);
+canvas.width=900;canvas.height=530;refreshEditions();select(publishedEditions?topics.length-1:0);setInterval(()=>{if(refreshEditions())render()},15000);
 let last=0,visible=true;new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(canvas);
 function frame(now){if(running&&visible&&!document.hidden&&now-last>=32){time+=Math.min((now-last)/1000,.08);last=now;if(auto&&time>=16)select((n+1)%topics.length);else draw()}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 if(window.parent!==window){
