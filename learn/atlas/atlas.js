@@ -58,7 +58,7 @@ function diagram(){
 
 const $=s=>document.querySelector(s), canvas=$('canvas'), ctx=canvas.getContext('2d'), terrain=document.createElement('canvas');
 const g=terrain.getContext('2d'), sin=Math.sin, cos=Math.cos, abs=Math.abs, exp=Math.exp;
-let n=0, hi=true, time=0, auto=true, running=!matchMedia('(prefers-reduced-motion: reduce)').matches;
+let n=0, hi=true, time=0, auto=true, running=true;
 try{hi=localStorage.getItem('gen_lang')!=='en'}catch{}
 const channel=y=>.43*sin(4*y), ridge=y=>.12*sin(y*4);
 function baseSurface(x,y){
@@ -115,11 +115,16 @@ function draw(){if(n>=18){geologyScene(topics[n][0]);return}if(n>=8){diagram();r
  ctx.globalAlpha=1;anchors[n].forEach(([x,y],i)=>{const [px,py]=point(x,y),tx=i?668:190,ty=i?355:100;const label=topics[n][(hi?5:6)+2*i];ctx.font='600 25px "Nirmala UI",sans-serif';const w=ctx.measureText(label).width+24;ctx.lineWidth=1.8;ctx.strokeStyle='#fff0ce';ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(tx,ty);ctx.stroke();ctx.fillStyle='#fff0ce';ctx.fillRect(px-3,py-3,6,6);ctx.fillStyle='#132e35';ctx.fillRect(tx-w/2,ty-21,w,39);ctx.textAlign='center';ctx.fillStyle='#fff5d8';ctx.fillText(label,tx,ty+7)});
 }
 function select(i){n=i;time=0;if(n<8)build();render()}
-function render(){refreshEditions();const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=((n<8||n>=18)?(hi?'भूगोल':'GEOGRAPHY'):n===13?(hi?'पर्यावरण':'ECOLOGY'):n===14||n===15?(hi?'अर्थशास्त्र':'ECONOMICS'):n===16?(hi?'गणित':'MATHS'):(hi?'विज्ञान':'SCIENCE'))+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
+function render(){refreshEditions();updateFilm();$("#replay").textContent=hi?"शुरू से ↺":"Replay ↺";$("#expand").textContent=hi?"बड़ा देखें ⛶":"Full screen ⛶";const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=((n<8||n>=18)?(hi?'भूगोल':'GEOGRAPHY'):n===13?(hi?'पर्यावरण':'ECOLOGY'):n===14||n===15?(hi?'अर्थशास्त्र':'ECONOMICS'):n===16?(hi?'गणित':'MATHS'):(hi?'विज्ञान':'SCIENCE'))+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
 $('#play').onclick=()=>{running=!running;render()};$('#lang').onclick=()=>{hi=!hi;try{localStorage.setItem('gen_lang',hi?'hi':'en')}catch{}render()};
-canvas.width=900;canvas.height=530;refreshEditions();select(publishedEditions?topics.length-1:0);setInterval(()=>{if(refreshEditions())render()},15000);
+$('#replay').onclick=()=>{running=true;select(n)};
+$('#expand').onclick=async()=>{
+ try{if(document.fullscreenElement)await document.exitFullscreen();else await $('.viewer').requestFullscreen()}
+ catch{if(window.parent!==window)window.open('/learn/atlas/','_blank','noopener')}
+};
+canvas.width=1350;canvas.height=795;refreshEditions();select(publishedEditions?topics.length-1:0);setInterval(()=>{if(refreshEditions())render()},15000);
 let last=0,visible=true;new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(canvas);
-function frame(now){if(running&&visible&&!document.hidden&&now-last>=32){time+=Math.min((now-last)/1000,.08);last=now;if(auto&&time>=16)select((n+1)%topics.length);else draw()}requestAnimationFrame(frame)}requestAnimationFrame(frame);
+function frame(now){if(running&&visible&&!document.hidden&&now-last>=32){time+=Math.min((now-last)/1000,.08);last=now;if(time>=50)select((n+1)%topics.length);else {draw();updateFilm()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 if(window.parent!==window){
   new ResizeObserver(()=>parent.postMessage({atlasHeight:document.body.getBoundingClientRect().height},location.origin)).observe(document.body);
   window.addEventListener('message',event=>{

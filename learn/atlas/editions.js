@@ -10,7 +10,7 @@ function geologyScene(id){
  c.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);atmosphere(c,true);
  oval(c,462,406,310,29,'rgba(6,25,28,.3)');
  const fold=id==='anticline'||id==='syncline', sign=id==='normal-fault'?1:-1;
- const p=.32+.68*(1-Math.cos(Math.min(1,(time%12)/8)*Math.PI))/2;
+ const p=.12+.88*(1-Math.cos(Math.min(1,time/36)*Math.PI))/2;
  const view=(x,y,z)=>[432+252*x+95*y,351-144*z-64*y+15*x];
  const inks=['#784f46','#ca9365','#e7bb69','#835d53','#b77c55','#d6af89','#607b60'];
  function face(points,ink){c.fillStyle=ink;c.strokeStyle=ink;c.lineWidth=1;c.beginPath();points.forEach(([x,y],j)=>j?c.lineTo(x,y):c.moveTo(x,y));c.closePath();c.fill();c.stroke()}
