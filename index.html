@@ -1534,26 +1534,33 @@ window.addEventListener('message',event=>{
   <div class="dc-dots"></div>
 </div>
 <style>
-.dl-car{position:relative;max-width:380px;margin:16px auto 10px}
-.dc-view{overflow:hidden;border-radius:18px;touch-action:pan-y}
-.dc-track{display:flex;transition:transform .5s ease}
-.dc-slide{flex:0 0 100%;min-width:0}.dc-slide .dl-card{height:100%}
-.dc-btn{position:absolute;top:38%;z-index:3;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);background:var(--ink1,#0A1426);color:var(--gold-hi);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.2)}
-.dc-prev{left:-50px}.dc-next{right:-50px}
+.dl-car{--per:3;--gap:18px;position:relative;max-width:1080px;margin:16px auto 10px}
+.dc-view{overflow:hidden;border-radius:18px;touch-action:pan-y;padding:4px 0 6px}
+.dc-track{display:flex;gap:var(--gap);transition:transform .5s ease}
+.dc-slide{flex:0 0 calc((100% - (var(--per) - 1)*var(--gap))/var(--per));min-width:0}.dc-slide .dl-card{height:100%}
+.dc-btn{position:absolute;top:38%;z-index:3;width:42px;height:42px;border-radius:50%;border:1px solid var(--gold);background:var(--ink1,#0A1426);color:var(--gold-hi);font-size:24px;line-height:1;cursor:pointer;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+.dc-prev{left:-21px}.dc-next{right:-21px}
+@media(max-width:1000px){.dl-car{--per:2;max-width:720px}}
+@media(max-width:640px){.dl-car{--per:1;max-width:380px}}
 @media(max-width:520px){.dc-prev{left:6px}.dc-next{right:6px}.dc-btn{background:rgba(6,11,22,.6);color:#fff;border-color:transparent}}
 .dc-dots{display:flex;justify-content:center;gap:7px;margin-top:10px}
 .dc-dots button{width:8px;height:8px;border-radius:999px;border:0;padding:0;background:var(--line-2,#888);cursor:pointer;transition:width .3s}
 .dc-dots button.on{width:22px;background:var(--gold)}
+@media(prefers-reduced-motion:reduce){.dc-track{transition:none}}
 </style>
-<script>(function(){var c=document.getElementById('dlCar');if(!c)return;var t=c.querySelector('.dc-track'),n=t.children.length,i=0,d=c.querySelector('.dc-dots'),tm,hold=false;
-for(var k=0;k<n;k++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Slide '+(k+1));(function(k){b.onclick=function(){go(k)}})(k);d.appendChild(b);}
-function go(k){i=(k+n)%n;t.style.transform='translateX('+(-100*i)+'%)';[].forEach.call(d.children,function(x,j){x.classList.toggle('on',j===i);x.setAttribute('aria-current',j===i?'true':'false')});[].forEach.call(t.children,function(x,j){x.inert=j!==i;x.setAttribute('aria-hidden',j===i?'false':'true')});}
-function start(){clearInterval(tm);}
-c.querySelector('.dc-prev').onclick=function(){go(i-1);start()};c.querySelector('.dc-next').onclick=function(){go(i+1);start()};
-c.addEventListener('mouseenter',function(){hold=true});c.addEventListener('mouseleave',function(){hold=false});
-var x0=null;c.addEventListener('touchstart',function(e){hold=true;x0=e.touches[0].clientX},{passive:true});
-c.addEventListener('touchend',function(e){if(x0!==null){var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));}}x0=null;setTimeout(function(){hold=false},3000);start();},{passive:true});
-go(0);start();})();</script>
+<script>(function(){var c=document.getElementById('dlCar');if(!c)return;var t=c.querySelector('.dc-track'),n=t.children.length,i=0,d=c.querySelector('.dc-dots'),per=1,pages=1;
+/* एक बार में कितने कार्ड दिखें, यह CSS के --per से आता है (डेस्कटॉप 3, टैबलेट 2, फ़ोन 1) */
+function build(){per=Math.max(1,parseInt(getComputedStyle(c).getPropertyValue('--per'))||1);pages=Math.ceil(n/per);d.innerHTML='';
+for(var k=0;k<pages;k++){var b=document.createElement('button');b.type='button';b.setAttribute('aria-label','Page '+(k+1));(function(k){b.onclick=function(){go(k)}})(k);d.appendChild(b);}}
+function go(k){i=(k+pages)%pages;var first=Math.min(i*per,Math.max(0,n-per)),s=t.children[first];
+t.style.transform='translateX('+(-(s?s.offsetLeft:0))+'px)';
+[].forEach.call(d.children,function(x,j){x.classList.toggle('on',j===i);x.setAttribute('aria-current',j===i?'true':'false')});
+[].forEach.call(t.children,function(x,j){var on=j>=first&&j<first+per;x.inert=!on;x.setAttribute('aria-hidden',on?'false':'true')});}
+c.querySelector('.dc-prev').onclick=function(){go(i-1)};c.querySelector('.dc-next').onclick=function(){go(i+1)};
+var x0=null;c.addEventListener('touchstart',function(e){x0=e.touches[0].clientX},{passive:true});
+c.addEventListener('touchend',function(e){if(x0!==null){var dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>40){go(i+(dx<0?1:-1));}}x0=null;},{passive:true});
+var rt;addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(function(){var first=i*per;build();go(Math.floor(first/per));},120)});
+build();go(0);})();</script>
     <p style="text-align:center;margin:8px 0 0"><a class="btn-gold" href="/downloads/" style="display:inline-block;padding:10px 20px;border-radius:12px;text-decoration:none;font-weight:800"><span data-hi>सभी मुफ़्त PDF →</span><span data-en>All free PDFs →</span></a></p>
   </div>
 </section>
@@ -1809,53 +1816,6 @@ go(0);start();})();</script>
   </div>
 </section>
 
-<!-- ================= जुड़ें ================= -->
-<section id="join" class="join">
-  <div class="section-in rv">
-    <span class="eyebrow"><span data-hi>निःशुल्क जुड़ें</span><span data-en>Join free</span></span>
-    <h2 data-hi>तैयारी का अगला अध्याय, यहीं से</h2>
-    <h2 data-en>The next chapter of prep starts here</h2>
-    <p data-hi>Telegram · WhatsApp · Instagram · ईमेल — जहाँ सुविधा हो, वहीं हमसे जुड़ें।</p>
-    <p data-en>Telegram · WhatsApp · Instagram · Email — reach us wherever suits you.</p>
-    <div class="plats">
-      <a class="plat" href="https://t.me/GenClasses_Support" target="_blank" rel="noopener" aria-label="Chat on Telegram @GenClasses_Support">
-        <span class="pic tg"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
-        <span><span data-hi>टेलीग्राम पर बात करें</span><span data-en>Chat on Telegram</span><small>@GenClasses_Support</small></span>
-      </a>
-      <a class="plat" href="https://t.me/genclassessupport" target="_blank" rel="noopener" aria-label="Telegram Support Group">
-        <span class="pic">✈</span>
-        <span><span data-hi>टेलीग्राम सपोर्ट ग्रुप</span><span data-en>Telegram Support Group</span><small>t.me/genclassessupport</small></span>
-      </a>
-      <a class="plat" href="https://t.me/genclassesofficial" target="_blank" rel="noopener" aria-label="Telegram official">
-        <span class="pic">✈</span>
-        <span>Telegram Official<small>t.me/genclassesofficial</small></span>
-      </a>
-      <a class="plat" href="https://t.me/genclasses" target="_blank" rel="noopener" aria-label="Telegram channel">
-        <span class="pic">✈</span>
-        <span>Telegram Channel<small>t.me/genclasses</small></span>
-      </a>
-      <a class="plat" href="https://wa.me/919506321415" target="_blank" rel="noopener" aria-label="WhatsApp Support">
-        <span class="pic wa"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg></span>
-        <span>WhatsApp Support<small>9506321415</small></span>
-      </a>
-      <a class="plat" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener" aria-label="Instagram @genclasses">
-        <span class="pic ig"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5z"/></svg></span>
-        <span>Instagram<small>@genclasses</small></span>
-      </a>
-      <a class="plat" href="mailto:genclassessupport@gmail.com" aria-label="Support email">
-        <span class="pic">✉</span>
-        <span>Support<small>genclassessupport@gmail.com</small></span>
-      </a>
-      <a class="plat" href="mailto:genclassesinfo@gmail.com" aria-label="Info email">
-        <span class="pic">✉</span>
-        <span>Info<small>genclassesinfo@gmail.com</small></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-<div class="hairline"></div>
-
 <!-- ================= विषय ================= -->
 <section id="subjects">
   <div class="section-in">
@@ -1921,6 +1881,53 @@ go(0);start();})();</script>
     <blockquote data-hi>तैयारी वही सार्थक है, जो परीक्षा की भाषा समझती है।</blockquote>
     <blockquote data-en>Prep that counts is prep that speaks the language of the exam.</blockquote>
     <cite>GenClasses</cite>
+  </div>
+</section>
+
+<div class="hairline"></div>
+
+<!-- ================= जुड़ें ================= -->
+<section id="join" class="join">
+  <div class="section-in rv">
+    <span class="eyebrow"><span data-hi>निःशुल्क जुड़ें</span><span data-en>Join free</span></span>
+    <h2 data-hi>तैयारी का अगला अध्याय, यहीं से</h2>
+    <h2 data-en>The next chapter of prep starts here</h2>
+    <p data-hi>Telegram · WhatsApp · Instagram · ईमेल — जहाँ सुविधा हो, वहीं हमसे जुड़ें।</p>
+    <p data-en>Telegram · WhatsApp · Instagram · Email — reach us wherever suits you.</p>
+    <div class="plats">
+      <a class="plat" href="https://t.me/GenClasses_Support" target="_blank" rel="noopener" aria-label="Chat on Telegram @GenClasses_Support">
+        <span class="pic tg"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
+        <span><span data-hi>टेलीग्राम पर बात करें</span><span data-en>Chat on Telegram</span><small>@GenClasses_Support</small></span>
+      </a>
+      <a class="plat" href="https://t.me/genclassessupport" target="_blank" rel="noopener" aria-label="Telegram Support Group">
+        <span class="pic">✈</span>
+        <span><span data-hi>टेलीग्राम सपोर्ट ग्रुप</span><span data-en>Telegram Support Group</span><small>t.me/genclassessupport</small></span>
+      </a>
+      <a class="plat" href="https://t.me/genclassesofficial" target="_blank" rel="noopener" aria-label="Telegram official">
+        <span class="pic">✈</span>
+        <span>Telegram Official<small>t.me/genclassesofficial</small></span>
+      </a>
+      <a class="plat" href="https://t.me/genclasses" target="_blank" rel="noopener" aria-label="Telegram channel">
+        <span class="pic">✈</span>
+        <span>Telegram Channel<small>t.me/genclasses</small></span>
+      </a>
+      <a class="plat" href="https://wa.me/919506321415" target="_blank" rel="noopener" aria-label="WhatsApp Support">
+        <span class="pic wa"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86zm5.4-7.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.04-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.75-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg></span>
+        <span>WhatsApp Support<small>9506321415</small></span>
+      </a>
+      <a class="plat" href="https://www.instagram.com/genclasses" target="_blank" rel="noopener" aria-label="Instagram @genclasses">
+        <span class="pic ig"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" style="display:block"><path fill="currentColor" d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9zm9.75 1.75a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5zM12 7.5A4.5 4.5 0 1 1 12 16.5 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 12 14.5 2.5 2.5 0 0 0 12 9.5z"/></svg></span>
+        <span>Instagram<small>@genclasses</small></span>
+      </a>
+      <a class="plat" href="mailto:genclassessupport@gmail.com" aria-label="Support email">
+        <span class="pic">✉</span>
+        <span>Support<small>genclassessupport@gmail.com</small></span>
+      </a>
+      <a class="plat" href="mailto:genclassesinfo@gmail.com" aria-label="Info email">
+        <span class="pic">✉</span>
+        <span>Info<small>genclassesinfo@gmail.com</small></span>
+      </a>
+    </div>
   </div>
 </section>
 
