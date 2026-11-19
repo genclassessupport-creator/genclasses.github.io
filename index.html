@@ -78,10 +78,11 @@ html[data-theme="light"] .aur-1{background:radial-gradient(circle,#C5DDD6 0%,tra
 html[data-theme="light"] .aur-2{background:radial-gradient(circle,#E2D4A8 0%,transparent 65%)}
 html[data-theme="light"] #embers{opacity:.65;filter:brightness(.45) saturate(1.6)}
 html[data-theme="light"] .grain{opacity:.035}
-html[data-theme="light"] .ring{stroke:rgba(122,90,24,.62)}
+html[data-theme="light"] .wm{-webkit-text-stroke:1.3px rgba(30,58,138,.14)}
+html[data-theme="light"] .ring{stroke:rgba(30,58,138,.45)}
 html[data-theme="light"] .ring-b{stroke:rgba(122,90,24,.4)}
 html[data-theme="light"] .emblem::before{background:radial-gradient(circle,rgba(176,138,62,.24) 0%,transparent 62%)}
-html[data-theme="light"] .leaf{filter:drop-shadow(0 0 7px rgba(154,114,35,.45))}
+html[data-theme="light"] .leaf{filter:drop-shadow(0 0 7px rgba(30,58,138,.45))}
 html[data-theme="light"] .vein{stroke:rgba(122,90,24,.62)}
 html[data-theme="light"] .flame{filter:drop-shadow(0 0 12px rgba(176,138,62,.85))}
 html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 12px 28px rgba(30,58,138,.28)}
@@ -93,8 +94,8 @@ html[data-theme="light"] .marq{background:rgba(30,58,138,.05)}
 html[data-theme="light"] .scroll-cue{opacity:.9}
 html[data-theme="light"] nav.scrolled{background:rgba(30,58,138,.92);border-bottom-color:rgba(255,255,255,.14)}
 html[data-theme="light"] h1.hero-title{text-shadow:none}
-html[data-theme="light"] .emblem-cap{background:rgba(255,252,243,.9);box-shadow:0 10px 30px rgba(120,90,30,.18)}
-html[data-theme="light"] .flame-core{fill:#FFE9B8}
+html[data-theme="light"] .emblem-cap{background:rgba(255,252,243,.9);box-shadow:0 10px 30px rgba(23,46,92,.18)}
+html[data-theme="light"] .flame-core{fill:#F2CD88}
 html[data-theme="light"] .ttab.active{color:#F6F9F7;box-shadow:0 8px 26px rgba(30,58,138,.35)}
 html[data-theme="light"] .ttab.active .cnt{background:rgba(255,253,245,.35);color:#3A2C0E}
 html[data-theme="light"] .tcard:hover{background:rgba(29,59,111,.06);box-shadow:0 24px 54px rgba(23,46,92,.2),0 0 34px rgba(30,58,138,.1)}
@@ -183,23 +184,22 @@ nav.scrolled{background:rgba(6,11,22,.78);backdrop-filter:blur(14px);border-bott
 .menu-btn{display:none;background:none;border:1px solid var(--line-2);color:var(--gold-hi);font-size:19px;padding:5px 13px;border-radius:9px;cursor:pointer}
 
 /* ═══════════ मुखपृष्ठ ═══════════ */
-header{position:relative;z-index:3;min-height:100vh;display:flex;align-items:center;padding:150px 26px 90px}
+header{position:relative;z-index:3;min-height:0;display:flex;align-items:center;padding:100px 26px 32px}
 .wm{
   position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);
-  font-family:'Rozha One',serif;font-size:min(34vw,470px);line-height:1;
-  color:transparent;-webkit-text-stroke:1px rgba(217,174,95,.07);
+  font-family:'Rozha One',serif;font-size:min(22vw,280px);line-height:1;
+  color:transparent;-webkit-text-stroke:1px rgba(30,58,138,.055);
   z-index:-1;user-select:none;pointer-events:none;white-space:nowrap;
 }
-html[data-theme="light"] .wm{-webkit-text-stroke:1.3px rgba(143,107,38,.17)}
-.hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:70px;align-items:center;width:100%}
+.hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center;width:100%}
 .hr-el{opacity:0;transform:translateY(34px);animation:rise 1s cubic-bezier(.2,.75,.25,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
 .eyebrow{
   display:inline-flex;align-items:center;gap:12px;
-  font-size:12.5px;letter-spacing:4.5px;color:var(--gold);font-weight:700;margin-bottom:24px;
+  font-size:11.5px;letter-spacing:3.2px;color:var(--gold);font-weight:700;margin-bottom:12px;
 }
 .eyebrow::before{content:"";width:38px;height:1.5px;background:linear-gradient(90deg,var(--gold),transparent)}
-h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0,.55)}
+h1.hero-title{font-size:clamp(28px,4vw,46px);text-shadow:0 4px 28px rgba(0,0,0,.45)}
 .shimmer{
   background:linear-gradient(100deg,var(--gold-deep) 0%,var(--gold-hi) 42%,#E8EEF8 50%,var(--gold-hi) 58%,var(--gold-deep) 100%);
   background-size:230% 100%;
@@ -207,8 +207,8 @@ h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0
   animation:sheen 5.5s ease-in-out infinite;
 }
 @keyframes sheen{0%,100%{background-position:88% 0}50%{background-position:12% 0}}
-.hero-sub{margin-top:24px;font-size:18.5px;color:var(--mist);max-width:540px;font-weight:300}
-.hero-actions{margin-top:40px;display:flex;gap:16px;flex-wrap:wrap}
+.hero-sub{margin-top:12px;font-size:15.5px;color:var(--mist);max-width:500px;font-weight:300;line-height:1.65}
+.hero-actions{margin-top:18px;display:flex;gap:12px;flex-wrap:wrap}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border-radius:10px;font-weight:700;font-size:14px;transition:transform .25s,box-shadow .25s,background .25s;position:relative;overflow:hidden}
 .btn-gold{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:var(--ink0);box-shadow:0 12px 34px rgba(30,58,138,.32)}
 .btn-gold::after{content:"";position:absolute;top:0;left:-80%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-22deg);transition:left .55s}
@@ -216,28 +216,28 @@ h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0
 .btn-gold:hover::after{left:130%}
 .btn-ghost{border:1.5px solid var(--line-2);color:var(--cream);background:rgba(30,58,138,.05)}
 .btn-ghost:hover{transform:translateY(-3px);background:rgba(30,58,138,.13);border-color:var(--gold)}
-.hero-line{margin-top:44px;font-size:14px;color:var(--mist);letter-spacing:.4px}
+.hero-line{margin-top:16px;font-size:13px;color:var(--mist);letter-spacing:.3px}
 .hero-line b{color:var(--gold-hi);font-weight:600}
 .hero-line .dot{color:var(--gold);margin:0 9px}
 
 /* दीप-पत्र चिह्न */
 .hero-art{display:grid;place-items:center}
-.emblem{width:min(390px,88%);aspect-ratio:1;position:relative;display:grid;place-items:center}
+.emblem{width:min(220px,52%);aspect-ratio:1;position:relative;display:grid;place-items:center}
 .emblem::before{
   content:"";position:absolute;inset:9%;border-radius:50%;
-  background:radial-gradient(circle,rgba(217,174,95,.15) 0%,transparent 62%);
+  background:radial-gradient(circle,rgba(30,58,138,.15) 0%,transparent 62%);
   animation:breathe 5s ease-in-out infinite;
 }
 @keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.09);opacity:1}}
 .emblem svg{width:100%;position:relative;overflow:visible}
-.ring{fill:none;stroke:rgba(217,174,95,.4);stroke-width:1;transform-box:fill-box;transform-origin:center}
+.ring{fill:none;stroke:rgba(30,58,138,.4);stroke-width:1;transform-box:fill-box;transform-origin:center}
 .ring-a{stroke-dasharray:3 9;animation:spin 46s linear infinite}
-.ring-b{stroke-dasharray:1 14;stroke:rgba(217,174,95,.26);animation:spin 70s linear infinite reverse}
+.ring-b{stroke-dasharray:1 14;stroke:rgba(30,58,138,.26);animation:spin 70s linear infinite reverse}
 @keyframes spin{to{transform:rotate(360deg)}}
 .leaf{fill:none;stroke:var(--gold-hi);stroke-width:2.1;stroke-linejoin:round;stroke-linecap:round;
   stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.1s cubic-bezier(.4,0,.2,1) .45s forwards;
   filter:drop-shadow(0 0 7px rgba(242,205,136,.45))}
-.vein{fill:none;stroke:rgba(217,174,95,.55);stroke-width:1.15;stroke-linecap:round;
+.vein{fill:none;stroke:rgba(30,58,138,.55);stroke-width:1.15;stroke-linecap:round;
   stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.7s ease 1.4s forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
 .flame{fill:var(--gold-hi);transform-box:fill-box;transform-origin:50% 100%;
@@ -245,13 +245,13 @@ h1.hero-title{font-size:clamp(42px,5.6vw,72px);text-shadow:0 4px 40px rgba(0,0,0
 .flame-core{fill:#FFF6DF;transform-box:fill-box;transform-origin:50% 100%;animation:flick 2.3s ease-in-out .12s infinite}
 @keyframes flick{0%,100%{transform:scaleY(1) scaleX(1) rotate(0deg)}30%{transform:scaleY(1.14) scaleX(.93) rotate(-2.5deg)}60%{transform:scaleY(.92) scaleX(1.06) rotate(2deg)}80%{transform:scaleY(1.07) scaleX(.96) rotate(-1deg)}}
 .emblem-cap{
-  position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
-  background:rgba(10,20,38,.85);border:1px solid var(--line-2);border-radius:30px;
-  padding:9px 26px;white-space:nowrap;backdrop-filter:blur(8px);
-  font-family:'Tiro Devanagari Hindi',serif;font-style:italic;font-size:15px;color:var(--gold-hi);
-  box-shadow:0 10px 30px rgba(0,0,0,.5);
+  position:absolute;bottom:-2px;left:50%;transform:translateX(-50%);
+  background:rgba(10,20,38,.88);border:1px solid var(--line-2);border-radius:30px;
+  padding:6px 16px;white-space:nowrap;backdrop-filter:blur(8px);
+  font-family:'Tiro Devanagari Hindi',serif;font-style:italic;font-size:12.5px;color:var(--gold-hi);
+  box-shadow:0 8px 22px rgba(0,0,0,.4);
 }
-.scroll-cue{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:var(--gold);font-size:11px;letter-spacing:3px;opacity:.8}
+.scroll-cue{display:none;position:absolute;bottom:14px;left:50%;transform:translateX(-50%);flex-direction:column;align-items:center;gap:6px;color:var(--gold);font-size:10px;letter-spacing:2px;opacity:.65}
 .scroll-cue span{display:block;width:1.5px;height:44px;background:linear-gradient(180deg,var(--gold),transparent);animation:cue 1.8s ease-in-out infinite}
 @keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}55%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 
@@ -929,6 +929,7 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   .emblem-cap{display:none}
   .eyebrow{justify-content:center;margin-bottom:6px;font-size:10.5px;letter-spacing:2.5px}
   .eyebrow::before{display:none}
+  .wm{font-size:36vw}
   .scroll-cue{display:none}
   .method::before{display:none}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
@@ -1118,39 +1119,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 @media (max-width:640px){.pdf-strip{min-height:56px;padding:4px 10px;gap:8px}.ps-label{font-size:10.5px;max-width:84px}.ps-label small{display:none}.ps-item img{height:44px;width:34px}.ps-chip{font-size:11px}.ps-all{font-size:11px;padding:4px 9px}}
 </style>
 <link rel="stylesheet" href="/assets/learning.css">
-<style>#visual-atlas{padding-block:16px;scroll-margin-top:-24px}#visual-atlas .section-in{max-width:1440px}</style><link rel="stylesheet" href="/assets/light-masthead.css?v=2"><style>
-html[data-theme="light"] #top{--gold:#9A7223;--gold-hi:#7A5A18;--gold-deep:#B08A3E;--cream:#20180A;--mist:#5A5343;--line-2:rgba(143,107,38,.5)}
-#top{overflow-x:clip}
-@media(max-width:960px){
-  #top{padding:130px 26px 90px;min-height:auto}
-  #top .hero-in{grid-template-columns:1fr;padding-top:0;text-align:center;gap:62px}
-  #top .hero-art{order:0;justify-content:normal}
-  #top .emblem{width:min(390px,88%)}
-  #top .emblem-cap{display:block}
-  #top .wm{font-size:64vw}
-  #top .wm span{display:block;transform:scaleX(.65)}
-  #top h1.hero-title{font-size:clamp(42px,5.6vw,72px)}
-}
-/* Compact hero: no full-screen height, so it opens neatly and the next sections show sooner */
-#top{min-height:0;padding:clamp(30px,5vh,52px) 26px clamp(28px,4.5vh,46px)}
-#top .scroll-cue{display:none}
-#top .hero-in{grid-template-columns:minmax(0,1.32fr) minmax(0,.68fr);gap:clamp(24px,3vw,48px)}
-#top .eyebrow{margin-bottom:14px}
-#top h1.hero-title{font-size:clamp(40px,4.3vw,60px);line-height:1.16}
-#top .hero-sub{margin-top:14px;font-size:17px;max-width:640px}
-#top .hero-actions{margin-top:22px;gap:10px}
-#top .hero-actions .btn{padding:11px 18px}
-#top .hero-line{margin-top:22px}
-#top .emblem{width:min(330px,100%)}
-html[data-theme="light"] #top{background:linear-gradient(180deg,#f1f5fa 0%,#eef3f9 82%,rgba(238,243,249,0) 100%)}
-@media(max-width:960px){
-  #top{padding:26px 16px 22px}
-  #top .hero-in{grid-template-columns:1fr;gap:18px}
-  #top .hero-actions{justify-content:center}
-  #top .emblem{width:min(210px,56%)}
-  #top h1.hero-title{font-size:clamp(34px,8.4vw,52px)}
-}
-</style></head>
+<style>#visual-atlas{padding-block:16px;scroll-margin-top:-24px}#visual-atlas .section-in{max-width:1440px}</style><link rel="stylesheet" href="/assets/light-masthead.css?v=2"><style>#top{overflow-x:clip}@media(min-width:961px){#top .hero-actions{gap:8px}#top .hero-actions .btn{padding:10px 14px}}</style></head>
 <body>
 
 <canvas id="embers" aria-hidden="true"></canvas>
