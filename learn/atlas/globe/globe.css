@@ -7,6 +7,7 @@ button:hover{background:#334155}
 button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid #fbbf24;outline-offset:2px}
 [hidden]{display:none!important}
 #globe-container{position:fixed;inset:0;cursor:grab;touch-action:none}
+#globe-container canvas{touch-action:none}
 #globe-container:active{cursor:grabbing}
 .glass{background:rgba(8,15,32,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(148,163,184,.2);box-shadow:0 12px 32px rgba(0,0,0,.45);border-radius:16px}
 .icon{width:32px;height:32px;padding:0;display:inline-grid;place-items:center;font-size:14px}

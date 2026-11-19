@@ -589,16 +589,44 @@ function getMidLatLon(coords) {
 
 // Pointer / Touch Orbit Controls
 const domEl = renderer.domElement;
+// One finger (or the mouse) turns the globe; two fingers pinch to zoom.
+const activePointers = new Map();
+let pinchGap = 0;
+function pointerGap() {
+  const [a, b] = [...activePointers.values()];
+  return Math.hypot(a.x - b.x, a.y - b.y);
+}
+
 domEl.addEventListener('pointerdown', (e) => {
+  activePointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
+  camState.flying = false;
+  if (activePointers.size === 2) {
+    pinchGap = pointerGap();
+    camState.dragMoved = true; // lifting the fingers after a pinch is not a tap
+    return;
+  }
   camState.isDragging = true;
   camState.dragMoved = false;
   camState.lastX = e.clientX;
   camState.lastY = e.clientY;
-  camState.flying = false;
 });
 
 window.addEventListener('pointermove', (e) => {
+  const pointer = activePointers.get(e.pointerId);
+  if (!pointer) return;
+  pointer.x = e.clientX;
+  pointer.y = e.clientY;
+
+  if (activePointers.size >= 2) {
+    const gap = pointerGap();
+    if (pinchGap > 0 && gap > 0) {
+      camState.targetDist = Math.max(1.55, Math.min(4.6, camState.targetDist * pinchGap / gap));
+    }
+    pinchGap = gap;
+    return;
+  }
   if (!camState.isDragging) return;
+
   const dx = e.clientX - camState.lastX;
   const dy = e.clientY - camState.lastY;
   if (Math.abs(dx) > 3 || Math.abs(dy) > 3) {
@@ -616,14 +644,24 @@ window.addEventListener('pointermove', (e) => {
   camState.targetLat = Math.max(-80, Math.min(80, camState.targetLat + dy * sens));
 });
 
-window.addEventListener('pointerup', (e) => {
-  if (!camState.isDragging) return;
-  const wasClick = !camState.dragMoved;
+function releasePointer(e) {
+  if (!activePointers.delete(e.pointerId)) return;
+  if (activePointers.size === 1) {
+    // One finger is still down after a pinch: carry on turning from where it is.
+    const [rest] = [...activePointers.values()];
+    camState.lastX = rest.x;
+    camState.lastY = rest.y;
+    return;
+  }
+  if (activePointers.size) return;
+  const wasClick = camState.isDragging && !camState.dragMoved && e.type === 'pointerup';
   camState.isDragging = false;
   if (wasClick && !state.quizMode) {
     handleGlobeClick(e.clientX, e.clientY);
   }
-});
+}
+window.addEventListener('pointerup', releasePointer);
+window.addEventListener('pointercancel', releasePointer);
 
 domEl.addEventListener('wheel', (e) => {
   e.preventDefault();
