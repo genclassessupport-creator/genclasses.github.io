@@ -2549,6 +2549,18 @@ loadManifest().then(function(list){
 var nav = document.getElementById("nav");
 var prog = document.getElementById("progress");
 var watermark = document.getElementById("wm");
+/* Mobile only: sit the faint GEN watermark behind the lamp instead of behind the buttons */
+function placeWatermark(){
+  var lamp = document.querySelector("#top .emblem");
+  if (!watermark || !lamp) return;
+  if (window.innerWidth > 960) { watermark.style.top = ""; return; }
+  var hero = watermark.parentElement.getBoundingClientRect(), l = lamp.getBoundingClientRect();
+  watermark.style.top = Math.round(l.top - hero.top + l.height / 2) + "px";
+}
+placeWatermark();
+addEventListener("resize", placeWatermark);
+addEventListener("load", placeWatermark);
+if (document.fonts) document.fonts.ready.then(placeWatermark);
 function onScroll(){
   var y = scrollY;
   if (!REDUCED) {
