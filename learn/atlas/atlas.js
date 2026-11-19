@@ -120,7 +120,7 @@ function draw(){if(n===1||topics[n][0]==="mountain-building"){formation(n!==1);r
  ctx.globalAlpha=1;anchors[n].forEach(([x,y],i)=>{const [px,py]=point(x,y),tx=i?668:190,ty=i?355:100;const label=topics[n][(hi?5:6)+2*i];ctx.font='600 25px "Nirmala UI",sans-serif';const w=ctx.measureText(label).width+24;ctx.lineWidth=1.8;ctx.strokeStyle='#fff0ce';ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(tx,ty);ctx.stroke();ctx.fillStyle='#fff0ce';ctx.fillRect(px-3,py-3,6,6);ctx.fillStyle='#132e35';ctx.fillRect(tx-w/2,ty-21,w,39);ctx.textAlign='center';ctx.fillStyle='#fff5d8';ctx.fillText(label,tx,ty+7)});
 }
 function select(i){n=i;time=0;if(n<8&&n!==1)build();render()}
-function render(){refreshEditions();updateFilm();$("#replay").textContent=hi?"शुरू से ↺":"Replay ↺";$("#expand").textContent=hi?"बड़ा देखें ⛶":"Full screen ⛶";const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=subjectOf(row[0]).title[hi?0:1]+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topicMenu();draw()}
+function render(){refreshEditions();updateFilm();$("#replay").textContent=hi?"शुरू से ↺":"Replay ↺";$("#expand").textContent=hi?"बड़ा देखें ⛶":"Full screen ⛶";const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=subjectOf(row[0]).title[hi?0:1]+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#globe-title').textContent=hi?'3D ग्लोब':'3D Globe';$('#globe-sub').textContent=hi?'स्थानीय पवनें व महासागरीय धाराएँ':'Local winds & ocean currents';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topicMenu();draw()}
 $('#play').onclick=()=>{running=!running;render()};$('#lang').onclick=()=>{hi=!hi;try{localStorage.setItem('gen_lang',hi?'hi':'en')}catch{}render()};
 $('#replay').onclick=()=>{running=true;select(n)};
 $('#expand').onclick=async()=>{
@@ -157,3 +157,8 @@ if(window.parent!==window){
     }
   });
 }
+
+// On phones the list sits under the player, so the globe card moves above it to stay near the top.
+const globeCard=$('#globe-card'),narrow=matchMedia('(max-width:819px)');
+function placeGlobeCard(){const home=narrow.matches?$('main'):$('aside');if(globeCard.parentNode!==home)home.prepend(globeCard)}
+narrow.addEventListener('change',placeGlobeCard);placeGlobeCard();

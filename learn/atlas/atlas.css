@@ -25,3 +25,16 @@ main{display:block;max-width:1450px}.viewer{background:#152f34}.stage{overflow:h
  .embedded #edition{margin-top:0}
 }
 #subject-picker{width:100%;padding:6px 8px;margin-bottom:6px;font:inherit;border:1px solid #a7b8a8;border-radius:6px;color:#22483e;background:#fffdf6}
+/* Small live 3D globe that opens the winds and currents page */
+#globe-card{display:block;position:relative;margin-bottom:12px;border-radius:12px;overflow:hidden;background:#020611;color:#f1f5f9;text-decoration:none;border:1px solid #1d3a44}
+#globe-card iframe{display:block;width:100%;height:132px;border:0;pointer-events:none}
+#globe-card span{display:block;padding:7px 11px 9px;background:#0b1a2e;line-height:1.35}
+#globe-card b{display:block;font-size:14px}
+#globe-card b::after{content:" ↗";color:#7dd3fc}
+#globe-card small{display:block;font-size:12px;color:#a9bccb}
+#globe-card:hover{border-color:#7dd3fc}
+@media(max-width:819px){
+ #globe-card{display:flex;align-items:center;margin:0 0 8px}
+ #globe-card iframe{width:92px;height:72px;flex:none}
+ #globe-card span{flex:1;background:none;padding:6px 12px}
+}

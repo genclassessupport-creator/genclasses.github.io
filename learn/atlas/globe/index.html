@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>3D ग्लोब · स्थानीय पवनें व महासागरीय धाराएँ · Gen Classes</title>
+<meta name="description" content="घूमते 3D ग्लोब पर दुनिया की स्थानीय पवनें और महासागरीय धाराएँ: कहाँ चलती हैं, कैसे बनती हैं और परीक्षा में क्या पूछा जाता है।">
+<link rel="icon" href="/assets/favicon-32.png">
+<link rel="stylesheet" href="globe.css?v=1">
+<script>if(new URLSearchParams(location.search).has('mini'))document.documentElement.classList.add('mini')</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3.1.0/dist/topojson-client.min.js" defer></script>
+<script src="data.js?v=1" defer></script>
+<script src="hindi.js?v=1" defer></script>
+<script src="state.js?v=1" defer></script>
+<script src="engine.js?v=1" defer></script>
+<script src="ui.js?v=1" defer></script>
+</head>
+<body>
+<div id="globe-container" aria-label="3D Earth globe"></div>
+<div id="labels-layer"></div>
+
+<div id="loading-badge" class="glass"><span class="pulse"></span><span id="loading-text">ग्लोब लोड हो रहा है · Loading the globe</span></div>
+
+<header class="bar">
+  <div class="glass group brand">
+    <button id="btn-toggle-sidebar" class="icon" aria-label="List">☰</button>
+    <a href="/learn/atlas/" id="back-link">←</a>
+    <div class="titles"><b>3D <span data-t="title"></span></b><small data-t="subtitle"></small></div>
+  </div>
+  <div class="glass group layers">
+    <button class="layer-btn" data-layer="all" data-t="layerAll"></button>
+    <button class="layer-btn" data-layer="winds" data-t="layerWinds"></button>
+    <button class="layer-btn" data-layer="currents" data-t="layerCurrents"></button>
+  </div>
+  <div class="glass group">
+    <button id="btn-season" class="season"><span id="season-icon">☀️</span> <span id="season-label"></span></button>
+    <button id="btn-lang"></button>
+    <button id="btn-quiz" class="quiz-btn">🎯 <span data-t="quizBtn"></span></button>
+  </div>
+</header>
+
+<aside id="sidebar" class="glass">
+  <div class="filters">
+    <div class="search"><input id="search-input" type="search" autocomplete="off"><button id="btn-clear-search" hidden aria-label="Clear">✕</button></div>
+    <div class="temps">
+      <button class="temp-btn" data-temp="all" data-t="tempAll"></button>
+      <button class="temp-btn warm" data-temp="warm" data-t="tempWarm"></button>
+      <button class="temp-btn cold" data-temp="cold" data-t="tempCold"></button>
+      <button class="temp-btn flip" data-temp="seasonal" data-t="tempSeasonal"></button>
+    </div>
+    <div class="region-row"><select id="region-select" aria-label="Region"></select><span id="item-count"></span></div>
+  </div>
+  <div id="items-list"></div>
+  <div class="hotspots"><div class="hot-title">⚡ <span data-t="hotspotsTitle"></span></div><div id="hotspots-list"></div></div>
+</aside>
+
+<section id="inspector-card" class="glass card" hidden>
+  <div class="card-head">
+    <div>
+      <div class="badges"><span id="insp-category-badge" class="badge"></span><span id="insp-temp-badge" class="badge"></span></div>
+      <h2 id="insp-title"></h2>
+      <p id="insp-nickname"></p>
+    </div>
+    <button id="btn-close-inspector" class="icon" aria-label="Close">✕</button>
+  </div>
+  <div class="card-body">
+    <div class="two">
+      <div class="box"><small data-t="labelRegion"></small><div id="insp-region"></div></div>
+      <div class="box"><small data-t="labelDirection"></small><div id="insp-direction"></div></div>
+    </div>
+    <div><h3 class="sky" data-t="labelMechanism"></h3><p id="insp-mechanism"></p></div>
+    <div><h3 class="green" data-t="labelImpact"></h3><p id="insp-impact"></p></div>
+    <div class="exam"><h3>📌 <span data-t="labelExamTip"></span></h3><p id="insp-exam"></p></div>
+  </div>
+  <div class="card-foot">
+    <span><button id="btn-prev-item">←</button><button id="btn-next-item">→</button></span>
+    <button id="btn-refocus" class="primary">⌖ <span data-t="focusBtn"></span></button>
+  </div>
+</section>
+
+<section id="quiz-card" class="glass card quiz" hidden>
+  <div class="card-head">
+    <div><h2>🎯 <span data-t="quizTitle"></span></h2>
+      <p><span data-t="quizScore"></span>: <b id="quiz-score">0</b> / <span id="quiz-total">0</span> · 🔥 <span id="quiz-streak">0</span></p></div>
+    <button id="btn-close-quiz" class="icon" aria-label="Close">✕</button>
+  </div>
+  <div class="card-body">
+    <div id="quiz-badge"></div>
+    <p id="quiz-question"></p>
+    <div id="quiz-options"></div>
+    <div id="quiz-feedback" hidden></div>
+  </div>
+  <div class="card-foot">
+    <button id="btn-quiz-hint">⌖ <span data-t="recenter"></span></button>
+    <button id="btn-quiz-next" class="primary amber" hidden><span data-t="quizNext"></span> →</button>
+  </div>
+</section>
+
+<footer class="dock">
+  <div class="glass legend">
+    <span><i style="--c:#ff8c1a"></i><span data-t="legWarmWind"></span></span>
+    <span><i style="--c:#38bdf8"></i><span data-t="legColdWind"></span></span>
+    <span><i style="--c:#ff4238"></i><span data-t="legWarmCurr"></span></span>
+    <span><i style="--c:#00e5ff"></i><span data-t="legColdCurr"></span></span>
+    <span><i style="--c:#c084fc"></i><span data-t="legSeasonal"></span></span>
+  </div>
+  <div class="glass group controls">
+    <button id="btn-play-pause" class="icon">⏸</button>
+    <button id="btn-autorotate" class="toggle">↻ <span data-t="spin"></span></button>
+    <button id="btn-labels" class="toggle"><span data-t="names"></span></button>
+    <button id="btn-grid" class="toggle"><span data-t="grid"></span></button>
+    <button id="btn-zoom-in" class="icon" aria-label="Zoom in">+</button>
+    <button id="btn-zoom-out" class="icon" aria-label="Zoom out">−</button>
+    <button id="btn-reset-view"><span data-t="reset"></span></button>
+  </div>
+</footer>
+
+<div id="toast" class="glass" role="status"></div>
+</body>
+</html>
