@@ -23,6 +23,11 @@ const experiments=[
  ['echo','ध्वनि की प्रतिध्वनि','Sound echo','ध्वनि दीवार तक जाकर लौटती है। प्रतिध्वनि का समय आने और जाने दोनों की दूरी पर निर्भर है।','Sound travels to the wall and back. Echo delay depends on the total round-trip distance.']
 ];
 topics.push(...experiments);
+topics[1]=['river','नदी का जन्म और विसर्प','From headwaters to meanders','पहाड़ियों में वर्षा का पानी ढाल पर बहकर छोटी धाराओं और फिर नदी में इकट्ठा होता है।','Rain runs downhill in the headwaters and gathers into streams that feed a river.'];
+topics.push(['mountain-building','वलित पर्वत कैसे बनते हैं?','How fold mountains form','इस अनुप्रस्थ काट में सतह के नीचे की चट्टानी परतें देखें। अभिसारी प्लेटों के बीच दबाव बढ़ता है।','Look beneath the surface at the stacked beds. Converging plates compress the crust between them.']);
+observations.splice(18,0,['लाखों वर्षों में पर्पटी छोटी और मोटी होती है। उठी हुई वलित परतें पर्वत श्रेणी का हिस्सा बनती हैं।','Over millions of years the crust shortens and thickens. Uplifted folds become part of a mountain belt.']);
+lessonShots.splice(18,0,['तीर प्लेटों के अभिसरण को दिखाते हैं। लगभग समतल परतें धीरे-धीरे मुड़ने लगती हैं।','The arrows show convergence. The initially low beds begin to buckle.','बीच में उठती पर्वत श्रेणी और नीचे की मुड़ी परतों को साथ देखें।','Compare the rising ridge at the surface with the bent beds in the exposed cross-section.']);
+lessonShots[1]=['ऊपरी भाग से नीचे तक धारा का रास्ता देखें। जहाँ पानी जुड़ता है वहाँ एक मुख्य चैनल बनता है।','Follow the gathering flow downhill. Water concentrates into a main channel.','अब मोड़ को बढ़ते देखें। बाहरी किनारे पर कटाव और भीतरी किनारे पर जमाव मोड़ को खिसकाते हैं।','Watch the bend grow. Erosion on the outer bank and deposition on the inner bank shift the channel sideways.'];
 function diagram(){
  const c=ctx,t=time, gold='#ffd584', aqua='#7ae1d2', pale='#e3ede3';
  c.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);atmosphere(c,false);
@@ -89,7 +94,7 @@ function build(){
  if(i===0||j===cells-1){const [u,v]=j===cells-1?[D,C]:[A,D];polygon([u,v,[v[0],v[1]+19],[u[0],u[1]+19]],j===cells-1?'#786b58':'#504f48');for(let k=1;k<=3;k++){const d=4*k+2*sin(x*9+y*7+k);g.strokeStyle=k%2?'#978267':'#645849';g.lineWidth=1.4;g.beginPath();g.moveTo(u[0],u[1]+d);g.lineTo(v[0],v[1]+d);g.stroke()}}
  }}
 const anchors=[[[-.43,-.2],[.63,.18]],[[.54,.39],[.32,.39]],[[0,0],[.07,.67]],[[.39,.38],[.64,.9]],[[0,-.77],[0,.74]],[[-.39,0],[.5,0]],[[-.14,.15],[.61,.55]],[[0,0],[.68,.42]]];
-function draw(){if(n>=18){geologyScene(topics[n][0]);return}if(n>=8){diagram();return}
+function draw(){if(n===1||topics[n][0]==="mountain-building"){formation(n!==1);return}if(n>=19){geologyScene(topics[n][0]);return}if(n>=8){diagram();return}
  ctx.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);ctx.drawImage(terrain,0,0);
  if(n===0){
    for(let i=0;i<28;i++){
@@ -114,20 +119,21 @@ function draw(){if(n>=18){geologyScene(topics[n][0]);return}if(n>=8){diagram();r
  const [px,py]=point(x,Y,h);ctx.fillStyle=color;ctx.globalAlpha=.76;ctx.beginPath();ctx.ellipse(px,py,n===0?1.3:3,n===0?5:1.7,0,0,Math.PI*2);ctx.fill()}
  ctx.globalAlpha=1;anchors[n].forEach(([x,y],i)=>{const [px,py]=point(x,y),tx=i?668:190,ty=i?355:100;const label=topics[n][(hi?5:6)+2*i];ctx.font='600 25px "Nirmala UI",sans-serif';const w=ctx.measureText(label).width+24;ctx.lineWidth=1.8;ctx.strokeStyle='#fff0ce';ctx.beginPath();ctx.moveTo(px,py);ctx.lineTo(tx,ty);ctx.stroke();ctx.fillStyle='#fff0ce';ctx.fillRect(px-3,py-3,6,6);ctx.fillStyle='#132e35';ctx.fillRect(tx-w/2,ty-21,w,39);ctx.textAlign='center';ctx.fillStyle='#fff5d8';ctx.fillText(label,tx,ty+7)});
 }
-function select(i){n=i;time=0;if(n<8)build();render()}
-function render(){refreshEditions();updateFilm();$("#replay").textContent=hi?"शुरू से ↺":"Replay ↺";$("#expand").textContent=hi?"बड़ा देखें ⛶":"Full screen ⛶";const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=((n<8||n>=18)?(hi?'भूगोल':'GEOGRAPHY'):n===13?(hi?'पर्यावरण':'ECOLOGY'):n===14||n===15?(hi?'अर्थशास्त्र':'ECONOMICS'):n===16?(hi?'गणित':'MATHS'):(hi?'विज्ञान':'SCIENCE'))+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topics.forEach((r,i)=>{let b=$('#topics').children[i];if(!b){b=document.createElement('button');$('#topics').append(b);b.onclick=()=>{auto=false;select(i)}}b.textContent=r[hi?1:2];b.setAttribute('aria-pressed',n===i)});draw()}
+function select(i){n=i;time=0;if(n<8&&n!==1)build();render()}
+function render(){refreshEditions();updateFilm();$("#replay").textContent=hi?"शुरू से ↺":"Replay ↺";$("#expand").textContent=hi?"बड़ा देखें ⛶":"Full screen ⛶";const row=topics[n];$("#observe-label").textContent=hi?"दृश्य में ध्यान दें":"Look closely";$("#observation").textContent=observations[n][hi?0:1];document.documentElement.lang=hi?'hi':'en';$('h1').textContent=row[hi?1:2];$('#lesson').textContent=row[hi?3:4];$('#category').textContent=subjectOf(row[0]).title[hi?0:1]+' / '+String(n+1).padStart(2,'0');$('#choose').textContent=hi?'दूसरा दृश्य देखें':'Explore the scenes';$('#lang').textContent=hi?'English':'हिन्दी';$('#play').textContent=running?(hi?'रोकें Ⅱ':'Pause Ⅱ'):(hi?'चलाएँ ▷':'Play ▷');topicMenu();draw()}
 $('#play').onclick=()=>{running=!running;render()};$('#lang').onclick=()=>{hi=!hi;try{localStorage.setItem('gen_lang',hi?'hi':'en')}catch{}render()};
 $('#replay').onclick=()=>{running=true;select(n)};
 $('#expand').onclick=async()=>{
  try{if(document.fullscreenElement)await document.exitFullscreen();else await $('.viewer').requestFullscreen()}
  catch{if(window.parent!==window)window.open('/learn/atlas/','_blank','noopener')}
 };
-canvas.width=1350;canvas.height=795;refreshEditions();select(publishedEditions?topics.length-1:0);setInterval(()=>{if(refreshEditions())render()},15000);
+canvas.width=1350;canvas.height=795;refreshEditions();select(1);setInterval(()=>{if(refreshEditions())render()},15000);
 let last=0,visible=true;new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(canvas);
-function frame(now){if(running&&visible&&!document.hidden&&now-last>=32){time+=Math.min((now-last)/1000,.08);last=now;if(time>=50)select((n+1)%topics.length);else {draw();updateFilm()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
+function frame(now){if(running&&visible&&!document.hidden&&now-last>=32){time+=Math.min((now-last)/1000,.08);last=now;if(time>=50)select(n===1?18:n===18?2:n===17?(topics.length>19?19:0):(n+1)%topics.length);else {draw();updateFilm()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
 if(window.parent!==window){
   new ResizeObserver(()=>parent.postMessage({atlasHeight:document.body.getBoundingClientRect().height},location.origin)).observe(document.body);
   window.addEventListener('message',event=>{
+    if(event.origin===location.origin&&event.source===parent&&Number.isFinite(event.data?.hostHeight))document.documentElement.style.setProperty('--screen',event.data.hostHeight+'px');
     if(event.origin===location.origin&&event.source===parent&&['hi','en'].includes(event.data?.atlasLang)){
       hi=event.data.atlasLang==='hi';render();
     }

@@ -35,5 +35,5 @@ function updateFilm(){
  $('#clock').textContent='0:'+String(Math.floor(time)).padStart(2,'0')+' / 0:50';
  $('#progress').value=time;
  const zoom=shot===0?1+.04*time/10:shot===1?1.04+.09*(time-10)/13:shot===2?1.13-.05*(time-23)/14:1.08-.08*(time-37)/13;
- canvas.style.transform='scale('+zoom+')';
+ canvas.style.transform='none';
 }

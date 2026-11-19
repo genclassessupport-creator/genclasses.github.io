@@ -1119,7 +1119,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 @media (max-width:640px){.pdf-strip{min-height:56px;padding:4px 10px;gap:8px}.ps-label{font-size:10.5px;max-width:84px}.ps-label small{display:none}.ps-item img{height:44px;width:34px}.ps-chip{font-size:11px}.ps-all{font-size:11px;padding:4px 9px}}
 </style>
 <link rel="stylesheet" href="/assets/learning.css">
-</head>
+<style>#visual-atlas{padding-block:16px;scroll-margin-top:72px}#visual-atlas .section-in{max-width:1440px}</style></head>
 <body>
 
 <canvas id="embers" aria-hidden="true"></canvas>
@@ -1245,8 +1245,8 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 <section id="visual-atlas"><div class="section-in"><h2><span data-hi>दृश्य एटलस · विषयवार चलते मॉडल</span><span data-en>Visual Atlas · animated topic models</span></h2><iframe id="atlas-frame" allowfullscreen title="Visual Atlas · animated topic models · दृश्य एटलस · विषयवार चलते मॉडल" src="/learn/atlas/" loading="lazy" style="width:100%;height:700px;border:0;border-radius:18px;display:block;margin-top:16px"></iframe><a href="/learn/atlas/"><span data-hi>पूरे पेज में देखें</span><span data-en>Open full-page atlas</span> ↗</a></div></section>
 <script>
 const atlasFrame=document.getElementById('atlas-frame');
-function syncAtlasLanguage(){atlasFrame.contentWindow.postMessage({atlasLang:document.documentElement.lang},location.origin)}
-atlasFrame.addEventListener('load',syncAtlasLanguage);
+function syncAtlasLanguage(){atlasFrame.contentWindow.postMessage({atlasLang:document.documentElement.lang,hostHeight:window.innerHeight},location.origin)}
+atlasFrame.addEventListener('load',syncAtlasLanguage);window.addEventListener('resize',syncAtlasLanguage);
 new MutationObserver(syncAtlasLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 window.addEventListener('message',event=>{
   if(event.origin!==location.origin||event.source!==atlasFrame.contentWindow)return;
