@@ -78,7 +78,6 @@ html[data-theme="light"] .aur-1{background:radial-gradient(circle,#C5DDD6 0%,tra
 html[data-theme="light"] .aur-2{background:radial-gradient(circle,#E2D4A8 0%,transparent 65%)}
 html[data-theme="light"] #embers{opacity:.65;filter:brightness(.45) saturate(1.6)}
 html[data-theme="light"] .grain{opacity:.035}
-html[data-theme="light"] .wm{-webkit-text-stroke:1.3px rgba(30,58,138,.14)}
 html[data-theme="light"] .ring{stroke:rgba(30,58,138,.45)}
 html[data-theme="light"] .ring-b{stroke:rgba(122,90,24,.4)}
 html[data-theme="light"] .emblem::before{background:radial-gradient(circle,rgba(176,138,62,.24) 0%,transparent 62%)}
@@ -185,12 +184,11 @@ nav.scrolled{background:rgba(6,11,22,.78);backdrop-filter:blur(14px);border-bott
 
 /* ═══════════ मुखपृष्ठ ═══════════ */
 header{position:relative;z-index:3;min-height:0;display:flex;align-items:center;padding:100px 26px 32px}
-.wm{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-52%);
-  font-family:'Rozha One',serif;font-size:min(22vw,280px);line-height:1;
-  color:transparent;-webkit-text-stroke:1px rgba(30,58,138,.055);
-  z-index:-1;user-select:none;pointer-events:none;white-space:nowrap;
+.emblem-wordmark{
+  font:64px Georgia,serif;fill:none;stroke:rgba(242,205,136,.19);
+  stroke-width:1px;pointer-events:none;user-select:none;
 }
+html[data-theme="light"] .emblem-wordmark{stroke:rgba(30,58,138,.14)}
 .hero-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.12fr .88fr;gap:36px;align-items:center;width:100%}
 .hr-el{opacity:0;transform:translateY(34px);animation:rise 1s cubic-bezier(.2,.75,.25,1) forwards}
 @keyframes rise{to{opacity:1;transform:none}}
@@ -929,7 +927,6 @@ footer .sh{font-family:'Tiro Devanagari Hindi',serif;font-style:italic;color:var
   .emblem-cap{display:none}
   .eyebrow{justify-content:center;margin-bottom:6px;font-size:10.5px;letter-spacing:2.5px}
   .eyebrow::before{display:none}
-  .wm{font-size:36vw}
   .scroll-cue{display:none}
   .method::before{display:none}
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
@@ -1205,7 +1202,6 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 
 
 <header id="top">
-  <div class="wm" id="wm">जेन</div>
   <div class="hero-in">
     <div>
       <span class="eyebrow hr-el" style="animation-delay:.15s"><span data-hi>UPSC · UPPCS की तैयारी</span><span data-en>UPSC · UPPCS preparation</span></span>
@@ -1224,6 +1220,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
     <div class="hero-art hr-el" style="animation-delay:.55s">
       <div class="emblem">
         <svg viewBox="0 0 200 224" role="img" aria-label="ज्ञान की लौ">
+          <text class="emblem-wordmark" aria-hidden="true" x="100" y="43" text-anchor="middle" textLength="224" lengthAdjust="spacingAndGlyphs">GEN</text>
           <circle class="ring ring-a" cx="100" cy="112" r="96"/>
           <circle class="ring ring-b" cx="100" cy="112" r="84"/>
           <path class="leaf" pathLength="1" d="M100 46 C 62 66, 42 104, 56 142 C 69 174, 90 185, 100 189 C 110 185, 131 174, 144 142 C 158 104, 138 66, 100 46 Z"/>
@@ -2545,13 +2542,11 @@ loadManifest().then(function(list){
 /* ---------- शीर्ष पट्टी, प्रगति, watermark ---------- */
 var nav = document.getElementById("nav");
 var prog = document.getElementById("progress");
-var wm = document.getElementById("wm");
 function onScroll(){
   var y = scrollY;
   if (y > 30) nav.classList.add("scrolled"); else nav.classList.remove("scrolled");
   var h = document.documentElement.scrollHeight - innerHeight;
   prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
-  if (wm && !REDUCED) wm.style.transform = "translate(-50%, calc(-52% + " + y * .16 + "px))";
 }
 addEventListener("scroll", onScroll, { passive: true });
 onScroll();
