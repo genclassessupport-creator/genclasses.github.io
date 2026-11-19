@@ -1,0 +1,228 @@
+/* GenClasses मुखपृष्ठ — शीर्ष मेन्यू (ड्रॉपडाउन), छोटा दृश्य एटलस, निःशुल्क मार्गदर्शन।
+   शीर्ष पट्टी दोनों थीम में एक ही गहरी नीली रहती है; उसके रंग नीचे --gx-* में हैं। */
+
+.gx-sr{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+/* ═══════════ शीर्ष मेन्यू ═══════════ */
+#nav.gx{
+  --gx-bg:#081226; --gx-panel:#0D1B36; --gx-text:#EDF1F8; --gx-dim:#9FB0CB;
+  --gx-gold:#F2CD88; --gx-gold-2:#D9AE5F; --gx-line:rgba(242,205,136,.2); --gx-h:76px;
+  position:fixed; inset:0 0 auto 0; z-index:100; height:var(--gx-h);
+  background:linear-gradient(180deg,#0B1832,var(--gx-bg)); color:var(--gx-text);
+  border-bottom:1px solid var(--gx-line); box-shadow:0 6px 24px rgba(3,8,20,.28);
+  backdrop-filter:none; font-family:'Mukta',sans-serif;
+}
+#nav.gx.scrolled{background:rgba(8,18,38,.96); border-bottom-color:var(--gx-line)}
+.gx-in{
+  max-width:1400px; height:100%; margin:0 auto; padding:0 clamp(14px,2.2vw,34px);
+  display:flex; align-items:center; gap:clamp(8px,1vw,16px);
+}
+.gx-brand{display:flex; align-items:center; gap:12px; flex:none; margin-right:auto; color:var(--gx-text)}
+.gx-logo{
+  width:52px; height:52px; flex:none; border-radius:50%; overflow:hidden; background:#fff;
+  border:1.5px solid var(--gx-gold-2); box-shadow:0 0 0 3px rgba(242,205,136,.12);
+}
+.gx-logo picture,.gx-logo img{display:block; width:100%; height:100%; object-fit:cover}
+.gx-name{font-family:'Rozha One',serif; font-size:25px; line-height:1.05; white-space:nowrap}
+.gx-name small{
+  display:block; margin-top:3px; font-family:'Mukta',sans-serif; font-size:11px; font-weight:600;
+  letter-spacing:.09em; color:var(--gx-gold);
+}
+
+.gx-menu{display:flex; align-items:center; gap:2px}
+.gx-item{position:relative}
+.gx-top{
+  display:inline-flex; align-items:center; gap:7px; height:44px; padding:0 13px;
+  font:600 17px/1 'Mukta',sans-serif; color:var(--gx-text); white-space:nowrap;
+  background:none; border:0; border-radius:10px; cursor:pointer;
+  transition:background .18s,color .18s;
+}
+.gx-top:hover,.gx-item:hover>.gx-top,.gx-item.open>.gx-top{background:rgba(242,205,136,.12); color:var(--gx-gold)}
+.gx-top:focus-visible,.gx-sub:focus-visible,.gx-ibtn:focus-visible,.gx-cta:focus-visible{outline:2px solid var(--gx-gold); outline-offset:2px}
+.gx-car{flex:none; opacity:.8; transition:transform .2s}
+.gx-item:hover .gx-car,.gx-item.open .gx-car{transform:rotate(180deg)}
+
+.gx-drop{
+  position:absolute; top:100%; left:50%; z-index:5; padding-top:14px;
+  transform:translate(-50%,6px); opacity:0; visibility:hidden; pointer-events:none;
+  transition:opacity .18s,transform .18s,visibility 0s .18s;
+}
+.gx-item:hover>.gx-drop,.gx-item.open>.gx-drop,.gx-item:focus-within>.gx-drop{
+  opacity:1; visibility:visible; pointer-events:auto; transform:translate(-50%,0); transition-delay:0s;
+}
+.gx-panel{
+  position:relative; width:300px; padding:8px; display:grid; gap:2px;
+  background:var(--gx-panel); border:1px solid var(--gx-line); border-top:2px solid var(--gx-gold-2);
+  border-radius:4px 4px 16px 16px; box-shadow:0 22px 50px rgba(2,6,18,.55);
+}
+.gx-wide .gx-panel{width:560px; grid-template-columns:1fr 1fr}
+.gx-sub{display:block; padding:10px 13px; border-radius:10px; color:var(--gx-text); transition:background .15s}
+.gx-sub:hover{background:rgba(242,205,136,.1)}
+.gx-sub b{display:block; font-size:16px; font-weight:700; line-height:1.3}
+.gx-sub:hover b{color:var(--gx-gold)}
+.gx-sub small{display:block; margin-top:2px; font-size:13px; line-height:1.4; color:var(--gx-dim)}
+
+.gx-cta{
+  flex:none; display:inline-flex; align-items:center; height:44px; padding:0 20px;
+  font:800 16px/1 'Mukta',sans-serif; color:#0A1426; white-space:nowrap;
+  background:linear-gradient(135deg,#F7DCA3,var(--gx-gold-2)); border-radius:11px;
+  box-shadow:0 6px 18px rgba(217,174,95,.25); transition:transform .18s,box-shadow .18s;
+}
+.gx-cta:hover{transform:translateY(-1px); box-shadow:0 10px 24px rgba(217,174,95,.36)}
+.gx-cta-in{display:none}
+.gx-ibtn{
+  flex:none; width:42px; height:42px; display:grid; place-items:center; padding:0;
+  font:800 13px/1 'Mukta',sans-serif; color:var(--gx-gold); cursor:pointer;
+  background:rgba(255,255,255,.05); border:1px solid var(--gx-line); border-radius:11px;
+  transition:background .18s,border-color .18s;
+}
+.gx-ibtn:hover{background:rgba(242,205,136,.12); border-color:var(--gx-gold-2)}
+#themeBtn.gx-ibtn{font-size:17px}
+.gx-burger{display:none; gap:4px; align-content:center}
+.gx-burger span{display:block; width:18px; height:2px; border-radius:2px; background:currentColor; transition:transform .2s,opacity .2s}
+.gx-burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.gx-burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.gx-burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+
+/* थोड़ी संकरी स्क्रीन या 115–125% ज़ूम: पट्टी वही रहे, बस कसी हुई */
+@media(max-width:1340px){
+  .gx-top{font-size:16px; padding:0 10px; gap:6px}
+  .gx-name{font-size:23px}
+  .gx-cta{padding:0 16px; font-size:15.5px}
+}
+@media(max-width:1200px){
+  .gx-name small{display:none}
+  .gx-logo{width:46px; height:46px}
+  .gx-top{font-size:15.5px; padding:0 8px}
+  .gx-in{gap:8px}
+}
+/* इससे छोटी चौड़ाई पर पूरा मेन्यू बटन के पीछे — कभी ग़ायब नहीं होता */
+@media(max-width:1100px){
+  .gx-burger{display:grid}
+  .gx-cta-bar{display:none}
+  .gx-menu{
+    display:none; position:absolute; top:100%; left:0; right:0; align-items:stretch; flex-direction:column; gap:2px;
+    max-height:calc(100dvh - var(--gx-h)); overflow:auto; overscroll-behavior:contain; padding:10px 14px 18px;
+    background:var(--gx-bg); border-bottom:1px solid var(--gx-line); box-shadow:0 24px 40px rgba(2,6,18,.5);
+  }
+  .gx-menu.open{display:flex}
+  .gx-top{width:100%; height:50px; justify-content:space-between; font-size:17.5px; padding:0 12px}
+  .gx-item:hover>.gx-top{background:none; color:var(--gx-text)}
+  .gx-item.open>.gx-top{background:rgba(242,205,136,.12); color:var(--gx-gold)}
+  .gx-item:hover .gx-car{transform:none}
+  .gx-item.open .gx-car{transform:rotate(180deg)}
+  .gx-drop,.gx-item:hover>.gx-drop,.gx-item:focus-within>.gx-drop{
+    position:static; display:none; padding:0; opacity:1; visibility:visible; pointer-events:auto; transform:none; transition:none;
+  }
+  .gx-item.open>.gx-drop{display:block; transform:none}
+  .gx-panel,.gx-wide .gx-panel{
+    width:auto; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); margin:2px 0 8px;
+    background:rgba(255,255,255,.035); border:0; border-left:2px solid var(--gx-gold-2); border-radius:0 12px 12px 0; box-shadow:none;
+  }
+  .gx-cta-in{display:flex; justify-content:center; margin-top:10px; height:48px}
+}
+@media(max-width:600px){
+  #nav.gx{--gx-h:64px}
+  .gx-logo{width:40px; height:40px}
+  .gx-name{font-size:21px}
+  .gx-ibtn{width:38px; height:38px}
+  .gx-in{gap:7px}
+}
+@media(prefers-reduced-motion:reduce){.gx-drop,.gx-car,.gx-cta,.gx-burger span{transition:none}}
+
+/* मेन्यू के ठीक नीचे की पट्टियाँ */
+.ticker-wrap.ticker-fixed-bar{margin-top:76px}
+@media(max-width:600px){.ticker-wrap.ticker-fixed-bar{margin-top:64px}}
+
+/* हल्की थीम में भी ऊपर की तीनों पट्टियाँ एक ही गहरी नीली पट्टी जैसी दिखें */
+html[data-theme="light"] :is(.ticker-wrap,.pdf-strip){
+  --blue:#7FB4FF; --cream:#F2EBDA; --glass:rgba(255,255,255,.035);
+  --gold:#D9AE5F; --gold-deep:#8F6B26; --gold-hi:#F2CD88; --green:#7FD6A4;
+  --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+  --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34); --mist:#98A6BE;
+}
+html[data-theme="light"] .ticker-wrap{background:#0D1F3B; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16)}
+html[data-theme="light"] .ticker-track a,
+html[data-theme="light"] .ticker-track .ticker-cd{color:#F2EBDA; border-right-color:rgba(217,174,95,.16)}
+html[data-theme="light"] .ticker-track .pill-new{background:linear-gradient(135deg,#1E3A8A,#172E5C)}
+html[data-theme="light"] .ticker-track .cd-mail{border-color:rgba(255,255,255,.55); border-right-color:rgba(217,174,95,.16)}
+html[data-theme="light"] .ticker-track .cd-tg{background:#229ED9; border-color:rgba(255,255,255,.35)}
+html[data-theme="light"] .pdf-strip{background:#091222; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16)}
+
+/* ═══════════ दृश्य एटलस — छोटा; बड़ा देखना हो तो प्लेयर का "पूरी स्क्रीन" ═══════════ */
+#visual-atlas{padding-block:26px 18px; scroll-margin-top:0}
+#visual-atlas .section-in{max-width:1120px}
+#visual-atlas h2{font-size:clamp(22px,2.4vw,30px)}
+#visual-atlas .atlas-tip{display:block; margin-top:4px; font-size:14.5px; color:var(--mist)}
+#visual-atlas .atlas-links{margin-top:10px; font-size:15px; font-weight:700; color:var(--gold-hi)}
+#visual-atlas .atlas-links a:hover{text-decoration:underline}
+@media(max-width:900px){#visual-atlas{padding-block:16px}}
+
+/* ═══════════ आज का करंट — खंड की जगह ═══════════ */
+#daily-ca{padding:30px 26px 34px}
+@media(max-width:760px){#daily-ca{padding:20px 14px 24px}}
+
+/* ═══════════ निःशुल्क मार्गदर्शन ═══════════ */
+#guidance{padding:44px 26px 56px}
+.gd{
+  position:relative; overflow:hidden; display:grid; grid-template-columns:1.1fr .9fr; gap:clamp(22px,4vw,56px); align-items:center;
+  padding:clamp(24px,4vw,52px); border-radius:28px; color:#EDF1F8;
+  background:
+    radial-gradient(620px 320px at 0% 0%,rgba(242,205,136,.16),transparent 60%),
+    radial-gradient(560px 380px at 100% 100%,rgba(79,143,247,.2),transparent 62%),
+    linear-gradient(140deg,#0C1D3F,#081226 70%);
+  border:1px solid rgba(242,205,136,.26); box-shadow:0 24px 60px rgba(6,14,32,.28);
+}
+.gd-eye{display:inline-block; font-size:13px; font-weight:800; letter-spacing:.14em; color:#F2CD88}
+.gd h2{margin-top:8px; font-size:clamp(28px,3.6vw,44px); line-height:1.2; color:#FFF8E8}
+.gd-lead{margin-top:12px; max-width:520px; font-size:17px; line-height:1.65; color:#C5D0E3}
+.gd-steps{list-style:none; margin:22px 0 0; padding:0; display:grid; gap:12px}
+.gd-steps li{display:flex; align-items:center; gap:13px; font-size:17.5px; font-weight:600; color:#F3F5FA}
+.gd-steps b{
+  flex:none; width:32px; height:32px; display:grid; place-items:center; border-radius:50%;
+  font-size:15px; font-weight:800; color:#0A1426; background:linear-gradient(135deg,#F7DCA3,#D9AE5F);
+}
+.gd-direct{margin-top:24px; font-size:15.5px; color:#C5D0E3}
+.gd-direct a{font-weight:800; color:#F2CD88; white-space:nowrap}
+.gd-direct a:hover{text-decoration:underline}
+.gd-direct i{font-style:normal; opacity:.5; margin:0 4px}
+
+.gd-form{
+  display:grid; gap:15px; padding:clamp(18px,2.4vw,28px); border-radius:20px;
+  background:#FFFDF7; color:#16233D; box-shadow:0 18px 44px rgba(2,6,18,.4);
+}
+.gd-f{display:grid; gap:6px; font-size:15px; font-weight:700; color:#16233D}
+.gd-f input{
+  width:100%; height:50px; padding:0 14px; font:500 17px/1 'Mukta',sans-serif; color:#16233D;
+  background:#fff; border:1.5px solid #C9D2E0; border-radius:12px; transition:border-color .15s,box-shadow .15s;
+}
+.gd-f input::placeholder{color:#8A96AA; font-size:15px}
+.gd-f input:focus{outline:0; border-color:#1E3A8A; box-shadow:0 0 0 3px rgba(30,58,138,.16)}
+.gd-f input.bad{border-color:#C0392B; box-shadow:0 0 0 3px rgba(192,57,43,.13)}
+.gd-exam{border:0; margin:0; padding:0; min-width:0; display:flex; flex-wrap:wrap; gap:8px}
+.gd-exam legend{padding:0; margin-bottom:7px; font-size:15px; font-weight:700; color:#16233D}
+.gd-exam label{cursor:pointer}
+.gd-exam input{position:absolute; opacity:0; pointer-events:none}
+.gd-exam label>span{
+  display:inline-flex; align-items:center; height:38px; padding:0 15px; font-size:15px; font-weight:700; color:#2A3A58;
+  background:#F1F4FA; border:1.5px solid #D5DCE8; border-radius:999px; transition:background .15s,border-color .15s,color .15s;
+}
+.gd-exam label:hover>span{border-color:#1E3A8A}
+.gd-exam input:checked+span{background:#12264D; border-color:#12264D; color:#F7DCA3}
+.gd-exam input:focus-visible+span{outline:2px solid #1E3A8A; outline-offset:2px}
+.gd-err{margin:0; font-size:14.5px; font-weight:700; color:#B03024}
+.gd-send{
+  display:flex; align-items:center; justify-content:center; gap:10px; height:54px; cursor:pointer;
+  font:800 18px/1 'Mukta',sans-serif; color:#0A1426; border:0; border-radius:13px;
+  background:linear-gradient(135deg,#F7DCA3,#D9AE5F); box-shadow:0 10px 24px rgba(217,174,95,.34);
+  transition:transform .18s,box-shadow .18s;
+}
+.gd-send:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(217,174,95,.44)}
+.gd-send:focus-visible{outline:3px solid #1E3A8A; outline-offset:2px}
+.gd-note{margin:0; font-size:13px; line-height:1.5; color:#5C6880; text-align:center}
+@media(max-width:860px){
+  #guidance{padding:28px 14px 36px}
+  .gd{grid-template-columns:1fr; border-radius:22px}
+  .gd-steps li{font-size:16.5px}
+}
+@media(prefers-reduced-motion:reduce){.gd-send{transition:none}}

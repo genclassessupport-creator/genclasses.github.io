@@ -1119,7 +1119,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 @media (max-width:640px){.pdf-strip{min-height:56px;padding:4px 10px;gap:8px}.ps-label{font-size:10.5px;max-width:84px}.ps-label small{display:none}.ps-item img{height:44px;width:34px}.ps-chip{font-size:11px}.ps-all{font-size:11px;padding:4px 9px}}
 </style>
 <link rel="stylesheet" href="/assets/learning.css">
-<style>#visual-atlas{padding-block:16px;scroll-margin-top:-24px}#visual-atlas .section-in{max-width:1440px}</style><link rel="stylesheet" href="/assets/light-masthead.css?v=3"><style>#top{overflow-x:clip}@media(min-width:961px){#top{padding-top:44px}#top .hero-actions{gap:8px}#top .hero-actions .btn{padding:10px 14px}}</style></head>
+<style>#top{overflow-x:clip}@media(min-width:961px){#top{padding-top:44px}#top .hero-actions{gap:8px}#top .hero-actions .btn{padding:10px 14px}}</style><link rel="stylesheet" href="/assets/home-refresh.css?v=1"></head>
 <body>
 
 <canvas id="embers" aria-hidden="true"></canvas>
@@ -1130,32 +1130,30 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 <div id="progress" aria-hidden="true"></div>
 
 <!-- ================= शीर्ष पट्टी ================= -->
-<nav id="nav">
-  <div class="nav-in">
-<a href="#top" class="brand">
-      <span class="brand-mark">
+<nav id="nav" class="gx" aria-label="Main">
+  <div class="gx-in">
+    <a href="#top" class="gx-brand">
+      <span class="gx-logo">
         <picture>
           <source srcset="/assets/gen-logo-96.webp" type="image/webp">
           <img src="/assets/gen-logo-96.png" width="56" height="56" alt="GenClasses" decoding="async" fetchpriority="high">
         </picture>
       </span>
-      <span class="brand-name">GenClasses<small>Your goal Our support</small></span>
+      <span class="gx-name">GenClasses<small>Your goal Our support</small></span>
     </a>
-    <div class="nav-links" id="navLinks">
-      <a href="/downloads/"><span data-hi>बुकलेट</span><span data-en>Booklets</span></a>
-      <a href="#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
-      <a href="/syllabus/"><span data-hi>सिलेबस</span><span data-en>Syllabus</span></a>
-      <a href="/csat/">CSAT</a>
-      <a href="/daily/"><span data-hi>डेली</span><span data-en>Daily</span></a>
-      <a href="/flashcards/"><span data-hi>फ्लैश</span><span data-en>Flash</span></a>
-      <a href="/up-ca/"><span data-hi>करेंट अफेयर्स</span><span data-en>Current Affairs</span></a>
-      <a href="#visual-atlas"><span data-hi>दृश्य एटलस</span><span data-en>Visual Atlas</span></a><a href="#notes"><span data-hi>विज़ुअल नोट्स</span><span data-en>Visual Notes</span></a>
-      <a href="#join"><span data-hi>जुड़ें</span><span data-en>Join</span></a>
+    <div class="gx-menu" id="navLinks">
+      <div class="gx-item" data-gx="study"><button type="button" class="gx-top" aria-expanded="false" aria-controls="gx-study"><span data-hi>अध्ययन सामग्री</span><span data-en>Study Material</span><svg class="gx-car" viewBox="0 0 12 8" width="11" height="8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gx-drop gx-wide" id="gx-study"><div class="gx-panel"><a class="gx-sub" href="/downloads/"><b><span data-hi>बुकलेट और PDF</span><span data-en>Booklets & PDFs</span></b><small><span data-hi>विषयवार रिविज़न पुस्तिकाएँ</span><span data-en>Subject-wise revision booklets</span></small></a><a class="gx-sub" href="/ncert/"><b><span data-hi>NCERT किताबें</span><span data-en>NCERT Books</span></b><small><span data-hi>PDF के साथ अध्यायवार टेस्ट</span><span data-en>PDFs with chapter-wise tests</span></small></a><a class="gx-sub" href="#notes"><b><span data-hi>विज़ुअल नोट्स</span><span data-en>Visual Notes</span></b><small><span data-hi>12 विषयों के चित्रमय नोट्स</span><span data-en>Illustrated notes for 12 subjects</span></small></a><a class="gx-sub" href="#visual-atlas"><b><span data-hi>दृश्य एटलस</span><span data-en>Visual Atlas</span></b><small><span data-hi>चलते मॉडल से अवधारणा समझें</span><span data-en>Concepts through animated models</span></small></a><a class="gx-sub" href="/learn/atlas/globe/"><b><span data-hi>3D ग्लोब</span><span data-en>3D Globe</span></b><small><span data-hi>स्थानीय पवनें और महासागरीय धाराएँ</span><span data-en>Local winds and ocean currents</span></small></a><a class="gx-sub" href="/flashcards/"><b><span data-hi>फ्लैशकार्ड</span><span data-en>Flashcards</span></b><small><span data-hi>तेज़ दोहराव के लिए कार्ड</span><span data-en>Cards for quick revision</span></small></a></div></div></div>
+      <div class="gx-item" data-gx="tests"><button type="button" class="gx-top" aria-expanded="false" aria-controls="gx-tests"><span data-hi>टेस्ट</span><span data-en>Tests</span><svg class="gx-car" viewBox="0 0 12 8" width="11" height="8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gx-drop gx-wide" id="gx-tests"><div class="gx-panel"><a class="gx-sub" href="#tests"><b><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></b><small><span data-hi>सभी विषयवार और पूर्ण टेस्ट</span><span data-en>All topic-wise and full tests</span></small></a><a class="gx-sub" href="/uppcs-2026-mock/"><b><span data-hi>UPPCS 2026 मॉक</span><span data-en>UPPCS 2026 Mocks</span></b><small><span data-hi>5 निःशुल्क टेस्ट, 150-150 प्रश्न</span><span data-en>5 free tests, 150 questions each</span></small></a><a class="gx-sub" href="/uppcs-prelims-pyq/"><b><span data-hi>UPPCS प्रारंभिक PYQ</span><span data-en>UPPCS Prelims PYQ</span></b><small><span data-hi>2018 से 2025 के 1200 प्रश्न</span><span data-en>1200 questions from 2018 to 2025</span></small></a><a class="gx-sub" href="/polity/"><b><span data-hi>राजव्यवस्था PYQ</span><span data-en>Polity PYQ</span></b><small><span data-hi>21 टेस्ट में 960 प्रश्न</span><span data-en>960 questions in 21 tests</span></small></a><a class="gx-sub" href="/up-tgt-pgt-gic-mock/"><b><span data-hi>UP TGT/PGT और GIC</span><span data-en>UP TGT/PGT & GIC</span></b><small><span data-hi>GS खण्ड के 5 मॉक टेस्ट</span><span data-en>5 mock tests for the GS section</span></small></a><a class="gx-sub" href="/csat/"><b><span data-hi>CSAT हब</span><span data-en>CSAT Hub</span></b><small><span data-hi>गणित, तर्कशक्ति और बोधगम्यता</span><span data-en>Maths, reasoning and comprehension</span></small></a><a class="gx-sub" href="/daily/"><b><span data-hi>डेली 5 क्विज़</span><span data-en>Daily 5 Quiz</span></b><small><span data-hi>रोज़ पाँच नए प्रश्न</span><span data-en>Five fresh questions every day</span></small></a></div></div></div>
+      <div class="gx-item" data-gx="ca"><button type="button" class="gx-top" aria-expanded="false" aria-controls="gx-ca"><span data-hi>करेंट अफेयर्स</span><span data-en>Current Affairs</span><svg class="gx-car" viewBox="0 0 12 8" width="11" height="8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gx-drop" id="gx-ca"><div class="gx-panel"><a class="gx-sub" href="#daily-ca"><b><span data-hi>आज का करंट</span><span data-en>Today&#39;s Current</span></b><small><span data-hi>आज के परीक्षा-उपयोगी बिंदु</span><span data-en>Today&#39;s exam-relevant points</span></small></a><a class="gx-sub" href="/up-ca/"><b><span data-hi>UP करेंट अफेयर्स</span><span data-en>UP Current Affairs</span></b><small><span data-hi>उत्तर प्रदेश विशेष, तिथिवार</span><span data-en>Uttar Pradesh special, date-wise</span></small></a><a class="gx-sub" href="/downloads/#pdf-hl"><b><span data-hi>हाइलाइट बुक</span><span data-en>Highlight Book</span></b><small><span data-hi>करेंट अफेयर्स का वार्षिक संग्रह</span><span data-en>The current-affairs year compilation</span></small></a></div></div></div>
+      <div class="gx-item" data-gx="syllabus"><button type="button" class="gx-top" aria-expanded="false" aria-controls="gx-syllabus"><span data-hi>सिलेबस</span><span data-en>Syllabus</span><svg class="gx-car" viewBox="0 0 12 8" width="11" height="8" aria-hidden="true"><path d="M1 1.5 6 6.5 11 1.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><div class="gx-drop" id="gx-syllabus"><div class="gx-panel"><a class="gx-sub" href="/syllabus/"><b><span data-hi>सिलेबस हब</span><span data-en>Syllabus Hub</span></b><small><span data-hi>पाँच परीक्षाओं का रोडमैप</span><span data-en>Roadmaps for five exams</span></small></a><a class="gx-sub" href="/syllabus/up-tgt-pgt/"><b><span data-hi>UP TGT/PGT सिलेबस</span><span data-en>UP TGT/PGT Syllabus</span></b><small><span data-hi>नवीनतम पाठ्यक्रम</span><span data-en>The latest syllabus</span></small></a><a class="gx-sub" href="/ro-aro/drafting/"><b><span data-hi>RO/ARO आलेखन</span><span data-en>RO/ARO Drafting</span></b><small><span data-hi>प्रारूप और अभ्यास</span><span data-en>Formats and practice</span></small></a></div></div></div>
+      <a class="gx-top gx-link" href="#guidance"><span data-hi>निःशुल्क मार्गदर्शन</span><span data-en>Free Guidance</span></a>
+      <a class="gx-top gx-link" href="#join"><span data-hi>जुड़ें</span><span data-en>Join</span></a>
+      <a class="gx-cta gx-cta-in" href="#tests"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
     </div>
-    <a href="#tests" class="nav-cta"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
-    <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
-    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme" title="Theme"><span data-hi aria-hidden="true"></span>☀️</button>
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    <a href="#tests" class="gx-cta gx-cta-bar"><span data-hi>टेस्ट सीरीज़</span><span data-en>Test Series</span></a>
+    <button class="gx-ibtn gx-lang" id="langBtn" type="button" aria-label="Language">EN</button>
+    <button class="gx-ibtn" id="themeBtn" type="button" aria-label="Toggle theme" title="Theme">☀️</button>
+    <button class="gx-ibtn gx-burger" id="menuBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -1204,48 +1202,11 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 <script src="/assets/pdf-strip.js?v=1" defer></script>
 
 
-<header id="top">
-  <div class="wm" id="wm" aria-hidden="true"><span>GEN</span></div>
-  <div class="hero-in">
-    <div>
-      <span class="eyebrow hr-el" style="animation-delay:.15s"><span data-hi>UPSC · UPPCS की तैयारी</span><span data-en>UPSC · UPPCS preparation</span></span>
-      <h1 class="hero-title">
-        <span class="hr-el" style="animation-delay:.3s;display:block"><span data-hi>अवधारणा की स्पष्टता,</span><span data-en>Clarity of concepts,</span></span>
-        <span class="hr-el" style="animation-delay:.5s;display:block"><span data-hi><span class="shimmer">अभ्यास</span> की निरंतरता</span><span data-en>consistency of <span class="shimmer">practice</span></span></span>
-      </h1>
-      <p class="hero-sub hr-el" style="animation-delay:.7s"><span data-hi>प्रामाणिक अध्ययन-सामग्री और परीक्षा-स्तरीय टेस्ट के साथ व्यवस्थित तैयारी — प्रारंभिक परीक्षा से मुख्य परीक्षा तक।</span><span data-en>Structured prep with authentic notes and exam-level tests — from Prelims to Mains.</span></p>
-      <div class="hero-actions study-actions"><a href="#visual-atlas" class="btn btn-ghost"><span data-hi>दृश्यों से सीखें ↓</span><span data-en>Learn with visuals ↓</span></a>
-        <a href="/uppcs-prelims-pyq/" class="btn btn-gold"><span data-hi>पिछले वर्षों के प्रश्न हल करें</span><span data-en>Practise past papers</span></a>
-        <a href="/uppcs-2026-mock/" class="btn btn-ghost"><span data-hi>मॉक टेस्ट दें</span><span data-en>Take a mock test</span></a>
-        <a href="/downloads/" class="btn btn-ghost"><span data-hi>रिविज़न PDF पढ़ें</span><span data-en>Read revision PDFs</span></a>
-      </div>
-      <p class="hero-line hr-el" style="animation-delay:1.05s"><span data-hi><b>PYQ-आधारित दृष्टिकोण</b><span class="dot">✦</span>विषयवार अभ्यास<span class="dot">✦</span>निःशुल्क उपलब्ध</span><span data-en><b>PYQ-based approach</b><span class="dot">✦</span>Topic-wise practice<span class="dot">✦</span>Free to use</span></p>
-    </div>
-    <div class="hero-art hr-el" style="animation-delay:.55s">
-      <div class="emblem">
-        <svg viewBox="0 0 200 224" role="img" aria-label="ज्ञान की लौ">
-          <circle class="ring ring-a" cx="100" cy="112" r="96"/>
-          <circle class="ring ring-b" cx="100" cy="112" r="84"/>
-          <path class="leaf" pathLength="1" d="M100 46 C 62 66, 42 104, 56 142 C 69 174, 90 185, 100 189 C 110 185, 131 174, 144 142 C 158 104, 138 66, 100 46 Z"/>
-          <path class="vein" pathLength="1" d="M100 58 L100 181"/>
-          <path class="vein" pathLength="1" d="M100 86 C 86 94, 75 106, 67 122"/>
-          <path class="vein" pathLength="1" d="M100 86 C 114 94, 125 106, 133 122"/>
-          <path class="vein" pathLength="1" d="M100 116 C 89 124, 79 136, 74 150"/>
-          <path class="vein" pathLength="1" d="M100 116 C 111 124, 121 136, 126 150"/>
-          <path class="leaf" pathLength="1" d="M100 189 C 100 201, 96 209, 89 217"/>
-          <path class="flame" d="M100 8 C 91 19, 86 28, 91 37 C 95 43, 105 43, 109 37 C 114 28, 109 19, 100 8 Z"/>
-          <path class="flame-core" d="M100 22 C 96 27, 95 31, 97 35 C 99 38, 101 38, 103 35 C 105 31, 104 27, 100 22 Z"/>
-        </svg>
-        <div class="emblem-cap">"जेन — जहाँ ज्ञान, विवेक बन जाए"</div>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-cue" aria-hidden="true"><span data-hi>नीचे</span><span data-en>Down</span><span></span></div>
-</header>
-<section id="visual-atlas"><div class="section-in"><h2><span data-hi>दृश्य एटलस · विषयवार चलते मॉडल</span><span data-en>Visual Atlas · animated topic models</span></h2><iframe id="atlas-frame" allowfullscreen title="Visual Atlas · animated topic models · दृश्य एटलस · विषयवार चलते मॉडल" src="/learn/atlas/?v=globe1" loading="lazy" style="width:100%;height:700px;border:0;border-radius:18px;display:block;margin-top:16px"></iframe><a href="/learn/atlas/"><span data-hi>पूरे पेज में देखें</span><span data-en>Open full-page atlas</span> ↗</a> · <a href="/learn/atlas/globe/"><span data-hi>3D ग्लोब: पवनें व धाराएँ</span><span data-en>3D globe: winds & currents</span> ↗</a></div></section>
+<h1 class="gx-sr"><span data-hi>GenClasses — UPSC और UPPCS की तैयारी: नोट्स, टेस्ट और करेंट अफेयर्स</span><span data-en>GenClasses — UPSC and UPPCS preparation: notes, tests and current affairs</span></h1>
+<section id="visual-atlas"><div class="section-in"><h2><span data-hi>दृश्य एटलस · विषयवार चलते मॉडल</span><span data-en>Visual Atlas · animated topic models</span></h2><span class="atlas-tip"><span data-hi>बारीकी से देखना हो तो प्लेयर का «पूरी स्क्रीन» बटन दबाएँ।</span><span data-en>For a closer look, use the player's Full screen button.</span></span><iframe id="atlas-frame" allowfullscreen title="Visual Atlas · animated topic models · दृश्य एटलस · विषयवार चलते मॉडल" src="/learn/atlas/?v=globe1" loading="lazy" style="width:100%;height:700px;border:0;border-radius:18px;display:block;margin-top:16px"></iframe><p class="atlas-links"><a href="/learn/atlas/"><span data-hi>पूरे पेज में देखें</span><span data-en>Open full-page atlas</span> ↗</a> · <a href="/learn/atlas/globe/"><span data-hi>3D ग्लोब: पवनें व धाराएँ</span><span data-en>3D globe: winds &amp; currents</span> ↗</a></p></div></section>
 <script>
-const atlasFrame=document.getElementById('atlas-frame');
-function atlasRoom(){/* screen height left for the player below the fixed nav and the section heading */const section=document.getElementById('visual-atlas'),nav=document.getElementById('nav');const navH=nav?nav.getBoundingClientRect().height:0;const landing=(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0)+(parseFloat(getComputedStyle(section).scrollMarginTop)||0);const above=atlasFrame.getBoundingClientRect().top-section.getBoundingClientRect().top;return Math.max(380,Math.floor(window.innerHeight-Math.max(navH-16,landing)-above-10))}
+const atlasFrame=document.getElementById('atlas-frame'),ATLAS_MAX=540;
+function atlasRoom(){/* screen height left for the player below the fixed nav and the section heading */const section=document.getElementById('visual-atlas'),nav=document.getElementById('nav');const navH=nav?nav.getBoundingClientRect().height:0;const landing=(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0)+(parseFloat(getComputedStyle(section).scrollMarginTop)||0);const above=atlasFrame.getBoundingClientRect().top-section.getBoundingClientRect().top;const room=Math.max(380,Math.floor(window.innerHeight-Math.max(navH-16,landing)-above-10));/* desktop: a compact player; the in-player Full screen button gives the big view */return window.innerWidth>900?Math.min(room,ATLAS_MAX):room}
 function syncAtlasLanguage(){atlasFrame.contentWindow.postMessage({atlasLang:document.documentElement.lang,hostHeight:atlasRoom()},location.origin)}
 atlasFrame.addEventListener('load',syncAtlasLanguage);window.addEventListener('resize',syncAtlasLanguage);
 new IntersectionObserver(([e])=>{if(e.isIntersecting&&atlasFrame.contentWindow)syncAtlasLanguage()}).observe(atlasFrame);
@@ -1265,8 +1226,8 @@ window.addEventListener('message',event=>{
 
 
 <!-- ================= आज का करंट (रोज़ /ca/daily.json से) ================= -->
-<section id="daily-ca" aria-label="आज का करंट" style="padding:12px 18px 10px">
-  <div class="section-in"><div data-daily-ca="home"></div></div>
+<section id="daily-ca" aria-label="आज का करंट">
+  <div class="section-in"><div data-daily-ca="cards"></div></div>
 </section>
 
 <section id="pyq-showcase" aria-roledescription="carousel" aria-label="UPPCS PYQ collections">
@@ -1305,7 +1266,7 @@ window.addEventListener('message',event=>{
     </div>
   </div>
 </section>
-<script src="/assets/daily-ca.js?v=2" defer></script>
+<script src="/assets/daily-ca.js?v=3" defer></script>
 
 <!-- ================= PYQ showcase ================= -->
 
@@ -1812,6 +1773,41 @@ go(0);start();})();</script>
 </section>
 
 <div class="hairline"></div>
+
+<!-- ================= निःशुल्क मार्गदर्शन ================= -->
+<section id="guidance" aria-labelledby="gdTitle">
+  <div class="section-in">
+    <div class="gd">
+      <div class="gd-copy">
+        <span class="gd-eye"><span data-hi>एक संदेश, पूरी दिशा</span><span data-en>One message, clear direction</span></span>
+        <h2 id="gdTitle"><span data-hi>निःशुल्क मार्गदर्शन पाएँ</span><span data-en>Get free guidance</span></h2>
+        <p class="gd-lead"><span data-hi>नाम और मोबाइल नंबर लिखिए। आपका संदेश सीधे हमारी टीम के WhatsApp पर पहुँचेगा और वहीं जवाब मिलेगा।</span><span data-en>Enter your name and mobile number. Your message goes straight to our team on WhatsApp, and the reply comes there.</span></p>
+        <ol class="gd-steps">
+          <li><b>1</b><span><span data-hi>तैयारी कहाँ से और कैसे शुरू करें</span><span data-en>Where and how to begin your preparation</span></span></li>
+          <li><b>2</b><span><span data-hi>आपकी परीक्षा के लिए सही नोट्स और टेस्ट</span><span data-en>The right notes and tests for your exam</span></span></li>
+          <li><b>3</b><span><span data-hi>रोज़ का अध्ययन और दोहराव की योजना</span><span data-en>A daily study and revision plan</span></span></li>
+        </ol>
+        <p class="gd-direct"><span data-hi>सीधे बात करें:</span><span data-en>Talk directly:</span> <a href="https://wa.me/919506321415" target="_blank" rel="noopener">WhatsApp 9506321415</a> <i>·</i> <a href="https://t.me/GenClasses_Support" target="_blank" rel="noopener">Telegram @GenClasses_Support</a></p>
+      </div>
+      <form class="gd-form" id="gdForm" novalidate>
+        <label class="gd-f"><span><span data-hi>आपका नाम</span><span data-en>Your name</span></span>
+          <input type="text" name="name" id="gdName" autocomplete="name" maxlength="60" required></label>
+        <label class="gd-f"><span><span data-hi>मोबाइल नंबर</span><span data-en>Mobile number</span></span>
+          <input type="tel" name="phone" id="gdPhone" autocomplete="tel-national" inputmode="numeric" maxlength="10" placeholder="10 अंक / 10 digits" required></label>
+        <fieldset class="gd-exam"><legend><span data-hi>किस परीक्षा की तैयारी</span><span data-en>Which exam</span></legend>
+          <label><input type="radio" name="exam" value="UPPCS" checked><span>UPPCS</span></label>
+          <label><input type="radio" name="exam" value="UPSC"><span>UPSC</span></label>
+          <label><input type="radio" name="exam" value="RO/ARO"><span>RO/ARO</span></label>
+          <label><input type="radio" name="exam" value="TGT/PGT"><span>TGT/PGT</span></label>
+          <label><input type="radio" name="exam" value="अन्य / Other"><span><span data-hi>अन्य</span><span data-en>Other</span></span></label>
+        </fieldset>
+        <p class="gd-err" id="gdErr" role="alert" hidden></p>
+        <button type="submit" class="gd-send"><svg viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path fill="currentColor" d="M20.52 3.48A11.86 11.86 0 0 0 12.06 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.86 11.86 0 0 0 5.76 1.47h.01c6.55 0 11.89-5.34 11.89-11.9 0-3.18-1.24-6.16-3.44-8.44zM12.06 21.75h-.01a9.84 9.84 0 0 1-5.01-1.37l-.36-.21-3.74.98 1-3.64-.24-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.43 4.42-9.85 9.86-9.85 2.63 0 5.1 1.03 6.96 2.89a9.8 9.8 0 0 1 2.89 6.96c0 5.43-4.42 9.86-9.84 9.86z"/></svg><span data-hi>WhatsApp पर भेजें</span><span data-en>Send on WhatsApp</span></button>
+        <p class="gd-note"><span data-hi>बटन दबाते ही WhatsApp खुलेगा। आपका नंबर इस वेबसाइट पर कहीं सहेजा नहीं जाता।</span><span data-en>The button opens WhatsApp. Your number is not stored anywhere on this website.</span></p>
+      </form>
+    </div>
+  </div>
+</section>
 
 <!-- ================= जुड़ें ================= -->
 <section id="join" class="join">
@@ -2563,7 +2559,7 @@ addEventListener("load", placeWatermark);
 if (document.fonts) document.fonts.ready.then(placeWatermark);
 function onScroll(){
   var y = scrollY;
-  if (!REDUCED) {
+  if (!REDUCED && watermark) {
     var heroScroll = Math.max(0, y - watermark.parentElement.offsetTop);
     watermark.style.transform = "translate(-50%, calc(-52% + " + heroScroll * .16 + "px))";
   }
@@ -2887,6 +2883,7 @@ if (yr) yr.textContent = new Date().getFullYear();
 })();
 </script>
 
+<script defer src="/assets/home-refresh.js?v=1"></script>
 <script defer src="/assets/pcs-mock-promo.js?v=4"></script>
 <script defer src="/assets/genu-bot.js?v=2"></script>
 </body>
