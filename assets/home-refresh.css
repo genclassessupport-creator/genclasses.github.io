@@ -226,3 +226,38 @@ html[data-theme="light"] .pdf-strip{background:#091222; color:#98A6BE; border-bo
   .gd-steps li{font-size:16.5px}
 }
 @media(prefers-reduced-motion:reduce){.gd-send{transition:none}}
+
+/* ═══════════ हल्की थीम — हाथीदाँत, गहरा नीला और सुनहरा ═══════════
+   पन्ना हाथीदाँत, कार्ड सफ़ेद, लिखावट गहरी नीली; सुनहरा केवल ज़ोर देने की जगहों पर। */
+html[data-theme="light"]{--accent:#B7791F; --accent-ink:#8A5A0B; --navy-band:#12264D}
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] #special-notes .eyebrow{color:var(--accent-ink)}
+html[data-theme="light"] .eyebrow::before{background:linear-gradient(90deg,var(--accent),transparent)}
+html[data-theme="light"] .hairline{background:linear-gradient(90deg,transparent,rgba(183,121,31,.45),transparent)}
+html[data-theme="light"] .sec-head h2 em{color:var(--accent-ink)}
+
+html[data-theme="light"] .countdown{
+  --gold-hi:#FFF8E8; --mist:#C5D0E3;
+  background:linear-gradient(120deg,#12264D,#1B3A7A); border-color:rgba(242,205,136,.35); color:#DCE4F2;
+  box-shadow:0 14px 32px rgba(18,38,77,.2);
+}
+html[data-theme="light"] .countdown .cd-box{background:rgba(255,255,255,.1); border-color:rgba(242,205,136,.35)}
+
+html[data-theme="light"] #special-notes{
+  background:
+    radial-gradient(ellipse 70% 50% at 10% 0%,rgba(183,121,31,.1),transparent 55%),
+    radial-gradient(ellipse 55% 40% at 90% 100%,rgba(30,58,138,.07),transparent 50%),
+    linear-gradient(180deg,#F3EDDF 0%,#F6EBD3 100%);
+  border-color:rgba(183,121,31,.22);
+}
+html[data-theme="light"] .sn-chip{background:#fff; border-color:rgba(183,121,31,.34); color:#14213D}
+
+html[data-theme="light"] .marq{background:var(--navy-band); border-bottom-color:rgba(242,205,136,.3)}
+html[data-theme="light"] .marq .grp{color:#F2EBDA}
+html[data-theme="light"] .marq .grp i{color:#F2CD88}
+
+html[data-theme="light"] .tacc-head{background:#fff; border-color:rgba(196,172,120,.5); color:#14213D; box-shadow:0 4px 14px rgba(20,33,61,.05)}
+html[data-theme="light"] .tacc-head:hover{background:#FFFCF5; border-color:var(--accent)}
+html[data-theme="light"] .tacc-head.open{background:linear-gradient(90deg,#FFF6E0,#fff); border-color:var(--accent)}
+
+html[data-theme="light"] footer{background:#EDE4CF; border-top-color:rgba(183,121,31,.3)}

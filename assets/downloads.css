@@ -16,8 +16,8 @@
 .dl-btns a{flex:1;text-align:center;font-size:13.5px;font-weight:800;padding:9px 10px;border-radius:11px;text-decoration:none;font-family:'Mukta',sans-serif}
 .dl-btns .pv{border:1px solid var(--gold);color:var(--gold-hi);background:transparent}
 .dl-btns .dw{background:linear-gradient(135deg,#e8a23a,#D9AE5F);color:#1a1205}
-html[data-theme="light"] .dl-btns .dw{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);color:#F6F9F7}
-html[data-theme="light"] .dl-card{background:#F6F9F7}
+html[data-theme="light"] .dl-btns .dw{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);color:#FFFCF5}
+html[data-theme="light"] .dl-card{background:#FFFCF5}
 .dl-btns a:hover{filter:brightness(1.08)}
 .dl-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:18px 0;padding:14px 16px;border:1px solid var(--line-2,var(--line));border-radius:16px;background:var(--glass,rgba(255,255,255,.035))}
 .dl-strip b{color:var(--cream);font-size:15px}.dl-strip span{color:var(--mist);font-size:13.5px;flex:1;min-width:200px}

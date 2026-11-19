@@ -8,11 +8,11 @@
   --maxw:1080px;--orange:#e8a23a;--navy:#0c2a52;
 }
 html[data-theme="light"]{
-  --ink0:#E6EEE9;--ink1:#F6F9F7;--ink2:#EEF3F0;
-  --glass:rgba(30,58,138,.06);
-  --line:rgba(201,214,207,.95);--line-2:rgba(30,58,138,.28);
+  --ink0:#F3EDDF;--ink1:#FFFCF5;--ink2:#FAF5EA;
+  --glass:rgba(255,255,255,.82);
+  --line:rgba(196,172,120,.42);--line-2:rgba(30,58,138,.28);
   --gold:#1E3A8A;--gold-hi:#172E5C;--gold-deep:#1E40AF;
-  --cream:#1F2A2E;--mist:#3D4A4F;--blue:#1E40AF;--green:#1E3A8A;--rose:#C2314B;
+  --cream:#14213D;--mist:#4A5670;--blue:#1E40AF;--green:#1E3A8A;--rose:#C2314B;
   --teal:#1E3A8A;--shadow:0 14px 36px rgba(23,46,92,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
@@ -254,7 +254,7 @@ html[data-theme="light"] .lang-btn{background:#fff;color:#8a5a12;border-color:rg
 .hub-nav-in{gap:8px}
 .hub-nav .hub-links{flex-wrap:wrap}
 
-html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);color:#F6F9F7;box-shadow:0 10px 24px rgba(30,58,138,.28)}
+html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#1D3B6F,#1E3A8A);color:#FFFCF5;box-shadow:0 10px 24px rgba(30,58,138,.28)}
 html[data-theme="light"] .lang-btn.on,html[data-theme="light"] .theme-btn{color:#1E3A8A;border-color:rgba(30,58,138,.3)}
 
 /* —— Floating contact: Telegram chat + WhatsApp (hubs) —— */
