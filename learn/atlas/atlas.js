@@ -130,10 +130,28 @@ $('#expand').onclick=async()=>{
 canvas.width=1350;canvas.height=795;refreshEditions();select(1);setInterval(()=>{if(refreshEditions())render()},15000);
 let last=0,visible=true;new IntersectionObserver(([entry])=>visible=entry.isIntersecting).observe(canvas);
 function frame(now){if(running&&visible&&!document.hidden&&now-last>=32){time+=Math.min((now-last)/1000,.08);last=now;if(time>=50)select(n===1?18:n===18?2:n===17?(topics.length>19?19:0):(n+1)%topics.length);else {draw();updateFilm()}}requestAnimationFrame(frame)}requestAnimationFrame(frame);
+// Keep the whole player (picture + subtitle + buttons) inside one screen on laptops/desktops.
+function fitStage(){
+ const topicsBox=$('#topics');
+ if(innerWidth<820||document.fullscreenElement){canvas.style.height='';topicsBox.style.maxHeight='';return}
+ const raw=getComputedStyle(document.documentElement).getPropertyValue('--screen').trim();
+ const screen=raw.endsWith('px')?parseFloat(raw):innerHeight;
+ const viewer=$('.viewer').getBoundingClientRect(),pic=canvas.getBoundingClientRect();
+ const below=parseFloat(getComputedStyle($('main')).paddingBottom)||0;
+ const overhead=viewer.bottom+scrollY-pic.height+below;
+ const h=Math.round(Math.max(150,Math.min(screen-overhead,pic.width*53/90)));
+ if(Math.abs(h-pic.height)>1)canvas.style.height=h+'px';
+ const v=$('.viewer').getBoundingClientRect(),t=topicsBox.getBoundingClientRect();
+ topicsBox.style.maxHeight=Math.max(140,Math.floor(v.bottom-t.top-14))+'px';
+}
+addEventListener('resize',fitStage);document.addEventListener('fullscreenchange',fitStage);
+new ResizeObserver(fitStage).observe($('.film-controls'));
+if(window.parent!==window)document.documentElement.classList.add('embedded');
+fitStage();
 if(window.parent!==window){
   new ResizeObserver(()=>parent.postMessage({atlasHeight:document.body.getBoundingClientRect().height},location.origin)).observe(document.body);
   window.addEventListener('message',event=>{
-    if(event.origin===location.origin&&event.source===parent&&Number.isFinite(event.data?.hostHeight))document.documentElement.style.setProperty('--screen',event.data.hostHeight+'px');
+    if(event.origin===location.origin&&event.source===parent&&Number.isFinite(event.data?.hostHeight)){document.documentElement.style.setProperty('--screen',event.data.hostHeight+'px');fitStage()}
     if(event.origin===location.origin&&event.source===parent&&['hi','en'].includes(event.data?.atlasLang)){
       hi=event.data.atlasLang==='hi';render();
     }

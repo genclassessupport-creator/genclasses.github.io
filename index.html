@@ -1118,7 +1118,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 @media (max-width:640px){.pdf-strip{min-height:56px;padding:4px 10px;gap:8px}.ps-label{font-size:10.5px;max-width:84px}.ps-label small{display:none}.ps-item img{height:44px;width:34px}.ps-chip{font-size:11px}.ps-all{font-size:11px;padding:4px 9px}}
 </style>
 <link rel="stylesheet" href="/assets/learning.css">
-<style>#visual-atlas{padding-block:16px;scroll-margin-top:72px}#visual-atlas .section-in{max-width:1440px}</style><link rel="stylesheet" href="/assets/light-masthead.css?v=2"><style>
+<style>#visual-atlas{padding-block:16px;scroll-margin-top:-24px}#visual-atlas .section-in{max-width:1440px}</style><link rel="stylesheet" href="/assets/light-masthead.css?v=2"><style>
 html[data-theme="light"] #top{--gold:#9A7223;--gold-hi:#7A5A18;--gold-deep:#B08A3E;--cream:#20180A;--mist:#5A5343;--line-2:rgba(143,107,38,.5)}
 #top{overflow-x:clip}
 @media(max-width:960px){
@@ -1257,8 +1257,11 @@ html[data-theme="light"] #top{--gold:#9A7223;--gold-hi:#7A5A18;--gold-deep:#B08A
 <section id="visual-atlas"><div class="section-in"><h2><span data-hi>दृश्य एटलस · विषयवार चलते मॉडल</span><span data-en>Visual Atlas · animated topic models</span></h2><iframe id="atlas-frame" allowfullscreen title="Visual Atlas · animated topic models · दृश्य एटलस · विषयवार चलते मॉडल" src="/learn/atlas/" loading="lazy" style="width:100%;height:700px;border:0;border-radius:18px;display:block;margin-top:16px"></iframe><a href="/learn/atlas/"><span data-hi>पूरे पेज में देखें</span><span data-en>Open full-page atlas</span> ↗</a></div></section>
 <script>
 const atlasFrame=document.getElementById('atlas-frame');
-function syncAtlasLanguage(){atlasFrame.contentWindow.postMessage({atlasLang:document.documentElement.lang,hostHeight:window.innerHeight},location.origin)}
+function atlasRoom(){/* screen height left for the player below the fixed nav and the section heading */const section=document.getElementById('visual-atlas'),nav=document.getElementById('nav');const navH=nav?nav.getBoundingClientRect().height:0;const landing=(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0)+(parseFloat(getComputedStyle(section).scrollMarginTop)||0);const above=atlasFrame.getBoundingClientRect().top-section.getBoundingClientRect().top;return Math.max(380,Math.floor(window.innerHeight-Math.max(navH-16,landing)-above-10))}
+function syncAtlasLanguage(){atlasFrame.contentWindow.postMessage({atlasLang:document.documentElement.lang,hostHeight:atlasRoom()},location.origin)}
 atlasFrame.addEventListener('load',syncAtlasLanguage);window.addEventListener('resize',syncAtlasLanguage);
+new IntersectionObserver(([e])=>{if(e.isIntersecting&&atlasFrame.contentWindow)syncAtlasLanguage()}).observe(atlasFrame);
+if(document.fonts)document.fonts.ready.then(()=>{if(atlasFrame.contentWindow)syncAtlasLanguage()});
 new MutationObserver(syncAtlasLanguage).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 window.addEventListener('message',event=>{
   if(event.origin!==location.origin||event.source!==atlasFrame.contentWindow)return;

@@ -19,5 +19,9 @@ main{display:block;max-width:1450px}.viewer{background:#152f34}.stage{overflow:h
  .film-controls{padding:9px 16px 10px}
  .film-controls p{font-size:clamp(16px,1.3vw,20px);margin:3px 0 6px;min-height:0}
  .viewer:fullscreen .stage canvas{height:calc(100svh - 165px);max-height:none}
+ .film-controls p{min-height:3em}
+ main{padding-bottom:8px}
+ .embedded header{display:none}
+ .embedded #edition{margin-top:0}
 }
 #subject-picker{width:100%;padding:6px 8px;margin-bottom:6px;font:inherit;border:1px solid #a7b8a8;border-radius:6px;color:#22483e;background:#fffdf6}
