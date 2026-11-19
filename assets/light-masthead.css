@@ -54,3 +54,35 @@ html[data-theme="light"] .ticker-wrap.ticker-fixed-bar { margin-top:74px; }
   html[data-theme="light"] #nav .brand-name { font-size:21px; }
   html[data-theme="light"] .ticker-wrap.ticker-fixed-bar { margin-top:64px; }
 }
+
+/* Light theme: the whole top block (nav, ticker, PDF strip) looks exactly like the dark theme,
+   as one seamless dark band. Dark-theme variables are scoped to these three bars only. */
+html[data-theme="light"] :is(#nav,.ticker-wrap,.pdf-strip) {
+  --blue:#7FB4FF; --cream:#F2EBDA; --glass:rgba(255,255,255,.035);
+  --gold:#D9AE5F; --gold-deep:#8F6B26; --gold-hi:#F2CD88; --green:#7FD6A4;
+  --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
+  --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34); --mist:#98A6BE;
+}
+html[data-theme="light"] #nav,
+html[data-theme="light"] #nav.scrolled {
+  background:#060B16; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16); box-shadow:none;
+}
+html[data-theme="light"] #nav .brand-mark { border-color:rgba(217,174,95,.34); box-shadow:0 0 22px rgba(217,174,95,.28); }
+html[data-theme="light"] #nav .brand-name { color:#F2EBDA; }
+html[data-theme="light"] #nav .brand-name small { color:#D9AE5F; }
+html[data-theme="light"] #nav .nav-cta { background:linear-gradient(135deg,#F2CD88,#D9AE5F); color:#060B16; border-color:#060B16; }
+html[data-theme="light"] #nav .lang-btn { color:#F2CD88; background:rgba(18,48,90,.85); border-color:rgba(217,174,95,.34); }
+html[data-theme="light"] #nav .theme-btn { color:#F2CD88; background:rgba(255,255,255,.035); border-color:rgba(217,174,95,.34); }
+html[data-theme="light"] #nav .menu-btn { color:#F2CD88; background:transparent; border-color:rgba(217,174,95,.34); }
+html[data-theme="light"] .ticker-wrap { background:#0D1F3B; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16); }
+html[data-theme="light"] .ticker-track a,
+html[data-theme="light"] .ticker-track .ticker-cd { color:#F2EBDA; border-right-color:rgba(217,174,95,.16); }
+html[data-theme="light"] .ticker-track .pill-new { background:linear-gradient(135deg,#1E3A8A,#172E5C); }
+html[data-theme="light"] .ticker-track .cd-mail { border-color:rgba(255,255,255,.55); border-right-color:rgba(217,174,95,.16); }
+html[data-theme="light"] .ticker-track .cd-tg { background:#229ED9; border-color:rgba(255,255,255,.35); }
+html[data-theme="light"] .pdf-strip { background:#091222; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16); }
+@media(max-width:1230px){
+  html[data-theme="light"] #nav .nav-links { background:#0A1426; border-color:rgba(217,174,95,.34); }
+  html[data-theme="light"] #nav .nav-links a:hover,
+  html[data-theme="light"] #nav .nav-links a:focus-visible { background:rgba(217,174,95,.12); }
+}
