@@ -25,7 +25,7 @@
   }
   /* ---------- Light theme (default; टॉगल से dark) ---------- */
   html[data-theme="light"]{
-    /* soft sage / mint-grey — eye-comfortable reading */
+    /* आइवरी · नेवी · सुनहरा */
     --ink0:#F3EDDF; --ink1:#FFFCF5; --ink2:#FAF5EA;
     --glass:rgba(255,255,255,.82);
     --line:rgba(196,172,120,.42); --line-2:rgba(30,58,138,.28);
@@ -44,7 +44,7 @@
   html[data-theme="light"] .option:hover{background:#F3EAD6;border-color:rgba(30,58,138,.35)}
   html[data-theme="light"] .option.selected{border-color:#1E3A8A;background:linear-gradient(180deg,#E3EAF6,rgba(227,234,246,.55))}
   html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#1D3B6F,#1E3A8A);color:#FFFCF5;border-color:transparent}
-  html[data-theme="light"] .card{background:linear-gradient(180deg,#FFFCF5,#F2F6F4);border-color:#E4DAC4}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#FFFFFF,#FFFCF5);border-color:#E4DAC4}
   html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#FFFCF5,#FAF5EA)}
   html[data-theme="light"] .progress{background:rgba(31,42,46,.08)}
   html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#1E3A8A,#1D3B6F,#1E40AF)}
@@ -315,6 +315,96 @@
     font-weight:500;font-size:12.5px;line-height:1.5;background:var(--glass);border:1px solid var(--line);border-radius:999px}
   @media(max-width:620px){.footer-note{margin:16px 6px 18px;border-radius:16px}}
   .hidden{display:none!important}
+  /* ---------- हल्की थीम: आइवरी · नेवी · सुनहरा (केवल रंग) ---------- */
+  @media screen{
+  html[data-theme="light"] body{background-image:radial-gradient(900px 500px at 12% -8%, rgba(183,121,31,.08), transparent 60%),radial-gradient(760px 460px at 100% 0%, rgba(30,58,138,.05), transparent 60%)}
+  html[data-theme="light"] .topbar{background:linear-gradient(135deg,#12264D 0%,#1B3A7A 100%);border-bottom-color:rgba(242,205,136,.6);box-shadow:0 6px 18px rgba(20,33,61,.18)}
+  html[data-theme="light"] .topbar .brand p{color:#F2CD88 !important}
+  html[data-theme="light"] .topbar .pill{color:#FFF8E8 !important;border-color:rgba(242,205,136,.5);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .theme-btn{color:#F7DCA3;border-color:rgba(242,205,136,.5);background:rgba(255,255,255,.1)}
+  html[data-theme="light"] .card{background:linear-gradient(180deg,#FFFFFF,#FFFCF5);border-color:rgba(196,172,120,.42);box-shadow:0 4px 14px rgba(20,33,61,.05),0 14px 36px rgba(20,33,61,.06)}
+  html[data-theme="light"] .intro .tag{background:#FBF1D9;color:#8A5A0B;border-color:rgba(183,121,31,.45)}
+  html[data-theme="light"] .intro h2 span{color:#8A5A0B}
+  html[data-theme="light"] .info,
+  html[data-theme="light"] .rbox{background:#FFFFFF;border-color:rgba(196,172,120,.42);box-shadow:inset 0 3px 0 #B7791F,0 4px 14px rgba(20,33,61,.05)}
+  html[data-theme="light"] .mini{background:#FFFFFF;border-color:rgba(196,172,120,.42)}
+  html[data-theme="light"] .info b,
+  html[data-theme="light"] .rbox b,
+  html[data-theme="light"] .mini b{color:#172E5C}
+  html[data-theme="light"] #finalCorrect{color:#166534}
+  html[data-theme="light"] #finalWrong{color:#B4233C}
+  html[data-theme="light"] .name-box{background:#FFFCF5;border-color:rgba(196,172,120,.42)}
+  html[data-theme="light"] .name-box h3{color:#14213D}
+  html[data-theme="light"] input{background:#FFFFFF;color:#14213D;border-color:rgba(196,172,120,.75)}
+  html[data-theme="light"] input::placeholder{color:#7A7361}
+  html[data-theme="light"] input:focus{border-color:#1E3A8A;box-shadow:0 0 0 3px rgba(183,121,31,.22)}
+  html[data-theme="light"] .lang-seg{background:#FAF5EA;border-color:rgba(196,172,120,.42)}
+  html[data-theme="light"] .rules h3{color:#172E5C;background-image:linear-gradient(#B7791F,#B7791F);background-repeat:no-repeat;background-size:46px 3px;background-position:0 100%}
+  html[data-theme="light"] .rule .num{background:#FBF1D9;color:#8A5A0B;box-shadow:inset 0 0 0 1px rgba(183,121,31,.35)}
+  html[data-theme="light"] .btn.light{background:#FFFFFF;color:#14213D;border-color:rgba(196,172,120,.6)}
+  html[data-theme="light"] .btn.secondary{background:#FFFFFF;color:#1E3A8A;border-color:rgba(30,58,138,.35)}
+  html[data-theme="light"] .btn.light:hover,
+  html[data-theme="light"] .btn.secondary:hover{background:#FBF1D9;border-color:#B7791F;filter:none}
+  /* परीक्षा */
+  html[data-theme="light"] .exam-header{background:linear-gradient(135deg,#FFFFFF,#FAF5EA);border-bottom-color:rgba(196,172,120,.42)}
+  html[data-theme="light"] .timer{background:#FBF1D9;border-color:rgba(183,121,31,.55);color:#172E5C}
+  html[data-theme="light"] .progress{background:#EFE4CB}
+  html[data-theme="light"] .progress>div{background:linear-gradient(90deg,#172E5C,#1E3A8A 70%,#B7791F)}
+  html[data-theme="light"] .topic{background:#FFFFFF;border-color:rgba(196,172,120,.55)}
+  html[data-theme="light"] .option{background:#FFFCF5;border-color:rgba(196,172,120,.5)}
+  html[data-theme="light"] .option .letter{background:#FFFFFF;border-color:rgba(196,172,120,.6);color:#1E3A8A}
+  html[data-theme="light"] .option:hover{background:#FBF1D9;border-color:#B7791F}
+  html[data-theme="light"] .option.selected{background:#FFF8E6;border-color:#1E3A8A;box-shadow:0 0 0 1px #1E3A8A,0 6px 16px rgba(183,121,31,.2)}
+  html[data-theme="light"] .option.selected .letter{background:linear-gradient(160deg,#172E5C,#1E3A8A);color:#FFFCF5;border-color:transparent}
+  html[data-theme="light"] .stmt-item,
+  html[data-theme="light"] .ar-block{background:#FAF5EA;border-color:rgba(196,172,120,.5);color:#14213D}
+  html[data-theme="light"] .match-col{background:#FFFFFF;border-color:rgba(196,172,120,.5)}
+  html[data-theme="light"] .match-col h4{background:#FBF1D9;color:#172E5C;border-color:rgba(196,172,120,.5)}
+  html[data-theme="light"] .match-tbl th{background:#FBF1D9;color:#172E5C}
+  html[data-theme="light"] .code-map .cm,
+  html[data-theme="light"] .code-grid .cv{background:#FBF1D9;border-color:rgba(196,172,120,.5)}
+  /* प्रश्न सूची: उत्तरित = हरा, चिह्नित = बैंगनी, वर्तमान = नेवी घेरा */
+  html[data-theme="light"] .side-title{color:#172E5C}
+  html[data-theme="light"] .dot{background:#FFFFFF;border-color:rgba(196,172,120,.6);color:#4A5670}
+  html[data-theme="light"] .dot:hover{background:#FBF1D9;border-color:#B7791F}
+  html[data-theme="light"] .dot.answered{background:#DCF2E3;color:#14532D;border-color:#8CCBA1}
+  html[data-theme="light"] .dot.review{background:#EADFFB;color:#5B21B6;border-color:#B79AE8}
+  html[data-theme="light"] .dot.current{border-color:#1E3A8A;box-shadow:0 0 0 3px rgba(30,58,138,.22)}
+  html[data-theme="light"] .legend span::before{background:#FFFFFF;box-shadow:inset 0 0 0 1px rgba(196,172,120,.8)}
+  html[data-theme="light"] .legend .l-ans::before{background:#4CAF73;box-shadow:none}
+  html[data-theme="light"] .legend .l-rev::before{background:#8B5CF6;box-shadow:none}
+  html[data-theme="light"] .legend .l-cur::before{background:#FFFFFF;box-shadow:inset 0 0 0 2px #1E3A8A}
+  /* परिणाम: नेवी पट्टी */
+  html[data-theme="light"] .result-hero{background:radial-gradient(700px 320px at 50% -10%,rgba(242,205,136,.2),transparent 62%),linear-gradient(135deg,#12264D,#1B3A7A);color:#FFF8E8;border-bottom-color:rgba(242,205,136,.55)}
+  html[data-theme="light"] .result-hero h2{color:#F2CD88}
+  html[data-theme="light"] .result-hero p{color:#FFF8E8}
+  html[data-theme="light"] .student-strip span{background:rgba(255,255,255,.1);border-color:rgba(242,205,136,.4);color:#FFF8E8}
+  html[data-theme="light"] .score-circle{background:conic-gradient(#F2CD88 0deg,#F2CD88 var(--scoreDeg),rgba(255,255,255,.16) var(--scoreDeg),rgba(255,255,255,.16) 360deg);box-shadow:inset 0 0 0 9px rgba(242,205,136,.1),0 15px 38px rgba(6,13,30,.35)}
+  html[data-theme="light"] .score-circle .inner{background:#FFFCF5;color:#172E5C;border-color:rgba(242,205,136,.7)}
+  html[data-theme="light"] .score-circle small{color:#4A5670}
+  html[data-theme="light"] .result-hero .btn.primary{background:linear-gradient(160deg,#F7DCA3,#F2CD88);color:#12264D;box-shadow:0 10px 22px rgba(6,13,30,.3)}
+  html[data-theme="light"] .result-hero .btn.light,
+  html[data-theme="light"] .result-hero .btn.secondary{background:rgba(255,255,255,.1);color:#FFF8E8;border-color:rgba(242,205,136,.45)}
+  html[data-theme="light"] .result-hero .btn.light:hover,
+  html[data-theme="light"] .result-hero .btn.secondary:hover{background:rgba(255,255,255,.18);border-color:#F2CD88}
+  html[data-theme="light"] .rank-card{background:#FFFFFF;border-color:rgba(196,172,120,.42);box-shadow:0 4px 14px rgba(20,33,61,.05)}
+  html[data-theme="light"] .rank-card h3{color:#172E5C}
+  html[data-theme="light"] .rank-big{color:#8A5A0B}
+  html[data-theme="light"] .leader-list li{background:#FFFCF5;border-color:rgba(196,172,120,.42)}
+  html[data-theme="light"] .leader-list .lr{background:#FBF1D9;color:#8A5A0B}
+  html[data-theme="light"] .leader-list .score{color:#166534}
+  /* समीक्षा: सही = हरा, गलत = लाल, अनुत्तरित = धूसर-आइवरी */
+  html[data-theme="light"] .review-item{background:#FFFFFF;border-color:rgba(196,172,120,.42);box-shadow:0 4px 14px rgba(20,33,61,.05)}
+  html[data-theme="light"] .review-item:has(.badge.ok){box-shadow:inset 4px 0 0 #2E9E5B,0 4px 14px rgba(20,33,61,.05)}
+  html[data-theme="light"] .review-item:has(.badge.bad){box-shadow:inset 4px 0 0 #D1425B,0 4px 14px rgba(20,33,61,.05)}
+  html[data-theme="light"] .review-head{background:rgba(196,172,120,.09);border-bottom-color:rgba(196,172,120,.42);color:#172E5C}
+  html[data-theme="light"] .badge.ok{background:#DCF2E3;color:#14532D}
+  html[data-theme="light"] .badge.bad{background:#FCE1E5;color:#9F1239}
+  html[data-theme="light"] .badge.skip{background:#EFE7D6;color:#4A5670}
+  html[data-theme="light"] .review-content{color:#14213D}
+  html[data-theme="light"] .answer-line{background:#FBF4E2;border-left-color:#B7791F;color:#14213D}
+  html[data-theme="light"] .footer-note{background:#FFFCF5;border-color:rgba(196,172,120,.42)}
+  }
   /* ---------- प्रिंट ---------- */
   @media print{
     body{background:#fff!important;padding:0;color:#111}
