@@ -230,21 +230,6 @@ h1.hero-title{font-size:clamp(28px,4vw,46px);text-shadow:0 4px 28px rgba(0,0,0,.
 }
 @keyframes breathe{0%,100%{transform:scale(1);opacity:.75}50%{transform:scale(1.09);opacity:1}}
 .emblem svg{width:100%;position:relative;overflow:visible}
-.lamp-word{
-  font:700 96px Georgia,serif;
-  fill:rgba(239,201,135,.15);stroke:rgba(239,201,135,.53);stroke-width:.8;
-}
-html[data-theme="light"] .lamp-word{fill:rgba(43,66,101,.12);stroke:rgba(43,66,101,.38)}
-.lamp-motes{fill:#ffc775;filter:drop-shadow(0 0 2px #e3a24e)}
-html[data-theme="light"] .lamp-motes{fill:#ae7027}
-.lamp-motes circle{animation:lamp-ember-rise 4.8s ease-out var(--delay) infinite both}
-@keyframes lamp-ember-rise{
-  0%{opacity:0;transform:translate(0,8px)}
-  18%{opacity:.9}
-  62%{opacity:.74;transform:translate(-3px,-12px)}
-  100%{opacity:0;transform:translate(4px,-34px)}
-}
-@media(prefers-reduced-motion:reduce){.lamp-motes circle{animation:none;opacity:.65}}
 .ring{fill:none;stroke:rgba(30,58,138,.4);stroke-width:1;transform-box:fill-box;transform-origin:center}
 .ring-a{stroke-dasharray:3 9;animation:spin 46s linear infinite}
 .ring-b{stroke-dasharray:1 14;stroke:rgba(30,58,138,.26);animation:spin 70s linear infinite reverse}
@@ -1220,6 +1205,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 
 
 <header id="top">
+  <div class="wm" id="wm">जेन</div>
   <div class="hero-in">
     <div>
       <span class="eyebrow hr-el" style="animation-delay:.15s"><span data-hi>UPSC · UPPCS की तैयारी</span><span data-en>UPSC · UPPCS preparation</span></span>
@@ -1238,27 +1224,6 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
     <div class="hero-art hr-el" style="animation-delay:.55s">
       <div class="emblem">
         <svg viewBox="0 0 200 224" role="img" aria-label="ज्ञान की लौ">
-          <defs>
-            <radialGradient id="lamp-aura">
-              <stop stop-color="#f7be65" stop-opacity=".38"/>
-              <stop offset=".52" stop-color="#e7aa58" stop-opacity=".15"/>
-              <stop offset="1" stop-color="#f6cc81" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <g aria-hidden="true">
-            <ellipse cx="100" cy="72" rx="122" ry="105" fill="url(#lamp-aura)"/>
-            <text class="lamp-word" x="100" y="139" text-anchor="middle" textLength="265" lengthAdjust="spacingAndGlyphs">GEN</text>
-            <g class="lamp-motes">
-              <circle cx="62" cy="67" r="1.7" style="--delay:-1s"/>
-              <circle cx="82" cy="42" r="1.2" style="--delay:-3.7s"/>
-              <circle cx="114" cy="36" r="2" style="--delay:-2.4s"/>
-              <circle cx="139" cy="62" r="1.6" style="--delay:-.6s"/>
-              <circle cx="158" cy="96" r="1.3" style="--delay:-3.1s"/>
-              <circle cx="42" cy="105" r="1.5" style="--delay:-2.1s"/>
-              <circle cx="126" cy="75" r="1.2" style="--delay:-4.3s"/>
-              <circle cx="74" cy="90" r="1" style="--delay:-1.8s"/>
-            </g>
-          </g>
           <circle class="ring ring-a" cx="100" cy="112" r="96"/>
           <circle class="ring ring-b" cx="100" cy="112" r="84"/>
           <path class="leaf" pathLength="1" d="M100 46 C 62 66, 42 104, 56 142 C 69 174, 90 185, 100 189 C 110 185, 131 174, 144 142 C 158 104, 138 66, 100 46 Z"/>
@@ -2580,11 +2545,13 @@ loadManifest().then(function(list){
 /* ---------- शीर्ष पट्टी, प्रगति, watermark ---------- */
 var nav = document.getElementById("nav");
 var prog = document.getElementById("progress");
+var wm = document.getElementById("wm");
 function onScroll(){
   var y = scrollY;
   if (y > 30) nav.classList.add("scrolled"); else nav.classList.remove("scrolled");
   var h = document.documentElement.scrollHeight - innerHeight;
   prog.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
+  if (wm && !REDUCED) wm.style.transform = "translate(-50%, calc(-52% + " + y * .16 + "px))";
 }
 addEventListener("scroll", onScroll, { passive: true });
 onScroll();
