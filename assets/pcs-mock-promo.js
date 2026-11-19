@@ -17,30 +17,23 @@
   }
   var BOOK = "/downloads/#pdf-hl";
   var T = isEn()
-    ? { tag: "FREE · UPPCS 2026", t1: "5 full-length mock tests", s1: "150 Qs each · with explanations", t2: "Highlight Book — read before exam", s2: "Current Affairs year compilation (PDF)", x: "Close" }
-    : { tag: "निःशुल्क · UPPCS 2026", t1: "PCS के 5 फुल लेंथ मॉक टेस्ट", s1: "हर टेस्ट 150 प्रश्न · व्याख्या सहित", t2: "हाइलाइट बुक — परीक्षा से पहले", s2: "करेंट अफेयर्स वार्षिक संग्रह (PDF)", x: "बंद करें" };
+    ? { tag: "FREE · UPPCS 2026", t1: "5 mock tests", s1: "150 questions each with explanations", t2: "Highlight Book", s2: "Current Affairs year compilation (PDF)", x: "Close" }
+    : { tag: "निःशुल्क · UPPCS 2026", t1: "5 मॉक टेस्ट", s1: "हर टेस्ट में 150 प्रश्न और व्याख्या", t2: "हाइलाइट बुक", s2: "करेंट अफेयर्स वार्षिक संग्रह (PDF)", x: "बंद करें" };
 
-  var css =
-    ".gc-pm{position:fixed;left:50%;bottom:14px;z-index:9990;width:min(320px,calc(100vw - 24px));transform:translate(-50%,140%);opacity:0;transition:transform .5s cubic-bezier(.2,.8,.2,1),opacity .4s;font-family:Mukta,'Noto Sans Devanagari',system-ui,sans-serif}" +
-    ".gc-pm.on{transform:translate(-50%,0);opacity:1}" +
-    ".gc-pm .bx{position:relative;padding:8px 8px 8px 10px;border-radius:14px;background:#fff;color:#14213d;border:1px solid rgba(29,78,216,.22);border-left:4px solid #1d4ed8;box-shadow:0 10px 28px rgba(15,30,70,.16)}" +
-    "html[data-theme='dark'] .gc-pm .bx{background:#13203a;color:#eef2ff;border-color:rgba(147,197,253,.25);border-left-color:#60a5fa;box-shadow:0 10px 28px rgba(0,0,0,.45)}" +
-    ".gc-pm .tg{display:block;font-size:9.5px;font-weight:800;letter-spacing:.6px;color:#1d4ed8;margin:0 30px 3px 2px}" +
-    "html[data-theme='dark'] .gc-pm .tg{color:#93c5fd}" +
-    ".gc-pm a.r{display:flex;gap:9px;align-items:center;text-decoration:none;color:inherit;padding:5px 6px;border-radius:10px}" +
-    ".gc-pm a.r:hover{background:rgba(29,78,216,.07)}" +
-    ".gc-pm a.r+a.r{border-top:1px dashed rgba(100,116,139,.3);border-radius:0 0 10px 10px}" +
-    ".gc-pm .ic{flex:none;width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font-size:16px;background:linear-gradient(145deg,#3b82f6,#1e3a8a);color:#fff}" +
-    ".gc-pm .ic.bk{background:linear-gradient(145deg,#f59e0b,#e8590c)}" +
-    ".gc-pm b{display:block;font-size:13.5px;line-height:1.25;font-weight:800}" +
-    ".gc-pm small{display:block;font-size:11.5px;line-height:1.3;opacity:.75}" +
-    ".gc-pm .ar{margin-left:auto;font-weight:800;color:#1d4ed8;font-size:14px}" +
-    "html[data-theme='dark'] .gc-pm .ar{color:#93c5fd}" +
-    ".gc-pm button{position:absolute;top:5px;right:5px;width:24px;height:24px;border:0;border-radius:999px;background:rgba(100,116,139,.12);color:inherit;font-size:12px;line-height:24px;cursor:pointer}" +
-    "html[data-theme='dark'] .gc-pm button{color:#e2e8f0;background:rgba(255,255,255,.1)}" +
-    "@media (max-width:600px){.gc-pm{left:10px;bottom:10px;width:calc(100vw - 92px);transform:translateY(140%)}.gc-pm.on{transform:none}.gc-pm b{font-size:12.8px}.gc-pm small{font-size:11px}}" +
-    "@media (prefers-reduced-motion:reduce){.gc-pm{transition:none}}";
-
+  var css = [
+    ".gc-pm{position:fixed;left:50%;bottom:12px;z-index:9990;width:min(256px,calc(100vw - 24px));transform:translate(-50%,140%);opacity:0;transition:transform .4s,opacity .3s;font-family:Mukta,system-ui,sans-serif}",
+    ".gc-pm.on{transform:translate(-50%,0);opacity:1}",
+    ".gc-pm .bx{position:relative;padding:6px 8px;border-radius:10px;background:#fff;color:#14213d;border:1px solid #bacbe5;border-left:3px solid #1d4ed8;box-shadow:0 5px 16px #192f531f}",
+    ".gc-pm .tg{display:block;color:#1d4ed8;font-size:10px;font-weight:800;line-height:1.35;letter-spacing:.04em;padding-right:26px}",
+    ".gc-pm .links{display:flex;align-items:center;margin-top:4px;gap:6px}",
+    ".gc-pm a.r{flex:1;text-align:center;text-decoration:none;color:inherit;font:700 13px/1.3 Mukta,system-ui,sans-serif;border:1px solid #b9c8db;border-radius:6px;padding:4px 2px;white-space:nowrap}",
+    ".gc-pm a.r:hover,.gc-pm a.r:focus-visible{background:#e7eff8;color:#152e53}",
+    ".gc-pm button{position:absolute;top:1px;right:4px;width:25px;height:24px;border:0;background:transparent;color:inherit;cursor:pointer}",
+    "html[data-theme='dark'] .gc-pm .bx{background:#13203a;color:#eef2ff;border-color:#456188;border-left-color:#60a5fa}",
+    "html[data-theme='dark'] .gc-pm .tg{color:#93c5fd}",
+    "@media(max-width:600px){.gc-pm{left:10px;bottom:10px;width:min(235px,calc(100vw - 85px));transform:translateY(140%)}.gc-pm.on{transform:none}}",
+    "@media(prefers-reduced-motion:reduce){.gc-pm{transition:none}}"
+  ].join("");
   function show() {
     var s = document.createElement("style");
     s.textContent = css;
@@ -51,8 +44,8 @@
     w.setAttribute("aria-label", T.t1);
     w.innerHTML =
       '<div class="bx"><span class="tg">' + T.tag + '</span>' +
-      '<a class="r" href="' + HUB + '"><span class="ic" aria-hidden="true">🎯</span><span><b>' + T.t1 + '</b><small>' + T.s1 + '</small></span><span class="ar">→</span></a>' +
-      '<a class="r" href="' + BOOK + '"><span class="ic bk" aria-hidden="true">📕</span><span><b>' + T.t2 + '</b><small>' + T.s2 + '</small></span><span class="ar">→</span></a>' +
+      '<div class="links"><a class="r" href="' + HUB + '" title="' + T.s1 + '" aria-label="' + T.t1 + ' · ' + T.s1 + '">' + T.t1 + '</a>' +
+      '<a class="r" href="' + BOOK + '" title="' + T.s2 + '" aria-label="' + T.t2 + ' · ' + T.s2 + '">' + T.t2 + '</a></div>' +
       '<button type="button" aria-label="' + T.x + '" title="' + T.x + '">✕</button></div>';
     document.body.appendChild(w);
     requestAnimationFrame(function () { requestAnimationFrame(function () { w.classList.add("on"); }); });
