@@ -3,7 +3,15 @@ const atlasEditions = [
  {id:'anticline', date:'2026-11-18T00:00:00+05:30',title:['अपनति','Anticline'],lesson:['संपीड़न से चट्टानी परतें ऊपर की ओर मेहराब बनाती हैं।','Compression bends rock layers into an upward arch.'],observe:['बीच की गहरे रंग की परत को दोनों ओर देखें। उसके दोनों हिस्से अक्ष से दूर झुकते हैं।','Follow the dark middle bed. Its limbs dip away from the fold axis.']},
  {id:'syncline', date:'2026-11-18T00:00:00+05:30',title:['अभिनति','Syncline'],lesson:['संपीड़न से परतें मुड़ सकती हैं। इस मॉडल में परतों का मध्य भाग कटोरे की तरह नीचे झुकता है।','Compression can fold strata. Here the beds bend into a trough in the middle.'],observe:['किसी एक परत का रंग चुनें और उसे किनारे से बीच तक देखें। दोनों ओर परत अक्ष की तरफ झुकती है।','Trace one colour from either edge towards the centre. Both limbs dip towards the fold axis.']},
  {id:'normal-fault', date:'2026-11-20T09:00:00+05:30',title:['सामान्य भ्रंश','Normal fault'],lesson:['तनाव से पर्पटी फैलती है। झुके हुए भ्रंश तल के ऊपर का चट्टानी खंड दूसरे खंड की तुलना में नीचे सरकता है।','Extension stretches the crust. The hanging wall moves down relative to the footwall along an inclined fault.'],observe:['सुनहरी परत को दरार के आर-पार मिलाएँ। दाईं ओर वही परत नीचे मिलेगी।','Match the gold bed across the fault. The same bed sits lower on the right.']},
- {id:'reverse-fault', date:'2026-11-22T09:00:00+05:30',title:['उत्क्रम भ्रंश','Reverse fault'],lesson:['संपीड़न से पर्पटी छोटी होती है। भ्रंश तल के ऊपर वाला खंड दूसरे खंड की तुलना में ऊपर सरकता है।','Compression shortens the crust. The hanging wall moves up the inclined fault relative to the footwall.'],observe:['दरार पर सुनहरी परत का विस्थापन देखें। ऊपर चढ़ता हुआ खंड बाईं तरफ भी बढ़ता है।','Watch the offset in the gold marker bed. The rising block also travels left.']}
+ {id:'reverse-fault', date:'2026-11-22T09:00:00+05:30',title:['उत्क्रम भ्रंश','Reverse fault'],lesson:['संपीड़न से पर्पटी छोटी होती है। भ्रंश तल के ऊपर वाला खंड दूसरे खंड की तुलना में ऊपर सरकता है।','Compression shortens the crust. The hanging wall moves up the inclined fault relative to the footwall.'],observe:['दरार पर सुनहरी परत का विस्थापन देखें। ऊपर चढ़ता हुआ खंड बाईं तरफ भी बढ़ता है।','Watch the offset in the gold marker bed. The rising block also travels left.']},
+ {
+   id:'total-internal-reflection', date:'2026-11-24T09:00:00+05:30',
+   title:['पूर्ण आंतरिक परावर्तन','Total internal reflection'],
+   lesson:['काँच के भीतर से एक किरण हवा की ओर भेजें। आपतन कोण अभिलंब से मापा जाता है।','Follow a ray travelling from glass into air. Measure the angle of incidence from the normal.'],
+   shots:['आपतन कोण बढ़ने पर हवा में किरण अभिलंब से और दूर मुड़ती है।','As the incident angle increases, the ray in air bends farther away from the normal.',
+          'क्रांतिक कोण पर अपवर्तन कोण 90° है। इसके बाद प्रकाश काँच के भीतर ही परावर्तित होता है।','At the critical angle the refracted angle reaches 90°. Above it, the light reflects back inside the glass.'],
+   observe:['55° पर नारंगी किरण काँच में लौटती है। अभिलंब के दोनों ओर आपतन और परावर्तन कोण बराबर हैं।','At 55°, the orange ray returns through the glass. Compare the equal incident and reflected angles on either side of the normal.']
+ }
 ];
 function geologyScene(id){
  const c=ctx;
@@ -51,7 +59,7 @@ function refreshEditions(){
  let added=false;
  while(publishedEditions<atlasEditions.length&&Date.parse(atlasEditions[publishedEditions].date)<=now){
    const e=atlasEditions[publishedEditions++];
-   topics.push([e.id,...e.title,...e.lesson]);observations.push(e.observe);added=true;
+   topics.push([e.id,...e.title,...e.lesson]);observations.push(e.observe);if(e.shots)lessonShots[topics.length-1]=e.shots;added=true;
  }
  const next=atlasEditions[publishedEditions],latest=atlasEditions[publishedEditions-1];
  const panel=document.querySelector('#edition');panel.hidden=!latest;

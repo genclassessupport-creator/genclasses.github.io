@@ -1,6 +1,6 @@
 const subjectCatalog=[
  {title:['भूगोल','Geography'],ids:['river','mountain-building','monsoon','volcano','delta','glacier','dunes','coast','ridge','anticline','syncline','normal-fault','reverse-fault']},
- {title:['विज्ञान','Science'],ids:['wave','pendulum','lens','projectile','diffusion','echo']},
+ {title:['विज्ञान','Science'],ids:['wave','pendulum','lens','projectile','diffusion','echo','total-internal-reflection']},
  {title:['पर्यावरण','Environment'],ids:['food']},
  {title:['अर्थशास्त्र','Economics'],ids:['market','interest']},
  {title:['गणित','Mathematics'],ids:['fraction']}
