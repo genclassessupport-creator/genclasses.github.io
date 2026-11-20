@@ -134,20 +134,48 @@
 .ticker-wrap.ticker-fixed-bar{margin-top:76px}
 @media(max-width:600px){.ticker-wrap.ticker-fixed-bar{margin-top:64px}}
 
-/* हल्की थीम में भी ऊपर की तीनों पट्टियाँ एक ही गहरी नीली पट्टी जैसी दिखें */
-html[data-theme="light"] :is(.ticker-wrap,.pdf-strip){
-  --blue:#7FB4FF; --cream:#F2EBDA; --glass:rgba(255,255,255,.035);
-  --gold:#D9AE5F; --gold-deep:#8F6B26; --gold-hi:#F2CD88; --green:#7FD6A4;
-  --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
-  --line:rgba(217,174,95,.16); --line-2:rgba(217,174,95,.34); --mist:#98A6BE;
+/* हल्की थीम: ऊपर का पूरा हिस्सा भी पन्ने जैसा उजला — सफ़ेद-हाथीदाँत पट्टी, गहरी नीली लिखावट,
+   एक ही गहरा नीला बटन। गहरी थीम में पट्टी पहले जैसी गहरी नीली रहती है। */
+html[data-theme="light"] #nav.gx{
+  --gx-bg:#FFFCF5; --gx-panel:#FFFFFF; --gx-text:#14213D; --gx-dim:#5A6680;
+  --gx-gold:#8A5A0B; --gx-gold-2:#B7791F; --gx-line:rgba(183,121,31,.26);
+  background:rgba(255,252,245,.97); box-shadow:0 1px 0 rgba(183,121,31,.1),0 8px 24px rgba(20,33,61,.06);
 }
-html[data-theme="light"] .ticker-wrap{background:#0D1F3B; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16)}
+html[data-theme="light"] #nav.gx.scrolled{background:rgba(255,252,245,.97)}
+html[data-theme="light"] .gx-logo{box-shadow:0 0 0 3px rgba(183,121,31,.14)}
+html[data-theme="light"] :is(.gx-top:hover,.gx-item:hover>.gx-top,.gx-item.open>.gx-top){background:#F6EBD3; color:#12264D}
+html[data-theme="light"] .gx-panel{box-shadow:0 22px 48px rgba(20,33,61,.16)}
+html[data-theme="light"] .gx-sub:hover{background:#FAF2E0}
+html[data-theme="light"] .gx-sub:hover b{color:#1B3A7A}
+html[data-theme="light"] .gx-cta{background:linear-gradient(135deg,#1B3A7A,#12264D); color:#FFF8E8; box-shadow:0 6px 16px rgba(18,38,77,.24)}
+html[data-theme="light"] .gx-cta:hover{box-shadow:0 10px 22px rgba(18,38,77,.32)}
+html[data-theme="light"] .gx-ibtn{background:#fff; color:#12264D}
+html[data-theme="light"] .gx-ibtn:hover{background:#F6EBD3}
+@media(max-width:1100px){
+  html[data-theme="light"] .gx-menu{box-shadow:0 24px 40px rgba(20,33,61,.16)}
+  html[data-theme="light"] .gx-item:hover>.gx-top{background:none; color:var(--gx-text)}
+  html[data-theme="light"] .gx-item.open>.gx-top{background:#F6EBD3; color:#12264D}
+  html[data-theme="light"] :is(.gx-panel,.gx-wide .gx-panel){background:#FAF5EA; box-shadow:none}
+}
+html[data-theme="light"] .ticker-wrap{background:#12264D; border-bottom-color:rgba(242,205,136,.3)}
 html[data-theme="light"] .ticker-track a,
-html[data-theme="light"] .ticker-track .ticker-cd{color:#F2EBDA; border-right-color:rgba(217,174,95,.16)}
-html[data-theme="light"] .ticker-track .pill-new{background:linear-gradient(135deg,#1E3A8A,#172E5C)}
-html[data-theme="light"] .ticker-track .cd-mail{border-color:rgba(255,255,255,.55); border-right-color:rgba(217,174,95,.16)}
-html[data-theme="light"] .ticker-track .cd-tg{background:#229ED9; border-color:rgba(255,255,255,.35)}
-html[data-theme="light"] .pdf-strip{background:#091222; color:#98A6BE; border-bottom-color:rgba(217,174,95,.16)}
+html[data-theme="light"] .ticker-track .ticker-cd{color:#F2EBDA; border-right-color:rgba(242,205,136,.18)}
+html[data-theme="light"] .ticker-track a:hover{color:#F2CD88}
+html[data-theme="light"] .ticker-track .pill-new{background:#F2CD88; color:#12264D}
+html[data-theme="light"] .ticker-track .cd-mail{background:transparent; color:#F2EBDA; border-color:rgba(255,255,255,.5)}
+html[data-theme="light"] .pdf-strip{background:#FFFCF5; border-bottom-color:rgba(183,121,31,.26)}
+html[data-theme="light"] .ps-label{color:#12264D}
+html[data-theme="light"] .ps-item{background:#fff; border-color:rgba(196,172,120,.5)}
+html[data-theme="light"] .ps-all{color:#12264D; border-color:#B7791F}
+
+/* हल्की थीम में उड़ते कण, धुंध और दाने पन्ने पर धब्बे जैसे दिखते हैं — हटाए */
+html[data-theme="light"] :is(#embers,.aurora,.grain,.spot){display:none}
+
+/* खंडों के बीच की ऊँचाई: 104px बहुत खुली थी */
+section{padding-block:72px}
+#whats-on{padding:34px 26px 10px}
+#whats-on .sec-head{margin-bottom:22px}
+@media(max-width:760px){section{padding-block:48px} #whats-on{padding:22px 14px 6px}}
 
 /* ═══════════ दृश्य एटलस — छोटा; बड़ा देखना हो तो प्लेयर का "पूरी स्क्रीन" ═══════════ */
 #visual-atlas{padding-block:26px 18px; scroll-margin-top:0}
@@ -261,3 +289,13 @@ html[data-theme="light"] .tacc-head:hover{background:#FFFCF5; border-color:var(-
 html[data-theme="light"] .tacc-head.open{background:linear-gradient(90deg,#FFF6E0,#fff); border-color:var(--accent)}
 
 html[data-theme="light"] footer{background:#EDE4CF; border-top-color:rgba(183,121,31,.3)}
+
+/* पहली स्क्रीन: शीर्षक और उलटी गिनती एक ही पंक्ति में, ताकि शॉर्टकट बिना स्क्रॉल दिखें */
+#whats-on .sec-head h2{font-size:clamp(26px,3vw,38px); margin-top:6px}
+#whats-on .sec-head p{margin-top:8px}
+@media(min-width:900px){
+  #whats-on .section-in{display:grid; grid-template-columns:minmax(0,1fr) minmax(360px,460px); column-gap:32px; align-items:center}
+  #whats-on .section-in>*{grid-column:1/-1; min-width:0}
+  #whats-on .section-in>.sec-head{grid-column:1; margin-bottom:14px}
+  #whats-on .section-in>.countdown{grid-column:2; margin:0 0 14px}
+}
