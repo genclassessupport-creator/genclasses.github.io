@@ -1,7 +1,7 @@
 import {chapters,questions} from '../content/origins.mjs';
 import {createUniverse} from './origins-renderer.js';
 const $=s=>document.querySelector(s),all=s=>[...document.querySelectorAll(s)];
-let language='hi';try{language=localStorage.getItem('gen_lang')==='en'?'en':'hi';}catch{}
+let language='en';try{language=localStorage.getItem('gen_lang')==='hi'?'hi':'en';}catch{}
 let current=9,renderer=null,rotating=false,graded=false;
 const L=pair=>pair[language==='en'?1:0];
 function motionLabel(){$('#rotate').textContent=rotating?L(['❚❚ रोकें','❚❚ Pause']):L(['▶ चलाएँ','▶ Animate']);$('#rotate').setAttribute('aria-pressed',String(rotating));}

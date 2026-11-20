@@ -19,7 +19,7 @@ html[lang="hi"] .visual-page h1,html[lang="hi"] .visual-page h2{font-family:'Muk
 @media(max-width:680px){.v-wrap{width:calc(100% - 32px)}.v-nav-in{min-height:68px;flex-wrap:wrap;gap:8px;padding:10px 0}.v-nav-links{order:3;width:100%;justify-content:space-between;font-size:13px;padding:7px 0}.v-hero{grid-template-columns:1fr;padding:34px 0 24px;gap:24px}.v-hero h1{font-size:42px}.v-hero .v-visual svg{max-height:260px}.v-hero p{font-size:17px}.v-grid{grid-template-columns:1fr}.v-heading{align-items:start;flex-direction:column}.v-search{width:100%}.v-path{grid-template-columns:1fr 1fr;gap:10px}.v-path>div{padding:15px}.v-banner{align-items:start;flex-direction:column;padding:24px}.lesson-layout,.flash-layout,.roadmap-layout{grid-template-columns:1fr}.lesson-aside,.roadmap-aside{position:static}.lesson-aside{order:-1}.lesson-aside a{display:inline-block;margin-right:15px}.v-options{grid-template-columns:1fr}.v-card-body{padding:20px}.v-question{padding:16px}.flash-illustration{height:250px}.flash-paper{height:185px;width:240px;padding:18px}.flash-paper .big-symbol{font-size:56px}.deck-menu{grid-template-columns:1fr 1fr;gap:8px}.deck-choice{padding:10px;gap:8px}.deck-choice strong{font-size:14px}.deck-choice .deck-icon{width:30px;height:30px;font-size:18px}.deck-choice small{font-size:11px}.flash-workspace{padding:16px}.study-card{min-height:265px;padding:25px 18px}.flash-help{gap:10px;font-size:13px}.roadmap-aside{display:grid;grid-template-columns:1fr 140px;column-gap:10px}.roadmap-ring{grid-column:2;grid-row:1/4;margin:0;width:130px;height:130px}.roadmap-ring>span{width:110px;height:110px}.roadmap-aside .v-btn{grid-column:1/-1}.hero-atlas{max-width:340px;margin:15px auto 0}.atlas-paper .atlas-title{font-size:25px}.atlas-badge{right:0}.learning-zone .v-grid{grid-template-columns:1fr}.learning-zone{padding:30px 0}}
 .v-chips span span{border:0;padding:0;border-radius:0}.flash-grade .v-btn{padding:12px 8px;font-size:15px;gap:6px;white-space:nowrap}
 @media(max-width:680px){.v-heading>label{width:100%}#top .hero-art{order:0}#top .hero-in{padding-top:34px;gap:24px}#top .hero-art .hero-atlas{max-width:300px}.hero-atlas .atlas-badge{right:4px}}
-html[data-theme="light"] body:not(.visual-page){--ink0:#f6f5ef;--ink1:#fffef9;--ink2:#edf0f5;--cream:#18294a;--mist:#596579;--line:#dbe0dc;background:#f6f5ef}
+html[data-theme="light"] body:not(.visual-page){--ink0:#EFF7F4;--ink1:#FFFFFF;--ink2:#F6FAF8;--cream:#0E2A2B;--mist:#48605E;--line:rgba(110,160,145,.42);background:#EFF7F4}
 @media(max-width:960px){#top{padding:36px 16px 28px}#top .hero-in{padding-top:0;gap:26px}#top .hero-art{order:0}#top h1.hero-title{font-size:clamp(30px,5.8vw,40px)}#top .hero-sub{font-size:16px;-webkit-line-clamp:initial;display:block}#top .hero-art{justify-content:center}}
 @media(max-width:680px){#top .hero-actions .btn{padding:12px 16px}}
 @media(prefers-reduced-motion:reduce){.visual-page *, .learning-zone *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
@@ -28,3 +28,54 @@ html[data-theme="light"] body:not(.visual-page){--ink0:#f6f5ef;--ink1:#fffef9;--
 
 .pdf-strip:focus-within .ps-anim{animation-play-state:paused}
 .lesson-layout>*{min-width:0}
+
+/* हल्की थीम: ivory, navy and gold. Every rule below is light-scoped; dark is untouched. */
+html[data-theme="light"] .visual-page{--paper:#EFF7F4;--panel:#FFFFFF;--text:#0E2A2B;--muted:#48605E;--edge:rgba(110,160,145,.42);--accent:#13695F}
+html[data-theme="light"] .visual-page .v-kicker,html[data-theme="light"] .v-card .v-num{color:#C2410C}
+html[data-theme="light"] .v-hero h1 em{color:#C2410C}
+html[data-theme="light"] .v-nav{box-shadow:0 2px 10px rgba(14,42,43,.04)}
+html[data-theme="light"] .v-nav-links a[aria-current="page"]{text-decoration-color:#FF8A1F}
+html[data-theme="light"] .v-nav button{background:#FFFFFF}
+html[data-theme="light"] .v-btn{box-shadow:0 2px 8px rgba(14,42,43,.04)}
+html[data-theme="light"] .v-btn:hover{border-color:#FF8A1F;box-shadow:0 5px 14px rgba(14,42,43,.08)}
+html[data-theme="light"] .v-btn.primary,html[data-theme="light"] .v-skip,html[data-theme="light"] .exam-tabs button[aria-pressed="true"]{background:linear-gradient(135deg,#13695F,#0C403C);color:#FFFFFF;border-color:#0C403C}
+html[data-theme="light"] .v-btn.warm{background:#F2CD88;color:#0E2A2B;border-color:#F2CD88}
+html[data-theme="light"] .v-btn:disabled{box-shadow:none}
+html[data-theme="light"] .exam-tabs button[aria-pressed="true"]{box-shadow:inset 0 -3px #F2CD88}
+html[data-theme="light"] .exam-tabs button[aria-pressed="true"] [style*="c2410c"]{color:#F2CD88!important}
+html[data-theme="light"] .exam-tabs button:hover{border-color:#FF8A1F}
+html[data-theme="light"] .v-card,html[data-theme="light"] .v-path>div,html[data-theme="light"] .v-question,html[data-theme="light"] .road-topic,html[data-theme="light"] .roadmap-detail .acc,html[data-theme="light"] .roadmap-detail .table-wrap,html[data-theme="light"] .lesson-aside,html[data-theme="light"] .flash-workspace,html[data-theme="light"] .deck-choice,html[data-theme="light"] .v-callout{box-shadow:0 4px 14px rgba(14,42,43,.05)}
+html[data-theme="light"] .v-card:hover{border-color:#FF8A1F;box-shadow:0 15px 35px rgba(14,42,43,.10)}
+html[data-theme="light"] .visual-page .v-path>div{box-shadow:inset 0 3px #FF8A1F,0 4px 14px rgba(14,42,43,.05)}
+html[data-theme="light"] .v-path b{color:#C2410C}
+html[data-theme="light"] .v-banner{background:linear-gradient(120deg,#0F4C48,#17766B);color:#FFFFFF}
+html[data-theme="light"] .v-banner h2{color:#FFFFFF}
+html[data-theme="light"] .v-banner p{color:#D5DEEE}
+html[data-theme="light"] .v-banner .v-num,html[data-theme="light"] .v-banner .v-kicker{color:#F2CD88}
+html[data-theme="light"] .v-callout{border-left-color:#FF8A1F}
+html[data-theme="light"] .v-callout b{color:#C2410C}
+html[data-theme="light"] .concept .number{border-color:#FF8A1F;color:#C2410C}
+html[data-theme="light"] .v-progress{background:#E9DFC8}
+html[data-theme="light"] .v-progress>i{background:#FF8A1F}
+html[data-theme="light"] .v-option{background:#FFFFFF}
+html[data-theme="light"] .v-option:hover{border-color:#FF8A1F}
+html[data-theme="light"] .v-option:has(input:checked){background:#FBF3DF;border-color:#13695F;box-shadow:inset 3px 0 #FF8A1F}
+html[data-theme="light"] .v-option input,html[data-theme="light"] .v-check input{accent-color:#13695F}
+html[data-theme="light"] .v-search,html[data-theme="light"] .flash-toolbar select{background:#FFFFFF}
+html[data-theme="light"] .v-search:focus{border-color:#FF8A1F}
+html[data-theme="light"] .deck-choice:hover{border-color:#FF8A1F}
+html[data-theme="light"] .deck-choice[aria-pressed="true"]{background:#FFFFFF;border-color:#13695F;box-shadow:inset 4px 0 #FF8A1F,0 4px 14px rgba(14,42,43,.07)}
+html[data-theme="light"] .study-card{background:#F6FAF8}
+html[data-theme="light"] .flash-score b{color:#C2410C}
+html[data-theme="light"] .flash-help b{border-color:#FF8A1F;color:#C2410C;background:#FFFFFF}
+html[data-theme="light"] .flash-done .done-symbol{color:#FF8A1F}
+html[data-theme="light"] .roadmap-aside{background:#0C403C;color:#FFFFFF;box-shadow:0 10px 26px rgba(14,42,43,.16)}
+html[data-theme="light"] .roadmap-aside h2{color:#FFFFFF}
+html[data-theme="light"] .roadmap-aside .v-kicker{color:#F2CD88}
+html[data-theme="light"] .roadmap-aside p,html[data-theme="light"] .roadmap-ring small{color:#D5DEEE}
+html[data-theme="light"] .roadmap-ring{background:conic-gradient(#F2CD88 var(--pct,0%),#3D5488 0)}
+html[data-theme="light"] .roadmap-ring>span{background:#0C403C}
+html[data-theme="light"] .roadmap-detail th{background:#F6FAF8;border-bottom-color:#FF8A1F}
+html[data-theme="light"] .roadmap-detail .acc[open]{border-color:#FF8A1F}
+html[data-theme="light"] .atlas-paper{border-color:#CFE2DA}
+html[data-theme="light"] .atlas-badge{background:#13695F}

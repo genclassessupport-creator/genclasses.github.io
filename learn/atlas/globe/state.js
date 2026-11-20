@@ -18,7 +18,7 @@ const state = {
   quizMode: false,
   quiz: { currentItem: null, options: [], answered: false, score: 0, total: 0, streak: 0 }
 };
-try { if (localStorage.getItem('gen_lang') === 'en') state.lang = 'en'; } catch {}
+try { state.lang = localStorage.getItem('gen_lang') === 'hi' ? 'hi' : 'en'; } catch { state.lang = 'en'; }
 
 const TEXT = {
   en: {

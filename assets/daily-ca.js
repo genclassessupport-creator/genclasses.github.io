@@ -81,12 +81,11 @@
       '.dcc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px 28px;flex-wrap:wrap;margin-bottom:20px}',
       '.dcc-kick{display:inline-flex;align-items:center;gap:9px;font-size:13.5px;font-weight:800;letter-spacing:.06em;color:var(--gold-hi)}',
       '.dcc-head h2{margin-top:4px;font-size:clamp(28px,3.4vw,42px);line-height:1.2;color:var(--cream)}',
-      '.dcc-head p{margin-top:6px;font-size:17px;color:var(--mist)}',
-      '.dcc-chips{display:flex;flex-wrap:wrap;gap:8px}',
+            '.dcc-chips{display:flex;flex-wrap:wrap;gap:8px}',
       '.dcc-chip{font:700 15.5px/1 "Mukta",sans-serif;height:40px;padding:0 17px;border-radius:999px;border:1.5px solid var(--line-2);background:var(--glass);color:var(--cream);cursor:pointer;white-space:nowrap;transition:background .16s,border-color .16s,color .16s}',
       '.dcc-chip:hover{border-color:var(--gold)}',
       '.dcc-chip.on{background:#12264D;border-color:#12264D;color:#F7DCA3;box-shadow:0 6px 16px rgba(18,38,77,.28)}',
-      'html:not([data-theme="light"]) .dcc-chip.on{background:linear-gradient(135deg,#F7DCA3,#D9AE5F);border-color:#D9AE5F;color:#0A1426}',
+      'html:not([data-theme="light"]) .dcc-chip.on{background:linear-gradient(135deg,#FFE3B8,#D9AE5F);border-color:#D9AE5F;color:#0A1426}',
       '.dcc-chip:focus-visible,.dcc-arrow:focus-visible,.dcc-card a:focus-visible{outline:2px solid var(--gold);outline-offset:2px}',
       '.dcc-track{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(272px,calc((100% - 54px)/4));gap:18px;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;padding:4px 2px 26px;margin:0 -2px -14px}',
       '.dcc-track::-webkit-scrollbar{display:none}',
@@ -108,6 +107,30 @@
       '.dcc-arrow{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line-2);background:var(--glass);color:var(--cream);font-size:22px;line-height:1;cursor:pointer;transition:border-color .16s,opacity .16s}',
       '.dcc-arrow:hover{border-color:var(--gold)}',
       '.dcc-arrow:disabled{opacity:.35;cursor:default}',
+      '.dcc-range{display:inline-flex;padding:5px;gap:4px;border-radius:999px;background:var(--glass);border:1px solid var(--line-2)}',
+      '.dcc-rng{font:800 16px/1 "Mukta",sans-serif;height:42px;padding:0 22px;border:0;border-radius:999px;background:none;color:var(--mist);cursor:pointer;white-space:nowrap;transition:background .16s,color .16s}',
+      '.dcc-rng:hover{color:var(--cream)}',
+      '.dcc-rng.on{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#0A1020;box-shadow:0 6px 18px rgba(255,170,60,.3)}',
+      'html[data-theme="light"] .dcc-rng.on{background:#0F4C48;color:#FFE3B8;box-shadow:0 6px 16px rgba(15,76,72,.25)}',
+      '.dcc-rng:focus-visible{outline:2px solid var(--gold);outline-offset:2px}',
+      '.dcc-chips{margin-bottom:16px;align-items:center}',
+      '.dcc-total{margin-left:auto;font-size:14.5px;font-weight:700;color:var(--mist);white-space:nowrap}',
+      /* ऊपर की चलती करंट-पंक्ति */
+      '.cat{position:relative;z-index:4;display:flex;align-items:center;gap:14px;height:46px;margin-top:76px;padding:0 clamp(12px,2.2vw,34px);background:var(--ink1);border-bottom:1px solid var(--line);color:var(--cream);overflow:hidden}',
+      '.cat[hidden]{display:block;visibility:hidden}',
+      '.cat-lbl{flex:none;display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:800;color:var(--gold-hi);white-space:nowrap}',
+      '.cat-lbl small{font-size:13px;font-weight:600;color:var(--mist)}',
+      '.cat-view{flex:1;min-width:0;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent)}',
+      '.cat-track{display:inline-flex;white-space:nowrap;animation:catRun 120s linear infinite;will-change:transform}',
+      '.cat-dup{display:inline-flex}',
+      '.cat:hover .cat-track,.cat:focus-visible .cat-track{animation-play-state:paused}',
+      '@keyframes catRun{from{transform:translateX(0)}to{transform:translateX(-50%)}}',
+      '.cat-it{display:inline-flex;align-items:center;gap:10px;padding-right:44px;font-size:16px;font-weight:500}',
+      '.cat-it b{font-size:12.5px;font-weight:800;padding:2px 9px;border-radius:999px;color:var(--gold-hi);border:1px solid var(--line-2)}',
+      '.cat-all{flex:none;font-size:14.5px;font-weight:800;color:var(--gold-hi);white-space:nowrap}',
+      '.cat:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}',
+      '@media (max-width:600px){.cat{margin-top:64px;height:42px;gap:10px}.cat-lbl small,.cat-all{display:none}.cat-it{font-size:15px}}',
+      '@media (prefers-reduced-motion:reduce){.cat-track{animation:none}.cat-dup{display:none}.cat-view{-webkit-mask-image:none;mask-image:none}.cat-it:not(:first-child){display:none}.cat-it{overflow:hidden;text-overflow:ellipsis}}',
       '@media (max-width:1000px){.dcc-track{grid-auto-columns:minmax(264px,calc((100% - 18px)/2))}}',
       '@media (max-width:640px){.dcc-track{grid-auto-columns:84%;gap:12px}.dcc-head{margin-bottom:14px}.dcc-head p{font-size:15.5px}.dcc-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:0 -14px;padding:0 14px 2px;max-width:100vw}.dcc-chip{height:38px;font-size:15px}.dcc-arrows{display:none}}',
       '@media (prefers-reduced-motion:reduce){.dcc-card,.dcc-chip{transition:none}.dcc-card:hover{transform:none}}',
@@ -186,30 +209,58 @@
     document.addEventListener('gen-lang', paint);
   }
 
+  /* ---------- one-line running strip of the latest day's points (top of the home page) ---------- */
+  function ticker(root, data) {
+    var days = latestDay(data);
+    if (!days.length) return;
+    var day = days[0];
+    function paint() {
+      var items = day.points.map(function (p) {
+        return '<span class="cat-it">' + (tag(p) ? '<b>' + esc(tag(p)) + '</b>' : '') + esc(txt(p)) + '</span>';
+      }).join('');
+      root.innerHTML =
+        '<span class="cat-lbl"><span class="dca-live" aria-hidden="true"></span>' + (en() ? 'Today' : 'आज का करंट') + '<small>' + esc(fmtDate(day.date)) + '</small></span>' +
+        '<span class="cat-view"><span class="cat-track">' + items + '<span aria-hidden="true" class="cat-dup">' + items + '</span></span></span>' +
+        '<span class="cat-all">' + (en() ? 'All →' : 'सभी →') + '</span>';
+      root.hidden = false;
+      var track = root.querySelector('.cat-track');
+      /* गति चौड़ाई के हिसाब से: लगभग 55px प्रति सेकंड, ताकि पंक्ति आराम से पढ़ी जाए */
+      requestAnimationFrame(function () { track.style.animationDuration = Math.max(40, Math.round(track.scrollWidth / 2 / 55)) + 's'; });
+    }
+    paint();
+    document.addEventListener('gen-lang', paint);
+  }
+
   /* ---------- card row with topic filters (home page) ---------- */
   var ACCENTS = ['#D9A441', '#4F8FF7', '#2FB380', '#E5604D', '#9B7BF0', '#22A6B8'];
   function cards(root, data) {
     var days = latestDay(data);
     if (!days.length) { root.style.display = 'none'; return; }
     /* ताज़ा = सबसे नए दिन के सभी बिंदु; विषय चुनने पर पिछले 7 दिनों में से उस विषय के बिंदु */
-    var recent = [];
-    days.slice(0, 7).forEach(function (d) { d.points.forEach(function (p, k) { recent.push({ p: p, date: d.date, n: k + 1 }); }); });
-    var count = {}, order = [];
-    recent.forEach(function (r) { var t = r.p.tag_hi || r.p.tag_en; if (!t) return; if (!count[t]) { count[t] = 0; order.push(t); } count[t]++; });
-    var tags = order.slice().sort(function (a, b) { return count[b] - count[a] || order.indexOf(a) - order.indexOf(b); }).slice(0, 5);
-    var hue = {}; order.forEach(function (t, k) { hue[t] = ACCENTS[k % ACCENTS.length]; });
-    var sel = '';
-
+    var recent = [], RANGE = { day: 0, week: 6, month: 29 }, range = 'day', sel = '', MAXC = 40;
+    days.forEach(function (d) { d.points.forEach(function (p, k) { recent.push({ p: p, date: d.date, n: k + 1 }); }); });
+    var order = [], hue = {};
+    recent.forEach(function (r) { var t = r.p.tag_hi || r.p.tag_en; if (t && order.indexOf(t) < 0) order.push(t); });
+    order.forEach(function (t, k) { hue[t] = ACCENTS[k % ACCENTS.length]; });
+    /* आज = सबसे नया दिन; हफ़्ता = उससे पिछले 7 दिन; महीना = पिछले 30 दिन */
+    function since() { var d = new Date(days[0].date + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() - RANGE[range]); return d.toISOString().slice(0, 10); }
+    function inRange() { var from = since(); return recent.filter(function (r) { return r.date >= from; }); }
+    function topTags() {
+      var count = {}, seen = [];
+      inRange().forEach(function (r) { var t = r.p.tag_hi || r.p.tag_en; if (!t) return; if (!count[t]) { count[t] = 0; seen.push(t); } count[t]++; });
+      return seen.sort(function (a, b) { return count[b] - count[a]; }).slice(0, 5);
+    }
     function list() {
-      if (!sel) return recent.filter(function (r) { return r.date === days[0].date; });
-      return recent.filter(function (r) { return (r.p.tag_hi || r.p.tag_en) === sel; }).slice(0, 12);
+      var all = inRange();
+      if (sel) all = all.filter(function (r) { return (r.p.tag_hi || r.p.tag_en) === sel; });
+      return all;
     }
     function tagLabel(t) {
       for (var k = 0; k < recent.length; k++) if ((recent[k].p.tag_hi || recent[k].p.tag_en) === t) return tag(recent[k].p);
       return t;
     }
     function cardsHtml() {
-      return list().map(function (r, k) {
+      return list().slice(0, MAXC).map(function (r, k) {
         var t = r.p.tag_hi || r.p.tag_en, h = host(r.p.src);
         return '<article class="dcc-card" style="--acc:' + (hue[t] || ACCENTS[0]) + '">' +
           '<div class="dcc-top">' + (tag(r.p) ? '<span class="dcc-tag">' + esc(tag(r.p)) + '</span>' : '<span></span>') +
@@ -221,17 +272,23 @@
       }).join('');
     }
     function paint() {
+      var E = en(), tags = topTags(), total = list().length;
+      if (sel && tags.indexOf(sel) < 0) tags.push(sel);
+      var R = [['day', 'आज', 'Today'], ['week', 'इस हफ़्ते', 'This week'], ['month', 'इस महीने', 'This month']];
       root.innerHTML =
         '<div class="dcc">' +
           '<div class="dcc-head"><div>' +
-            '<span class="dcc-kick"><span class="dca-live" aria-hidden="true"></span>' + esc(dayLabel(days[0])) + '</span>' +
-            '<h2>' + (en() ? 'Today\'s Current Affairs' : 'आज का करंट') + '</h2>' +
-            '<p>' + (en() ? 'Exam-relevant points, refreshed every day. Pick a topic to see the past week.' : 'परीक्षा-उपयोगी बिंदु, रोज़ नए। विषय चुनिए और पिछले सात दिन एक साथ देखिए।') + '</p>' +
+            '<span class="dcc-kick"><span class="dca-live" aria-hidden="true"></span>' + (E ? 'Updated ' : 'अद्यतन · ') + esc(fmtDate(days[0].date)) + '</span>' +
+            '<h2>' + (E ? 'Current affairs updates' : 'करंट अफेयर्स अपडेट') + '</h2>' +
           '</div>' +
-          '<div class="dcc-chips" role="group" aria-label="' + (en() ? 'Filter by topic' : 'विषय से छाँटें') + '">' +
-            '<button type="button" class="dcc-chip' + (sel ? '' : ' on') + '" data-t="" aria-pressed="' + (sel ? 'false' : 'true') + '">' + (en() ? 'Latest' : 'ताज़ा') + '</button>' +
-            tags.map(function (t) { return '<button type="button" class="dcc-chip' + (sel === t ? ' on' : '') + '" data-t="' + esc(t) + '" aria-pressed="' + (sel === t ? 'true' : 'false') + '">' + esc(tagLabel(t)) + '</button>'; }).join('') +
+          '<div class="dcc-range" role="group" aria-label="' + (E ? 'Period' : 'अवधि') + '">' +
+            R.map(function (r) { return '<button type="button" class="dcc-rng' + (range === r[0] ? ' on' : '') + '" data-r="' + r[0] + '" aria-pressed="' + (range === r[0]) + '">' + (E ? r[2] : r[1]) + '</button>'; }).join('') +
           '</div></div>' +
+          '<div class="dcc-chips" role="group" aria-label="' + (E ? 'Filter by topic' : 'विषय से छाँटें') + '">' +
+            '<button type="button" class="dcc-chip' + (sel ? '' : ' on') + '" data-t="" aria-pressed="' + (sel ? 'false' : 'true') + '">' + (E ? 'All topics' : 'सभी विषय') + '</button>' +
+            tags.map(function (t) { return '<button type="button" class="dcc-chip' + (sel === t ? ' on' : '') + '" data-t="' + esc(t) + '" aria-pressed="' + (sel === t ? 'true' : 'false') + '">' + esc(tagLabel(t)) + '</button>'; }).join('') +
+            '<span class="dcc-total">' + total + (E ? ' points' : ' बिंदु') + '</span>' +
+          '</div>' +
           '<div class="dcc-track" tabindex="0" aria-label="' + (en() ? 'Current affairs points' : 'करंट अफेयर्स के बिंदु') + '">' + cardsHtml() + '</div>' +
           '<div class="dcc-bottom"><div class="dcc-more">' +
             '<a href="/up-ca/#aaj">' + (en() ? 'See all points →' : 'सभी बिंदु देखें →') + '</a>' +
@@ -258,6 +315,9 @@
       sync();
       root.querySelectorAll('.dcc-chip').forEach(function (c) {
         c.onclick = function () { sel = c.getAttribute('data-t'); paint(); var on = root.querySelector('.dcc-chip.on'); if (on) on.focus(); };
+      });
+      root.querySelectorAll('.dcc-rng').forEach(function (c) {
+        c.onclick = function () { range = c.getAttribute('data-r'); sel = ''; paint(); var on = root.querySelector('.dcc-rng.on'); if (on) on.focus(); };
       });
     }
     paint();
@@ -299,7 +359,7 @@
     fetch('/ca/daily.json?d=' + istToday(), { cache: 'no-cache' })
       .then(function (r) { if (!r.ok) throw 0; return r.json(); })
       .then(function (data) {
-        roots.forEach(function (r) { var m = r.getAttribute('data-daily-ca'); (m === 'full' ? full : m === 'cards' ? cards : home)(r, data); });
+        roots.forEach(function (r) { var m = r.getAttribute('data-daily-ca'); (m === 'full' ? full : m === 'cards' ? cards : m === 'ticker' ? ticker : home)(r, data); });
       })
       .catch(function () { roots.forEach(function (r) { if (r.getAttribute('data-daily-ca') !== 'full') r.style.display = 'none'; }); });
   }

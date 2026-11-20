@@ -51,3 +51,43 @@
     window.open('https://wa.me/919506321415?text=' + encodeURIComponent(msg), '_blank', 'noopener');
   });
 })();
+
+/* "अपनी परीक्षा चुनिए": टैब और UPPCS की उलटी गिनती */
+(function () {
+  var tabs = [].slice.call(document.querySelectorAll('.ex-tab'));
+  if (!tabs.length) return;
+  function pick(tab, focus) {
+    tabs.forEach(function (t) {
+      var on = t === tab;
+      t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+    });
+    if (focus) tab.focus();
+    try { localStorage.setItem('gen_exam', tab.getAttribute('data-ex')); } catch (e) {}
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { pick(t); });
+    t.addEventListener('keydown', function (e) {
+      var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (d) { e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
+    });
+  });
+  try {
+    var saved = localStorage.getItem('gen_exam');
+    var st = saved && document.querySelector('.ex-tab[data-ex="' + saved.replace(/[^a-z]/g, '') + '"]');
+    if (st) pick(st);
+  } catch (e) {}
+
+  var cd = document.getElementById('exCd');
+  if (!cd) return;
+  var target = new Date('2026-12-06T09:30:00+05:30').getTime();
+  function tick() {
+    var left = target - Date.now(), E = document.documentElement.getAttribute('lang') === 'en';
+    if (left <= 0) { cd.hidden = true; return; }
+    var days = Math.floor(left / 864e5), hrs = Math.floor(left % 864e5 / 36e5);
+    cd.innerHTML = E
+      ? 'UPPCS Prelims 2026 · 6 December · <b>' + days + ' days ' + hrs + ' hours</b> to go'
+      : 'UPPCS प्रारंभिक 2026 · 6 दिसंबर · <b>' + days + ' दिन ' + hrs + ' घंटे</b> बाकी';
+  }
+  tick(); setInterval(tick, 60000); document.addEventListener('gen-lang', tick);
+})();

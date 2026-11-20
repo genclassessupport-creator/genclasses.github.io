@@ -63,8 +63,8 @@ function diagram(){
 
 const $=s=>document.querySelector(s), canvas=$('canvas'), ctx=canvas.getContext('2d'), terrain=document.createElement('canvas');
 const g=terrain.getContext('2d'), sin=Math.sin, cos=Math.cos, abs=Math.abs, exp=Math.exp;
-let n=0, hi=true, time=0, auto=true, running=true;
-try{hi=localStorage.getItem('gen_lang')!=='en'}catch{}
+let n=0, hi=false, time=0, auto=true, running=true;
+try{hi=localStorage.getItem('gen_lang')==='hi'}catch{}
 const channel=y=>.43*sin(4*y), ridge=y=>.12*sin(y*4);
 function baseSurface(x,y){
  const r=Math.hypot(x,y), d=abs(x-channel(y)), a=x-ridge(y);
@@ -147,6 +147,8 @@ function fitStage(){
 addEventListener('resize',fitStage);document.addEventListener('fullscreenchange',fitStage);
 new ResizeObserver(fitStage).observe($('.film-controls'));
 if(window.parent!==window)document.documentElement.classList.add('embedded');
+/* मुखपृष्ठ के किनारे वाला छोटा प्लेयर: केवल दृश्य, नियंत्रण और विषय-चयन */
+if(new URLSearchParams(location.search).has('side'))document.documentElement.classList.add('side');
 fitStage();
 if(window.parent!==window){
   new ResizeObserver(()=>parent.postMessage({atlasHeight:document.body.getBoundingClientRect().height},location.origin)).observe(document.body);
