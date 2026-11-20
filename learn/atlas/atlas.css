@@ -38,3 +38,12 @@ main{display:block;max-width:1450px}.viewer{background:#152f34}.stage{overflow:h
  #globe-card iframe{width:92px;height:72px;flex:none}
  #globe-card span{flex:1;background:none;padding:6px 12px}
 }
+
+/* किनारे वाला छोटा प्लेयर (?side): ग्लोब-कार्ड, कहानी और लंबी सूची नहीं */
+.side body{background:transparent}
+.side #edition,.side #globe-card,.side .story,.side #choose{display:none!important}
+.side main{display:block;padding:0}
+.side .viewer{border-radius:16px;overflow:hidden}
+.side aside{margin-top:10px;padding:0;background:none;border:0;box-shadow:none}
+.side #topics{max-height:132px;overflow:auto}
+.side header{display:none!important}

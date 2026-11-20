@@ -143,14 +143,33 @@ section{padding-block:72px}
 #whats-on .sec-head{margin-bottom:22px}
 @media(max-width:760px){section{padding-block:48px} #whats-on{padding:22px 14px 6px}}
 
-/* ═══════════ दृश्य एटलस — छोटा; बड़ा देखना हो तो प्लेयर का "पूरी स्क्रीन" ═══════════ */
-#visual-atlas{padding-block:26px 18px; scroll-margin-top:0}
-#visual-atlas .section-in{max-width:1120px}
-#visual-atlas h2{font-size:clamp(22px,2.4vw,30px)}
-#visual-atlas .atlas-tip{display:block; margin-top:4px; font-size:14.5px; color:var(--mist)}
-#visual-atlas .atlas-links{margin-top:10px; font-size:15px; font-weight:700; color:var(--gold-hi)}
-#visual-atlas .atlas-links a:hover{text-decoration:underline}
-@media(max-width:900px){#visual-atlas{padding-block:16px}}
+/* ═══════════ दृश्य एटलस: बाईं ओर बात, दाईं ओर किनारे पर छोटा प्लेयर ═══════════ */
+#visual-atlas{padding:34px 26px 38px; scroll-margin-top:0}
+.va{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,480px); gap:clamp(22px,4vw,56px); align-items:center}
+.va-eye{font-size:13.5px; font-weight:800; letter-spacing:.16em; color:var(--gold)}
+html[data-theme="light"] .va-eye{color:#C2410C}
+.va-copy h2{margin-top:8px; font-size:clamp(26px,3vw,38px); line-height:1.22; color:var(--cream)}
+.va-copy p{margin-top:12px; max-width:560px; font-size:17.5px; line-height:1.65; color:var(--mist)}
+.va-list{list-style:none; margin:16px 0 0; padding:0; display:grid; gap:9px}
+.va-list li{position:relative; padding-left:28px; font-size:17px; font-weight:600; color:var(--cream)}
+.va-list li::before{content:""; position:absolute; left:2px; top:.5em; width:12px; height:12px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 4px var(--glass)}
+html[data-theme="light"] .va-list li::before{background:#FF8A1F; box-shadow:0 0 0 4px rgba(255,138,31,.18)}
+.va-acts{margin-top:22px; display:flex; flex-wrap:wrap; gap:10px}
+.va-btn{display:inline-flex; align-items:center; height:48px; padding:0 20px; font:700 16.5px/1 'Mukta',sans-serif; color:var(--cream); background:var(--glass); border:1.5px solid var(--line-2); border-radius:13px; transition:transform .18s,border-color .18s}
+.va-btn:hover{transform:translateY(-2px); border-color:var(--gold)}
+.va-main{color:#0A1426; background:linear-gradient(135deg,#F7DCA3,#D9AE5F); border-color:transparent}
+html[data-theme="light"] .va-btn{background:#fff; border-color:#C3DDD4}
+html[data-theme="light"] .va-main{color:#fff; background:linear-gradient(135deg,#13695F,#1E8C7E); border-color:transparent; box-shadow:0 10px 24px rgba(19,105,95,.28)}
+.va-btn:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+.va-player{min-width:0; padding:10px; border-radius:22px; background:var(--ink1); border:1px solid var(--line-2); box-shadow:0 18px 44px rgba(3,8,20,.22)}
+html[data-theme="light"] .va-player{background:#fff; border-color:#D5E7E0; box-shadow:0 18px 44px rgba(15,76,72,.14)}
+#atlas-frame{display:block; width:100%; height:520px; border:0; border-radius:14px; background:transparent}
+@media(max-width:900px){
+  #visual-atlas{padding:22px 14px 26px}
+  .va{grid-template-columns:1fr}
+  .va-player{max-width:520px; margin:0 auto; width:100%}
+}
+@media(prefers-reduced-motion:reduce){.va-btn{transition:none}}
 
 /* ═══════════ आज का करंट — खंड की जगह ═══════════ */
 #daily-ca{padding:30px 26px 34px}

@@ -1119,7 +1119,7 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 @media (max-width:640px){.pdf-strip{min-height:56px;padding:4px 10px;gap:8px}.ps-label{font-size:10.5px;max-width:84px}.ps-label small{display:none}.ps-item img{height:44px;width:34px}.ps-chip{font-size:11px}.ps-all{font-size:11px;padding:4px 9px}}
 </style>
 <link rel="stylesheet" href="/assets/learning.css">
-<style>#top{overflow-x:clip}@media(min-width:961px){#top{padding-top:44px}#top .hero-actions{gap:8px}#top .hero-actions .btn{padding:10px 14px}}</style><link rel="stylesheet" href="/assets/home-refresh.css?v=10"></head>
+<style>#top{overflow-x:clip}@media(min-width:961px){#top{padding-top:44px}#top .hero-actions{gap:8px}#top .hero-actions .btn{padding:10px 14px}}</style><link rel="stylesheet" href="/assets/home-refresh.css?v=11"></head>
 <body>
 
 <canvas id="embers" aria-hidden="true"></canvas>
@@ -1206,9 +1206,22 @@ html[data-theme="light"] .pdf-strip{background:#F1F5F9;border-bottom-color:rgba(
 </section>
 
 
-<section id="visual-atlas"><div class="section-in"><h2><span data-hi>दृश्य एटलस · विषयवार चलते मॉडल</span><span data-en>Visual Atlas · animated topic models</span></h2><span class="atlas-tip"><span data-hi>बारीकी से देखना हो तो प्लेयर का «पूरी स्क्रीन» बटन दबाएँ।</span><span data-en>For a closer look, use the player's Full screen button.</span></span><iframe id="atlas-frame" allowfullscreen title="Visual Atlas · animated topic models · दृश्य एटलस · विषयवार चलते मॉडल" src="/learn/atlas/?v=globe1" loading="lazy" style="width:100%;height:700px;border:0;border-radius:18px;display:block;margin-top:16px"></iframe><p class="atlas-links"><a href="/learn/atlas/"><span data-hi>पूरे पेज में देखें</span><span data-en>Open full-page atlas</span> ↗</a> · <a href="/learn/atlas/globe/"><span data-hi>3D ग्लोब: पवनें व धाराएँ</span><span data-en>3D globe: winds &amp; currents</span> ↗</a></p></div></section>
+<section id="visual-atlas"><div class="section-in va">
+  <div class="va-copy">
+    <span class="va-eye"><span data-hi>दृश्य एटलस</span><span data-en>Visual Atlas</span></span>
+    <h2><span data-hi>जो पढ़ा है, उसे होते हुए देखिए</span><span data-en>Watch what you read actually happen</span></h2>
+    <p><span data-hi>नदी का विसर्प, ज्वालामुखी, पर्वतीय वर्षा, भ्रंश और वलन जैसे विषय छोटे चलते मॉडल में। हर दृश्य लगभग एक मिनट का है और साथ में परीक्षा-उपयोगी टिप्पणी चलती है।</span><span data-en>Meanders, volcanoes, orographic rain, faults and folds as short animated models. Each scene runs about a minute, with exam-relevant captions alongside.</span></p>
+    <ul class="va-list">
+      <li><span data-hi>भूगोल और अन्य विषयों के चलते मॉडल</span><span data-en>Animated models for geography and more</span></li>
+      <li><span data-hi>हिंदी और अंग्रेज़ी, दोनों में</span><span data-en>In both Hindi and English</span></li>
+      <li><span data-hi>बड़ा देखना हो तो «पूरी स्क्रीन» बटन</span><span data-en>A Full screen button for the big view</span></li>
+    </ul>
+    <div class="va-acts"><a class="va-btn va-main" href="/learn/atlas/"><span data-hi>पूरा एटलस खोलें</span><span data-en>Open the full atlas</span> ↗</a><a class="va-btn" href="/learn/atlas/globe/"><span data-hi>3D ग्लोब: पवनें व धाराएँ</span><span data-en>3D globe: winds &amp; currents</span> ↗</a></div>
+  </div>
+  <div class="va-player"><iframe id="atlas-frame" allowfullscreen title="Visual Atlas · animated topic models · दृश्य एटलस" src="/learn/atlas/?v=globe2&amp;side=1" loading="lazy"></iframe></div>
+</div></section>
 <script>
-const atlasFrame=document.getElementById('atlas-frame'),ATLAS_MAX=540;
+const atlasFrame=document.getElementById('atlas-frame'),ATLAS_MAX=420;
 function atlasRoom(){/* screen height left for the player below the fixed nav and the section heading */const section=document.getElementById('visual-atlas'),nav=document.getElementById('nav');const navH=nav?nav.getBoundingClientRect().height:0;const landing=(parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop)||0)+(parseFloat(getComputedStyle(section).scrollMarginTop)||0);const above=atlasFrame.getBoundingClientRect().top-section.getBoundingClientRect().top;const room=Math.max(380,Math.floor(window.innerHeight-Math.max(navH-16,landing)-above-10));/* desktop: a compact player; the in-player Full screen button gives the big view */return window.innerWidth>900?Math.min(room,ATLAS_MAX):room}
 function syncAtlasLanguage(){atlasFrame.contentWindow.postMessage({atlasLang:document.documentElement.lang,hostHeight:atlasRoom()},location.origin)}
 atlasFrame.addEventListener('load',syncAtlasLanguage);window.addEventListener('resize',syncAtlasLanguage);
