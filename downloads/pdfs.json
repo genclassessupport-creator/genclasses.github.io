@@ -98,6 +98,20 @@
   "en": "CA One-liners (EN)"
  },
  {
+  "id": "first-hi",
+  "file": "bharat-up-pehli-baar-2025-26-hindi-genclasses",
+  "section": "ca",
+  "hi": "पहली बार 2025-26 (हिंदी)",
+  "en": "Firsts 2025-26 (HI)"
+ },
+ {
+  "id": "first-en",
+  "file": "firsts-india-up-2025-26-english-genclasses",
+  "section": "ca",
+  "hi": "Firsts 2025-26 (EN)",
+  "en": "Firsts 2025-26 (EN)"
+ },
+ {
   "id": "pib",
   "file": "pib-short-notes-jan-oct-2026-hindi-genclasses",
   "section": "ca",
