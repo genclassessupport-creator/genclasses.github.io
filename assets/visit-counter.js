@@ -109,6 +109,12 @@
       '  #gcVisitCounter .gc-vc-row{font-size:12.5px;padding:3px 0}',
       '  #gcVisitCounter .gc-vc-tip{display:none}',
       '}',
+      /* फ़ोन: गोली छोटी, ताकि पढ़ने की जगह न घिरे */
+      '@media(max-width:600px){',
+      '  #gcVisitCounter{left:8px;bottom:8px}',
+      '  #gcVisitCounter.collapsed .gc-vc-card{padding:4px 9px;border-radius:999px}',
+      '  #gcVisitCounter .gc-vc-mini{font-size:11px;gap:5px}',
+      '}',
       'body.gc-test-page #gcVisitCounter{left:auto;right:12px;bottom:72px}'
     ].join('');
     document.head.appendChild(css);
