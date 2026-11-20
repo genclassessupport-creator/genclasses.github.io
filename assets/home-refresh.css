@@ -299,3 +299,98 @@ html[data-theme="light"] footer{background:#EDE4CF; border-top-color:rgba(183,12
   #whats-on .section-in>.sec-head{grid-column:1; margin-bottom:14px}
   #whats-on .section-in>.countdown{grid-column:2; margin:0 0 14px}
 }
+
+/* ═══════════ पहली स्क्रीन: खोज + 3D विषय-गोला ═══════════ */
+.hx{position:relative; z-index:3; padding:calc(76px + clamp(22px,4vw,48px)) clamp(16px,2.6vw,34px) clamp(20px,3vw,36px); overflow:hidden}
+.hx::before{
+  content:""; position:absolute; inset:0; z-index:-1; pointer-events:none;
+  background:radial-gradient(60% 80% at 82% 42%,rgba(127,180,255,.12),transparent 70%),radial-gradient(40% 50% at 8% 0%,rgba(217,174,95,.1),transparent 70%);
+}
+html[data-theme="light"] .hx::before{
+  background:radial-gradient(56% 78% at 80% 44%,rgba(242,205,136,.42),transparent 70%),radial-gradient(40% 50% at 4% 0%,rgba(30,58,138,.07),transparent 70%);
+}
+.hx-in{max-width:1240px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:clamp(18px,3vw,48px); align-items:center}
+.hx-eye{font-size:13.5px; font-weight:800; letter-spacing:.2em; color:var(--gold)}
+html[data-theme="light"] .hx-eye{color:#8A5A0B}
+.hx h1{margin-top:12px; font-size:clamp(34px,4.7vw,62px); line-height:1.16; color:var(--cream); letter-spacing:-.01em}
+.hx h1 em{font-style:normal; color:var(--gold-hi)}
+html[data-theme="light"] .hx h1 em{color:#B7791F}
+.hx-sub{margin-top:14px; max-width:560px; font-size:clamp(17px,1.5vw,20px); line-height:1.6; color:var(--mist)}
+
+.hx-search{
+  position:relative; margin-top:26px; max-width:600px; display:flex; align-items:center; gap:12px; height:64px; padding:0 16px 0 20px;
+  background:var(--ink1); border:1.5px solid var(--line-2); border-radius:18px; color:var(--mist);
+  box-shadow:0 14px 34px rgba(3,8,20,.28); transition:border-color .18s,box-shadow .18s;
+}
+html[data-theme="light"] .hx-search{background:#fff; border-color:rgba(183,121,31,.45); box-shadow:0 14px 34px rgba(20,33,61,.1)}
+.hx-search:focus-within{border-color:var(--gold); box-shadow:0 0 0 4px rgba(217,174,95,.2),0 14px 34px rgba(3,8,20,.2)}
+html[data-theme="light"] .hx-search:focus-within{border-color:#1B3A7A; box-shadow:0 0 0 4px rgba(27,58,122,.14),0 14px 34px rgba(20,33,61,.1)}
+.hx-search svg{flex:none}
+.hx-search input{flex:1; min-width:0; height:100%; padding:0; font:500 18px/1 'Mukta',sans-serif; color:var(--cream); background:none; border:0; outline:0}
+.hx-search input::placeholder{color:var(--mist); opacity:.85}
+.hx-search input::-webkit-search-cancel-button{display:none}
+.hx-search kbd{flex:none; min-width:28px; height:28px; display:grid; place-items:center; font:700 14px/1 ui-monospace,monospace; color:var(--mist); border:1px solid var(--line-2); border-radius:8px}
+#hxList{
+  position:absolute; left:-1.5px; right:-1.5px; top:calc(100% + 8px); z-index:40; margin:0; padding:8px; list-style:none; max-height:min(420px,56vh); overflow:auto;
+  background:var(--ink1); border:1px solid var(--line-2); border-radius:16px; box-shadow:0 24px 54px rgba(3,8,20,.45);
+}
+html[data-theme="light"] #hxList{background:#fff; border-color:rgba(183,121,31,.4); box-shadow:0 24px 54px rgba(20,33,61,.18)}
+#hxList a{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:11px 13px; border-radius:11px; font-size:17px; font-weight:600; color:var(--cream)}
+#hxList a i{flex:none; font-style:normal; font-size:12.5px; font-weight:800; padding:3px 9px; border-radius:999px; color:var(--gold-hi); background:var(--glass); border:1px solid var(--line-2)}
+html[data-theme="light"] #hxList a i{color:#8A5A0B; background:#FAF2E0; border-color:rgba(183,121,31,.3)}
+#hxList li[aria-selected="true"] a,#hxList a:hover{background:rgba(217,174,95,.14)}
+html[data-theme="light"] #hxList li[aria-selected="true"] a,html[data-theme="light"] #hxList a:hover{background:#F6EBD3}
+.hx-cap{padding:6px 13px 4px; font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--mist)}
+.hx-none{padding:14px 13px; font-size:16px; color:var(--mist)}
+
+.hx-acts{margin-top:18px; display:flex; flex-wrap:wrap; gap:10px}
+.hx-btn{
+  display:inline-flex; align-items:center; height:48px; padding:0 20px; font:700 16.5px/1 'Mukta',sans-serif; color:var(--cream);
+  background:var(--glass); border:1.5px solid var(--line-2); border-radius:13px; transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.hx-btn:hover{transform:translateY(-2px); border-color:var(--gold)}
+.hx-main{color:#0A1426; background:linear-gradient(135deg,#F7DCA3,#D9AE5F); border-color:transparent; box-shadow:0 10px 24px rgba(217,174,95,.28)}
+html[data-theme="light"] .hx-btn{background:#fff; border-color:rgba(183,121,31,.4)}
+html[data-theme="light"] .hx-main{color:#FFF8E8; background:linear-gradient(135deg,#1B3A7A,#12264D); border-color:transparent; box-shadow:0 10px 24px rgba(18,38,77,.26)}
+.hx-btn:focus-visible,.hx-tag:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+.hx-facts{list-style:none; margin:22px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px 26px; font-size:15.5px; color:var(--mist)}
+.hx-facts b{font-family:'Rozha One',serif; font-weight:400; font-size:22px; color:var(--cream); margin-right:4px}
+
+.hx-orbwrap{min-width:0}
+.hx-orb{position:relative; display:block; width:100%; max-width:540px; aspect-ratio:1/.9; margin:0 auto; touch-action:pan-y; cursor:grab; user-select:none; -webkit-user-select:none}
+.hx-orb.dragging{cursor:grabbing}
+.hx-orb canvas{position:absolute; inset:0; width:100%; height:100%; display:block}
+.hx-tag{
+  position:absolute; left:0; top:0; white-space:nowrap; padding:8px 16px; font:700 17px/1.2 'Mukta',sans-serif; color:var(--cream);
+  background:#0D1B36; border:1px solid rgba(242,205,136,.42); border-radius:999px; box-shadow:0 8px 20px rgba(3,8,20,.4);
+  opacity:0; will-change:transform,opacity; transition:background .16s,color .16s,border-color .16s;
+}
+.hx-orb.ready .hx-tag{opacity:1}
+.hx-tag:hover,.hx-tag:focus-visible{background:linear-gradient(135deg,#F7DCA3,#D9AE5F); color:#0A1426; border-color:transparent}
+.hx-tag.back{pointer-events:none}
+.hx-orb.dragging .hx-tag{pointer-events:none}
+html[data-theme="light"] .hx-tag{background:#fff; color:#12264D; border-color:rgba(183,121,31,.5); box-shadow:0 8px 20px rgba(20,33,61,.12)}
+html[data-theme="light"] :is(.hx-tag:hover,.hx-tag:focus-visible){background:#12264D; color:#F7DCA3; border-color:#12264D}
+.hx-hint{margin-top:2px; text-align:center; font-size:14.5px; font-weight:600; color:var(--mist)}
+
+/* खोज-पट्टी के ठीक नीचे PDF पट्टी: ऊपर-नीचे दोनों ओर रेखा */
+.hx + .pdf-strip{border-top:1px solid var(--line)}
+html[data-theme="light"] .hx + .pdf-strip{border-top-color:rgba(183,121,31,.26)}
+
+@media(max-width:900px){
+  .hx{padding-top:calc(76px + 22px)}
+  .hx-in{grid-template-columns:1fr; gap:10px}
+  .hx-orb{max-width:420px; aspect-ratio:1/.86}
+  .hx-tag{font-size:15.5px; padding:7px 13px}
+}
+@media(max-width:600px){
+  .hx{padding-top:calc(64px + 18px)}
+  .hx-search{height:58px; border-radius:16px; padding:0 14px 0 16px}
+  .hx-search input{font-size:16.5px}
+  .hx-search kbd{display:none}
+  .hx-btn{height:46px; padding:0 16px; font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.hx-btn,.hx-tag{transition:none}}
+
+/* फ़ोन पर मॉक-टेस्ट वाला तैरता पॉपअप नहीं: वही कड़ी ऊपर "मॉक टेस्ट दें" बटन में है, और वह पढ़ने की जगह ढकता था */
+@media(max-width:600px){.gc-pm{display:none!important}}
