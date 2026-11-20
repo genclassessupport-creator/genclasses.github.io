@@ -21,7 +21,7 @@
     function colours() {
       var light = document.documentElement.getAttribute('data-theme') === 'light';
       col = light
-        ? { wire: '27,58,122', ring: '183,121,31', glow: 'rgba(183,121,31,.16)', dot: '#B7791F' }
+        ? { wire: '19,105,95', ring: '255,138,31', glow: 'rgba(30,140,126,.14)', dot: '#FF8A1F' }
         : { wire: '242,205,136', ring: '242,205,136', glow: 'rgba(127,180,255,.16)', dot: '#F2CD88' };
     }
     function size() {

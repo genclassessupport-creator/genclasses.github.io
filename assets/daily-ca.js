@@ -111,7 +111,7 @@
       '.dcc-rng{font:800 16px/1 "Mukta",sans-serif;height:42px;padding:0 22px;border:0;border-radius:999px;background:none;color:var(--mist);cursor:pointer;white-space:nowrap;transition:background .16s,color .16s}',
       '.dcc-rng:hover{color:var(--cream)}',
       '.dcc-rng.on{background:linear-gradient(135deg,var(--gold-hi),var(--gold));color:#0A1020;box-shadow:0 6px 18px rgba(255,170,60,.3)}',
-      'html[data-theme="light"] .dcc-rng.on{background:#1B3BB3;color:#FFE3B8;box-shadow:0 6px 16px rgba(27,59,179,.25)}',
+      'html[data-theme="light"] .dcc-rng.on{background:#0F4C48;color:#FFE3B8;box-shadow:0 6px 16px rgba(15,76,72,.25)}',
       '.dcc-rng:focus-visible{outline:2px solid var(--gold);outline-offset:2px}',
       '.dcc-chips{margin-bottom:16px;align-items:center}',
       '.dcc-total{margin-left:auto;font-size:14.5px;font-weight:700;color:var(--mist);white-space:nowrap}',

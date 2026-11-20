@@ -8,12 +8,12 @@
   --maxw:1080px;--orange:#e8a23a;--navy:#0c2a52;
 }
 html[data-theme="light"]{
-  --ink0:#EEF3FF;--ink1:#FFFFFF;--ink2:#F5F8FF;
+  --ink0:#EFF7F4;--ink1:#FFFFFF;--ink2:#F6FAF8;
   --glass:rgba(255,255,255,.82);
-  --line:rgba(120,145,205,.42);--line-2:rgba(36,71,214,.28);
-  --gold:#2447D6;--gold-hi:#1A35A8;--gold-deep:#1E40AF;
-  --cream:#101B3D;--mist:#4B5878;--blue:#1E40AF;--green:#2447D6;--rose:#C2314B;
-  --teal:#2447D6;--shadow:0 14px 36px rgba(27,59,179,.12)}
+  --line:rgba(110,160,145,.42);--line-2:rgba(19,105,95,.28);
+  --gold:#13695F;--gold-hi:#0C403C;--gold-deep:#13695F;
+  --cream:#0E2A2B;--mist:#48605E;--blue:#13695F;--green:#13695F;--rose:#C2314B;
+  --teal:#13695F;--shadow:0 14px 36px rgba(15,76,72,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
 body{background:var(--ink0);color:var(--mist);font-family:'Mukta',sans-serif;font-size:16.5px;line-height:1.75;-webkit-font-smoothing:antialiased}
@@ -254,8 +254,8 @@ html[data-theme="light"] .lang-btn{background:#fff;color:#8a5a12;border-color:rg
 .hub-nav-in{gap:8px}
 .hub-nav .hub-links{flex-wrap:wrap}
 
-html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#1F3FC0,#2447D6);color:#FFFFFF;box-shadow:0 10px 24px rgba(36,71,214,.28)}
-html[data-theme="light"] .lang-btn.on,html[data-theme="light"] .theme-btn{color:#2447D6;border-color:rgba(36,71,214,.3)}
+html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#115A52,#13695F);color:#FFFFFF;box-shadow:0 10px 24px rgba(19,105,95,.28)}
+html[data-theme="light"] .lang-btn.on,html[data-theme="light"] .theme-btn{color:#13695F;border-color:rgba(19,105,95,.3)}
 
 /* —— Floating contact: Telegram chat + WhatsApp (hubs) —— */
 .gc-fabs{
@@ -302,13 +302,13 @@ html[data-theme="light"] .hub-contact-bar a.tg-chat{background:#1A8EC4}
 .tg-ask a:hover{text-decoration:underline}
 
 /* —— हल्की थीम: आइवरी · नेवी · सुनहरा (केवल रंग/बॉर्डर/छाया; डार्क थीम अछूती) —— */
-html[data-theme="light"] nav.hub-nav{background:rgba(255,252,245,.93);border-bottom-color:rgba(120,145,205,.5);box-shadow:0 2px 12px rgba(16,27,61,.05)}
+html[data-theme="light"] nav.hub-nav{background:rgba(255,252,245,.93);border-bottom-color:rgba(110,160,145,.5);box-shadow:0 2px 12px rgba(14,42,43,.05)}
 html[data-theme="light"] .brand small,
 html[data-theme="light"] .eyebrow,
 html[data-theme="light"] .daily-q .meta{color:#C2410C}
 html[data-theme="light"] .hub-links a:hover{color:#C2410C}
 html[data-theme="light"] .lang-btn,
-html[data-theme="light"] .theme-btn{background:#FFFFFF;border-color:rgba(64,98,214,.45)}
+html[data-theme="light"] .theme-btn{background:#FFFFFF;border-color:rgba(19,105,95,.45)}
 /* कार्ड / पैनल: सफ़ेद सतह, गर्म किनारा, हल्की छाया */
 html[data-theme="light"] .card,
 html[data-theme="light"] .vcard,
@@ -324,79 +324,79 @@ html[data-theme="light"] .flow,
 html[data-theme="light"] .stat,
 html[data-theme="light"] .book-card,
 html[data-theme="light"] .dl-strip,
-html[data-theme="light"] #searchResults{background:#FFFFFF;border-color:rgba(120,145,205,.42);box-shadow:0 4px 14px rgba(16,27,61,.05)}
+html[data-theme="light"] #searchResults{background:#FFFFFF;border-color:rgba(110,160,145,.42);box-shadow:0 4px 14px rgba(14,42,43,.05)}
 html[data-theme="light"] .card:hover,
-html[data-theme="light"] .feat-grid a:hover{border-color:#FF8A1F;box-shadow:0 12px 28px rgba(16,27,61,.1)}
-html[data-theme="light"] .search-box input{background:#FFFFFF;border-color:rgba(120,145,205,.6)}
+html[data-theme="light"] .feat-grid a:hover{border-color:#FF8A1F;box-shadow:0 12px 28px rgba(14,42,43,.1)}
+html[data-theme="light"] .search-box input{background:#FFFFFF;border-color:rgba(110,160,145,.6)}
 html[data-theme="light"] .search-box input:focus{border-color:#FF8A1F}
 html[data-theme="light"] #searchResults a:hover{background:#FBF3DF}
-html[data-theme="light"] .table-wrap{border-color:rgba(120,145,205,.5);background:#FFFFFF}
-html[data-theme="light"] table.pat th{background:#F6ECD3;color:#101B3D;border-bottom-color:rgba(64,98,214,.45)}
+html[data-theme="light"] .table-wrap{border-color:rgba(110,160,145,.5);background:#FFFFFF}
+html[data-theme="light"] table.pat th{background:#F6ECD3;color:#0E2A2B;border-bottom-color:rgba(19,105,95,.45)}
 /* चिप */
 html[data-theme="light"] .source-chip span,
 html[data-theme="light"] .source-chip a,
-html[data-theme="light"] .ca-item .tag{background:#FFFFFF;border-color:rgba(64,98,214,.4);color:#1A35A8}
+html[data-theme="light"] .ca-item .tag{background:#FFFFFF;border-color:rgba(19,105,95,.4);color:#0C403C}
 html[data-theme="light"] .source-chip a:hover{border-color:#FF8A1F;color:#C2410C}
 /* नोट पट्टी: सुनहरी रेखा */
 html[data-theme="light"] .note,
 html[data-theme="light"] .wrong-why{background:#FBF3DF;border-left-color:#FF8A1F}
-html[data-theme="light"] .wrong-why{border-color:rgba(64,98,214,.3)}
+html[data-theme="light"] .wrong-why{border-color:rgba(19,105,95,.3)}
 /* अकॉर्डियन */
 html[data-theme="light"] details.acc summary::after,
 html[data-theme="light"] .flow .arr{color:#FF8A1F}
-html[data-theme="light"] details.acc[open]{border-color:rgba(64,98,214,.55)}
+html[data-theme="light"] details.acc[open]{border-color:rgba(19,105,95,.55)}
 html[data-theme="light"] details.acc summary:hover{background:#FDF8EA}
 /* MCQ विकल्प: हॉवर व चयन साफ़ दिखे */
 html[data-theme="light"] .mcq label:hover,
-html[data-theme="light"] .prog-list label:hover{background:#FBF3DF;border-color:rgba(64,98,214,.35)}
-html[data-theme="light"] .mcq label:has(input:checked){background:rgba(36,71,214,.07);border-color:rgba(36,71,214,.4);color:#101B3D}
+html[data-theme="light"] .prog-list label:hover{background:#FBF3DF;border-color:rgba(19,105,95,.35)}
+html[data-theme="light"] .mcq label:has(input:checked){background:rgba(19,105,95,.07);border-color:rgba(19,105,95,.4);color:#0E2A2B}
 html[data-theme="light"] .mcq input,
-html[data-theme="light"] .prog-list input{accent-color:#2447D6}
+html[data-theme="light"] .prog-list input{accent-color:#13695F}
 html[data-theme="light"] .mcq .reveal{background:#EAF6EE;border-color:#8CC7A3}
 html[data-theme="light"] .prog-bar{background:#F0E4C8}
-html[data-theme="light"] .prog-bar>i{background:linear-gradient(90deg,#FF8A1F,#2447D6)}
+html[data-theme="light"] .prog-bar>i{background:linear-gradient(90deg,#FF8A1F,#13695F)}
 html[data-theme="light"] .prog-list label.done{color:#2F6B45}
 /* बटन */
-html[data-theme="light"] .btn-ghost{background:#FFFFFF;border-color:rgba(64,98,214,.5);color:#101B3D}
+html[data-theme="light"] .btn-ghost{background:#FFFFFF;border-color:rgba(19,105,95,.5);color:#0E2A2B}
 html[data-theme="light"] .btn-ghost:hover{border-color:#FF8A1F;background:#FBF3DF}
-html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#1B3BB3,#2447D6);box-shadow:0 8px 20px rgba(27,59,179,.22)}
+html[data-theme="light"] .btn-gold{background:linear-gradient(135deg,#0F4C48,#13695F);box-shadow:0 8px 20px rgba(15,76,72,.22)}
 /* विषय-पिल: नेवी की जगह सफ़ेद कार्ड + सुनहरा किनारा */
-html[data-theme="light"] .topic-pill{background:#FFFFFF;border-color:rgba(64,98,214,.45);color:#101B3D;box-shadow:0 4px 14px rgba(16,27,61,.05)}
+html[data-theme="light"] .topic-pill{background:#FFFFFF;border-color:rgba(19,105,95,.45);color:#0E2A2B;box-shadow:0 4px 14px rgba(14,42,43,.05)}
 html[data-theme="light"] .topic-pill:hover{border-color:#FF8A1F;color:#C2410C;background:#FFFFFF}
 /* नेवी फ़ीचर-पट्टियाँ */
-html[data-theme="light"] .flow .node{background:linear-gradient(160deg,#1B3BB3,#2B56E6);border-color:rgba(242,205,136,.55)}
-html[data-theme="light"] .diagram{background:linear-gradient(160deg,#1B3BB3,#2B56E6);border:1px solid rgba(64,98,214,.6)}
-html[data-theme="light"] .draft-flow .step{background:#FFFFFF;border-color:rgba(120,145,205,.55);border-left-color:#FF8A1F;color:#101B3D}
+html[data-theme="light"] .flow .node{background:linear-gradient(160deg,#0F4C48,#17766B);border-color:rgba(242,205,136,.55)}
+html[data-theme="light"] .diagram{background:linear-gradient(160deg,#0F4C48,#17766B);border:1px solid rgba(19,105,95,.6)}
+html[data-theme="light"] .draft-flow .step{background:#FFFFFF;border-color:rgba(110,160,145,.55);border-left-color:#FF8A1F;color:#0E2A2B}
 html[data-theme="light"] .draft-flow .step b{color:#C2410C}
-html[data-theme="light"] .countdown{background:#FFFFFF;border-color:rgba(64,98,214,.45);box-shadow:0 4px 14px rgba(16,27,61,.05)}
-html[data-theme="light"] .countdown .cd-box{background:#1B3BB3}
+html[data-theme="light"] .countdown{background:#FFFFFF;border-color:rgba(19,105,95,.45);box-shadow:0 4px 14px rgba(14,42,43,.05)}
+html[data-theme="light"] .countdown .cd-box{background:#0F4C48}
 html[data-theme="light"] .ticker-wrap{background:rgba(255,252,245,.96)}
 html[data-theme="light"] .ticker-track a:hover{color:#C2410C}
-html[data-theme="light"] .hub-contact-bar a:not(.wa):not(.ig):not(.tg-chat){background:#FFFFFF;border-color:rgba(120,145,205,.6)}
-html[data-theme="light"] footer.hub-foot{border-top-color:rgba(120,145,205,.5)}
+html[data-theme="light"] .hub-contact-bar a:not(.wa):not(.ig):not(.tg-chat){background:#FFFFFF;border-color:rgba(110,160,145,.6)}
+html[data-theme="light"] footer.hub-foot{border-top-color:rgba(110,160,145,.5)}
 /* हब-पृष्ठों के साझा घटक (polity · prelims-pyq · mock हब): गिनती-पट्टी, बैज, फ़िल्टर */
-html[data-theme="light"] body .count-hero{background:linear-gradient(135deg,#FFFFFF,#FBF3DF);border-color:rgba(64,98,214,.55);box-shadow:0 4px 14px rgba(16,27,61,.06)}
+html[data-theme="light"] body .count-hero{background:linear-gradient(135deg,#FFFFFF,#FBF3DF);border-color:rgba(19,105,95,.55);box-shadow:0 4px 14px rgba(14,42,43,.06)}
 html[data-theme="light"] body .count-hero .big{color:#C2410C}
-html[data-theme="light"] body .count-hero .sub{color:#101B3D}
-html[data-theme="light"] body .count-hero .pill{background:#1A35A8;border-color:#1A35A8;color:#FFE3B8}
-html[data-theme="light"] body .card .badge{background:rgba(64,98,214,.1);border-color:rgba(64,98,214,.4);color:#C2410C}
-html[data-theme="light"] body .card .qcount{background:rgba(36,71,214,.07);border-color:rgba(36,71,214,.25);color:#1A35A8}
-html[data-theme="light"] body .subject-block .sh .sc{background:#FFFFFF;border-color:rgba(64,98,214,.45);color:#1A35A8}
-html[data-theme="light"] body .card .tags span{background:#FFFFFF;border-color:rgba(120,145,205,.55)}
-html[data-theme="light"] body .card .go{color:#2447D6}
+html[data-theme="light"] body .count-hero .sub{color:#0E2A2B}
+html[data-theme="light"] body .count-hero .pill{background:#0C403C;border-color:#0C403C;color:#FFE3B8}
+html[data-theme="light"] body .card .badge{background:rgba(19,105,95,.1);border-color:rgba(19,105,95,.4);color:#C2410C}
+html[data-theme="light"] body .card .qcount{background:rgba(19,105,95,.07);border-color:rgba(19,105,95,.25);color:#0C403C}
+html[data-theme="light"] body .subject-block .sh .sc{background:#FFFFFF;border-color:rgba(19,105,95,.45);color:#0C403C}
+html[data-theme="light"] body .card .tags span{background:#FFFFFF;border-color:rgba(110,160,145,.55)}
+html[data-theme="light"] body .card .go{color:#13695F}
 html[data-theme="light"] body .card:hover .go{color:#C2410C}
 html[data-theme="light"] body .exam-filters button,
 html[data-theme="light"] body .year-filters button,
-html[data-theme="light"] body .sec-nav a{background:#FFFFFF;border-color:rgba(120,145,205,.6);color:#4B5878}
+html[data-theme="light"] body .sec-nav a{background:#FFFFFF;border-color:rgba(110,160,145,.6);color:#48605E}
 html[data-theme="light"] body .exam-filters button:hover,
 html[data-theme="light"] body .year-filters button:hover,
 html[data-theme="light"] body .sec-nav a:hover{border-color:#FF8A1F;color:#C2410C}
 html[data-theme="light"] body .exam-filters button.on,
-html[data-theme="light"] body .year-filters button.on{background:#1A35A8;border-color:#1A35A8;color:#FFE3B8}
-html[data-theme="light"] body .subject-block .sh{border-bottom-color:rgba(64,98,214,.45)}
+html[data-theme="light"] body .year-filters button.on{background:#0C403C;border-color:#0C403C;color:#FFE3B8}
+html[data-theme="light"] body .subject-block .sh{border-bottom-color:rgba(19,105,95,.45)}
 
 /* —— हल्की थीम: हेडर मुखपृष्ठ जैसा चटक नीला, सफ़ेद लिखावट —— */
-html[data-theme="light"] nav.hub-nav{background:linear-gradient(100deg,#1631A0 0%,#2447D6 55%,#3D68F5 100%);border-bottom:0;box-shadow:0 8px 24px rgba(27,59,179,.26)}
+html[data-theme="light"] nav.hub-nav{background:linear-gradient(100deg,#0A3532 0%,#13695F 55%,#1E8C7E 100%);border-bottom:0;box-shadow:0 8px 24px rgba(15,76,72,.26)}
 html[data-theme="light"] .hub-nav .brand b{color:#fff}
 html[data-theme="light"] .hub-nav .brand small{color:#FFD9A8}
 html[data-theme="light"] .hub-nav .brand img{border-color:#fff}
