@@ -143,7 +143,7 @@
     ['RO/ARO आलेखन', 'RO/ARO drafting', 'ro aro आलेखन drafting पत्र letter', '/ro-aro/drafting/', 's'],
     ['NCERT किताबें और अभ्यास', 'NCERT books and practice', 'ncert किताब book class कक्षा', '/ncert/', 'p'],
     ['फ्लैशकार्ड', 'Flashcards', 'flashcard दोहराव revision पर्याय मुहावरे', '/flashcards/', 'v'],
-    ['दृश्य एटलस · चलते मॉडल', 'Visual Atlas · animated models', 'atlas visual animation ज्वालामुखी नदी volcano river', '#visual-atlas', 'v'],
+    ['दृश्य एटलस · चलते मॉडल', 'Visual Atlas · animated models', 'atlas visual animation ज्वालामुखी नदी volcano river', '/learn/atlas/', 'v'],
     ['3D ग्लोब · पवनें और धाराएँ', '3D globe · winds and currents', 'globe 3d ग्लोब पवन धारा ocean wind', '/learn/atlas/globe/', 'v'],
     ['बिग बैंग से पृथ्वी तक · 3D यात्रा', 'Big Bang to Earth · 3D journey', 'origins universe ब्रह्मांड big bang', '/learn/origins/', 'v'],
     ['विज़ुअल नोट्स', 'Visual notes', 'visual notes चित्र learn', '/learn/', 'v'],

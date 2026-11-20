@@ -506,3 +506,32 @@ html[data-theme="light"] .gd{
 html[data-theme="light"] .gd-exam input:checked+span{background:#0F4C48; border-color:#0F4C48}
 html[data-theme="light"] .gd-f input:focus{border-color:#13695F; box-shadow:0 0 0 3px rgba(19,105,95,.18)}
 html[data-theme="light"] .gd-send{background:linear-gradient(135deg,#FFA94D,#FF7A1A); color:#fff; box-shadow:0 10px 24px rgba(255,122,26,.35)}
+
+/* किनारे का कार्ड: 3D ग्लोब की झलक, पूरा कार्ड ग्लोब खोलता है */
+.va-globe{display:block; padding:10px; color:var(--cream); transition:transform .2s,border-color .2s}
+.va-globe:hover{transform:translateY(-3px); border-color:var(--gold)}
+.va-globe iframe{display:block; width:100%; aspect-ratio:1/.86; height:auto; border:0; border-radius:14px; background:#05070D; pointer-events:none}
+.va-cap{display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; padding:12px 8px 6px}
+.va-cap b{font-size:18px; font-weight:800}
+.va-cap small{font-size:14.5px; color:var(--mist)}
+.va-globe:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.va-globe{transition:none}}
+
+/* ═══════════ जुड़ें: सबसे नीचे, एक पंक्ति में छोटे कार्ड (फ़ोन पर दो पंक्तियाँ) ═══════════ */
+#join.join{padding:40px 26px 44px}
+.join h2{font-size:clamp(24px,3vw,34px)}
+.join p{margin-top:8px; font-size:16.5px}
+.join .eyebrow{margin-bottom:6px}
+.plats{display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:10px; margin-top:22px; max-width:1080px; margin-inline:auto}
+.plat{flex-direction:column; justify-content:flex-start; gap:9px; padding:14px 6px 12px; text-align:center; font-size:14.5px; line-height:1.25; border-radius:14px}
+.plat .pic{width:44px; height:44px; flex:none}
+.plat small{display:none}
+.plat:hover{transform:translateY(-3px)}
+html[data-theme="light"] .plat{background:#fff; border-color:#D5E7E0; box-shadow:0 4px 12px rgba(15,76,72,.06)}
+html[data-theme="light"] .plat:hover{border-color:#13695F; box-shadow:0 12px 26px rgba(15,76,72,.14)}
+@media(max-width:760px){
+  #join.join{padding:28px 12px 30px}
+  .plats{grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; margin-top:16px}
+  .plat{padding:10px 3px 9px; font-size:12.5px; gap:7px; border-radius:12px}
+  .plat .pic{width:40px; height:40px}
+}
