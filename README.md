@@ -46,6 +46,13 @@ The second command refreshes `files.json` and validates generated content, inter
 4. CONFIG: genclassessupport-creator / genclasses.github.io — repo नाम बदलें तो CONFIG भी बदलें।
 5. लोगो: assets/gen-logo.png (192×192), gen-logo-96.webp/png, favicon*, apple-touch-icon, gen-logo-og.jpg
 
+## नई PDF जोड़ना (मुफ़्त PDF पन्ना)
+
+1. PDF को downloads/files/ में और कवर (webp) को downloads/covers/ में उसी नाम से रखें।
+2. downloads/pdfs.json में entry जोड़ें: id, file, section (highlight/booklets/ca/info), hi, en और "added": "YYYY-MM-DD" (आज की तारीख़)।
+3. downloads/index.html के उस खंड में और मुखपृष्ठ (index.html) की dc-track में कार्ड जोड़ें (id="pdf-<id>")।
+4. assets/new-pdf.js अपने-आप: सबसे नई खेप को "नई PDF" खंड में सबसे ऊपर रखती है, हर खंड व मुखपृष्ठ स्लाइडर को नई से पुरानी क्रम में लगाती है, और जोड़ने के दिन से 2 दिन तक बगल में "नई PDF" पॉपअप दिखाती है (बंद करने पर उस PDF के लिए दोबारा नहीं)।
+
 ## GitHub Pages पर चढ़ाना
 
 1. GitHub पर नया repo बनाएँ (जैसे genclasses.github.io) और इस फ़ोल्डर की सभी फ़ाइलें main branch पर push करें।
