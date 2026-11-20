@@ -377,8 +377,6 @@ html[data-theme="light"] .hx + .pdf-strip{border-top-color:rgba(19,105,95,.26)}
 }
 @media(prefers-reduced-motion:reduce){.hx-btn,.hx-tag{transition:none}}
 
-/* फ़ोन पर मॉक-टेस्ट वाला तैरता पॉपअप नहीं: वही कड़ी ऊपर "मॉक टेस्ट दें" बटन में है, और वह पढ़ने की जगह ढकता था */
-@media(max-width:600px){.gc-pm{display:none!important}}
 
 /* शीर्षक: भारी सजावटी अक्षरों की जगह साफ़, मोटा Mukta */
 h1,h2,h3{font-family:'Mukta',sans-serif; font-weight:800; letter-spacing:-.01em}
