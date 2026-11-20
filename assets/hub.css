@@ -404,3 +404,11 @@ html[data-theme="light"] .hub-nav .hub-links a{color:#fff}
 html[data-theme="light"] .hub-nav .hub-links a:hover{color:#FFD9A8}
 html[data-theme="light"] .hub-nav :is(.theme-btn,.lang-btn,.lang-btn.on){background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.34)}
 html[data-theme="light"] .ticker-wrap{background:#fff}
+
+/* फ़ोन: तैरते WhatsApp/Telegram बटन छोटे */
+@media(max-width:600px){
+  .gc-fabs{right:8px;bottom:8px;gap:7px}
+  .gc-fabs.gc-fabs-left{left:8px;right:auto}
+  .wa-fab,.tg-fab{width:40px;height:40px;border-width:1.5px;box-shadow:0 6px 14px rgba(0,0,0,.22)}
+  .wa-fab svg,.tg-fab svg{width:21px;height:21px}
+}
