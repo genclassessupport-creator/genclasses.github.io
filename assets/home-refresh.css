@@ -134,40 +134,6 @@
 .ticker-wrap.ticker-fixed-bar{margin-top:76px}
 @media(max-width:600px){.ticker-wrap.ticker-fixed-bar{margin-top:64px}}
 
-/* हल्की थीम: ऊपर का पूरा हिस्सा भी पन्ने जैसा उजला — सफ़ेद-हाथीदाँत पट्टी, गहरी नीली लिखावट,
-   एक ही गहरा नीला बटन। गहरी थीम में पट्टी पहले जैसी गहरी नीली रहती है। */
-html[data-theme="light"] #nav.gx{
-  --gx-bg:#FFFCF5; --gx-panel:#FFFFFF; --gx-text:#14213D; --gx-dim:#5A6680;
-  --gx-gold:#8A5A0B; --gx-gold-2:#B7791F; --gx-line:rgba(183,121,31,.26);
-  background:rgba(255,252,245,.97); box-shadow:0 1px 0 rgba(183,121,31,.1),0 8px 24px rgba(20,33,61,.06);
-}
-html[data-theme="light"] #nav.gx.scrolled{background:rgba(255,252,245,.97)}
-html[data-theme="light"] .gx-logo{box-shadow:0 0 0 3px rgba(183,121,31,.14)}
-html[data-theme="light"] :is(.gx-top:hover,.gx-item:hover>.gx-top,.gx-item.open>.gx-top){background:#F6EBD3; color:#12264D}
-html[data-theme="light"] .gx-panel{box-shadow:0 22px 48px rgba(20,33,61,.16)}
-html[data-theme="light"] .gx-sub:hover{background:#FAF2E0}
-html[data-theme="light"] .gx-sub:hover b{color:#1B3A7A}
-html[data-theme="light"] .gx-cta{background:linear-gradient(135deg,#1B3A7A,#12264D); color:#FFF8E8; box-shadow:0 6px 16px rgba(18,38,77,.24)}
-html[data-theme="light"] .gx-cta:hover{box-shadow:0 10px 22px rgba(18,38,77,.32)}
-html[data-theme="light"] .gx-ibtn{background:#fff; color:#12264D}
-html[data-theme="light"] .gx-ibtn:hover{background:#F6EBD3}
-@media(max-width:1100px){
-  html[data-theme="light"] .gx-menu{box-shadow:0 24px 40px rgba(20,33,61,.16)}
-  html[data-theme="light"] .gx-item:hover>.gx-top{background:none; color:var(--gx-text)}
-  html[data-theme="light"] .gx-item.open>.gx-top{background:#F6EBD3; color:#12264D}
-  html[data-theme="light"] :is(.gx-panel,.gx-wide .gx-panel){background:#FAF5EA; box-shadow:none}
-}
-html[data-theme="light"] .ticker-wrap{background:#12264D; border-bottom-color:rgba(242,205,136,.3)}
-html[data-theme="light"] .ticker-track a,
-html[data-theme="light"] .ticker-track .ticker-cd{color:#F2EBDA; border-right-color:rgba(242,205,136,.18)}
-html[data-theme="light"] .ticker-track a:hover{color:#F2CD88}
-html[data-theme="light"] .ticker-track .pill-new{background:#F2CD88; color:#12264D}
-html[data-theme="light"] .ticker-track .cd-mail{background:transparent; color:#F2EBDA; border-color:rgba(255,255,255,.5)}
-html[data-theme="light"] .pdf-strip{background:#FFFCF5; border-bottom-color:rgba(183,121,31,.26)}
-html[data-theme="light"] .ps-label{color:#12264D}
-html[data-theme="light"] .ps-item{background:#fff; border-color:rgba(196,172,120,.5)}
-html[data-theme="light"] .ps-all{color:#12264D; border-color:#B7791F}
-
 /* हल्की थीम में उड़ते कण, धुंध और दाने पन्ने पर धब्बे जैसे दिखते हैं — हटाए */
 html[data-theme="light"] :is(#embers,.aurora,.grain,.spot){display:none}
 
@@ -257,38 +223,38 @@ section{padding-block:72px}
 
 /* ═══════════ हल्की थीम — हाथीदाँत, गहरा नीला और सुनहरा ═══════════
    पन्ना हाथीदाँत, कार्ड सफ़ेद, लिखावट गहरी नीली; सुनहरा केवल ज़ोर देने की जगहों पर। */
-html[data-theme="light"]{--accent:#B7791F; --accent-ink:#8A5A0B; --navy-band:#12264D}
+html[data-theme="light"]{--accent:#FF8A1F; --accent-ink:#C2410C; --navy-band:#1B3BB3}
 html[data-theme="light"] .eyebrow,
 html[data-theme="light"] #special-notes .eyebrow{color:var(--accent-ink)}
 html[data-theme="light"] .eyebrow::before{background:linear-gradient(90deg,var(--accent),transparent)}
-html[data-theme="light"] .hairline{background:linear-gradient(90deg,transparent,rgba(183,121,31,.45),transparent)}
+html[data-theme="light"] .hairline{background:linear-gradient(90deg,transparent,rgba(64,98,214,.45),transparent)}
 html[data-theme="light"] .sec-head h2 em{color:var(--accent-ink)}
 
 html[data-theme="light"] .countdown{
-  --gold-hi:#FFF8E8; --mist:#C5D0E3;
-  background:linear-gradient(120deg,#12264D,#1B3A7A); border-color:rgba(242,205,136,.35); color:#DCE4F2;
-  box-shadow:0 14px 32px rgba(18,38,77,.2);
+  --gold-hi:#FFFFFF; --mist:#C5D0E3;
+  background:linear-gradient(120deg,#1B3BB3,#2B56E6); border-color:rgba(242,205,136,.35); color:#DCE4F2;
+  box-shadow:0 14px 32px rgba(27,59,179,.2);
 }
 html[data-theme="light"] .countdown .cd-box{background:rgba(255,255,255,.1); border-color:rgba(242,205,136,.35)}
 
 html[data-theme="light"] #special-notes{
   background:
-    radial-gradient(ellipse 70% 50% at 10% 0%,rgba(183,121,31,.1),transparent 55%),
-    radial-gradient(ellipse 55% 40% at 90% 100%,rgba(30,58,138,.07),transparent 50%),
-    linear-gradient(180deg,#F3EDDF 0%,#F6EBD3 100%);
-  border-color:rgba(183,121,31,.22);
+    radial-gradient(ellipse 70% 50% at 10% 0%,rgba(64,98,214,.1),transparent 55%),
+    radial-gradient(ellipse 55% 40% at 90% 100%,rgba(36,71,214,.07),transparent 50%),
+    linear-gradient(180deg,#EEF3FF 0%,#E3EBFF 100%);
+  border-color:rgba(64,98,214,.22);
 }
-html[data-theme="light"] .sn-chip{background:#fff; border-color:rgba(183,121,31,.34); color:#14213D}
+html[data-theme="light"] .sn-chip{background:#fff; border-color:rgba(64,98,214,.34); color:#101B3D}
 
 html[data-theme="light"] .marq{background:var(--navy-band); border-bottom-color:rgba(242,205,136,.3)}
 html[data-theme="light"] .marq .grp{color:#F2EBDA}
 html[data-theme="light"] .marq .grp i{color:#F2CD88}
 
-html[data-theme="light"] .tacc-head{background:#fff; border-color:rgba(196,172,120,.5); color:#14213D; box-shadow:0 4px 14px rgba(20,33,61,.05)}
-html[data-theme="light"] .tacc-head:hover{background:#FFFCF5; border-color:var(--accent)}
-html[data-theme="light"] .tacc-head.open{background:linear-gradient(90deg,#FFF6E0,#fff); border-color:var(--accent)}
+html[data-theme="light"] .tacc-head{background:#fff; border-color:rgba(120,145,205,.5); color:#101B3D; box-shadow:0 4px 14px rgba(16,27,61,.05)}
+html[data-theme="light"] .tacc-head:hover{background:#FFFFFF; border-color:var(--accent)}
+html[data-theme="light"] .tacc-head.open{background:linear-gradient(90deg,#EAF0FF,#fff); border-color:var(--accent)}
 
-html[data-theme="light"] footer{background:#EDE4CF; border-top-color:rgba(183,121,31,.3)}
+html[data-theme="light"] footer{background:#E3EAFB; border-top-color:rgba(64,98,214,.3)}
 
 /* पहली स्क्रीन: शीर्षक और उलटी गिनती एक ही पंक्ति में, ताकि शॉर्टकट बिना स्क्रॉल दिखें */
 #whats-on .sec-head h2{font-size:clamp(26px,3vw,38px); margin-top:6px}
@@ -307,14 +273,14 @@ html[data-theme="light"] footer{background:#EDE4CF; border-top-color:rgba(183,12
   background:radial-gradient(60% 80% at 82% 42%,rgba(127,180,255,.12),transparent 70%),radial-gradient(40% 50% at 8% 0%,rgba(217,174,95,.1),transparent 70%);
 }
 html[data-theme="light"] .hx::before{
-  background:radial-gradient(56% 78% at 80% 44%,rgba(242,205,136,.42),transparent 70%),radial-gradient(40% 50% at 4% 0%,rgba(30,58,138,.07),transparent 70%);
+  background:radial-gradient(56% 78% at 80% 44%,rgba(242,205,136,.42),transparent 70%),radial-gradient(40% 50% at 4% 0%,rgba(36,71,214,.07),transparent 70%);
 }
 .hx-in{max-width:1240px; margin:0 auto; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr); gap:clamp(18px,3vw,48px); align-items:center}
 .hx-eye{font-size:13.5px; font-weight:800; letter-spacing:.2em; color:var(--gold)}
-html[data-theme="light"] .hx-eye{color:#8A5A0B}
+html[data-theme="light"] .hx-eye{color:#C2410C}
 .hx h1{margin-top:12px; font-size:clamp(34px,4.7vw,62px); line-height:1.16; color:var(--cream); letter-spacing:-.01em}
 .hx h1 em{font-style:normal; color:var(--gold-hi)}
-html[data-theme="light"] .hx h1 em{color:#B7791F}
+html[data-theme="light"] .hx h1 em{color:#FF8A1F}
 .hx-sub{margin-top:14px; max-width:560px; font-size:clamp(17px,1.5vw,20px); line-height:1.6; color:var(--mist)}
 
 .hx-search{
@@ -322,9 +288,9 @@ html[data-theme="light"] .hx h1 em{color:#B7791F}
   background:var(--ink1); border:1.5px solid var(--line-2); border-radius:18px; color:var(--mist);
   box-shadow:0 14px 34px rgba(3,8,20,.28); transition:border-color .18s,box-shadow .18s;
 }
-html[data-theme="light"] .hx-search{background:#fff; border-color:rgba(183,121,31,.45); box-shadow:0 14px 34px rgba(20,33,61,.1)}
+html[data-theme="light"] .hx-search{background:#fff; border-color:rgba(64,98,214,.45); box-shadow:0 14px 34px rgba(16,27,61,.1)}
 .hx-search:focus-within{border-color:var(--gold); box-shadow:0 0 0 4px rgba(217,174,95,.2),0 14px 34px rgba(3,8,20,.2)}
-html[data-theme="light"] .hx-search:focus-within{border-color:#1B3A7A; box-shadow:0 0 0 4px rgba(27,58,122,.14),0 14px 34px rgba(20,33,61,.1)}
+html[data-theme="light"] .hx-search:focus-within{border-color:#2B56E6; box-shadow:0 0 0 4px rgba(27,58,122,.14),0 14px 34px rgba(16,27,61,.1)}
 .hx-search svg{flex:none}
 .hx-search input{flex:1; min-width:0; height:100%; padding:0; font:500 18px/1 'Mukta',sans-serif; color:var(--cream); background:none; border:0; outline:0}
 .hx-search input::placeholder{color:var(--mist); opacity:.85}
@@ -334,12 +300,12 @@ html[data-theme="light"] .hx-search:focus-within{border-color:#1B3A7A; box-shado
   position:absolute; left:-1.5px; right:-1.5px; top:calc(100% + 8px); z-index:40; margin:0; padding:8px; list-style:none; max-height:min(420px,56vh); overflow:auto;
   background:var(--ink1); border:1px solid var(--line-2); border-radius:16px; box-shadow:0 24px 54px rgba(3,8,20,.45);
 }
-html[data-theme="light"] #hxList{background:#fff; border-color:rgba(183,121,31,.4); box-shadow:0 24px 54px rgba(20,33,61,.18)}
+html[data-theme="light"] #hxList{background:#fff; border-color:rgba(64,98,214,.4); box-shadow:0 24px 54px rgba(16,27,61,.18)}
 #hxList a{display:flex; align-items:center; justify-content:space-between; gap:14px; padding:11px 13px; border-radius:11px; font-size:17px; font-weight:600; color:var(--cream)}
 #hxList a i{flex:none; font-style:normal; font-size:12.5px; font-weight:800; padding:3px 9px; border-radius:999px; color:var(--gold-hi); background:var(--glass); border:1px solid var(--line-2)}
-html[data-theme="light"] #hxList a i{color:#8A5A0B; background:#FAF2E0; border-color:rgba(183,121,31,.3)}
+html[data-theme="light"] #hxList a i{color:#C2410C; background:#EEF3FF; border-color:rgba(64,98,214,.3)}
 #hxList li[aria-selected="true"] a,#hxList a:hover{background:rgba(217,174,95,.14)}
-html[data-theme="light"] #hxList li[aria-selected="true"] a,html[data-theme="light"] #hxList a:hover{background:#F6EBD3}
+html[data-theme="light"] #hxList li[aria-selected="true"] a,html[data-theme="light"] #hxList a:hover{background:#E3EBFF}
 .hx-cap{padding:6px 13px 4px; font-size:12.5px; font-weight:800; letter-spacing:.08em; color:var(--mist)}
 .hx-none{padding:14px 13px; font-size:16px; color:var(--mist)}
 
@@ -350,8 +316,8 @@ html[data-theme="light"] #hxList li[aria-selected="true"] a,html[data-theme="lig
 }
 .hx-btn:hover{transform:translateY(-2px); border-color:var(--gold)}
 .hx-main{color:#0A1426; background:linear-gradient(135deg,#F7DCA3,#D9AE5F); border-color:transparent; box-shadow:0 10px 24px rgba(217,174,95,.28)}
-html[data-theme="light"] .hx-btn{background:#fff; border-color:rgba(183,121,31,.4)}
-html[data-theme="light"] .hx-main{color:#FFF8E8; background:linear-gradient(135deg,#1B3A7A,#12264D); border-color:transparent; box-shadow:0 10px 24px rgba(18,38,77,.26)}
+html[data-theme="light"] .hx-btn{background:#fff; border-color:rgba(64,98,214,.4)}
+html[data-theme="light"] .hx-main{color:#FFFFFF; background:linear-gradient(135deg,#2B56E6,#1B3BB3); border-color:transparent; box-shadow:0 10px 24px rgba(27,59,179,.26)}
 .hx-btn:focus-visible,.hx-tag:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
 .hx-facts{list-style:none; margin:22px 0 0; padding:0; display:flex; flex-wrap:wrap; gap:6px 26px; font-size:15.5px; color:var(--mist)}
 .hx-facts b{font-family:'Rozha One',serif; font-weight:400; font-size:22px; color:var(--cream); margin-right:4px}
@@ -369,13 +335,13 @@ html[data-theme="light"] .hx-main{color:#FFF8E8; background:linear-gradient(135d
 .hx-tag:hover,.hx-tag:focus-visible{background:linear-gradient(135deg,#F7DCA3,#D9AE5F); color:#0A1426; border-color:transparent}
 .hx-tag.back{pointer-events:none}
 .hx-orb.dragging .hx-tag{pointer-events:none}
-html[data-theme="light"] .hx-tag{background:#fff; color:#12264D; border-color:rgba(183,121,31,.5); box-shadow:0 8px 20px rgba(20,33,61,.12)}
-html[data-theme="light"] :is(.hx-tag:hover,.hx-tag:focus-visible){background:#12264D; color:#F7DCA3; border-color:#12264D}
+html[data-theme="light"] .hx-tag{background:#fff; color:#1B3BB3; border-color:rgba(64,98,214,.5); box-shadow:0 8px 20px rgba(16,27,61,.12)}
+html[data-theme="light"] :is(.hx-tag:hover,.hx-tag:focus-visible){background:#1B3BB3; color:#FFE3B8; border-color:#1B3BB3}
 .hx-hint{margin-top:2px; text-align:center; font-size:14.5px; font-weight:600; color:var(--mist)}
 
 /* खोज-पट्टी के ठीक नीचे PDF पट्टी: ऊपर-नीचे दोनों ओर रेखा */
 .hx + .pdf-strip{border-top:1px solid var(--line)}
-html[data-theme="light"] .hx + .pdf-strip{border-top-color:rgba(183,121,31,.26)}
+html[data-theme="light"] .hx + .pdf-strip{border-top-color:rgba(64,98,214,.26)}
 
 @media(max-width:900px){
   .hx{padding-top:calc(76px + 22px)}
@@ -394,28 +360,6 @@ html[data-theme="light"] .hx + .pdf-strip{border-top-color:rgba(183,121,31,.26)}
 
 /* फ़ोन पर मॉक-टेस्ट वाला तैरता पॉपअप नहीं: वही कड़ी ऊपर "मॉक टेस्ट दें" बटन में है, और वह पढ़ने की जगह ढकता था */
 @media(max-width:600px){.gc-pm{display:none!important}}
-
-/* ═══════════ रूप-2: गहरी थीम (अब मूल थीम) — गाढ़ा नीला-काला, तेज़ केसरिया-सुनहरा ज़ोर ═══════════
-   रेखाएँ सुनहरी नहीं, हल्की सफ़ेद; सुनहरा-केसरिया केवल वहाँ जहाँ नज़र खींचनी हो। */
-html:not([data-theme="light"]){
-  --ink0:#070A14; --ink1:#0E1426; --ink2:#141C33; --glass:rgba(255,255,255,.05);
-  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.18);
-  --gold:#FFB03B; --gold-hi:#FFC95C; --gold-deep:#D9831A; --cream:#F5F7FC; --mist:#A9B3CA;
-}
-html:not([data-theme="light"]) .aur-1{background:radial-gradient(circle,#2A2E96 0%,transparent 62%)}
-html:not([data-theme="light"]) .aur-2{background:radial-gradient(circle,#4A1F6B 0%,transparent 65%)}
-html:not([data-theme="light"]) #nav.gx{
-  --gx-bg:#070A14; --gx-panel:#0E1426; --gx-gold:#FFC95C; --gx-gold-2:#FFB03B; --gx-line:rgba(255,255,255,.1);
-  background:rgba(7,10,20,.92); backdrop-filter:blur(14px); box-shadow:none;
-}
-html:not([data-theme="light"]) :is(.gx-cta,.hx-main){background:linear-gradient(135deg,#FFC95C,#FF9A3D); color:#0A1020; box-shadow:0 8px 22px rgba(255,154,61,.3)}
-html:not([data-theme="light"]) .gx-panel{border-top-color:#FFB03B}
-html:not([data-theme="light"]) .hx-tag{background:#121A30; border-color:rgba(255,255,255,.2)}
-html:not([data-theme="light"]) :is(.hx-tag:hover,.hx-tag:focus-visible){background:linear-gradient(135deg,#FFC95C,#FF9A3D)}
-html:not([data-theme="light"]) .hx::before{
-  background:radial-gradient(52% 80% at 80% 46%,rgba(91,91,240,.28),transparent 70%),radial-gradient(36% 60% at 4% 0%,rgba(255,154,61,.14),transparent 70%);
-}
-html:not([data-theme="light"]) .hx h1 em{background:linear-gradient(90deg,#FFC95C,#FF9A3D); -webkit-background-clip:text; background-clip:text; color:transparent}
 
 /* शीर्षक: भारी सजावटी अक्षरों की जगह साफ़, मोटा Mukta */
 h1,h2,h3{font-family:'Mukta',sans-serif; font-weight:800; letter-spacing:-.01em}
@@ -443,12 +387,12 @@ h1,h2,h3{font-family:'Mukta',sans-serif; font-weight:800; letter-spacing:-.01em}
 }
 .ex-tab:hover{border-color:var(--gold); transform:translateY(-1px)}
 .ex-tab[aria-selected="true"]{background:linear-gradient(135deg,#FFC95C,#FF9A3D); border-color:transparent; color:#0A1020; box-shadow:0 8px 22px rgba(255,154,61,.3)}
-html[data-theme="light"] .ex-tab{background:#fff; border-color:rgba(183,121,31,.4)}
-html[data-theme="light"] .ex-tab[aria-selected="true"]{background:linear-gradient(135deg,#1B3A7A,#12264D); color:#F7DCA3; box-shadow:0 8px 20px rgba(18,38,77,.26)}
+html[data-theme="light"] .ex-tab{background:#fff; border-color:rgba(64,98,214,.4)}
+html[data-theme="light"] .ex-tab[aria-selected="true"]{background:linear-gradient(135deg,#2B56E6,#1B3BB3); color:#FFE3B8; box-shadow:0 8px 20px rgba(27,59,179,.26)}
 .ex-tab:focus-visible,.ex-tile:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
 .ex-cd{display:inline-block; margin:0 0 14px; padding:7px 16px; font-size:15.5px; font-weight:600; color:var(--mist); background:var(--glass); border:1px solid var(--line-2); border-radius:999px}
 .ex-cd b{color:var(--gold-hi); font-weight:800}
-html[data-theme="light"] .ex-cd{background:#fff} html[data-theme="light"] .ex-cd b{color:#8A5A0B}
+html[data-theme="light"] .ex-cd{background:#fff} html[data-theme="light"] .ex-cd b{color:#C2410C}
 .ex-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
 .ex-tile{
   position:relative; display:block; padding:18px 44px 18px 20px; min-height:92px; color:var(--cream);
@@ -460,9 +404,9 @@ html[data-theme="light"] .ex-cd{background:#fff} html[data-theme="light"] .ex-cd
 .ex-tile i{position:absolute; right:18px; top:18px; font-style:normal; font-size:20px; color:var(--gold); transition:transform .18s}
 .ex-tile:hover{transform:translateY(-3px); border-color:var(--gold); box-shadow:0 16px 34px rgba(0,0,0,.28)}
 .ex-tile:hover i{transform:translateX(4px)}
-html[data-theme="light"] .ex-tile{background:#fff; border-color:rgba(196,172,120,.5); box-shadow:0 4px 14px rgba(20,33,61,.05)}
-html[data-theme="light"] .ex-tile:hover{border-color:#B7791F; box-shadow:0 14px 30px rgba(20,33,61,.12)}
-html[data-theme="light"] .ex-tile i{color:#B7791F}
+html[data-theme="light"] .ex-tile{background:#fff; border-color:rgba(120,145,205,.5); box-shadow:0 4px 14px rgba(16,27,61,.05)}
+html[data-theme="light"] .ex-tile:hover{border-color:#FF8A1F; box-shadow:0 14px 30px rgba(16,27,61,.12)}
+html[data-theme="light"] .ex-tile i{color:#FF8A1F}
 @media(max-width:1000px){.ex-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){
   #exams{padding:18px 14px 22px}
@@ -471,3 +415,68 @@ html[data-theme="light"] .ex-tile i{color:#B7791F}
   .ex-grid{gap:10px} .ex-tile{padding:14px 34px 14px 14px; min-height:0; border-radius:14px} .ex-tile b{font-size:16.5px} .ex-tile small{font-size:13.5px} .ex-tile i{right:12px; top:14px}
 }
 @media(prefers-reduced-motion:reduce){.ex-tab,.ex-tile,.ex-tile i{transition:none}}
+
+/* ═══════════ हल्की थीम, रूप-3: उजला नीला-सफ़ेद पन्ना, चटक नीला हेडर, केसरिया ज़ोर ═══════════ */
+html[data-theme="light"]{--accent:#FF8A1F; --accent-ink:#C2410C; --navy-band:#1B3BB3}
+html[data-theme="light"] body{background:#EEF3FF}
+/* हेडर बाक़ी पन्ने से अलग: गहरा-चटक नीला, सफ़ेद लिखावट, केसरिया बटन */
+html[data-theme="light"] #nav.gx,
+html[data-theme="light"] #nav.gx.scrolled{
+  --gx-bg:#1B3BB3; --gx-panel:#FFFFFF; --gx-text:#FFFFFF; --gx-dim:#5A6688; --gx-gold:#FFD9A8; --gx-gold-2:#FF8A1F; --gx-line:rgba(255,255,255,.2);
+  background:linear-gradient(100deg,#1631A0 0%,#2447D6 55%,#3D68F5 100%); border-bottom:0; box-shadow:0 8px 28px rgba(27,59,179,.32);
+}
+html[data-theme="light"] .gx-name small{color:#FFD9A8}
+html[data-theme="light"] .gx-logo{border-color:#fff; box-shadow:0 0 0 3px rgba(255,255,255,.22)}
+html[data-theme="light"] :is(.gx-top:hover,.gx-item:hover>.gx-top,.gx-item.open>.gx-top){background:rgba(255,255,255,.16); color:#fff}
+html[data-theme="light"] .gx-panel{border-color:#DCE4F7; border-top-color:#FF8A1F; box-shadow:0 24px 54px rgba(16,27,61,.2)}
+html[data-theme="light"] .gx-sub{color:#101B3D}
+html[data-theme="light"] .gx-sub:hover{background:#EEF3FF}
+html[data-theme="light"] .gx-sub:hover b{color:#2447D6}
+html[data-theme="light"] .gx-cta{background:linear-gradient(135deg,#FFA94D,#FF7A1A); color:#fff; box-shadow:0 8px 20px rgba(255,122,26,.4)}
+html[data-theme="light"] .gx-ibtn{background:rgba(255,255,255,.14); color:#fff; border-color:rgba(255,255,255,.3)}
+html[data-theme="light"] .gx-ibtn:hover{background:rgba(255,255,255,.26)}
+@media(max-width:1100px){
+  html[data-theme="light"] .gx-menu{background:#1B3BB3; box-shadow:0 24px 40px rgba(16,27,61,.3)}
+  html[data-theme="light"] .gx-item:hover>.gx-top{background:none; color:#fff}
+  html[data-theme="light"] .gx-item.open>.gx-top{background:rgba(255,255,255,.16); color:#fff}
+  html[data-theme="light"] :is(.gx-panel,.gx-wide .gx-panel){background:rgba(255,255,255,.1); border-color:transparent; border-left-color:#FF8A1F; box-shadow:none}
+  html[data-theme="light"] .gx-sub{color:#fff}
+  html[data-theme="light"] .gx-sub small{color:#D5DEFA}
+  html[data-theme="light"] .gx-sub:hover{background:rgba(255,255,255,.12)}
+  html[data-theme="light"] .gx-sub:hover b{color:#FFD9A8}
+}
+/* चलती करंट-पंक्ति: सफ़ेद, नीली लिखावट */
+html[data-theme="light"] .cat{background:#fff; border-bottom-color:#DCE4F7; color:#101B3D; box-shadow:0 2px 10px rgba(27,59,179,.06)}
+html[data-theme="light"] .cat-lbl,html[data-theme="light"] .cat-all{color:#2447D6}
+html[data-theme="light"] .cat-it b{color:#C2410C; border-color:rgba(255,138,31,.5); background:#FFF3E6}
+/* हीरो: नीले से आड़ू तक की हल्की चमक */
+html[data-theme="light"] .hx::before{
+  background:radial-gradient(46% 70% at 82% 46%,rgba(61,104,245,.2),transparent 70%),radial-gradient(34% 56% at 98% 4%,rgba(255,138,31,.2),transparent 70%),linear-gradient(180deg,#fff,#EEF3FF);
+}
+html[data-theme="light"] .hx-eye{color:#C2410C}
+html[data-theme="light"] .hx h1 em{background:linear-gradient(90deg,#2447D6,#3D68F5); -webkit-background-clip:text; background-clip:text; color:transparent}
+html[data-theme="light"] .hx-search{border-color:#C9D5F5; box-shadow:0 16px 40px rgba(27,59,179,.14)}
+html[data-theme="light"] .hx-main{background:linear-gradient(135deg,#2447D6,#3D68F5); color:#fff; box-shadow:0 10px 24px rgba(36,71,214,.32)}
+html[data-theme="light"] .hx-btn:not(.hx-main){border-color:#C9D5F5}
+html[data-theme="light"] .hx-tag{border-color:#C9D5F5; color:#101B3D; box-shadow:0 8px 20px rgba(27,59,179,.14)}
+html[data-theme="light"] :is(.hx-tag:hover,.hx-tag:focus-visible){background:linear-gradient(135deg,#2447D6,#3D68F5); color:#fff; border-color:transparent}
+/* परीक्षा-कार्ड: हर कार्ड का अपना हल्का रंग, ताकि आँख तुरंत अलग पहचाने */
+html[data-theme="light"] .ex-tab{border-color:#C9D5F5}
+html[data-theme="light"] .ex-tab[aria-selected="true"]{background:linear-gradient(135deg,#2447D6,#3D68F5); color:#fff; box-shadow:0 8px 20px rgba(36,71,214,.3)}
+html[data-theme="light"] .ex-tile{border-color:#DCE4F7; box-shadow:0 6px 18px rgba(27,59,179,.07)}
+html[data-theme="light"] .ex-tile:nth-child(4n+1){background:#EAF0FF; border-color:#C9D6FF}
+html[data-theme="light"] .ex-tile:nth-child(4n+2){background:#FFF1E2; border-color:#FFD9B0}
+html[data-theme="light"] .ex-tile:nth-child(4n+3){background:#E7F8EF; border-color:#BEE9D1}
+html[data-theme="light"] .ex-tile:nth-child(4n+4){background:#F3EBFF; border-color:#DCCBFF}
+html[data-theme="light"] .ex-tile:hover{border-color:#2447D6; box-shadow:0 16px 32px rgba(27,59,179,.16)}
+html[data-theme="light"] .ex-tile i{color:#2447D6}
+html[data-theme="light"] .ex-cd b{color:#C2410C}
+
+/* ═══════════ पृष्ठभूमि में हल्का GenClasses जलचिह्न (दोनों थीम) ═══════════ */
+body::before{
+  content:"GenClasses"; position:fixed; z-index:0; left:50%; top:54%; transform:translate(-50%,-50%) rotate(-14deg);
+  font:400 clamp(90px,17vw,270px)/1 'Rozha One',serif; letter-spacing:-.02em; white-space:nowrap; pointer-events:none; user-select:none;
+  color:transparent; -webkit-text-stroke:1.5px rgba(242,205,136,.07);
+}
+html[data-theme="light"] body::before{-webkit-text-stroke:1.5px rgba(36,71,214,.08)}
+@media print{body::before{display:none}}

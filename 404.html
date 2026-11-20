@@ -13,10 +13,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@400;600;700&display=swap" rel="stylesheet">
-<script>try{if(localStorage.getItem("gen_theme")!=="light"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
 <style>
 :root{--ink0:#060B16;--ink1:#0A1426;--line-2:rgba(217,174,95,.34);--gold:#D9AE5F;--gold-hi:#F2CD88;--cream:#F2EBDA;--mist:#98A6BE;--glass:rgba(255,255,255,.035)}
-html[data-theme="light"]{--ink0:#F3EDDF;--ink1:#FFFCF5;--line-2:rgba(183,121,31,.45);--gold:#1E3A8A;--gold-hi:#172E5C;--cream:#14213D;--mist:#4A5670;--glass:rgba(255,255,255,.88)}
+html[data-theme="light"]{--ink0:#EEF3FF;--ink1:#FFFFFF;--line-2:rgba(64,98,214,.45);--gold:#2447D6;--gold-hi:#1A35A8;--cream:#101B3D;--mist:#4B5878;--glass:rgba(255,255,255,.88)}
 *{box-sizing:border-box;margin:0;padding:0}
 body{min-height:100vh;display:grid;place-items:center;background:var(--ink0);color:var(--mist);font-family:'Mukta',sans-serif;padding:28px;text-align:center;position:relative;overflow:hidden}
 .wm{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);font-family:'Rozha One',serif;font-size:min(50vw,520px);color:transparent;-webkit-text-stroke:1px rgba(217,174,95,.12);pointer-events:none;user-select:none;line-height:1}
@@ -28,13 +28,13 @@ h1{font-family:'Rozha One',serif;font-weight:400;font-size:28px;color:var(--crea
 p{line-height:1.8;font-size:16px}
 .btns{margin-top:26px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
 a.b{display:inline-block;padding:12px 24px;border-radius:10px;font-weight:700;text-decoration:none;color:var(--ink0);background:linear-gradient(135deg,var(--gold-hi),var(--gold));box-shadow:0 10px 28px rgba(217,174,95,.3)}
-html[data-theme="light"] a.b{color:#FFFCF5;background:linear-gradient(135deg,#12264D,#1E3A8A);box-shadow:0 8px 20px rgba(23,46,92,.22)}
-html[data-theme="light"] .card{box-shadow:0 10px 30px rgba(20,33,61,.08)}
-html[data-theme="light"] .wm{-webkit-text-stroke-color:rgba(183,121,31,.22)}
-html[data-theme="light"] .logo{box-shadow:0 0 0 3px rgba(183,121,31,.18)}
-html[data-theme="light"] .code{color:#172E5C;text-shadow:0 3px 0 rgba(183,121,31,.28)}
+html[data-theme="light"] a.b{color:#FFFFFF;background:linear-gradient(135deg,#1B3BB3,#2447D6);box-shadow:0 8px 20px rgba(27,59,179,.22)}
+html[data-theme="light"] .card{box-shadow:0 10px 30px rgba(16,27,61,.08)}
+html[data-theme="light"] .wm{-webkit-text-stroke-color:rgba(64,98,214,.22)}
+html[data-theme="light"] .logo{box-shadow:0 0 0 3px rgba(64,98,214,.18)}
+html[data-theme="light"] .code{color:#1A35A8;text-shadow:0 3px 0 rgba(64,98,214,.28)}
 html[data-theme="light"] a.g{background:#FFFFFF}
-html[data-theme="light"] a.g:hover{border-color:#B7791F;background:#FBF3DF}
+html[data-theme="light"] a.g:hover{border-color:#FF8A1F;background:#FBF3DF}
 a.g{display:inline-block;padding:12px 24px;border-radius:10px;font-weight:700;text-decoration:none;color:var(--cream);border:1.5px solid var(--line-2)}
 </style>
 </head>
