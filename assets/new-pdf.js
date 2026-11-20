@@ -53,16 +53,16 @@
     var href = '/downloads/#pdf-' + p.id;
     var css = document.createElement('style');
     css.textContent =
-      '.np-toast{position:fixed;right:16px;bottom:150px;z-index:9998;width:290px;max-width:calc(100vw - 32px);display:flex;gap:10px;align-items:center;' +
-      'background:#fff;color:#13235b;border:1.5px solid #e8590c;border-left:6px solid #e8590c;border-radius:14px;padding:10px 30px 10px 10px;' +
-      'box-shadow:0 12px 30px rgba(0,0,0,.25);font-family:Mukta,sans-serif;transform:translateX(130%);transition:transform .45s ease}' +
-      '.np-toast.on{transform:none}.np-toast img{width:54px;height:76px;object-fit:cover;border-radius:6px;border:1px solid #d8dfec;flex:none}' +
-      '.np-toast b.np-k{display:inline-block;font-size:11px;letter-spacing:.06em;color:#fff;background:#c2410c;border-radius:20px;padding:0 8px;margin-bottom:2px}' +
-      '.np-toast .np-t{display:block;font-weight:700;font-size:14px;line-height:1.3;color:#13235b}' +
-      '.np-toast .np-s{display:block;font-size:12.5px;color:#475569;line-height:1.3;margin-top:2px}' +
-      '.np-toast .np-go{display:inline-block;margin-top:5px;font-weight:700;font-size:13px;color:#a53c05;text-decoration:underline}' +
-      '.np-toast .np-x{position:absolute;top:4px;right:6px;border:0;background:none;font-size:20px;line-height:1;color:#64748b;cursor:pointer;padding:2px 4px}' +
-      '@media(max-width:560px){.np-toast{bottom:140px;right:10px;width:240px;padding:8px 26px 8px 8px}.np-toast img{width:42px;height:60px}.np-toast .np-t{font-size:13px}}' +
+      '.np-toast{position:fixed;right:16px;bottom:150px;z-index:9998;width:220px;max-width:calc(100vw - 32px);display:flex;gap:8px;align-items:center;' +
+      'background:#fff;color:#13235b;border:1.5px solid #e8590c;border-left:4px solid #e8590c;border-radius:10px;padding:6px 22px 6px 6px;' +
+      'box-shadow:0 8px 20px rgba(0,0,0,.22);font-family:Mukta,sans-serif;transform:translateX(130%);transition:transform .45s ease}' +
+      '.np-toast.on{transform:none}.np-toast img{width:36px;height:51px;object-fit:cover;border-radius:4px;border:1px solid #d8dfec;flex:none}' +
+      '.np-toast b.np-k{display:inline-block;font-size:9.5px;letter-spacing:.05em;color:#fff;background:#c2410c;border-radius:20px;padding:0 6px;margin-bottom:1px;line-height:1.5}' +
+      '.np-toast .np-t{display:block;font-weight:700;font-size:12px;line-height:1.25;color:#13235b}' +
+      '.np-toast .np-s{display:block;font-size:10.5px;color:#475569;line-height:1.3;margin-top:2px}' +
+      '.np-toast .np-go{display:inline-block;margin-top:1px;font-weight:700;font-size:11px;color:#a53c05;text-decoration:underline}' +
+      '.np-toast .np-x{position:absolute;top:1px;right:3px;border:0;background:none;font-size:16px;line-height:1;color:#64748b;cursor:pointer;padding:2px 4px}' +
+      '@media(max-width:560px){.np-toast{bottom:140px;right:10px;width:200px}.np-toast img{width:32px;height:45px}.np-toast .np-t{font-size:11.5px}}' +
       '@media(prefers-reduced-motion:reduce){.np-toast{transition:none}}';
     document.head.appendChild(css);
     var t = document.createElement('div');
@@ -70,9 +70,8 @@
     t.innerHTML =
       '<button class="np-x" type="button" aria-label="बंद करें">×</button>' +
       '<a href="' + href + '"><img src="/downloads/covers/' + esc(p.file) + '.webp" alt=""></a>' +
-      '<div><b class="np-k"><span data-hi>नई PDF</span><span data-en>NEW PDF</span></b>' +
+      '<div><b class="np-k"><span data-hi>नई PDF</span><span data-en>NEW PDF</span>' + (many ? ' +' + (fresh.length - 1) : '') + '</b>' +
       '<a class="np-t" href="' + href + '"><span data-hi>' + esc(p.hi) + '</span><span data-en>' + esc(p.en) + '</span></a>' +
-      (many ? '<span class="np-s"><span data-hi>+ ' + (fresh.length - 1) + ' और नई PDF</span><span data-en>+ ' + (fresh.length - 1) + ' more new</span></span>' : '') +
       '<a class="np-go" href="' + href + '"><span data-hi>अभी देखें →</span><span data-en>View now →</span></a></div>';
     function close() { t.classList.remove('on'); try { localStorage.setItem(SEEN_KEY, tag); } catch (e) {} setTimeout(function () { t.remove(); }, 500); }
     t.querySelector('.np-x').addEventListener('click', close);
