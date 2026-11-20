@@ -11,7 +11,7 @@
 <link rel="preload" as="image" href="/assets/gen-logo-96.webp" type="image/webp">
 <meta property="og:image" content="https://genclasses.com/assets/gen-logo-og.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
-<script>try{if(localStorage.getItem("gen_theme")==="dark"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
+<script>try{if(localStorage.getItem("gen_theme")!=="light"){document.documentElement.removeAttribute("data-theme");}else{document.documentElement.setAttribute("data-theme","light");}}catch(e){document.documentElement.setAttribute("data-theme","light");}</script>
 <style>
   :root{
     --ink0:#060B16; --ink1:#0A1426; --ink2:#0E1B33;
@@ -1307,7 +1307,7 @@ window.addEventListener("DOMContentLoaded", ()=>{ try{ initHome(); }catch(e){ co
 (function(){
   var btn=document.getElementById("themeBtn"); if(!btn) return;
   function apply(t){ if(t==="dark"){document.documentElement.removeAttribute("data-theme");} else {document.documentElement.setAttribute("data-theme","light");} btn.textContent=(t==="dark")?"\u2600\ufe0f":"\ud83c\udf19"; btn.setAttribute("aria-label",(t==="dark")?"\u0932\u093e\u0907\u091f \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901":"\u0921\u093e\u0930\u094d\u0915 \u0925\u0940\u092e \u092a\u0930 \u091c\u093e\u090f\u0901"); try{localStorage.setItem("gen_theme",t);}catch(e){} }
-  var cur="light"; try{ if(localStorage.getItem("gen_theme")==="dark") cur="dark"; }catch(e){}
+  var cur="light"; try{ if(localStorage.getItem("gen_theme")!=="light") cur="dark"; }catch(e){}
   apply(cur);
   btn.addEventListener("click",function(){ cur=(cur==="dark")?"light":"dark"; apply(cur); });
 })();

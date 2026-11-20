@@ -1,7 +1,7 @@
 (function(){
   try{
     var t=localStorage.getItem('gen_theme');
-    if(t==='dark'){document.documentElement.removeAttribute('data-theme');}
+    if(t!=='light'){document.documentElement.removeAttribute('data-theme');}
     else{document.documentElement.setAttribute('data-theme','light');}
   }catch(e){document.documentElement.setAttribute('data-theme','light');}
   try{

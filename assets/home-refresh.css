@@ -394,3 +394,80 @@ html[data-theme="light"] .hx + .pdf-strip{border-top-color:rgba(183,121,31,.26)}
 
 /* फ़ोन पर मॉक-टेस्ट वाला तैरता पॉपअप नहीं: वही कड़ी ऊपर "मॉक टेस्ट दें" बटन में है, और वह पढ़ने की जगह ढकता था */
 @media(max-width:600px){.gc-pm{display:none!important}}
+
+/* ═══════════ रूप-2: गहरी थीम (अब मूल थीम) — गाढ़ा नीला-काला, तेज़ केसरिया-सुनहरा ज़ोर ═══════════
+   रेखाएँ सुनहरी नहीं, हल्की सफ़ेद; सुनहरा-केसरिया केवल वहाँ जहाँ नज़र खींचनी हो। */
+html:not([data-theme="light"]){
+  --ink0:#070A14; --ink1:#0E1426; --ink2:#141C33; --glass:rgba(255,255,255,.05);
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.18);
+  --gold:#FFB03B; --gold-hi:#FFC95C; --gold-deep:#D9831A; --cream:#F5F7FC; --mist:#A9B3CA;
+}
+html:not([data-theme="light"]) .aur-1{background:radial-gradient(circle,#2A2E96 0%,transparent 62%)}
+html:not([data-theme="light"]) .aur-2{background:radial-gradient(circle,#4A1F6B 0%,transparent 65%)}
+html:not([data-theme="light"]) #nav.gx{
+  --gx-bg:#070A14; --gx-panel:#0E1426; --gx-gold:#FFC95C; --gx-gold-2:#FFB03B; --gx-line:rgba(255,255,255,.1);
+  background:rgba(7,10,20,.92); backdrop-filter:blur(14px); box-shadow:none;
+}
+html:not([data-theme="light"]) :is(.gx-cta,.hx-main){background:linear-gradient(135deg,#FFC95C,#FF9A3D); color:#0A1020; box-shadow:0 8px 22px rgba(255,154,61,.3)}
+html:not([data-theme="light"]) .gx-panel{border-top-color:#FFB03B}
+html:not([data-theme="light"]) .hx-tag{background:#121A30; border-color:rgba(255,255,255,.2)}
+html:not([data-theme="light"]) :is(.hx-tag:hover,.hx-tag:focus-visible){background:linear-gradient(135deg,#FFC95C,#FF9A3D)}
+html:not([data-theme="light"]) .hx::before{
+  background:radial-gradient(52% 80% at 80% 46%,rgba(91,91,240,.28),transparent 70%),radial-gradient(36% 60% at 4% 0%,rgba(255,154,61,.14),transparent 70%);
+}
+html:not([data-theme="light"]) .hx h1 em{background:linear-gradient(90deg,#FFC95C,#FF9A3D); -webkit-background-clip:text; background-clip:text; color:transparent}
+
+/* शीर्षक: भारी सजावटी अक्षरों की जगह साफ़, मोटा Mukta */
+h1,h2,h3{font-family:'Mukta',sans-serif; font-weight:800; letter-spacing:-.01em}
+.gx-name{font-family:'Rozha One',serif; font-weight:400; letter-spacing:0}
+
+/* पहली स्क्रीन छोटी: ऊपर चलती पंक्ति, फिर एक नज़र में पूरा हीरो */
+.hx{padding:clamp(18px,2.6vw,30px) clamp(16px,2.6vw,34px) clamp(10px,1.6vw,18px)}
+.hx h1{margin-top:8px; font-size:clamp(30px,3.7vw,50px); line-height:1.18}
+.hx-sub{margin-top:8px; font-size:clamp(16px,1.3vw,18.5px)}
+.hx-search{margin-top:18px; height:58px}
+.hx-acts{margin-top:14px}
+.hx-orb{max-width:430px; aspect-ratio:1/.82}
+.hx-hint{font-size:13.5px}
+@media(max-width:900px){.hx{padding-top:18px} .hx-orb{max-width:360px}}
+@media(max-width:600px){.hx{padding-top:16px}}
+
+/* ═══════════ अपनी परीक्षा चुनिए ═══════════ */
+#exams{padding:26px 26px 30px}
+.ex-head{display:flex; align-items:center; justify-content:space-between; gap:14px 26px; flex-wrap:wrap; margin-bottom:18px}
+.ex-head h2{font-size:clamp(26px,3vw,38px); line-height:1.2; color:var(--cream)}
+.ex-tabs{display:inline-flex; flex-wrap:wrap; gap:8px}
+.ex-tab{
+  height:48px; padding:0 24px; font:800 17px/1 'Mukta',sans-serif; color:var(--cream); cursor:pointer; white-space:nowrap;
+  background:var(--glass); border:1.5px solid var(--line-2); border-radius:999px; transition:background .16s,border-color .16s,color .16s,transform .16s;
+}
+.ex-tab:hover{border-color:var(--gold); transform:translateY(-1px)}
+.ex-tab[aria-selected="true"]{background:linear-gradient(135deg,#FFC95C,#FF9A3D); border-color:transparent; color:#0A1020; box-shadow:0 8px 22px rgba(255,154,61,.3)}
+html[data-theme="light"] .ex-tab{background:#fff; border-color:rgba(183,121,31,.4)}
+html[data-theme="light"] .ex-tab[aria-selected="true"]{background:linear-gradient(135deg,#1B3A7A,#12264D); color:#F7DCA3; box-shadow:0 8px 20px rgba(18,38,77,.26)}
+.ex-tab:focus-visible,.ex-tile:focus-visible{outline:2px solid var(--gold); outline-offset:3px}
+.ex-cd{display:inline-block; margin:0 0 14px; padding:7px 16px; font-size:15.5px; font-weight:600; color:var(--mist); background:var(--glass); border:1px solid var(--line-2); border-radius:999px}
+.ex-cd b{color:var(--gold-hi); font-weight:800}
+html[data-theme="light"] .ex-cd{background:#fff} html[data-theme="light"] .ex-cd b{color:#8A5A0B}
+.ex-grid{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px}
+.ex-tile{
+  position:relative; display:block; padding:18px 44px 18px 20px; min-height:92px; color:var(--cream);
+  background:linear-gradient(160deg,var(--glass),transparent 70%),var(--ink1); border:1px solid var(--line-2); border-radius:18px;
+  transition:transform .18s,border-color .18s,box-shadow .18s;
+}
+.ex-tile b{display:block; font-size:18px; font-weight:800; line-height:1.3}
+.ex-tile small{display:block; margin-top:4px; font-size:14.5px; line-height:1.4; color:var(--mist)}
+.ex-tile i{position:absolute; right:18px; top:18px; font-style:normal; font-size:20px; color:var(--gold); transition:transform .18s}
+.ex-tile:hover{transform:translateY(-3px); border-color:var(--gold); box-shadow:0 16px 34px rgba(0,0,0,.28)}
+.ex-tile:hover i{transform:translateX(4px)}
+html[data-theme="light"] .ex-tile{background:#fff; border-color:rgba(196,172,120,.5); box-shadow:0 4px 14px rgba(20,33,61,.05)}
+html[data-theme="light"] .ex-tile:hover{border-color:#B7791F; box-shadow:0 14px 30px rgba(20,33,61,.12)}
+html[data-theme="light"] .ex-tile i{color:#B7791F}
+@media(max-width:1000px){.ex-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  #exams{padding:18px 14px 22px}
+  .ex-tabs{flex-wrap:nowrap; overflow-x:auto; scrollbar-width:none; margin:0 -14px; padding:2px 14px; max-width:100vw}
+  .ex-tab{height:44px; padding:0 18px; font-size:16px}
+  .ex-grid{gap:10px} .ex-tile{padding:14px 34px 14px 14px; min-height:0; border-radius:14px} .ex-tile b{font-size:16.5px} .ex-tile small{font-size:13.5px} .ex-tile i{right:12px; top:14px}
+}
+@media(prefers-reduced-motion:reduce){.ex-tab,.ex-tile,.ex-tile i{transition:none}}
