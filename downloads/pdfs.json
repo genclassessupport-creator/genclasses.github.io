@@ -1,5 +1,21 @@
 [
  {
+  "id": "kme-hi",
+  "file": "agriculture-minerals-energy-quick-revision-hindi-genclasses",
+  "section": "booklets",
+  "hi": "कृषि, खनिज एवं ऊर्जा (हिंदी)",
+  "en": "Agri, Minerals & Energy (HI)",
+  "added": "2026-11-21"
+ },
+ {
+  "id": "kme-en",
+  "file": "agriculture-minerals-energy-quick-revision-english-genclasses",
+  "section": "booklets",
+  "hi": "कृषि, खनिज एवं ऊर्जा (English)",
+  "en": "Agri, Minerals & Energy (EN)",
+  "added": "2026-11-21"
+ },
+ {
   "id": "first-hi",
   "file": "bharat-up-pehli-baar-2025-26-hindi-genclasses",
   "section": "ca",
