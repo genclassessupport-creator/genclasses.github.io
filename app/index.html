@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GenClasses Android App — मुफ़्त डाउनलोड</title>
+<meta name="description" content="GenClasses का मुफ़्त Android ऐप: UPPCS / UPSC टेस्ट, PDF, करेंट अफेयर्स और नोट्स — सब एक टैप में।">
+<meta name="theme-color" content="#F3EDDF">
+<link rel="icon" href="/assets/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Mukta:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/hub.css">
+<script src="/assets/hub.js"></script>
+<style>
+  .app-hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:34px 0 10px}
+  .app-hero img{width:120px;height:120px;border-radius:50%;background:#fff;border:1px solid var(--line-2);box-shadow:var(--shadow,0 14px 36px rgba(0,0,0,.25))}
+  .app-hero h1{font-size:clamp(28px,6vw,40px);margin:16px 0 6px}
+  .app-hero p{max-width:560px;margin:0 auto}
+  .app-dl{display:inline-flex;align-items:center;gap:10px;margin:22px 0 8px;background:#F58220;color:#fff;font-weight:800;font-size:19px;padding:15px 30px;border-radius:40px;text-decoration:none;box-shadow:0 10px 26px rgba(245,130,32,.35)}
+  .app-dl:hover{filter:brightness(1.05)}
+  .app-meta{font-size:13px;color:var(--mist)}
+  .app-in{display:none;margin:18px auto 0;max-width:520px;padding:14px 16px;border-radius:14px;border:1px solid var(--line-2);background:var(--glass);color:var(--cream);font-weight:700}
+  .app-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;margin:30px 0}
+  .app-grid .card b{color:var(--cream);font-size:16px}
+  .app-steps{background:var(--glass);border:1px solid var(--line);border-radius:16px;padding:20px 18px;margin:10px 0 40px}
+  .app-steps h2{font-size:24px;margin:0 0 10px}
+  .app-steps ol{margin:0;padding-left:22px}
+  .app-steps li{margin:8px 0}
+  .app-steps .note{margin-top:14px;font-size:14px}
+</style>
+</head>
+<body>
+<nav class="hub-nav"><div class="hub-nav-in wrap">
+  <a class="brand" href="/"><img src="/assets/gen-logo-96.webp" width="42" height="42" alt="GenClasses"><span><b>GenClasses</b><small>Your goal Our support</small></span></a>
+  <div class="hub-links">
+    <a href="/downloads/"><span data-hi>मुफ़्त PDF</span><span data-en>Free PDFs</span></a>
+    <a href="/#tests"><span data-hi>टेस्ट</span><span data-en>Tests</span></a>
+    <a href="/"><span data-hi>होम</span><span data-en>Home</span></a>
+  </div>
+  <button class="lang-btn" id="langBtn" type="button" aria-label="Language">EN</button>
+  <button class="theme-btn" id="themeBtn" aria-label="Theme">🌙</button>
+</div></nav>
+<main class="wrap">
+<section class="app-hero">
+  <img src="/assets/gen-logo-og.jpg" width="120" height="120" alt="GenClasses">
+  <h1><span data-hi>GenClasses Android ऐप</span><span data-en>GenClasses Android App</span></h1>
+  <p data-hi>टेस्ट, मुफ़्त PDF, रोज़ का करंट अफेयर्स, सिलेबस और नोट्स — अब सीधे आपके फ़ोन की होम-स्क्रीन पर, एक टैप में।</p>
+  <p data-en>Tests, free PDFs, daily current affairs, syllabus and notes — right on your phone's home screen, one tap away.</p>
+  <a class="app-dl" id="appDl" href="/app/GenClasses.apk" download="GenClasses.apk">⬇ <span data-hi>ऐप डाउनलोड करें</span><span data-en>Download the app</span></a>
+  <div class="app-meta"><span data-hi>Android 7.0 या नया · आकार लगभग 0.5 MB · पूरी तरह मुफ़्त</span><span data-en>Android 7.0+ · about 0.5 MB · completely free</span></div>
+  <div class="app-in" id="appIn"><span data-hi>✅ आप पहले से GenClasses ऐप में हैं।</span><span data-en>✅ You are already using the GenClasses app.</span></div>
+</section>
+
+<section class="app-grid">
+  <div class="card"><b><span data-hi>📝 सारे टेस्ट</span><span data-en>📝 All tests</span></b><p data-hi>UPPCS, UPSC, RO/ARO, CSAT और PYQ टेस्ट — परिणाम का प्रिंट या PDF भी सहेजें।</p><p data-en>UPPCS, UPSC, RO/ARO, CSAT and PYQ tests — print or save results as PDF.</p></div>
+  <div class="card"><b><span data-hi>📚 मुफ़्त PDF</span><span data-en>📚 Free PDFs</span></b><p data-hi>एक टैप में डाउनलोड — फ़ोन के Downloads › GenClasses फ़ोल्डर में मिलेंगी।</p><p data-en>One-tap downloads, saved in Downloads › GenClasses on your phone.</p></div>
+  <div class="card"><b><span data-hi>📰 रोज़ का करंट</span><span data-en>📰 Daily current affairs</span></b><p data-hi>हर दिन के नए परीक्षा-उपयोगी बिंदु, ऐप खोलते ही ताज़ा।</p><p data-en>Fresh exam-relevant points every day, updated as soon as you open the app.</p></div>
+  <div class="card"><b><span data-hi>✈️ Telegram से जुड़ें</span><span data-en>✈️ Telegram</span></b><p data-hi>Telegram, WhatsApp और ईमेल लिंक सीधे अपने ऐप में खुलते हैं।</p><p data-en>Telegram, WhatsApp and email links open straight in their own apps.</p></div>
+</section>
+
+<section class="app-steps">
+  <h2><span data-hi>इंस्टॉल कैसे करें</span><span data-en>How to install</span></h2>
+  <div data-hi><ol>
+    <li>ऊपर के नारंगी बटन “ऐप डाउनलोड करें” को दबाएँ।</li>
+    <li>डाउनलोड पूरा होने पर नोटिफ़िकेशन में या Files › Downloads में <b>GenClasses.apk</b> खोलें।</li>
+    <li>अगर फ़ोन “अज्ञात ऐप” की अनुमति माँगे तो <b>Settings</b> दबाकर <b>Allow from this source / इस स्रोत से अनुमति दें</b> चालू करें, फिर वापस आएँ।</li>
+    <li><b>Install</b> दबाएँ। Play Protect कोई संदेश दिखाए तो “More details › Install anyway” चुनें।</li>
+    <li>होम-स्क्रीन पर GenClasses का लोगो दिखेगा — बस खोलिए और पढ़ाई शुरू कीजिए।</li>
+  </ol></div>
+  <div data-en><ol>
+    <li>Tap the orange “Download the app” button above.</li>
+    <li>When the download finishes, open <b>GenClasses.apk</b> from the notification or Files › Downloads.</li>
+    <li>If your phone asks about unknown apps, tap <b>Settings</b>, turn on <b>Allow from this source</b>, then come back.</li>
+    <li>Tap <b>Install</b>. If Play Protect shows a message, choose “More details › Install anyway”.</li>
+    <li>The GenClasses logo appears on your home screen — open it and start studying.</li>
+  </ol></div>
+  <p class="note" data-hi>नया संस्करण आने पर इसी पेज से दोबारा डाउनलोड करके इंस्टॉल करें — आपकी प्रगति सुरक्षित रहेगी। कोई समस्या हो तो Telegram पर लिखें: <a href="https://t.me/genclassesofficial">t.me/genclassesofficial</a></p>
+  <p class="note" data-en>When a new version comes out, download and install it again from this page — your progress stays safe. Any problem? Message us on Telegram: <a href="https://t.me/genclassesofficial">t.me/genclassesofficial</a></p>
+</section>
+</main>
+<script>
+  if (/GenClassesApp/.test(navigator.userAgent)) {
+    document.getElementById('appDl').style.display = 'none';
+    document.getElementById('appIn').style.display = 'block';
+  }
+</script>
+</body>
+</html>
