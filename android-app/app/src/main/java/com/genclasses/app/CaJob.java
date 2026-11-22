@@ -119,7 +119,7 @@ public class CaJob extends JobService {
         }
     }
 
-    private static String fetch(String u) throws Exception {
+    static String fetch(String u) throws Exception {
         HttpURLConnection con = (HttpURLConnection) new URL(u + "?t=" + System.currentTimeMillis()).openConnection();
         con.setConnectTimeout(15000);
         con.setReadTimeout(20000);
