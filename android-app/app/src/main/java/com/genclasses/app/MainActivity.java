@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
     private static final String COLOR_JS =
             "(function(){try{var c=getComputedStyle(document.body).backgroundColor;" +
             "if(!c||c==='rgba(0, 0, 0, 0)')c=getComputedStyle(document.documentElement).backgroundColor;" +
-            "GenApp.barColor(c||'')}catch(e){}})()";
+            "GenApp.barColor(c||'');GenApp.lang(document.documentElement.lang||'')}catch(e){}})()";
 
     private final Handler ui = new Handler(Looper.getMainLooper());
     private FrameLayout root;
@@ -104,6 +104,9 @@ public class MainActivity extends Activity {
     private WebView web;
     private ProgressBar bar;
     private TextView myPdfPill;
+    private FrameLayout panel;
+    private int panelTab = -1;
+    private String lang = "hi";
     private View splash;
     private View fullView;
     private WebChromeClient.CustomViewCallback fullCallback;
@@ -152,7 +155,9 @@ public class MainActivity extends Activity {
             web.restoreState(state);
         } else {
             Uri data = getIntent() != null ? getIntent().getData() : null;
-            web.loadUrl(data != null && isAppUrl(data) ? data.toString() : HOME);
+            boolean ca = data != null && CA_URL.equals(data.toString());
+            web.loadUrl(data != null && isAppUrl(data) && !ca ? data.toString() : HOME);
+            if (ca) showPanel(TAB_CA);
         }
     }
 
@@ -191,6 +196,11 @@ public class MainActivity extends Activity {
         FrameLayout.LayoutParams pl = new FrameLayout.LayoutParams(-2, -2, Gravity.BOTTOM | Gravity.END);
         pl.setMargins(0, 0, Ui.dp(this, 16), Ui.dp(this, 16));
         content.addView(myPdfPill, pl);
+
+        panel = new FrameLayout(this);
+        panel.setClickable(true);
+        panel.setVisibility(View.GONE);
+        content.addView(panel, new FrameLayout.LayoutParams(-1, -1));
 
         bottomBar = buildBottomBar();
         col.addView(bottomBar, new LinearLayout.LayoutParams(-1, Ui.dp(this, 64)));
@@ -353,6 +363,7 @@ public class MainActivity extends Activity {
 
     @SuppressWarnings("deprecation")
     private void applyChrome(int c) {
+        boolean changed = c != chrome;
         chrome = c;
         boolean light = (Color.red(c) * 299 + Color.green(c) * 587 + Color.blue(c) * 114) / 1000 > 140;
         int fg = light ? Ui.NAVY : Color.parseColor("#F2EBDA");
@@ -365,6 +376,7 @@ public class MainActivity extends Activity {
         tabMuted = muted;
         tabLight = light;
         styleTabs();
+        if (changed && panelTab != -1) showPanel(panelTab);
 
         Window w = getWindow();
         if (Build.VERSION.SDK_INT >= 23 && Build.VERSION.SDK_INT < 35) {
@@ -410,11 +422,9 @@ public class MainActivity extends Activity {
         if (url == null) return -1;
         Uri u = Uri.parse(url);
         String p = u.getPath() == null || u.getPath().isEmpty() ? "/" : u.getPath().toLowerCase(Locale.ROOT);
-        String f = u.getFragment() == null ? "" : u.getFragment();
         boolean home = p.equals("/") || p.equals("/index.html");
         if (p.startsWith("/downloads")) return TAB_PDF;
-        if (p.startsWith("/up-ca") || (home && f.equals("daily-ca"))) return TAB_CA;
-        if (home && f.equals("tests")) return TAB_TESTS;
+        if (p.startsWith("/up-ca")) return TAB_CA;
         if (home) return TAB_HOME;
         if (p.startsWith("/tests") || p.startsWith("/polity") || p.startsWith("/uppcs-prelims-pyq")
                 || p.startsWith("/uppcs-2026-mock") || p.startsWith("/up-tgt-pgt-gic-mock")
@@ -431,7 +441,7 @@ public class MainActivity extends Activity {
     }
 
     private void onUrlChanged(String url) {
-        if (url == null || url.startsWith("file:")) return;
+        if (url == null || url.startsWith("file:") || panelTab != -1) return;
         selectTab(tabFor(url));
         Uri u = Uri.parse(url);
         boolean pdfPage = u.getPath() != null && u.getPath().startsWith("/downloads");
@@ -445,42 +455,56 @@ public class MainActivity extends Activity {
             openExternal(Uri.parse(TELEGRAM));
             return;
         }
+        if (t == TAB_TESTS || t == TAB_CA) {
+            showPanel(t);
+            return;
+        }
+        boolean hadPanel = panelTab != -1;
+        hidePanel();
+        if (tabFor(web.getUrl()) == t) { // already there: just go to the top of the page
+            if (!hadPanel || t == TAB_HOME) {
+                web.evaluateJavascript("window.scrollTo({top:0,behavior:'smooth'})", null);
+            }
+            return;
+        }
+        openGuarded(t == TAB_HOME ? HOME : PDF_URL);
+    }
+
+    /** The app's own screen for a tab, shown over the web page (which stays as it is underneath). */
+    private void showPanel(int t) {
+        panel.removeAllViews();
+        Screens sc = new Screens(this, chrome);
+        if (t == TAB_TESTS) sc.tests(panel);
+        else sc.current(panel, lang);
+        panel.setVisibility(View.VISIBLE);
+        myPdfPill.setVisibility(View.GONE);
+        panelTab = t;
+        selectTab(t);
+    }
+
+    private void hidePanel() {
+        if (panelTab == -1) return;
+        panelTab = -1;
+        panel.setVisibility(View.GONE);
+        panel.removeAllViews();
+        currentTab = -2;
+        onUrlChanged(web.getUrl());
+    }
+
+    /** Opens a website page; asks first if a test is in progress. */
+    void openGuarded(String url) {
         String cur = web.getUrl();
         Uri cu = cur == null ? null : Uri.parse(cur);
         if (cu != null && isAppUrl(cu) && isTestPage(cu.getPath())) {
             new AlertDialog.Builder(this)
                     .setMessage("टेस्ट बीच में छोड़कर जाना चाहते हैं?")
-                    .setPositiveButton("हाँ, जाएँ", (d, w) -> navigate(t))
+                    .setPositiveButton("हाँ, जाएँ", (d, w) -> { hidePanel(); web.loadUrl(url); })
                     .setNegativeButton("टेस्ट जारी रखें", null)
                     .show();
             return;
         }
-        navigate(t);
-    }
-
-    private void navigate(int t) {
-        String cur = web.getUrl();
-        Uri cu = cur == null ? null : Uri.parse(cur);
-        String path = cu == null ? null : cu.getPath();
-        boolean onHome = cu != null && isAppUrl(cu)
-                && (path == null || path.isEmpty() || path.equals("/") || path.equals("/index.html"));
-        if (t == TAB_HOME) {
-            if (onHome) web.evaluateJavascript("history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'smooth'})", null);
-            else web.loadUrl(HOME);
-            selectTab(TAB_HOME);
-        } else if (t == TAB_TESTS || t == TAB_CA) {
-            String id = t == TAB_TESTS ? "tests" : "daily-ca";
-            if (onHome) {
-                web.evaluateJavascript("(function(){var e=document.getElementById('" + id + "');" +
-                        "if(e){history.replaceState(null,'','#" + id + "');e.scrollIntoView({behavior:'smooth'})}})()", null);
-            } else {
-                web.loadUrl(t == TAB_TESTS ? TESTS_URL : CA_URL);
-            }
-            selectTab(t);
-        } else if (t == TAB_PDF) {
-            web.loadUrl(PDF_URL);
-            selectTab(TAB_PDF);
-        }
+        hidePanel();
+        web.loadUrl(url);
     }
 
     private void showMenu() {
@@ -517,7 +541,7 @@ public class MainActivity extends Activity {
         boolean on = CaJob.enabled(this);
         row(list, d, "🔔", "रोज़ के करंट की सूचना: " + (on ? "चालू" : "बंद"), () -> toggleNotify(!on));
         row(list, d, "📤", "ऐप दोस्तों से शेयर करें", this::shareApp);
-        row(list, d, "🔄", "पन्ना फिर से लोड करें", () -> web.reload());
+        row(list, d, "🔄", "पन्ना फिर से लोड करें", () -> { hidePanel(); web.reload(); });
         header(list, "संपर्क");
         row(list, d, "✈️", "Telegram चैनल", () -> openExternal(Uri.parse(TELEGRAM)));
         row(list, d, "💬", "Telegram पर बात करें", () -> openExternal(Uri.parse("https://t.me/GenClasses_Support")));
@@ -582,7 +606,7 @@ public class MainActivity extends Activity {
     }
 
     private void open(String path) {
-        web.loadUrl(HOME + path);
+        openGuarded(HOME + path);
     }
 
     private void shareApp() {
@@ -596,6 +620,7 @@ public class MainActivity extends Activity {
     private void toggleLanguage() {
         web.evaluateJavascript("(function(){var b=document.getElementById('langBtn');if(b){b.click();return}" +
                 "try{var L=localStorage.getItem('gen_lang')==='en'?'hi':'en';localStorage.setItem('gen_lang',L);location.reload()}catch(e){}})()", null);
+        ui.postDelayed(() -> web.evaluateJavascript(COLOR_JS, null), 350);
     }
 
     private void toggleTheme() {
@@ -646,7 +671,10 @@ public class MainActivity extends Activity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         Uri data = intent.getData();
-        if (data != null && isAppUrl(data)) web.loadUrl(data.toString());
+        if (data == null || !isAppUrl(data)) return;
+        if (CA_URL.equals(data.toString())) { showPanel(TAB_CA); return; }
+        hidePanel();
+        web.loadUrl(data.toString());
     }
 
     @Override
@@ -691,6 +719,10 @@ public class MainActivity extends Activity {
     private void handleBack() {
         if (fullView != null) {
             exitFullscreen();
+            return;
+        }
+        if (panelTab != -1) {
+            hidePanel();
             return;
         }
         if (OFFLINE.equals(web.getUrl()) && web.canGoBackOrForward(-2)) {
@@ -786,7 +818,7 @@ public class MainActivity extends Activity {
         return true;
     }
 
-    private void openExternal(Uri u) {
+    void openExternal(Uri u) {
         try {
             Intent i = new Intent(Intent.ACTION_VIEW, u);
             i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -1028,6 +1060,16 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public void myPdfs() {
             runOnUiThread(() -> startActivity(new Intent(MainActivity.this, MyPdfsActivity.class)));
+        }
+
+        @JavascriptInterface
+        public void lang(String l) {
+            final String v = "en".equals(l) ? "en" : "hi";
+            runOnUiThread(() -> {
+                if (v.equals(lang)) return;
+                lang = v;
+                if (panelTab == TAB_CA) showPanel(TAB_CA);
+            });
         }
 
         @JavascriptInterface
