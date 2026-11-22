@@ -86,7 +86,14 @@ public class PdfViewerActivity extends Activity {
         hs = new ZoomScroll(this);
         hs.setFillViewport(true);
         hs.setHorizontalScrollBarEnabled(true);
-        list = new ListView(this);
+        list = new ListView(this) {
+            @Override
+            protected void onMeasure(int wSpec, int hSpec) {
+                // a horizontal scroller gives no width limit: always be exactly the zoomed page width
+                int w = viewW > 0 ? contentW() : MeasureSpec.getSize(wSpec);
+                super.onMeasure(w > 0 ? MeasureSpec.makeMeasureSpec(w, MeasureSpec.EXACTLY) : wSpec, hSpec);
+            }
+        };
         list.setDivider(null);
         list.setDividerHeight(0);
         list.setSelector(android.R.color.transparent);

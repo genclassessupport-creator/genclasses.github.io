@@ -308,21 +308,24 @@ public class MainActivity extends Activity {
         name.setTextSize(32);
         name.setTypeface(Typeface.create(Typeface.SERIF, Typeface.BOLD));
         name.setPadding(0, Ui.dp(this, 18), 0, 0);
-        s.addView(name);
+        name.setGravity(Gravity.CENTER);
+        s.addView(name, new LinearLayout.LayoutParams(-1, -2));
 
         TextView tag = new TextView(this);
         tag.setText("Your goal Our support");
         tag.setTextColor(Ui.ORANGE);
         tag.setTextSize(15);
         tag.setTypeface(Typeface.DEFAULT_BOLD);
-        s.addView(tag);
+        tag.setGravity(Gravity.CENTER);
+        s.addView(tag, new LinearLayout.LayoutParams(-1, -2));
 
         TextView exams = new TextView(this);
         exams.setText("UPSC · UPPCS · RO/ARO · TGT/PGT");
         exams.setTextColor(Ui.MUTED);
         exams.setTextSize(13);
         exams.setPadding(0, Ui.dp(this, 6), 0, Ui.dp(this, 26));
-        s.addView(exams);
+        exams.setGravity(Gravity.CENTER);
+        s.addView(exams, new LinearLayout.LayoutParams(-1, -2));
 
         ProgressBar p = new ProgressBar(this);
         p.setIndeterminateTintList(ColorStateList.valueOf(Ui.ORANGE));
@@ -486,7 +489,7 @@ public class MainActivity extends Activity {
 
         LinearLayout list = new LinearLayout(this);
         list.setOrientation(LinearLayout.VERTICAL);
-        list.setPadding(0, Ui.dp(this, 10), 0, Ui.dp(this, 16));
+        list.setPadding(0, Ui.dp(this, 10), 0, Ui.dp(this, 56));
 
         View handle = new View(this);
         handle.setBackground(Ui.round(Color.parseColor("#33000000"), Ui.dp(this, 3)));
