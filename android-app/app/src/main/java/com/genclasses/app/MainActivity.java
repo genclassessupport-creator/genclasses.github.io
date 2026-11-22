@@ -376,7 +376,7 @@ public class MainActivity extends Activity {
             Toast.makeText(this, "यह फ़ाइल ऐप में सहेजी नहीं जा सकती", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (Build.VERSION.SDK_INT < 29 && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        if (Build.VERSION.SDK_INT >= 23 && Build.VERSION.SDK_INT < 29 && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED) {
             pendingDownload = url;
             requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQ_STORAGE);
@@ -466,7 +466,10 @@ public class MainActivity extends Activity {
     private void applyBarColor(int c) {
         Window w = getWindow();
         root.setBackgroundColor(c);
-        if (Build.VERSION.SDK_INT < 35) {
+        if (Build.VERSION.SDK_INT < 23) {
+            // no dark status-bar icons before Android 6: keep the bar dark so white icons stay visible
+            w.setStatusBarColor(Color.parseColor("#1B2A57"));
+        } else if (Build.VERSION.SDK_INT < 35) {
             w.setStatusBarColor(c);
             w.setNavigationBarColor(c);
         }
@@ -476,7 +479,7 @@ public class MainActivity extends Activity {
             int mask = android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS
                     | android.view.WindowInsetsController.APPEARANCE_LIGHT_NAVIGATION_BARS;
             w.getInsetsController().setSystemBarsAppearance(light ? mask : 0, mask);
-        } else {
+        } else if (Build.VERSION.SDK_INT >= 23) {
             int f = d.getSystemUiVisibility();
             if (light) f |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
             else f &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
