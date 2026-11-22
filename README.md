@@ -62,3 +62,12 @@ The second command refreshes `files.json` and validates generated content, inter
 ## UP PCS Prelims 2026
 
 `tools/md_to_genclasses.py` से markdown MCQ को `tests/uppcs2026/` में GenClasses टेस्ट में बदला जा सकता है। ब्राउज़र में `assets/generator.html` भी वही काम करता है।
+
+## प्रकाशन से पहले कोड सिकोड़ना (Cloudflare Pages के लिए)
+
+`tools/build-site.mjs` पूरी साइट की एक प्रति `_site/` में बनाता है जिसमें हर `.js` फ़ाइल और हर inline script सिकुड़ी (minified) होती है। repo की फ़ाइलें जैसी हैं वैसी ही रहती हैं, इसलिए टेस्ट, PDF और करंट डालने का तरीक़ा नहीं बदलता।
+
+1. Cloudflare Pages में Build command: `npm install && npm run build`, Output directory: `_site`।
+2. `tools/`, `content/` (सिर्फ़ import होने वाली फ़ाइलें जाती हैं), `android-app/`, `workers/` और `README.md` प्रकाशित नहीं होते।
+3. `_headers` में सुरक्षा-हेडर अपने-आप जुड़ते हैं (ये Cloudflare Pages पर ही लागू होते हैं)।
+4. कोई import ऐसी फ़ाइल की ओर हो जो प्रकाशित नहीं हुई, तो build रुक जाता है।

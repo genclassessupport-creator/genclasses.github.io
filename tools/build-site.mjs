@@ -102,10 +102,44 @@ fs.rmSync(OUT, { recursive: true, force: true });
 fs.mkdirSync(OUT);
 await walk(ROOT);
 
+// Scripts may import a module from a folder that is otherwise not published
+// (assets/origins.js imports ../content/origins.mjs). Bring exactly those files along,
+// minified, and fail the build if an import still points at nothing.
+async function resolveImports() {
+  const queue = [];
+  const collect = (dir) => {
+    for (const n of fs.readdirSync(dir)) {
+      const f = path.join(dir, n);
+      if (fs.statSync(f).isDirectory()) collect(f);
+      else if (/\.m?js$/.test(n)) queue.push(f);
+    }
+  };
+  collect(OUT);
+  const missing = [];
+  while (queue.length) {
+    const file = queue.pop();
+    const code = fs.readFileSync(file, "utf8");
+    for (const m of code.matchAll(/(?:from|import)\s*\(?\s*["'](\.{1,2}\/[^"']+)["']/g)) {
+      const target = path.resolve(path.dirname(file), m[1].split("?")[0]);
+      if (fs.existsSync(target)) continue;
+      const src = path.join(ROOT, path.relative(OUT, target));
+      if (!target.startsWith(OUT + path.sep) || !fs.existsSync(src)) { missing.push(`${path.relative(OUT, file)} → ${m[1]}`); continue; }
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, await min(fs.readFileSync(src, "utf8"), true));
+      stats.js++; stats.files++;
+      queue.push(target);
+    }
+  }
+  if (missing.length) {
+    console.error("build failed, imports with no file:\n  " + missing.join("\n  "));
+    process.exit(1);
+  }
+}
+await resolveImports();
+
 const headersFile = path.join(OUT, "_headers");
 const existing = fs.existsSync(headersFile) ? fs.readFileSync(headersFile, "utf8").trimEnd() + "\n" : "";
 fs.writeFileSync(headersFile, existing + SECURITY_HEADERS);
 
 console.log(`built ${stats.files} files → _site/ | js files ${stats.js}, inline scripts ${stats.inline}, kept as-is ${stats.kept} | ` +
   `text ${(stats.before / 1e6).toFixed(1)} MB → ${(stats.after / 1e6).toFixed(1)} MB`);
-if (stats.kept > 0) process.exitCode = 0;
