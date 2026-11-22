@@ -94,7 +94,7 @@ function build(){
  if(i===0||j===cells-1){const [u,v]=j===cells-1?[D,C]:[A,D];polygon([u,v,[v[0],v[1]+19],[u[0],u[1]+19]],j===cells-1?'#786b58':'#504f48');for(let k=1;k<=3;k++){const d=4*k+2*sin(x*9+y*7+k);g.strokeStyle=k%2?'#978267':'#645849';g.lineWidth=1.4;g.beginPath();g.moveTo(u[0],u[1]+d);g.lineTo(v[0],v[1]+d);g.stroke()}}
  }}
 const anchors=[[[-.43,-.2],[.63,.18]],[[.54,.39],[.32,.39]],[[0,0],[.07,.67]],[[.39,.38],[.64,.9]],[[0,-.77],[0,.74]],[[-.39,0],[.5,0]],[[-.14,.15],[.61,.55]],[[0,0],[.68,.42]]];
-function draw(){if(topics[n][0]==="total-internal-reflection"){reflectionScene();return}if(n===1||topics[n][0]==="mountain-building"){formation(n!==1);return}if(n>=19){geologyScene(topics[n][0]);return}if(n>=8){diagram();return}
+function draw(){if(topics[n][0]==='trophic-energy-transfer'){trophicEnergyScene();return}if(topics[n][0]==="total-internal-reflection"){reflectionScene();return}if(n===1||topics[n][0]==="mountain-building"){formation(n!==1);return}if(n>=19){geologyScene(topics[n][0]);return}if(n>=8){diagram();return}
  ctx.setTransform(canvas.width/900,0,0,canvas.height/530,0,0);ctx.drawImage(terrain,0,0);
  if(n===0){
    for(let i=0;i<28;i++){

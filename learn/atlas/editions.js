@@ -11,6 +11,14 @@ const atlasEditions = [
    shots:['आपतन कोण बढ़ने पर हवा में किरण अभिलंब से और दूर मुड़ती है।','As the incident angle increases, the ray in air bends farther away from the normal.',
           'क्रांतिक कोण पर अपवर्तन कोण 90° है। इसके बाद प्रकाश काँच के भीतर ही परावर्तित होता है।','At the critical angle the refracted angle reaches 90°. Above it, the light reflects back inside the glass.'],
    observe:['55° पर नारंगी किरण काँच में लौटती है। अभिलंब के दोनों ओर आपतन और परावर्तन कोण बराबर हैं।','At 55°, the orange ray returns through the glass. Compare the equal incident and reflected angles on either side of the normal.']
+ },
+ {
+   id:'trophic-energy-transfer', date:'2026-11-26T09:00:00+05:30',
+   title:['पोषी स्तरों में ऊर्जा का प्रवाह','Energy transfer between trophic levels'],
+   lesson:['एक समान क्षेत्र और अवधि में घास की नई जैवमात्रा में 1,000 kJ ऊर्जा संचित हुई। हर खंड 10 kJ दिखाता है।','Over a fixed area and time, new grass biomass stores 1,000 kJ. Each block represents 10 kJ.'],
+   shots:['इस उदाहरण में 10% ऊर्जा शाकाहारियों की नई जैवमात्रा बनती है। घास के 100 खंडों के सामने 10 खंड गिनें।','In this example, 10% becomes new herbivore biomass. Count 10 blocks against the 100 blocks of grass production.',
+          'अगले स्तर पर फिर 10% मिलने से केवल 1 खंड बचता है। कुछ जैवमात्रा खाई नहीं जाती, कुछ ऊर्जा अपशिष्ट में जाती है और श्वसन से ऊष्मा निकलती है।','A second 10% transfer yields one block. Some biomass goes uneaten, some energy leaves as waste, and respiration releases heat.'],
+   observe:['दो चरणों के बाद मांसाहारियों में 10 kJ है। यह शुरुआती 1,000 kJ का 1% है। वास्तविक स्थानांतरण दक्षता अलग हो सकती है।','After two transfers, carnivores gain 10 kJ, or 1% of the original 1,000 kJ. Actual transfer efficiencies vary.']
  }
 ];
 function geologyScene(id){
