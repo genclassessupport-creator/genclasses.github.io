@@ -2,3 +2,5 @@ tools/__pycache__/
 
 _shot-*.html
 _build/
+_site/
+node_modules/

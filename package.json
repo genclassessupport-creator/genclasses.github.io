@@ -1,0 +1,11 @@
+{
+  "name": "genclasses-site",
+  "private": true,
+  "description": "Build step that publishes a minified copy of the site (source stays readable in the repo).",
+  "scripts": {
+    "build": "node tools/build-site.mjs"
+  },
+  "devDependencies": {
+    "terser": "5.36.0"
+  }
+}
