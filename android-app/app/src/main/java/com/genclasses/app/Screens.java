@@ -112,7 +112,7 @@ final class Screens {
         t.setGravity(Gravity.CENTER);
         t.setPadding(0, dp(20), 0, dp(12));
         box.addView(t, new LinearLayout.LayoutParams(-1, -2));
-        TextView b = text("↻ फिर से कोशिश करें", 15, Color.WHITE, true);
+        TextView b = text(tr("↻ फिर से कोशिश करें", "↻ Try again"), 15, Color.WHITE, true);
         b.setBackground(Ui.ripple(Ui.round(Ui.ORANGE, dp(22)), true));
         b.setPadding(dp(22), dp(10), dp(22), dp(10));
         b.setOnClickListener(v -> retry.run());
@@ -142,18 +142,24 @@ final class Screens {
 
     // ---------- टेस्ट ----------
 
-    void tests(FrameLayout into) {
-        LinearLayout col = page(into);
-        title(col, "टेस्ट", "सीरीज़ चुनें या नीचे से कोई भी टेस्ट सीधे खोलें");
+    private boolean en;
 
-        section(col, "टेस्ट सीरीज़");
+    private String tr(String hi, String english) { return en ? english : hi; }
+
+    void tests(FrameLayout into, String lang) {
+        en = "en".equals(lang);
+        LinearLayout col = page(into);
+        title(col, tr("टेस्ट", "Tests"), tr("सीरीज़ चुनें या नीचे से कोई भी टेस्ट सीधे खोलें",
+                "Pick a series, or open any test directly below"));
+
+        section(col, tr("टेस्ट सीरीज़", "TEST SERIES"));
         String[][] hubs = {
-                {"📝", "UPPCS प्रारंभिक PYQ", "2018–2025, विषयवार", "uppcs-prelims-pyq/"},
-                {"🧪", "UPPCS 2026 मॉक", "पूरे 150 प्रश्न वाले टेस्ट", "uppcs-2026-mock/"},
-                {"⚖️", "राजव्यवस्था PYQ", "अध्यायवार 21 टेस्ट", "polity/"},
-                {"🧮", "CSAT", "गणित, तर्क, हिंदी, अंग्रेज़ी", "csat/"},
-                {"✅", "डेली 5 क्विज़", "रोज़ पाँच नए प्रश्न", "daily/"},
-                {"🏫", "TGT / PGT / GIC", "GS खंड के मॉक टेस्ट", "up-tgt-pgt-gic-mock/"},
+                {"📝", tr("UPPCS प्रारंभिक PYQ", "UPPCS Prelims PYQ"), tr("2018–2025, विषयवार", "2018–2025, topic-wise"), "uppcs-prelims-pyq/"},
+                {"🧪", tr("UPPCS 2026 मॉक", "UPPCS 2026 Mocks"), tr("पूरे 150 प्रश्न वाले टेस्ट", "Full 150-question tests"), "uppcs-2026-mock/"},
+                {"⚖️", tr("राजव्यवस्था PYQ", "Polity PYQ"), tr("अध्यायवार 21 टेस्ट", "21 chapter-wise tests"), "polity/"},
+                {"🧮", "CSAT", tr("गणित, तर्क, हिंदी, अंग्रेज़ी", "Maths, reasoning, Hindi, English"), "csat/"},
+                {"✅", tr("डेली 5 क्विज़", "Daily 5 Quiz"), tr("रोज़ पाँच नए प्रश्न", "Five new questions a day"), "daily/"},
+                {"🏫", "TGT / PGT / GIC", tr("GS खंड के मॉक टेस्ट", "GS-section mock tests"), "up-tgt-pgt-gic-mock/"},
         };
         for (int i = 0; i < hubs.length; i += 2) {
             LinearLayout row = new LinearLayout(a);
@@ -177,7 +183,7 @@ final class Screens {
             col.addView(row, gap(-1, -2, 10));
         }
 
-        section(col, "सभी टेस्ट (श्रेणीवार)");
+        section(col, tr("सभी टेस्ट (श्रेणीवार)", "ALL TESTS (BY CATEGORY)"));
         final LinearLayout box = new LinearLayout(a);
         box.setOrientation(LinearLayout.VERTICAL);
         col.addView(box, new LinearLayout.LayoutParams(-1, -2));
@@ -188,19 +194,21 @@ final class Screens {
         status(box, null, null);
         load(FILES, "files", (json, fresh) -> {
             if (json == null) {
-                status(box, "टेस्ट-सूची नहीं आ पाई। इंटरनेट जाँचें।", () -> loadTests(box));
+                status(box, tr("टेस्ट-सूची नहीं आ पाई। इंटरनेट जाँचें।", "Could not load the test list. Check your internet."), () -> loadTests(box));
                 return;
             }
             try { fillTests(box, new JSONArray(json)); }
-            catch (Exception e) { status(box, "टेस्ट-सूची पढ़ी नहीं जा सकी।", () -> loadTests(box)); }
+            catch (Exception e) { status(box, tr("टेस्ट-सूची पढ़ी नहीं जा सकी।", "Could not read the test list."), () -> loadTests(box)); }
         });
     }
 
     private static final String[][] CATS = {
-            {"uppcs2026", "UP PCS प्रारंभिक 2026"}, {"uppcs-prelims-pyq", "UPPCS प्रारंभिक PYQ"},
-            {"polity", "राजव्यवस्था PYQ"}, {"ca", "करंट अफेयर्स"}, {"gs", "सामान्य अध्ययन"},
-            {"csat", "CSAT"}, {"ncert", "NCERT"}, {"upspecial", "UP विशेष"},
-            {"upsssc", "UPSSSC"}, {"up-tgt-pgt-gic", "TGT / PGT / GIC"},
+            {"uppcs2026", "UP PCS प्रारंभिक 2026", "UP PCS Prelims 2026"},
+            {"uppcs-prelims-pyq", "UPPCS प्रारंभिक PYQ", "UPPCS Prelims PYQ"},
+            {"polity", "राजव्यवस्था PYQ", "Polity PYQ"}, {"ca", "करंट अफेयर्स", "Current Affairs"},
+            {"gs", "सामान्य अध्ययन", "General Studies"}, {"csat", "CSAT", "CSAT"}, {"ncert", "NCERT", "NCERT"},
+            {"upspecial", "UP विशेष", "UP Special"}, {"upsssc", "UPSSSC", "UPSSSC"},
+            {"up-tgt-pgt-gic", "TGT / PGT / GIC", "TGT / PGT / GIC"},
     };
 
     private void fillTests(LinearLayout box, JSONArray files) throws Exception {
@@ -220,7 +228,7 @@ final class Screens {
             final List<String> list = e.getValue();
             if (list.isEmpty()) continue;
             String name = e.getKey();
-            for (String[] c : CATS) if (c[0].equals(name)) name = c[1];
+            for (String[] c : CATS) if (c[0].equals(name)) name = en ? c[2] : c[1];
 
             LinearLayout cardV = new LinearLayout(a);
             cardV.setOrientation(LinearLayout.VERTICAL);
@@ -232,7 +240,7 @@ final class Screens {
             head.setBackground(Ui.ripple(null, true));
             TextView n = text(name, 16, fg, true);
             head.addView(n, new LinearLayout.LayoutParams(0, -2, 1f));
-            TextView cnt = text(list.size() + " टेस्ट", 12.5f, Ui.ORANGE, true);
+            TextView cnt = text(list.size() + tr(" टेस्ट", " tests"), 12.5f, Ui.ORANGE, true);
             cnt.setPadding(dp(8), 0, dp(8), 0);
             head.addView(cnt);
             final TextView arrow = text("▾", 16, muted, false);
@@ -254,7 +262,7 @@ final class Screens {
             });
             box.addView(cardV, gap(-1, -2, 10));
         }
-        if (box.getChildCount() == 0) status(box, "अभी कोई टेस्ट नहीं मिला।", () -> loadTests(box));
+        if (box.getChildCount() == 0) status(box, tr("अभी कोई टेस्ट नहीं मिला।", "No tests found yet."), () -> loadTests(box));
     }
 
     private View testRow(String path) {
@@ -276,7 +284,8 @@ final class Screens {
     // ---------- करंट ----------
 
     void current(FrameLayout into, String lang) {
-        final boolean en = "en".equals(lang);
+        en = "en".equals(lang);
+        final boolean en = this.en;
         LinearLayout col = page(into);
         title(col, en ? "Current Affairs" : "करंट अफेयर्स",
                 en ? "Exam-relevant points, day by day" : "रोज़ के परीक्षा-उपयोगी बिंदु, दिनवार");
@@ -313,11 +322,11 @@ final class Screens {
         status(box, null, null);
         load(CaJob.FEED, "ca", (json, fresh) -> {
             if (json == null) {
-                status(box, "करंट अफेयर्स नहीं आ पाया। इंटरनेट जाँचें।", () -> loadCa(box, en));
+                status(box, tr("करंट अफेयर्स नहीं आ पाया। इंटरनेट जाँचें।", "Could not load current affairs. Check your internet."), () -> loadCa(box, en));
                 return;
             }
             try { fillCa(box, new JSONObject(json).getJSONArray("days"), en, 0); }
-            catch (Exception e) { status(box, "करंट अफेयर्स पढ़ा नहीं जा सका।", () -> loadCa(box, en)); }
+            catch (Exception e) { status(box, tr("करंट अफेयर्स पढ़ा नहीं जा सका।", "Could not read current affairs."), () -> loadCa(box, en)); }
         });
     }
 
@@ -338,7 +347,7 @@ final class Screens {
     private void fillCa(LinearLayout box, JSONArray days, boolean en, int sel) throws Exception {
         box.removeAllViews();
         if (days.length() == 0) {
-            status(box, "अभी कोई बिंदु नहीं है।", () -> loadCa(box, en));
+            status(box, tr("अभी कोई बिंदु नहीं है।", "No points yet."), () -> loadCa(box, en));
             return;
         }
         HorizontalScrollView hs = new HorizontalScrollView(a);

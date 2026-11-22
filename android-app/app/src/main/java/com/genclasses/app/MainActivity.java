@@ -93,7 +93,7 @@ public class MainActivity extends Activity {
     private static final String COLOR_JS =
             "(function(){try{var c=getComputedStyle(document.body).backgroundColor;" +
             "if(!c||c==='rgba(0, 0, 0, 0)')c=getComputedStyle(document.documentElement).backgroundColor;" +
-            "GenApp.barColor(c||'');GenApp.lang(document.documentElement.lang||'')}catch(e){}})()";
+            "GenApp.barColor(c||'');var L='';try{L=localStorage.getItem('gen_lang')||''}catch(e){}GenApp.lang(L||document.documentElement.lang||'')}catch(e){}})()";
 
     private final Handler ui = new Handler(Looper.getMainLooper());
     private FrameLayout root;
@@ -132,6 +132,8 @@ public class MainActivity extends Activity {
         Ui.edgeToEdgeSafe(this);
         buildLayout(state == null);
         setupWeb();
+        lang = appPrefs().getString("lang", "hi");
+        applyLangLabels();
         applyChrome(Ui.BG);
         CaJob.createChannel(this);
         CaJob.schedule(this);
@@ -474,7 +476,7 @@ public class MainActivity extends Activity {
     private void showPanel(int t) {
         panel.removeAllViews();
         Screens sc = new Screens(this, chrome);
-        if (t == TAB_TESTS) sc.tests(panel);
+        if (t == TAB_TESTS) sc.tests(panel, lang);
         else sc.current(panel, lang);
         panel.setVisibility(View.VISIBLE);
         myPdfPill.setVisibility(View.GONE);
@@ -497,9 +499,9 @@ public class MainActivity extends Activity {
         Uri cu = cur == null ? null : Uri.parse(cur);
         if (cu != null && isAppUrl(cu) && isTestPage(cu.getPath())) {
             new AlertDialog.Builder(this)
-                    .setMessage("टेस्ट बीच में छोड़कर जाना चाहते हैं?")
-                    .setPositiveButton("हाँ, जाएँ", (d, w) -> { hidePanel(); web.loadUrl(url); })
-                    .setNegativeButton("टेस्ट जारी रखें", null)
+                    .setMessage(tr("टेस्ट बीच में छोड़कर जाना चाहते हैं?", "Leave the test midway?"))
+                    .setPositiveButton(tr("हाँ, जाएँ", "Yes, leave"), (d, w) -> { hidePanel(); web.loadUrl(url); })
+                    .setNegativeButton(tr("टेस्ट जारी रखें", "Continue the test"), null)
                     .show();
             return;
         }
@@ -522,35 +524,35 @@ public class MainActivity extends Activity {
         hl.bottomMargin = Ui.dp(this, 6);
         list.addView(handle, hl);
 
-        header(list, "पढ़ाई");
-        row(list, d, "📂", "मेरी PDF (बिना इंटरनेट)", () -> startActivity(new Intent(this, MyPdfsActivity.class)));
-        row(list, d, "🗺️", "सिलेबस", () -> open("syllabus/"));
-        row(list, d, "📗", "NCERT किताबें", () -> open("ncert/"));
-        row(list, d, "🎨", "विज़ुअल नोट्स", () -> open("learn/"));
-        row(list, d, "🃏", "फ्लैशकार्ड", () -> open("flashcards/"));
-        header(list, "टेस्ट");
-        row(list, d, "📝", "UPPCS प्रारंभिक PYQ", () -> open("uppcs-prelims-pyq/"));
-        row(list, d, "🧪", "UPPCS 2026 मॉक टेस्ट", () -> open("uppcs-2026-mock/"));
-        row(list, d, "⚖️", "राजव्यवस्था PYQ", () -> open("polity/"));
+        header(list, tr("पढ़ाई", "STUDY"));
+        row(list, d, "📂", tr("मेरी PDF (बिना इंटरनेट)", "My PDFs (offline)"), () -> startActivity(new Intent(this, MyPdfsActivity.class)));
+        row(list, d, "🗺️", tr("सिलेबस", "Syllabus"), () -> open("syllabus/"));
+        row(list, d, "📗", tr("NCERT किताबें", "NCERT Books"), () -> open("ncert/"));
+        row(list, d, "🎨", tr("विज़ुअल नोट्स", "Visual Notes"), () -> open("learn/"));
+        row(list, d, "🃏", tr("फ्लैशकार्ड", "Flashcards"), () -> open("flashcards/"));
+        header(list, tr("टेस्ट", "TESTS"));
+        row(list, d, "📝", tr("UPPCS प्रारंभिक PYQ", "UPPCS Prelims PYQ"), () -> open("uppcs-prelims-pyq/"));
+        row(list, d, "🧪", tr("UPPCS 2026 मॉक टेस्ट", "UPPCS 2026 Mock Tests"), () -> open("uppcs-2026-mock/"));
+        row(list, d, "⚖️", tr("राजव्यवस्था PYQ", "Polity PYQ"), () -> open("polity/"));
         row(list, d, "🧮", "CSAT", () -> open("csat/"));
-        row(list, d, "✅", "डेली 5 क्विज़", () -> open("daily/"));
-        row(list, d, "🏫", "TGT / PGT / GIC मॉक", () -> open("up-tgt-pgt-gic-mock/"));
-        row(list, d, "✍️", "RO/ARO हिंदी आलेखन", () -> open("ro-aro/drafting/"));
-        row(list, d, "🗞️", "UP करंट अफेयर्स", () -> open("up-ca/"));
-        header(list, "ऐप");
+        row(list, d, "✅", tr("डेली 5 क्विज़", "Daily 5 Quiz"), () -> open("daily/"));
+        row(list, d, "🏫", tr("TGT / PGT / GIC मॉक", "TGT / PGT / GIC Mocks"), () -> open("up-tgt-pgt-gic-mock/"));
+        row(list, d, "✍️", tr("RO/ARO हिंदी आलेखन", "RO/ARO Hindi Drafting"), () -> open("ro-aro/drafting/"));
+        row(list, d, "🗞️", tr("UP करंट अफेयर्स", "UP Current Affairs"), () -> open("up-ca/"));
+        header(list, tr("ऐप", "APP"));
         boolean on = CaJob.enabled(this);
-        row(list, d, "🔔", "रोज़ के करंट की सूचना: " + (on ? "चालू" : "बंद"), () -> toggleNotify(!on));
-        row(list, d, "📤", "ऐप दोस्तों से शेयर करें", this::shareApp);
-        row(list, d, "🔄", "पन्ना फिर से लोड करें", () -> { hidePanel(); web.reload(); });
-        header(list, "संपर्क");
-        row(list, d, "✈️", "Telegram चैनल", () -> openExternal(Uri.parse(TELEGRAM)));
-        row(list, d, "💬", "Telegram पर बात करें", () -> openExternal(Uri.parse("https://t.me/GenClasses_Support")));
+        row(list, d, "🔔", tr("रोज़ के करंट की सूचना: " + (on ? "चालू" : "बंद"), "Daily current-affairs alert: " + (on ? "ON" : "OFF")), () -> toggleNotify(!on));
+        row(list, d, "📤", tr("ऐप दोस्तों से शेयर करें", "Share the app"), this::shareApp);
+        row(list, d, "🔄", tr("पन्ना फिर से लोड करें", "Reload page"), () -> { hidePanel(); web.reload(); });
+        header(list, tr("संपर्क", "CONTACT"));
+        row(list, d, "✈️", tr("Telegram चैनल", "Telegram channel"), () -> openExternal(Uri.parse(TELEGRAM)));
+        row(list, d, "💬", tr("Telegram पर बात करें", "Chat on Telegram"), () -> openExternal(Uri.parse("https://t.me/GenClasses_Support")));
         row(list, d, "🟢", "WhatsApp: 9506321415", () -> openExternal(Uri.parse("https://wa.me/919506321415")));
         row(list, d, "📸", "Instagram", () -> openExternal(Uri.parse("https://www.instagram.com/genclasses")));
-        row(list, d, "✉️", "ईमेल करें", () -> openExternal(Uri.parse("mailto:genclassessupport@gmail.com")));
+        row(list, d, "✉️", tr("ईमेल करें", "Send email"), () -> openExternal(Uri.parse("mailto:genclassessupport@gmail.com")));
 
         TextView ver = new TextView(this);
-        ver.setText("GenClasses ऐप · संस्करण " + appVersion());
+        ver.setText(tr("GenClasses ऐप · संस्करण ", "GenClasses app · version ") + appVersion());
         ver.setTextColor(Ui.MUTED);
         ver.setTextSize(12);
         ver.setGravity(Gravity.CENTER);
@@ -619,8 +621,39 @@ public class MainActivity extends Activity {
 
     private void toggleLanguage() {
         web.evaluateJavascript("(function(){var b=document.getElementById('langBtn');if(b){b.click();return}" +
-                "try{var L=localStorage.getItem('gen_lang')==='en'?'hi':'en';localStorage.setItem('gen_lang',L);location.reload()}catch(e){}})()", null);
+                "if(typeof setGenLang==='function'){var c='en';try{c=GEN_LANG}catch(e){}setGenLang(c==='en'?'hi':'en');return}" +
+                "try{var L=localStorage.getItem('gen_lang')==='en'?'hi':'en';localStorage.setItem('gen_lang',L)}catch(e){}return 'none'})()",
+                r -> {
+                    // never reload here: on a single-language test that would wipe the answers
+                    if (r != null && r.contains("none")) {
+                        Toast.makeText(this, tr("यह पन्ना एक ही भाषा में है", "This page is available in one language only"),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                });
         ui.postDelayed(() -> web.evaluateJavascript(COLOR_JS, null), 350);
+        // the app's own labels switch at once, whatever the page does
+        setLang("en".equals(lang) ? "hi" : "en");
+    }
+
+    private void setLang(String v) {
+        if (v.equals(lang)) return;
+        lang = v;
+        appPrefs().edit().putString("lang", v).apply();
+        applyLangLabels();
+        if (panelTab != -1) showPanel(panelTab);
+    }
+
+    /** Hindi or English text, by the language chosen with the top-bar button. */
+    String tr(String hi, String en) { return "en".equals(lang) ? en : hi; }
+
+    private void applyLangLabels() {
+        String[] hi = {"होम", "टेस्ट", "PDF", "करंट", "Telegram"};
+        String[] en = {"Home", "Tests", "PDF", "Current", "Telegram"};
+        for (int i = 0; i < 5; i++) {
+            ((TextView) tabs[i].getChildAt(1)).setText(tr(hi[i], en[i]));
+            tabs[i].setContentDescription(tr(hi[i], en[i]));
+        }
+        myPdfPill.setText(tr("📂  मेरी PDF", "📂  My PDFs"));
     }
 
     private void toggleTheme() {
@@ -738,7 +771,7 @@ public class MainActivity extends Activity {
             finish();
         } else {
             lastBack = now;
-            Toast.makeText(this, "बाहर निकलने के लिए दोबारा दबाएँ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, tr("बाहर निकलने के लिए दोबारा दबाएँ", "Press back again to exit"), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -1064,12 +1097,9 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public void lang(String l) {
-            final String v = "en".equals(l) ? "en" : "hi";
-            runOnUiThread(() -> {
-                if (v.equals(lang)) return;
-                lang = v;
-                if (panelTab == TAB_CA) showPanel(TAB_CA);
-            });
+            if (l == null || l.isEmpty()) return;
+            final String v = l.startsWith("en") ? "en" : "hi";
+            runOnUiThread(() -> setLang(v));
         }
 
         @JavascriptInterface
