@@ -1,5 +1,21 @@
 [
  {
+  "id": "yoj-hi",
+  "file": "schemes-institutions-quick-revision-hindi-genclasses",
+  "section": "booklets",
+  "hi": "योजनाएँ एवं संस्थान (हिंदी)",
+  "en": "Schemes & Institutions (HI)",
+  "added": "2026-11-23"
+ },
+ {
+  "id": "yoj-en",
+  "file": "schemes-institutions-quick-revision-english-genclasses",
+  "section": "booklets",
+  "hi": "योजनाएँ एवं संस्थान (English)",
+  "en": "Schemes & Institutions (EN)",
+  "added": "2026-11-23"
+ },
+ {
   "id": "kme-hi",
   "file": "agriculture-minerals-energy-quick-revision-hindi-genclasses",
   "section": "booklets",
