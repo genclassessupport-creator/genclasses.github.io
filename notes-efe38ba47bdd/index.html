@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="hi" data-theme="light">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
-<meta name="apple-mobile-web-app-title" content="नोट्स">
+<meta name="apple-mobile-web-app-title" content="Notes">
 <meta name="theme-color" content="#f3f1ec">
 <meta name="robots" content="noindex,nofollow,noarchive">
 <link rel="apple-touch-icon" href="icon.png">
 <link rel="icon" href="icon.png">
 <link rel="manifest" href="manifest.json">
-<title>नोट्स</title>
+<title>Notes</title>
 <script>try{var _t=localStorage.getItem('bodhi_pen_theme')||'auto';if(_t==='dark'||(_t==='auto'&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.dataset.theme='dark'}catch(e){}</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
@@ -225,26 +225,26 @@ html[data-theme=dark] .dlg .acts .yes{color:#10131c}
   <header id="lh">
     <div class="lrow">
       <div id="brand"></div>
-      <button class="gb" id="selBtn">चुनें</button>
-      <button class="gb ic" id="themeBtn" aria-label="गहरा या हल्का रूप"></button>
-      <button class="pb" id="newBtn"><i id="icNew"></i><span>नया</span></button>
+      <button class="gb" id="selBtn">Select</button>
+      <button class="gb ic" id="themeBtn" aria-label="Dark or light theme"></button>
+      <button class="pb" id="newBtn"><i id="icNew"></i><span>New</span></button>
     </div>
-    <div class="srch"><i id="icSrch"></i><input id="q" type="text" placeholder="नाम से खोजें" autocomplete="off"></div>
+    <div class="srch"><i id="icSrch"></i><input id="q" type="text" placeholder="Search by name" autocomplete="off"></div>
   </header>
   <main id="ls"><div id="secs"></div><div id="empty" hidden></div></main>
-  <div id="selbar"><span id="selN"></span><button id="selMove"></button><button id="selDel" class="danger"></button><button id="selX">रद्द</button></div>
+  <div id="selbar"><span id="selN"></span><button id="selMove"></button><button id="selDel" class="danger"></button><button id="selX">Cancel</button></div>
   <input id="file" type="file" accept="application/pdf,.pdf" multiple hidden>
 </div>
 
 <div id="ed">
   <header id="tb">
-    <div class="tl"><button class="ib" id="back" aria-label="लाइब्रेरी"></button><button id="dtitle"></button></div>
+    <div class="tl"><button class="ib" id="back" aria-label="Library"></button><button id="dtitle"></button></div>
     <div id="dockw"><div id="dock">
       <div class="tools" id="tools">
-        <button class="tool" data-t="pen" aria-label="पेन"></button>
-        <button class="tool" data-t="hl" aria-label="हाईलाइटर"></button>
-        <button class="tool" data-t="erase" aria-label="रबर"></button>
-        <button class="tool" data-t="laser" aria-label="लेज़र"></button>
+        <button class="tool" data-t="pen" aria-label="Pen"></button>
+        <button class="tool" data-t="hl" aria-label="Highlighter"></button>
+        <button class="tool" data-t="erase" aria-label="Eraser"></button>
+        <button class="tool" data-t="laser" aria-label="Laser"></button>
       </div>
       <span class="sep"></span>
       <div class="grp" id="sizes"></div>
@@ -252,19 +252,19 @@ html[data-theme=dark] .dlg .acts .yes{color:#10131c}
       <div class="grp" id="cols"></div>
     </div></div>
     <div class="tr">
-      <button class="ib" id="undo" aria-label="पीछे"></button>
-      <button class="ib" id="redo" aria-label="आगे"></button>
-      <button class="ib" id="fing" aria-label="उँगली से लिखें"></button>
-      <button class="ib" id="more" aria-label="और"></button>
+      <button class="ib" id="undo" aria-label="Undo"></button>
+      <button class="ib" id="redo" aria-label="Redo"></button>
+      <button class="ib" id="fing" aria-label="Draw with finger"></button>
+      <button class="ib" id="more" aria-label="More"></button>
     </div>
     <input type="color" id="cp" tabindex="-1">
   </header>
   <div id="view"><div id="pages"></div></div>
   <canvas id="ov"></canvas>
-  <div id="pgrid"><div id="pgh"><span>सभी पन्ने</span><button class="ib" id="pgx" aria-label="बंद"></button></div><div id="pgb"></div></div>
-  <button id="fs" aria-label="तेज़ स्क्रॉल"></button><div id="fsb"></div>
+  <div id="pgrid"><div id="pgh"><span>All pages</span><button class="ib" id="pgx" aria-label="Close"></button></div><div id="pgb"></div></div>
+  <button id="fs" aria-label="Fast scroll"></button><div id="fsb"></div>
   <button id="pill"><i id="icGrid"></i><span id="pillt">–</span></button>
-  <div id="zc"><button id="zm" aria-label="छोटा"></button><b id="zt">100%</b><button id="zp" aria-label="बड़ा"></button></div>
+  <div id="zc"><button id="zm" aria-label="Zoom out"></button><b id="zt">100%</b><button id="zp" aria-label="Zoom in"></button></div>
 </div>
 
 <div id="toast"></div>
@@ -317,7 +317,7 @@ function dialog(o){return new Promise(res=>{closePop();const w=el('div','dlgw'),
  let h='<h3>'+esc(o.title)+'</h3>'+(o.text?'<p>'+esc(o.text)+'</p>':'');
  if(o.input!=null)h+='<input type="text" maxlength="80">';
  if(o.choices)h+='<div class="seg">'+o.choices.map((c,i)=>'<button data-v="'+c[0]+'" class="'+(i?'':'on')+'">'+esc(c[1])+'</button>').join('')+'</div>';
- h+='<div class="acts"><button class="no">रद्द</button><button class="yes '+(o.danger?'danger':'')+'">'+esc(o.ok||'ठीक')+'</button></div>';d.innerHTML=h;
+ h+='<div class="acts"><button class="no">Cancel</button><button class="yes '+(o.danger?'danger':'')+'">'+esc(o.ok||'OK')+'</button></div>';d.innerHTML=h;
  const inp=d.querySelector('input');let choice=o.choices?o.choices[0][0]:null;
  d.querySelectorAll('.seg button').forEach(b=>b.onclick=()=>{choice=b.dataset.v;d.querySelectorAll('.seg button').forEach(x=>x.classList.toggle('on',x===b))});
  if(inp){inp.value=o.input;setTimeout(()=>{inp.focus();inp.select()},60)}
@@ -364,10 +364,10 @@ Object.assign(IC,{
  x:svg('M6 6l12 12|M18 6L6 18'),
  night:svg('M4 5h11v14H4z|M7 9h5|M7 13h5|M20.5 14.5a4.5 4.5 0 01-5-5 3.6 3.6 0 105 5z')
 });
-const GEN=/genclasses/i.test(location.hostname),BRAND=GEN?'GenClasses नोट्स':'बोधि नोट्स';
+const GEN=/genclasses/i.test(location.hostname),BRAND=GEN?'GenClasses Notes':'Bodhi Notes';
 document.title=BRAND;
 const FCOL=['#f3b83f','#6c9bf2','#4fbf92','#ec7592','#a385ee','#f0935a'],NCOL=['#2f4a7d','#7a3340','#2f6a57','#5a4a8a','#8a5a2f','#33383f'];
-const PAPER={lined:'लाइनदार',grid:'चौखाना',dots:'बिंदु',blank:'सादा'};
+const PAPER={lined:'Lined',grid:'Grid',dots:'Dotted',blank:'Blank'};
 function isDark(){return document.documentElement.dataset.theme==='dark'}
 function setTheme(dark){document.documentElement.dataset.theme=dark?'dark':'light';try{localStorage.setItem('bodhi_pen_theme',dark?'dark':'light')}catch(e){}
  const m=document.querySelector('meta[name=theme-color]');if(m)m.content=dark?'#18181b':'#f3f1ec';$('#themeBtn').innerHTML=dark?IC.sun:IC.moon}
@@ -377,9 +377,9 @@ function setTheme(dark){document.documentElement.dataset.theme=dark?'dark':'ligh
    ===================================================== */
 const L={docs:[],folders:[],folder:null,q:'',sel:null};
 $('#icNew').innerHTML=IC.plus;$('#icSrch').innerHTML=IC.search;$('#themeBtn').innerHTML=isDark()?IC.sun:IC.moon;
-$('#selMove').innerHTML=IC.move+'<span>भेजें</span>';$('#selDel').innerHTML=IC.trash+'<span>हटाएँ</span>';
+$('#selMove').innerHTML=IC.move+'<span>Move</span>';$('#selDel').innerHTML=IC.trash+'<span>Delete</span>';
 $('#themeBtn').onclick=()=>setTheme(!isDark());
-const fmtDate=t=>new Date(t).toLocaleDateString('hi-IN-u-nu-latn',{day:'numeric',month:'short'});
+const fmtDate=t=>new Date(t).toLocaleDateString('en-IN',{day:'numeric',month:'short'});
 async function loadLib(){[L.docs,L.folders]=await Promise.all([DB.all('docs'),DB.all('folders')]);renderLib()}
 function longPress(node,fn){let t=null,x=0,y=0;const stop=()=>{clearTimeout(t);t=null};
  node.addEventListener('pointerdown',e=>{if(e.pointerType==='mouse')return;x=e.clientX;y=e.clientY;stop();t=setTimeout(()=>{t=null;node._lp=performance.now();fn()},520)});
@@ -390,94 +390,94 @@ function renderLib(){
  const root=$('#secs'),em=$('#empty');root.innerHTML='';
  const q=L.q.trim().toLowerCase(),f=L.folder&&L.folders.find(x=>x.id===L.folder);if(L.folder&&!f)L.folder=null;
  const br=$('#brand');
- if(f){br.innerHTML='<button class="bk" aria-label="वापस">'+IC.back+'</button><div><b>'+esc(f.name)+'</b><small>'+L.docs.filter(d=>d.folder===f.id).length+' फ़ाइलें</small></div>';br.querySelector('button').onclick=()=>{L.folder=null;renderLib()}}
- else br.innerHTML='<img src="icon.png" alt=""><div><b>'+esc(BRAND)+'</b><small>'+L.docs.length+' फ़ाइलें'+(L.folders.length?' · '+L.folders.length+' फ़ोल्डर':'')+'</small></div>';
- document.body.classList.toggle('selmode',!!L.sel);$('#selBtn').classList.toggle('on',!!L.sel);$('#selBtn').textContent=L.sel?'हो गया':'चुनें';
- if(L.sel)$('#selN').textContent=L.sel.size+' चुनी';
+ if(f){br.innerHTML='<button class="bk" aria-label="Back">'+IC.back+'</button><div><b>'+esc(f.name)+'</b><small>'+L.docs.filter(d=>d.folder===f.id).length+' files</small></div>';br.querySelector('button').onclick=()=>{L.folder=null;renderLib()}}
+ else br.innerHTML='<img src="icon.png" alt=""><div><b>'+esc(BRAND)+'</b><small>'+L.docs.length+(L.docs.length===1?' file':' files')+(L.folders.length?' · '+L.folders.length+(L.folders.length===1?' folder':' folders'):'')+'</small></div>';
+ document.body.classList.toggle('selmode',!!L.sel);$('#selBtn').classList.toggle('on',!!L.sel);$('#selBtn').textContent=L.sel?'Done':'Select';
+ if(L.sel)$('#selN').textContent=L.sel.size+' selected';
  let n=0,k=0;
- if(!f&&!q&&L.folders.length){root.appendChild(el('div','sec','फ़ोल्डर'));const g=el('div','grid f');root.appendChild(g);
+ if(!f&&!q&&L.folders.length){root.appendChild(el('div','sec','Folders'));const g=el('div','grid f');root.appendChild(g);
   L.folders.slice().sort((a,b)=>a.name.localeCompare(b.name,'hi')).forEach((fo,i)=>{n++;
    const inside=L.docs.filter(d=>d.folder===fo.id).sort((a,b)=>(b.opened||0)-(a.opened||0));
-   const c=el('div','fold','<div class="fshape"><i class="tab"></i>'+inside.slice(0,2).map((d,j)=>d.thumb&&d.kind==='pdf'?'<img class="p'+(j+1)+'" alt="" src="'+d.thumb+'">':'').join('')+'<div class="front">'+inside.length+' फ़ाइलें</div></div><div class="cap"><div class="tx"><div class="nm">'+esc(fo.name)+'</div></div><button class="mini dots" aria-label="विकल्प">'+IC.more+'</button></div>');
+   const c=el('div','fold','<div class="fshape"><i class="tab"></i>'+inside.slice(0,2).map((d,j)=>d.thumb&&d.kind==='pdf'?'<img class="p'+(j+1)+'" alt="" src="'+d.thumb+'">':'').join('')+'<div class="front">'+inside.length+(inside.length===1?' file':' files')+'</div></div><div class="cap"><div class="tx"><div class="nm">'+esc(fo.name)+'</div></div><button class="mini dots" aria-label="Options">'+IC.more+'</button></div>');
    c.style.setProperty('--fc',fo.color||FCOL[i%FCOL.length]);c.style.animationDelay=Math.min(k++*18,260)+'ms';
    c.onclick=e=>{if(e.target.closest('.dots')||L.sel)return;if(performance.now()-(c._lp||0)<700)return;L.folder=fo.id;renderLib();$('#ls').scrollTop=0};
    c.querySelector('.dots').onclick=e=>folderMenu(e.currentTarget,fo);longPress(c,()=>{if(!L.sel)folderMenu(c.querySelector('.dots'),fo)});g.appendChild(c)})}
  const docs=L.docs.filter(d=>q?d.name.toLowerCase().includes(q):(d.folder||null)===(L.folder||null)).sort((a,b)=>(b.opened||0)-(a.opened||0));
- if(docs.length){if(!f&&!q)root.appendChild(el('div','sec',L.folders.length?'फ़ाइलें':'हाल की फ़ाइलें'));else root.appendChild(el('div','sec',q?'खोज के नतीजे':'इस फ़ोल्डर में'));
+ if(docs.length){if(!f&&!q)root.appendChild(el('div','sec',L.folders.length?'Files':'Recent files'));else root.appendChild(el('div','sec',q?'Search results':'In this folder'));
   const g=el('div','grid');root.appendChild(g);
   docs.forEach(d=>{n++;const c=el('div','card'+(L.sel&&L.sel.has(d.id)?' sel':''));
    const cover=d.kind==='note'?'<div class="cover note" style="--nc:'+(d.color||NCOL[0])+'"><span class="band"></span><span class="plate">'+esc(d.name)+'</span><span class="ptype">'+(PAPER[d.paper]||'')+'</span></div>':'<div class="cover pdf"><img alt="" src="'+(d.thumb||'')+'"></div>';
-   c.innerHTML=cover+'<span class="tick">'+IC.check+'</span><div class="cap"><div class="tx"><div class="nm">'+esc(d.name)+'</div><div class="sub">'+(d.kind==='note'?'कॉपी · ':'')+d.n+' पन्ने · '+fmtDate(d.opened||d.created)+'</div></div><button class="mini del" aria-label="हटाएँ">'+IC.trash+'</button><button class="mini dots" aria-label="विकल्प">'+IC.more+'</button></div>';
+   c.innerHTML=cover+'<span class="tick">'+IC.check+'</span><div class="cap"><div class="tx"><div class="nm">'+esc(d.name)+'</div><div class="sub">'+(d.kind==='note'?'Notebook · ':'')+d.n+(d.n===1?' page · ':' pages · ')+fmtDate(d.opened||d.created)+'</div></div><button class="mini del" aria-label="Delete">'+IC.trash+'</button><button class="mini dots" aria-label="Options">'+IC.more+'</button></div>';
    c.style.animationDelay=Math.min(k++*18,260)+'ms';
    c.onclick=e=>{if(performance.now()-(c._lp||0)<700)return;
-    if(L.sel){L.sel.has(d.id)?L.sel.delete(d.id):L.sel.add(d.id);c.classList.toggle('sel');$('#selN').textContent=L.sel.size+' चुनी';return}
+    if(L.sel){L.sel.has(d.id)?L.sel.delete(d.id):L.sel.add(d.id);c.classList.toggle('sel');$('#selN').textContent=L.sel.size+' selected';return}
     if(e.target.closest('.mini'))return;openDoc(d)};
    c.querySelector('.dots').onclick=e=>{if(!L.sel)docMenu(e.currentTarget,d)};
    c.querySelector('.del').onclick=()=>{if(!L.sel)deleteDoc(d)};
    longPress(c,()=>{if(!L.sel)docMenu(c.querySelector('.dots'),d)});g.appendChild(c)})}
  em.hidden=n>0;
  if(!n){const art='<svg viewBox="0 0 150 130" fill="none"><rect x="34" y="22" width="70" height="92" rx="6" fill="var(--surf2)" stroke="var(--line2)" stroke-width="1.5" transform="rotate(-7 69 68)"/><rect x="44" y="18" width="70" height="92" rx="6" fill="var(--surf)" stroke="var(--line2)" stroke-width="1.5"/><path d="M56 40h46M56 54h46M56 68h30" stroke="var(--line2)" stroke-width="3" stroke-linecap="round"/><path d="M56 84h36" stroke="#ffd84a" stroke-width="9" stroke-linecap="round" opacity=".8"/><path d="M92 104l32-32 9 9-32 32-12 3z" fill="var(--acc)"/><path d="M92 104l9 9-12 3z" fill="#ecd3aa"/></svg>';
-  em.innerHTML=q?art+'<b>कुछ नहीं मिला</b>इस नाम की कोई फ़ाइल नहीं है।':f?art+'<b>यह फ़ोल्डर ख़ाली है</b>"नया" दबाकर PDF जोड़िए, या किसी फ़ाइल को यहाँ भेजिए।':art+'<b>अपनी पहली PDF जोड़िए</b>एक बार जोड़ी गई PDF और उस पर लिखा हुआ यहीं सुरक्षित रहता है।<br><button class="pb" id="emAdd">'+IC.plus+'<span>PDF जोड़ें</span></button>';
+  em.innerHTML=q?art+'<b>Nothing found</b>No file matches this name.':f?art+'<b>This folder is empty</b>Tap "New" to add a PDF, or move a file here.':art+'<b>Add your first PDF</b>PDFs you add, and everything you write on them, stay saved right here.<br><button class="pb" id="emAdd">'+IC.plus+'<span>Add PDF</span></button>';
   const b=$('#emAdd');if(b)b.onclick=()=>$('#file').click()}
 }
 $('#q').oninput=e=>{L.q=e.target.value;renderLib()};
 $('#file').onchange=e=>{const fs=[...e.target.files];e.target.value='';importFiles(fs)};
 $('#newBtn').onclick=e=>menu(e.currentTarget,[
- {icon:IC.pdf,label:'PDF जोड़ें',fn:()=>$('#file').click()},
- {icon:IC.note,label:'नई कॉपी',fn:newNote},
- !L.folder&&{icon:IC.folder,label:'नया फ़ोल्डर',fn:newFolder}]);
+ {icon:IC.pdf,label:'Add PDF',fn:()=>$('#file').click()},
+ {icon:IC.note,label:'New notebook',fn:newNote},
+ !L.folder&&{icon:IC.folder,label:'New folder',fn:newFolder}]);
 $('#selBtn').onclick=()=>{L.sel=L.sel?null:new Set();renderLib()};
 $('#selX').onclick=()=>{L.sel=null;renderLib()};
-$('#selDel').onclick=async()=>{const ds=L.docs.filter(d=>L.sel&&L.sel.has(d.id));if(!ds.length){toast('पहले फ़ाइलें चुनिए');return}
- if(!await dialog({title:ds.length+' फ़ाइलें हटाएँ?',text:'चुनी हुई फ़ाइलें और उन पर लिखा हुआ सब इस डिवाइस से हट जाएगा। यह वापस नहीं आएगा।',ok:'हटाएँ',danger:true}))return;
+$('#selDel').onclick=async()=>{const ds=L.docs.filter(d=>L.sel&&L.sel.has(d.id));if(!ds.length){toast('Select some files first');return}
+ if(!await dialog({title:'Delete '+ds.length+' files?',text:'The selected files and everything written on them will be removed from this device. This cannot be undone.',ok:'Delete',danger:true}))return;
  await DB.run(['docs','files','ink'],'readwrite',(a,b,c)=>{ds.forEach(d=>{a.delete(d.id);b.delete(d.id);c.delete(inkRange(d.id))})});
- L.docs=L.docs.filter(d=>!ds.includes(d));L.sel=null;renderLib();toast(ds.length+' फ़ाइलें हटा दीं')};
-$('#selMove').onclick=e=>{const ds=L.docs.filter(d=>L.sel&&L.sel.has(d.id));if(!ds.length){toast('पहले फ़ाइलें चुनिए');return}
- const go=async id=>{for(const d of ds){d.folder=id;await DB.put('docs',d.id,d)}L.sel=null;renderLib();toast('भेज दिया')};
+ L.docs=L.docs.filter(d=>!ds.includes(d));L.sel=null;renderLib();toast(ds.length+' files deleted')};
+$('#selMove').onclick=e=>{const ds=L.docs.filter(d=>L.sel&&L.sel.has(d.id));if(!ds.length){toast('Select some files first');return}
+ const go=async id=>{for(const d of ds){d.folder=id;await DB.put('docs',d.id,d)}L.sel=null;renderLib();toast('Moved')};
  const items=L.folders.slice().sort((x,y)=>x.name.localeCompare(y.name,'hi')).map((f,i)=>({icon:'<i class="dot" style="background:'+(f.color||FCOL[0])+'"></i>',label:f.name,fn:()=>go(f.id)}));
- items.unshift({icon:IC.back,label:'मुख्य सूची में',fn:()=>go(null)});menu(e.currentTarget,items)};
-async function newFolder(){const name=await dialog({title:'नया फ़ोल्डर',input:'',ok:'बनाएँ'});if(!name)return;const f={id:uid(),name,color:FCOL[L.folders.length%FCOL.length],created:Date.now()};await DB.put('folders',f.id,f);L.folders.push(f);renderLib()}
-async function newNote(){const r=await dialog({title:'नई कॉपी',input:'मेरी कॉपी',ok:'बनाएँ',choices:[['lined','लाइनदार'],['grid','चौखाना'],['dots','बिंदु'],['blank','सादा']]});if(!r)return;
+ items.unshift({icon:IC.back,label:'Main list',fn:()=>go(null)});menu(e.currentTarget,items)};
+async function newFolder(){const name=await dialog({title:'New folder',input:'',ok:'Create'});if(!name)return;const f={id:uid(),name,color:FCOL[L.folders.length%FCOL.length],created:Date.now()};await DB.put('folders',f.id,f);L.folders.push(f);renderLib()}
+async function newNote(){const r=await dialog({title:'New notebook',input:'My notebook',ok:'Create',choices:[['lined','Lined'],['grid','Grid'],['dots','Dotted'],['blank','Blank']]});if(!r)return;
  const d={id:uid(),kind:'note',name:r.text,folder:L.folder,n:1,w:595,h:842,paper:r.choice,color:NCOL[L.docs.filter(x=>x.kind==='note').length%NCOL.length],created:Date.now(),opened:Date.now()};
  d.thumb=await makeThumb(null,d,[]);await DB.put('docs',d.id,d);L.docs.push(d);openDoc(d)}
 function folderMenu(a,fo){menu(a,[
- {icon:IC.edit,label:'नाम बदलें',fn:async()=>{const n=await dialog({title:'फ़ोल्डर का नाम',input:fo.name});if(!n)return;fo.name=n;await DB.put('folders',fo.id,fo);renderLib()}},
- {icon:'<i class="dot" style="background:conic-gradient(#ff5a5a,#ffcf4a,#5ad76a,#4ab8ff,#9a6bff,#ff5a5a)"></i>',label:'रंग बदलें',fn:()=>menu(a.isConnected?a:$('#brand'),FCOL.map((c,i)=>({icon:'<i class="dot" style="background:'+c+'"></i>',label:['पीला','नीला','हरा','गुलाबी','बैंगनी','नारंगी'][i],fn:async()=>{fo.color=c;await DB.put('folders',fo.id,fo);renderLib()}})))},
+ {icon:IC.edit,label:'Rename',fn:async()=>{const n=await dialog({title:'Folder name',input:fo.name});if(!n)return;fo.name=n;await DB.put('folders',fo.id,fo);renderLib()}},
+ {icon:'<i class="dot" style="background:conic-gradient(#ff5a5a,#ffcf4a,#5ad76a,#4ab8ff,#9a6bff,#ff5a5a)"></i>',label:'Change colour',fn:()=>menu(a.isConnected?a:$('#brand'),FCOL.map((c,i)=>({icon:'<i class="dot" style="background:'+c+'"></i>',label:['Yellow','Blue','Green','Pink','Purple','Orange'][i],fn:async()=>{fo.color=c;await DB.put('folders',fo.id,fo);renderLib()}})))},
  '-',
- {icon:IC.trash,label:'फ़ोल्डर हटाएँ',danger:true,fn:async()=>{const inside=L.docs.filter(d=>d.folder===fo.id);
-  if(!await dialog({title:'"'+fo.name+'" हटाएँ?',text:inside.length?'फ़ोल्डर हटेगा, पर अंदर की '+inside.length+' फ़ाइलें मुख्य सूची में आ जाएँगी।':'यह फ़ोल्डर ख़ाली है।',ok:'हटाएँ',danger:true}))return;
+ {icon:IC.trash,label:'Delete folder',danger:true,fn:async()=>{const inside=L.docs.filter(d=>d.folder===fo.id);
+  if(!await dialog({title:'Delete "'+fo.name+'"?',text:inside.length?'The folder will be removed and its '+inside.length+' files will move to the main list.':'This folder is empty.',ok:'Delete',danger:true}))return;
   for(const d of inside){d.folder=null;await DB.put('docs',d.id,d)}await DB.del('folders',fo.id);L.folders=L.folders.filter(x=>x!==fo);renderLib()}}])}
 function docMenu(a,d){menu(a,[
- {icon:IC.edit,label:'नाम बदलें',fn:async()=>{const n=await dialog({title:'फ़ाइल का नाम',input:d.name});if(!n)return;d.name=n;await DB.put('docs',d.id,d);renderLib()}},
- {icon:IC.move,label:'फ़ोल्डर में भेजें',fn:()=>moveDoc(a,d)},
- d.kind==='note'&&{icon:'<i class="dot" style="background:'+(d.color||NCOL[0])+'"></i>',label:'जिल्द का रंग बदलें',fn:async()=>{d.color=NCOL[(NCOL.indexOf(d.color)+1)%NCOL.length];await DB.put('docs',d.id,d);renderLib()}},
- {icon:IC.clean,label:'लिखा हुआ सब मिटाएँ',fn:async()=>{if(!await dialog({title:'सारा लिखा मिटाएँ?',text:'"'+d.name+'" पर आपका लिखा और हाईलाइट सब हट जाएगा। फ़ाइल बनी रहेगी।',ok:'मिटाएँ',danger:true}))return;
-  await DB.run('ink','readwrite',st=>{st.delete(inkRange(d.id))});toast('लिखा हुआ मिटा दिया')}},
+ {icon:IC.edit,label:'Rename',fn:async()=>{const n=await dialog({title:'File name',input:d.name});if(!n)return;d.name=n;await DB.put('docs',d.id,d);renderLib()}},
+ {icon:IC.move,label:'Move to folder',fn:()=>moveDoc(a,d)},
+ d.kind==='note'&&{icon:'<i class="dot" style="background:'+(d.color||NCOL[0])+'"></i>',label:'Change cover colour',fn:async()=>{d.color=NCOL[(NCOL.indexOf(d.color)+1)%NCOL.length];await DB.put('docs',d.id,d);renderLib()}},
+ {icon:IC.clean,label:'Erase all writing',fn:async()=>{if(!await dialog({title:'Erase all writing?',text:'All writing and highlights on "'+d.name+'" will be removed. The file itself stays.',ok:'Erase',danger:true}))return;
+  await DB.run('ink','readwrite',st=>{st.delete(inkRange(d.id))});toast('Writing erased')}},
  '-',
- {icon:IC.trash,label:'हटाएँ',danger:true,fn:()=>deleteDoc(d)}])}
+ {icon:IC.trash,label:'Delete',danger:true,fn:()=>deleteDoc(d)}])}
 function moveDoc(a,d){const items=L.folders.filter(f=>f.id!==d.folder).sort((x,y)=>x.name.localeCompare(y.name,'hi')).map(f=>({icon:'<i class="dot" style="background:'+(f.color||FCOL[0])+'"></i>',label:f.name,fn:()=>setFolder(d,f.id)}));
- if(d.folder)items.unshift({icon:IC.back,label:'मुख्य सूची में',fn:()=>setFolder(d,null)});
- if(!items.length){toast('पहले "नया" दबाकर एक फ़ोल्डर बनाइए');return}
+ if(d.folder)items.unshift({icon:IC.back,label:'Main list',fn:()=>setFolder(d,null)});
+ if(!items.length){toast('Create a folder first from "New"');return}
  menu(a.isConnected?a:$('#brand'),items)}
-async function setFolder(d,id){d.folder=id;await DB.put('docs',d.id,d);renderLib();toast('भेज दिया')}
-async function deleteDoc(d){if(!await dialog({title:'"'+d.name+'" हटाएँ?',text:'यह फ़ाइल और इस पर लिखा हुआ सब इस डिवाइस से हट जाएगा। यह वापस नहीं आएगा।',ok:'हटाएँ',danger:true}))return;
+async function setFolder(d,id){d.folder=id;await DB.put('docs',d.id,d);renderLib();toast('Moved')}
+async function deleteDoc(d){if(!await dialog({title:'Delete "'+d.name+'"?',text:'This file and everything written on it will be removed from this device. This cannot be undone.',ok:'Delete',danger:true}))return;
  await DB.run(['docs','files','ink'],'readwrite',(a,b,c)=>{a.delete(d.id);b.delete(d.id);c.delete(inkRange(d.id))});
- L.docs=L.docs.filter(x=>x!==d);renderLib();toast('हटा दिया')}
+ L.docs=L.docs.filter(x=>x!==d);renderLib();toast('Deleted')}
 
 async function importFiles(files){
- files=files.filter(f=>/pdf$/i.test(f.type)||/\.pdf$/i.test(f.name));if(!files.length){toast('सिर्फ़ PDF फ़ाइल चुनिए');return}
+ files=files.filter(f=>/pdf$/i.test(f.type)||/\.pdf$/i.test(f.name));if(!files.length){toast('Please choose PDF files only');return}
  try{navigator.storage&&navigator.storage.persist&&navigator.storage.persist()}catch(e){}
  let last=null,n=0;
  for(const f of files){
-  toast('जोड़ रहे हैं: '+f.name,120000);
+  toast('Adding: '+f.name,120000);
   try{const buf=await f.arrayBuffer();const pdf=await pdfjsLib.getDocument({data:new Uint8Array(buf.slice(0))}).promise;
    let sizes=[];for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i),vp=pg.getViewport({scale:1});sizes.push([r2(vp.width),r2(vp.height)])}
    if(sizes.every(s=>s[0]===sizes[0][0]&&s[1]===sizes[0][1]))sizes=[sizes[0]];
    const d={id:uid(),kind:'pdf',name:f.name.replace(/\.pdf$/i,''),folder:L.folder,n:pdf.numPages,sizes,size:f.size,created:Date.now(),opened:Date.now()};
    d.thumb=await makeThumb(await pdf.getPage(1),{w:sizes[0][0],h:sizes[0][1]},[]);
    await DB.put('files',d.id,buf);await DB.put('docs',d.id,d);pdf.destroy();L.docs.push(d);last=d;n++}
-  catch(e){console.error(e);toast('"'+f.name+'" नहीं जुड़ पाई',3000);await sleep(1600)}}
- renderLib();if(n===1)openDoc(last);else if(n)toast(n+' PDF जुड़ गईं')}
+  catch(e){console.error(e);toast('Could not add "'+f.name+'"',3000);await sleep(1600)}}
+ renderLib();if(n===1)openDoc(last);else if(n)toast(n+' PDFs added')}
 window.addEventListener('dragover',e=>{e.preventDefault();if(document.body.dataset.mode==='lib')document.body.classList.add('drag')});
 window.addEventListener('dragleave',()=>document.body.classList.remove('drag'));
 window.addEventListener('drop',e=>{e.preventDefault();document.body.classList.remove('drag');if(document.body.dataset.mode==='lib')importFiles([...e.dataTransfer.files])});
@@ -509,39 +509,39 @@ function renderBar(){
  $('#csep').style.display=set.cols?'':'none';
  (set.cols||[]).forEach((c,i)=>{const b=el('button','co'+(c===set.c?' on':''));b.style.setProperty('--c',c);
   b.onclick=()=>{if(set.c===c){pickColor(set,i);return}set.c=c;saveCfg();renderBar()};co.appendChild(b)});
- if(set.cols){const a=el('button','co add');a.setAttribute('aria-label','अपना रंग');a.onclick=()=>pickColor(set,Math.max(0,set.cols.indexOf(set.c)));co.appendChild(a)}
+ if(set.cols){const a=el('button','co add');a.setAttribute('aria-label','Custom colour');a.onclick=()=>pickColor(set,Math.max(0,set.cols.indexOf(set.c)));co.appendChild(a)}
  $('#fing').classList.toggle('on',S.finger);document.body.classList.toggle('finger',S.finger);document.body.classList.toggle('night',!!S.night);
  $('#undo').disabled=!E.undo.length;$('#redo').disabled=!E.redo.length;
  $('#dtitle').textContent=E.doc?E.doc.name:'';
 }
 function toolPop(anchor){
  const t=S.tool,set=S[t],d=el('div','pop opts'),R={pen:[.4,8,.2],hl:[4,40,1],laser:[2,12,1],erase:[6,70,2]}[t];
- d.innerHTML='<label>मोटाई <b></b></label><input type="range" min="'+R[0]+'" max="'+R[1]+'" step="'+R[2]+'">';
+ d.innerHTML='<label>Thickness <b></b></label><input type="range" min="'+R[0]+'" max="'+R[1]+'" step="'+R[2]+'">';
  const rg=d.querySelector('input'),lb=d.querySelector('b');rg.value=set.sizes[set.si];lb.textContent=set.sizes[set.si];
  rg.oninput=()=>{set.sizes[set.si]=+rg.value;lb.textContent=rg.value;saveCfg()};
  const sw=(label,key)=>{const r=el('div','rowb','<span>'+label+'</span><button class="sw'+(set[key]?' on':'')+'"></button>');r.querySelector('button').onclick=e=>{set[key]=!set[key];e.currentTarget.classList.toggle('on',set[key]);saveCfg()};d.appendChild(r)};
- if(t==='pen')sw('दबाने से मोटाई बदले','pressure');
- if(t==='hl')sw('लाइन अपने-आप सीधी','straight');
- if(t==='erase'){const s=el('div','seg','<button data-v="part">बारीक रबर</button><button data-v="stroke">पूरी लाइन</button>');
+ if(t==='pen')sw('Pressure changes thickness','pressure');
+ if(t==='hl')sw('Auto-straighten lines','straight');
+ if(t==='erase'){const s=el('div','seg','<button data-v="part">Precise</button><button data-v="stroke">Whole stroke</button>');
   s.querySelectorAll('button').forEach(b=>{b.classList.toggle('on',set.mode===b.dataset.v);b.onclick=()=>{set.mode=b.dataset.v;saveCfg();s.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b))}});d.appendChild(s);
-  const c=el('button','wide danger','यह पन्ना साफ़ करें');c.onclick=()=>{closePop();clearPage()};d.appendChild(c)}
- if(t==='pen'||t==='hl')d.appendChild(el('div','tip','सीधी रेखा के लिए खींचकर आधा सेकंड रुकिए।'));
- if(t==='laser')d.appendChild(el('div','tip','लेज़र की रेखा Pencil उठाने के बाद अपने-आप मिट जाती है।'));
+  const c=el('button','wide danger','Clear this page');c.onclick=()=>{closePop();clearPage()};d.appendChild(c)}
+ if(t==='pen'||t==='hl')d.appendChild(el('div','tip','For a straight line, draw and hold still for half a second.'));
+ if(t==='laser')d.appendChild(el('div','tip','Laser strokes fade away on their own after you lift the Pencil.'));
  showPop(anchor,d)}
-$('#fing').onclick=()=>{S.finger=!S.finger;saveCfg();renderBar();toast(S.finger?'अब उँगली से लिखेगा, दो उँगली से पन्ना खिसकेगा':'अब उँगली से पन्ना खिसकेगा, Pencil से लिखेगा',2600)};
+$('#fing').onclick=()=>{S.finger=!S.finger;saveCfg();renderBar();toast(S.finger?'Finger now draws. Use two fingers to scroll.':'Finger now scrolls. Pencil draws.',2600)};
 $('#undo').onclick=undo;$('#redo').onclick=redo;$('#back').onclick=closeDoc;
-$('#dtitle').onclick=async()=>{const d=E.doc;if(!d)return;const n=await dialog({title:'फ़ाइल का नाम',input:d.name});if(!n)return;d.name=n;await DB.put('docs',d.id,d);renderBar()};
+$('#dtitle').onclick=async()=>{const d=E.doc;if(!d)return;const n=await dialog({title:'File name',input:d.name});if(!n)return;d.name=n;await DB.put('docs',d.id,d);renderBar()};
 $('#more').onclick=e=>{const note=E.doc&&E.doc.kind==='note';menu(e.currentTarget,[
- {icon:IC.share,label:'लिखी हुई PDF सेव / शेयर',fn:exportPdf},
- {icon:IC.grid,label:'सभी पन्ने देखें',fn:openGrid},
- note&&{icon:IC.plus,label:'नया पन्ना जोड़ें',fn:()=>addPage(true)},
- {icon:IC.fit,label:'चौड़ाई में फ़िट',fn:()=>setZoom(fitZoom())},
+ {icon:IC.share,label:'Save / share annotated PDF',fn:exportPdf},
+ {icon:IC.grid,label:'View all pages',fn:openGrid},
+ note&&{icon:IC.plus,label:'Add a new page',fn:()=>addPage(true)},
+ {icon:IC.fit,label:'Fit to width',fn:()=>setZoom(fitZoom())},
  '-',
- {icon:IC.night,label:S.night?'रात का रूप बंद करें':'रात में पढ़ने का रूप',fn:()=>{S.night=!S.night;saveCfg();renderBar()}},
- {icon:isDark()?IC.sun:IC.moon,label:isDark()?'हल्का रूप':'गहरा रूप',fn:()=>setTheme(!isDark())},
+ {icon:IC.night,label:S.night?'Turn off night reading':'Night reading mode',fn:()=>{S.night=!S.night;saveCfg();renderBar()}},
+ {icon:isDark()?IC.sun:IC.moon,label:isDark()?'Light theme':'Dark theme',fn:()=>setTheme(!isDark())},
  '-',
- {icon:IC.clean,label:'यह पन्ना साफ़ करें',fn:clearPage},
- note&&{icon:IC.trash,label:'यह पन्ना हटाएँ',danger:true,fn:delPage}])};
+ {icon:IC.clean,label:'Clear this page',fn:clearPage},
+ note&&{icon:IC.trash,label:'Delete this page',danger:true,fn:delPage}])};
 $('#pill').onclick=openGrid;$('#pgx').onclick=closeGrid;
 $('#zm').onclick=()=>setZoom(zoom/1.2);$('#zp').onclick=()=>setZoom(zoom*1.2);$('#zt').onclick=()=>setZoom(fitZoom());
 
@@ -564,7 +564,7 @@ function closeGrid(){const g=$('#pgrid');if(!g.classList.contains('show'))return
 
 /* ----- फ़ाइल खोलना और बंद करना ----- */
 async function openDoc(d){
- if(E.doc)return;toast('खुल रही है…',60000);
+ if(E.doc)return;toast('Opening…',60000);
  try{
   E.doc=d;E.undo=[];E.redo=[];E.dirty=new Set();E.thumbDirty=false;E.pdf=null;E.bytes=null;E.pages=[];
   const ink=await loadInk(d.id);
@@ -573,12 +573,12 @@ async function openDoc(d){
   for(let i=1;i<=d.n;i++){const sz=d.kind==='pdf'?(d.sizes[i-1]||d.sizes[0]):[d.w,d.h];E.pages.push({i,w:sz[0],h:sz[1],paper:d.paper,strokes:ink[i]||[],page:null,cv:null,task:null})}
   zoom=d.zoom&&d.vw===view.clientWidth?d.zoom:fitZoom();
   E.pages.forEach(P=>box.appendChild(pageEl(P)));
-  if(d.kind==='note'){const b=el('button','','');b.id='addpg';b.innerHTML=IC.plus+'नया पन्ना';b.onclick=()=>addPage(false);box.appendChild(b)}
+  if(d.kind==='note'){const b=el('button','','');b.id='addpg';b.innerHTML=IC.plus+'New page';b.onclick=()=>addPage(false);box.appendChild(b)}
   E.pages.forEach(P=>obs.observe(P.el));
   if(d.pos&&E.pages[d.pos[0]]){const P=E.pages[d.pos[0]];view.scrollTop=P.el.offsetTop+d.pos[1]*P.h*zoom}else view.scrollTop=0;
   view.scrollLeft=Math.max(0,(box.scrollWidth-view.clientWidth)/2);
   d.opened=Date.now();DB.put('docs',d.id,d);renderBar();updatePill();toast('');fsUpdate(true);
- }catch(e){console.error(e);E.doc=null;document.body.dataset.mode='lib';toast('यह फ़ाइल नहीं खुल पाई')}
+ }catch(e){console.error(e);E.doc=null;document.body.dataset.mode='lib';toast('Could not open this file')}
 }
 async function closeDoc(){
  const d=E.doc;if(!d)return;closePop();closeGrid();cur=null;
@@ -758,8 +758,8 @@ function applyU(u,rev){const P=u.P;if(!P.el.isConnected)return;
  redraw(P);markDirty(P);const r=P.el.getBoundingClientRect(),vr=view.getBoundingClientRect();if(r.bottom<vr.top+40||r.top>vr.bottom-40)view.scrollTop=P.el.offsetTop-8}
 function undo(){if(cur)return;const u=E.undo.pop();if(!u)return;applyU(u,true);E.redo.push(u);renderBar()}
 function redo(){if(cur)return;const u=E.redo.pop();if(!u)return;applyU(u,false);E.undo.push(u);renderBar()}
-async function clearPage(){const P=E.pages[curPage()];if(!P)return;if(!P.strokes.length){toast('इस पन्ने पर कुछ लिखा नहीं है');return}
- if(!await dialog({title:'पन्ना '+P.i+' साफ़ करें?',text:'इस पन्ने का सारा लिखा और हाईलाइट हट जाएगा। "पीछे" दबाकर वापस ला सकते हैं।',ok:'साफ़ करें',danger:true}))return;
+async function clearPage(){const P=E.pages[curPage()];if(!P)return;if(!P.strokes.length){toast('Nothing is written on this page');return}
+ if(!await dialog({title:'Clear page '+P.i+'?',text:'All writing and highlights on this page will be removed. You can bring them back with Undo.',ok:'Clear',danger:true}))return;
  pushUndo({P,a:'set',before:P.strokes.slice(),after:[]});P.strokes=[];redraw(P);markDirty(P)}
 document.addEventListener('keydown',e=>{if(!E.doc||e.target.tagName==='INPUT')return;
  if(e.key==='Escape'){closeGrid();closePop();return}
@@ -772,8 +772,8 @@ document.addEventListener('keydown',e=>{if(!E.doc||e.target.tagName==='INPUT')re
 function addPage(scroll){const d=E.doc,P={i:E.pages.length+1,w:d.w,h:d.h,paper:d.paper,strokes:[],page:null,cv:null,task:null};
  E.pages.push(P);box.insertBefore(pageEl(P),$('#addpg'));obs.observe(P.el);d.n=E.pages.length;DB.put('docs',d.id,d);updatePill();
  if(scroll)view.scrollTop=P.el.offsetTop-8}
-async function delPage(){const idx=curPage(),P=E.pages[idx],d=E.doc;if(E.pages.length<2){toast('कॉपी में कम से कम एक पन्ना रहेगा');return}
- if(!await dialog({title:'पन्ना '+P.i+' हटाएँ?',text:'यह पन्ना और इस पर लिखा हुआ हट जाएगा। यह वापस नहीं आएगा।',ok:'हटाएँ',danger:true}))return;
+async function delPage(){const idx=curPage(),P=E.pages[idx],d=E.doc;if(E.pages.length<2){toast('A notebook needs at least one page');return}
+ if(!await dialog({title:'Delete page '+P.i+'?',text:'This page and everything written on it will be removed. This cannot be undone.',ok:'Delete',danger:true}))return;
  obs.unobserve(P.el);unmount(P,true);P.el.remove();E.pages.splice(idx,1);E.pages.forEach((p,j)=>p.i=j+1);d.n=E.pages.length;E.undo=[];E.redo=[];E.dirty.clear();E.thumbDirty=true;
  await DB.run('ink','readwrite',st=>{st.delete(inkRange(d.id));E.pages.forEach(p=>{if(p.strokes.length)st.put(p.strokes,[d.id,p.i])})});
  await DB.put('docs',d.id,d);renderBar();updatePill()}
@@ -783,7 +783,7 @@ let saveT=null,posT=null;
 function markDirty(P){E.dirty.add(P);if(P.i===1)E.thumbDirty=true;clearTimeout(saveT);saveT=setTimeout(saveNow,600)}
 async function saveNow(){clearTimeout(saveT);if(!E.doc||!E.dirty.size)return;const id=E.doc.id,list=[...E.dirty];E.dirty.clear();
  try{await DB.run('ink','readwrite',st=>{for(const P of list){if(P.strokes.length)st.put(P.strokes,[id,P.i]);else st.delete([id,P.i])}})}
- catch(e){list.forEach(P=>E.dirty.add(P));toast('सेव नहीं हो पाया, डिवाइस में जगह देखिए',3500)}}
+ catch(e){list.forEach(P=>E.dirty.add(P));toast('Could not save. Check the free space on this device.',3500)}}
 function savePos(){const d=E.doc;if(!d||!E.pages.length)return;const i=curPage(),P=E.pages[i];d.pos=[i,r2(clamp((view.scrollTop-P.el.offsetTop)/(P.h*zoom),0,1))];d.zoom=r2(zoom);d.vw=view.clientWidth}
 window.addEventListener('pagehide',()=>{saveNow();if(E.doc){savePos();DB.put('docs',E.doc.id,E.doc)}});
 document.addEventListener('visibilitychange',()=>{if(document.hidden){saveNow();if(E.doc){savePos();DB.put('docs',E.doc.id,E.doc)}}});
@@ -800,7 +800,7 @@ function fsUpdate(show){
  const max=view.scrollHeight-view.clientHeight;
  if(!E.doc||max<view.clientHeight*.6){fs.classList.remove('show');return}
  const t=fsTrack(),y=t.top+t.h*clamp(view.scrollTop/max,0,1);fs.style.transform='translateY('+y+'px)';
- if(fsDrag){fsb.textContent='पन्ना '+(curPage()+1)+' / '+E.pages.length;fsb.style.transform='translateY('+(y+8)+'px)'}
+ if(fsDrag){fsb.textContent='Page '+(curPage()+1)+' / '+E.pages.length;fsb.style.transform='translateY('+(y+8)+'px)'}
  if(show){fs.classList.add('show');clearTimeout(fsT);if(!fsDrag)fsT=setTimeout(()=>fs.classList.remove('show'),2200)}}
 fs.addEventListener('pointerdown',e=>{e.preventDefault();closePop();try{fs.setPointerCapture(e.pointerId)}catch(x){}
  fsDrag={id:e.pointerId,dy:e.clientY-fs.getBoundingClientRect().top};fs.classList.add('drag');fsb.classList.add('show');clearTimeout(fsT);fsUpdate(true)});
@@ -888,11 +888,11 @@ async function exportVector(){
    if(isUni(s)){let d='';p.forEach((q,j)=>{const c=cv(q[0],q[1]);d+=(j?'L':'M')+c.x.toFixed(2)+' '+(-c.y).toFixed(2)+' '});
     page.drawSvgPath(d,{x:0,y:0,borderColor:col,borderWidth:s.w*wf(p[0][2]),borderLineCap:LineCapStyle.Round});continue}
    for(let j=1;j<p.length;j++)page.drawLine({start:cv(p[j-1][0],p[j-1][1]),end:cv(p[j][0],p[j][1]),thickness:s.w*wf((p[j-1][2]+p[j][2])/2),color:col,lineCap:LineCapStyle.Round})}
-  if(i%4===0){toast('PDF बन रही है… '+(i+1)+' / '+E.pages.length,60000);await sleep(0)}}
+  if(i%4===0){toast('Creating PDF… '+(i+1)+' / '+E.pages.length,60000);await sleep(0)}}
  return new Blob([await pd.save()],{type:'application/pdf'})}
 async function exportRaster(){
  const {jsPDF}=window.jspdf;let out=null;
- for(let i=0;i<E.pages.length;i++){const P=E.pages[i];toast('PDF बन रही है… '+(i+1)+' / '+E.pages.length,60000);
+ for(let i=0;i<E.pages.length;i++){const P=E.pages[i];toast('Creating PDF… '+(i+1)+' / '+E.pages.length,60000);
   const sc=Math.min(2,Math.sqrt(7e6/(P.w*P.h))),c=document.createElement('canvas');c.width=Math.round(P.w*sc);c.height=Math.round(P.h*sc);const ctx=c.getContext('2d');
   ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);await (await getPage(P)).render({canvasContext:ctx,viewport:P.page.getViewport({scale:sc})}).promise;
   inkOnto(ctx,c,P.strokes,sc);const o=P.w>P.h?'l':'p';
@@ -900,19 +900,19 @@ async function exportRaster(){
   out.addImage(c.toDataURL('image/jpeg',.88),'JPEG',0,0,P.w,P.h,undefined,'FAST');c.width=c.height=0;await sleep(0)}
  return out.output('blob')}
 async function exportPdf(){
- if(!E.doc||busy)return;busy=true;toast('PDF बन रही है…',60000);
+ if(!E.doc||busy)return;busy=true;toast('Creating PDF…',60000);
  try{try{lastBlob=await exportVector()}catch(e){console.warn(e);if(E.doc.kind==='note')throw e;lastBlob=await exportRaster()}
-  toast('');const name=E.doc.name+' - नोट्स.pdf';
-  if(await dialog({title:'PDF तैयार है',text:'"'+name+'" को फ़ाइलों में सेव कीजिए या किसी को भेजिए।',ok:'सेव / शेयर'})){
+  toast('');const name=E.doc.name+' - notes.pdf';
+  if(await dialog({title:'PDF is ready',text:'Save "'+name+'" to Files or share it.',ok:'Save / share'})){
    const f=new File([lastBlob],name,{type:'application/pdf'});
    if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f],title:name})}catch(e){if(e.name!=='AbortError')download(lastBlob,name)}}else download(lastBlob,name)}}
- catch(e){console.error(e);toast('PDF नहीं बन पाई, दोबारा कोशिश कीजिए',3000)}
+ catch(e){console.error(e);toast('Could not create the PDF. Please try again.',3000)}
  finally{busy=false}}
 function download(blob,name){const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},8000)}
 
 document.addEventListener('selectstart',e=>{if(e.target.tagName!=='INPUT')e.preventDefault()});
 if('serviceWorker' in navigator&&location.protocol==='https:')navigator.serviceWorker.register('sw.js').catch(()=>{});
-renderBar();loadLib().catch(e=>{console.error(e);toast('इस ब्राउज़र में फ़ाइलें सुरक्षित नहीं हो पा रहीं। निजी (Private) टैब हो तो सामान्य टैब में खोलिए।',8000)});
+renderBar();loadLib().catch(e=>{console.error(e);toast('This browser cannot save files. If this is a Private tab, open the link in a normal tab.',8000)});
 </script>
 </body>
 </html>
