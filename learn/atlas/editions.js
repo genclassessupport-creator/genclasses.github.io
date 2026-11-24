@@ -19,6 +19,14 @@ const atlasEditions = [
    shots:['इस उदाहरण में 10% ऊर्जा शाकाहारियों की नई जैवमात्रा बनती है। घास के 100 खंडों के सामने 10 खंड गिनें।','In this example, 10% becomes new herbivore biomass. Count 10 blocks against the 100 blocks of grass production.',
           'अगले स्तर पर फिर 10% मिलने से केवल 1 खंड बचता है। कुछ जैवमात्रा खाई नहीं जाती, कुछ ऊर्जा अपशिष्ट में जाती है और श्वसन से ऊष्मा निकलती है।','A second 10% transfer yields one block. Some biomass goes uneaten, some energy leaves as waste, and respiration releases heat.'],
    observe:['दो चरणों के बाद मांसाहारियों में 10 kJ है। यह शुरुआती 1,000 kJ का 1% है। वास्तविक स्थानांतरण दक्षता अलग हो सकती है।','After two transfers, carnivores gain 10 kJ, or 1% of the original 1,000 kJ. Actual transfer efficiencies vary.']
+ },
+ {
+   id:'two-dice-sums', date:'2026-11-28T09:00:00+05:30',
+   title:['दो पासों के योग की प्रायिकता','Probability of a two-dice sum'],
+   lesson:['दो स्वतंत्र, निष्पक्ष छह-फलकी पासों में हर पंक्ति पहले पासे का और हर कॉलम दूसरे पासे का अंक है। ग्रिड में सभी 36 समान रूप से संभावित परिणाम हैं।','Roll two independent fair six-sided dice. Rows show the first die and columns show the second. The grid contains all 36 equally likely outcomes.'],
+   shots:['पहले पासे पर 2 और दूसरे पर 5 देखें। फिर दोनों अंक बदलें। योग 7 ही है, पर ग्रिड में खाना बदलता है।','Find 2 on the first die and 5 on the second. Swap the faces. The sum stays 7, but the pair occupies a different square.',
+          'जिन खानों में योग 7 है, वे एक विकर्ण बनाते हैं। छह खानों को गिनें। प्रायिकता 6/36 यानी 1/6 है।','The squares summing to 7 form a diagonal. Count six squares. The probability is 6/36, or 1/6.'],
+   observe:['योग 12 के लिए केवल (6, 6) है। योग 7 के छह खाने हैं, इसलिए 7 आने की संभावना 12 से छह गुनी है।','Only (6, 6) sums to 12. Six squares sum to 7, so a sum of 7 is six times as likely as a sum of 12.']
  }
 ];
 function geologyScene(id){

@@ -3,7 +3,7 @@ const subjectCatalog=[
  {title:['विज्ञान','Science'],ids:['wave','pendulum','lens','projectile','diffusion','echo','total-internal-reflection']},
  {title:['पर्यावरण','Environment'],ids:['food','trophic-energy-transfer']},
  {title:['अर्थशास्त्र','Economics'],ids:['market','interest']},
- {title:['गणित','Mathematics'],ids:['fraction']}
+ {title:['गणित','Mathematics'],ids:['fraction','two-dice-sums']}
 ];
 function subjectOf(id){return subjectCatalog.find(s=>s.ids.includes(id))||{title:['अन्य विषय','Other topics']}}
 function topicMenu(){
