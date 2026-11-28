@@ -27,6 +27,14 @@ const atlasEditions = [
    shots:['पहले पासे पर 2 और दूसरे पर 5 देखें। फिर दोनों अंक बदलें। योग 7 ही है, पर ग्रिड में खाना बदलता है।','Find 2 on the first die and 5 on the second. Swap the faces. The sum stays 7, but the pair occupies a different square.',
           'जिन खानों में योग 7 है, वे एक विकर्ण बनाते हैं। छह खानों को गिनें। प्रायिकता 6/36 यानी 1/6 है।','The squares summing to 7 form a diagonal. Count six squares. The probability is 6/36, or 1/6.'],
    observe:['योग 12 के लिए केवल (6, 6) है। योग 7 के छह खाने हैं, इसलिए 7 आने की संभावना 12 से छह गुनी है।','Only (6, 6) sums to 12. Six squares sum to 7, so a sum of 7 is six times as likely as a sum of 12.']
+ },
+ {
+   id:'increasing-opportunity-cost', date:'2026-11-30T09:00:00+05:30',
+   title:['बढ़ती अवसर लागत','Increasing opportunity cost'],
+   lesson:['संसाधन और तकनीक स्थिर हैं। उत्पादन संभावना सीमा पर हर बिंदु बताता है कि एक दिन में कितना कपड़ा और अनाज साथ बनाया जा सकता है।','Resources and technology are fixed. Each point on the production possibility frontier shows an efficient daily combination of cloth and grain.'],
+   shots:['A से B तक कपड़ा 1 से 2 मीटर होता है और अनाज 9 से 7 किलोग्राम। इस अतिरिक्त मीटर की अवसर लागत 2 किलोग्राम अनाज है।','From A to B, cloth rises from 1 to 2 metres while grain falls from 9 to 7 kilograms. That extra metre costs 2 kilograms of forgone grain.',
+          'B से C तक फिर 1 मीटर कपड़ा बढ़ता है। अब अनाज 7 से 4 किलोग्राम होता है। इस बार 3 किलोग्राम अनाज छोड़ना पड़ता है।','From B to C, cloth again increases by 1 metre. Grain now falls from 7 to 4 kilograms, so this metre costs 3 kilograms of grain.'],
+   observe:['दोनों क्षैतिज कदम बराबर हैं। दूसरी ऊर्ध्वाधर गिरावट बड़ी है। इस उदाहरण में अतिरिक्त कपड़े के लिए क्रमशः अधिक अनाज छोड़ना पड़ता है।','Both horizontal steps have the same length. The second vertical drop is larger. In this example, each additional metre of cloth requires giving up more grain.']
  }
 ];
 function geologyScene(id){
